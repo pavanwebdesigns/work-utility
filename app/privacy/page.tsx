@@ -66,6 +66,15 @@ export default function PrivacyPage() {
               </section>
             ))}
           </div>
+          <p className="mt-10 text-sm text-content-secondary">
+            Also read our{" "}
+            <Link
+              href="/terms"
+              className="text-brand-blue transition-colors hover:underline"
+            >
+              Terms & Conditions →
+            </Link>
+          </p>
         </div>
       </main>
       <Footer />

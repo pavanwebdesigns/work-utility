@@ -13,6 +13,10 @@ import {
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ToolAccent, ToolCard, ToolCardProps } from "@/components/ToolCard";
+import {
+  blogPosts,
+  getCategoryBadgeClass,
+} from "@/app/blog/posts";
 
 type Category = "all" | "pdf" | "images" | "convert";
 
@@ -184,6 +188,43 @@ export default function HomePage() {
       </section>
 
       <StatsBar />
+
+      <section className="border-t border-surface-border bg-surface-base px-4 py-12 sm:px-10">
+        <div className="mx-auto max-w-6xl">
+          <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <h2 className="text-xl font-bold text-content-primary sm:text-2xl">
+              From the Blog
+            </h2>
+            <Link
+              href="/blog"
+              className="text-sm text-brand-blue transition-colors hover:underline"
+            >
+              View all guides →
+            </Link>
+          </div>
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+            {blogPosts.slice(0, 3).map((post) => (
+              <Link
+                key={post.slug}
+                href={`/blog/${post.slug}`}
+                className="block rounded-xl border border-surface-border bg-surface-card p-5 transition-colors hover:border-brand-blue"
+              >
+                <span
+                  className={`inline-block rounded-full px-2.5 py-0.5 text-xs font-medium ${getCategoryBadgeClass(post.category)}`}
+                >
+                  {post.category}
+                </span>
+                <h3 className="mt-3 font-semibold text-content-primary">
+                  {post.title}
+                </h3>
+                <p className="mt-2 text-xs text-content-muted">
+                  {post.readTime}
+                </p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <section className="border-t border-surface-border bg-surface-card py-8 text-center">
         <p className="text-content-secondary">

@@ -17,6 +17,12 @@ export function Footer() {
           </Link>
           <nav className="flex flex-wrap items-center justify-center gap-5 text-sm">
             <Link
+              href="/blog"
+              className="text-[#8B9ABB] transition-colors hover:text-content-primary"
+            >
+              Blog
+            </Link>
+            <Link
               href="/about"
               className="text-[#8B9ABB] transition-colors hover:text-content-primary"
             >
@@ -27,6 +33,12 @@ export function Footer() {
               className="text-[#8B9ABB] transition-colors hover:text-content-primary"
             >
               Privacy
+            </Link>
+            <Link
+              href="/terms"
+              className="text-[#8B9ABB] transition-colors hover:text-content-primary"
+            >
+              Terms
             </Link>
             <Link
               href="/contact"
