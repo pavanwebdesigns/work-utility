@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { RelatedTools } from "@/components/RelatedTools";
 import {
   compressImage,
   formatFileSize,
@@ -419,6 +420,8 @@ export default function ImageCompressPage() {
               )}
             </div>
           </div>
+
+          <RelatedTools currentSlug="image-compress" />
 
           <div className="mt-16">
             <h2 className="mb-6 text-center text-lg font-semibold text-content-primary">

@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { RelatedTools } from "@/components/RelatedTools";
 import {
   formatFileSize,
   PHOTO_SIZES,
@@ -535,6 +536,8 @@ export default function PhotoResizerPage() {
               </table>
             </div>
           </div>
+
+          <RelatedTools currentSlug="photo-resizer" />
 
           <div className="mt-16">
             <h2 className="mb-6 text-center text-lg font-semibold text-content-primary">

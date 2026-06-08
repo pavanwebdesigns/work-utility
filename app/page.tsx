@@ -2,21 +2,18 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import {
-  FileBadge,
-  FileDown,
-  FileText,
-  ImageDown,
-  Images,
-  ScanLine,
-} from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { ToolAccent, ToolCard, ToolCardProps } from "@/components/ToolCard";
+import { ToolCard } from "@/components/ToolCard";
 import {
   blogPosts,
   getCategoryBadgeClass,
 } from "@/app/blog/posts";
+import {
+  ALL_TOOLS,
+  TOOL_ICONS,
+  TOOL_UI_META,
+} from "@/lib/tools-data";
 
 type Category = "all" | "pdf" | "images" | "convert";
 
@@ -27,60 +24,19 @@ const categories: { id: Category; label: string }[] = [
   { id: "convert", label: "Convert" },
 ];
 
-const tools: (Omit<ToolCardProps, "accent"> & {
-  accent: ToolAccent;
-  category: Category;
-})[] = [
-  {
-    title: "PDF Compress",
-    description: "Reduce PDF file size instantly",
-    href: "/tools/pdf-compress",
-    icon: FileDown,
-    accent: "pdf",
-    popular: true,
-    category: "pdf",
-  },
-  {
-    title: "Image Compress",
-    description: "Compress images without quality loss",
-    href: "/tools/image-compress",
-    icon: ImageDown,
-    accent: "image",
-    category: "images",
-  },
-  {
-    title: "Photo Resizer",
-    description: "Resize to Aadhaar, PAN, Passport size",
-    href: "/tools/photo-resizer",
-    icon: ScanLine,
-    accent: "photo",
-    category: "images",
-  },
-  {
-    title: "PDF to Word",
-    description: "Convert PDF to editable Word document",
-    href: "/tools/pdf-to-word",
-    icon: FileText,
-    accent: "blue",
-    category: "convert",
-  },
-  {
-    title: "Word to PDF",
-    description: "Convert Word document to PDF",
-    href: "/tools/word-to-pdf",
-    icon: FileBadge,
-    accent: "convert",
-    category: "convert",
-  },
-  {
-    title: "Image to PDF",
-    description: "Combine images into a single PDF",
-    href: "/tools/image-to-pdf",
-    icon: Images,
-    accent: "pink",
-    category: "convert",
-  },
-];
+const tools = ALL_TOOLS.map((tool) => {
+  const meta = TOOL_UI_META[tool.slug];
+
+  return {
+    title: tool.name,
+    description: tool.description,
+    href: tool.href,
+    icon: TOOL_ICONS[tool.icon],
+    accent: meta.accent,
+    popular: meta.popular,
+    category: meta.filterCategory as Category,
+  };
+});
 
 const sectionLabels: Record<Category, string> = {
   all: "ALL TOOLS",
@@ -149,6 +105,24 @@ export default function HomePage() {
             <TrustBadge>🔒 100% Private</TrustBadge>
             <TrustBadge>⚡ Browser-only</TrustBadge>
             <TrustBadge>✅ Always Free</TrustBadge>
+          </div>
+          <div className="mt-6 flex flex-wrap justify-center gap-2">
+            <span className="mr-1 text-xs text-content-muted">Popular:</span>
+            {[
+              { label: "Compress PDF", href: "/tools/pdf-compress" },
+              { label: "Aadhaar Photo Resize", href: "/tools/photo-resizer" },
+              { label: "Image Compress", href: "/tools/image-compress" },
+              { label: "PDF to Word", href: "/tools/pdf-to-word" },
+              { label: "Word to PDF", href: "/tools/word-to-pdf" },
+            ].map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="rounded-full border border-surface-border bg-surface-card px-3 py-1.5 text-xs text-content-secondary transition-all hover:border-brand-blue hover:text-brand-blue"
+              >
+                {item.label}
+              </Link>
+            ))}
           </div>
         </div>
         <div className="mx-auto mt-16 max-w-3xl hero-gradient-line" />

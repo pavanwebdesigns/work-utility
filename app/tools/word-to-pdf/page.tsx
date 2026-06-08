@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { RelatedTools } from "@/components/RelatedTools";
 import { convertWordToPdf, formatFileSize } from "@/lib/word-to-pdf";
 
 const MAX_FILE_SIZE = 20 * 1024 * 1024;
@@ -296,6 +297,8 @@ export default function WordToPdfPage() {
               </p>
             </div>
           </div>
+
+          <RelatedTools currentSlug="word-to-pdf" />
 
           <div className="mt-16">
             <h2 className="mb-6 text-center text-lg font-semibold text-content-primary">
