@@ -3,25 +3,60 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --bg-base: #0A0F1E;
+  --bg-surface: #111827;
+  --bg-elevated: #1A2235;
+  --bg-border: #1F2D45;
+  --text-primary: #F0F4FF;
+  --text-secondary: #8B9ABB;
+  --text-muted: #4A5568;
+  --accent-blue: #3B82F6;
+  --accent-blue-light: #60A5FA;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #0A0F1E;
+  color: #8B9ABB;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+  color: #f0f4ff;
+  font-size: 36px;
+  font-weight: 800;
+  letter-spacing: -2px;
+  line-height: 1.05;
+}
+
+h2 {
+  color: #f0f4ff;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 52px;
+  }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  .hero-gradient-line {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      #3b82f6 50%,
+      transparent 100%
+    );
   }
 }
