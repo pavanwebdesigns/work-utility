@@ -27,6 +27,36 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: "https://workutilities.com/aadhaar-photo-size",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.85,
+    },
+    {
+      url: "https://workutilities.com/pan-card-photo-size",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.85,
+    },
+    {
+      url: "https://workutilities.com/passport-photo-size-india",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.85,
+    },
+    {
+      url: "https://workutilities.com/visa-photo-size",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.85,
+    },
+    {
+      url: "https://workutilities.com/driving-licence-photo-size",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.85,
+    },
+    {
       url: "https://workutilities.com/tools/pdf-to-word",
       lastModified: new Date(),
       changeFrequency: "monthly",

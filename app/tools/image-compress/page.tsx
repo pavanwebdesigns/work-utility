@@ -16,11 +16,14 @@ import { Footer } from "@/components/Footer";
 import { RelatedTools } from "@/components/RelatedTools";
 import { ToolFeedback } from "@/components/ToolFeedback";
 import { DinoGame } from "@/components/DinoGame";
+import { ImageCropEditor } from "@/components/ImageCropEditor";
+import { useImageCropGate } from "@/hooks/useImageCropGate";
 import {
   compressImage,
   formatFileSize,
   ImageQuality,
 } from "@/lib/image-compress";
+import { getImageDimensionsFromFile } from "@/lib/image-crop";
 
 const MAX_FILE_SIZE = 10 * 1024 * 1024;
 const ACCEPTED_TYPES = ["image/jpeg", "image/png", "image/webp"];
@@ -77,6 +80,7 @@ function isAcceptedImage(file: File) {
 
 export default function ImageCompressPage() {
   const inputRef = useRef<HTMLInputElement>(null);
+  const dimensionsRef = useRef<{ width: number; height: number } | null>(null);
   const [file, setFile] = useState<File | null>(null);
   const [compressedFile, setCompressedFile] = useState<File | null>(null);
   const [quality, setQuality] = useState<ImageQuality>("medium");
@@ -89,6 +93,26 @@ export default function ImageCompressPage() {
   >(null);
   const [error, setError] = useState<string | null>(null);
   const [isDragging, setIsDragging] = useState(false);
+
+  const {
+    cropSession,
+    finalizeFile,
+    completeCrop,
+    cancelCrop,
+    resetOriginal,
+  } = useImageCropGate({
+    getCropTarget: () => dimensionsRef.current,
+  });
+
+  const setFilePreview = useCallback((nextFile: File) => {
+    setFile(nextFile);
+    setOriginalSize(nextFile.size);
+    setQuality("medium");
+    setPreviewUrl((current) => {
+      if (current) URL.revokeObjectURL(current);
+      return URL.createObjectURL(nextFile);
+    });
+  }, []);
 
   useEffect(() => {
     return () => {
@@ -108,7 +132,7 @@ export default function ImageCompressPage() {
   }, []);
 
   const handleFile = useCallback(
-    (selected: File) => {
+    async (selected: File) => {
       if (!isAcceptedImage(selected)) {
         setError("Please select a JPG, PNG, or WebP image.");
         return;
@@ -120,19 +144,42 @@ export default function ImageCompressPage() {
 
       setError(null);
       resetResult();
-      setFile(selected);
-      setOriginalSize(selected.size);
-      setQuality("medium");
+      setFile(null);
       setPreviewUrl((current) => {
         if (current) URL.revokeObjectURL(current);
-        return URL.createObjectURL(selected);
+        return null;
       });
+
+      const dimensions = await getImageDimensionsFromFile(selected);
+      dimensionsRef.current = dimensions;
+
+      const result = await finalizeFile(selected);
+      if (!result.needsCrop) {
+        setFilePreview(selected);
+      }
     },
-    [resetResult]
+    [finalizeFile, resetResult, setFilePreview]
   );
+
+  const handleCropApply = (croppedFile: File) => {
+    completeCrop(croppedFile);
+    dimensionsRef.current = {
+      width: dimensionsRef.current?.width ?? 0,
+      height: dimensionsRef.current?.height ?? 0,
+    };
+    setFilePreview(croppedFile);
+  };
+
+  const handleCropCancel = () => {
+    cancelCrop();
+    dimensionsRef.current = null;
+    if (inputRef.current) inputRef.current.value = "";
+  };
 
   const handleRemoveFile = () => {
     setFile(null);
+    dimensionsRef.current = null;
+    resetOriginal();
     setOriginalSize(0);
     resetResult();
     setQuality("medium");
@@ -210,10 +257,10 @@ export default function ImageCompressPage() {
       : 0;
 
   return (
-    <div className="flex min-h-screen flex-col bg-surface-base">
+    <div className="flex min-h-screen w-full max-w-full flex-col overflow-x-hidden bg-surface-base">
       <Header />
 
-      <main id="main-content" className="flex-1">
+      <main id="main-content" className="flex-1 min-w-0 overflow-x-hidden">
         <div className="px-6 py-6 sm:px-10">
           <Link
             href="/"
@@ -250,28 +297,42 @@ export default function ImageCompressPage() {
                 onChange={handleInputChange}
               />
 
-              <button
-                type="button"
-               aria-label="File upload area" onClick={() => inputRef.current?.click()}
-                onDragOver={handleDragOver}
-                onDragLeave={handleDragLeave}
-                onDrop={handleDrop}
-                className={`flex min-h-[160px] sm:min-h-[200px] w-full flex-col items-center justify-center rounded-2xl border-2 border-dashed bg-surface-card p-12 transition-colors ${
-                  isDragging
-                    ? "border-tool-image"
-                    : "border-tool-image/30 hover:border-tool-image"
-                }`}
-              >
-                <UploadCloud className="mb-4 h-10 w-10 text-content-muted" />
-                <p className="font-medium text-content-primary">
-                  Drop your image here
-                </p>
-                <p className="mt-1 text-sm text-content-secondary">
-                  or click to browse — max 10MB
-                </p>
-              </button>
+              {cropSession && (
+                <ImageCropEditor
+                  imageSrc={cropSession.imageSrc}
+                  aspect={cropSession.aspect}
+                  originalFile={cropSession.originalFile}
+                  accent="image"
+                  onApply={handleCropApply}
+                  onCancel={handleCropCancel}
+                />
+              )}
 
-              {file && (
+              {!cropSession && (
+                <button
+                  type="button"
+                  aria-label="File upload area"
+                  onClick={() => inputRef.current?.click()}
+                  onDragOver={handleDragOver}
+                  onDragLeave={handleDragLeave}
+                  onDrop={handleDrop}
+                  className={`flex min-h-[160px] w-full flex-col items-center justify-center rounded-2xl border-2 border-dashed bg-surface-card p-12 transition-colors sm:min-h-[200px] ${
+                    isDragging
+                      ? "border-tool-image"
+                      : "border-tool-image/30 hover:border-tool-image"
+                  }`}
+                >
+                  <UploadCloud className="mb-4 h-10 w-10 text-content-muted" />
+                  <p className="font-medium text-content-primary">
+                    Drop your image here
+                  </p>
+                  <p className="mt-1 text-sm text-content-secondary">
+                    or click to browse — max 10MB
+                  </p>
+                </button>
+              )}
+
+              {file && !cropSession && (
                 <>
                   <div className="flex items-center gap-3 rounded-xl border border-surface-border bg-surface-card p-4">
                     <div className="min-w-0 flex-1">
@@ -309,7 +370,7 @@ export default function ImageCompressPage() {
                 <p className="text-center text-sm text-tool-image">{error}</p>
               )}
 
-              {file && !compressedFile && (
+              {file && !compressedFile && !cropSession && (
                 <>
                   <div>
                     <p className="mb-3 text-sm font-medium text-content-primary">

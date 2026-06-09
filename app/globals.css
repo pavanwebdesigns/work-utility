@@ -14,14 +14,18 @@
   --accent-blue-light: #60A5FA;
 }
 
-body {
-  background-color: #0A0F1E;
-  color: #8B9ABB;
-}
-
 html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+body {
+  background-color: #0A0F1E;
+  color: #8B9ABB;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 h1 {

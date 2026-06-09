@@ -36,7 +36,7 @@ export default function BlogPostPage({ params }: Props) {
   }
 
   return (
-    <div className="flex min-h-screen flex-col bg-surface-base">
+    <div className="flex min-h-screen w-full max-w-full flex-col overflow-x-hidden bg-surface-base">
       <Header />
       <main className="flex-1">
         <div className="mx-auto max-w-3xl px-6 py-12">

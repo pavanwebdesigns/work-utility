@@ -18,6 +18,11 @@ import { RelatedTools } from "@/components/RelatedTools";
 import { ToolFeedback } from "@/components/ToolFeedback";
 import { DinoGame } from "@/components/DinoGame";
 import { convertImagesToPdf, formatFileSize } from "@/lib/image-to-pdf";
+import { ImageCropEditor } from "@/components/ImageCropEditor";
+import {
+  A4_PDF_CROP_TARGET,
+  shouldShowCropUI,
+} from "@/lib/image-crop";
 
 const MAX_FILES = 10;
 const MAX_FILE_SIZE = 10 * 1024 * 1024;
@@ -56,10 +61,16 @@ interface FileEntry {
   previewUrl: string;
 }
 
+interface PendingCrop {
+  file: File;
+  imageSrc: string;
+}
+
 export default function ImageToPdfPage() {
   const inputRef = useRef<HTMLInputElement>(null);
   const addMoreRef = useRef<HTMLInputElement>(null);
   const [entries, setEntries] = useState<FileEntry[]>([]);
+  const [cropQueue, setCropQueue] = useState<PendingCrop[]>([]);
   const [convertedBlob, setConvertedBlob] = useState<Blob | null>(null);
   const [isProcessing, setIsProcessing] = useState(false);
   const [outputSize, setOutputSize] = useState(0);
@@ -78,8 +89,23 @@ export default function ImageToPdfPage() {
     setError(null);
   }, []);
 
+  const appendEntry = useCallback(
+    (file: File) => {
+      setEntries((current) => {
+        if (current.length >= MAX_FILES) return current;
+
+        resetResult();
+        return [
+          ...current,
+          { file, previewUrl: URL.createObjectURL(file) },
+        ];
+      });
+    },
+    [resetResult]
+  );
+
   const addFiles = useCallback(
-    (incoming: FileList | File[]) => {
+    async (incoming: FileList | File[]) => {
       const list = Array.from(incoming);
       const valid: File[] = [];
 
@@ -97,29 +123,34 @@ export default function ImageToPdfPage() {
 
       if (valid.length === 0) return;
 
-      setEntries((current) => {
-        const remaining = MAX_FILES - current.length;
-        if (remaining <= 0) {
-          setError(`Maximum ${MAX_FILES} images allowed.`);
-          return current;
-        }
+      const remaining = MAX_FILES - entries.length - cropQueue.length;
+      if (remaining <= 0) {
+        setError(`Maximum ${MAX_FILES} images allowed.`);
+        return;
+      }
 
-        const toAdd = valid.slice(0, remaining).map((file) => ({
-          file,
-          previewUrl: URL.createObjectURL(file),
-        }));
+      const toProcess = valid.slice(0, remaining);
+      if (valid.length > remaining) {
+        setError(
+          `Only ${remaining} more image(s) could be added (max ${MAX_FILES}).`
+        );
+      } else {
+        setError(null);
+      }
 
-        if (valid.length > remaining) {
-          setError(`Only ${remaining} more image(s) could be added (max ${MAX_FILES}).`);
+      for (const file of toProcess) {
+        const needsCrop = await shouldShowCropUI(file, A4_PDF_CROP_TARGET);
+        if (needsCrop) {
+          setCropQueue((current) => [
+            ...current,
+            { file, imageSrc: URL.createObjectURL(file) },
+          ]);
         } else {
-          setError(null);
+          appendEntry(file);
         }
-
-        resetResult();
-        return [...current, ...toAdd];
-      });
+      }
     },
-    [resetResult]
+    [appendEntry, cropQueue.length, entries.length]
   );
 
   const handleRemoveFile = (index: number) => {
@@ -134,11 +165,32 @@ export default function ImageToPdfPage() {
 
   const handleClearAll = () => {
     entries.forEach((entry) => URL.revokeObjectURL(entry.previewUrl));
+    cropQueue.forEach((item) => URL.revokeObjectURL(item.imageSrc));
     setEntries([]);
+    setCropQueue([]);
     resetResult();
     setError(null);
     if (inputRef.current) inputRef.current.value = "";
     if (addMoreRef.current) addMoreRef.current.value = "";
+  };
+
+  const activeCrop = cropQueue[0];
+
+  const handleCropApply = (croppedFile: File) => {
+    appendEntry(croppedFile);
+    setCropQueue((current) => {
+      const [first, ...rest] = current;
+      if (first) URL.revokeObjectURL(first.imageSrc);
+      return rest;
+    });
+  };
+
+  const handleCropCancel = () => {
+    setCropQueue((current) => {
+      const [first, ...rest] = current;
+      if (first) URL.revokeObjectURL(first.imageSrc);
+      return rest;
+    });
   };
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -197,10 +249,10 @@ export default function ImageToPdfPage() {
   };
 
   return (
-    <div className="flex min-h-screen flex-col bg-surface-base">
+    <div className="flex min-h-screen w-full max-w-full flex-col overflow-x-hidden bg-surface-base">
       <Header />
 
-      <main id="main-content" className="flex-1">
+      <main id="main-content" className="flex-1 min-w-0 overflow-x-hidden">
         <div className="px-6 py-6 sm:px-10">
           <Link
             href="/"
@@ -246,7 +298,19 @@ export default function ImageToPdfPage() {
                 onChange={handleInputChange}
               />
 
-              {entries.length === 0 && (
+              {activeCrop && (
+                <ImageCropEditor
+                  imageSrc={activeCrop.imageSrc}
+                  aspect={A4_PDF_CROP_TARGET.width / A4_PDF_CROP_TARGET.height}
+                  originalFile={activeCrop.file}
+                  targetLabel="A4 PDF page"
+                  accent="pink"
+                  onApply={handleCropApply}
+                  onCancel={handleCropCancel}
+                />
+              )}
+
+              {entries.length === 0 && !activeCrop && (
                 <button
                   type="button"
                  aria-label="File upload area" onClick={() => inputRef.current?.click()}

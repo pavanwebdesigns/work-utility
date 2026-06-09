@@ -56,11 +56,12 @@ export function DinoGame() {
     };
 
     const resize = () => {
-      width = container.clientWidth;
+      width = Math.min(container.clientWidth, window.innerWidth);
       dpr = window.devicePixelRatio || 1;
       canvas.width = Math.max(1, Math.floor(width * dpr));
       canvas.height = Math.floor(GAME_HEIGHT * dpr);
-      canvas.style.width = `${width}px`;
+      canvas.style.width = "100%";
+      canvas.style.maxWidth = "100%";
       canvas.style.height = `${GAME_HEIGHT}px`;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     };
@@ -299,12 +300,12 @@ export function DinoGame() {
   return (
     <div
       ref={containerRef}
-      className="relative left-1/2 -mb-16 mt-16 w-screen max-w-[100vw] -translate-x-1/2"
+      className="relative mt-16 -mb-16 w-full max-w-full overflow-hidden"
     >
       <canvas
         ref={canvasRef}
-        className="block w-full cursor-pointer"
-        style={{ height: GAME_HEIGHT }}
+        className="block w-full max-w-full cursor-pointer"
+        style={{ height: GAME_HEIGHT, maxWidth: "100%" }}
         aria-label="Side scrolling runner game"
       />
     </div>

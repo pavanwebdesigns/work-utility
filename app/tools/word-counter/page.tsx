@@ -97,9 +97,9 @@ export default function WordCounterPage() {
   ];
 
   return (
-    <div className="flex min-h-screen flex-col bg-surface-base">
+    <div className="flex min-h-screen w-full max-w-full flex-col overflow-x-hidden bg-surface-base">
       <Header />
-      <main id="main-content" className="flex-1">
+      <main id="main-content" className="flex-1 min-w-0 overflow-x-hidden">
         <div className="px-6 py-6 sm:px-10">
           <Link
             href="/"

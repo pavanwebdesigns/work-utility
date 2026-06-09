@@ -16,6 +16,8 @@ import { Footer } from "@/components/Footer";
 import { RelatedTools } from "@/components/RelatedTools";
 import { ToolFeedback } from "@/components/ToolFeedback";
 import { DinoGame } from "@/components/DinoGame";
+import { ImageCropEditor } from "@/components/ImageCropEditor";
+import { useImageCropGate } from "@/hooks/useImageCropGate";
 import {
   convertImage,
   detectImageFormat,
@@ -23,6 +25,7 @@ import {
   getOutputExtension,
   type ImageFormat,
 } from "@/lib/image-converter";
+import { getImageDimensionsFromFile } from "@/lib/image-crop";
 
 const MAX_FILE_SIZE = 10 * 1024 * 1024;
 const ACCEPTED_TYPES = ["image/jpeg", "image/png", "image/webp"];
@@ -80,6 +83,7 @@ function formatLabel(format: ImageFormat): string {
 
 export default function ImageConverterPage() {
   const inputRef = useRef<HTMLInputElement>(null);
+  const dimensionsRef = useRef<{ width: number; height: number } | null>(null);
   const [file, setFile] = useState<File | null>(null);
   const [convertedBlob, setConvertedBlob] = useState<Blob | null>(null);
   const [targetFormat, setTargetFormat] = useState<ImageFormat>("png");
@@ -93,6 +97,29 @@ export default function ImageConverterPage() {
   const [currentFormat, setCurrentFormat] = useState<ImageFormat | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [isDragging, setIsDragging] = useState(false);
+
+  const {
+    cropSession,
+    finalizeFile,
+    completeCrop,
+    cancelCrop,
+    resetOriginal,
+  } = useImageCropGate({
+    getCropTarget: () => dimensionsRef.current,
+  });
+
+  const setFilePreview = useCallback(
+    (nextFile: File, detected: ImageFormat | null) => {
+      setFile(nextFile);
+      setOriginalSize(nextFile.size);
+      setCurrentFormat(detected);
+      setPreviewUrl((current) => {
+        if (current) URL.revokeObjectURL(current);
+        return URL.createObjectURL(nextFile);
+      });
+    },
+    []
+  );
 
   useEffect(() => {
     return () => {
@@ -111,7 +138,7 @@ export default function ImageConverterPage() {
     setError(null);
   }, []);
 
-  const handleFileSelect = (selected: File) => {
+  const handleFileSelect = async (selected: File) => {
     const isAccepted =
       ACCEPTED_TYPES.includes(selected.type) ||
       /\.(jpe?g|png|webp)$/i.test(selected.name);
@@ -126,15 +153,20 @@ export default function ImageConverterPage() {
     }
 
     const detected = detectImageFormat(selected);
-    setFile(selected);
-    setOriginalSize(selected.size);
-    setCurrentFormat(detected);
     resetResult();
-
+    setFile(null);
     setPreviewUrl((current) => {
       if (current) URL.revokeObjectURL(current);
-      return URL.createObjectURL(selected);
+      return null;
     });
+
+    const dimensions = await getImageDimensionsFromFile(selected);
+    dimensionsRef.current = dimensions;
+
+    const result = await finalizeFile(selected);
+    if (!result.needsCrop) {
+      setFilePreview(selected, detected);
+    }
 
     if (detected === "jpeg") setTargetFormat("png");
     else if (detected === "png") setTargetFormat("jpeg");
@@ -143,8 +175,24 @@ export default function ImageConverterPage() {
     setError(null);
   };
 
+  const handleCropApply = async (croppedFile: File) => {
+    completeCrop(croppedFile);
+    const detected = detectImageFormat(croppedFile);
+    const dimensions = await getImageDimensionsFromFile(croppedFile);
+    dimensionsRef.current = dimensions;
+    setFilePreview(croppedFile, detected);
+  };
+
+  const handleCropCancel = () => {
+    cancelCrop();
+    dimensionsRef.current = null;
+    if (inputRef.current) inputRef.current.value = "";
+  };
+
   const handleRemoveFile = () => {
     setFile(null);
+    dimensionsRef.current = null;
+    resetOriginal();
     setCurrentFormat(null);
     setPreviewUrl((current) => {
       if (current) URL.revokeObjectURL(current);
@@ -189,9 +237,9 @@ export default function ImageConverterPage() {
     formatOptions.find((option) => option.id === targetFormat)?.hint ?? "";
 
   return (
-    <div className="flex min-h-screen flex-col bg-surface-base">
+    <div className="flex min-h-screen w-full max-w-full flex-col overflow-x-hidden bg-surface-base">
       <Header />
-      <main id="main-content" className="flex-1">
+      <main id="main-content" className="flex-1 min-w-0 overflow-x-hidden">
         <div className="px-6 py-6 sm:px-10">
           <Link
             href="/"
@@ -229,10 +277,22 @@ export default function ImageConverterPage() {
                 }}
               />
 
-              {!file && (
+              {cropSession && (
+                <ImageCropEditor
+                  imageSrc={cropSession.imageSrc}
+                  aspect={cropSession.aspect}
+                  originalFile={cropSession.originalFile}
+                  accent="image"
+                  onApply={handleCropApply}
+                  onCancel={handleCropCancel}
+                />
+              )}
+
+              {!file && !cropSession && (
                 <button
                   type="button"
-                 aria-label="File upload area" onClick={() => inputRef.current?.click()}
+                  aria-label="File upload area"
+                  onClick={() => inputRef.current?.click()}
                   onDragOver={(e) => {
                     e.preventDefault();
                     setIsDragging(true);
@@ -263,7 +323,7 @@ export default function ImageConverterPage() {
                 </button>
               )}
 
-              {file && (
+              {file && !cropSession && (
                 <>
                   <div className="flex items-center gap-3 rounded-xl border border-surface-border bg-surface-card p-4">
                     <div className="min-w-0 flex-1">
@@ -300,7 +360,7 @@ export default function ImageConverterPage() {
                 <p className="text-center text-sm text-tool-image">{error}</p>
               )}
 
-              {file && !convertedBlob && (
+              {file && !convertedBlob && !cropSession && (
                 <>
                   <div>
                     <p className="mb-3 text-sm font-medium text-content-primary">

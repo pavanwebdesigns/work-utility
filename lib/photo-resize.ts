@@ -1,75 +1,141 @@
-export interface PhotoSize {
+export interface PhotoPreset {
   id: string;
   name: string;
+  resizeLabel: string;
   width: number;
   height: number;
+  maxKb: number;
   dpi: number;
   description: string;
 }
 
-export const PHOTO_SIZES: PhotoSize[] = [
+export const PHOTO_SIZES: PhotoPreset[] = [
   {
     id: "aadhaar",
     name: "Aadhaar Card",
-    width: 213,
-    height: 213,
+    resizeLabel: "Aadhaar Card Photo",
+    width: 413,
+    height: 531,
+    maxKb: 50,
     dpi: 72,
-    description: "35mm × 35mm",
+    description: "35mm × 45mm",
   },
   {
     id: "pan",
     name: "PAN Card",
-    width: 213,
-    height: 213,
+    resizeLabel: "PAN Card Photo",
+    width: 413,
+    height: 295,
+    maxKb: 300,
     dpi: 72,
-    description: "35mm × 35mm",
+    description: "3.5cm × 2.5cm",
   },
   {
     id: "passport",
     name: "Passport (India)",
-    width: 354,
-    height: 472,
+    resizeLabel: "Passport Photo",
+    width: 350,
+    height: 350,
+    maxKb: 50,
     dpi: 72,
-    description: "2×2 inch",
+    description: "35mm × 35mm",
   },
   {
     id: "visa",
     name: "Visa Photo",
-    width: 354,
-    height: 472,
+    resizeLabel: "Visa Photo",
+    width: 600,
+    height: 600,
+    maxKb: 500,
     dpi: 72,
-    description: "2×2 inch",
+    description: "50mm × 50mm",
   },
   {
-    id: "driving",
-    name: "Driving License",
-    width: 189,
-    height: 236,
+    id: "driving-licence",
+    name: "Driving Licence",
+    resizeLabel: "Driving Licence Photo",
+    width: 413,
+    height: 531,
+    maxKb: 200,
     dpi: 72,
-    description: "25mm × 32mm",
+    description: "35mm × 45mm",
+  },
+  {
+    id: "government-exam",
+    name: "Government Exam (UPSC/SSC)",
+    resizeLabel: "Government Exam Photo",
+    width: 350,
+    height: 350,
+    maxKb: 50,
+    dpi: 72,
+    description: "35mm × 35mm",
   },
   {
     id: "custom",
     name: "Custom Size",
+    resizeLabel: "Custom Photo",
     width: 0,
     height: 0,
+    maxKb: 0,
     dpi: 72,
     description: "Set your own",
   },
 ];
 
+export const PRESET_URL_PARAMS = [
+  "aadhaar",
+  "pan",
+  "passport",
+  "visa",
+  "driving-licence",
+] as const;
+
+export type PresetUrlParam = (typeof PRESET_URL_PARAMS)[number];
+
+export function resolvePresetFromUrlParam(
+  param: string | null | undefined
+): PhotoPreset | undefined {
+  if (!param) return undefined;
+
+  const normalized = param.toLowerCase().trim();
+  if (!PRESET_URL_PARAMS.includes(normalized as PresetUrlParam)) {
+    return undefined;
+  }
+
+  return PHOTO_SIZES.find((preset) => preset.id === normalized);
+}
+
+export function getPhotoPreset(id: string): PhotoPreset | undefined {
+  return PHOTO_SIZES.find((preset) => preset.id === id);
+}
+
+function canvasToBlob(
+  canvas: HTMLCanvasElement,
+  mime: string,
+  quality: number
+): Promise<Blob> {
+  return new Promise((resolve, reject) => {
+    canvas.toBlob(
+      (blob) => (blob ? resolve(blob) : reject(new Error("Canvas failed"))),
+      mime,
+      quality
+    );
+  });
+}
+
 export async function resizePhoto(
   file: File,
   width: number,
   height: number,
-  bgColor: string = "#FFFFFF"
+  bgColor: string = "#FFFFFF",
+  maxKb?: number
 ): Promise<Blob> {
   return new Promise((resolve, reject) => {
     const img = new Image();
     const url = URL.createObjectURL(file);
     const isTransparent = bgColor === "transparent";
 
-    img.onload = () => {
+    img.onload = async () => {
       const canvas = document.createElement("canvas");
       canvas.width = width;
       canvas.height = height;
@@ -95,12 +161,28 @@ export async function resizePhoto(
       ctx.drawImage(img, offsetX, offsetY, scaledW, scaledH);
       URL.revokeObjectURL(url);
 
-      canvas.toBlob(
-        (blob) =>
-          blob ? resolve(blob) : reject(new Error("Canvas failed")),
-        isTransparent ? "image/png" : "image/jpeg",
-        isTransparent ? 1.0 : 0.95
-      );
+      try {
+        const mime = isTransparent ? "image/png" : "image/jpeg";
+
+        if (!maxKb || isTransparent) {
+          resolve(
+            await canvasToBlob(canvas, mime, isTransparent ? 1.0 : 0.95)
+          );
+          return;
+        }
+
+        let quality = 0.95;
+        let blob = await canvasToBlob(canvas, mime, quality);
+
+        while (blob.size > maxKb * 1024 && quality > 0.35) {
+          quality -= 0.05;
+          blob = await canvasToBlob(canvas, mime, quality);
+        }
+
+        resolve(blob);
+      } catch (error) {
+        reject(error);
+      }
     };
 
     img.onerror = () => {

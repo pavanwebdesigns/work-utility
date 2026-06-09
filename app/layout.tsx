@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { GeistSans } from "geist/font/sans";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -42,19 +43,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={GeistSans.className}>
+    <html lang="en" className={`${GeistSans.className} overflow-x-hidden max-w-full`}>
       <head>
         <link rel="apple-touch-icon" href="/logo-light.svg" />
         <meta name="mobile-web-app-capable" content="yes" />
       </head>
-      <body>
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-brand-blue focus:px-4 focus:py-2 focus:text-white"
-        >
-          Skip to main content
-        </a>
-        {children}
+      <body className="overflow-x-hidden max-w-full">
+        <div className="min-h-screen w-full max-w-[100vw] overflow-x-hidden">
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-brand-blue focus:px-4 focus:py-2 focus:text-white"
+          >
+            Skip to main content
+          </a>
+          {children}
+        </div>
+        <Analytics />
       </body>
     </html>
   );

@@ -15,7 +15,7 @@ export default function ContactPageClient() {
   };
 
   return (
-    <div className="flex min-h-screen flex-col bg-surface-base">
+    <div className="flex min-h-screen w-full max-w-full flex-col overflow-x-hidden bg-surface-base">
       <Header />
       <main className="flex-1">
         <div className="mx-auto max-w-2xl px-4 py-8 sm:px-6 sm:py-12">
