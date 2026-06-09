@@ -56,7 +56,7 @@ function TrustBadge({ children }: { children: React.ReactNode }) {
 
 function StatsBar() {
   const stats = [
-    { value: "6 Tools", label: "Available now" },
+    { value: "11 Tools", label: "Available now" },
     { value: "0ms Upload", label: "Browser-only processing" },
     { value: "Free Forever", label: "No hidden fees" },
   ];

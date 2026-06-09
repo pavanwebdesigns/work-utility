@@ -45,6 +45,36 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: "https://workutilities.com/tools/pdf-merge",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: "https://workutilities.com/tools/pdf-split",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: "https://workutilities.com/tools/pdf-unlock",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: "https://workutilities.com/tools/image-converter",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: "https://workutilities.com/tools/pdf-to-jpg",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
       url: "https://workutilities.com/about",
       lastModified: new Date(),
       changeFrequency: "monthly",
