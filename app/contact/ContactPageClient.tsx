@@ -107,10 +107,10 @@ export default function ContactPageClient() {
                 <Mail className="h-5 w-5 text-brand-blue" />
               </div>
               <a
-                href="mailto:hello@workutilities.com"
+                href="mailto:workutilities.tools@outlook.com"
                 className="text-content-secondary transition-colors hover:text-content-primary"
               >
-                hello@workutilities.com
+                workutilities.tools@outlook.com
               </a>
             </div>
           </section>

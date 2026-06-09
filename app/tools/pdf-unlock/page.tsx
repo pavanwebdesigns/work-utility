@@ -17,6 +17,8 @@ import {
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { RelatedTools } from "@/components/RelatedTools";
+import { ToolFeedback } from "@/components/ToolFeedback";
+import { DinoGame } from "@/components/DinoGame";
 import {
   checkPDFPassword,
   formatFileSize,
@@ -130,7 +132,7 @@ export default function PdfUnlockPage() {
   return (
     <div className="flex min-h-screen flex-col bg-surface-base">
       <Header />
-      <main className="flex-1">
+      <main id="main-content" className="flex-1">
         <div className="px-6 py-6 sm:px-10">
           <Link
             href="/"
@@ -160,7 +162,7 @@ export default function PdfUnlockPage() {
                 ref={inputRef}
                 type="file"
                 accept="application/pdf,.pdf"
-                className="hidden"
+                aria-label="Upload PDF file" className="hidden"
                 onChange={(e) => {
                   const selected = e.target.files?.[0];
                   if (selected) handleFileSelect(selected);
@@ -171,7 +173,7 @@ export default function PdfUnlockPage() {
               {!file && (
                 <button
                   type="button"
-                  onClick={() => inputRef.current?.click()}
+                 aria-label="File upload area" onClick={() => inputRef.current?.click()}
                   onDragOver={(e) => {
                     e.preventDefault();
                     setIsDragging(true);
@@ -343,8 +345,6 @@ export default function PdfUnlockPage() {
             </div>
           </div>
 
-          <RelatedTools currentSlug="pdf-unlock" />
-
           <div className="mt-16">
             <h2 className="mb-6 text-center text-lg font-semibold text-content-primary">
               How It Works
@@ -365,6 +365,12 @@ export default function PdfUnlockPage() {
               ))}
             </div>
           </div>
+
+
+
+          <RelatedTools currentSlug="pdf-unlock" />
+          <ToolFeedback toolName="Remove PDF Password" />
+          <DinoGame />
         </div>
       </main>
       <Footer />

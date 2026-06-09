@@ -61,6 +61,7 @@ export function ToolCard({
   return (
     <Link
       href={href}
+      aria-label={`${title} tool`}
       className="group relative block cursor-pointer rounded-2xl border border-surface-border bg-surface-card p-6 no-underline transition-all duration-200 ease-in-out hover:-translate-y-0.5 hover:border-brand-blue hover:bg-surface-elevated"
     >
       {popular && (

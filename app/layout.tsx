@@ -47,7 +47,15 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/logo-light.svg" />
         <meta name="mobile-web-app-capable" content="yes" />
       </head>
-      <body>{children}</body>
+      <body>
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-brand-blue focus:px-4 focus:py-2 focus:text-white"
+        >
+          Skip to main content
+        </a>
+        {children}
+      </body>
     </html>
   );
 }

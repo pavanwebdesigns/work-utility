@@ -42,7 +42,7 @@ const sections = [
   {
     title: "Contact",
     body: "For questions about these terms, contact us at:",
-    email: "hello@workutilities.com",
+    email: "workutilities.tools@outlook.com",
   },
 ];
 

@@ -14,6 +14,8 @@ import {
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { RelatedTools } from "@/components/RelatedTools";
+import { ToolFeedback } from "@/components/ToolFeedback";
+import { DinoGame } from "@/components/DinoGame";
 import {
   convertImage,
   detectImageFormat,
@@ -189,7 +191,7 @@ export default function ImageConverterPage() {
   return (
     <div className="flex min-h-screen flex-col bg-surface-base">
       <Header />
-      <main className="flex-1">
+      <main id="main-content" className="flex-1">
         <div className="px-6 py-6 sm:px-10">
           <Link
             href="/"
@@ -219,7 +221,7 @@ export default function ImageConverterPage() {
                 ref={inputRef}
                 type="file"
                 accept="image/jpeg,image/png,image/webp,.jpg,.jpeg,.png,.webp"
-                className="hidden"
+                aria-label="Upload image file" className="hidden"
                 onChange={(e) => {
                   const selected = e.target.files?.[0];
                   if (selected) handleFileSelect(selected);
@@ -230,7 +232,7 @@ export default function ImageConverterPage() {
               {!file && (
                 <button
                   type="button"
-                  onClick={() => inputRef.current?.click()}
+                 aria-label="File upload area" onClick={() => inputRef.current?.click()}
                   onDragOver={(e) => {
                     e.preventDefault();
                     setIsDragging(true);
@@ -423,8 +425,6 @@ export default function ImageConverterPage() {
             </div>
           </div>
 
-          <RelatedTools currentSlug="image-converter" />
-
           <div className="mt-16">
             <h2 className="mb-6 text-center text-lg font-semibold text-content-primary">
               How It Works
@@ -445,6 +445,12 @@ export default function ImageConverterPage() {
               ))}
             </div>
           </div>
+
+
+
+          <RelatedTools currentSlug="image-converter" />
+          <ToolFeedback toolName="Image Converter" />
+          <DinoGame />
         </div>
       </main>
       <Footer />

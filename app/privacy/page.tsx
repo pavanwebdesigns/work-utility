@@ -34,7 +34,7 @@ const sections = [
   },
   {
     title: "Contact",
-    body: "For privacy concerns, contact us at privacy@workutilities.com",
+    body: "For privacy concerns, contact us at workutilities.tools@outlook.com",
   },
 ];
 

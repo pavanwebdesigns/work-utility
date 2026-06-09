@@ -14,6 +14,8 @@ import {
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { RelatedTools } from "@/components/RelatedTools";
+import { ToolFeedback } from "@/components/ToolFeedback";
+import { DinoGame } from "@/components/DinoGame";
 import {
   compressImage,
   formatFileSize,
@@ -211,7 +213,7 @@ export default function ImageCompressPage() {
     <div className="flex min-h-screen flex-col bg-surface-base">
       <Header />
 
-      <main className="flex-1">
+      <main id="main-content" className="flex-1">
         <div className="px-6 py-6 sm:px-10">
           <Link
             href="/"
@@ -244,13 +246,13 @@ export default function ImageCompressPage() {
                 ref={inputRef}
                 type="file"
                 accept="image/jpeg,image/png,image/webp,.jpg,.jpeg,.png,.webp"
-                className="hidden"
+                aria-label="Upload image file" className="hidden"
                 onChange={handleInputChange}
               />
 
               <button
                 type="button"
-                onClick={() => inputRef.current?.click()}
+               aria-label="File upload area" onClick={() => inputRef.current?.click()}
                 onDragOver={handleDragOver}
                 onDragLeave={handleDragLeave}
                 onDrop={handleDrop}
@@ -421,8 +423,6 @@ export default function ImageCompressPage() {
             </div>
           </div>
 
-          <RelatedTools currentSlug="image-compress" />
-
           <div className="mt-16">
             <h2 className="mb-6 text-center text-lg font-semibold text-content-primary">
               How It Works
@@ -449,6 +449,12 @@ export default function ImageCompressPage() {
               ))}
             </div>
           </div>
+
+
+
+          <RelatedTools currentSlug="image-compress" />
+          <ToolFeedback toolName="Image Compress" />
+          <DinoGame />
         </div>
       </main>
 

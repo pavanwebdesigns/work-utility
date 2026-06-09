@@ -16,6 +16,8 @@ import {
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { RelatedTools } from "@/components/RelatedTools";
+import { ToolFeedback } from "@/components/ToolFeedback";
+import { DinoGame } from "@/components/DinoGame";
 import {
   formatFileSize,
   getTotalPages,
@@ -154,7 +156,7 @@ export default function PdfSplitPage() {
   return (
     <div className="flex min-h-screen flex-col bg-surface-base">
       <Header />
-      <main className="flex-1">
+      <main id="main-content" className="flex-1">
         <div className="px-6 py-6 sm:px-10">
           <Link
             href="/"
@@ -184,14 +186,14 @@ export default function PdfSplitPage() {
                 ref={inputRef}
                 type="file"
                 accept="application/pdf,.pdf"
-                className="hidden"
+                aria-label="Upload PDF file" className="hidden"
                 onChange={handleInputChange}
               />
 
               {!file && (
                 <button
                   type="button"
-                  onClick={() => inputRef.current?.click()}
+                 aria-label="File upload area" onClick={() => inputRef.current?.click()}
                   onDragOver={(e) => {
                     e.preventDefault();
                     setIsDragging(true);
@@ -372,8 +374,6 @@ export default function PdfSplitPage() {
             </div>
           </div>
 
-          <RelatedTools currentSlug="pdf-split" />
-
           <div className="mt-16">
             <h2 className="mb-6 text-center text-lg font-semibold text-content-primary">
               How It Works
@@ -394,6 +394,12 @@ export default function PdfSplitPage() {
               ))}
             </div>
           </div>
+
+
+
+          <RelatedTools currentSlug="pdf-split" />
+          <ToolFeedback toolName="PDF Split" />
+          <DinoGame />
         </div>
       </main>
       <Footer />

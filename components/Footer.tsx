@@ -3,10 +3,17 @@ import Link from "next/link";
 
 export function Footer() {
   return (
-    <footer className="border-t border-surface-border bg-surface-base">
+    <footer
+      className="border-t border-surface-border bg-surface-base"
+      aria-label="Site footer"
+    >
       <div className="mx-auto max-w-6xl px-4 py-6 sm:px-10">
         <div className="mb-4 flex flex-col items-center gap-4 sm:flex-row sm:justify-between">
-          <Link href="/" className="cursor-pointer">
+          <Link
+            href="/"
+            className="cursor-pointer"
+            aria-label="WorkUtilities home"
+          >
             <Image
               src="/logo-light.svg"
               alt="WorkUtilities"
@@ -15,34 +22,42 @@ export function Footer() {
               className="h-6 w-auto"
             />
           </Link>
-          <nav className="flex flex-wrap items-center justify-center gap-5 text-sm">
+          <nav
+            className="flex flex-wrap items-center justify-center gap-5 text-sm"
+            aria-label="Footer navigation"
+          >
             <Link
               href="/blog"
-              className="text-[#8B9ABB] transition-colors hover:text-content-primary"
+              className="cursor-pointer text-[#8B9ABB] transition-colors hover:text-content-primary"
+              aria-label="Blog"
             >
               Blog
             </Link>
             <Link
               href="/about"
-              className="text-[#8B9ABB] transition-colors hover:text-content-primary"
+              className="cursor-pointer text-[#8B9ABB] transition-colors hover:text-content-primary"
+              aria-label="About"
             >
               About
             </Link>
             <Link
               href="/privacy"
-              className="text-[#8B9ABB] transition-colors hover:text-content-primary"
+              className="cursor-pointer text-[#8B9ABB] transition-colors hover:text-content-primary"
+              aria-label="Privacy Policy"
             >
               Privacy
             </Link>
             <Link
               href="/terms"
-              className="text-[#8B9ABB] transition-colors hover:text-content-primary"
+              className="cursor-pointer text-[#8B9ABB] transition-colors hover:text-content-primary"
+              aria-label="Terms and Conditions"
             >
               Terms
             </Link>
             <Link
               href="/contact"
-              className="text-[#8B9ABB] transition-colors hover:text-content-primary"
+              className="cursor-pointer text-[#8B9ABB] transition-colors hover:text-content-primary"
+              aria-label="Contact"
             >
               Contact
             </Link>

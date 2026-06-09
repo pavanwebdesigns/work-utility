@@ -1,4 +1,5 @@
 import {
+  Eraser,
   FileBadge,
   FileDown,
   FileImage,
@@ -10,6 +11,10 @@ import {
   RefreshCw,
   ScanLine,
   Scissors,
+  WholeWord,
+  Cake,
+  QrCode,
+  Wrench,
   type LucideIcon,
 } from "lucide-react";
 import type { ToolAccent } from "@/components/ToolCard";
@@ -126,6 +131,18 @@ export const ALL_TOOLS = [
     category: "Images",
   },
   {
+    slug: "bg-remove",
+    name: "Background Remover",
+    description: "Remove background from any image",
+    href: "/tools/bg-remove",
+    icon: "Eraser",
+    color: "#8B5CF6",
+    bgClass: "bg-tool-image/10",
+    textClass: "text-tool-image",
+    borderClass: "border-tool-image",
+    category: "Images",
+  },
+  {
     slug: "photo-resizer",
     name: "Photo Resizer",
     description: "Resize to Aadhaar, PAN, Passport size",
@@ -149,20 +166,60 @@ export const ALL_TOOLS = [
     borderClass: "border-tool-img2pdf",
     category: "Images",
   },
+  {
+    slug: "word-counter",
+    name: "Word Counter",
+    description: "Count words, characters, and reading time",
+    href: "/tools/word-counter",
+    icon: "WholeWord",
+    color: "#3B82F6",
+    bgClass: "bg-brand-blue/10",
+    textClass: "text-brand-blue",
+    borderClass: "border-brand-blue",
+    category: "Text",
+  },
+  {
+    slug: "age-calculator",
+    name: "Age Calculator",
+    description: "Calculate exact age from date of birth",
+    href: "/tools/age-calculator",
+    icon: "Cake",
+    color: "#F59E0B",
+    bgClass: "bg-tool-photo/10",
+    textClass: "text-tool-photo",
+    borderClass: "border-tool-photo",
+    category: "Utility",
+  },
+  {
+    slug: "qr-code-generator",
+    name: "QR Code Generator",
+    description: "Create QR codes for URL, WiFi, VCard, WhatsApp, and more",
+    href: "/tools/qr-code-generator",
+    icon: "QrCode",
+    color: "#10B981",
+    bgClass: "bg-tool-convert/10",
+    textClass: "text-tool-convert",
+    borderClass: "border-tool-convert",
+    category: "Utility",
+  },
 ] as const;
 
 export const RELATED_TOOLS: Record<string, string[]> = {
   "pdf-compress": ["pdf-merge", "pdf-split", "pdf-to-word"],
-  "pdf-to-word": ["word-to-pdf", "pdf-compress", "pdf-merge"],
-  "word-to-pdf": ["pdf-to-word", "pdf-compress", "pdf-merge"],
-  "image-compress": ["image-converter", "photo-resizer", "image-to-pdf"],
-  "photo-resizer": ["image-compress", "image-converter", "image-to-pdf"],
+  "pdf-to-word": ["word-to-pdf", "word-counter", "pdf-compress"],
+  "word-to-pdf": ["pdf-to-word", "word-counter", "pdf-compress"],
+  "image-compress": ["photo-resizer", "bg-remove", "image-to-pdf"],
+  "photo-resizer": ["image-compress", "bg-remove", "image-converter"],
   "image-to-pdf": ["pdf-merge", "image-compress", "image-converter"],
+  "bg-remove": ["image-compress", "photo-resizer", "image-converter"],
   "pdf-merge": ["pdf-split", "pdf-compress", "pdf-to-word"],
   "pdf-split": ["pdf-merge", "pdf-compress", "pdf-to-jpg"],
   "pdf-unlock": ["pdf-compress", "pdf-merge", "pdf-split"],
   "image-converter": ["image-compress", "photo-resizer", "image-to-pdf"],
   "pdf-to-jpg": ["pdf-split", "pdf-compress", "image-converter"],
+  "word-counter": ["word-to-pdf", "pdf-to-word", "pdf-compress"],
+  "age-calculator": ["word-counter", "photo-resizer", "pdf-compress"],
+  "qr-code-generator": ["word-counter", "image-converter", "word-to-pdf"],
 };
 
 export const TOOL_ICONS: Record<string, LucideIcon> = {
@@ -173,10 +230,15 @@ export const TOOL_ICONS: Record<string, LucideIcon> = {
   FileImage,
   ImageDown,
   RefreshCw,
+  Eraser,
   ScanLine,
   FileText,
   FileBadge,
   Images,
+  WholeWord,
+  Cake,
+  QrCode,
+  Wrench,
 };
 
 export const TOOL_UI_META: Record<
@@ -192,10 +254,71 @@ export const TOOL_UI_META: Record<
   "word-to-pdf": { accent: "convert", filterCategory: "convert" },
   "image-compress": { accent: "image", filterCategory: "images" },
   "image-converter": { accent: "image", filterCategory: "images" },
+  "bg-remove": { accent: "image", filterCategory: "images" },
   "photo-resizer": { accent: "photo", filterCategory: "images" },
   "image-to-pdf": { accent: "pink", filterCategory: "convert" },
+  "word-counter": { accent: "blue", filterCategory: "convert", popular: true },
+  "age-calculator": { accent: "photo", filterCategory: "convert" },
+  "qr-code-generator": { accent: "convert", filterCategory: "convert", popular: true },
 };
 
 export function getToolBySlug(slug: string) {
   return ALL_TOOLS.find((tool) => tool.slug === slug);
+}
+
+/** Optional display name overrides for the header mega menu */
+export const HEADER_MENU_DISPLAY_NAMES: Partial<Record<string, string>> = {
+  "image-converter": "Image to JPG/PNG",
+};
+
+export const HEADER_MENU_CATEGORIES = [
+  {
+    title: "PDF Tools",
+    icon: "FileDown",
+    iconClassName: "text-tool-pdf",
+    slugs: [
+      "pdf-compress",
+      "pdf-merge",
+      "pdf-split",
+      "pdf-to-word",
+      "pdf-to-jpg",
+      "pdf-unlock",
+    ],
+  },
+  {
+    title: "Image Tools",
+    icon: "ImageDown",
+    iconClassName: "text-tool-image",
+    slugs: [
+      "image-compress",
+      "photo-resizer",
+      "image-to-pdf",
+      "image-converter",
+      "bg-remove",
+      "word-to-pdf",
+    ],
+  },
+  {
+    title: "Utility Tools",
+    icon: "Wrench",
+    iconClassName: "text-tool-convert",
+    slugs: ["qr-code-generator", "word-counter", "age-calculator"],
+  },
+] as const;
+
+export function getHeaderMenuCategories() {
+  return HEADER_MENU_CATEGORIES.map((category) => ({
+    ...category,
+    tools: category.slugs.flatMap((slug) => {
+      const tool = getToolBySlug(slug);
+      if (!tool) return [];
+
+      return [
+        {
+          tool,
+          displayName: HEADER_MENU_DISPLAY_NAMES[slug],
+        },
+      ];
+    }),
+  }));
 }
