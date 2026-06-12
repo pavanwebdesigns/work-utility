@@ -15,6 +15,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { RelatedTools } from "@/components/RelatedTools";
 import { ToolFeedback } from "@/components/ToolFeedback";
+import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
 import { convertWordToPdf, formatFileSize } from "@/lib/word-to-pdf";
 
@@ -331,6 +332,7 @@ export default function WordToPdfPage() {
 
           <RelatedTools currentSlug="word-to-pdf" />
           <ToolFeedback toolName="Word to PDF" />
+          <ToolSeoContent slug="word-to-pdf" />
           <DinoGame />
         </div>
       </main>

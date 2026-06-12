@@ -70,6 +70,61 @@ export const blogPosts: BlogPost[] = [
     lastUpdated: "June 2026",
     cta: { toolName: "Photo Resizer", toolHref: "/tools/photo-resizer" },
   },
+  {
+    slug: "how-to-compress-pdf-under-1mb",
+    title: "How to Compress PDF Under 1MB — Free & Easy (2026)",
+    excerpt:
+      "Government portals rejecting your PDF? Step-by-step guide to compress under 1MB for UPSC, SSC, email, and job applications in India.",
+    category: "PDF",
+    readTime: "5 min read",
+    author: "Ravi Kumar",
+    lastUpdated: "June 2026",
+    cta: { toolName: "PDF Compress", toolHref: "/tools/pdf-compress" },
+  },
+  {
+    slug: "how-to-merge-pdf-files-free",
+    title: "How to Merge PDF Files Free Online — Combine Multiple PDFs in Seconds",
+    excerpt:
+      "Combine salary slips, certificates, and ID proofs into one PDF. Free online merge with no signup — perfect for job and loan applications in India.",
+    category: "PDF",
+    readTime: "5 min read",
+    author: "Ravi Kumar",
+    lastUpdated: "June 2026",
+    cta: { toolName: "PDF Merge", toolHref: "/tools/pdf-merge" },
+  },
+  {
+    slug: "how-to-remove-background-from-photo-free",
+    title: "How to Remove Background from Photo Free Online — No Signup (2026)",
+    excerpt:
+      "Remove photo backgrounds free for Meesho listings, LinkedIn profiles, passport photos, and product images. No watermark, runs in your browser.",
+    category: "Images",
+    readTime: "5 min read",
+    author: "Priya Sharma",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Background Remover", toolHref: "/tools/bg-remove" },
+  },
+  {
+    slug: "how-to-unlock-password-protected-pdf",
+    title: "How to Open a Password Protected PDF Free — Unlock PDF Online (2026)",
+    excerpt:
+      "Open bank statements, salary slips, and locked PDFs free online. Remove PDF password in your browser — no software needed.",
+    category: "PDF",
+    readTime: "5 min read",
+    author: "Ravi Kumar",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Remove PDF Password", toolHref: "/tools/pdf-unlock" },
+  },
+  {
+    slug: "resize-photo-for-government-forms-india",
+    title: "How to Resize Photo for Government Forms in India — Aadhaar, PAN, Passport (2026)",
+    excerpt:
+      "Complete guide to photo size for Aadhaar, PAN, passport, driving licence, and government exams. Dimensions, KB limits, and free resize tool.",
+    category: "Photo",
+    readTime: "6 min read",
+    author: "Ravi Kumar",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Photo Resizer", toolHref: "/tools/photo-resizer" },
+  },
 ];
 
 export const blogPostBySlug = Object.fromEntries(
@@ -114,6 +169,41 @@ export const blogSeoMetadata: Record<
       "Official Indian passport photo size is 51mm × 51mm. Complete guide with dimensions for all Indian documents — Aadhaar, PAN, Visa, Driving License.",
     keywords:
       "passport size photo dimensions india, indian passport photo size, passport photo requirements 2026",
+  },
+  "how-to-compress-pdf-under-1mb": {
+    title: "How to Compress PDF Under 1MB Free (2026) | WorkUtilities",
+    description:
+      "Step-by-step guide to compress PDF under 1MB for email, government portals, and job applications in India. Free online tool, no signup.",
+    keywords:
+      "compress pdf under 1mb, pdf size limit india, upsc pdf upload size, government portal pdf compress",
+  },
+  "how-to-merge-pdf-files-free": {
+    title: "How to Merge PDF Files Free Online (2026) | WorkUtilities",
+    description:
+      "Combine multiple PDF files into one free online. No signup, no watermark. Perfect for salary slips, certificates, and government document submissions in India.",
+    keywords:
+      "merge pdf files free online, combine pdf india, merge salary slips pdf, pdf merge no signup",
+  },
+  "how-to-remove-background-from-photo-free": {
+    title: "Remove Background from Photo Free Online (2026) | WorkUtilities",
+    description:
+      "Remove background from any photo free online. Perfect for passport photos, LinkedIn profile, product images, and Meesho/Amazon seller photos in India.",
+    keywords:
+      "remove background from photo free, background remover india, meesho product photo white background",
+  },
+  "how-to-unlock-password-protected-pdf": {
+    title: "Open Password Protected PDF Free Online (2026) | WorkUtilities",
+    description:
+      "Open and remove password from PDF files free online. Works for bank statements, salary slips, and other password protected PDFs in India. No software needed.",
+    keywords:
+      "unlock password protected pdf, open bank statement pdf india, remove pdf password free online",
+  },
+  "resize-photo-for-government-forms-india": {
+    title: "Resize Photo for Government Forms India 2026 | WorkUtilities",
+    description:
+      "Complete guide to photo size requirements for Indian government forms. Aadhaar, PAN card, passport, driving licence photo dimensions and KB limits. Free resize tool.",
+    keywords:
+      "resize photo for government forms india, aadhaar photo size pixels, pan card photo kb limit, passport photo resize online",
   },
 };
 

@@ -7,6 +7,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { RelatedTools } from "@/components/RelatedTools";
 import { ToolFeedback } from "@/components/ToolFeedback";
+import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
 import { calculateAge, parseDateInput } from "@/lib/age-calculator";
 
@@ -181,6 +182,7 @@ export default function AgeCalculatorPage() {
 
           <RelatedTools currentSlug="age-calculator" />
           <ToolFeedback toolName="Age Calculator" />
+          <ToolSeoContent slug="age-calculator" />
           <DinoGame />
         </div>
       </main>

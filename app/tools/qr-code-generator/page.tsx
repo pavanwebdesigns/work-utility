@@ -13,6 +13,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { RelatedTools } from "@/components/RelatedTools";
 import { ToolFeedback } from "@/components/ToolFeedback";
+import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
 import {
   buildQrPayload,
@@ -814,6 +815,7 @@ export default function QrCodeGeneratorPage() {
 
           <RelatedTools currentSlug="qr-code-generator" />
           <ToolFeedback toolName="QR Code Generator" />
+          <ToolSeoContent slug="qr-code-generator" />
           <DinoGame />
         </div>
       </main>

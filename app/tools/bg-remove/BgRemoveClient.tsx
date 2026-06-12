@@ -15,6 +15,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { RelatedTools } from "@/components/RelatedTools";
 import { ToolFeedback } from "@/components/ToolFeedback";
+import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
 import { ImageCropEditor } from "@/components/ImageCropEditor";
 import { useImageCropGate } from "@/hooks/useImageCropGate";
@@ -438,6 +439,7 @@ export default function BgRemoveClient() {
 
           <RelatedTools currentSlug="bg-remove" />
           <ToolFeedback toolName="Background Remover" />
+          <ToolSeoContent slug="bg-remove" />
           <DinoGame />
         </div>
       </main>

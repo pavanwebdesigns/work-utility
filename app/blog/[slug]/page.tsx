@@ -8,6 +8,11 @@ import HowToCompressPdfOnlineFreeContent from "../content/how-to-compress-pdf-on
 import ReduceImageSizeWithoutLosingQualityContent from "../content/reduce-image-size-without-losing-quality";
 import ConvertPdfToWordFreeContent from "../content/convert-pdf-to-word-free";
 import PassportSizePhotoDimensionsIndiaContent from "../content/passport-size-photo-dimensions-india";
+import HowToCompressPdfUnder1mbContent from "../content/how-to-compress-pdf-under-1mb";
+import HowToMergePdfFilesFreeContent from "../content/how-to-merge-pdf-files-free";
+import HowToRemoveBackgroundFromPhotoFreeContent from "../content/how-to-remove-background-from-photo-free";
+import HowToUnlockPasswordProtectedPdfContent from "../content/how-to-unlock-password-protected-pdf";
+import ResizePhotoForGovernmentFormsIndiaContent from "../content/resize-photo-for-government-forms-india";
 
 const contentBySlug: Record<string, () => JSX.Element> = {
   "aadhaar-card-photo-size": AadhaarCardPhotoSizeContent,
@@ -17,6 +22,14 @@ const contentBySlug: Record<string, () => JSX.Element> = {
   "convert-pdf-to-word-free": ConvertPdfToWordFreeContent,
   "passport-size-photo-dimensions-india":
     PassportSizePhotoDimensionsIndiaContent,
+  "how-to-compress-pdf-under-1mb": HowToCompressPdfUnder1mbContent,
+  "how-to-merge-pdf-files-free": HowToMergePdfFilesFreeContent,
+  "how-to-remove-background-from-photo-free":
+    HowToRemoveBackgroundFromPhotoFreeContent,
+  "how-to-unlock-password-protected-pdf":
+    HowToUnlockPasswordProtectedPdfContent,
+  "resize-photo-for-government-forms-india":
+    ResizePhotoForGovernmentFormsIndiaContent,
 };
 
 export function generateStaticParams() {

@@ -17,6 +17,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { RelatedTools } from "@/components/RelatedTools";
 import { ToolFeedback } from "@/components/ToolFeedback";
+import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
 import {
   formatFileSize,
@@ -399,6 +400,7 @@ export default function PdfSplitPage() {
 
           <RelatedTools currentSlug="pdf-split" />
           <ToolFeedback toolName="PDF Split" />
+          <ToolSeoContent slug="pdf-split" />
           <DinoGame />
         </div>
       </main>

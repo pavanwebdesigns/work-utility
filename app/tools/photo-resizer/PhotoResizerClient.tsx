@@ -16,6 +16,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { RelatedTools } from "@/components/RelatedTools";
 import { ToolFeedback } from "@/components/ToolFeedback";
+import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
 import { ImageCropEditor } from "@/components/ImageCropEditor";
 import { useImageCropGate } from "@/hooks/useImageCropGate";
@@ -723,6 +724,7 @@ export function PhotoResizerClient() {
 
           <RelatedTools currentSlug="photo-resizer" />
           <ToolFeedback toolName="Photo Resizer" />
+          <ToolSeoContent slug="photo-resizer" />
           <DinoGame />
         </div>
       </main>

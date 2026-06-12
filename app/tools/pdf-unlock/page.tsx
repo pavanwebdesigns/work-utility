@@ -18,6 +18,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { RelatedTools } from "@/components/RelatedTools";
 import { ToolFeedback } from "@/components/ToolFeedback";
+import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
 import {
   checkPDFPassword,
@@ -370,6 +371,7 @@ export default function PdfUnlockPage() {
 
           <RelatedTools currentSlug="pdf-unlock" />
           <ToolFeedback toolName="Remove PDF Password" />
+          <ToolSeoContent slug="pdf-unlock" />
           <DinoGame />
         </div>
       </main>

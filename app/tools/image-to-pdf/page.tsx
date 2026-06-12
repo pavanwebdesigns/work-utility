@@ -16,6 +16,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { RelatedTools } from "@/components/RelatedTools";
 import { ToolFeedback } from "@/components/ToolFeedback";
+import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
 import { convertImagesToPdf, formatFileSize } from "@/lib/image-to-pdf";
 import { ImageCropEditor } from "@/components/ImageCropEditor";
@@ -477,6 +478,7 @@ export default function ImageToPdfPage() {
 
           <RelatedTools currentSlug="image-to-pdf" />
           <ToolFeedback toolName="Image to PDF" />
+          <ToolSeoContent slug="image-to-pdf" />
           <DinoGame />
         </div>
       </main>

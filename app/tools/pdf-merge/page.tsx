@@ -17,6 +17,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { RelatedTools } from "@/components/RelatedTools";
 import { ToolFeedback } from "@/components/ToolFeedback";
+import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
 import { formatFileSize, mergePDFs } from "@/lib/pdf-merge";
 
@@ -347,6 +348,7 @@ export default function PdfMergePage() {
 
           <RelatedTools currentSlug="pdf-merge" />
           <ToolFeedback toolName="PDF Merge" />
+          <ToolSeoContent slug="pdf-merge" />
           <DinoGame />
         </div>
       </main>

@@ -15,6 +15,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { RelatedTools } from "@/components/RelatedTools";
 import { ToolFeedback } from "@/components/ToolFeedback";
+import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
 import { ImageCropEditor } from "@/components/ImageCropEditor";
 import { useImageCropGate } from "@/hooks/useImageCropGate";
@@ -515,6 +516,7 @@ export default function ImageCompressPage() {
 
           <RelatedTools currentSlug="image-compress" />
           <ToolFeedback toolName="Image Compress" />
+          <ToolSeoContent slug="image-compress" />
           <DinoGame />
         </div>
       </main>

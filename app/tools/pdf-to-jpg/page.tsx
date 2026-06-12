@@ -16,6 +16,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { RelatedTools } from "@/components/RelatedTools";
 import { ToolFeedback } from "@/components/ToolFeedback";
+import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
 import {
   convertPDFToJPG,
@@ -389,6 +390,7 @@ export default function PdfToJpgPage() {
 
           <RelatedTools currentSlug="pdf-to-jpg" />
           <ToolFeedback toolName="PDF to JPG" />
+          <ToolSeoContent slug="pdf-to-jpg" />
           <DinoGame />
         </div>
       </main>

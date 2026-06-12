@@ -3,6 +3,7 @@
 import { useCallback, useRef, useState } from "react";
 import Link from "next/link";
 import {
+  ChevronDown,
   Download,
   FileDown,
   Loader2,
@@ -18,33 +19,93 @@ import { ToolFeedback } from "@/components/ToolFeedback";
 import { DinoGame } from "@/components/DinoGame";
 import {
   compressPDF,
-  CompressLevel,
+  CompressProgress,
   formatFileSize,
 } from "@/lib/pdf-compress";
 
 const MAX_FILE_SIZE = 50 * 1024 * 1024;
+const DEFAULT_COMPRESSION = 50;
 
-const compressionLevels: {
-  id: CompressLevel;
-  label: string;
-  description: string;
-}[] = [
+const compressionPresets = [
+  { label: "Email", value: 70 },
+  { label: "Portal Upload", value: 80 },
+  { label: "WhatsApp", value: 60 },
+  { label: "Archive", value: 50 },
+] as const;
+
+const whenToUseItems = [
   {
-    id: "low",
-    label: "Low",
-    description: "Smaller file, lower quality",
+    title: "Email attachment too large",
+    description:
+      "Gmail allows up to 25MB, but many corporate mail servers cap attachments at 10MB or less.",
   },
   {
-    id: "medium",
-    label: "Medium",
-    description: "Balanced (recommended)",
+    title: "College or university portal limits",
+    description:
+      "Admission and assignment portals often reject PDFs above 1MB or 2MB.",
   },
   {
-    id: "high",
-    label: "High",
-    description: "Best quality, larger file",
+    title: "Government portal rejections",
+    description:
+      "UPSC, SSC, and state PSC portals frequently block oversized PDF uploads.",
+  },
+  {
+    title: "WhatsApp PDF sharing",
+    description:
+      "Compress before sharing to stay well under WhatsApp’s 100MB document limit.",
+  },
+  {
+    title: "Job portal uploads",
+    description:
+      "Naukri, LinkedIn, and Internshala work best with lightweight resume PDFs.",
   },
 ];
+
+const pdfCompressFaqs = [
+  {
+    question: "How do I compress a PDF file size?",
+    answer:
+      "Upload your PDF to our free tool, choose compression level, and download the compressed file instantly. No signup required.",
+  },
+  {
+    question: "Will compressing a PDF reduce its quality?",
+    answer:
+      "Text quality is preserved. Images may compress slightly but remain readable for most documents.",
+  },
+  {
+    question: "Is there a file size limit for PDF compression?",
+    answer:
+      "No strict limit. Works best for PDFs under 100MB for fastest processing.",
+  },
+  {
+    question: "Is my PDF safe when I compress it online?",
+    answer:
+      "Yes. Our tool works entirely in your browser. Your file is never uploaded to any server.",
+  },
+  {
+    question: "How to compress PDF under 1MB for email?",
+    answer:
+      "Move the compression slider toward 70–80% for smaller files. Most text-based PDFs compress well under 1MB at higher compression levels.",
+  },
+  {
+    question: "How to compress PDF for government portals in India?",
+    answer:
+      "Use the Portal Upload preset (80%) or slide toward max reduction. Most government portals accept PDFs under 1MB or 2MB.",
+  },
+];
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: pdfCompressFaqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer,
+    },
+  })),
+};
 
 const howItWorksSteps = [
   {
@@ -56,8 +117,8 @@ const howItWorksSteps = [
   {
     step: "02",
     icon: SlidersHorizontal,
-    title: "Choose Quality",
-    description: "Pick your compression level",
+    title: "Choose Compression",
+    description: "Adjust the slider to your target size",
   },
   {
     step: "03",
@@ -69,19 +130,25 @@ const howItWorksSteps = [
 
 export default function PdfCompressPage() {
   const inputRef = useRef<HTMLInputElement>(null);
+  const compressionRef = useRef(DEFAULT_COMPRESSION);
   const [file, setFile] = useState<File | null>(null);
   const [compressedBlob, setCompressedBlob] = useState<Blob | null>(null);
-  const [compressLevel, setCompressLevel] = useState<CompressLevel>("medium");
+  const [compressionPercent, setCompressionPercent] = useState(DEFAULT_COMPRESSION);
+  compressionRef.current = compressionPercent;
+  const [appliedCompression, setAppliedCompression] = useState(DEFAULT_COMPRESSION);
   const [isProcessing, setIsProcessing] = useState(false);
   const [originalSize, setOriginalSize] = useState(0);
   const [compressedSize, setCompressedSize] = useState(0);
   const [error, setError] = useState<string | null>(null);
   const [isDragging, setIsDragging] = useState(false);
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
+  const [progress, setProgress] = useState<CompressProgress | null>(null);
 
   const resetResult = () => {
     setCompressedBlob(null);
     setCompressedSize(0);
     setError(null);
+    setProgress(null);
   };
 
   const handleFile = useCallback((selected: File) => {
@@ -103,7 +170,7 @@ export default function PdfCompressPage() {
     setFile(null);
     setOriginalSize(0);
     resetResult();
-    setCompressLevel("medium");
+    setCompressionPercent(DEFAULT_COMPRESSION);
     if (inputRef.current) inputRef.current.value = "";
   };
 
@@ -136,15 +203,24 @@ export default function PdfCompressPage() {
     setIsProcessing(true);
     setError(null);
     resetResult();
+    setProgress({
+      currentPage: 0,
+      totalPages: 0,
+      percent: 0,
+      message: "Preparing compression...",
+    });
 
     try {
-      const blob = await compressPDF(file, compressLevel);
+      const sliderValue = compressionRef.current;
+      setAppliedCompression(sliderValue);
+      const blob = await compressPDF(file, sliderValue, setProgress);
       setCompressedBlob(blob);
       setCompressedSize(blob.size);
     } catch {
       setError("Failed to compress PDF. Please try a different file.");
     } finally {
       setIsProcessing(false);
+      setProgress(null);
     }
   };
 
@@ -168,8 +244,16 @@ export default function PdfCompressPage() {
     originalSize > 0 && compressedSize > 0
       ? Math.round(((originalSize - compressedSize) / originalSize) * 100)
       : 0;
-  const isAlreadyOptimized =
-    compressedBlob !== null && compressedSize >= originalSize;
+  const hasMinimalSavings =
+    compressedBlob !== null && percentSaved >= 0 && percentSaved < 10;
+  const bytesSaved =
+    originalSize > 0 && compressedSize > 0 ? originalSize - compressedSize : 0;
+  const showQualityWarning =
+    compressedBlob !== null &&
+    compressedSize > 0 &&
+    appliedCompression >= 70 &&
+    compressedSize < 100 * 1024 &&
+    originalSize > 1024 * 1024;
 
   return (
     <div className="flex min-h-screen w-full max-w-full flex-col overflow-x-hidden bg-surface-base">
@@ -200,7 +284,7 @@ export default function PdfCompressPage() {
               </p>
             </div>
 
-            <div className="mt-10 space-y-6">
+            <div className="mt-8 space-y-3">
               <input
                 ref={inputRef}
                 type="file"
@@ -230,14 +314,20 @@ export default function PdfCompressPage() {
                 </p>
               </button>
 
+              <p className="rounded-xl border border-surface-border bg-surface-card px-3 py-2.5 text-sm leading-relaxed text-content-secondary">
+                💡 Works best on scanned documents, certificates, and
+                image-heavy PDFs. Text-only PDFs like resumes have limited
+                compression potential.
+              </p>
+
               {file && (
-                <div className="flex items-center gap-3 rounded-xl border border-surface-border bg-surface-card p-4">
+                <div className="flex items-center gap-3 rounded-xl border border-surface-border bg-surface-card p-3">
                   <div className="min-w-0 flex-1">
-                    <p className="truncate font-medium text-content-primary">
+                    <p className="truncate text-sm font-medium text-content-primary">
                       {file.name}
                     </p>
-                    <p className="mt-0.5 text-sm text-content-secondary">
-                      {formatFileSize(file.size)}
+                    <p className="mt-0.5 text-xs text-content-secondary">
+                      Uploaded: {formatFileSize(file.size)}
                     </p>
                   </div>
                   <button
@@ -256,34 +346,77 @@ export default function PdfCompressPage() {
               )}
 
               {file && (
-                <>
-                  <div>
-                    <p className="mb-3 text-sm font-medium text-content-primary">
-                      Compression level
+                <div className="space-y-3 rounded-xl border border-surface-border bg-surface-card p-4">
+                  <div className="flex flex-wrap gap-2">
+                    {compressionPresets.map((preset) => (
+                      <button
+                        key={preset.label}
+                        type="button"
+                        onClick={() => {
+                          setCompressionPercent(preset.value);
+                          resetResult();
+                        }}
+                        className={`rounded-lg border px-2.5 py-1 text-xs font-medium transition-colors sm:text-sm ${
+                          compressionPercent === preset.value
+                            ? "border-tool-pdf bg-tool-pdf/10 text-tool-pdf"
+                            : "border-surface-border bg-surface-base text-content-secondary hover:border-tool-pdf/40 hover:text-content-primary"
+                        }`}
+                      >
+                        {preset.label} ({preset.value}%)
+                      </button>
+                    ))}
+                  </div>
+
+                  <div className="text-center">
+                    <p className="text-xl font-bold text-tool-pdf">
+                      {compressionPercent}% Compression
                     </p>
-                    <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
-                      {compressionLevels.map((level) => (
-                        <button
-                          key={level.id}
-                          type="button"
-                          onClick={() => {
-                            setCompressLevel(level.id);
-                            resetResult();
-                          }}
-                          className={`rounded-lg border px-4 py-3 text-left transition-colors ${
-                            compressLevel === level.id
-                              ? "border-tool-pdf bg-tool-pdf/10 text-tool-pdf"
-                              : "border-surface-border bg-surface-card text-content-secondary"
-                          }`}
-                        >
-                          <span className="block font-semibold">
-                            {level.label}
-                          </span>
-                          <span className="mt-2 block text-xs text-content-muted">
-                            {level.description}
-                          </span>
-                        </button>
-                      ))}
+                  </div>
+
+                  <div>
+                    <input
+                      type="range"
+                      min={10}
+                      max={90}
+                      step={5}
+                      value={compressionPercent}
+                      onChange={(event) => {
+                        setCompressionPercent(Number(event.target.value));
+                        resetResult();
+                      }}
+                      aria-label="Compression amount"
+                      className="h-2 w-full cursor-pointer appearance-none rounded-full bg-surface-border accent-tool-pdf"
+                    />
+                    <div className="mt-2 flex justify-between text-xs text-content-muted">
+                      <span>10%</span>
+                      <span>90%</span>
+                    </div>
+                    <div className="mt-1.5 flex justify-between gap-3 text-xs text-content-secondary">
+                      <span>
+                        Low reduction
+                        <br />
+                        <span className="text-content-muted">Best quality</span>
+                      </span>
+                      <span className="text-right">
+                        Max reduction
+                        <br />
+                        <span className="text-content-muted">Smaller file</span>
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="space-y-2 border-t border-surface-border pt-3">
+                    <div className="flex items-center justify-between gap-3 text-sm">
+                      <span className="text-content-secondary">Original size</span>
+                      <span className="font-semibold text-content-primary">
+                        {formatFileSize(originalSize)}
+                      </span>
+                    </div>
+                    <div className="flex items-center justify-between gap-3 text-sm">
+                      <span className="text-content-secondary">Estimated output</span>
+                      <span className="text-right text-content-muted">
+                        varies by PDF content
+                      </span>
                     </div>
                   </div>
 
@@ -291,51 +424,80 @@ export default function PdfCompressPage() {
                     type="button"
                     onClick={handleCompress}
                     disabled={isProcessing}
-                    className="flex w-full items-center justify-center gap-2 rounded-xl border-l-4 border-l-[#DC2626] bg-tool-pdf px-4 py-4 text-base font-semibold text-white shadow-lg shadow-tool-pdf/20 transition-colors hover:bg-[#DC2626] disabled:opacity-70"
+                    className="flex w-full items-center justify-center gap-2 rounded-xl border-l-4 border-l-[#DC2626] bg-tool-pdf px-4 py-3.5 text-base font-semibold text-white shadow-lg shadow-tool-pdf/20 transition-colors hover:bg-[#DC2626] disabled:opacity-70"
                   >
                     {isProcessing ? (
                       <>
                         <Loader2 className="h-5 w-5 animate-spin" />
-                        Compressing...
+                        {progress?.message ?? "Compressing..."}
                       </>
                     ) : (
                       "Compress PDF"
                     )}
                   </button>
-                </>
+
+                  {isProcessing && progress && (
+                    <div className="space-y-1.5">
+                      <div className="h-1.5 overflow-hidden rounded-full bg-surface-border">
+                        <div
+                          className="h-full rounded-full bg-tool-pdf transition-all duration-300"
+                          style={{ width: `${progress.percent}%` }}
+                        />
+                      </div>
+                      <p className="text-center text-xs text-content-muted">
+                        {progress.percent}% complete
+                      </p>
+                    </div>
+                  )}
+                </div>
               )}
 
-              {compressedBlob && (
-                <div className="space-y-4">
-                  {isAlreadyOptimized && (
-                    <div className="rounded-xl border border-surface-border bg-surface-card px-4 py-3 text-center text-sm text-content-secondary">
-                      This PDF is already optimized — no further compression
-                      possible
+              {compressedBlob && compressedSize > 0 && (
+                <div className="space-y-3">
+                  {showQualityWarning && (
+                    <div className="rounded-xl border border-amber-500/30 bg-amber-500/10 px-3 py-2.5 text-sm leading-relaxed text-amber-200">
+                      ⚠️ High compression applied. Please check the downloaded
+                      file for readability before using for official purposes.
                     </div>
                   )}
 
-                  <div className="flex flex-col gap-3 sm:flex-row">
-                    <div className="flex-1 rounded-xl border border-surface-border bg-surface-card p-5">
-                      <p className="text-sm text-content-secondary">
-                        Original Size
-                      </p>
-                      <p className="mt-1 text-xl font-bold text-content-primary">
-                        {formatFileSize(originalSize)}
-                      </p>
+                  {hasMinimalSavings && (
+                    <div className="rounded-xl border border-amber-500/30 bg-amber-500/10 px-3 py-2.5 text-sm leading-relaxed text-amber-200">
+                      ⚠️ Minimal compression achieved ({percentSaved}%). This PDF
+                      may already be optimized or contains compressed content.
                     </div>
-                    <div className="flex-1 rounded-xl border border-surface-border bg-surface-card p-5">
-                      <p className="text-sm text-content-secondary">
-                        Compressed Size
-                      </p>
-                      <div className="mt-1 flex flex-wrap items-center gap-2">
-                        <p className="text-xl font-bold text-content-primary">
+                  )}
+
+                  <div className="rounded-xl border border-tool-convert/30 bg-tool-convert/5 p-4">
+                    <p className="mb-3 text-base font-semibold text-content-primary">
+                      ✅ Compression Complete!
+                    </p>
+                    <div className="space-y-2">
+                      <div className="flex items-center justify-between gap-4">
+                        <span className="text-sm text-content-secondary">
+                          Original
+                        </span>
+                        <span className="font-semibold text-content-primary">
+                          {formatFileSize(originalSize)}
+                        </span>
+                      </div>
+                      <div className="flex items-center justify-between gap-4">
+                        <span className="text-sm text-content-secondary">
+                          Compressed
+                        </span>
+                        <span className="font-semibold text-content-primary">
                           {formatFileSize(compressedSize)}
-                        </p>
-                        {!isAlreadyOptimized && percentSaved > 0 && (
-                          <span className="rounded bg-tool-convert/15 px-2 py-0.5 text-xs font-semibold text-tool-convert">
-                            {percentSaved}% smaller
-                          </span>
-                        )}
+                        </span>
+                      </div>
+                      <div className="flex items-center justify-between gap-4 border-t border-surface-border pt-3">
+                        <span className="text-sm text-content-secondary">
+                          You saved
+                        </span>
+                        <span className="font-semibold text-tool-convert">
+                          {percentSaved > 0
+                            ? `${percentSaved}% (${formatFileSize(bytesSaved)})`
+                            : "0%"}
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -343,7 +505,7 @@ export default function PdfCompressPage() {
                   <button
                     type="button"
                     onClick={handleDownload}
-                    className="w-full rounded-xl bg-tool-convert px-4 py-4 text-base font-semibold text-white transition-colors hover:bg-[#059669]"
+                    className="w-full rounded-xl bg-tool-convert px-4 py-3 text-base font-semibold text-white transition-colors hover:bg-[#059669]"
                   >
                     Download Compressed PDF
                   </button>
@@ -391,6 +553,110 @@ export default function PdfCompressPage() {
 
           <RelatedTools currentSlug="pdf-compress" />
           <ToolFeedback toolName="PDF Compress" />
+
+          <div className="mt-12 border-t border-surface-border pt-12">
+            <section>
+              <h2 className="text-lg font-semibold text-content-primary sm:text-xl">
+                About PDF Compress Tool
+              </h2>
+              <div className="mt-4 space-y-4 text-sm leading-relaxed text-content-secondary sm:text-base">
+                <p>
+                  Our free PDF Compress tool reduces file size while keeping
+                  documents readable and professional. Whether you need a
+                  lighter attachment for email or a PDF that meets a strict
+                  upload limit, you can shrink your file in seconds without
+                  installing software.
+                </p>
+                <p>
+                  Everything runs entirely in your browser — your PDF is never
+                  uploaded to a server. Compression happens on your device using
+                  client-side processing, which means your files stay 100%
+                  private. No account, no waiting in a queue, and no risk of
+                  sensitive documents being stored on third-party servers.
+                </p>
+                <p>
+                  This tool is built for everyday Indian users: students
+                  submitting assignments, employees emailing reports, job
+                  seekers sending resumes, and anyone filling government forms
+                  with tight size limits. It works especially well for NSDL and
+                  UTI PAN applications, college admission portals, UPSC and SSC
+                  form uploads, and email attachments that must stay under 1MB
+                  or 2MB. Because your files never leave your browser, you can
+                  safely compress confidential documents at home, at work, or on
+                  the go.
+                </p>
+              </div>
+            </section>
+
+            <section className="mt-12">
+              <h2 className="text-lg font-semibold text-content-primary sm:text-xl">
+                When Should You Compress a PDF?
+              </h2>
+              <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                {whenToUseItems.map((item) => (
+                  <div
+                    key={item.title}
+                    className="rounded-xl border border-surface-border bg-surface-card p-4 sm:p-5"
+                  >
+                    <h3 className="font-medium text-content-primary">
+                      {item.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-content-secondary">
+                      {item.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            <section className="mt-12">
+              <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+              />
+              <h2 className="text-lg font-semibold text-content-primary sm:text-xl">
+                Frequently Asked Questions
+              </h2>
+              <div className="mt-4 space-y-3">
+                {pdfCompressFaqs.map((faq, index) => {
+                  const isOpen = openFaqIndex === index;
+
+                  return (
+                    <div
+                      key={faq.question}
+                      className="overflow-hidden rounded-xl border border-surface-border bg-surface-card"
+                    >
+                      <button
+                        type="button"
+                        onClick={() =>
+                          setOpenFaqIndex(isOpen ? null : index)
+                        }
+                        aria-expanded={isOpen}
+                        className="flex w-full items-center justify-between gap-4 px-4 py-4 text-left sm:px-5"
+                      >
+                        <span className="font-medium text-content-primary">
+                          {faq.question}
+                        </span>
+                        <ChevronDown
+                          className={`h-5 w-5 shrink-0 text-content-muted transition-transform ${
+                            isOpen ? "rotate-180" : ""
+                          }`}
+                        />
+                      </button>
+                      {isOpen && (
+                        <div className="border-t border-surface-border px-4 pb-4 pt-3 sm:px-5">
+                          <p className="text-sm leading-relaxed text-content-secondary">
+                            {faq.answer}
+                          </p>
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </section>
+          </div>
+
           <DinoGame />
         </div>
       </main>
