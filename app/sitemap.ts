@@ -9,6 +9,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
+      url: "https://workutilities.com/tools",
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.95,
+    },
+    {
       url: "https://workutilities.com/tools/pdf-compress",
       lastModified: new Date(),
       changeFrequency: "monthly",

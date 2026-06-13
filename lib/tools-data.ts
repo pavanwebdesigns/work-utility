@@ -493,76 +493,147 @@ export function getToolBySlug(slug: string) {
 }
 
 /** Optional display name overrides for the header mega menu */
-export const HEADER_MENU_DISPLAY_NAMES: Partial<Record<string, string>> = {
-  "image-converter": "Image to JPG/PNG",
+export const HEADER_MENU_DISPLAY_NAMES: Partial<Record<string, string>> = {};
+
+export const COMING_SOON_TOOL_SLUGS = new Set([
+  "pdf-compress",
+  "pdf-to-word",
+  "pdf-to-jpg",
+  "pdf-unlock",
+  "bg-remove",
+]);
+
+export type MegaMenuItemConfig = {
+  slug: string;
+  description: string;
+  comingSoon?: boolean;
+  displayName?: string;
 };
 
-export const HEADER_MENU_CATEGORIES = [
-  {
-    title: "PDF Tools",
-    icon: "FileDown",
-    iconClassName: "text-tool-pdf",
-    slugs: [
-      "pdf-compress",
-      "pdf-merge",
-      "pdf-split",
-      "pdf-to-word",
-      "pdf-to-jpg",
-      "pdf-unlock",
-    ],
-  },
-  {
-    title: "Image Tools",
-    icon: "ImageDown",
-    iconClassName: "text-tool-image",
-    slugs: [
-      "image-compress",
-      "photo-resizer",
-      "image-to-pdf",
-      "image-converter",
-      "bg-remove",
-      "word-to-pdf",
-    ],
-  },
-  {
-    title: "Utility Tools",
-    icon: "Wrench",
-    iconClassName: "text-tool-convert",
-    slugs: [
-      "qr-code-generator",
-      "word-counter",
-      "age-calculator",
-      "emi-calculator",
-      "gst-calculator",
-      "salary-hike-calculator",
-      "cgpa-to-percentage",
-      "ctc-calculator",
-      "fd-calculator",
-      "sip-calculator",
-      "notice-period-calculator",
-      "percentage-calculator",
-      "password-generator",
-      "unit-converter",
-      "income-tax-calculator",
-      "signature-maker",
-      "rent-receipt-generator",
-    ],
-  },
-] as const;
+export type MegaMenuCategoryConfig = {
+  id: string;
+  title: string;
+  emoji: string;
+  items: MegaMenuItemConfig[];
+};
 
-export function getHeaderMenuCategories() {
-  return HEADER_MENU_CATEGORIES.map((category) => ({
+export const MEGA_MENU_CATEGORIES: MegaMenuCategoryConfig[] = [
+  {
+    id: "pdf",
+    title: "PDF Tools",
+    emoji: "📄",
+    items: [
+      { slug: "pdf-merge", description: "Combine multiple PDFs into one" },
+      { slug: "pdf-split", description: "Extract pages from PDF" },
+      { slug: "pdf-compress", description: "Reduce PDF file size", comingSoon: true },
+      { slug: "pdf-to-word", description: "Convert PDF to editable Word", comingSoon: true },
+      { slug: "pdf-to-jpg", description: "Convert PDF pages to images", comingSoon: true },
+      {
+        slug: "pdf-unlock",
+        description: "Unlock password protected PDF",
+        comingSoon: true,
+      },
+    ],
+  },
+  {
+    id: "image",
+    title: "Image Tools",
+    emoji: "🖼️",
+    items: [
+      { slug: "image-compress", description: "Reduce image file size" },
+      { slug: "photo-resizer", description: "Resize to exact dimensions" },
+      { slug: "bg-remove", description: "Remove image background", comingSoon: true },
+      { slug: "image-to-pdf", description: "Convert images to PDF" },
+      { slug: "image-converter", description: "Convert between JPG, PNG, WebP" },
+    ],
+  },
+  {
+    id: "document",
+    title: "Document Tools",
+    emoji: "📝",
+    items: [
+      { slug: "word-to-pdf", description: "Convert Word documents to PDF" },
+      { slug: "signature-maker", description: "Create digital signature" },
+      { slug: "rent-receipt-generator", description: "Generate rent receipts PDF" },
+    ],
+  },
+  {
+    id: "finance",
+    title: "Finance Calculators",
+    emoji: "🧮",
+    items: [
+      { slug: "emi-calculator", description: "Calculate loan EMI instantly" },
+      { slug: "gst-calculator", description: "Add or remove GST" },
+      { slug: "sip-calculator", description: "Calculate mutual fund returns" },
+      { slug: "fd-calculator", description: "Calculate fixed deposit returns" },
+      { slug: "ctc-calculator", description: "Know your in-hand salary" },
+      { slug: "salary-hike-calculator", description: "Calculate new salary after hike" },
+      { slug: "income-tax-calculator", description: "Old vs New regime comparison" },
+    ],
+  },
+  {
+    id: "student",
+    title: "Student Tools",
+    emoji: "🎓",
+    items: [
+      { slug: "cgpa-to-percentage", description: "Convert CGPA to percentage" },
+      { slug: "percentage-calculator", description: "Calculate percentages easily" },
+      { slug: "word-counter", description: "Count words and characters" },
+      { slug: "age-calculator", description: "Calculate exact age" },
+    ],
+  },
+  {
+    id: "utility",
+    title: "Utility Tools",
+    emoji: "⚙️",
+    items: [
+      { slug: "qr-code-generator", description: "Generate QR codes free" },
+      { slug: "password-generator", description: "Create strong passwords" },
+      { slug: "unit-converter", description: "Convert length, weight, temp" },
+      { slug: "notice-period-calculator", description: "Find your last working day" },
+    ],
+  },
+];
+
+/** @deprecated Use MEGA_MENU_CATEGORIES via getMegaMenuCategories() */
+export const HEADER_MENU_CATEGORIES = MEGA_MENU_CATEGORIES.map((category) => ({
+  title: category.title,
+  icon: "Wrench" as const,
+  iconClassName: "text-tool-convert",
+  slugs: category.items.map((item) => item.slug),
+}));
+
+export type MegaMenuTool = {
+  tool: (typeof ALL_TOOLS)[number];
+  description: string;
+  displayName?: string;
+  comingSoon: boolean;
+};
+
+export type MegaMenuCategory = MegaMenuCategoryConfig & {
+  tools: MegaMenuTool[];
+};
+
+export function getMegaMenuCategories(): MegaMenuCategory[] {
+  return MEGA_MENU_CATEGORIES.map((category) => ({
     ...category,
-    tools: category.slugs.flatMap((slug) => {
-      const tool = getToolBySlug(slug);
+    tools: category.items.flatMap((item) => {
+      const tool = getToolBySlug(item.slug);
       if (!tool) return [];
 
       return [
         {
           tool,
-          displayName: HEADER_MENU_DISPLAY_NAMES[slug],
+          description: item.description,
+          displayName: item.displayName ?? HEADER_MENU_DISPLAY_NAMES[item.slug],
+          comingSoon:
+            item.comingSoon ?? COMING_SOON_TOOL_SLUGS.has(item.slug),
         },
       ];
     }),
   }));
+}
+
+export function getHeaderMenuCategories() {
+  return getMegaMenuCategories();
 }

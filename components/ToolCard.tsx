@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { LucideIcon } from "lucide-react";
+import { SoonBadge } from "@/components/SoonBadge";
 
 export type ToolAccent = "pdf" | "image" | "photo" | "blue" | "convert" | "pink";
 
@@ -46,6 +47,7 @@ export interface ToolCardProps {
   icon: LucideIcon;
   accent: ToolAccent;
   popular?: boolean;
+  comingSoon?: boolean;
 }
 
 export function ToolCard({
@@ -55,6 +57,7 @@ export function ToolCard({
   icon: Icon,
   accent,
   popular,
+  comingSoon,
 }: ToolCardProps) {
   const colors = accentClasses[accent];
 
@@ -62,11 +65,18 @@ export function ToolCard({
     <Link
       href={href}
       aria-label={`${title} tool`}
-      className="group relative block cursor-pointer rounded-2xl border border-surface-border bg-surface-card p-6 no-underline transition-all duration-200 ease-in-out hover:-translate-y-0.5 hover:border-brand-blue hover:bg-surface-elevated"
+      className={`group relative block cursor-pointer rounded-2xl border border-surface-border bg-surface-card p-6 no-underline transition-all duration-200 ease-in-out hover:-translate-y-0.5 hover:border-brand-blue hover:bg-surface-elevated ${
+        comingSoon ? "opacity-70 hover:opacity-100" : ""
+      }`}
     >
-      {popular && (
+      {popular && !comingSoon && (
         <span className="absolute right-4 top-4 rounded bg-brand-blue/15 px-2 py-0.5 text-[10px] font-semibold text-brand-blue-light">
           POPULAR
+        </span>
+      )}
+      {comingSoon && (
+        <span className="absolute right-4 top-4">
+          <SoonBadge />
         </span>
       )}
 

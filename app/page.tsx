@@ -6,46 +6,13 @@ import { Search, X } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ToolCard } from "@/components/ToolCard";
+import { ToolsCategorySection } from "@/components/ToolsCategorySection";
 import {
   blogPosts,
   getCategoryBadgeClass,
 } from "@/app/blog/posts";
-import {
-  ALL_TOOLS,
-  TOOL_ICONS,
-  TOOL_UI_META,
-} from "@/lib/tools-data";
-
-type Category = "all" | "pdf" | "images" | "convert";
-
-const categories: { id: Category; label: string }[] = [
-  { id: "all", label: "All Tools" },
-  { id: "pdf", label: "PDF" },
-  { id: "images", label: "Images" },
-  { id: "convert", label: "Convert" },
-];
-
-const tools = ALL_TOOLS.map((tool) => {
-  const meta = TOOL_UI_META[tool.slug];
-
-  return {
-    title: tool.name,
-    description: tool.description,
-    href: tool.href,
-    icon: TOOL_ICONS[tool.icon],
-    accent: meta.accent,
-    popular: meta.popular,
-    category: meta.filterCategory as Category,
-    searchCategory: tool.category,
-  };
-});
-
-const sectionLabels: Record<Category, string> = {
-  all: "ALL TOOLS",
-  pdf: "PDF TOOLS",
-  images: "IMAGE TOOLS",
-  convert: "CONVERT TOOLS",
-};
+import { ALL_TOOLS } from "@/lib/tools-data";
+import { searchTools } from "@/lib/tool-categories";
 
 function TrustBadge({ children }: { children: React.ReactNode }) {
   return (
@@ -82,47 +49,21 @@ function StatsBar() {
 }
 
 export default function HomePage() {
-  const [activeCategory, setActiveCategory] = useState<Category>("all");
   const [searchQuery, setSearchQuery] = useState("");
 
   const isSearching = searchQuery.trim().length > 0;
-  const query = searchQuery.trim().toLowerCase();
 
   const searchResults = useMemo(() => {
     if (!isSearching) return [];
-
-    return ALL_TOOLS.filter(
-      (tool) =>
-        tool.name.toLowerCase().includes(query) ||
-        tool.description.toLowerCase().includes(query) ||
-        tool.category.toLowerCase().includes(query)
-    ).map((tool) => {
-      const meta = TOOL_UI_META[tool.slug];
-      return {
-        title: tool.name,
-        description: tool.description,
-        href: tool.href,
-        icon: TOOL_ICONS[tool.icon],
-        accent: meta.accent,
-        popular: meta.popular,
-        category: meta.filterCategory as Category,
-      };
-    });
-  }, [isSearching, query]);
-
-  const filteredTools =
-    activeCategory === "all"
-      ? tools
-      : tools.filter((tool) => tool.category === activeCategory);
-
-  const displayTools = isSearching ? searchResults : filteredTools;
+    return searchTools(searchQuery.trim());
+  }, [isSearching, searchQuery]);
 
   return (
     <div className="flex min-h-screen w-full max-w-full flex-col overflow-x-hidden bg-surface-base">
       <Header />
 
       <main id="main-content" className="flex-1 min-w-0 overflow-x-hidden">
-        <section className="bg-surface-base px-4 pb-[60px] pt-20 text-center sm:px-10">
+        <section className="bg-surface-base px-4 pb-[60px] pt-12 text-center sm:px-10">
           <div className="mx-auto max-w-4xl">
             <h1 className="text-balance text-3xl md:text-5xl">
               Free tools that
@@ -186,52 +127,43 @@ export default function HomePage() {
               )}
             </div>
 
-            {!isSearching && (
-              <div className="mb-8 flex gap-2 overflow-x-auto whitespace-nowrap border-b border-surface-border pb-3.5">
-                {categories.map((category) => (
-                  <button
-                    key={category.id}
-                    type="button"
-                    onClick={() => setActiveCategory(category.id)}
-                    aria-pressed={activeCategory === category.id}
-                    aria-label={`Filter by ${category.label}`}
-                    className={`cursor-pointer rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${
-                      activeCategory === category.id
-                        ? "bg-brand-blue text-white"
-                        : "text-content-secondary hover:text-content-primary"
-                    }`}
-                  >
-                    {category.label}
-                  </button>
-                ))}
-              </div>
-            )}
+            {!isSearching && <ToolsCategorySection />}
 
-            <p className="mb-4 text-left text-[11px] font-semibold tracking-[2px] text-content-muted">
-              {isSearching
-                ? searchResults.length > 0
-                  ? `${searchResults.length} result${searchResults.length === 1 ? "" : "s"} for '${searchQuery.trim()}'`
-                  : `No tools found for '${searchQuery.trim()}'`
-                : sectionLabels[activeCategory]}
-            </p>
+            {isSearching && (
+              <>
+                <p className="mb-4 text-left text-[11px] font-semibold tracking-[2px] text-content-muted">
+                  {searchResults.length > 0
+                    ? `${searchResults.length} result${searchResults.length === 1 ? "" : "s"} for '${searchQuery.trim()}'`
+                    : `No tools found for '${searchQuery.trim()}'`}
+                </p>
 
-            {displayTools.length === 0 && isSearching ? (
-              <div className="rounded-xl border border-surface-border bg-surface-card px-6 py-12 text-center">
-                <p className="text-content-primary">
-                  No tools found for &apos;{searchQuery.trim()}&apos;
-                </p>
-                <p className="mt-2 text-sm text-content-secondary">
-                  Try searching for PDF, image, or convert
-                </p>
-              </div>
-            ) : (
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                {displayTools.map((tool) => (
-                  <div key={tool.href} className="w-full min-w-0">
-                    <ToolCard {...tool} />
+                {searchResults.length === 0 ? (
+                  <div className="rounded-xl border border-surface-border bg-surface-card px-6 py-12 text-center">
+                    <p className="text-content-primary">
+                      No tools found for &apos;{searchQuery.trim()}&apos;
+                    </p>
+                    <p className="mt-2 text-sm text-content-secondary">
+                      Try searching for PDF, image, or calculator
+                    </p>
                   </div>
-                ))}
-              </div>
+                ) : (
+                  <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                    {searchResults.map((tool) => (
+                      <div key={tool.href} className="w-full min-w-0">
+                        <ToolCard
+                          title={tool.title}
+                          description={tool.description}
+                          href={tool.href}
+                          icon={tool.icon}
+                          accent={tool.accent}
+                          popular={tool.popular}
+                          comingSoon={tool.comingSoon}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </>
             )}
           </div>
         </section>
