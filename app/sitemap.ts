@@ -308,6 +308,66 @@ export function getSiteMapEntries(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.8,
     },
+    {
+      url: "https://workutilities.com/blog/how-to-calculate-in-hand-salary-from-ctc",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: "https://workutilities.com/blog/old-vs-new-tax-regime-india-2025",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: "https://workutilities.com/blog/how-to-start-sip-india-beginners-guide",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: "https://workutilities.com/blog/notice-period-buyout-india-guide",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: "https://workutilities.com/blog/how-to-save-income-tax-india-legally",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: "https://workutilities.com/blog/home-loan-emi-guide-india",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: "https://workutilities.com/blog/gst-for-freelancers-india",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: "https://workutilities.com/blog/how-to-read-salary-slip-india",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: "https://workutilities.com/blog/fd-vs-sip-india-comparison",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: "https://workutilities.com/blog/salary-hike-negotiation-guide-india",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
   ];
 }
 

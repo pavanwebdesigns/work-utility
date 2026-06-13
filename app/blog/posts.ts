@@ -1,4 +1,4 @@
-export type BlogCategory = "PDF" | "Images" | "Photo";
+export type BlogCategory = "PDF" | "Images" | "Photo" | "Finance";
 
 export type BlogPost = {
   slug: string;
@@ -125,6 +125,116 @@ export const blogPosts: BlogPost[] = [
     lastUpdated: "June 2026",
     cta: { toolName: "Photo Resizer", toolHref: "/tools/photo-resizer" },
   },
+  {
+    slug: "how-to-calculate-in-hand-salary-from-ctc",
+    title: "How to Calculate In-Hand Salary from CTC — A Real Guide for Indian Employees",
+    excerpt:
+      "Learn how to calculate your actual in-hand salary from CTC. Understand PF, professional tax, and HRA deductions with real examples.",
+    category: "Finance",
+    readTime: "6 min read",
+    author: "Ravi Kumar",
+    lastUpdated: "June 2026",
+    cta: { toolName: "CTC Calculator", toolHref: "/tools/ctc-calculator" },
+  },
+  {
+    slug: "old-vs-new-tax-regime-india-2025",
+    title: "Old Regime vs New Tax Regime 2025-26 — Which One Actually Saves More Money?",
+    excerpt:
+      "Confused between old and new tax regime? Real examples showing which regime saves more tax for different salary levels in India 2025-26.",
+    category: "Finance",
+    readTime: "6 min read",
+    author: "Priya Sharma",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Income Tax Calculator", toolHref: "/tools/income-tax-calculator" },
+  },
+  {
+    slug: "how-to-start-sip-india-beginners-guide",
+    title: "How to Start a SIP in India — Beginner's Guide for Salaried Employees (2025)",
+    excerpt:
+      "Complete guide to starting SIP in India. How much to invest, which funds to choose, and how to calculate returns. Free SIP calculator included.",
+    category: "Finance",
+    readTime: "6 min read",
+    author: "Priya Sharma",
+    lastUpdated: "June 2026",
+    cta: { toolName: "SIP Calculator", toolHref: "/tools/sip-calculator" },
+  },
+  {
+    slug: "notice-period-buyout-india-guide",
+    title: "What is Notice Period Buyout? How to Calculate and Negotiate in India",
+    excerpt:
+      "Complete guide to notice period buyout in India. How to calculate buyout amount, when companies allow it, and how to negotiate early exit.",
+    category: "Finance",
+    readTime: "5 min read",
+    author: "Ravi Kumar",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Notice Period Calculator", toolHref: "/tools/notice-period-calculator" },
+  },
+  {
+    slug: "how-to-save-income-tax-india-legally",
+    title: "How to Save Income Tax Legally in India — 10 Deductions Salaried Employees Miss",
+    excerpt:
+      "Save more income tax in India with these 10 legal deductions. 80C, 80D, HRA, home loan and more explained simply for salaried employees.",
+    category: "Finance",
+    readTime: "6 min read",
+    author: "Ravi Kumar",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Income Tax Calculator", toolHref: "/tools/income-tax-calculator" },
+  },
+  {
+    slug: "home-loan-emi-guide-india",
+    title: "Home Loan EMI Calculator Guide — How Much Can You Actually Afford in India?",
+    excerpt:
+      "Before taking a home loan in India, calculate how much EMI you can afford. Real examples with SBI, HDFC home loan rates 2025.",
+    category: "Finance",
+    readTime: "6 min read",
+    author: "Priya Sharma",
+    lastUpdated: "June 2026",
+    cta: { toolName: "EMI Calculator", toolHref: "/tools/emi-calculator" },
+  },
+  {
+    slug: "gst-for-freelancers-india",
+    title: "GST for Freelancers in India — When to Register and How to Calculate (2025)",
+    excerpt:
+      "Complete GST guide for Indian freelancers. When GST registration is mandatory, how to calculate GST on invoices, and file returns.",
+    category: "Finance",
+    readTime: "5 min read",
+    author: "Ravi Kumar",
+    lastUpdated: "June 2026",
+    cta: { toolName: "GST Calculator", toolHref: "/tools/gst-calculator" },
+  },
+  {
+    slug: "how-to-read-salary-slip-india",
+    title: "How to Read Your Salary Slip — Every Component Explained for Indian Employees",
+    excerpt:
+      "Learn to read your Indian salary slip. Understand Basic, HRA, PF, TDS, gross and net salary with real examples.",
+    category: "Finance",
+    readTime: "6 min read",
+    author: "Priya Sharma",
+    lastUpdated: "June 2026",
+    cta: { toolName: "CTC Calculator", toolHref: "/tools/ctc-calculator" },
+  },
+  {
+    slug: "fd-vs-sip-india-comparison",
+    title: "FD vs SIP — Where Should You Invest Your First ₹5,000 in India?",
+    excerpt:
+      "FD or SIP — which is better for Indian investors in 2025? Real comparison of returns, risk, and liquidity for salaried employees.",
+    category: "Finance",
+    readTime: "6 min read",
+    author: "Ravi Kumar",
+    lastUpdated: "June 2026",
+    cta: { toolName: "SIP Calculator", toolHref: "/tools/sip-calculator" },
+  },
+  {
+    slug: "salary-hike-negotiation-guide-india",
+    title: "How to Negotiate Salary Hike in India — Appraisal Season Guide 2025",
+    excerpt:
+      "Practical guide to salary hike negotiation in India. How to calculate expected hike, what to say to HR, and when to consider switching jobs.",
+    category: "Finance",
+    readTime: "6 min read",
+    author: "Priya Sharma",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Salary Hike Calculator", toolHref: "/tools/salary-hike-calculator" },
+  },
 ];
 
 export const blogPostBySlug = Object.fromEntries(
@@ -205,6 +315,76 @@ export const blogSeoMetadata: Record<
     keywords:
       "resize photo for government forms india, aadhaar photo size pixels, pan card photo kb limit, passport photo resize online",
   },
+  "how-to-calculate-in-hand-salary-from-ctc": {
+    title: "How to Calculate In-Hand Salary from CTC — Real Guide 2026 | WorkUtilities",
+    description:
+      "Learn how to calculate your actual in-hand salary from CTC. Understand PF, professional tax, and HRA deductions with real examples for Indian employees.",
+    keywords:
+      "in hand salary from ctc, ctc to take home salary india, pf deduction calculator, salary breakdown india",
+  },
+  "old-vs-new-tax-regime-india-2025": {
+    title: "Old vs New Tax Regime 2025-26 India — Which Saves More? | WorkUtilities",
+    description:
+      "Confused between old and new tax regime? Real examples showing which regime saves more tax for different salary levels in India 2025-26.",
+    keywords:
+      "old vs new tax regime 2025, new tax regime india 2025-26, income tax regime comparison, tax savings india",
+  },
+  "how-to-start-sip-india-beginners-guide": {
+    title: "How to Start SIP in India — Beginner Guide 2025 | WorkUtilities",
+    description:
+      "Complete guide to starting SIP in India. How much to invest, which funds to choose, and how to calculate returns. Free SIP calculator included.",
+    keywords:
+      "how to start sip india, sip for beginners india, mutual fund sip guide, sip calculator india",
+  },
+  "notice-period-buyout-india-guide": {
+    title: "Notice Period Buyout India — Calculate & Negotiate | WorkUtilities",
+    description:
+      "Complete guide to notice period buyout in India. How to calculate buyout amount, when companies allow it, and how to negotiate early exit.",
+    keywords:
+      "notice period buyout india, notice period calculator, early exit notice period, job switch notice period",
+  },
+  "how-to-save-income-tax-india-legally": {
+    title: "How to Save Income Tax Legally in India — 10 Deductions | WorkUtilities",
+    description:
+      "Save more income tax in India with these 10 legal deductions. 80C, 80D, HRA, home loan and more explained simply for salaried employees.",
+    keywords:
+      "save income tax india, tax deductions salaried employees, 80c 80d hra exemption, income tax planning india",
+  },
+  "home-loan-emi-guide-india": {
+    title: "Home Loan EMI Guide India 2025 — How Much Can You Afford? | WorkUtilities",
+    description:
+      "Before taking a home loan in India, calculate how much EMI you can afford. Real examples with SBI, HDFC home loan rates 2025.",
+    keywords:
+      "home loan emi calculator india, sbi hdfc home loan emi, how much emi can i afford, home loan guide india",
+  },
+  "gst-for-freelancers-india": {
+    title: "GST for Freelancers India 2025 — When to Register | WorkUtilities",
+    description:
+      "Complete GST guide for Indian freelancers. When GST registration is mandatory, how to calculate GST on invoices, and file returns.",
+    keywords:
+      "gst for freelancers india, freelance gst registration, gst on freelance invoice, gst calculator india",
+  },
+  "how-to-read-salary-slip-india": {
+    title: "How to Read Salary Slip India — Every Component Explained | WorkUtilities",
+    description:
+      "Learn to read your Indian salary slip. Understand Basic, HRA, PF, TDS, gross and net salary with real examples.",
+    keywords:
+      "how to read salary slip india, salary slip components, basic hra pf tds explained, payslip guide india",
+  },
+  "fd-vs-sip-india-comparison": {
+    title: "FD vs SIP India 2025 — Where to Invest ₹5,000? | WorkUtilities",
+    description:
+      "FD or SIP — which is better for Indian investors in 2025? Real comparison of returns, risk, and liquidity for salaried employees.",
+    keywords:
+      "fd vs sip india, fixed deposit vs mutual fund sip, where to invest 5000 rupees india, fd sip comparison",
+  },
+  "salary-hike-negotiation-guide-india": {
+    title: "Salary Hike Negotiation India 2025 — Appraisal Guide | WorkUtilities",
+    description:
+      "Practical guide to salary hike negotiation in India. How to calculate expected hike, what to say to HR, and when to consider switching jobs.",
+    keywords:
+      "salary hike negotiation india, appraisal negotiation tips, how to ask for salary hike, salary increment india 2025",
+  },
 };
 
 export function getCategoryBadgeClass(category: BlogCategory): string {
@@ -215,5 +395,7 @@ export function getCategoryBadgeClass(category: BlogCategory): string {
       return "bg-tool-image/10 text-tool-image";
     case "Photo":
       return "bg-tool-photo/10 text-tool-photo";
+    case "Finance":
+      return "bg-brand-blue/10 text-brand-blue";
   }
 }

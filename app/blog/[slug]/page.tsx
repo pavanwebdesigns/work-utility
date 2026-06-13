@@ -13,6 +13,16 @@ import HowToMergePdfFilesFreeContent from "../content/how-to-merge-pdf-files-fre
 import HowToRemoveBackgroundFromPhotoFreeContent from "../content/how-to-remove-background-from-photo-free";
 import HowToUnlockPasswordProtectedPdfContent from "../content/how-to-unlock-password-protected-pdf";
 import ResizePhotoForGovernmentFormsIndiaContent from "../content/resize-photo-for-government-forms-india";
+import HowToCalculateInHandSalaryFromCtcContent from "../content/how-to-calculate-in-hand-salary-from-ctc";
+import OldVsNewTaxRegimeIndia2025Content from "../content/old-vs-new-tax-regime-india-2025";
+import HowToStartSipIndiaBeginnersGuideContent from "../content/how-to-start-sip-india-beginners-guide";
+import NoticePeriodBuyoutIndiaGuideContent from "../content/notice-period-buyout-india-guide";
+import HowToSaveIncomeTaxIndiaLegallyContent from "../content/how-to-save-income-tax-india-legally";
+import HomeLoanEmiGuideIndiaContent from "../content/home-loan-emi-guide-india";
+import GstForFreelancersIndiaContent from "../content/gst-for-freelancers-india";
+import HowToReadSalarySlipIndiaContent from "../content/how-to-read-salary-slip-india";
+import FdVsSipIndiaComparisonContent from "../content/fd-vs-sip-india-comparison";
+import SalaryHikeNegotiationGuideIndiaContent from "../content/salary-hike-negotiation-guide-india";
 
 const contentBySlug: Record<string, () => JSX.Element> = {
   "aadhaar-card-photo-size": AadhaarCardPhotoSizeContent,
@@ -30,6 +40,19 @@ const contentBySlug: Record<string, () => JSX.Element> = {
     HowToUnlockPasswordProtectedPdfContent,
   "resize-photo-for-government-forms-india":
     ResizePhotoForGovernmentFormsIndiaContent,
+  "how-to-calculate-in-hand-salary-from-ctc":
+    HowToCalculateInHandSalaryFromCtcContent,
+  "old-vs-new-tax-regime-india-2025": OldVsNewTaxRegimeIndia2025Content,
+  "how-to-start-sip-india-beginners-guide":
+    HowToStartSipIndiaBeginnersGuideContent,
+  "notice-period-buyout-india-guide": NoticePeriodBuyoutIndiaGuideContent,
+  "how-to-save-income-tax-india-legally": HowToSaveIncomeTaxIndiaLegallyContent,
+  "home-loan-emi-guide-india": HomeLoanEmiGuideIndiaContent,
+  "gst-for-freelancers-india": GstForFreelancersIndiaContent,
+  "how-to-read-salary-slip-india": HowToReadSalarySlipIndiaContent,
+  "fd-vs-sip-india-comparison": FdVsSipIndiaComparisonContent,
+  "salary-hike-negotiation-guide-india":
+    SalaryHikeNegotiationGuideIndiaContent,
 };
 
 export function generateStaticParams() {
