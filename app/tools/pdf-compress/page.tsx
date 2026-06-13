@@ -1,14 +1,36 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import Link from "next/link";
-import { ChevronDown, Download, FileDown, SlidersHorizontal, Upload } from "lucide-react";
+import {
+  ChevronDown,
+  Download,
+  FileDown,
+  Loader2,
+  SlidersHorizontal,
+  Upload,
+  UploadCloud,
+  X,
+} from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { RelatedTools } from "@/components/RelatedTools";
-import { ToolComingSoon } from "@/components/ToolComingSoon";
 import { ToolFeedback } from "@/components/ToolFeedback";
 import { DinoGame } from "@/components/DinoGame";
+import {
+  calcSavingsPercent,
+  compressPDF,
+  formatFileSize,
+} from "@/lib/pdf-api";
+
+const MAX_FILE_SIZE = 50 * 1024 * 1024;
+
+const compressionPresets = [
+  { id: "email", label: "Email", quality: 70 },
+  { id: "portal", label: "Portal Upload", quality: 80 },
+  { id: "whatsapp", label: "WhatsApp", quality: 60 },
+  { id: "archive", label: "Archive", quality: 50 },
+] as const;
 
 const whenToUseItems = [
   {
@@ -105,8 +127,65 @@ const howItWorksSteps = [
   },
 ];
 
+function isPdfFile(file: File) {
+  return file.type === "application/pdf" || file.name.toLowerCase().endsWith(".pdf");
+}
+
 export default function PdfCompressPage() {
+  const inputRef = useRef<HTMLInputElement>(null);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
+  const [file, setFile] = useState<File | null>(null);
+  const [quality, setQuality] = useState(50);
+  const [isProcessing, setIsProcessing] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [result, setResult] = useState<{
+    originalSize: number;
+    compressedSize: number;
+  } | null>(null);
+
+  const handleFile = useCallback((selected: File) => {
+    if (!isPdfFile(selected)) {
+      setError("Please select a valid PDF file.");
+      return;
+    }
+    if (selected.size > MAX_FILE_SIZE) {
+      setError("PDF must be 50MB or smaller.");
+      return;
+    }
+
+    setFile(selected);
+    setResult(null);
+    setError(null);
+  }, []);
+
+  const handleClear = () => {
+    setFile(null);
+    setResult(null);
+    setError(null);
+    if (inputRef.current) inputRef.current.value = "";
+  };
+
+  const handleCompress = async () => {
+    if (!file) return;
+
+    setIsProcessing(true);
+    setResult(null);
+    setError(null);
+
+    try {
+      const stats = await compressPDF(file, quality);
+      setResult(stats);
+    } catch {
+      setError("Compression failed. Please try again.");
+    } finally {
+      setIsProcessing(false);
+    }
+  };
+
+  const savingsPercent = result
+    ? calcSavingsPercent(result.originalSize, result.compressedSize)
+    : 0;
 
   return (
     <div className="flex min-h-screen w-full max-w-full flex-col overflow-x-hidden bg-surface-base">
@@ -132,12 +211,213 @@ export default function PdfCompressPage() {
                 PDF Compress
               </h1>
               <p className="mx-auto mt-3 max-w-md text-content-secondary">
-                Reduce your PDF file size while maintaining quality. Files never
-                leave your browser.
+                Reduce your PDF file size while maintaining quality. Fast
+                compression powered by our secure PDF service.
               </p>
             </div>
 
-            <ToolComingSoon />
+            <div className="mt-10 space-y-6">
+              <input
+                ref={inputRef}
+                type="file"
+                accept="application/pdf,.pdf"
+                aria-label="Upload PDF file"
+                className="hidden"
+                onChange={(e) => {
+                  const selected = e.target.files?.[0];
+                  if (selected) handleFile(selected);
+                  e.target.value = "";
+                }}
+              />
+
+              {!file && (
+                <button
+                  type="button"
+                  aria-label="File upload area"
+                  onClick={() => inputRef.current?.click()}
+                  onDragOver={(e) => {
+                    e.preventDefault();
+                    setIsDragging(true);
+                  }}
+                  onDragLeave={(e) => {
+                    e.preventDefault();
+                    setIsDragging(false);
+                  }}
+                  onDrop={(e) => {
+                    e.preventDefault();
+                    setIsDragging(false);
+                    const dropped = e.dataTransfer.files?.[0];
+                    if (dropped) handleFile(dropped);
+                  }}
+                  className={`flex min-h-[160px] w-full flex-col items-center justify-center rounded-2xl border-2 border-dashed bg-surface-card p-12 transition-colors sm:min-h-[200px] ${
+                    isDragging
+                      ? "border-tool-pdf"
+                      : "border-tool-pdf/30 hover:border-tool-pdf"
+                  }`}
+                >
+                  <UploadCloud className="mb-4 h-10 w-10 text-content-muted" />
+                  <p className="font-medium text-content-primary">Drop your PDF here</p>
+                  <p className="mt-1 text-sm text-content-secondary">
+                    or click to browse — max 50MB
+                  </p>
+                </button>
+              )}
+
+              {file && (
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3 rounded-xl border border-surface-border bg-surface-card p-4">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-tool-pdf/10">
+                      <FileDown className="h-5 w-5 text-tool-pdf" />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <p className="truncate text-sm font-medium text-content-primary">
+                        {file.name}
+                      </p>
+                      <p className="text-xs text-content-secondary">
+                        {formatFileSize(file.size)}
+                      </p>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={handleClear}
+                      className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-tool-pdf transition-colors hover:bg-tool-pdf/10"
+                    >
+                      <X className="h-4 w-4" />
+                    </button>
+                  </div>
+
+                  <div>
+                    <div className="mb-3 flex items-center justify-between gap-4">
+                      <p className="text-sm font-medium text-content-primary">
+                        Compression level
+                      </p>
+                      <span className="text-sm font-semibold text-tool-pdf">
+                        {quality}%
+                      </span>
+                    </div>
+                    <input
+                      type="range"
+                      min={10}
+                      max={90}
+                      step={5}
+                      value={quality}
+                      onChange={(e) => setQuality(Number(e.target.value))}
+                      className="w-full accent-tool-pdf"
+                    />
+                    <div className="mt-1 flex justify-between text-xs text-content-muted">
+                      <span>Light (10%)</span>
+                      <span>Heavy (90%)</span>
+                    </div>
+                  </div>
+
+                  <div>
+                    <p className="mb-3 text-sm font-medium text-content-primary">
+                      Quick presets
+                    </p>
+                    <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+                      {compressionPresets.map((preset) => (
+                        <button
+                          key={preset.id}
+                          type="button"
+                          onClick={() => setQuality(preset.quality)}
+                          className={`rounded-lg border px-3 py-2 text-sm font-medium transition-colors ${
+                            quality === preset.quality
+                              ? "border-tool-pdf bg-tool-pdf/10 text-tool-pdf"
+                              : "border-surface-border bg-surface-card text-content-secondary hover:border-tool-pdf/40"
+                          }`}
+                        >
+                          {preset.label}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={handleCompress}
+                    disabled={isProcessing}
+                    className="flex w-full items-center justify-center gap-2 rounded-xl bg-tool-pdf px-4 py-4 text-base font-semibold text-white transition-colors hover:bg-[#DC2626] disabled:opacity-70"
+                  >
+                    {isProcessing ? (
+                      <>
+                        <Loader2 className="h-5 w-5 animate-spin" />
+                        Compressing... please wait
+                      </>
+                    ) : (
+                      "Compress PDF"
+                    )}
+                  </button>
+                </div>
+              )}
+
+              {result && (
+                <div className="space-y-4">
+                  <div className="rounded-xl border border-tool-convert/30 bg-tool-convert/5 p-4">
+                    <p className="text-center text-sm font-medium text-tool-convert">
+                      ✅ Compression complete!
+                    </p>
+                    <div className="mt-3 space-y-1 text-center text-sm text-content-secondary">
+                      <p>
+                        Original:{" "}
+                        <span className="font-medium text-content-primary">
+                          {formatFileSize(result.originalSize)}
+                        </span>
+                      </p>
+                      <p>
+                        Compressed:{" "}
+                        <span className="font-medium text-content-primary">
+                          {formatFileSize(result.compressedSize)}
+                        </span>
+                      </p>
+                      <p>
+                        You saved:{" "}
+                        <span className="font-medium text-tool-convert">
+                          {savingsPercent}%
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+
+                  {savingsPercent > 85 && quality < 30 && (
+                    <div className="rounded-xl border border-brand-blue/30 bg-brand-blue/5 px-4 py-3 text-sm leading-relaxed text-content-secondary">
+                      <p className="font-medium text-brand-blue">
+                        💡 This is a scanned document.
+                      </p>
+                      <p className="mt-2">
+                        Scanned PDFs compress more aggressively than text PDFs.
+                        The compressed file is readable but may have reduced
+                        image quality. For official use, we recommend 10–30%
+                        compression setting.
+                      </p>
+                    </div>
+                  )}
+
+                  {result.compressedSize < 100 * 1024 && (
+                    <div className="rounded-xl border border-amber-500/30 bg-amber-500/5 px-4 py-3 text-sm leading-relaxed text-content-secondary">
+                      <p className="font-medium text-amber-400">
+                        ⚠️ High compression applied.
+                      </p>
+                      <p className="mt-2">
+                        Please open the downloaded file to verify readability
+                        before using for official submissions.
+                      </p>
+                    </div>
+                  )}
+
+                  {savingsPercent >= 20 && savingsPercent <= 60 && (
+                    <div className="rounded-xl border border-tool-convert/30 bg-tool-convert/5 px-4 py-3 text-center text-sm text-tool-convert">
+                      ✅ Good compression achieved while maintaining quality.
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {error && (
+                <div className="rounded-xl border border-tool-pdf bg-tool-pdf/5 px-4 py-3 text-center text-sm text-tool-pdf">
+                  {error}
+                </div>
+              )}
+            </div>
           </div>
 
           <div className="mt-16">

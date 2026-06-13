@@ -495,13 +495,7 @@ export function getToolBySlug(slug: string) {
 /** Optional display name overrides for the header mega menu */
 export const HEADER_MENU_DISPLAY_NAMES: Partial<Record<string, string>> = {};
 
-export const COMING_SOON_TOOL_SLUGS = new Set([
-  "pdf-compress",
-  "pdf-to-word",
-  "pdf-to-jpg",
-  "pdf-unlock",
-  "bg-remove",
-]);
+export const COMING_SOON_TOOL_SLUGS = new Set(["bg-remove"]);
 
 export type MegaMenuItemConfig = {
   slug: string;
@@ -525,13 +519,12 @@ export const MEGA_MENU_CATEGORIES: MegaMenuCategoryConfig[] = [
     items: [
       { slug: "pdf-merge", description: "Combine multiple PDFs into one" },
       { slug: "pdf-split", description: "Extract pages from PDF" },
-      { slug: "pdf-compress", description: "Reduce PDF file size", comingSoon: true },
-      { slug: "pdf-to-word", description: "Convert PDF to editable Word", comingSoon: true },
-      { slug: "pdf-to-jpg", description: "Convert PDF pages to images", comingSoon: true },
+      { slug: "pdf-compress", description: "Reduce PDF file size" },
+      { slug: "pdf-to-word", description: "Convert PDF to editable Word" },
+      { slug: "pdf-to-jpg", description: "Convert PDF pages to images" },
       {
         slug: "pdf-unlock",
         description: "Unlock password protected PDF",
-        comingSoon: true,
       },
     ],
   },

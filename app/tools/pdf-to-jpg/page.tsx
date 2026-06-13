@@ -1,8 +1,7 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import Link from "next/link";
-import JSZip from "jszip";
 import {
   Download,
   FileImage,
@@ -18,25 +17,9 @@ import { RelatedTools } from "@/components/RelatedTools";
 import { ToolFeedback } from "@/components/ToolFeedback";
 import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
-import {
-  convertPDFToJPG,
-  formatFileSize,
-  getPDFPageCount,
-  type PageImage,
-  type PdfToJpgQuality,
-} from "@/lib/pdf-to-jpg";
+import { convertToJPG, formatFileSize } from "@/lib/pdf-api";
 
 const MAX_FILE_SIZE = 50 * 1024 * 1024;
-
-const qualityLevels: {
-  id: PdfToJpgQuality;
-  label: string;
-  description: string;
-}[] = [
-  { id: "low", label: "Low", description: "72 DPI — smaller files" },
-  { id: "medium", label: "Medium", description: "150 DPI — balanced" },
-  { id: "high", label: "High", description: "300 DPI — best quality" },
-];
 
 const howItWorksSteps = [
   {
@@ -55,43 +38,26 @@ const howItWorksSteps = [
     step: "03",
     icon: Download,
     title: "Download",
-    description: "Save individual images or all as ZIP",
+    description: "Save images as a ZIP file",
   },
 ];
 
-interface PageImageWithPreview extends PageImage {
-  previewUrl: string;
+function isPdfFile(file: File) {
+  return file.type === "application/pdf" || file.name.toLowerCase().endsWith(".pdf");
 }
 
 export default function PdfToJpgPage() {
   const inputRef = useRef<HTMLInputElement>(null);
   const [file, setFile] = useState<File | null>(null);
-  const [totalPages, setTotalPages] = useState(0);
-  const [quality, setQuality] = useState<PdfToJpgQuality>("medium");
-  const [pageImages, setPageImages] = useState<PageImageWithPreview[]>([]);
+  const [allPages, setAllPages] = useState(true);
   const [isProcessing, setIsProcessing] = useState(false);
+  const [success, setSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [isDragging, setIsDragging] = useState(false);
 
-  const revokePreviews = useCallback((images: PageImageWithPreview[]) => {
-    images.forEach((img) => URL.revokeObjectURL(img.previewUrl));
-  }, []);
-
-  useEffect(() => {
-    return () => revokePreviews(pageImages);
-  }, [pageImages, revokePreviews]);
-
-  const resetResults = useCallback(() => {
-    setPageImages((current) => {
-      revokePreviews(current);
-      return [];
-    });
-    setError(null);
-  }, [revokePreviews]);
-
-  const handleFileSelect = async (selected: File) => {
-    if (selected.type !== "application/pdf" && !selected.name.toLowerCase().endsWith(".pdf")) {
-      setError("Only PDF files are supported.");
+  const handleFile = useCallback((selected: File) => {
+    if (!isPdfFile(selected)) {
+      setError("Please select a valid PDF file.");
       return;
     }
     if (selected.size > MAX_FILE_SIZE) {
@@ -100,22 +66,14 @@ export default function PdfToJpgPage() {
     }
 
     setFile(selected);
-    resetResults();
-    setTotalPages(0);
-
-    try {
-      const count = await getPDFPageCount(selected);
-      setTotalPages(count);
-    } catch {
-      setError("Unable to read PDF. The file may be corrupted or password-protected.");
-      setFile(null);
-    }
-  };
+    setSuccess(false);
+    setError(null);
+  }, []);
 
   const handleClear = () => {
     setFile(null);
-    setTotalPages(0);
-    resetResults();
+    setSuccess(false);
+    setError(null);
     if (inputRef.current) inputRef.current.value = "";
   };
 
@@ -123,44 +81,17 @@ export default function PdfToJpgPage() {
     if (!file) return;
 
     setIsProcessing(true);
+    setSuccess(false);
     setError(null);
-    resetResults();
 
     try {
-      const results = await convertPDFToJPG(file, quality);
-      const withPreviews: PageImageWithPreview[] = results.map((result) => ({
-        ...result,
-        previewUrl: URL.createObjectURL(result.blob),
-      }));
-      setPageImages(withPreviews);
+      await convertToJPG(file, allPages);
+      setSuccess(true);
     } catch {
-      setError("Conversion failed. Please try a different PDF.");
+      setError("Conversion failed. Please try again.");
     } finally {
       setIsProcessing(false);
     }
-  };
-
-  const downloadSingle = (result: PageImageWithPreview) => {
-    const url = URL.createObjectURL(result.blob);
-    const anchor = document.createElement("a");
-    anchor.href = url;
-    anchor.download = result.filename;
-    anchor.click();
-    URL.revokeObjectURL(url);
-  };
-
-  const downloadAllZip = async () => {
-    const zip = new JSZip();
-    pageImages.forEach((result) => {
-      zip.file(result.filename, result.blob);
-    });
-    const blob = await zip.generateAsync({ type: "blob" });
-    const url = URL.createObjectURL(blob);
-    const anchor = document.createElement("a");
-    anchor.href = url;
-    anchor.download = `pdf_to_jpg_${Date.now()}.zip`;
-    anchor.click();
-    URL.revokeObjectURL(url);
   };
 
   return (
@@ -186,8 +117,8 @@ export default function PdfToJpgPage() {
                 PDF to JPG
               </h1>
               <p className="mx-auto mt-3 max-w-md text-content-secondary">
-                Convert each PDF page to a high-quality JPG image. Runs entirely
-                in your browser.
+                Convert PDF pages to high-quality JPG images. Download as a ZIP
+                file.
               </p>
             </div>
 
@@ -196,10 +127,11 @@ export default function PdfToJpgPage() {
                 ref={inputRef}
                 type="file"
                 accept="application/pdf,.pdf"
-                aria-label="Upload PDF file" className="hidden"
+                aria-label="Upload PDF file"
+                className="hidden"
                 onChange={(e) => {
                   const selected = e.target.files?.[0];
-                  if (selected) handleFileSelect(selected);
+                  if (selected) handleFile(selected);
                   e.target.value = "";
                 }}
               />
@@ -207,7 +139,8 @@ export default function PdfToJpgPage() {
               {!file && (
                 <button
                   type="button"
-                 aria-label="File upload area" onClick={() => inputRef.current?.click()}
+                  aria-label="File upload area"
+                  onClick={() => inputRef.current?.click()}
                   onDragOver={(e) => {
                     e.preventDefault();
                     setIsDragging(true);
@@ -220,7 +153,7 @@ export default function PdfToJpgPage() {
                     e.preventDefault();
                     setIsDragging(false);
                     const dropped = e.dataTransfer.files?.[0];
-                    if (dropped) handleFileSelect(dropped);
+                    if (dropped) handleFile(dropped);
                   }}
                   className={`flex min-h-[160px] w-full flex-col items-center justify-center rounded-2xl border-2 border-dashed bg-surface-card p-12 transition-colors sm:min-h-[200px] ${
                     isDragging
@@ -236,7 +169,7 @@ export default function PdfToJpgPage() {
                 </button>
               )}
 
-              {file && pageImages.length === 0 && (
+              {file && (
                 <div className="space-y-4">
                   <div className="flex items-center gap-3 rounded-xl border border-surface-border bg-surface-card p-4">
                     <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-tool-pdf/10">
@@ -259,47 +192,52 @@ export default function PdfToJpgPage() {
                     </button>
                   </div>
 
-                  {totalPages > 0 && (
-                    <div className="rounded-xl border border-brand-blue/30 bg-brand-blue/5 px-4 py-3 text-center text-sm text-content-secondary">
-                      {totalPages} pages found
-                    </div>
-                  )}
-
                   <div>
                     <p className="mb-3 text-sm font-medium text-content-primary">
-                      Image quality
+                      Pages to convert
                     </p>
-                    <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
-                      {qualityLevels.map((level) => (
-                        <button
-                          key={level.id}
-                          type="button"
-                          onClick={() => setQuality(level.id)}
-                          className={`rounded-lg border px-4 py-3 text-left transition-colors ${
-                            quality === level.id
-                              ? "border-tool-pdf bg-tool-pdf/10 text-tool-pdf"
-                              : "border-surface-border bg-surface-card text-content-secondary"
-                          }`}
-                        >
-                          <span className="block font-semibold">{level.label}</span>
-                          <span className="mt-1 block text-xs text-content-muted">
-                            {level.description}
-                          </span>
-                        </button>
-                      ))}
+                    <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                      <button
+                        type="button"
+                        onClick={() => setAllPages(false)}
+                        className={`rounded-lg border px-4 py-3 text-left transition-colors ${
+                          !allPages
+                            ? "border-tool-pdf bg-tool-pdf/10 text-tool-pdf"
+                            : "border-surface-border bg-surface-card text-content-secondary"
+                        }`}
+                      >
+                        <span className="block font-semibold">First page only</span>
+                        <span className="mt-1 block text-xs text-content-muted">
+                          Convert page 1 as JPG
+                        </span>
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setAllPages(true)}
+                        className={`rounded-lg border px-4 py-3 text-left transition-colors ${
+                          allPages
+                            ? "border-tool-pdf bg-tool-pdf/10 text-tool-pdf"
+                            : "border-surface-border bg-surface-card text-content-secondary"
+                        }`}
+                      >
+                        <span className="block font-semibold">Convert all pages</span>
+                        <span className="mt-1 block text-xs text-content-muted">
+                          All pages downloaded as a ZIP file
+                        </span>
+                      </button>
                     </div>
                   </div>
 
                   <button
                     type="button"
                     onClick={handleConvert}
-                    disabled={isProcessing || totalPages === 0}
+                    disabled={isProcessing}
                     className="flex w-full items-center justify-center gap-2 rounded-xl border-l-4 border-l-red-400 bg-tool-pdf px-4 py-4 text-base font-semibold text-white shadow-lg shadow-tool-pdf/20 transition-colors hover:bg-[#DC2626] disabled:opacity-70"
                   >
                     {isProcessing ? (
                       <>
                         <Loader2 className="h-5 w-5 animate-spin" />
-                        Converting...
+                        Converting pages...
                       </>
                     ) : (
                       "Convert to JPG"
@@ -308,58 +246,15 @@ export default function PdfToJpgPage() {
                 </div>
               )}
 
-              {error && (
-                <div className="rounded-xl border border-tool-pdf bg-tool-pdf/5 px-4 py-3 text-center text-sm text-tool-pdf">
-                  {error}
+              {success && (
+                <div className="rounded-xl border border-tool-convert/30 bg-tool-convert/5 px-4 py-3 text-center text-sm text-tool-convert">
+                  ✅ Downloaded as ZIP file with JPG images
                 </div>
               )}
 
-              {pageImages.length > 0 && (
-                <div className="space-y-4">
-                  <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
-                    {pageImages.map((result) => (
-                      <div
-                        key={result.pageNumber}
-                        className="rounded-xl border border-surface-border bg-surface-card p-3"
-                      >
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img
-                          src={result.previewUrl}
-                          alt={`Page ${result.pageNumber}`}
-                          className="mb-2 aspect-[3/4] w-full rounded-lg object-cover"
-                        />
-                        <p className="text-xs font-medium text-content-primary">
-                          Page {result.pageNumber}
-                        </p>
-                        <p className="text-[10px] text-content-secondary">
-                          {formatFileSize(result.blob.size)}
-                        </p>
-                        <button
-                          type="button"
-                          onClick={() => downloadSingle(result)}
-                          className="mt-2 w-full rounded-lg bg-brand-blue px-2 py-1 text-[10px] font-medium text-white transition-colors hover:bg-[#2563EB]"
-                        >
-                          Download
-                        </button>
-                      </div>
-                    ))}
-                  </div>
-
-                  <button
-                    type="button"
-                    onClick={downloadAllZip}
-                    className="w-full rounded-xl bg-tool-convert px-4 py-4 text-base font-semibold text-white transition-colors hover:bg-[#059669]"
-                  >
-                    Download All as ZIP
-                  </button>
-
-                  <button
-                    type="button"
-                    onClick={handleClear}
-                    className="w-full text-center text-sm text-content-secondary transition-colors hover:text-content-primary"
-                  >
-                    Convert Another
-                  </button>
+              {error && (
+                <div className="rounded-xl border border-tool-pdf bg-tool-pdf/5 px-4 py-3 text-center text-sm text-tool-pdf">
+                  {error}
                 </div>
               )}
             </div>
@@ -385,8 +280,6 @@ export default function PdfToJpgPage() {
               ))}
             </div>
           </div>
-
-
 
           <RelatedTools currentSlug="pdf-to-jpg" />
           <ToolFeedback toolName="PDF to JPG" />
