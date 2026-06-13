@@ -2,8 +2,8 @@ import { NextResponse } from "next/server";
 import {
   getIndexNowKey,
   getIndexNowKeyLocation,
+  getIndexNowUrls,
   INDEXNOW_HOST,
-  INDEXNOW_URLS,
 } from "@/lib/indexnow";
 
 export async function POST() {
@@ -16,6 +16,8 @@ export async function POST() {
     );
   }
 
+  const urlList = getIndexNowUrls();
+
   try {
     const response = await fetch("https://api.indexnow.org/indexnow", {
       method: "POST",
@@ -26,7 +28,7 @@ export async function POST() {
         host: INDEXNOW_HOST,
         key,
         keyLocation: getIndexNowKeyLocation(key),
-        urlList: INDEXNOW_URLS,
+        urlList,
       }),
     });
 
@@ -46,7 +48,7 @@ export async function POST() {
 
     return NextResponse.json({
       ok: true,
-      submitted: INDEXNOW_URLS.length,
+      submitted: urlList.length,
       status: response.status,
       detail: text || "Accepted",
     });

@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export function getSiteMapEntries(): MetadataRoute.Sitemap {
   return [
     {
       url: "https://workutilities.com",
@@ -309,4 +309,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
   ];
+}
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  return getSiteMapEntries();
 }
