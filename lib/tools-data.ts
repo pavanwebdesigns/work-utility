@@ -16,13 +16,16 @@ import {
   KeyRound,
   LineChart,
   LockOpen,
+  PenLine,
   Percent,
   PiggyBank,
   QrCode,
+  Receipt,
   RefreshCw,
   Ruler,
   ScanLine,
   Scissors,
+  Scale,
   TrendingUp,
   Wallet,
   WholeWord,
@@ -346,6 +349,42 @@ export const ALL_TOOLS = [
     borderClass: "border-tool-photo",
     category: "Utility",
   },
+  {
+    slug: "income-tax-calculator",
+    name: "Income Tax Calculator",
+    description: "Compare old vs new regime tax for FY 2025-26",
+    href: "/tools/income-tax-calculator",
+    icon: "Scale",
+    color: "#3B82F6",
+    bgClass: "bg-brand-blue/10",
+    textClass: "text-brand-blue",
+    borderClass: "border-brand-blue",
+    category: "Utility",
+  },
+  {
+    slug: "signature-maker",
+    name: "Signature Maker",
+    description: "Draw, type, or upload digital signatures",
+    href: "/tools/signature-maker",
+    icon: "PenLine",
+    color: "#3B82F6",
+    bgClass: "bg-brand-blue/10",
+    textClass: "text-brand-blue",
+    borderClass: "border-brand-blue",
+    category: "Utility",
+  },
+  {
+    slug: "rent-receipt-generator",
+    name: "Rent Receipt Generator",
+    description: "Create and download rent receipt PDFs",
+    href: "/tools/rent-receipt-generator",
+    icon: "Receipt",
+    color: "#10B981",
+    bgClass: "bg-tool-convert/10",
+    textClass: "text-tool-convert",
+    borderClass: "border-tool-convert",
+    category: "Utility",
+  },
 ] as const;
 
 export const RELATED_TOOLS: Record<string, string[]> = {
@@ -375,6 +414,9 @@ export const RELATED_TOOLS: Record<string, string[]> = {
   "percentage-calculator": ["gst-calculator", "salary-hike-calculator", "emi-calculator"],
   "password-generator": ["qr-code-generator", "word-counter", "age-calculator"],
   "unit-converter": ["percentage-calculator", "age-calculator", "gst-calculator"],
+  "income-tax-calculator": ["ctc-calculator", "salary-hike-calculator", "gst-calculator"],
+  "signature-maker": ["word-to-pdf", "pdf-merge", "qr-code-generator"],
+  "rent-receipt-generator": ["income-tax-calculator", "ctc-calculator", "salary-hike-calculator"],
 };
 
 export const TOOL_ICONS: Record<string, LucideIcon> = {
@@ -406,6 +448,9 @@ export const TOOL_ICONS: Record<string, LucideIcon> = {
   KeyRound,
   Ruler,
   ArrowLeftRight,
+  Scale,
+  PenLine,
+  Receipt,
 };
 
 export const TOOL_UI_META: Record<
@@ -438,6 +483,9 @@ export const TOOL_UI_META: Record<
   "percentage-calculator": { accent: "blue", filterCategory: "convert" },
   "password-generator": { accent: "convert", filterCategory: "convert", popular: true },
   "unit-converter": { accent: "photo", filterCategory: "convert" },
+  "income-tax-calculator": { accent: "blue", filterCategory: "convert", popular: true },
+  "signature-maker": { accent: "blue", filterCategory: "convert" },
+  "rent-receipt-generator": { accent: "convert", filterCategory: "convert", popular: true },
 };
 
 export function getToolBySlug(slug: string) {
@@ -495,6 +543,9 @@ export const HEADER_MENU_CATEGORIES = [
       "percentage-calculator",
       "password-generator",
       "unit-converter",
+      "income-tax-calculator",
+      "signature-maker",
+      "rent-receipt-generator",
     ],
   },
 ] as const;

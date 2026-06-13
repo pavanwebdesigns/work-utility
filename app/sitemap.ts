@@ -195,6 +195,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: "https://workutilities.com/tools/income-tax-calculator",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: "https://workutilities.com/tools/signature-maker",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: "https://workutilities.com/tools/rent-receipt-generator",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
       url: "https://workutilities.com/about",
       lastModified: new Date(),
       changeFrequency: "monthly",

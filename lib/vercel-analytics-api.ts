@@ -223,6 +223,9 @@ const TOOL_PATH_NAMES: Record<string, string> = {
   "/tools/percentage-calculator": "Percentage Calculator",
   "/tools/password-generator": "Password Generator",
   "/tools/unit-converter": "Unit Converter",
+  "/tools/income-tax-calculator": "Income Tax Calculator",
+  "/tools/signature-maker": "Signature Maker",
+  "/tools/rent-receipt-generator": "Rent Receipt Generator",
 };
 
 function getToolName(path: string): string {
