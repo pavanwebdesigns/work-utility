@@ -1,20 +1,11 @@
-"use client";
-
 import Link from "next/link";
 import { Download, Eraser, Sparkles, Upload } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { RelatedTools } from "@/components/RelatedTools";
-import { ToolComingSoon } from "@/components/ToolComingSoon";
 import { ToolFeedback } from "@/components/ToolFeedback";
 import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
-
-const comingSoonLinks = [
-  { href: "/tools/image-compress", label: "Image Compress" },
-  { href: "/tools/photo-resizer", label: "Photo Resizer" },
-  { href: "/tools/image-to-pdf", label: "Image to PDF" },
-];
 
 const howItWorksSteps = [
   {
@@ -66,7 +57,39 @@ export default function BgRemovePage() {
               </p>
             </div>
 
-            <ToolComingSoon links={comingSoonLinks} />
+            <div className="flex flex-col items-center justify-center py-20 text-center">
+              <div className="mb-6 text-5xl">🔧</div>
+              <h2 className="mb-3 text-2xl font-semibold">
+                We&apos;re Upgrading This Tool
+              </h2>
+              <p className="mb-6 max-w-md text-gray-400">
+                Our Background Remover tool is currently being improved for
+                better and more accurate results. It will be back soon!
+              </p>
+              <p className="text-sm text-gray-500">
+                Meanwhile, try our other tools:
+              </p>
+              <div className="mt-4 flex flex-wrap justify-center gap-3">
+                <Link
+                  href="/tools/image-compress"
+                  className="rounded-lg border border-gray-600 px-4 py-2 text-sm transition hover:bg-gray-800"
+                >
+                  Image Compress
+                </Link>
+                <Link
+                  href="/tools/photo-resizer"
+                  className="rounded-lg border border-gray-600 px-4 py-2 text-sm transition hover:bg-gray-800"
+                >
+                  Photo Resizer
+                </Link>
+                <Link
+                  href="/tools/image-to-pdf"
+                  className="rounded-lg border border-gray-600 px-4 py-2 text-sm transition hover:bg-gray-800"
+                >
+                  Image to PDF
+                </Link>
+              </div>
+            </div>
           </div>
 
           <div className="mt-16">

@@ -495,7 +495,7 @@ export function getToolBySlug(slug: string) {
 /** Optional display name overrides for the header mega menu */
 export const HEADER_MENU_DISPLAY_NAMES: Partial<Record<string, string>> = {};
 
-export const COMING_SOON_TOOL_SLUGS = new Set(["bg-remove"]);
+export const COMING_SOON_TOOL_SLUGS = new Set<string>();
 
 export type MegaMenuItemConfig = {
   slug: string;
@@ -535,7 +535,7 @@ export const MEGA_MENU_CATEGORIES: MegaMenuCategoryConfig[] = [
     items: [
       { slug: "image-compress", description: "Reduce image file size" },
       { slug: "photo-resizer", description: "Resize to exact dimensions" },
-      { slug: "bg-remove", description: "Remove image background", comingSoon: true },
+      { slug: "bg-remove", description: "Remove image background" },
       { slug: "image-to-pdf", description: "Convert images to PDF" },
       { slug: "image-converter", description: "Convert between JPG, PNG, WebP" },
     ],

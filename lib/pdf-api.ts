@@ -6,7 +6,7 @@ function getPdfApiBaseUrl(): string {
   return baseUrl.replace(/\/$/, "");
 }
 
-function downloadBlob(blob: Blob, filename: string) {
+export function downloadBlob(blob: Blob, filename: string) {
   const url = URL.createObjectURL(blob);
   const anchor = document.createElement("a");
   anchor.href = url;
@@ -100,6 +100,31 @@ export async function compressPDF(
   downloadBlob(blob, file.name.replace(".pdf", "_compressed.pdf"));
 
   return { originalSize, compressedSize };
+}
+
+export async function removeBackground(file: File): Promise<Blob> {
+  const formData = new FormData();
+  formData.append("file", file);
+
+  const response = await fetch(`${getPdfApiBaseUrl()}/remove-bg`, {
+    method: "POST",
+    body: formData,
+  });
+
+  if (!response.ok) {
+    let message = "Background removal failed";
+    try {
+      const error = await response.json();
+      if (typeof error.detail === "string") {
+        message = error.detail;
+      }
+    } catch {
+      // ignore JSON parse errors
+    }
+    throw new Error(message);
+  }
+
+  return response.blob();
 }
 
 export function formatFileSize(bytes: number): string {
