@@ -212,6 +212,12 @@ const TOOL_PATH_NAMES: Record<string, string> = {
   "/tools/word-counter": "Word Counter",
   "/tools/age-calculator": "Age Calculator",
   "/tools/qr-code-generator": "QR Code Generator",
+  "/tools/emi-calculator": "EMI Calculator",
+  "/tools/gst-calculator": "GST Calculator",
+  "/tools/salary-hike-calculator": "Salary Hike Calculator",
+  "/tools/cgpa-to-percentage": "CGPA to Percentage",
+  "/tools/ctc-calculator": "CTC to In-Hand Salary",
+  "/tools/fd-calculator": "FD Calculator",
 };
 
 function getToolName(path: string): string {
