@@ -218,6 +218,11 @@ const TOOL_PATH_NAMES: Record<string, string> = {
   "/tools/cgpa-to-percentage": "CGPA to Percentage",
   "/tools/ctc-calculator": "CTC to In-Hand Salary",
   "/tools/fd-calculator": "FD Calculator",
+  "/tools/sip-calculator": "SIP Calculator",
+  "/tools/notice-period-calculator": "Notice Period Calculator",
+  "/tools/percentage-calculator": "Percentage Calculator",
+  "/tools/password-generator": "Password Generator",
+  "/tools/unit-converter": "Unit Converter",
 };
 
 function getToolName(path: string): string {
