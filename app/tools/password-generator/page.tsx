@@ -7,6 +7,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { RelatedTools } from "@/components/RelatedTools";
 import { ToolFeedback } from "@/components/ToolFeedback";
+import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
 import { CalculatorField } from "@/components/calculator/CalculatorUi";
 import {
@@ -234,6 +235,7 @@ export default function PasswordGeneratorPage() {
 
           <RelatedTools currentSlug="password-generator" />
           <ToolFeedback toolName="Password Generator" />
+          <ToolSeoContent slug="password-generator" />
           <DinoGame />
         </div>
       </main>

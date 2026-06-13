@@ -14,6 +14,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { RelatedTools } from "@/components/RelatedTools";
 import { ToolFeedback } from "@/components/ToolFeedback";
+import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
 import {
   CalculatorField,
@@ -223,6 +224,7 @@ export default function EmiCalculatorPage() {
 
           <RelatedTools currentSlug="emi-calculator" />
           <ToolFeedback toolName="EMI Calculator" />
+          <ToolSeoContent slug="emi-calculator" />
           <DinoGame />
         </div>
       </main>

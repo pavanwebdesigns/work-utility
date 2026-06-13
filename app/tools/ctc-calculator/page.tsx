@@ -7,6 +7,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { RelatedTools } from "@/components/RelatedTools";
 import { ToolFeedback } from "@/components/ToolFeedback";
+import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
 import {
   BreakdownRow,
@@ -194,6 +195,7 @@ export default function CtcCalculatorPage() {
 
           <RelatedTools currentSlug="ctc-calculator" />
           <ToolFeedback toolName="CTC to In-Hand Salary Calculator" />
+          <ToolSeoContent slug="ctc-calculator" />
           <DinoGame />
         </div>
       </main>

@@ -12,7 +12,21 @@ export type ToolSeoSlug =
   | "pdf-unlock"
   | "qr-code-generator"
   | "word-counter"
-  | "age-calculator";
+  | "age-calculator"
+  | "emi-calculator"
+  | "gst-calculator"
+  | "salary-hike-calculator"
+  | "cgpa-to-percentage"
+  | "ctc-calculator"
+  | "fd-calculator"
+  | "sip-calculator"
+  | "notice-period-calculator"
+  | "percentage-calculator"
+  | "password-generator"
+  | "unit-converter"
+  | "income-tax-calculator"
+  | "signature-maker"
+  | "rent-receipt-generator";
 
 type ToolSeoEntry = {
   aboutTitle: string;
@@ -839,6 +853,888 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
         question: "How to convert image format on mobile?",
         answer:
           "Open this page in your phone browser, upload from your gallery, pick the output format, and download.",
+      },
+    ],
+  },
+  "emi-calculator": {
+    aboutTitle: "About EMI Calculator",
+    aboutParagraphs: [
+      "Our free EMI Calculator helps you calculate monthly loan instalments for home loans, car loans, personal loans, and education loans in seconds. Enter the loan amount, annual interest rate, and tenure in years or months to see your exact EMI, total interest payable, and total repayment amount instantly.",
+      "The calculator uses the standard reducing-balance EMI formula used by Indian banks including SBI, HDFC, ICICI, Axis, and NBFCs. Adjust loan amount or tenure to compare scenarios before applying — useful when planning a home purchase in Mumbai, Bangalore, or tier-2 cities, or when evaluating pre-approved personal loan offers.",
+      "Everything runs client-side in your browser. Your loan details are never uploaded to any server, so salary, credit, and financial planning data stay completely private on your device. No signup, no ads interrupting results, and no data stored anywhere.",
+    ],
+    whenToUseTitle: "When Should You Use EMI Calculator?",
+    useCases: [
+      {
+        title: "Home loan planning",
+        description:
+          "Estimate EMI before visiting a bank to know how much house you can afford based on monthly income.",
+      },
+      {
+        title: "Car loan check",
+        description:
+          "Compare EMIs for different car loan amounts and tenures before buying a new or used vehicle.",
+      },
+      {
+        title: "Personal loan EMI",
+        description:
+          "Check monthly outflow for medical emergencies, weddings, or debt consolidation loans.",
+      },
+      {
+        title: "Education loan",
+        description:
+          "Plan repayment for study abroad or domestic higher education loans with moratorium periods in mind.",
+      },
+      {
+        title: "Comparing banks",
+        description:
+          "Run the same loan inputs at different interest rates to see which bank offer saves the most interest.",
+      },
+    ],
+    faqs: [
+      {
+        question: "How to calculate EMI for home loan?",
+        answer:
+          "Enter the loan principal, annual interest rate, and tenure in years. The calculator applies the standard EMI formula: EMI = P × r × (1+r)^n / ((1+r)^n − 1), where r is the monthly rate and n is the number of months.",
+      },
+      {
+        question: "What is the EMI for 20 lakh loan?",
+        answer:
+          "It depends on interest rate and tenure. At 8.5% for 20 years, EMI is roughly ₹17,356. Use our calculator with your exact bank rate for a precise figure.",
+      },
+      {
+        question: "How to reduce EMI amount?",
+        answer:
+          "Increase down payment to reduce principal, choose a longer tenure, negotiate a lower interest rate, or make part-prepayments when allowed by your lender.",
+      },
+      {
+        question: "Which bank has lowest home loan interest rate?",
+        answer:
+          "Rates change frequently and vary by credit score and profile. Compare offers from SBI, HDFC, ICICI, and housing finance companies using the same loan inputs in our calculator.",
+      },
+      {
+        question: "What happens if I miss an EMI payment?",
+        answer:
+          "Banks charge late fees and report delays to credit bureaus, which can hurt your CIBIL score. Repeated misses may lead to recovery action. Contact your lender immediately if you expect a delay.",
+      },
+    ],
+  },
+  "gst-calculator": {
+    aboutTitle: "About GST Calculator",
+    aboutParagraphs: [
+      "Our free GST Calculator adds or removes Goods and Services Tax from any amount using standard Indian GST slabs — 5%, 12%, 18%, and 28%. Enter a base price to see GST amount and total, or enter a GST-inclusive price to extract the pre-tax value and tax component instantly.",
+      "Built for shop owners, freelancers, e-commerce sellers, and service providers across India who need quick billing calculations without opening a spreadsheet. Supports both exclusive (GST added on top) and inclusive (GST extracted from total) modes, matching how invoices are prepared under CGST + SGST for intra-state or IGST for inter-state transactions.",
+      "All calculations run entirely in your browser. Invoice amounts and business figures are never sent to any server, keeping your billing data private. No account required — ideal for quick checks at a shop counter or while preparing GST invoices on mobile.",
+    ],
+    whenToUseTitle: "When Should You Use GST Calculator?",
+    useCases: [
+      {
+        title: "Invoice calculation",
+        description:
+          "Add GST to line items when preparing bills for clients or customers.",
+      },
+      {
+        title: "Shop billing",
+        description:
+          "Quickly calculate GST-inclusive totals at retail counters for daily sales.",
+      },
+      {
+        title: "Freelancer GST",
+        description:
+          "Compute GST on professional services billed to Indian clients at 18%.",
+      },
+      {
+        title: "E-commerce sellers",
+        description:
+          "Work out tax components on product listings for Amazon, Flipkart, or Meesho.",
+      },
+      {
+        title: "Service providers",
+        description:
+          "Calculate GST on consulting, IT, legal, or maintenance service invoices.",
+      },
+    ],
+    faqs: [
+      {
+        question: "How to calculate GST on a product?",
+        answer:
+          "Multiply the base price by the GST rate and divide by 100. For example, 18% GST on ₹1,000 = ₹180, making the total ₹1,180. Our calculator does this instantly for any amount and rate.",
+      },
+      {
+        question: "What is CGST and SGST?",
+        answer:
+          "For intra-state sales in India, GST is split equally into Central GST (CGST) and State GST (SGST). For inter-state sales, Integrated GST (IGST) applies instead of CGST + SGST.",
+      },
+      {
+        question: "How to remove GST from total amount?",
+        answer:
+          "Use inclusive mode: divide the total by (1 + rate/100). On ₹1,180 at 18%, the base is ₹1,000 and GST is ₹180.",
+      },
+      {
+        question: "What is the GST rate for software services?",
+        answer:
+          "Most IT and software services attract 18% GST in India. Verify the specific HSN/SAC code on your invoice for exact classification.",
+      },
+      {
+        question: "Is GST applicable on salary?",
+        answer:
+          "No. Salary is not a supply of goods or services under GST law. GST applies to business transactions, not employee wages.",
+      },
+    ],
+  },
+  "salary-hike-calculator": {
+    aboutTitle: "About Salary Hike Calculator",
+    aboutParagraphs: [
+      "Our free Salary Hike Calculator shows your new salary and hike percentage after an appraisal or job offer. Enter your current CTC or in-hand salary and the proposed new amount to see the exact percentage increase, monthly difference, and annual gain in rupees.",
+      "Essential during appraisal season in Indian IT companies, startups, and corporate roles when comparing counter-offers or evaluating whether a promotion meets market standards. Works for both percentage-based hikes (e.g. 15% increment) and absolute salary jumps when switching employers.",
+      "Calculations happen entirely in your browser — your salary figures never leave your device. No signup or data storage, so confidential compensation details from offer letters and HR discussions stay private while you plan negotiations.",
+    ],
+    whenToUseTitle: "When Should You Use Salary Hike Calculator?",
+    useCases: [
+      {
+        title: "Appraisal planning",
+        description:
+          "Calculate what a 10%, 15%, or 20% hike means in rupees before your review meeting.",
+      },
+      {
+        title: "Offer letter comparison",
+        description:
+          "Compare current CTC with a new employer offer to see the real percentage jump.",
+      },
+      {
+        title: "Negotiation prep",
+        description:
+          "Know your target hike percentage in advance when discussing compensation with HR.",
+      },
+      {
+        title: "Increment calculation",
+        description:
+          "Verify that your annual increment matches what was communicated in the appraisal letter.",
+      },
+      {
+        title: "HR planning",
+        description:
+          "HR teams can quickly model budget impact of proposed hike percentages across bands.",
+      },
+    ],
+    faqs: [
+      {
+        question: "How to calculate salary hike percentage?",
+        answer:
+          "Formula: ((New Salary − Old Salary) / Old Salary) × 100. If your salary rises from ₹8 lakh to ₹9 lakh, the hike is 12.5%.",
+      },
+      {
+        question: "What is a good salary hike in India?",
+        answer:
+          "It varies by industry and performance. IT sector averages 8–15% for steady performers; high performers may get 20%+. Switching jobs often yields 25–40% jumps.",
+      },
+      {
+        question: "How to negotiate salary hike?",
+        answer:
+          "Research market rates on Naukri or Glassdoor, document achievements, and ask for a specific number. Use this calculator to show the rupee impact of your request.",
+      },
+      {
+        question: "How to calculate in-hand salary after hike?",
+        answer:
+          "Hike percentage on CTC does not equal in-hand increase due to PF, tax, and variable pay. Use our CTC Calculator after applying the hike for a closer in-hand estimate.",
+      },
+      {
+        question: "What is the average salary hike in IT sector India?",
+        answer:
+          "Recent trends show 8–12% average increments for IT services, with product companies and high-demand skills offering higher hikes. Top performers often exceed 15–20%.",
+      },
+    ],
+  },
+  "cgpa-to-percentage": {
+    aboutTitle: "About CGPA to Percentage",
+    aboutParagraphs: [
+      "Our free CGPA to Percentage converter transforms your cumulative grade point average into the percentage format required by job portals, government forms, and university applications across India. Supports common conversion formulas used by CBSE, VTU, Anna University, Mumbai University, and other boards.",
+      "Enter your CGPA on the standard 10-point scale and select your university formula or use the generic multiplier to get an instant percentage equivalent. Essential when Naukri, government exams, or scholarship forms ask for percentage but your mark sheet only shows CGPA.",
+      "Conversion runs entirely in your browser — your academic records are never uploaded to any server. Results stay private on your device, with no account or data storage required.",
+    ],
+    whenToUseTitle: "When Should You Use CGPA to Percentage?",
+    useCases: [
+      {
+        title: "Job applications",
+        description:
+          "Convert CGPA to percentage when filling Naukri, LinkedIn, or company career portal forms.",
+      },
+      {
+        title: "Government forms",
+        description:
+          "Meet percentage requirements on SSC, UPSC, and state PSC applications that do not accept CGPA.",
+      },
+      {
+        title: "College admissions",
+        description:
+          "Convert scores for postgraduate or transfer applications that specify percentage cutoffs.",
+      },
+      {
+        title: "Scholarship forms",
+        description:
+          "Apply for merit scholarships that list eligibility in percentage rather than grade points.",
+      },
+      {
+        title: "Visa applications",
+        description:
+          "Provide percentage equivalents when submitting academic credentials for study or work visas.",
+      },
+    ],
+    faqs: [
+      {
+        question: "How to convert CGPA to percentage for job applications?",
+        answer:
+          "Check if the employer specifies a formula. Many use CGPA × 9.5 (CBSE) or CGPA × 10. Enter your CGPA and select the matching formula in our tool.",
+      },
+      {
+        question: "What is the CGPA to percentage formula for VTU?",
+        answer:
+          "Visvesvaraya Technological University commonly uses: Percentage = (CGPA − 0.75) × 10. Verify with your latest VTU notification as formulas can update.",
+      },
+      {
+        question: "How to convert Anna University CGPA to percentage?",
+        answer:
+          "Anna University often uses Percentage = CGPA × 10 for the 10-point scale. Confirm with your consolidated mark sheet or university circular.",
+      },
+      {
+        question: "What is 7.5 CGPA in percentage?",
+        answer:
+          "Using CGPA × 9.5 (CBSE): 71.25%. Using CGPA × 10: 75%. Select your university formula in our calculator for the accurate figure.",
+      },
+      {
+        question: "Does every company accept CGPA instead of percentage?",
+        answer:
+          "Many modern companies accept CGPA, but government jobs, older forms, and some MNC portals still require percentage. Convert when the form field does not allow CGPA entry.",
+      },
+    ],
+  },
+  "ctc-calculator": {
+    aboutTitle: "About CTC Calculator",
+    aboutParagraphs: [
+      "Our free CTC Calculator breaks down your Cost to Company into estimated in-hand monthly salary after standard deductions. Enter your annual CTC, basic salary percentage, HRA, and other components to see approximate take-home pay, employer PF, employee PF, and professional tax.",
+      "Designed for Indian job seekers evaluating offer letters from IT companies, startups, and corporates where CTC figures include PF, gratuity, insurance, and variable pay that do not reach your bank account monthly. Understand the gap between ₹12 LPA on paper and what actually gets credited each month.",
+      "All calculations run client-side in your browser. Salary and offer details are never sent to any server, keeping confidential compensation data private while you compare offers or prepare for negotiation.",
+    ],
+    whenToUseTitle: "When Should You Use CTC Calculator?",
+    useCases: [
+      {
+        title: "Offer letter evaluation",
+        description:
+          "Decode a new job offer to see realistic monthly in-hand before accepting.",
+      },
+      {
+        title: "Job comparison",
+        description:
+          "Compare two offers with different CTC structures on an in-hand basis, not headline numbers.",
+      },
+      {
+        title: "Salary negotiation",
+        description:
+          "Ask for in-hand increase specifically when HR quotes only CTC figures.",
+      },
+      {
+        title: "PF planning",
+        description:
+          "See employee and employer PF contributions deducted from your structured salary.",
+      },
+      {
+        title: "Tax planning",
+        description:
+          "Estimate taxable income components before investing in 80C or choosing tax regime.",
+      },
+    ],
+    faqs: [
+      {
+        question: "How to calculate in-hand salary from CTC?",
+        answer:
+          "Subtract annual PF (employee + employer if counted in CTC), gratuity provision, insurance, and variable pay from CTC, then divide by 12. Our calculator models standard Indian salary structures automatically.",
+      },
+      {
+        question: "What percentage of CTC is in-hand salary?",
+        answer:
+          "Typically 65–75% for most Indian salaried roles, but it varies widely. High PF basic percentages and large variable components reduce in-hand further.",
+      },
+      {
+        question: "How much PF is deducted from salary?",
+        answer:
+          "Employee contributes 12% of basic (+ DA). Employer also contributes 12% but only part may appear in your payslip. PF applies when basic exceeds ₹15,000 unless opted in at full basic.",
+      },
+      {
+        question: "What is professional tax in Telangana?",
+        answer:
+          "Telangana professional tax is up to ₹2,500 per year for salaried employees, deducted monthly from salary based on income slabs set by the state.",
+      },
+      {
+        question: "How to calculate take home salary with PF?",
+        answer:
+          "Start with gross monthly salary, subtract employee PF (12% of basic), professional tax, and TDS/income tax. Our CTC Calculator estimates this breakdown from your annual CTC input.",
+      },
+    ],
+  },
+  "fd-calculator": {
+    aboutTitle: "About FD Calculator",
+    aboutParagraphs: [
+      "Our free FD Calculator computes fixed deposit maturity amount, total interest earned, and effective returns for lump-sum investments. Enter deposit amount, annual interest rate, and tenure in months or years to see how your money grows with quarterly compounding as used by most Indian banks.",
+      "Compare scenarios across SBI, HDFC, ICICI, post office FD, and small finance banks before locking in a rate. Supports regular FD and senior citizen rate inputs — senior citizens typically earn 0.25–0.50% extra at most banks in India.",
+      "Calculations run entirely in your browser. Your investment amounts and financial plans are never uploaded to any server, keeping savings goals and bank choices completely private on your device.",
+    ],
+    whenToUseTitle: "When Should You Use FD Calculator?",
+    useCases: [
+      {
+        title: "Retirement planning",
+        description:
+          "Project FD maturity value for lump sums set aside for post-retirement income.",
+      },
+      {
+        title: "Emergency fund",
+        description:
+          "Calculate returns on 6–12 month FD parking for your emergency corpus.",
+      },
+      {
+        title: "Comparing banks",
+        description:
+          "Run the same deposit at different rates to find the best maturity amount before booking.",
+      },
+      {
+        title: "Tax saving FD",
+        description:
+          "Estimate returns on 5-year tax-saving FD under Section 80C before investing.",
+      },
+      {
+        title: "Senior citizen FD",
+        description:
+          "Model higher senior citizen rates offered by banks for parents or retirees.",
+      },
+    ],
+    faqs: [
+      {
+        question: "Which bank gives highest FD interest rate in India?",
+        answer:
+          "Rates change frequently. Small finance banks and some NBFCs often offer higher rates than major banks. Always compare current rates on bank websites and use our calculator with the exact rate offered.",
+      },
+      {
+        question: "How to calculate FD maturity amount?",
+        answer:
+          "Maturity = P × (1 + r/n)^(n×t), where P is principal, r is annual rate, n is compounding frequency, and t is years. Indian bank FDs typically compound quarterly.",
+      },
+      {
+        question: "Is FD interest taxable in India?",
+        answer:
+          "Yes. FD interest is added to your income and taxed per your slab. TDS applies if interest exceeds ₹40,000/year (₹50,000 for senior citizens) unless Form 15G/15H is submitted.",
+      },
+      {
+        question: "What is the best FD tenure for maximum returns?",
+        answer:
+          "Longer tenures often offer slightly higher rates, but locking too long reduces liquidity. Match tenure to your goal — 1–3 years for medium-term, 5 years for 80C tax-saving FD.",
+      },
+      {
+        question: "Can I break FD before maturity?",
+        answer:
+          "Yes, but banks charge a penalty (typically 0.5–1% on the rate) and may pay lower interest for the actual period held. Partial withdrawal rules vary by bank.",
+      },
+    ],
+  },
+  "sip-calculator": {
+    aboutTitle: "About SIP Calculator",
+    aboutParagraphs: [
+      "Our free SIP Calculator projects mutual fund returns for monthly Systematic Investment Plans. Enter monthly investment amount, expected annual return, and investment period to see estimated corpus, total invested, and wealth gained through compounding.",
+      "Essential for Indian investors planning retirement, child education, or a home down payment through SIPs in equity, hybrid, or index mutual funds. While past returns do not guarantee future performance, the calculator helps set realistic expectations for long-term wealth creation at 10–12% average equity returns.",
+      "All projections run client-side in your browser. Your investment amounts and financial goals are never sent to any server, keeping personal finance plans completely private with no signup required.",
+    ],
+    whenToUseTitle: "When Should You Use SIP Calculator?",
+    useCases: [
+      {
+        title: "Retirement planning",
+        description:
+          "Estimate how much a ₹10,000/month SIP grows over 20–25 years for retirement corpus.",
+      },
+      {
+        title: "Child education fund",
+        description:
+          "Project SIP returns to fund school or college fees 10–15 years from now.",
+      },
+      {
+        title: "Home down payment",
+        description:
+          "Calculate corpus needed for a 20% home loan down payment and required monthly SIP.",
+      },
+      {
+        title: "Wealth creation",
+        description:
+          "Visualise long-term compounding from consistent monthly mutual fund investments.",
+      },
+      {
+        title: "Comparing MF returns",
+        description:
+          "Model different expected return rates to understand best and conservative scenarios.",
+      },
+    ],
+    faqs: [
+      {
+        question: "How much SIP is needed for 1 crore?",
+        answer:
+          "At 12% annual return over 20 years, roughly ₹10,000/month reaches ₹1 crore. At 15 years, you need about ₹20,000/month. Use our calculator with your exact timeline and return assumption.",
+      },
+      {
+        question: "What is the minimum SIP amount?",
+        answer:
+          "Most Indian mutual funds allow SIPs starting at ₹500/month. Some funds and platforms support ₹100. Check individual fund minimums on Groww, Zerodha Coin, or AMC websites.",
+      },
+      {
+        question: "Is SIP better than FD in India?",
+        answer:
+          "SIPs in equity funds historically beat FD returns over 7+ years but carry market risk. FDs offer guaranteed returns. Choose based on risk tolerance and time horizon.",
+      },
+      {
+        question: "How to start SIP in India?",
+        answer:
+          "Complete KYC, choose a mutual fund on Groww, Zerodha, Paytm Money, or an AMC website, and set up auto-debit SIP from your bank account.",
+      },
+      {
+        question: "What is the best SIP plan for 2025?",
+        answer:
+          "There is no single best plan — it depends on goals and risk. Broad index funds and diversified flexi-cap funds are popular for long-term investors. Consult a SEBI-registered advisor for personalised advice.",
+      },
+    ],
+  },
+  "notice-period-calculator": {
+    aboutTitle: "About Notice Period Calculator",
+    aboutParagraphs: [
+      "Our free Notice Period Calculator computes your last working day based on resignation date and notice period length. Enter when you submitted or plan to submit resignation and your contractual notice duration to see the exact exit date, accounting for weekends and company policies.",
+      "Built for Indian employees navigating standard 30, 60, or 90-day notice periods common in IT services, product companies, and corporates. Essential when coordinating a new job joining date, planning notice buyout with your employer, or confirming last day for full and final settlement.",
+      "Date calculations run entirely in your browser — resignation dates and employment details are never uploaded to any server. Your career transition plans stay private on your device.",
+    ],
+    whenToUseTitle: "When Should You Use Notice Period Calculator?",
+    useCases: [
+      {
+        title: "Resignation planning",
+        description:
+          "Know your exact last working day before submitting resignation to HR.",
+      },
+      {
+        title: "Joining date negotiation",
+        description:
+          "Align new employer joining date with your calculated notice period end date.",
+      },
+      {
+        title: "Notice buyout calculation",
+        description:
+          "See how many days of salary buyout applies if leaving before notice ends.",
+      },
+      {
+        title: "New job offer timing",
+        description:
+          "Check if a new offer start date fits your current employer notice timeline.",
+      },
+      {
+        title: "HR planning",
+        description:
+          "HR teams can verify employee last working days for handover and F&F processing.",
+      },
+    ],
+    faqs: [
+      {
+        question: "How to calculate last working day?",
+        answer:
+          "Add your notice period (in days or months) to your resignation acceptance date. Our calculator handles calendar days and shows the resulting last working day.",
+      },
+      {
+        question: "Can I negotiate notice period in India?",
+        answer:
+          "Yes. Many employers agree to shorten notice or accept buyout, especially when you have a joining date pressure. Negotiate with HR — it is not always legally fixed if both parties agree.",
+      },
+      {
+        question: "What is notice period buyout?",
+        answer:
+          "Paying your employer for unserved notice days instead of working them. The amount is typically basic salary for remaining notice days, as per your appointment letter.",
+      },
+      {
+        question: "What happens if I don't serve notice period?",
+        answer:
+          "Employers may withhold experience letters, recover buyout from full and final settlement, or mark you as absconding. This can affect background verification at future employers.",
+      },
+      {
+        question: "Is notice period counted in experience?",
+        answer:
+          "Yes, if you serve it properly and receive a relieving letter. Absconding or termination may affect how future employers count the tenure.",
+      },
+    ],
+  },
+  "percentage-calculator": {
+    aboutTitle: "About Percentage Calculator",
+    aboutParagraphs: [
+      "Our free Percentage Calculator handles every common percentage problem — find what percent one number is of another, calculate percentage increase or decrease, add or subtract a percentage, and compute marks percentage for exams. Get instant results without memorising formulas.",
+      "Designed for Indian students calculating exam scores, shoppers checking discounts during sales, employees verifying hike percentages, and anyone working with GST or interest rates. Supports quick answers for board exam mark sheets, Flipkart/Amazon discount tags, and salary increment verification.",
+      "All calculations run client-side in your browser. Numbers you enter are never sent to any server, keeping exam scores, salary figures, and business data completely private.",
+    ],
+    whenToUseTitle: "When Should You Use Percentage Calculator?",
+    useCases: [
+      {
+        title: "Exam marks calculation",
+        description:
+          "Convert raw marks to percentage for CBSE, state board, or university results.",
+      },
+      {
+        title: "Discount calculation",
+        description:
+          "Find final price after 10%, 20%, or 50% off during online or shop sales.",
+      },
+      {
+        title: "Salary hike percentage",
+        description:
+          "Calculate percentage increase between old and new salary figures quickly.",
+      },
+      {
+        title: "GST calculation",
+        description:
+          "Compute tax percentage on bills when you need a quick percentage check.",
+      },
+      {
+        title: "Interest rates",
+        description:
+          "Work out interest as a percentage of principal for loans or investments.",
+      },
+    ],
+    faqs: [
+      {
+        question: "How to calculate percentage of marks?",
+        answer:
+          "Divide marks obtained by total marks and multiply by 100. Example: 425/500 × 100 = 85%.",
+      },
+      {
+        question: "How to calculate discount percentage?",
+        answer:
+          "Discount % = ((Original Price − Sale Price) / Original Price) × 100. Or enter original price and discount % in our tool to get the sale price directly.",
+      },
+      {
+        question: "What is percentage increase formula?",
+        answer:
+          "Percentage increase = ((New Value − Old Value) / Old Value) × 100. A rise from 80 to 100 is a 25% increase.",
+      },
+      {
+        question: "How to calculate percentage in Excel?",
+        answer:
+          "Use =A1/B1*100 for 'A as % of B', or =(B1-A1)/A1*100 for increase. Our online tool gives the same results without Excel.",
+      },
+      {
+        question: "How to find what percentage one number is of another?",
+        answer:
+          "Divide the part by the whole and multiply by 100. Example: 30 is 60% of 50 because 30/50 × 100 = 60%.",
+      },
+    ],
+  },
+  "password-generator": {
+    aboutTitle: "About Password Generator",
+    aboutParagraphs: [
+      "Our free Password Generator creates strong, random passwords with custom length and character options. Choose uppercase, lowercase, numbers, and symbols to meet bank, email, and workplace password policies — then copy with one click.",
+      "Weak passwords like names, birthdays, or 'password123' are the top cause of account hacks in India. A random 12–16 character password with mixed characters dramatically reduces breach risk for Gmail, net banking, UPI apps, and corporate VPN accounts.",
+      "Password generation runs entirely in your browser using cryptographically secure random values. Passwords are never sent to any server, logged, or stored — they exist only on your device until you copy them to your password manager or account settings.",
+    ],
+    whenToUseTitle: "When Should You Use Password Generator?",
+    useCases: [
+      {
+        title: "Creating bank passwords",
+        description:
+          "Generate strong passwords meeting net banking complexity requirements.",
+      },
+      {
+        title: "Email security",
+        description:
+          "Create unique Gmail or Outlook passwords not reused across other sites.",
+      },
+      {
+        title: "Social media accounts",
+        description:
+          "Secure Instagram, Facebook, and LinkedIn with random high-entropy passwords.",
+      },
+      {
+        title: "Work system passwords",
+        description:
+          "Meet corporate IT password policies for VPN, SAP, and internal tools.",
+      },
+      {
+        title: "WiFi passwords",
+        description:
+          "Generate strong WPA2/WPA3 router passwords for home or office networks.",
+      },
+    ],
+    faqs: [
+      {
+        question: "How to create a strong password?",
+        answer:
+          "Use at least 12 characters mixing uppercase, lowercase, numbers, and symbols. Avoid dictionary words, names, and patterns. Our generator creates these automatically.",
+      },
+      {
+        question: "What makes a password secure?",
+        answer:
+          "Length, randomness, and uniqueness. A 16-character random password is far harder to crack than an 8-character word with substitutions.",
+      },
+      {
+        question: "How long should a password be?",
+        answer:
+          "Minimum 12 characters for important accounts; 16+ for banking and email. Longer passwords exponentially increase brute-force difficulty.",
+      },
+      {
+        question: "Should I use a password manager?",
+        answer:
+          "Yes. Password managers store unique strong passwords for every account so you only remember one master password. Bitwarden and Google Password Manager are popular free options in India.",
+      },
+      {
+        question: "Is online password generator safe?",
+        answer:
+          "Yes with client-side generators like WorkUtilities — passwords are created in your browser and never transmitted. Avoid generators that send passwords to a server.",
+      },
+    ],
+  },
+  "unit-converter": {
+    aboutTitle: "About Unit Converter",
+    aboutParagraphs: [
+      "Our free Unit Converter converts length, weight, temperature, area, volume, and data size units instantly. Switch between metric and imperial systems — kilometres to miles, kg to pounds, Celsius to Fahrenheit, square feet to square metres, and GB to MB — with accurate conversion factors.",
+      "Useful for Indian cooks following international recipes, travellers checking distance and temperature abroad, property buyers comparing sq ft and sq m, and IT professionals converting data storage units. No app install needed — works on mobile and desktop browsers.",
+      "All conversions run client-side in your browser. Values you enter are never uploaded to any server, keeping personal measurements and calculations completely private.",
+    ],
+    whenToUseTitle: "When Should You Use Unit Converter?",
+    useCases: [
+      {
+        title: "Cooking measurements",
+        description:
+          "Convert cups, tablespoons, grams, and ounces when following recipes online.",
+      },
+      {
+        title: "Travel distance",
+        description:
+          "Switch kilometres to miles when planning trips to the US, UK, or other countries.",
+      },
+      {
+        title: "Weather temperature",
+        description:
+          "Convert Celsius to Fahrenheit to understand foreign weather forecasts.",
+      },
+      {
+        title: "Property area",
+        description:
+          "Convert square feet to square metres when comparing flats in India and abroad.",
+      },
+      {
+        title: "Data size conversion",
+        description:
+          "Convert GB, MB, KB, and TB for file sizes, storage plans, and bandwidth.",
+      },
+    ],
+    faqs: [
+      {
+        question: "How to convert km to miles?",
+        answer:
+          "Multiply kilometres by 0.621371. Example: 10 km = 6.21 miles. Our converter gives instant results both ways.",
+      },
+      {
+        question: "How many square feet in one square meter?",
+        answer:
+          "1 square metre = 10.764 square feet. A 1,000 sq ft flat is approximately 92.9 sq m.",
+      },
+      {
+        question: "How to convert Celsius to Fahrenheit?",
+        answer:
+          "Formula: F = (C × 9/5) + 32. Example: 25°C = 77°F. Enter Celsius in our tool for instant Fahrenheit.",
+      },
+      {
+        question: "How many liters in a gallon?",
+        answer:
+          "1 US gallon = 3.785 litres. 1 UK (imperial) gallon = 4.546 litres. Our tool supports both where applicable.",
+      },
+      {
+        question: "How to convert kg to pounds?",
+        answer:
+          "Multiply kg by 2.20462. Example: 70 kg = 154.32 lbs. Use our weight converter for precise results.",
+      },
+    ],
+  },
+  "income-tax-calculator": {
+    aboutTitle: "About Income Tax Calculator",
+    aboutParagraphs: [
+      "Our free Income Tax Calculator compares tax liability under India's Old Regime and New Regime for FY 2024-25 and FY 2025-26. Enter annual income, age group, and deductions to see side-by-side tax, cess, rebate u/s 87A, and take-home estimates with slab-wise breakdown.",
+      "Essential for salaried employees, freelancers, and professionals deciding which regime to choose at the start of the financial year. Accounts for standard deduction, 80C, 80D, HRA, home loan interest, and NPS under the old regime, plus updated new regime slabs with ₹75,000 standard deduction for FY 2025-26.",
+      "All tax calculations run entirely in your browser. Your income and deduction figures are never uploaded to any server — critical for confidential salary and investment planning data during ITR season in India.",
+    ],
+    whenToUseTitle: "When Should You Use Income Tax Calculator?",
+    useCases: [
+      {
+        title: "Tax planning",
+        description:
+          "Estimate annual tax before the March investment deadline for 80C and 80D.",
+      },
+      {
+        title: "Old vs new regime comparison",
+        description:
+          "See which regime saves more tax for your specific income and deductions.",
+      },
+      {
+        title: "Investment planning",
+        description:
+          "Model how ELSS, PPF, and NPS deductions reduce tax under the old regime.",
+      },
+      {
+        title: "Form 16 verification",
+        description:
+          "Cross-check TDS deducted by employer against calculated tax liability.",
+      },
+      {
+        title: "ITR filing prep",
+        description:
+          "Prepare estimated tax figures before filing on the Income Tax e-filing portal.",
+      },
+    ],
+    faqs: [
+      {
+        question: "Which tax regime is better old or new in 2025-26?",
+        answer:
+          "It depends on deductions. Salaried employees with high 80C, HRA, and home loan interest often save under the old regime. Those with minimal deductions may pay less under the new regime with higher rebate limits.",
+      },
+      {
+        question: "How to save income tax in India legally?",
+        answer:
+          "Use Section 80C (₹1.5L), 80D health insurance, HRA, home loan interest u/s 24(b), and NPS 80CCD(1B). Choose the regime that maximises these benefits.",
+      },
+      {
+        question: "What is the income tax slab for 2025-26?",
+        answer:
+          "New regime slabs: 0–₹4L nil, 4–8L at 5%, 8–12L at 10%, 12–16L at 15%, 16–20L at 20%, 20–24L at 25%, above ₹24L at 30%, plus 4% cess.",
+      },
+      {
+        question: "Is income up to 12 lakh tax free in new regime?",
+        answer:
+          "With rebate u/s 87A (up to ₹60,000 for FY 2025-26), many taxpayers with income up to ₹12 lakh pay zero tax under the new regime after rebate, subject to exact income and surcharge rules.",
+      },
+      {
+        question: "How to calculate income tax on salary?",
+        answer:
+          "Add salary, bonus, and allowances, subtract standard deduction and exemptions, apply slab rates, add 4% cess, and subtract rebate u/s 87A. Our calculator automates this for both regimes.",
+      },
+    ],
+  },
+  "signature-maker": {
+    aboutTitle: "About Signature Maker",
+    aboutParagraphs: [
+      "Our free Signature Maker lets you create a digital signature by drawing on canvas, typing your name in cursive fonts, or uploading and cropping an existing signature image. Download as PNG with transparent background or JPG with white background, and copy to clipboard instantly.",
+      "Perfect for signing PDF documents, freelancer contracts, business emails, and online forms without printing and scanning. Choose from elegant Google Fonts like Dancing Script and Great Vibes, or draw naturally with mouse or touch on mobile.",
+      "Everything runs client-side in your browser — your signature image is never uploaded to any server. Personal signatures stay private on your device, with no watermarks or account required.",
+    ],
+    whenToUseTitle: "When Should You Use Signature Maker?",
+    useCases: [
+      {
+        title: "Digital documents",
+        description:
+          "Add a signature image to PDF agreements, offer letters, and declarations.",
+      },
+      {
+        title: "PDF signing",
+        description:
+          "Create a signature PNG to overlay on PDFs before sharing or uploading.",
+      },
+      {
+        title: "Business emails",
+        description:
+          "Embed a professional signature image in email footers and proposals.",
+      },
+      {
+        title: "Freelancer contracts",
+        description:
+          "Sign service agreements and invoices digitally without a scanner.",
+      },
+      {
+        title: "Online forms",
+        description:
+          "Upload a signature image when portals require signed declarations.",
+      },
+    ],
+    faqs: [
+      {
+        question: "How to create a digital signature free?",
+        answer:
+          "Draw your signature on our canvas, type your name in a cursive font, or upload a photo. Download as PNG or JPG — completely free with no signup.",
+      },
+      {
+        question: "Is digital signature legally valid in India?",
+        answer:
+          "Class 3 Digital Signatures under the IT Act are legally valid for e-filing and contracts. Image signatures on PDFs are widely accepted informally but may not replace DSC for all government filings.",
+      },
+      {
+        question: "How to add signature to PDF?",
+        answer:
+          "Download your signature as PNG, open the PDF in Adobe Acrobat, Preview, or an online PDF editor, and insert the image on the signature line.",
+      },
+      {
+        question: "How to make signature on phone?",
+        answer:
+          "Open our Signature Maker on your mobile browser, use the Draw tab, and sign with your finger on the touch canvas.",
+      },
+      {
+        question: "What is the difference between digital and electronic signature?",
+        answer:
+          "Digital signatures use encryption and certificate authority verification (DSC). Electronic signatures include typed names, drawn signatures, and image uploads — simpler but with varying legal weight.",
+      },
+    ],
+  },
+  "rent-receipt-generator": {
+    aboutTitle: "About Rent Receipt Generator",
+    aboutParagraphs: [
+      "Our free Rent Receipt Generator creates professional rent receipts for HRA tax exemption and landlord records. Fill tenant name, landlord name, rent amount, month, payment mode, property address, and optional landlord PAN — then download a formatted PDF instantly.",
+      "Built for salaried employees in India claiming House Rent Allowance (HRA) under Section 10(13A). Generate receipts for one month or bulk-generate January through December before the March ITR deadline. Meets common requirements for employer reimbursement and income tax proof submission.",
+      "Receipt generation runs entirely in your browser using client-side PDF creation. Rent amounts and landlord details are never uploaded to any server, keeping sensitive housing and tax information private on your device.",
+    ],
+    whenToUseTitle: "When Should You Use Rent Receipt Generator?",
+    useCases: [
+      {
+        title: "HRA tax exemption proof",
+        description:
+          "Create monthly rent receipts to submit to your employer for HRA exemption.",
+      },
+      {
+        title: "March deadline",
+        description:
+          "Bulk-generate all 12 months of receipts before the financial year ends.",
+      },
+      {
+        title: "New city accommodation",
+        description:
+          "Start documenting rent from day one when relocating for a new job.",
+      },
+      {
+        title: "Company reimbursement",
+        description:
+          "Provide formatted receipts when HR requires rent proof for HRA processing.",
+      },
+      {
+        title: "IT return proof",
+        description:
+          "Keep rent receipts as supporting documents for HRA claims in ITR filing.",
+      },
+    ],
+    faqs: [
+      {
+        question: "How to make rent receipt for HRA exemption?",
+        answer:
+          "Enter tenant and landlord details, rent amount, month, and address. Download the PDF receipt and submit to your employer with your HRA declaration form.",
+      },
+      {
+        question: "Is rent receipt mandatory for HRA claim?",
+        answer:
+          "Yes for rent above ₹3,000/month. Employers and tax authorities require rent receipts as proof of payment for HRA exemption.",
+      },
+      {
+        question: "What details should be in rent receipt India?",
+        answer:
+          "Tenant name, landlord name, property address, rent amount, month/year, payment mode, receipt number, and landlord signature. PAN is required if annual rent exceeds ₹1 lakh.",
+      },
+      {
+        question: "Do I need landlord PAN for rent receipt?",
+        answer:
+          "Yes if annual rent paid exceeds ₹1,00,000. Include landlord PAN on the receipt for employer records and tax compliance.",
+      },
+      {
+        question: "How to download rent receipt as PDF?",
+        answer:
+          "Fill the form, select months, and click Download PDF. Our tool generates a print-ready PDF instantly in your browser.",
       },
     ],
   },

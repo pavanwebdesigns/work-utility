@@ -13,6 +13,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { RelatedTools } from "@/components/RelatedTools";
 import { ToolFeedback } from "@/components/ToolFeedback";
+import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
 import { ImageCropEditor } from "@/components/ImageCropEditor";
 import {
@@ -427,6 +428,7 @@ export default function SignatureMakerPage() {
 
           <RelatedTools currentSlug="signature-maker" />
           <ToolFeedback toolName="Signature Maker" />
+          <ToolSeoContent slug="signature-maker" />
           <DinoGame />
         </div>
       </main>

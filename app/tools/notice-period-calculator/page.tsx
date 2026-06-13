@@ -7,6 +7,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { RelatedTools } from "@/components/RelatedTools";
 import { ToolFeedback } from "@/components/ToolFeedback";
+import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
 import {
   BreakdownRow,
@@ -262,6 +263,7 @@ export default function NoticePeriodCalculatorPage() {
 
           <RelatedTools currentSlug="notice-period-calculator" />
           <ToolFeedback toolName="Notice Period Calculator" />
+          <ToolSeoContent slug="notice-period-calculator" />
           <DinoGame />
         </div>
       </main>

@@ -7,6 +7,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { RelatedTools } from "@/components/RelatedTools";
 import { ToolFeedback } from "@/components/ToolFeedback";
+import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
 import {
   BreakdownRow,
@@ -207,6 +208,7 @@ export default function UnitConverterPage() {
 
           <RelatedTools currentSlug="unit-converter" />
           <ToolFeedback toolName="Unit Converter" />
+          <ToolSeoContent slug="unit-converter" />
           <DinoGame />
         </div>
       </main>

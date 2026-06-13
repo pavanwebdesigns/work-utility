@@ -15,6 +15,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { RelatedTools } from "@/components/RelatedTools";
 import { ToolFeedback } from "@/components/ToolFeedback";
+import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
 import {
   CalculatorField,
@@ -216,6 +217,7 @@ export default function FdCalculatorPage() {
 
           <RelatedTools currentSlug="fd-calculator" />
           <ToolFeedback toolName="FD Returns Calculator" />
+          <ToolSeoContent slug="fd-calculator" />
           <DinoGame />
         </div>
       </main>

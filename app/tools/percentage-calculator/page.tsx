@@ -7,6 +7,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { RelatedTools } from "@/components/RelatedTools";
 import { ToolFeedback } from "@/components/ToolFeedback";
+import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
 import {
   CalculatorField,
@@ -191,6 +192,7 @@ export default function PercentageCalculatorPage() {
 
           <RelatedTools currentSlug="percentage-calculator" />
           <ToolFeedback toolName="Percentage Calculator" />
+          <ToolSeoContent slug="percentage-calculator" />
           <DinoGame />
         </div>
       </main>

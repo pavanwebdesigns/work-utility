@@ -7,6 +7,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { RelatedTools } from "@/components/RelatedTools";
 import { ToolFeedback } from "@/components/ToolFeedback";
+import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
 import {
   BreakdownRow,
@@ -144,6 +145,7 @@ export default function GstCalculatorPage() {
 
           <RelatedTools currentSlug="gst-calculator" />
           <ToolFeedback toolName="GST Calculator" />
+          <ToolSeoContent slug="gst-calculator" />
           <DinoGame />
         </div>
       </main>

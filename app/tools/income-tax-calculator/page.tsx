@@ -14,6 +14,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { RelatedTools } from "@/components/RelatedTools";
 import { ToolFeedback } from "@/components/ToolFeedback";
+import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
 import {
   BreakdownRow,
@@ -306,6 +307,7 @@ export default function IncomeTaxCalculatorPage() {
 
           <RelatedTools currentSlug="income-tax-calculator" />
           <ToolFeedback toolName="Income Tax Calculator" />
+          <ToolSeoContent slug="income-tax-calculator" />
           <DinoGame />
         </div>
       </main>
