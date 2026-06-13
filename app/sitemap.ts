@@ -368,6 +368,66 @@ export function getSiteMapEntries(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.8,
     },
+    {
+      url: "https://workutilities.com/blog/how-to-merge-pdf-on-mobile-india",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: "https://workutilities.com/blog/how-to-convert-word-to-pdf-free",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: "https://workutilities.com/blog/compress-image-under-100kb-india",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: "https://workutilities.com/blog/passport-photo-size-requirements-india-guide",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: "https://workutilities.com/blog/how-to-create-digital-signature-india",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: "https://workutilities.com/blog/aadhaar-photo-size-guide",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: "https://workutilities.com/blog/qr-code-for-small-business-india",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: "https://workutilities.com/blog/rent-receipt-for-hra-exemption-india",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: "https://workutilities.com/blog/cgpa-to-percentage-for-job-applications",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: "https://workutilities.com/blog/how-to-create-strong-password-guide",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
   ];
 }
 

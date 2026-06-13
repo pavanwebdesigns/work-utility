@@ -1,4 +1,9 @@
-export type BlogCategory = "PDF" | "Images" | "Photo" | "Finance";
+export type BlogCategory =
+  | "PDF"
+  | "Images"
+  | "Photo"
+  | "Finance"
+  | "PDF & Documents";
 
 export type BlogPost = {
   slug: string;
@@ -235,6 +240,116 @@ export const blogPosts: BlogPost[] = [
     lastUpdated: "June 2026",
     cta: { toolName: "Salary Hike Calculator", toolHref: "/tools/salary-hike-calculator" },
   },
+  {
+    slug: "how-to-merge-pdf-on-mobile-india",
+    title: "How to Merge PDF Files on Mobile — Free & Easy (2026)",
+    excerpt:
+      "Step-by-step guide to merge PDF files on Android and iPhone in India. No app download needed, works in browser.",
+    category: "PDF & Documents",
+    readTime: "5 min read",
+    author: "Ravi Kumar",
+    lastUpdated: "June 2026",
+    cta: { toolName: "PDF Merge", toolHref: "/tools/pdf-merge" },
+  },
+  {
+    slug: "how-to-convert-word-to-pdf-free",
+    title: "How to Convert Word to PDF Free Online — No Software Needed (2026)",
+    excerpt:
+      "Convert Word documents to PDF free online. Works on Windows, Mac, Android, iPhone. No Microsoft Office needed.",
+    category: "PDF & Documents",
+    readTime: "6 min read",
+    author: "Priya Sharma",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Word to PDF", toolHref: "/tools/word-to-pdf" },
+  },
+  {
+    slug: "compress-image-under-100kb-india",
+    title: "How to Compress Image Under 100KB — For Government Portals & Forms India",
+    excerpt:
+      "Compress image to under 100KB for UPSC, SSC, Aadhaar, PAN, and other Indian government portal uploads. Free online tool.",
+    category: "Images",
+    readTime: "6 min read",
+    author: "Priya Sharma",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Image Compress", toolHref: "/tools/image-compress" },
+  },
+  {
+    slug: "passport-photo-size-requirements-india-guide",
+    title: "Passport Photo Size Requirements India — Complete Guide 2026",
+    excerpt:
+      "Complete guide to Indian passport photo size, dimensions, background, and common rejection reasons. Resize free online.",
+    category: "Photo",
+    readTime: "6 min read",
+    author: "Ravi Kumar",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Photo Resizer", toolHref: "/tools/photo-resizer?preset=passport" },
+  },
+  {
+    slug: "how-to-create-digital-signature-india",
+    title: "How to Create a Digital Signature Free Online — India Guide 2026",
+    excerpt:
+      "Create a digital signature free online in India. For PDFs, documents, and forms. No software download needed.",
+    category: "PDF & Documents",
+    readTime: "5 min read",
+    author: "Ravi Kumar",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Signature Maker", toolHref: "/tools/signature-maker" },
+  },
+  {
+    slug: "aadhaar-photo-size-guide",
+    title: "Aadhaar Card Photo Size — Exact Requirements & How to Resize Free",
+    excerpt:
+      "Aadhaar card photo size is 413×531 pixels, max 50KB. Complete guide to resize your photo for Aadhaar update portal free.",
+    category: "Photo",
+    readTime: "6 min read",
+    author: "Ravi Kumar",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Photo Resizer", toolHref: "/tools/photo-resizer?preset=aadhaar" },
+  },
+  {
+    slug: "qr-code-for-small-business-india",
+    title: "How to Create QR Code for Your Business in India — Free Guide 2026",
+    excerpt:
+      "Create QR codes for your shop, business card, UPI payment, WhatsApp, and menu free online. Guide for Indian small businesses.",
+    category: "PDF & Documents",
+    readTime: "5 min read",
+    author: "Priya Sharma",
+    lastUpdated: "June 2026",
+    cta: { toolName: "QR Code Generator", toolHref: "/tools/qr-code-generator" },
+  },
+  {
+    slug: "rent-receipt-for-hra-exemption-india",
+    title: "How to Generate Rent Receipt for HRA Exemption — India Tax Guide 2026",
+    excerpt:
+      "Generate rent receipts for HRA tax exemption. What details are required, when landlord PAN is needed, and how to download PDF free.",
+    category: "Finance",
+    readTime: "6 min read",
+    author: "Ravi Kumar",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Rent Receipt Generator", toolHref: "/tools/rent-receipt-generator" },
+  },
+  {
+    slug: "cgpa-to-percentage-for-job-applications",
+    title: "CGPA to Percentage Conversion for Job Applications — VTU, Anna, CBSE Guide",
+    excerpt:
+      "Convert CGPA to percentage for job applications, government forms, and visa. VTU formula (×9.5), Anna University, CBSE explained.",
+    category: "Finance",
+    readTime: "6 min read",
+    author: "Priya Sharma",
+    lastUpdated: "June 2026",
+    cta: { toolName: "CGPA to Percentage", toolHref: "/tools/cgpa-to-percentage" },
+  },
+  {
+    slug: "how-to-create-strong-password-guide",
+    title: "How to Create a Strong Password — Cybersecurity Guide for Indians 2026",
+    excerpt:
+      "Learn how to create strong passwords for bank accounts, email, and social media. Free password generator tool included.",
+    category: "PDF & Documents",
+    readTime: "6 min read",
+    author: "Priya Sharma",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Password Generator", toolHref: "/tools/password-generator" },
+  },
 ];
 
 export const blogPostBySlug = Object.fromEntries(
@@ -385,6 +500,76 @@ export const blogSeoMetadata: Record<
     keywords:
       "salary hike negotiation india, appraisal negotiation tips, how to ask for salary hike, salary increment india 2025",
   },
+  "how-to-merge-pdf-on-mobile-india": {
+    title: "How to Merge PDF Files on Mobile Free (2026) | WorkUtilities",
+    description:
+      "Step-by-step guide to merge PDF files on Android and iPhone in India. No app download needed, works in browser.",
+    keywords:
+      "merge pdf on mobile india, combine pdf android iphone, merge pdf free online mobile, pdf merge browser",
+  },
+  "how-to-convert-word-to-pdf-free": {
+    title: "Convert Word to PDF Free Online 2026 | WorkUtilities",
+    description:
+      "Convert Word documents to PDF free online. Works on Windows, Mac, Android, iPhone. No Microsoft Office needed.",
+    keywords:
+      "convert word to pdf free online, docx to pdf india, word to pdf without office, resume pdf converter",
+  },
+  "compress-image-under-100kb-india": {
+    title: "Compress Image Under 100KB for Government Portals India | WorkUtilities",
+    description:
+      "Compress image to under 100KB for UPSC, SSC, Aadhaar, PAN, and other Indian government portal uploads. Free online tool.",
+    keywords:
+      "compress image under 100kb india, ssc photo 50kb, government portal image size, reduce image kb limit",
+  },
+  "passport-photo-size-requirements-india-guide": {
+    title: "Passport Photo Size Requirements India 2026 | WorkUtilities",
+    description:
+      "Complete guide to Indian passport photo size, dimensions, background, and common rejection reasons. Resize free online.",
+    keywords:
+      "passport photo size india 2026, passport photo requirements mea, indian passport photo dimensions, passport photo resize",
+  },
+  "how-to-create-digital-signature-india": {
+    title: "Create Digital Signature Free Online India 2026 | WorkUtilities",
+    description:
+      "Create a digital signature free online in India. For PDFs, documents, and forms. No software download needed.",
+    keywords:
+      "digital signature india free, create signature online, electronic signature pdf india, sign document online",
+  },
+  "aadhaar-photo-size-guide": {
+    title: "Aadhaar Card Photo Size Guide — 413×531 Pixels, 50KB | WorkUtilities",
+    description:
+      "Aadhaar card photo size is 413×531 pixels, max 50KB. Complete guide to resize your photo for Aadhaar update portal free.",
+    keywords:
+      "aadhaar photo size 413x531, aadhaar photo 50kb, uidai photo requirements, resize aadhaar photo online",
+  },
+  "qr-code-for-small-business-india": {
+    title: "Create QR Code for Business India 2026 — Free Guide | WorkUtilities",
+    description:
+      "Create QR codes for your shop, business card, UPI payment, WhatsApp, and menu free online. Guide for Indian small businesses.",
+    keywords:
+      "qr code for business india, upi qr code generator, shop qr code free, whatsapp qr code business",
+  },
+  "rent-receipt-for-hra-exemption-india": {
+    title: "Rent Receipt for HRA Exemption India 2026 — Generate PDF Free | WorkUtilities",
+    description:
+      "Generate rent receipts for HRA tax exemption. What details are required, when landlord PAN is needed, and how to download PDF free.",
+    keywords:
+      "rent receipt hra exemption india, hra rent receipt format, landlord pan rent receipt, generate rent receipt pdf",
+  },
+  "cgpa-to-percentage-for-job-applications": {
+    title: "CGPA to Percentage for Job Applications — VTU, Anna, CBSE | WorkUtilities",
+    description:
+      "Convert CGPA to percentage for job applications, government forms, and visa. VTU formula (×9.5), Anna University, CBSE explained.",
+    keywords:
+      "cgpa to percentage job application, vtu cgpa percentage formula, anna university cgpa conversion, naukri cgpa percentage",
+  },
+  "how-to-create-strong-password-guide": {
+    title: "How to Create Strong Password — Cybersecurity Guide India 2026 | WorkUtilities",
+    description:
+      "Learn how to create strong passwords for bank accounts, email, and social media. Free password generator tool included.",
+    keywords:
+      "strong password guide india, create secure password, password generator free, net banking password tips",
+  },
 };
 
 export function getCategoryBadgeClass(category: BlogCategory): string {
@@ -397,5 +582,7 @@ export function getCategoryBadgeClass(category: BlogCategory): string {
       return "bg-tool-photo/10 text-tool-photo";
     case "Finance":
       return "bg-brand-blue/10 text-brand-blue";
+    case "PDF & Documents":
+      return "bg-tool-convert/10 text-tool-convert";
   }
 }

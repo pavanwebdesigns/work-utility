@@ -23,6 +23,16 @@ import GstForFreelancersIndiaContent from "../content/gst-for-freelancers-india"
 import HowToReadSalarySlipIndiaContent from "../content/how-to-read-salary-slip-india";
 import FdVsSipIndiaComparisonContent from "../content/fd-vs-sip-india-comparison";
 import SalaryHikeNegotiationGuideIndiaContent from "../content/salary-hike-negotiation-guide-india";
+import HowToMergePdfOnMobileIndiaContent from "../content/how-to-merge-pdf-on-mobile-india";
+import HowToConvertWordToPdfFreeContent from "../content/how-to-convert-word-to-pdf-free";
+import CompressImageUnder100kbIndiaContent from "../content/compress-image-under-100kb-india";
+import PassportPhotoSizeRequirementsIndiaGuideContent from "../content/passport-photo-size-requirements-india-guide";
+import HowToCreateDigitalSignatureIndiaContent from "../content/how-to-create-digital-signature-india";
+import AadhaarPhotoSizeGuideContent from "../content/aadhaar-photo-size-guide";
+import QrCodeForSmallBusinessIndiaContent from "../content/qr-code-for-small-business-india";
+import RentReceiptForHraExemptionIndiaContent from "../content/rent-receipt-for-hra-exemption-india";
+import CgpaToPercentageForJobApplicationsContent from "../content/cgpa-to-percentage-for-job-applications";
+import HowToCreateStrongPasswordGuideContent from "../content/how-to-create-strong-password-guide";
 
 const contentBySlug: Record<string, () => JSX.Element> = {
   "aadhaar-card-photo-size": AadhaarCardPhotoSizeContent,
@@ -53,6 +63,21 @@ const contentBySlug: Record<string, () => JSX.Element> = {
   "fd-vs-sip-india-comparison": FdVsSipIndiaComparisonContent,
   "salary-hike-negotiation-guide-india":
     SalaryHikeNegotiationGuideIndiaContent,
+  "how-to-merge-pdf-on-mobile-india": HowToMergePdfOnMobileIndiaContent,
+  "how-to-convert-word-to-pdf-free": HowToConvertWordToPdfFreeContent,
+  "compress-image-under-100kb-india": CompressImageUnder100kbIndiaContent,
+  "passport-photo-size-requirements-india-guide":
+    PassportPhotoSizeRequirementsIndiaGuideContent,
+  "how-to-create-digital-signature-india":
+    HowToCreateDigitalSignatureIndiaContent,
+  "aadhaar-photo-size-guide": AadhaarPhotoSizeGuideContent,
+  "qr-code-for-small-business-india": QrCodeForSmallBusinessIndiaContent,
+  "rent-receipt-for-hra-exemption-india":
+    RentReceiptForHraExemptionIndiaContent,
+  "cgpa-to-percentage-for-job-applications":
+    CgpaToPercentageForJobApplicationsContent,
+  "how-to-create-strong-password-guide":
+    HowToCreateStrongPasswordGuideContent,
 };
 
 export function generateStaticParams() {
