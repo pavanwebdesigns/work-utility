@@ -1,4 +1,6 @@
-import { PDFDocument } from "pdf-lib";
+const GHOSTSCRIPT_VERSION = "1.0.1";
+
+export type GhostscriptPreset = "/screen" | "/ebook" | "/printer";
 
 export type CompressProgress = {
   currentPage: number;
@@ -7,166 +9,229 @@ export type CompressProgress = {
   message: string;
 };
 
-function clampCompressionPercent(value: number): number {
+export type PdfCompressErrorCode =
+  | "PASSWORD_PROTECTED"
+  | "INVALID_PDF"
+  | "COMPRESSION_FAILED";
+
+export class PdfCompressError extends Error {
+  code: PdfCompressErrorCode;
+
+  constructor(code: PdfCompressErrorCode, message?: string) {
+    super(message ?? code);
+    this.code = code;
+    this.name = "PdfCompressError";
+  }
+}
+
+type GhostscriptModule = {
+  FS: {
+    writeFile: (path: string, data: Uint8Array) => void;
+    readFile: (path: string) => Uint8Array;
+    unlink: (path: string) => void;
+  };
+  run: (args?: string[]) => void;
+  callMain?: (args: string[]) => number;
+};
+
+let gsModulePromise: Promise<GhostscriptModule> | null = null;
+
+function clampSliderValue(value: number): number {
   if (!Number.isFinite(value)) return 50;
   return Math.min(90, Math.max(10, Math.round(value)));
 }
 
-export function getCompressionSettings(compressionPercent: number): {
-  sliderValue: number;
-  renderScale: number;
-  jpegQuality: number;
+export function getPdfSettings(sliderValue: number): GhostscriptPreset {
+  const value = clampSliderValue(sliderValue);
+  if (value <= 30) return "/screen";
+  if (value <= 60) return "/ebook";
+  return "/printer";
+}
+
+export function getCompressionSettings(sliderValue: number): {
+  quality: GhostscriptPreset;
+  scale: GhostscriptPreset;
+  pdfSettings: GhostscriptPreset;
 } {
-  const sliderValue = clampCompressionPercent(compressionPercent);
-  const ratio = sliderValue / 100;
+  const pdfSettings = getPdfSettings(sliderValue);
+  const value = clampSliderValue(sliderValue);
 
-  return {
-    sliderValue,
-    jpegQuality: 1 - ratio,
-    renderScale: 1 - ratio * 0.4,
-  };
+  console.log(`Slider: ${value}%, PDFSETTINGS: ${pdfSettings}`);
+
+  return { quality: pdfSettings, scale: pdfSettings, pdfSettings };
 }
 
-async function loadPdfJs() {
-  const pdfjsLib = await import("pdfjs-dist/legacy/build/pdf.mjs");
-  pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdn.jsdelivr.net/npm/pdfjs-dist@6.0.227/legacy/build/pdf.worker.min.mjs`;
-  return pdfjsLib;
+export function estimateCompressedSize(
+  originalSize: number,
+  sliderValue: number
+): number {
+  const value = clampSliderValue(sliderValue);
+  const reductionFactor = ((100 - value) / 100) * 0.88;
+  return Math.round(originalSize * (1 - reductionFactor));
 }
 
-function canvasToJpegBlob(
-  canvas: HTMLCanvasElement,
-  quality: number
-): Promise<Blob> {
-  const jpegQuality = Math.min(1, Math.max(0.01, quality));
-
-  return new Promise((resolve, reject) => {
-    canvas.toBlob(
-      (blob) =>
-        blob ? resolve(blob) : reject(new Error("Failed to compress page")),
-      "image/jpeg",
-      jpegQuality
-    );
-  });
+function logCompressionError(error: unknown) {
+  console.error("Compression error details:", error);
+  if (error instanceof Error) {
+    console.error("Error message:", error.message);
+    console.error("Error stack:", error.stack);
+  }
 }
 
-async function buildCompressedPdf(
-  file: File,
-  jpegQuality: number,
-  renderScale: number,
-  onProgress?: (progress: CompressProgress) => void
-): Promise<Blob> {
-  const pdfjsLib = await loadPdfJs();
-  const arrayBuffer = await file.arrayBuffer();
-  const pdf = await pdfjsLib.getDocument({ data: arrayBuffer.slice(0) }).promise;
-  const outputPdf = await PDFDocument.create();
-  const totalPages = pdf.numPages;
+function isPasswordError(message: string): boolean {
+  return /password/i.test(message) || /encrypted/i.test(message);
+}
 
-  for (let pageNumber = 1; pageNumber <= totalPages; pageNumber++) {
-    onProgress?.({
-      currentPage: pageNumber,
-      totalPages,
-      percent: Math.round(((pageNumber - 1) / totalPages) * 100),
-      message: `Compressing page ${pageNumber} of ${totalPages}...`,
-    });
+function isInvalidPdfError(message: string): boolean {
+  return (
+    /invalid/i.test(message) ||
+    /corrupt/i.test(message) ||
+    /syntax error/i.test(message) ||
+    /not a pdf/i.test(message)
+  );
+}
 
-    const page = await pdf.getPage(pageNumber);
-    const baseViewport = page.getViewport({ scale: 1 });
-    const renderViewport = page.getViewport({ scale: renderScale });
+function toPdfCompressError(error: unknown): PdfCompressError {
+  if (error instanceof PdfCompressError) return error;
 
-    const canvas = document.createElement("canvas");
-    canvas.width = Math.floor(renderViewport.width);
-    canvas.height = Math.floor(renderViewport.height);
-    const ctx = canvas.getContext("2d");
+  const message = error instanceof Error ? error.message : String(error);
 
-    if (!ctx) {
-      throw new Error("Could not initialize canvas for compression");
-    }
+  if (isPasswordError(message)) {
+    return new PdfCompressError("PASSWORD_PROTECTED");
+  }
+  if (isInvalidPdfError(message)) {
+    return new PdfCompressError("INVALID_PDF");
+  }
+  if (error instanceof Error) {
+    return new PdfCompressError("COMPRESSION_FAILED", error.message);
+  }
+  return new PdfCompressError("COMPRESSION_FAILED");
+}
 
-    ctx.fillStyle = "#ffffff";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
+async function loadGhostscript(): Promise<GhostscriptModule> {
+  if (!gsModulePromise) {
+    gsModulePromise = (async () => {
+      const initGs = (await import("ghostscript-wasm-esm")).default;
+      const gs = (await initGs({
+        locateFile: (file: string) =>
+          `https://cdn.jsdelivr.net/npm/ghostscript-wasm-esm@${GHOSTSCRIPT_VERSION}/${file}`,
+      })) as unknown as GhostscriptModule;
 
-    await page.render({
-      canvasContext: ctx,
-      viewport: renderViewport,
-      canvas,
-    }).promise;
-
-    const jpegBlob = await canvasToJpegBlob(canvas, jpegQuality);
-    const jpegBytes = new Uint8Array(await jpegBlob.arrayBuffer());
-    const jpegImage = await outputPdf.embedJpg(jpegBytes);
-
-    const pdfPage = outputPdf.addPage([
-      baseViewport.width,
-      baseViewport.height,
-    ]);
-    pdfPage.drawImage(jpegImage, {
-      x: 0,
-      y: 0,
-      width: baseViewport.width,
-      height: baseViewport.height,
-    });
+      console.log("Ghostscript WASM loaded");
+      return gs;
+    })();
   }
 
-  onProgress?.({
-    currentPage: totalPages,
-    totalPages,
-    percent: 100,
-    message: "Finalizing compressed PDF...",
-  });
+  return gsModulePromise;
+}
 
-  const pdfBytes = await outputPdf.save({
-    useObjectStreams: true,
-    addDefaultPage: false,
-  });
+function runGhostscript(
+  gs: GhostscriptModule,
+  inputBytes: Uint8Array,
+  pdfSettings: GhostscriptPreset
+): Uint8Array {
+  const inputPath = "/input.pdf";
+  const outputPath = "/output.pdf";
 
-  return new Blob([Uint8Array.from(pdfBytes)], { type: "application/pdf" });
+  gs.FS.writeFile(inputPath, inputBytes);
+
+  const args = [
+    "-sDEVICE=pdfwrite",
+    "-dCompatibilityLevel=1.4",
+    `-dPDFSETTINGS=${pdfSettings}`,
+    "-dNOPAUSE",
+    "-dQUIET",
+    "-dBATCH",
+    `-sOutputFile=${outputPath}`,
+    inputPath,
+  ];
+
+  console.log("Ghostscript args:", args.join(" "));
+
+  try {
+    if (typeof gs.callMain === "function") {
+      gs.callMain(args);
+    } else {
+      gs.run(args);
+    }
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    throw new Error(message || "Ghostscript compression failed");
+  }
+
+  let outputBytes: Uint8Array;
+  try {
+    outputBytes = gs.FS.readFile(outputPath);
+  } catch {
+    throw new Error("Ghostscript did not produce an output file");
+  }
+
+  try {
+    gs.FS.unlink(inputPath);
+    gs.FS.unlink(outputPath);
+  } catch {
+    // ignore cleanup errors
+  }
+
+  return outputBytes;
 }
 
 export async function compressPDF(
   file: File,
-  compressionPercent: number,
+  sliderValue: number,
   onProgress?: (progress: CompressProgress) => void
 ): Promise<Blob> {
-  const { sliderValue, renderScale, jpegQuality } =
-    getCompressionSettings(compressionPercent);
+  const value = clampSliderValue(sliderValue);
+  const { pdfSettings } = getCompressionSettings(value);
 
-  console.log("[PDF Compress]", { sliderValue, jpegQuality, renderScale });
+  try {
+    console.log("Starting compression with:", {
+      sliderValue: value,
+      pdfSettings,
+    });
+    console.log("Original size:", file.size);
 
-  const targetSize = Math.round(file.size * (1 - sliderValue / 100));
-  let quality = jpegQuality;
-  let scale = renderScale;
-  let blob = await buildCompressedPdf(file, quality, scale, onProgress);
+    onProgress?.({
+      currentPage: 0,
+      totalPages: 1,
+      percent: 5,
+      message: "Loading compression engine...",
+    });
 
-  console.log("[PDF Compress] result", {
-    sliderValue,
-    jpegQuality: quality,
-    renderScale: scale,
-    originalSize: file.size,
-    compressedSize: blob.size,
-    targetSize,
-  });
+    const gs = await loadGhostscript();
 
-  // Prevent heavy over-compression when raster output is far below slider target
-  if (blob.size < targetSize * 0.6 && sliderValue <= 55) {
-    quality = Math.min(0.95, quality + 0.2);
-    scale = Math.min(1, scale + 0.12);
-    console.log("[PDF Compress] retry lighter", { quality, scale });
-    blob = await buildCompressedPdf(file, quality, scale, onProgress);
+    onProgress?.({
+      currentPage: 0,
+      totalPages: 1,
+      percent: 20,
+      message: `Compressing with ${pdfSettings} preset... please wait`,
+    });
+
+    const inputBytes = new Uint8Array(await file.arrayBuffer());
+    const outputBytes = runGhostscript(gs, inputBytes, pdfSettings);
+
+    onProgress?.({
+      currentPage: 1,
+      totalPages: 1,
+      percent: 100,
+      message: "Compression complete",
+    });
+
+    console.log("Compressed size:", outputBytes.byteLength);
+
+    return new Blob([outputBytes as BlobPart], { type: "application/pdf" });
+  } catch (error) {
+    logCompressionError(error);
+    throw toPdfCompressError(error);
   }
-
-  // Push harder when output is still above slider target
-  if (blob.size > targetSize * 1.25 && sliderValue >= 55) {
-    quality = Math.max(0.08, quality - 0.12);
-    scale = Math.max(0.55, scale - 0.08);
-    console.log("[PDF Compress] retry stronger", { quality, scale });
-    blob = await buildCompressedPdf(file, quality, scale, onProgress);
-  }
-
-  return blob;
 }
 
 export function formatFileSize(bytes: number): string {
   if (bytes < 1024) return bytes + " B";
   if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + " KB";
   return (bytes / (1024 * 1024)).toFixed(2) + " MB";
+}
+
+export function formatEstimatedFileSize(bytes: number): string {
+  return `~${formatFileSize(bytes)}`;
 }
