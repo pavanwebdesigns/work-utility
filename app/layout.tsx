@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { GeistSans } from "geist/font/sans";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
@@ -62,6 +63,7 @@ export default function RootLayout({
           {children}
         </div>
         <Analytics />
+        <GoogleAnalytics gaId="G-N85BQ3XV27" />
       </body>
     </html>
   );
