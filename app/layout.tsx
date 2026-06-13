@@ -13,6 +13,9 @@ export const metadata: Metadata = {
   keywords:
     "free online tools, pdf tools, image tools, document converter, compress pdf, photo resizer india",
   metadataBase: new URL("https://workutilities.com"),
+  alternates: {
+    canonical: "/",
+  },
   manifest: "/manifest.json",
   appleWebApp: {
     capable: true,

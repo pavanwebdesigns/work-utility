@@ -428,6 +428,66 @@ export function getSiteMapEntries(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.8,
     },
+    {
+      url: "https://workutilities.com/blog/how-to-calculate-percentage-of-marks-india",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: "https://workutilities.com/blog/how-to-resize-photo-for-government-exams",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: "https://workutilities.com/blog/word-count-for-upsc-essay-writing",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: "https://workutilities.com/blog/age-calculator-for-government-forms-india",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: "https://workutilities.com/blog/best-free-tools-for-indian-students",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: "https://workutilities.com/blog/how-to-make-passport-size-photo-at-home",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: "https://workutilities.com/blog/unit-conversion-guide-indian-students",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: "https://workutilities.com/blog/how-to-split-pdf-extract-pages-india",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: "https://workutilities.com/blog/qr-code-for-college-events-india",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: "https://workutilities.com/blog/how-to-combine-images-into-pdf-india",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
   ];
 }
 

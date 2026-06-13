@@ -3,7 +3,8 @@ export type BlogCategory =
   | "Images"
   | "Photo"
   | "Finance"
-  | "PDF & Documents";
+  | "PDF & Documents"
+  | "Students & Utilities";
 
 export type BlogPost = {
   slug: string;
@@ -350,6 +351,116 @@ export const blogPosts: BlogPost[] = [
     lastUpdated: "June 2026",
     cta: { toolName: "Password Generator", toolHref: "/tools/password-generator" },
   },
+  {
+    slug: "how-to-calculate-percentage-of-marks-india",
+    title: "How to Calculate Percentage of Marks — Guide for Indian Students 2026",
+    excerpt:
+      "Calculate percentage of marks for board exams, entrance tests, and job applications in India. Simple formula with examples.",
+    category: "Students & Utilities",
+    readTime: "6 min read",
+    author: "Priya Sharma",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Percentage Calculator", toolHref: "/tools/percentage-calculator" },
+  },
+  {
+    slug: "how-to-resize-photo-for-government-exams",
+    title: "How to Resize Photo for Government Exams — UPSC, SSC, Railway, State PSC (2026)",
+    excerpt:
+      "Complete photo size guide for UPSC, SSC CGL, Railway RRB, and state PSC exams. Resize free online with exact dimensions.",
+    category: "Students & Utilities",
+    readTime: "6 min read",
+    author: "Ravi Kumar",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Photo Resizer", toolHref: "/tools/photo-resizer" },
+  },
+  {
+    slug: "word-count-for-upsc-essay-writing",
+    title: "Word Count for UPSC Essay — How to Practice Writing Within Limits",
+    excerpt:
+      "UPSC essay word limit guide. How to count words, practice within 1000-1200 word limit, and improve essay writing speed.",
+    category: "Students & Utilities",
+    readTime: "6 min read",
+    author: "Ravi Kumar",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Word Counter", toolHref: "/tools/word-counter" },
+  },
+  {
+    slug: "age-calculator-for-government-forms-india",
+    title: "Age Calculator for Government Forms India — Exact Age in Years Months Days",
+    excerpt:
+      "Calculate your exact age in years, months, and days for government forms, UPSC eligibility, passport, and Aadhaar in India.",
+    category: "Students & Utilities",
+    readTime: "6 min read",
+    author: "Priya Sharma",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Age Calculator", toolHref: "/tools/age-calculator" },
+  },
+  {
+    slug: "best-free-tools-for-indian-students",
+    title: "10 Best Free Online Tools Every Indian Student Needs in 2026",
+    excerpt:
+      "Top free online tools for Indian students — PDF tools, photo resizer, word counter, percentage calculator, and more. No signup required.",
+    category: "Students & Utilities",
+    readTime: "7 min read",
+    author: "Priya Sharma",
+    lastUpdated: "June 2026",
+    cta: { toolName: "All Tools", toolHref: "/tools" },
+  },
+  {
+    slug: "how-to-make-passport-size-photo-at-home",
+    title: "How to Make Passport Size Photo at Home Free — No Studio Needed (2026)",
+    excerpt:
+      "Make professional passport size photos at home using your phone. Free online tool to resize and crop to exact dimensions.",
+    category: "Students & Utilities",
+    readTime: "6 min read",
+    author: "Ravi Kumar",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Photo Resizer", toolHref: "/tools/photo-resizer?preset=passport" },
+  },
+  {
+    slug: "unit-conversion-guide-indian-students",
+    title: "Unit Conversion Guide for Indian Students — Length, Weight, Temperature & More",
+    excerpt:
+      "Complete unit conversion guide for Indian students. Convert km to miles, kg to lbs, Celsius to Fahrenheit, and more. Free online converter.",
+    category: "Students & Utilities",
+    readTime: "6 min read",
+    author: "Ravi Kumar",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Unit Converter", toolHref: "/tools/unit-converter" },
+  },
+  {
+    slug: "how-to-split-pdf-extract-pages-india",
+    title: "How to Split a PDF and Extract Pages Free Online — India Guide 2026",
+    excerpt:
+      "Split PDF files and extract specific pages free online. No signup, works on mobile. Perfect for marksheets, certificates, and bank statements.",
+    category: "Students & Utilities",
+    readTime: "5 min read",
+    author: "Priya Sharma",
+    lastUpdated: "June 2026",
+    cta: { toolName: "PDF Split", toolHref: "/tools/pdf-split" },
+  },
+  {
+    slug: "qr-code-for-college-events-india",
+    title: "How to Create QR Code for College Events & Fests — Free Guide India 2026",
+    excerpt:
+      "Create QR codes for college fest registrations, event links, WhatsApp groups, and UPI payments. Free online QR generator, no signup.",
+    category: "Students & Utilities",
+    readTime: "5 min read",
+    author: "Priya Sharma",
+    lastUpdated: "June 2026",
+    cta: { toolName: "QR Code Generator", toolHref: "/tools/qr-code-generator" },
+  },
+  {
+    slug: "how-to-combine-images-into-pdf-india",
+    title: "How to Combine Multiple Images into One PDF — Free Online Guide India 2026",
+    excerpt:
+      "Combine multiple photos into one PDF free online. Perfect for submitting ID proofs, certificates, and documents on Indian portals.",
+    category: "Students & Utilities",
+    readTime: "6 min read",
+    author: "Ravi Kumar",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Image to PDF", toolHref: "/tools/image-to-pdf" },
+  },
 ];
 
 export const blogPostBySlug = Object.fromEntries(
@@ -570,6 +681,76 @@ export const blogSeoMetadata: Record<
     keywords:
       "strong password guide india, create secure password, password generator free, net banking password tips",
   },
+  "how-to-calculate-percentage-of-marks-india": {
+    title: "How to Calculate Percentage of Marks — Indian Students 2026 | WorkUtilities",
+    description:
+      "Calculate percentage of marks for board exams, entrance tests, and job applications in India. Simple formula with examples.",
+    keywords:
+      "calculate percentage of marks india, class 12 percentage formula, board exam percentage, aggregate percentage calculator",
+  },
+  "how-to-resize-photo-for-government-exams": {
+    title: "Resize Photo for Government Exams India 2026 — UPSC SSC Railway | WorkUtilities",
+    description:
+      "Complete photo size guide for UPSC, SSC CGL, Railway RRB, and state PSC exams. Resize free online with exact dimensions.",
+    keywords:
+      "government exam photo size india, ssc cgl photo 50kb, upsc photo dimensions, railway rrb photo resize",
+  },
+  "word-count-for-upsc-essay-writing": {
+    title: "Word Count for UPSC Essay — Practice Within Limits | WorkUtilities",
+    description:
+      "UPSC essay word limit guide. How to count words, practice within 1000-1200 word limit, and improve essay writing speed.",
+    keywords:
+      "upsc essay word limit, word count upsc mains, essay writing practice india, upsc gs answer word limit",
+  },
+  "age-calculator-for-government-forms-india": {
+    title: "Age Calculator for Government Forms India 2026 | WorkUtilities",
+    description:
+      "Calculate your exact age in years, months, and days for government forms, UPSC eligibility, passport, and Aadhaar in India.",
+    keywords:
+      "age calculator government forms india, upsc age eligibility calculator, age as on date calculator, ssc age limit",
+  },
+  "best-free-tools-for-indian-students": {
+    title: "10 Best Free Online Tools for Indian Students 2026 | WorkUtilities",
+    description:
+      "Top free online tools for Indian students — PDF tools, photo resizer, word counter, percentage calculator, and more. No signup required.",
+    keywords:
+      "free tools for students india, online tools for college students, pdf tools students, exam photo resize free",
+  },
+  "how-to-make-passport-size-photo-at-home": {
+    title: "Make Passport Size Photo at Home Free 2026 | WorkUtilities",
+    description:
+      "Make professional passport size photos at home using your phone. Free online tool to resize and crop to exact dimensions.",
+    keywords:
+      "passport size photo at home india, make passport photo phone, passport photo without studio, resize passport photo free",
+  },
+  "unit-conversion-guide-indian-students": {
+    title: "Unit Conversion Guide for Indian Students 2026 | WorkUtilities",
+    description:
+      "Complete unit conversion guide for Indian students. Convert km to miles, kg to lbs, Celsius to Fahrenheit, and more. Free online converter.",
+    keywords:
+      "unit conversion guide students, km to miles india, celsius to fahrenheit, kg to lbs luggage limit",
+  },
+  "how-to-split-pdf-extract-pages-india": {
+    title: "Split PDF Extract Pages Free Online India 2026 | WorkUtilities",
+    description:
+      "Split PDF files and extract specific pages free online. No signup, works on mobile. Perfect for marksheets, certificates, and bank statements.",
+    keywords:
+      "split pdf extract pages free, pdf split online india, extract page from marksheet pdf, pdf split mobile",
+  },
+  "qr-code-for-college-events-india": {
+    title: "QR Code for College Events India 2026 — Free Guide | WorkUtilities",
+    description:
+      "Create QR codes for college fest registrations, event links, WhatsApp groups, and UPI payments. Free online QR generator, no signup.",
+    keywords:
+      "qr code college fest india, event registration qr code, college event qr generator free, fest banner qr code",
+  },
+  "how-to-combine-images-into-pdf-india": {
+    title: "Combine Images into One PDF Free India 2026 | WorkUtilities",
+    description:
+      "Combine multiple photos into one PDF free online. Perfect for submitting ID proofs, certificates, and documents on Indian portals.",
+    keywords:
+      "combine images to pdf india, multiple photos one pdf, aadhaar pan pdf upload, image to pdf free online",
+  },
 };
 
 export function getCategoryBadgeClass(category: BlogCategory): string {
@@ -584,5 +765,7 @@ export function getCategoryBadgeClass(category: BlogCategory): string {
       return "bg-brand-blue/10 text-brand-blue";
     case "PDF & Documents":
       return "bg-tool-convert/10 text-tool-convert";
+    case "Students & Utilities":
+      return "bg-tool-photo/10 text-tool-photo";
   }
 }

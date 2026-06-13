@@ -33,6 +33,16 @@ import QrCodeForSmallBusinessIndiaContent from "../content/qr-code-for-small-bus
 import RentReceiptForHraExemptionIndiaContent from "../content/rent-receipt-for-hra-exemption-india";
 import CgpaToPercentageForJobApplicationsContent from "../content/cgpa-to-percentage-for-job-applications";
 import HowToCreateStrongPasswordGuideContent from "../content/how-to-create-strong-password-guide";
+import HowToCalculatePercentageOfMarksIndiaContent from "../content/how-to-calculate-percentage-of-marks-india";
+import HowToResizePhotoForGovernmentExamsContent from "../content/how-to-resize-photo-for-government-exams";
+import WordCountForUpscEssayWritingContent from "../content/word-count-for-upsc-essay-writing";
+import AgeCalculatorForGovernmentFormsIndiaContent from "../content/age-calculator-for-government-forms-india";
+import BestFreeToolsForIndianStudentsContent from "../content/best-free-tools-for-indian-students";
+import HowToMakePassportSizePhotoAtHomeContent from "../content/how-to-make-passport-size-photo-at-home";
+import UnitConversionGuideIndianStudentsContent from "../content/unit-conversion-guide-indian-students";
+import HowToSplitPdfExtractPagesIndiaContent from "../content/how-to-split-pdf-extract-pages-india";
+import QrCodeForCollegeEventsIndiaContent from "../content/qr-code-for-college-events-india";
+import HowToCombineImagesIntoPdfIndiaContent from "../content/how-to-combine-images-into-pdf-india";
 
 const contentBySlug: Record<string, () => JSX.Element> = {
   "aadhaar-card-photo-size": AadhaarCardPhotoSizeContent,
@@ -78,6 +88,22 @@ const contentBySlug: Record<string, () => JSX.Element> = {
     CgpaToPercentageForJobApplicationsContent,
   "how-to-create-strong-password-guide":
     HowToCreateStrongPasswordGuideContent,
+  "how-to-calculate-percentage-of-marks-india":
+    HowToCalculatePercentageOfMarksIndiaContent,
+  "how-to-resize-photo-for-government-exams":
+    HowToResizePhotoForGovernmentExamsContent,
+  "word-count-for-upsc-essay-writing": WordCountForUpscEssayWritingContent,
+  "age-calculator-for-government-forms-india":
+    AgeCalculatorForGovernmentFormsIndiaContent,
+  "best-free-tools-for-indian-students": BestFreeToolsForIndianStudentsContent,
+  "how-to-make-passport-size-photo-at-home":
+    HowToMakePassportSizePhotoAtHomeContent,
+  "unit-conversion-guide-indian-students":
+    UnitConversionGuideIndianStudentsContent,
+  "how-to-split-pdf-extract-pages-india": HowToSplitPdfExtractPagesIndiaContent,
+  "qr-code-for-college-events-india": QrCodeForCollegeEventsIndiaContent,
+  "how-to-combine-images-into-pdf-india":
+    HowToCombineImagesIntoPdfIndiaContent,
 };
 
 export function generateStaticParams() {
