@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { blogPosts, getCategoryBadgeClass } from "./posts";
+import { getBlogPostsForListing, getCategoryBadgeClass } from "./posts";
 
 export default function BlogIndexPage() {
   return (
@@ -24,17 +24,28 @@ export default function BlogIndexPage() {
           </p>
 
           <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2">
-            {blogPosts.map((post) => (
+            {getBlogPostsForListing().map((post) => (
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
-                className="group block rounded-2xl border border-surface-border bg-surface-card p-6 transition-all duration-200 hover:-translate-y-0.5 hover:border-brand-blue"
+                className={`group block rounded-2xl border bg-surface-card p-6 transition-all duration-200 hover:-translate-y-0.5 ${
+                  post.featured
+                    ? "border-brand-blue/40 hover:border-brand-blue"
+                    : "border-surface-border hover:border-brand-blue"
+                }`}
               >
-                <span
-                  className={`inline-block rounded-full px-2.5 py-0.5 text-xs font-medium ${getCategoryBadgeClass(post.category)}`}
-                >
-                  {post.category}
-                </span>
+                <div className="flex flex-wrap items-center gap-2">
+                  <span
+                    className={`inline-block rounded-full px-2.5 py-0.5 text-xs font-medium ${getCategoryBadgeClass(post.category)}`}
+                  >
+                    {post.category}
+                  </span>
+                  {post.featured && (
+                    <span className="inline-block rounded-full bg-brand-blue/10 px-2.5 py-0.5 text-xs font-medium text-brand-blue">
+                      Featured
+                    </span>
+                  )}
+                </div>
                 <h2 className="mt-3 text-lg font-semibold text-content-primary">
                   {post.title}
                 </h2>

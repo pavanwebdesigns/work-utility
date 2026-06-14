@@ -43,8 +43,19 @@ import UnitConversionGuideIndianStudentsContent from "../content/unit-conversion
 import HowToSplitPdfExtractPagesIndiaContent from "../content/how-to-split-pdf-extract-pages-india";
 import QrCodeForCollegeEventsIndiaContent from "../content/qr-code-for-college-events-india";
 import HowToCombineImagesIntoPdfIndiaContent from "../content/how-to-combine-images-into-pdf-india";
+import CompletePdfToolsGuideIndiaContent from "../content/complete-pdf-tools-guide-india";
+import CompleteSalaryTaxGuideIndiaContent from "../content/complete-salary-tax-guide-india";
+import CompleteGovernmentFormsGuideIndiaContent from "../content/complete-government-forms-guide-india";
+import CompleteStudentToolsGuideIndiaContent from "../content/complete-student-tools-guide-india";
+import CompleteImageToolsGuideIndiaContent from "../content/complete-image-tools-guide-india";
 
 const contentBySlug: Record<string, () => JSX.Element> = {
+  "complete-pdf-tools-guide-india": CompletePdfToolsGuideIndiaContent,
+  "complete-salary-tax-guide-india": CompleteSalaryTaxGuideIndiaContent,
+  "complete-government-forms-guide-india":
+    CompleteGovernmentFormsGuideIndiaContent,
+  "complete-student-tools-guide-india": CompleteStudentToolsGuideIndiaContent,
+  "complete-image-tools-guide-india": CompleteImageToolsGuideIndiaContent,
   "aadhaar-card-photo-size": AadhaarCardPhotoSizeContent,
   "how-to-compress-pdf-online-free": HowToCompressPdfOnlineFreeContent,
   "reduce-image-size-without-losing-quality":

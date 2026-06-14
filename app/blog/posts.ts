@@ -4,7 +4,8 @@ export type BlogCategory =
   | "Photo"
   | "Finance"
   | "PDF & Documents"
-  | "Students & Utilities";
+  | "Students & Utilities"
+  | "Complete Guide";
 
 export type BlogPost = {
   slug: string;
@@ -14,13 +15,82 @@ export type BlogPost = {
   readTime: string;
   author: string;
   lastUpdated: string;
+  featured?: boolean;
   cta: {
     toolName: string;
     toolHref: string;
   };
 };
 
+export const PILLAR_POST_SLUGS = new Set([
+  "complete-pdf-tools-guide-india",
+  "complete-salary-tax-guide-india",
+  "complete-government-forms-guide-india",
+  "complete-student-tools-guide-india",
+  "complete-image-tools-guide-india",
+]);
+
 export const blogPosts: BlogPost[] = [
+  {
+    slug: "complete-pdf-tools-guide-india",
+    title: "Complete PDF Tools Guide for Indians — Compress, Merge, Split, Convert (2026)",
+    excerpt:
+      "Complete guide to free PDF tools in India. Compress, merge, split, convert PDF to Word, unlock password protected PDFs. No signup needed.",
+    category: "Complete Guide",
+    readTime: "10 min read",
+    author: "Priya Sharma",
+    lastUpdated: "June 2026",
+    featured: true,
+    cta: { toolName: "All PDF Tools", toolHref: "/tools" },
+  },
+  {
+    slug: "complete-salary-tax-guide-india",
+    title: "Complete Salary & Tax Guide for Indian Employees 2026 — CTC, Tax, SIP & More",
+    excerpt:
+      "Complete guide to understanding salary, tax, and investments for Indian employees. CTC calculator, income tax, SIP, EMI, and more free tools.",
+    category: "Complete Guide",
+    readTime: "10 min read",
+    author: "Priya Sharma",
+    lastUpdated: "June 2026",
+    featured: true,
+    cta: { toolName: "CTC Calculator", toolHref: "/tools/ctc-calculator" },
+  },
+  {
+    slug: "complete-government-forms-guide-india",
+    title: "Complete Guide to Government Forms & Documents in India 2026 — Photo, PDF & More",
+    excerpt:
+      "Complete guide to photo sizes, PDF requirements, and document preparation for Indian government forms — Aadhaar, PAN, Passport, UPSC, SSC.",
+    category: "Complete Guide",
+    readTime: "10 min read",
+    author: "Ravi Kumar",
+    lastUpdated: "June 2026",
+    featured: true,
+    cta: { toolName: "Photo Resizer", toolHref: "/tools/photo-resizer" },
+  },
+  {
+    slug: "complete-student-tools-guide-india",
+    title: "Complete Free Tools Guide for Indian Students 2026 — CGPA, Percentage, PDF & More",
+    excerpt:
+      "Best free online tools for Indian students. Convert CGPA to percentage, count words, calculate marks, resize exam photos, and more.",
+    category: "Complete Guide",
+    readTime: "10 min read",
+    author: "Priya Sharma",
+    lastUpdated: "June 2026",
+    featured: true,
+    cta: { toolName: "All Tools", toolHref: "/tools" },
+  },
+  {
+    slug: "complete-image-tools-guide-india",
+    title: "Complete Image & Photo Tools Guide India 2026 — Compress, Resize, Convert Free",
+    excerpt:
+      "Complete guide to free image tools in India. Compress images, resize photos, convert formats, create QR codes and digital signatures free online.",
+    category: "Complete Guide",
+    readTime: "10 min read",
+    author: "Ravi Kumar",
+    lastUpdated: "June 2026",
+    featured: true,
+    cta: { toolName: "All Image Tools", toolHref: "/tools" },
+  },
   {
     slug: "aadhaar-card-photo-size",
     title: "Aadhaar Card Photo Size: The Complete Guide (2026)",
@@ -751,6 +821,41 @@ export const blogSeoMetadata: Record<
     keywords:
       "combine images to pdf india, multiple photos one pdf, aadhaar pan pdf upload, image to pdf free online",
   },
+  "complete-pdf-tools-guide-india": {
+    title: "Complete PDF Tools Guide for Indians 2026 | WorkUtilities",
+    description:
+      "Complete guide to free PDF tools in India. Compress, merge, split, convert PDF to Word, unlock password protected PDFs. No signup needed.",
+    keywords:
+      "pdf tools india free, compress merge split pdf online, pdf to word india, government portal pdf tools",
+  },
+  "complete-salary-tax-guide-india": {
+    title: "Complete Salary & Tax Guide for Indian Employees 2026 | WorkUtilities",
+    description:
+      "Complete guide to understanding salary, tax, and investments for Indian employees. CTC calculator, income tax, SIP, EMI, and more free tools.",
+    keywords:
+      "salary tax guide india, ctc in hand salary, income tax planning india, sip emi calculator employees",
+  },
+  "complete-government-forms-guide-india": {
+    title: "Complete Government Forms Guide India 2026 | WorkUtilities",
+    description:
+      "Complete guide to photo sizes, PDF requirements, and document preparation for Indian government forms — Aadhaar, PAN, Passport, UPSC, SSC.",
+    keywords:
+      "government forms guide india, aadhaar pan passport photo size, upsc ssc document requirements, pdf size government portal",
+  },
+  "complete-student-tools-guide-india": {
+    title: "Complete Student Tools Guide India 2026 | WorkUtilities",
+    description:
+      "Best free online tools for Indian students. Convert CGPA to percentage, count words, calculate marks, resize exam photos, and more.",
+    keywords:
+      "student tools india free, cgpa percentage calculator, exam photo resize, upsc essay word count tools",
+  },
+  "complete-image-tools-guide-india": {
+    title: "Complete Image & Photo Tools Guide India 2026 | WorkUtilities",
+    description:
+      "Complete guide to free image tools in India. Compress images, resize photos, convert formats, create QR codes and digital signatures free online.",
+    keywords:
+      "image tools india free, compress resize photo online, digital signature qr code india, passport photo tools",
+  },
 };
 
 export function getCategoryBadgeClass(category: BlogCategory): string {
@@ -767,5 +872,13 @@ export function getCategoryBadgeClass(category: BlogCategory): string {
       return "bg-tool-convert/10 text-tool-convert";
     case "Students & Utilities":
       return "bg-tool-photo/10 text-tool-photo";
+    case "Complete Guide":
+      return "bg-brand-blue/10 text-brand-blue";
   }
+}
+
+export function getBlogPostsForListing(): BlogPost[] {
+  const featured = blogPosts.filter((post) => post.featured);
+  const regular = blogPosts.filter((post) => !post.featured);
+  return [...featured, ...regular];
 }
