@@ -6,6 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ArrowRight, ChevronDown, Menu, Search, X } from "lucide-react";
 import { MegaMenuDesktop, MegaMenuMobile } from "@/components/MegaMenu";
+import PWAInstallButton from "@/components/PWAInstallButton";
 import { ToolsSearch } from "@/components/ToolsSearch";
 
 export function Header() {
@@ -178,6 +179,8 @@ export function Header() {
             >
               Guides
             </Link>
+
+            <PWAInstallButton />
           </nav>
 
           <div className="flex items-center gap-2 md:hidden">
@@ -252,6 +255,10 @@ export function Header() {
                 All Tools
                 <ArrowRight className="h-4 w-4" />
               </Link>
+
+              <div className="pt-2">
+                <PWAInstallButton className="w-full justify-center" />
+              </div>
             </div>
           </div>
         </div>
