@@ -29,7 +29,12 @@ export type ToolSeoSlug =
   | "rent-receipt-generator"
   | "heic-to-jpg"
   | "webp-to-jpg"
-  | "excel-to-pdf";
+  | "excel-to-pdf"
+  | "ppt-to-pdf"
+  | "json-formatter"
+  | "color-picker"
+  | "markdown-to-html"
+  | "base64";
 
 type ToolSeoEntry = {
   aboutTitle: string;
@@ -1991,6 +1996,121 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
         answer:
           "Both .xlsx (Excel 2007+) and .xls (older Excel format) files up to 20MB are supported.",
       },
+    ],
+  },
+  "ppt-to-pdf": {
+    aboutTitle: "About PPT to PDF Converter",
+    aboutParagraphs: [
+      "Our free PPT to PDF converter turns PowerPoint presentations into shareable PDF documents. Each slide becomes a PDF page with extracted text content — ideal for sending presentations to clients, professors, or colleagues who may not have PowerPoint installed.",
+      "Conversion runs entirely in your browser using JSZip and jsPDF. Your presentation never leaves your device, keeping business decks, college project slides, and confidential materials private.",
+      "Built for Indian students submitting presentation assignments, professionals sharing pitch decks, and teachers distributing lecture slides. Note: this tool extracts text from .pptx files — images, animations, and complex layouts may not appear in the PDF.",
+    ],
+    whenToUseTitle: "When Should You Use PPT to PDF?",
+    useCases: [
+      { title: "Sharing presentations", description: "Send slides as PDF so anyone can open them without PowerPoint." },
+      { title: "College submissions", description: "Upload presentation assignments to LMS portals that accept PDF only." },
+      { title: "Client deliverables", description: "Share pitch decks and reports in a universal, non-editable format." },
+      { title: "Printing slides", description: "Convert to PDF before printing handouts or lecture notes." },
+      { title: "Archiving decks", description: "Save presentation text content as PDF for long-term records." },
+    ],
+    faqs: [
+      { question: "How to convert PPT to PDF free online?", answer: "Upload your .pptx file, click Convert to PDF, and download instantly. No account required." },
+      { question: "Does this support .ppt files?", answer: "Only .pptx (modern PowerPoint format) is supported in the browser. Save legacy .ppt files as .pptx first." },
+      { question: "Are images included in the PDF?", answer: "This tool extracts slide text. Images, charts, and animations are not rendered in the output PDF." },
+      { question: "Is PPT to PDF conversion safe?", answer: "Yes with WorkUtilities — your file is processed locally in your browser and never uploaded to a server." },
+      { question: "How many slides can I convert?", answer: "There is no slide limit. Files up to 50MB are supported." },
+    ],
+  },
+  "json-formatter": {
+    aboutTitle: "About JSON Formatter Tool",
+    aboutParagraphs: [
+      "Our free JSON Formatter beautifies, validates, and minifies JSON data instantly. Paste messy API responses, config files, or debug output and get clean, readable JSON with proper indentation.",
+      "Everything runs in your browser — no data is sent to any server. That makes it safe for API keys, internal configs, and production JSON payloads you need to inspect quickly.",
+      "Essential for Indian developers, DevOps engineers, students learning APIs, and anyone working with JSON from REST APIs, Firebase, MongoDB exports, or package.json files.",
+    ],
+    whenToUseTitle: "When Should You Use JSON Formatter?",
+    useCases: [
+      { title: "API debugging", description: "Format API responses to find errors and understand nested data." },
+      { title: "Config files", description: "Beautify JSON configs before committing to version control." },
+      { title: "Minifying JSON", description: "Remove whitespace for production API payloads." },
+      { title: "Validating JSON", description: "Check if a JSON string is valid before using it in code." },
+      { title: "Learning JSON", description: "Understand JSON structure with readable indentation." },
+    ],
+    faqs: [
+      { question: "How to format JSON online free?", answer: "Paste your JSON in the input panel. Valid JSON is automatically formatted with proper indentation." },
+      { question: "How to minify JSON?", answer: "Click the Minify button to remove all whitespace and compress your JSON to a single line." },
+      { question: "How to check if JSON is valid?", answer: "Paste your JSON — a green 'Valid JSON' indicator appears when syntax is correct. Errors show the exact problem." },
+      { question: "Is my JSON data safe?", answer: "Yes. All processing happens locally in your browser. Nothing is uploaded." },
+      { question: "What JSON features are supported?", answer: "Standard JSON syntax including objects, arrays, strings, numbers, booleans, and null values." },
+    ],
+  },
+  "color-picker": {
+    aboutTitle: "About Color Picker Tool",
+    aboutParagraphs: [
+      "Our free Color Picker lets you select any color and instantly get HEX, RGB, and HSL values. Perfect for web designers, developers, and content creators who need exact color codes for CSS, Figma, or brand guidelines.",
+      "All conversions happen in your browser with no server upload. Save up to 10 colors to your palette for quick access during a design session.",
+      "Useful for Indian freelancers building websites, students working on UI projects, social media creators matching brand colors, and anyone converting between color formats.",
+    ],
+    whenToUseTitle: "When Should You Use Color Picker?",
+    useCases: [
+      { title: "Web development", description: "Get HEX and RGB values for CSS stylesheets and Tailwind config." },
+      { title: "Design handoff", description: "Convert colors between HEX, RGB, and HSL for design-to-dev workflows." },
+      { title: "Brand colors", description: "Save and reuse brand palette colors across projects." },
+      { title: "Social media graphics", description: "Match exact colors for Canva, Instagram, or YouTube thumbnails." },
+      { title: "Accessibility checks", description: "Adjust HSL lightness to improve text contrast on backgrounds." },
+    ],
+    faqs: [
+      { question: "How to convert HEX to RGB?", answer: "Enter a HEX code or use the color picker — RGB values update automatically." },
+      { question: "How to convert RGB to HEX?", answer: "Adjust the R, G, B sliders or inputs and the HEX code updates in real time." },
+      { question: "What is HSL color format?", answer: "HSL stands for Hue, Saturation, Lightness — useful for adjusting color brightness without changing the hue." },
+      { question: "Can I save colors?", answer: "Yes. Click 'Save current color' to add up to 10 colors to your palette." },
+      { question: "Is the color picker free?", answer: "Yes. WorkUtilities Color Picker is completely free with no signup." },
+    ],
+  },
+  "markdown-to-html": {
+    aboutTitle: "About Markdown to HTML Converter",
+    aboutParagraphs: [
+      "Our free Markdown to HTML converter transforms Markdown syntax into clean HTML with a live preview. Write headings, lists, code blocks, and links in Markdown and see the rendered output instantly.",
+      "Conversion uses the marked library in your browser. Your content stays private on your device — ideal for blog drafts, README files, and documentation you do not want to send to third-party servers.",
+      "Perfect for Indian developers writing GitHub READMEs, technical bloggers drafting posts, students formatting assignments, and anyone converting Markdown notes to HTML for CMS uploads.",
+    ],
+    whenToUseTitle: "When Should You Use Markdown to HTML?",
+    useCases: [
+      { title: "Blog writing", description: "Draft in Markdown and copy HTML for WordPress or CMS editors." },
+      { title: "README files", description: "Preview how GitHub-flavored Markdown renders before pushing." },
+      { title: "Documentation", description: "Convert Markdown docs to HTML for internal wikis or help pages." },
+      { title: "Email templates", description: "Generate HTML from Markdown for newsletter content." },
+      { title: "Learning HTML", description: "See how Markdown syntax maps to HTML elements." },
+    ],
+    faqs: [
+      { question: "How to convert Markdown to HTML free?", answer: "Type or paste Markdown in the left panel. HTML is generated in real time. Click Copy HTML to get the output." },
+      { question: "What Markdown syntax is supported?", answer: "Standard Markdown including headings, bold, italic, lists, code blocks, blockquotes, and links." },
+      { question: "Can I preview the rendered output?", answer: "Yes. Switch to the Preview tab to see how your Markdown looks when rendered." },
+      { question: "Is Markdown conversion private?", answer: "Yes. All conversion happens locally in your browser." },
+      { question: "Can I copy just the text content?", answer: "Yes. Use 'Copy Preview Text' to copy the rendered text without HTML tags." },
+    ],
+  },
+  "base64": {
+    aboutTitle: "About Base64 Encoder Decoder",
+    aboutParagraphs: [
+      "Our free Base64 tool encodes and decodes text and files instantly. Convert strings to Base64 for APIs, data URIs, and email attachments — or decode Base64 back to readable text.",
+      "All processing runs in your browser. Text and files never leave your device, making it safe for tokens, credentials, and sensitive data you need to encode or inspect.",
+      "Essential for Indian developers working with REST APIs, JWT tokens, image data URIs, email MIME encoding, and anyone debugging Base64 strings from logs or API responses.",
+    ],
+    whenToUseTitle: "When Should You Use Base64?",
+    useCases: [
+      { title: "API development", description: "Encode authorization headers and payload data for API testing." },
+      { title: "Data URIs", description: "Encode small images or files as Base64 for inline HTML embedding." },
+      { title: "Debugging", description: "Decode Base64 strings from logs to read the original content." },
+      { title: "File encoding", description: "Convert any file up to 5MB to Base64 text." },
+      { title: "Email MIME", description: "Encode text content for email attachment workflows." },
+    ],
+    faqs: [
+      { question: "How to encode text to Base64?", answer: "Select Encode mode, paste your text, and the Base64 output appears instantly. Click Copy Output." },
+      { question: "How to decode Base64?", answer: "Select Decode mode, paste the Base64 string, and the original text appears in the output panel." },
+      { question: "Can I encode files to Base64?", answer: "Yes. In Encode mode, switch to File input and upload any file up to 5MB." },
+      { question: "Is Base64 encoding reversible?", answer: "Yes. Base64 is a encoding scheme, not encryption. Decoding always recovers the original data." },
+      { question: "Is Base64 conversion safe online?", answer: "Yes with WorkUtilities — all encoding and decoding happens locally in your browser." },
     ],
   },
 };
