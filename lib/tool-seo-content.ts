@@ -39,7 +39,12 @@ export type ToolSeoSlug =
   | "text-case-converter"
   | "lorem-ipsum"
   | "aspect-ratio"
-  | "random-number";
+  | "random-number"
+  | "tip-calculator"
+  | "discount-calculator"
+  | "binary-converter"
+  | "hash-generator"
+  | "number-to-words";
 
 type ToolSeoEntry = {
   aboutTitle: string;
@@ -2231,6 +2236,121 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
       { question: "How to roll dice online?", answer: "Switch to Dice mode, pick d4 through d20, set number of dice, and click Roll Dice." },
       { question: "How to generate a UUID?", answer: "Switch to UUID mode and click Generate UUID. A version 4 UUID is created instantly." },
       { question: "Are random numbers truly random?", answer: "Numbers are generated using JavaScript Math.random() in your browser — suitable for games and testing, not cryptographic security." },
+    ],
+  },
+  "tip-calculator": {
+    aboutTitle: "About Tip Calculator",
+    aboutParagraphs: [
+      "Our free Tip Calculator helps you calculate tip amount and split bills between friends instantly. Works with both INR and USD — switch currency from the header toggle.",
+      "Select from common tip presets (5%, 10%, 15%, 18%, 20%, 25%) or enter a custom percentage. Split the total among any number of people to see per-person and tip-per-person amounts.",
+      "Perfect for restaurant dining, delivery orders, salon visits, and group outings in India and abroad. No app download — works on any phone or desktop browser.",
+    ],
+    whenToUseTitle: "When Should You Use Tip Calculator?",
+    useCases: [
+      { title: "Restaurant dining", description: "Calculate 15–20% tip on your bill before paying." },
+      { title: "Group outings", description: "Split the total bill and tip evenly among friends." },
+      { title: "Delivery orders", description: "Figure out a fair tip for food delivery services." },
+      { title: "Travel abroad", description: "Switch to USD and use standard US tipping guidelines." },
+      { title: "Quick math", description: "Avoid mental math errors when calculating tips on the go." },
+    ],
+    faqs: [
+      { question: "How much should I tip?", answer: "In the US, 15–20% is standard for restaurants. In India, tipping is optional but 10% is common at upscale restaurants." },
+      { question: "How to split a bill with tip?", answer: "Enter the bill amount, choose tip percentage, set number of people, and see per-person totals instantly." },
+      { question: "Does it work with INR and USD?", answer: "Yes. Use the currency toggle in the header to switch between ₹ INR and $ USD." },
+      { question: "Can I use a custom tip percentage?", answer: "Yes. Click a preset or type any custom percentage in the input field." },
+      { question: "Is the tip calculator free?", answer: "Yes. WorkUtilities Tip Calculator is completely free with no signup." },
+    ],
+  },
+  "discount-calculator": {
+    aboutTitle: "About Discount Calculator",
+    aboutParagraphs: [
+      "Our free Discount Calculator finds sale prices, discount percentages, and original prices in three modes. Calculate how much you save during sales and shopping.",
+      "Three calculation modes: percentage off (original + discount% → final price), find percentage (original + final → discount%), and find original price (final + discount% → original).",
+      "Built for shoppers during Amazon sales, Flipkart Big Billion Days, and everyday bargain hunting. Supports INR and USD via the global currency toggle.",
+    ],
+    whenToUseTitle: "When Should You Use Discount Calculator?",
+    useCases: [
+      { title: "Online shopping", description: "Verify sale prices during festival sales and flash deals." },
+      { title: "Retail bargaining", description: "Calculate the actual discount when a shopkeeper quotes a final price." },
+      { title: "Price comparison", description: "Find the original price from a discounted final price." },
+      { title: "Business pricing", description: "Set discount percentages and preview final selling prices." },
+      { title: "Quick savings check", description: "See exactly how much money you save with quick preset buttons." },
+    ],
+    faqs: [
+      { question: "How to calculate discount percentage?", answer: "Use Find % mode, enter original and final prices, and the discount percentage is calculated automatically." },
+      { question: "How to find sale price after discount?", answer: "Use % Off mode, enter original price and discount percentage. Final price and savings appear instantly." },
+      { question: "How to find original price from sale price?", answer: "Use Original Price mode, enter the final price and discount percentage to reverse-calculate the original." },
+      { question: "What quick discount presets are available?", answer: "5%, 10%, 20%, 25%, 30%, 50%, and 70% — click any preset to apply instantly." },
+      { question: "Is the discount calculator free?", answer: "Yes. WorkUtilities Discount Calculator is free with no limits." },
+    ],
+  },
+  "binary-converter": {
+    aboutTitle: "About Binary Converter",
+    aboutParagraphs: [
+      "Our free Binary Converter converts between binary, decimal, hexadecimal, and octal number systems instantly. Type in any base and all four formats update in real time.",
+      "Built for computer science students, developers, and electronics engineers who work with different number bases daily. All conversion runs locally in your browser.",
+      "Features copy buttons for each format, input validation with helpful error messages, and clickable example numbers for quick testing.",
+    ],
+    whenToUseTitle: "When Should You Use Binary Converter?",
+    useCases: [
+      { title: "Programming", description: "Convert between hex color codes and decimal values." },
+      { title: "Computer science", description: "Practice binary, octal, and hex conversions for exams." },
+      { title: "Networking", description: "Convert IP address octets and subnet masks between formats." },
+      { title: "Embedded systems", description: "Work with register values in different number bases." },
+      { title: "Debugging", description: "Decode hex dumps and binary flags during development." },
+    ],
+    faqs: [
+      { question: "How to convert decimal to binary?", answer: "Enter a decimal number in the Decimal card. Binary, hex, and octal values update automatically." },
+      { question: "How to convert hex to decimal?", answer: "Type a hex value (0–9, A–F) in the Hexadecimal card. All other formats convert instantly." },
+      { question: "What characters are valid for each base?", answer: "Binary: 0–1, Octal: 0–7, Decimal: 0–9, Hex: 0–9 and A–F." },
+      { question: "Can I copy converted values?", answer: "Yes. Click the copy button on any card to copy that format to your clipboard." },
+      { question: "Is binary conversion free online?", answer: "Yes. WorkUtilities Binary Converter is free with no limits." },
+    ],
+  },
+  "hash-generator": {
+    aboutTitle: "About Hash Generator",
+    aboutParagraphs: [
+      "Our free Hash Generator creates MD5, SHA-1, SHA-256, and SHA-512 hashes from text or files instantly. All four algorithms run simultaneously in your browser.",
+      "Text input hashes in real time as you type. Upload a file to hash its contents. Copy any hash format with one click. No data is sent to any server.",
+      "Essential for Indian developers verifying file integrity, testing API checksums, debugging authentication flows, and learning how hash functions work.",
+    ],
+    whenToUseTitle: "When Should You Use Hash Generator?",
+    useCases: [
+      { title: "File integrity", description: "Generate SHA-256 checksums to verify downloaded files." },
+      { title: "API development", description: "Test hash-based authentication and signature verification." },
+      { title: "Password hashing demo", description: "Understand how hash functions transform input (not for production passwords)." },
+      { title: "Debugging", description: "Compare hash outputs when troubleshooting data pipelines." },
+      { title: "Learning", description: "See how MD5, SHA-1, SHA-256, and SHA-512 differ for the same input." },
+    ],
+    faqs: [
+      { question: "How to generate SHA-256 hash online?", answer: "Type your text in the input area. All four hashes including SHA-256 appear instantly." },
+      { question: "How to hash a file?", answer: "Click 'Or hash a file', select your file, then click Generate Hashes." },
+      { question: "Is MD5 safe for passwords?", answer: "No. MD5 and SHA-1 are not recommended for security. Use SHA-256 or SHA-512 for cryptographic purposes." },
+      { question: "Are hashes reversible?", answer: "No. Hash functions are one-way — you cannot recover the original text from a hash." },
+      { question: "Is hash generation private?", answer: "Yes. All hashing happens locally in your browser. Text and files never leave your device." },
+    ],
+  },
+  "number-to-words": {
+    aboutTitle: "About Number to Words Converter",
+    aboutParagraphs: [
+      "Our free Number to Words Converter spells out numbers in English using Indian (crore, lakh) or International (billion, million) number systems.",
+      "Live comma formatting as you type — Indian style (1,00,000) or International style (100,000). Optional currency suffix adds Rupees or Dollars based on your currency setting.",
+      "Perfect for writing cheques, invoices, legal documents, and formal letters in India. Supports numbers up to 9,99,99,99,999 in Indian system.",
+    ],
+    whenToUseTitle: "When Should You Use Number to Words?",
+    useCases: [
+      { title: "Cheque writing", description: "Spell out amounts on bank cheques in words." },
+      { title: "Invoices", description: "Add amount in words to formal invoices and receipts." },
+      { title: "Legal documents", description: "Write property values and contract amounts in words." },
+      { title: "Education", description: "Learn Indian and International number naming systems." },
+      { title: "Formal letters", description: "Convert large numbers to words for official correspondence." },
+    ],
+    faqs: [
+      { question: "How to convert number to words in Indian system?", answer: "Select Indian System, type your number, and see words with crore and lakh units." },
+      { question: "What is the difference between Indian and International?", answer: "Indian uses crore (10 million) and lakh (100 thousand). International uses billion and million." },
+      { question: "Can I add Rupees or Dollars suffix?", answer: "Yes. Enable the currency suffix checkbox to append Rupees (INR) or Dollars (USD)." },
+      { question: "What is the maximum number supported?", answer: "Indian system: up to 9,99,99,99,999. International: up to 999,999,999,999." },
+      { question: "Is number to words converter free?", answer: "Yes. WorkUtilities Number to Words is free with no signup." },
     ],
   },
 };

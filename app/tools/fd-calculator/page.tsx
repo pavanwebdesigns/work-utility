@@ -29,9 +29,13 @@ import {
   tenureToYears,
   type CompoundingFrequency,
 } from "@/lib/fd-calculator";
-import { formatINR, parseNumberInput } from "@/lib/format-inr";
+import { formatCurrency, parseNumberInput } from "@/lib/format-inr";
+import { useCurrency } from "@/lib/currency-context";
 
 export default function FdCalculatorPage() {
+  const { symbol, currency } = useCurrency();
+  const fmt = (value: number, decimals = 0) =>
+    formatCurrency(value, currency, decimals);
   const [principal, setPrincipal] = useState("500000");
   const [interestRate, setInterestRate] = useState("7.25");
   const [tenure, setTenure] = useState("5");
@@ -76,7 +80,7 @@ export default function FdCalculatorPage() {
           </div>
 
           <div className="mx-auto mt-10 max-w-xl space-y-5">
-            <CalculatorField label="Principal Amount (₹)" htmlFor="fd-principal">
+            <CalculatorField label={`Principal Amount (${symbol})`} htmlFor="fd-principal">
               <CalculatorInput
                 id="fd-principal"
                 value={principal}
@@ -134,12 +138,12 @@ export default function FdCalculatorPage() {
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
                 <ResultCard
                   label="Maturity Amount"
-                  value={formatINR(result.maturityAmount, 0)}
+                  value={fmt(result.maturityAmount, 0)}
                   highlight
                 />
                 <ResultCard
                   label="Total Interest Earned"
-                  value={formatINR(result.interestEarned, 0)}
+                  value={fmt(result.interestEarned, 0)}
                 />
                 <ResultCard
                   label="Effective Annual Rate"
@@ -163,12 +167,12 @@ export default function FdCalculatorPage() {
                         stroke="#94A3B8"
                       />
                       <YAxis
-                        tickFormatter={(value) => formatINR(Number(value), 0)}
+                        tickFormatter={(value) => fmt(Number(value), 0)}
                         stroke="#94A3B8"
                         width={90}
                       />
                       <Tooltip
-                        formatter={(value) => formatINR(Number(value), 0)}
+                        formatter={(value) => fmt(Number(value), 0)}
                         labelFormatter={(label) => `Year ${label}`}
                         contentStyle={{
                           backgroundColor: "#111827",

@@ -24,17 +24,22 @@ import {
   ResultCard,
   ToggleButtonGroup,
 } from "@/components/calculator/CalculatorUi";
-import { formatINR, parseNumberInput } from "@/lib/format-inr";
+import { formatCurrency, parseNumberInput } from "@/lib/format-inr";
 import {
   compareIncomeTax,
   type AgeGroup,
   type FinancialYear,
   type RegimeTaxResult,
 } from "@/lib/income-tax-calculator";
+import { useCurrency } from "@/lib/currency-context";
+import { IndiaTaxNotice } from "@/components/IndiaTaxNotice";
 
 const PIE_COLORS = ["#3B82F6", "#EF4444", "#10B981"];
 
 function SlabBreakdownTable({ result }: { result: RegimeTaxResult }) {
+  const { currency } = useCurrency();
+  const fmt = (value: number, decimals = 0) =>
+    formatCurrency(value, currency, decimals);
   return (
     <div className="rounded-xl border border-surface-border bg-surface-card px-5">
       <p className="py-3 font-semibold text-content-primary">Slab-wise Breakdown</p>
@@ -42,19 +47,22 @@ function SlabBreakdownTable({ result }: { result: RegimeTaxResult }) {
         <BreakdownRow
           key={slab.label}
           label={`${slab.label} @ ${(slab.rate * 100).toFixed(0)}%`}
-          value={formatINR(slab.tax, 0)}
+          value={fmt(slab.tax, 0)}
         />
       ))}
-      <BreakdownRow label="Tax Before Rebate" value={formatINR(result.taxBeforeRebate, 0)} />
-      <BreakdownRow label="Rebate u/s 87A" value={`- ${formatINR(result.rebate, 0)}`} />
-      <BreakdownRow label="Health & Education Cess (4%)" value={formatINR(result.cess, 0)} />
-      <BreakdownRow label="Total Tax" value={formatINR(result.totalTax, 0)} />
-      <BreakdownRow label="Take-home Income" value={formatINR(result.takeHome, 0)} />
+      <BreakdownRow label="Tax Before Rebate" value={fmt(result.taxBeforeRebate, 0)} />
+      <BreakdownRow label="Rebate u/s 87A" value={`- ${fmt(result.rebate, 0)}`} />
+      <BreakdownRow label="Health & Education Cess (4%)" value={fmt(result.cess, 0)} />
+      <BreakdownRow label="Total Tax" value={fmt(result.totalTax, 0)} />
+      <BreakdownRow label="Take-home Income" value={fmt(result.takeHome, 0)} />
     </div>
   );
 }
 
 export default function IncomeTaxCalculatorPage() {
+  const { symbol, currency } = useCurrency();
+  const fmt = (value: number, decimals = 0) =>
+    formatCurrency(value, currency, decimals);
   const [annualIncome, setAnnualIncome] = useState("1200000");
   const [ageGroup, setAgeGroup] = useState<AgeGroup>("below-60");
   const [financialYear, setFinancialYear] = useState<FinancialYear>("fy-2025-26");
@@ -128,8 +136,10 @@ export default function IncomeTaxCalculatorPage() {
             </p>
           </div>
 
+          <IndiaTaxNotice />
+
           <div className="mx-auto mt-10 max-w-xl space-y-5">
-            <CalculatorField label="Annual Income (₹)" htmlFor="annual-income">
+            <CalculatorField label={`Annual Income (${symbol})`} htmlFor="annual-income">
               <CalculatorInput
                 id="annual-income"
                 value={annualIncome}
@@ -181,30 +191,30 @@ export default function IncomeTaxCalculatorPage() {
                 <p className="text-sm font-semibold text-content-primary">
                   Old Regime Deductions
                 </p>
-                <CalculatorField label="HRA Exemption (₹)" htmlFor="hra">
+                <CalculatorField label={`HRA Exemption (${symbol})`} htmlFor="hra">
                   <CalculatorInput id="hra" value={hraExemption} onChange={setHraExemption} placeholder="0" />
                 </CalculatorField>
-                <CalculatorField label="80C Investments (max ₹1,50,000)" htmlFor="80c">
+                <CalculatorField label={`80C Investments (max ${symbol}1,50,000)`} htmlFor="80c">
                   <CalculatorInput id="80c" value={section80c} onChange={setSection80c} placeholder="1,50,000" />
                 </CalculatorField>
-                <CalculatorField label="80D Health Insurance (max ₹25,000)" htmlFor="80d">
+                <CalculatorField label={`80D Health Insurance (max ${symbol}25,000)`} htmlFor="80d">
                   <CalculatorInput id="80d" value={section80d} onChange={setSection80d} placeholder="25,000" />
                 </CalculatorField>
-                <CalculatorField label="Home Loan Interest 24(b) (max ₹2,00,000)" htmlFor="home-loan">
+                <CalculatorField label={`Home Loan Interest 24(b) (max ${symbol}2,00,000)`} htmlFor="home-loan">
                   <CalculatorInput id="home-loan" value={homeLoanInterest} onChange={setHomeLoanInterest} placeholder="0" />
                 </CalculatorField>
-                <CalculatorField label="NPS 80CCD(1B) (max ₹50,000)" htmlFor="nps">
+                <CalculatorField label={`NPS 80CCD(1B) (max ${symbol}50,000)`} htmlFor="nps">
                   <CalculatorInput id="nps" value={nps80ccd1b} onChange={setNps80ccd1b} placeholder="0" />
                 </CalculatorField>
                 <p className="text-xs text-content-muted">
-                  Standard deduction of ₹50,000 is applied automatically for old regime.
+                  Standard deduction of {symbol}50,000 is applied automatically for old regime.
                 </p>
               </div>
             )}
 
             {selectedRegime === "new" && (
               <p className="rounded-xl border border-brand-blue/20 bg-brand-blue/5 px-4 py-3 text-sm text-content-secondary">
-                New regime applies standard deduction of ₹75,000 automatically. No other deductions are available.
+                New regime applies standard deduction of {symbol}75,000 automatically. No other deductions are available.
               </p>
             )}
           </div>
@@ -214,11 +224,11 @@ export default function IncomeTaxCalculatorPage() {
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <ResultCard
                   label="Tax under Old Regime"
-                  value={formatINR(comparison.oldRegime.totalTax, 0)}
+                  value={fmt(comparison.oldRegime.totalTax, 0)}
                 />
                 <ResultCard
                   label="Tax under New Regime"
-                  value={formatINR(comparison.newRegime.totalTax, 0)}
+                  value={fmt(comparison.newRegime.totalTax, 0)}
                   highlight
                 />
               </div>
@@ -228,7 +238,7 @@ export default function IncomeTaxCalculatorPage() {
                 <p className="mt-1 text-lg font-semibold text-tool-convert">
                   {comparison.recommended === "equal"
                     ? "Both regimes result in similar tax"
-                    : `${comparison.recommended === "new" ? "New" : "Old"} Regime saves ${formatINR(comparison.savings, 0)}`}
+                    : `${comparison.recommended === "new" ? "New" : "Old"} Regime saves ${fmt(comparison.savings, 0)}`}
                 </p>
               </div>
 
@@ -263,7 +273,7 @@ export default function IncomeTaxCalculatorPage() {
                           ))}
                         </Pie>
                         <Tooltip
-                          formatter={(value) => formatINR(Number(value), 0)}
+                          formatter={(value) => fmt(Number(value), 0)}
                           contentStyle={{
                             backgroundColor: "#111827",
                             border: "1px solid #1F2937",
@@ -274,9 +284,9 @@ export default function IncomeTaxCalculatorPage() {
                     </ResponsiveContainer>
                   </div>
                   <div className="flex flex-col justify-center space-y-3">
-                    <BreakdownRow label="Gross Income" value={formatINR(activeResult!.grossIncome, 0)} />
-                    <BreakdownRow label="Total Tax" value={formatINR(activeResult!.totalTax, 0)} />
-                    <BreakdownRow label="Take-home" value={formatINR(activeResult!.takeHome, 0)} />
+                    <BreakdownRow label="Gross Income" value={fmt(activeResult!.grossIncome, 0)} />
+                    <BreakdownRow label="Total Tax" value={fmt(activeResult!.totalTax, 0)} />
+                    <BreakdownRow label="Take-home" value={fmt(activeResult!.takeHome, 0)} />
                   </div>
                 </div>
               </div>

@@ -21,9 +21,13 @@ import {
   PROFESSIONAL_TAX_OPTIONS,
   calculateCtcToInHand,
 } from "@/lib/ctc-calculator";
-import { formatINR, parseNumberInput } from "@/lib/format-inr";
+import { formatCurrency, parseNumberInput } from "@/lib/format-inr";
+import { useCurrency } from "@/lib/currency-context";
 
 export default function CtcCalculatorPage() {
+  const { symbol, currency } = useCurrency();
+  const fmt = (value: number, decimals = 0) =>
+    formatCurrency(value, currency, decimals);
   const [annualCtc, setAnnualCtc] = useState("1200000");
   const [pfEnabled, setPfEnabled] = useState<"yes" | "no">("yes");
   const [taxOption, setTaxOption] = useState("maharashtra");
@@ -73,7 +77,7 @@ export default function CtcCalculatorPage() {
           </div>
 
           <div className="mx-auto mt-10 max-w-xl space-y-5">
-            <CalculatorField label="Annual CTC (₹)" htmlFor="annual-ctc">
+            <CalculatorField label={`Annual CTC (${symbol})`} htmlFor="annual-ctc">
               <CalculatorInput
                 id="annual-ctc"
                 value={annualCtc}
@@ -108,7 +112,7 @@ export default function CtcCalculatorPage() {
             </CalculatorField>
 
             {taxOption === "custom" && (
-              <CalculatorField label="Custom Professional Tax (₹/month)" htmlFor="custom-tax">
+              <CalculatorField label={`Custom Professional Tax (${symbol}/month)`} htmlFor="custom-tax">
                 <CalculatorInput
                   id="custom-tax"
                   value={customTax}
@@ -124,12 +128,12 @@ export default function CtcCalculatorPage() {
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <ResultCard
                   label="Monthly In-Hand Salary"
-                  value={formatINR(result.monthlyInHand, 0)}
+                  value={fmt(result.monthlyInHand, 0)}
                   highlight
                 />
                 <ResultCard
                   label="Annual In-Hand Salary"
-                  value={formatINR(result.annualInHand, 0)}
+                  value={fmt(result.annualInHand, 0)}
                 />
               </div>
 
@@ -139,19 +143,19 @@ export default function CtcCalculatorPage() {
                 </p>
                 <BreakdownRow
                   label="PF Employee (12% of Basic)"
-                  value={formatINR(result.pfEmployee, 0)}
+                  value={fmt(result.pfEmployee, 0)}
                 />
                 <BreakdownRow
                   label="Professional Tax"
-                  value={formatINR(result.professionalTaxAnnual, 0)}
+                  value={fmt(result.professionalTaxAnnual, 0)}
                 />
                 <BreakdownRow
                   label="Income Tax (estimated, new regime)"
-                  value={formatINR(result.incomeTax, 0)}
+                  value={fmt(result.incomeTax, 0)}
                 />
                 <BreakdownRow
                   label="Total Deductions"
-                  value={formatINR(result.totalDeductions, 0)}
+                  value={fmt(result.totalDeductions, 0)}
                 />
               </div>
 
@@ -161,7 +165,7 @@ export default function CtcCalculatorPage() {
                   <li>Basic salary = 50% of CTC</li>
                   <li>HRA = 20% of CTC</li>
                   <li>Special allowance = remaining 30%</li>
-                  <li>Standard deduction of ₹75,000 applied for tax estimate</li>
+                  <li>Standard deduction of {symbol}75,000 applied for tax estimate</li>
                   <li>Income tax uses simplified new tax regime slabs</li>
                 </ul>
               </div>

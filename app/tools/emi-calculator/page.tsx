@@ -23,11 +23,15 @@ import {
   ToggleButtonGroup,
 } from "@/components/calculator/CalculatorUi";
 import { calculateEmi, tenureToMonths } from "@/lib/emi-calculator";
-import { formatINR, parseNumberInput } from "@/lib/format-inr";
+import { formatCurrency, parseNumberInput } from "@/lib/format-inr";
+import { useCurrency } from "@/lib/currency-context";
 
 const PIE_COLORS = ["#3B82F6", "#F59E0B"];
 
 export default function EmiCalculatorPage() {
+  const { symbol, currency } = useCurrency();
+  const fmt = (value: number, decimals = 0) =>
+    formatCurrency(value, currency, decimals);
   const [loanAmount, setLoanAmount] = useState("2500000");
   const [interestRate, setInterestRate] = useState("8.5");
   const [tenure, setTenure] = useState("20");
@@ -76,7 +80,7 @@ export default function EmiCalculatorPage() {
           </div>
 
           <div className="mx-auto mt-10 max-w-xl space-y-5">
-            <CalculatorField label="Loan Amount (₹)" htmlFor="loan-amount">
+            <CalculatorField label={`Loan Amount (${symbol})`} htmlFor="loan-amount">
               <CalculatorInput
                 id="loan-amount"
                 value={loanAmount}
@@ -120,16 +124,16 @@ export default function EmiCalculatorPage() {
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
                 <ResultCard
                   label="Monthly EMI"
-                  value={formatINR(result.emi, 0)}
+                  value={fmt(result.emi, 0)}
                   highlight
                 />
                 <ResultCard
                   label="Total Interest Payable"
-                  value={formatINR(result.totalInterest, 0)}
+                  value={fmt(result.totalInterest, 0)}
                 />
                 <ResultCard
                   label="Total Amount Payable"
-                  value={formatINR(result.totalAmount, 0)}
+                  value={fmt(result.totalAmount, 0)}
                 />
               </div>
 
@@ -162,7 +166,7 @@ export default function EmiCalculatorPage() {
                           ))}
                         </Pie>
                         <Tooltip
-                          formatter={(value) => formatINR(Number(value), 0)}
+                          formatter={(value) => fmt(Number(value), 0)}
                           contentStyle={{
                             backgroundColor: "#111827",
                             border: "1px solid #1F2937",
@@ -176,19 +180,19 @@ export default function EmiCalculatorPage() {
                     <div className="flex items-center justify-between gap-4">
                       <span className="text-sm text-content-secondary">Principal</span>
                       <span className="font-semibold text-content-primary">
-                        {formatINR(result.principal, 0)}
+                        {fmt(result.principal, 0)}
                       </span>
                     </div>
                     <div className="flex items-center justify-between gap-4">
                       <span className="text-sm text-content-secondary">Interest</span>
                       <span className="font-semibold text-content-primary">
-                        {formatINR(result.totalInterest, 0)}
+                        {fmt(result.totalInterest, 0)}
                       </span>
                     </div>
                     <div className="flex items-center justify-between gap-4 border-t border-surface-border pt-3">
                       <span className="text-sm text-content-secondary">Total Payable</span>
                       <span className="font-semibold text-brand-blue">
-                        {formatINR(result.totalAmount, 0)}
+                        {fmt(result.totalAmount, 0)}
                       </span>
                     </div>
                   </div>

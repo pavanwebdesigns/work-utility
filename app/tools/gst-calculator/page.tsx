@@ -18,9 +18,14 @@ import {
   ToggleButtonGroup,
 } from "@/components/calculator/CalculatorUi";
 import { GST_RATES, calculateGst, type GstMode } from "@/lib/gst-calculator";
-import { formatINR, parseNumberInput } from "@/lib/format-inr";
+import { formatCurrency, parseNumberInput } from "@/lib/format-inr";
+import { useCurrency } from "@/lib/currency-context";
+import { IndiaTaxNotice } from "@/components/IndiaTaxNotice";
 
 export default function GstCalculatorPage() {
+  const { symbol, currency } = useCurrency();
+  const fmt = (value: number, decimals = 0) =>
+    formatCurrency(value, currency, decimals);
   const [amount, setAmount] = useState("10000");
   const [gstRate, setGstRate] = useState("18");
   const [mode, setMode] = useState<GstMode>("add");
@@ -56,8 +61,10 @@ export default function GstCalculatorPage() {
             </p>
           </div>
 
+          <IndiaTaxNotice />
+
           <div className="mx-auto mt-10 max-w-xl space-y-5">
-            <CalculatorField label="Amount (₹)" htmlFor="gst-amount">
+            <CalculatorField label={`Amount (${symbol})`} htmlFor="gst-amount">
               <CalculatorInput
                 id="gst-amount"
                 value={amount}
@@ -97,23 +104,23 @@ export default function GstCalculatorPage() {
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
                 <ResultCard
                   label="Original Amount"
-                  value={formatINR(result.originalAmount, 2)}
+                  value={fmt(result.originalAmount, 2)}
                 />
                 <ResultCard
                   label="GST Amount"
-                  value={formatINR(result.gstAmount, 2)}
+                  value={fmt(result.gstAmount, 2)}
                   highlight
                 />
                 <ResultCard
                   label="Total Amount"
-                  value={formatINR(result.totalAmount, 2)}
+                  value={fmt(result.totalAmount, 2)}
                 />
               </div>
 
               <div className="rounded-xl border border-surface-border bg-surface-card px-5">
-                <BreakdownRow label="CGST (50%)" value={formatINR(result.cgst, 2)} />
-                <BreakdownRow label="SGST (50%)" value={formatINR(result.sgst, 2)} />
-                <BreakdownRow label="Total GST" value={formatINR(result.gstAmount, 2)} />
+                <BreakdownRow label="CGST (50%)" value={fmt(result.cgst, 2)} />
+                <BreakdownRow label="SGST (50%)" value={fmt(result.sgst, 2)} />
+                <BreakdownRow label="Total GST" value={fmt(result.gstAmount, 2)} />
               </div>
             </div>
           )}

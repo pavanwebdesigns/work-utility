@@ -8,6 +8,40 @@ import { ArrowRight, ChevronDown, Menu, Search, X } from "lucide-react";
 import { MegaMenuDesktop, MegaMenuMobile } from "@/components/MegaMenu";
 import PWAInstallButton from "@/components/PWAInstallButton";
 import { ToolsSearch } from "@/components/ToolsSearch";
+import { useCurrency } from "@/lib/currency-context";
+
+function CurrencyToggle({ className = "" }: { className?: string }) {
+  const { currency, setCurrency } = useCurrency();
+
+  return (
+    <div
+      className={`flex items-center gap-0.5 rounded-lg border border-surface-border bg-surface-card p-0.5 ${className}`}
+    >
+      <button
+        type="button"
+        onClick={() => setCurrency("INR")}
+        className={`rounded-md px-2.5 py-1 text-xs font-semibold transition-all ${
+          currency === "INR"
+            ? "bg-surface-elevated text-content-primary"
+            : "text-content-muted hover:text-content-secondary"
+        }`}
+      >
+        ₹ INR
+      </button>
+      <button
+        type="button"
+        onClick={() => setCurrency("USD")}
+        className={`rounded-md px-2.5 py-1 text-xs font-semibold transition-all ${
+          currency === "USD"
+            ? "bg-surface-elevated text-content-primary"
+            : "text-content-muted hover:text-content-secondary"
+        }`}
+      >
+        $ USD
+      </button>
+    </div>
+  );
+}
 
 export function Header() {
   const pathname = usePathname();
@@ -172,6 +206,8 @@ export function Header() {
               <Search className="h-[18px] w-[18px]" />
             </button>
 
+            <CurrencyToggle className="hidden md:flex" />
+
             <Link
               href="/blog"
               className="cursor-pointer text-sm text-content-secondary transition-colors hover:text-content-primary"
@@ -239,6 +275,8 @@ export function Header() {
             <MegaMenuMobile onNavigate={closeMenus} />
 
             <div className="mt-4 space-y-2 border-t border-surface-border pt-4">
+              <CurrencyToggle className="w-full justify-center" />
+
               <Link
                 href="/blog"
                 className="flex cursor-pointer items-center justify-between rounded-xl px-3 py-3 text-sm font-medium text-content-primary transition-colors hover:bg-surface-elevated"

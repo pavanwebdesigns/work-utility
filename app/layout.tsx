@@ -4,6 +4,7 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/react";
 import PWAInstallBanner from "@/components/PWAInstallBanner";
 import ServiceWorkerRegistration from "@/components/ServiceWorkerRegistration";
+import { CurrencyProvider } from "@/lib/currency-context";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -64,16 +65,18 @@ export default function RootLayout({
         <meta name="mobile-web-app-capable" content="yes" />
       </head>
       <body className="overflow-x-hidden max-w-full">
-        <div className="min-h-screen w-full max-w-[100vw] overflow-x-hidden">
-          <a
-            href="#main-content"
-            className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-brand-blue focus:px-4 focus:py-2 focus:text-white"
-          >
-            Skip to main content
-          </a>
-          {children}
-        </div>
-        <PWAInstallBanner />
+        <CurrencyProvider>
+          <div className="min-h-screen w-full max-w-[100vw] overflow-x-hidden">
+            <a
+              href="#main-content"
+              className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-brand-blue focus:px-4 focus:py-2 focus:text-white"
+            >
+              Skip to main content
+            </a>
+            {children}
+          </div>
+          <PWAInstallBanner />
+        </CurrencyProvider>
         <ServiceWorkerRegistration />
         <Analytics />
         <GoogleAnalytics gaId="G-N85BQ3XV27" />

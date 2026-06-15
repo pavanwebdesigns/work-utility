@@ -24,10 +24,14 @@ import {
   CalculatorInput,
   ResultCard,
 } from "@/components/calculator/CalculatorUi";
-import { formatINR, parseNumberInput } from "@/lib/format-inr";
+import { formatCurrency, parseNumberInput } from "@/lib/format-inr";
 import { calculateSipReturns } from "@/lib/sip-calculator";
+import { useCurrency } from "@/lib/currency-context";
 
 export default function SipCalculatorPage() {
+  const { symbol, currency } = useCurrency();
+  const fmt = (value: number, decimals = 0) =>
+    formatCurrency(value, currency, decimals);
   const [monthlyInvestment, setMonthlyInvestment] = useState("5000");
   const [expectedReturn, setExpectedReturn] = useState("12");
   const [years, setYears] = useState("10");
@@ -75,7 +79,7 @@ export default function SipCalculatorPage() {
           </div>
 
           <div className="mx-auto mt-10 max-w-xl space-y-5">
-            <CalculatorField label="Monthly Investment (₹)" htmlFor="sip-amount">
+            <CalculatorField label={`Monthly Investment (${symbol})`} htmlFor="sip-amount">
               <CalculatorInput
                 id="sip-amount"
                 value={monthlyInvestment}
@@ -108,16 +112,16 @@ export default function SipCalculatorPage() {
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
                 <ResultCard
                   label="Total Invested Amount"
-                  value={formatINR(result.totalInvested, 0)}
+                  value={fmt(result.totalInvested, 0)}
                 />
                 <ResultCard
                   label="Estimated Returns"
-                  value={formatINR(result.estimatedReturns, 0)}
+                  value={fmt(result.estimatedReturns, 0)}
                   highlight
                 />
                 <ResultCard
                   label="Total Maturity Value"
-                  value={formatINR(result.maturityValue, 0)}
+                  value={fmt(result.maturityValue, 0)}
                 />
               </div>
 
@@ -134,12 +138,12 @@ export default function SipCalculatorPage() {
                       <CartesianGrid stroke="#1F2937" strokeDasharray="3 3" />
                       <XAxis dataKey="year" stroke="#94A3B8" />
                       <YAxis
-                        tickFormatter={(value) => formatINR(Number(value), 0)}
+                        tickFormatter={(value) => fmt(Number(value), 0)}
                         stroke="#94A3B8"
                         width={90}
                       />
                       <Tooltip
-                        formatter={(value) => formatINR(Number(value), 0)}
+                        formatter={(value) => fmt(Number(value), 0)}
                         contentStyle={{
                           backgroundColor: "#111827",
                           border: "1px solid #1F2937",

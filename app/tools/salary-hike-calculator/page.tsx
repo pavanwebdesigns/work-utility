@@ -15,15 +15,19 @@ import {
   ResultCard,
   ToggleButtonGroup,
 } from "@/components/calculator/CalculatorUi";
-import { formatINR, parseNumberInput } from "@/lib/format-inr";
+import { formatCurrency, parseNumberInput } from "@/lib/format-inr";
 import {
   calculateHikeFromNewSalary,
   calculateSalaryHike,
 } from "@/lib/salary-hike-calculator";
+import { useCurrency } from "@/lib/currency-context";
 
 type CalculatorMode = "forward" | "reverse";
 
 export default function SalaryHikeCalculatorPage() {
+  const { symbol, currency } = useCurrency();
+  const fmt = (value: number, decimals = 0) =>
+    formatCurrency(value, currency, decimals);
   const [mode, setMode] = useState<CalculatorMode>("forward");
   const [currentSalary, setCurrentSalary] = useState("800000");
   const [hikePercent, setHikePercent] = useState("15");
@@ -79,7 +83,7 @@ export default function SalaryHikeCalculatorPage() {
               />
             </CalculatorField>
 
-            <CalculatorField label="Current Salary (₹)" htmlFor="current-salary">
+            <CalculatorField label={`Current Salary (${symbol})`} htmlFor="current-salary">
               <CalculatorInput
                 id="current-salary"
                 value={currentSalary}
@@ -98,7 +102,7 @@ export default function SalaryHikeCalculatorPage() {
                 />
               </CalculatorField>
             ) : (
-              <CalculatorField label="Desired New Salary (₹)" htmlFor="desired-salary">
+              <CalculatorField label={`Desired New Salary (${symbol})`} htmlFor="desired-salary">
                 <CalculatorInput
                   id="desired-salary"
                   value={desiredSalary}
@@ -114,16 +118,16 @@ export default function SalaryHikeCalculatorPage() {
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
                 <ResultCard
                   label="Hike Amount"
-                  value={formatINR(result.hikeAmount, 0)}
+                  value={fmt(result.hikeAmount, 0)}
                 />
                 <ResultCard
                   label="New Salary"
-                  value={formatINR(result.newSalary, 0)}
+                  value={fmt(result.newSalary, 0)}
                   highlight
                 />
                 <ResultCard
                   label="Monthly Increase"
-                  value={formatINR(result.monthlyIncrease, 0)}
+                  value={fmt(result.monthlyIncrease, 0)}
                 />
               </div>
               {mode === "reverse" && (
