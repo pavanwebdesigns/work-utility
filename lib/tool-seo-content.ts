@@ -34,7 +34,12 @@ export type ToolSeoSlug =
   | "json-formatter"
   | "color-picker"
   | "markdown-to-html"
-  | "base64";
+  | "base64"
+  | "url-encoder"
+  | "text-case-converter"
+  | "lorem-ipsum"
+  | "aspect-ratio"
+  | "random-number";
 
 type ToolSeoEntry = {
   aboutTitle: string;
@@ -2111,6 +2116,121 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
       { question: "Can I encode files to Base64?", answer: "Yes. In Encode mode, switch to File input and upload any file up to 5MB." },
       { question: "Is Base64 encoding reversible?", answer: "Yes. Base64 is a encoding scheme, not encryption. Decoding always recovers the original data." },
       { question: "Is Base64 conversion safe online?", answer: "Yes with WorkUtilities — all encoding and decoding happens locally in your browser." },
+    ],
+  },
+  "url-encoder": {
+    aboutTitle: "About URL Encoder Decoder",
+    aboutParagraphs: [
+      "Our free URL Encoder converts special characters in URLs and text to percent-encoded format (e.g. spaces become %20). Decode encoded URLs back to readable text instantly.",
+      "Supports both encodeURIComponent (for URL components like query parameters) and encodeURI (for full URLs). Everything runs in your browser — no data is sent to any server.",
+      "Essential for Indian developers building web apps, API integrations, form submissions, and anyone fixing broken links with special characters in Hindi or Unicode text.",
+    ],
+    whenToUseTitle: "When Should You Use URL Encoder?",
+    useCases: [
+      { title: "Query parameters", description: "Encode search terms and form values for safe URL usage." },
+      { title: "API requests", description: "Encode special characters in REST API URLs and parameters." },
+      { title: "Fixing broken links", description: "Decode percent-encoded URLs to read the original text." },
+      { title: "Email links", description: "Encode URLs with spaces or special characters for email templates." },
+      { title: "Web development", description: "Test encodeURIComponent vs encodeURI behavior quickly." },
+    ],
+    faqs: [
+      { question: "How to encode a URL online free?", answer: "Paste your text, choose Encode mode, select Component or Full URI, and copy the output instantly." },
+      { question: "What is percent encoding?", answer: "Percent encoding replaces unsafe URL characters with % followed by two hex digits. Spaces become %20." },
+      { question: "encodeURI vs encodeURIComponent?", answer: "encodeURIComponent encodes more characters — use for query values. encodeURI preserves URL structure characters like / and ?." },
+      { question: "How to decode a URL?", answer: "Switch to Decode mode, paste the encoded string, and the original text appears in the output panel." },
+      { question: "Is URL encoding safe online?", answer: "Yes with WorkUtilities — all encoding happens locally in your browser." },
+    ],
+  },
+  "text-case-converter": {
+    aboutTitle: "About Text Case Converter",
+    aboutParagraphs: [
+      "Our free Text Case Converter transforms text into 11 different case formats simultaneously — uppercase, lowercase, title case, camelCase, snake_case, kebab-case, and more.",
+      "Type or paste once and see all formats update in real time. Copy any format with one click. Perfect for variable naming, content formatting, and code generation.",
+      "Built for Indian developers, content writers, students, and SEO professionals who need quick text transformations without installing desktop tools.",
+    ],
+    whenToUseTitle: "When Should You Use Text Case Converter?",
+    useCases: [
+      { title: "Variable naming", description: "Convert text to camelCase, PascalCase, or snake_case for code." },
+      { title: "Content formatting", description: "Apply title case or sentence case to headings and paragraphs." },
+      { title: "File naming", description: "Generate kebab-case or dot.case filenames from plain text." },
+      { title: "Constants", description: "Create CONSTANT_CASE for environment variables and config keys." },
+      { title: "Path segments", description: "Convert titles to path/case for URL slugs." },
+    ],
+    faqs: [
+      { question: "How to convert text to uppercase online?", answer: "Paste your text and the UPPERCASE card updates instantly. Click the copy button on any card." },
+      { question: "What is camelCase?", answer: "camelCase joins words without spaces, capitalizing all except the first word. Example: helloWorld." },
+      { question: "How to convert to snake_case?", answer: "Paste your text — the snake_case card shows words joined by underscores automatically." },
+      { question: "Does it support multiple formats at once?", answer: "Yes. All 11 case formats update simultaneously as you type." },
+      { question: "Is the text case converter free?", answer: "Yes. WorkUtilities Text Case Converter is completely free with no signup." },
+    ],
+  },
+  "lorem-ipsum": {
+    aboutTitle: "About Lorem Ipsum Generator",
+    aboutParagraphs: [
+      "Our free Lorem Ipsum Generator creates placeholder text for website mockups, design comps, and document templates. Choose paragraphs, sentences, or individual words.",
+      "Generate classic lorem ipsum text that starts with 'Lorem ipsum dolor sit amet' or fully random Latin-style placeholder words. Copy the output with one click.",
+      "Perfect for Indian designers, developers, students, and agencies filling layout templates before real content is ready.",
+    ],
+    whenToUseTitle: "When Should You Use Lorem Ipsum Generator?",
+    useCases: [
+      { title: "Website mockups", description: "Fill hero sections, cards, and footers with realistic placeholder text." },
+      { title: "Design presentations", description: "Show clients how layouts look with proper text density." },
+      { title: "Document templates", description: "Add filler paragraphs to Word or PDF templates." },
+      { title: "Typography testing", description: "Test fonts and line heights with varied paragraph lengths." },
+      { title: "College projects", description: "Populate UI assignments and portfolio projects quickly." },
+    ],
+    faqs: [
+      { question: "How to generate lorem ipsum free?", answer: "Choose paragraphs, sentences, or words, set the count, and click Generate. Text is created instantly." },
+      { question: "What is lorem ipsum?", answer: "Lorem ipsum is standard placeholder text used in design and publishing since the 1500s. It has no meaningful content." },
+      { question: "How many paragraphs can I generate?", answer: "Up to 20 paragraphs, 50 sentences, or 500 words per generation." },
+      { question: "Can I start with 'Lorem ipsum'?", answer: "Yes. Keep the checkbox enabled to always begin with the classic opening phrase." },
+      { question: "Is lorem ipsum generator free?", answer: "Yes. WorkUtilities Lorem Ipsum Generator is free with unlimited generations." },
+    ],
+  },
+  "aspect-ratio": {
+    aboutTitle: "About Aspect Ratio Calculator",
+    aboutParagraphs: [
+      "Our free Aspect Ratio Calculator finds the simplified ratio from width and height, or calculates missing dimensions from a known ratio. Essential for image resizing, video production, and responsive design.",
+      "Includes common presets like 16:9 (YouTube), 9:16 (Reels), 1:1 (Instagram), and 4:5 (portrait). Visual preview shows the shape of your current ratio.",
+      "Built for Indian content creators, photographers, web designers, and students working on video, social media, and image optimization projects.",
+    ],
+    whenToUseTitle: "When Should You Use Aspect Ratio Calculator?",
+    useCases: [
+      { title: "YouTube thumbnails", description: "Confirm 16:9 dimensions before uploading custom thumbnails." },
+      { title: "Instagram posts", description: "Calculate 1:1 or 4:5 dimensions for feed and portrait posts." },
+      { title: "Image resizing", description: "Find the correct height when you know width and target ratio." },
+      { title: "Video editing", description: "Set export dimensions for 9:16 vertical or 21:9 cinematic formats." },
+      { title: "Responsive design", description: "Calculate container dimensions for CSS aspect-ratio properties." },
+    ],
+    faqs: [
+      { question: "How to calculate aspect ratio?", answer: "Enter width and height in pixels. The simplified ratio (e.g. 16:9) appears instantly." },
+      { question: "How to find height from width and ratio?", answer: "Use Calculate Dimensions, enter your ratio and known width. Height is calculated automatically." },
+      { question: "What is 16:9 aspect ratio?", answer: "16:9 is widescreen format used for HD TV, YouTube, and most modern displays. 1920×1080 is a common 16:9 resolution." },
+      { question: "What ratios are supported?", answer: "Any custom ratio plus presets: 16:9, 4:3, 1:1, 3:2, 9:16, 4:5, 2:1, and 21:9." },
+      { question: "Is aspect ratio calculator free?", answer: "Yes. WorkUtilities Aspect Ratio Calculator is free with no limits." },
+    ],
+  },
+  "random-number": {
+    aboutTitle: "About Random Number Generator",
+    aboutParagraphs: [
+      "Our free Random Number Generator creates random integers, number lists, UUIDs, and dice rolls instantly. Customize min, max, count, and uniqueness for lists.",
+      "Four modes: Single (one random number), List (multiple numbers), UUID (unique identifiers), and Dice (d4 through d20). All generation uses cryptographically adequate Math.random() in your browser.",
+      "Useful for Indian teachers picking random students, developers testing apps, gamers rolling dice, and anyone needing quick random values for contests or simulations.",
+    ],
+    whenToUseTitle: "When Should You Use Random Number Generator?",
+    useCases: [
+      { title: "Contests and giveaways", description: "Pick a random winner from a number range." },
+      { title: "Testing apps", description: "Generate random test data and UUIDs for development." },
+      { title: "Board games", description: "Roll virtual dice when physical dice are not available." },
+      { title: "Classroom activities", description: "Randomly select students or generate practice problems." },
+      { title: "Unique IDs", description: "Generate UUIDs for database records or session tokens." },
+    ],
+    faqs: [
+      { question: "How to generate random numbers online?", answer: "Choose Single mode, set min and max, click Generate. A random integer appears instantly." },
+      { question: "How to generate a list of random numbers?", answer: "Use List mode, set range and count, optionally enable 'No duplicates', then click Generate List." },
+      { question: "How to roll dice online?", answer: "Switch to Dice mode, pick d4 through d20, set number of dice, and click Roll Dice." },
+      { question: "How to generate a UUID?", answer: "Switch to UUID mode and click Generate UUID. A version 4 UUID is created instantly." },
+      { question: "Are random numbers truly random?", answer: "Numbers are generated using JavaScript Math.random() in your browser — suitable for games and testing, not cryptographic security." },
     ],
   },
 };
