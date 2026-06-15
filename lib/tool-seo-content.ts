@@ -26,7 +26,10 @@ export type ToolSeoSlug =
   | "unit-converter"
   | "income-tax-calculator"
   | "signature-maker"
-  | "rent-receipt-generator";
+  | "rent-receipt-generator"
+  | "heic-to-jpg"
+  | "webp-to-jpg"
+  | "excel-to-pdf";
 
 type ToolSeoEntry = {
   aboutTitle: string;
@@ -1798,6 +1801,195 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
         question: "Is PDF to JPG conversion safe online?",
         answer:
           "Yes with WorkUtilities — processing is client-side only. Your PDF never leaves your browser.",
+      },
+    ],
+  },
+  "heic-to-jpg": {
+    aboutTitle: "About HEIC to JPG Converter",
+    aboutParagraphs: [
+      "Our free HEIC to JPG converter turns iPhone photos into universally compatible JPG or PNG files. HEIC (High Efficiency Image Container) is Apple's default photo format — great for storage on your phone, but many Windows PCs, older apps, and government portals cannot open it.",
+      "Conversion runs entirely in your browser. Your photos never leave your device, so family pictures, ID scans, and personal images stay private. No signup, no watermarks, and no waiting for cloud processing.",
+      "Perfect for Indian users transferring iPhone photos to a Windows laptop, uploading images to job portals or college forms, sharing photos on WhatsApp with friends on Android, or attaching pictures to email when the recipient cannot view HEIC files.",
+    ],
+    whenToUseTitle: "When Should You Use HEIC to JPG?",
+    useCases: [
+      {
+        title: "Windows PC compatibility",
+        description:
+          "Open iPhone photos on Windows without installing extra HEIC codecs.",
+      },
+      {
+        title: "Job portal uploads",
+        description:
+          "Convert HEIC profile photos to JPG before uploading to Naukri or LinkedIn.",
+      },
+      {
+        title: "WhatsApp sharing",
+        description:
+          "Send iPhone photos as JPG so Android users can view them without issues.",
+      },
+      {
+        title: "Government forms",
+        description:
+          "Meet JPG-only upload requirements on portals that reject HEIC files.",
+      },
+      {
+        title: "Email attachments",
+        description:
+          "Attach photos in a format every email client and recipient can open.",
+      },
+    ],
+    faqs: [
+      {
+        question: "How to convert HEIC to JPG free online?",
+        answer:
+          "Upload your HEIC file, choose JPG or PNG output, click convert, and download instantly. No account required.",
+      },
+      {
+        question: "Why can't Windows open iPhone photos?",
+        answer:
+          "iPhones save photos as HEIC by default. Windows needs a codec or converter — this tool converts HEIC to JPG in your browser.",
+      },
+      {
+        question: "Is HEIC to JPG conversion safe?",
+        answer:
+          "Yes with WorkUtilities — conversion is client-side only. Your photo never leaves your browser.",
+      },
+      {
+        question: "Should I convert to JPG or PNG?",
+        answer:
+          "Choose JPG for smaller file size and photos. Choose PNG if you need lossless quality or transparency.",
+      },
+      {
+        question: "Does this work on Android?",
+        answer:
+          "Yes. Open this page in Chrome or any modern mobile browser and convert HEIC files from your gallery or files app.",
+      },
+    ],
+  },
+  "webp-to-jpg": {
+    aboutTitle: "About WebP to JPG Converter",
+    aboutParagraphs: [
+      "Our free WebP to JPG converter changes modern WebP images into JPG or PNG files that work everywhere. WebP offers excellent compression for websites, but many desktop apps, older software, and upload portals still require traditional formats.",
+      "Conversion uses the Canvas API in your browser — fast, private, and with no server upload. Your images stay on your device throughout the process.",
+      "Useful for designers, developers, students, and anyone in India who downloaded a WebP image from the web and needs to open it in Paint, Photoshop, or upload it to a form that only accepts JPG or PNG.",
+    ],
+    whenToUseTitle: "When Should You Use WebP to JPG?",
+    useCases: [
+      {
+        title: "Opening WebP in older software",
+        description:
+          "Convert WebP downloads to JPG for apps that do not support WebP natively.",
+      },
+      {
+        title: "Website asset conversion",
+        description:
+          "Turn WebP graphics into JPG or PNG for clients or print workflows.",
+      },
+      {
+        title: "Form uploads",
+        description:
+          "Meet JPG-only requirements on government and college portals.",
+      },
+      {
+        title: "Social media posts",
+        description:
+          "Convert WebP images before uploading to platforms that prefer JPG.",
+      },
+      {
+        title: "Email and documents",
+        description:
+          "Embed converted images in Word, PowerPoint, or PDF attachments.",
+      },
+    ],
+    faqs: [
+      {
+        question: "How to convert WebP to JPG free?",
+        answer:
+          "Upload your WebP file, select JPG or PNG, click convert, and download. The entire process runs in your browser.",
+      },
+      {
+        question: "What is WebP format?",
+        answer:
+          "WebP is a modern image format developed by Google. It compresses well but is not supported by all apps and upload portals.",
+      },
+      {
+        question: "WebP to JPG or PNG — which is better?",
+        answer:
+          "JPG is smaller and ideal for photos. PNG is lossless and better for graphics with sharp edges or transparency.",
+      },
+      {
+        question: "Is WebP conversion private?",
+        answer:
+          "Yes. WorkUtilities processes WebP files locally in your browser — nothing is uploaded to a server.",
+      },
+      {
+        question: "Can I convert multiple WebP files?",
+        answer:
+          "Convert one file at a time on this page. For batch JPG/PNG/WebP conversion, try our Image Converter tool.",
+      },
+    ],
+  },
+  "excel-to-pdf": {
+    aboutTitle: "About Excel to PDF Converter",
+    aboutParagraphs: [
+      "Our free Excel to PDF converter turns .xlsx and .xls spreadsheets into shareable PDF documents. Each worksheet becomes a section in the PDF, making it easy to send reports, invoices, and data tables without worrying about the recipient's Excel version.",
+      "Conversion runs in your browser using client-side libraries. Your spreadsheet data is never uploaded to any server — ideal for salary sheets, financial reports, and confidential business data.",
+      "Built for Indian professionals sharing monthly reports with managers, students submitting assignment data, freelancers sending invoices, and anyone uploading spreadsheets to portals that only accept PDF format.",
+    ],
+    whenToUseTitle: "When Should You Use Excel to PDF?",
+    useCases: [
+      {
+        title: "Sharing reports",
+        description:
+          "Send Excel reports as PDF so recipients see the same layout on any device.",
+      },
+      {
+        title: "Job and college submissions",
+        description:
+          "Convert assignment spreadsheets to PDF before uploading to LMS portals.",
+      },
+      {
+        title: "Invoice sharing",
+        description:
+          "Turn Excel invoice templates into PDF for clients and accountants.",
+      },
+      {
+        title: "Archiving data",
+        description:
+          "Save spreadsheet snapshots as PDF for long-term records.",
+      },
+      {
+        title: "Government uploads",
+        description:
+          "Meet PDF-only requirements when portals reject Excel attachments.",
+      },
+    ],
+    faqs: [
+      {
+        question: "How to convert Excel to PDF free online?",
+        answer:
+          "Upload your .xlsx or .xls file, click Convert to PDF, and download instantly. No signup required.",
+      },
+      {
+        question: "Are all sheets included in the PDF?",
+        answer:
+          "Yes. Each worksheet in your Excel file is converted and included in the output PDF.",
+      },
+      {
+        question: "Will formatting be preserved?",
+        answer:
+          "Text and basic table structure are preserved. Complex formatting, charts, and embedded images may not render perfectly.",
+      },
+      {
+        question: "Is Excel to PDF conversion safe?",
+        answer:
+          "Yes with WorkUtilities — your file is processed locally in your browser and never sent to a server.",
+      },
+      {
+        question: "What Excel formats are supported?",
+        answer:
+          "Both .xlsx (Excel 2007+) and .xls (older Excel format) files up to 20MB are supported.",
       },
     ],
   },
