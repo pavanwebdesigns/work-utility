@@ -5,7 +5,10 @@ import { Footer } from "@/components/Footer";
 import { blogPostBySlug, blogPosts, getCategoryBadgeClass } from "../posts";
 import AadhaarCardPhotoSizeContent from "../content/aadhaar-card-photo-size";
 import HowToCompressPdfOnlineFreeContent from "../content/how-to-compress-pdf-online-free";
+import BestFreePdfToolsOnline2026Content from "../content/best-free-pdf-tools-online-2026";
+import HowToSplitPdfPagesOnlineFree2026Content from "../content/how-to-split-pdf-pages-online-free-2026";
 import ReduceImageSizeWithoutLosingQualityContent from "../content/reduce-image-size-without-losing-quality";
+import HowToConvertHeicToJpgOnWindowsContent from "../content/how-to-convert-heic-to-jpg-on-windows";
 import ConvertPdfToWordFreeContent from "../content/convert-pdf-to-word-free";
 import PassportSizePhotoDimensionsIndiaContent from "../content/passport-size-photo-dimensions-india";
 import HowToCompressPdfUnder1mbContent from "../content/how-to-compress-pdf-under-1mb";
@@ -38,6 +41,7 @@ import HowToResizePhotoForGovernmentExamsContent from "../content/how-to-resize-
 import WordCountForUpscEssayWritingContent from "../content/word-count-for-upsc-essay-writing";
 import AgeCalculatorForGovernmentFormsIndiaContent from "../content/age-calculator-for-government-forms-india";
 import BestFreeToolsForIndianStudentsContent from "../content/best-free-tools-for-indian-students";
+import BestFreeCalculatorsForStudents2026Content from "../content/best-free-calculators-for-students-2026";
 import HowToMakePassportSizePhotoAtHomeContent from "../content/how-to-make-passport-size-photo-at-home";
 import UnitConversionGuideIndianStudentsContent from "../content/unit-conversion-guide-indian-students";
 import HowToSplitPdfExtractPagesIndiaContent from "../content/how-to-split-pdf-extract-pages-india";
@@ -58,8 +62,13 @@ const contentBySlug: Record<string, () => JSX.Element> = {
   "complete-image-tools-guide-india": CompleteImageToolsGuideIndiaContent,
   "aadhaar-card-photo-size": AadhaarCardPhotoSizeContent,
   "how-to-compress-pdf-online-free": HowToCompressPdfOnlineFreeContent,
+  "best-free-pdf-tools-online-2026": BestFreePdfToolsOnline2026Content,
+  "how-to-split-pdf-pages-online-free-2026":
+    HowToSplitPdfPagesOnlineFree2026Content,
   "reduce-image-size-without-losing-quality":
     ReduceImageSizeWithoutLosingQualityContent,
+  "how-to-convert-heic-to-jpg-on-windows":
+    HowToConvertHeicToJpgOnWindowsContent,
   "convert-pdf-to-word-free": ConvertPdfToWordFreeContent,
   "passport-size-photo-dimensions-india":
     PassportSizePhotoDimensionsIndiaContent,
@@ -107,6 +116,8 @@ const contentBySlug: Record<string, () => JSX.Element> = {
   "age-calculator-for-government-forms-india":
     AgeCalculatorForGovernmentFormsIndiaContent,
   "best-free-tools-for-indian-students": BestFreeToolsForIndianStudentsContent,
+  "best-free-calculators-for-students-2026":
+    BestFreeCalculatorsForStudents2026Content,
   "how-to-make-passport-size-photo-at-home":
     HowToMakePassportSizePhotoAtHomeContent,
   "unit-conversion-guide-indian-students":

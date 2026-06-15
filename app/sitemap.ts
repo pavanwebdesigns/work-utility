@@ -3,43 +3,79 @@ import { blogPosts } from "./blog/posts";
 import { ALL_TOOLS } from "@/lib/tools-data";
 import { PHOTO_SIZE_GUIDE_ROUTES } from "@/lib/photo-size-guides";
 
-const BASE_URL = "https://workutilities.com";
-
-const STATIC_PAGES = [
-  "/",
-  "/tools",
-  "/blog",
-  "/about",
-  "/contact",
-  "/privacy",
-  "/terms",
-] as const;
-
-function sitemapEntry(
-  path: string,
-  priority: number
-): MetadataRoute.Sitemap[number] {
-  return {
-    url: path === "/" ? BASE_URL : `${BASE_URL}${path}`,
-    lastModified: new Date(),
-    changeFrequency: "weekly",
-    priority,
-  };
-}
-
 export function getSiteMapEntries(): MetadataRoute.Sitemap {
-  const seoLandingPages = Object.values(PHOTO_SIZE_GUIDE_ROUTES).map(
-    (guide) => guide.path
-  );
+  const baseUrl = "https://workutilities.com";
+  const now = new Date();
 
-  return [
-    ...STATIC_PAGES.map((path) =>
-      sitemapEntry(path, path === "/" ? 1 : 0.7)
-    ),
-    ...seoLandingPages.map((path) => sitemapEntry(path, 0.7)),
-    ...ALL_TOOLS.map((tool) => sitemapEntry(tool.href, 0.9)),
-    ...blogPosts.map((post) => sitemapEntry(`/blog/${post.slug}`, 0.8)),
+  const staticPages: MetadataRoute.Sitemap = [
+    {
+      url: baseUrl,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 1.0,
+    },
+    {
+      url: `${baseUrl}/tools`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/about`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.5,
+    },
+    {
+      url: `${baseUrl}/privacy`,
+      lastModified: now,
+      changeFrequency: "yearly",
+      priority: 0.4,
+    },
+    {
+      url: `${baseUrl}/terms`,
+      lastModified: now,
+      changeFrequency: "yearly",
+      priority: 0.4,
+    },
+    {
+      url: `${baseUrl}/contact`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.5,
+    },
+    {
+      url: `${baseUrl}/blog`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
   ];
+
+  const seoLandingPages: MetadataRoute.Sitemap = Object.values(
+    PHOTO_SIZE_GUIDE_ROUTES,
+  ).map((guide) => ({
+    url: `${baseUrl}${guide.path}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
+  const toolPages: MetadataRoute.Sitemap = ALL_TOOLS.map((tool) => ({
+    url: `${baseUrl}${tool.href}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.9,
+  }));
+
+  const blogPages: MetadataRoute.Sitemap = blogPosts.map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.8,
+  }));
+
+  return [...staticPages, ...seoLandingPages, ...toolPages, ...blogPages];
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {

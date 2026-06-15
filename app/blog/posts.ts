@@ -114,6 +114,28 @@ export const blogPosts: BlogPost[] = [
     cta: { toolName: "PDF Compress", toolHref: "/tools/pdf-compress" },
   },
   {
+    slug: "best-free-pdf-tools-online-2026",
+    title: "Best Free PDF Tools Online 2026 — No Downloads, No Signup",
+    excerpt:
+      "Compress, merge, split, and convert PDFs free in your browser. No software install, no account — complete guide to every PDF tool you need.",
+    category: "PDF",
+    readTime: "6 min read",
+    author: "Alex Carter",
+    lastUpdated: "June 2026",
+    cta: { toolName: "PDF Compress", toolHref: "/tools/pdf-compress" },
+  },
+  {
+    slug: "how-to-split-pdf-pages-online-free-2026",
+    title: "How to Split PDF Pages Online Free (2026)",
+    excerpt:
+      "Extract specific pages or split a PDF into individual files free online. Page range syntax, ZIP download, no signup required.",
+    category: "PDF",
+    readTime: "4 min read",
+    author: "Alex Carter",
+    lastUpdated: "June 2026",
+    cta: { toolName: "PDF Split", toolHref: "/tools/pdf-split" },
+  },
+  {
     slug: "reduce-image-size-without-losing-quality",
     title: "How to Reduce Image Size Without Losing Quality (2026)",
     excerpt:
@@ -123,6 +145,17 @@ export const blogPosts: BlogPost[] = [
     author: "Priya Sharma",
     lastUpdated: "June 2026",
     cta: { toolName: "Image Compress", toolHref: "/tools/image-compress" },
+  },
+  {
+    slug: "how-to-convert-heic-to-jpg-on-windows",
+    title: "How to Convert HEIC to JPG on Windows — Free (2026)",
+    excerpt:
+      "iPhone photos won't open on Windows? Learn what HEIC is and how to convert to JPG free online — no software install, no signup.",
+    category: "Images",
+    readTime: "5 min read",
+    author: "Alex Carter",
+    lastUpdated: "June 2026",
+    cta: { toolName: "HEIC to JPG", toolHref: "/tools/heic-to-jpg" },
   },
   {
     slug: "convert-pdf-to-word-free",
@@ -170,12 +203,12 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "how-to-remove-background-from-photo-free",
-    title: "How to Remove Background from Photo Free Online — No Signup (2026)",
+    title: "How to Remove Background from a Photo Free (2026)",
     excerpt:
-      "Remove photo backgrounds free for Meesho listings, LinkedIn profiles, passport photos, and product images. No watermark, runs in your browser.",
+      "Remove photo backgrounds free for Etsy, Amazon, LinkedIn, and product images. AI browser tool — no watermark, no signup, photos stay private.",
     category: "Images",
     readTime: "5 min read",
-    author: "Priya Sharma",
+    author: "Sarah Mitchell",
     lastUpdated: "June 2026",
     cta: { toolName: "Background Remover", toolHref: "/tools/bg-remove" },
   },
@@ -477,6 +510,17 @@ export const blogPosts: BlogPost[] = [
     cta: { toolName: "All Tools", toolHref: "/tools" },
   },
   {
+    slug: "best-free-calculators-for-students-2026",
+    title: "Best Free Online Calculators for Students (2026)",
+    excerpt:
+      "Free calculators for students — grades, loans, SIP, Pomodoro timer, stopwatch, and more. No signup, works on any device.",
+    category: "Students & Utilities",
+    readTime: "5 min read",
+    author: "Sarah Mitchell",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Percentage Calculator", toolHref: "/tools/percentage-calculator" },
+  },
+  {
     slug: "how-to-make-passport-size-photo-at-home",
     title: "How to Make Passport Size Photo at Home Free — No Studio Needed (2026)",
     excerpt:
@@ -555,12 +599,33 @@ export const blogSeoMetadata: Record<
     keywords:
       "compress pdf online free, reduce pdf size, pdf compressor india, pdf too large for email",
   },
+  "best-free-pdf-tools-online-2026": {
+    title: "Best Free PDF Tools Online 2026 — No Download | WorkUtilities",
+    description:
+      "Best free online PDF tools in 2026 — compress, merge, split, convert to Word, unlock passwords. No signup, browser-based, private.",
+    keywords:
+      "best free pdf tools online, pdf merge split compress free, online pdf tools no signup, browser pdf converter 2026",
+  },
+  "how-to-split-pdf-pages-online-free-2026": {
+    title: "How to Split PDF Pages Online Free 2026 | WorkUtilities",
+    description:
+      "Split PDF files and extract specific pages free online. Page range syntax, ZIP download, browser-based — no signup required.",
+    keywords:
+      "split pdf pages online free, extract pages from pdf, pdf split page range, split pdf into individual pages",
+  },
   "reduce-image-size-without-losing-quality": {
     title: "Reduce Image Size Without Losing Quality (2026) | WorkUtilities",
     description:
       "Compress JPG, PNG, WebP images online free. Reduce image file size for WhatsApp, websites, and uploads without visible quality loss.",
     keywords:
       "reduce image size online free, compress image without losing quality, jpg compressor india",
+  },
+  "how-to-convert-heic-to-jpg-on-windows": {
+    title: "How to Convert HEIC to JPG on Windows Free 2026 | WorkUtilities",
+    description:
+      "iPhone HEIC photos won't open on Windows? Convert HEIC to JPG free online in seconds. No software install, private browser conversion.",
+    keywords:
+      "convert heic to jpg windows free, heic to jpeg online, iphone photo windows, heic converter no upload",
   },
   "convert-pdf-to-word-free": {
     title: "Convert PDF to Word Free Online 2026 | WorkUtilities",
@@ -591,11 +656,11 @@ export const blogSeoMetadata: Record<
       "merge pdf files free online, combine pdf india, merge salary slips pdf, pdf merge no signup",
   },
   "how-to-remove-background-from-photo-free": {
-    title: "Remove Background from Photo Free Online (2026) | WorkUtilities",
+    title: "How to Remove Background from a Photo Free 2026 | WorkUtilities",
     description:
-      "Remove background from any photo free online. Perfect for passport photos, LinkedIn profile, product images, and Meesho/Amazon seller photos in India.",
+      "Remove photo backgrounds free online with AI. Perfect for Etsy, Amazon, LinkedIn, and product photos. Browser-based, private, no signup.",
     keywords:
-      "remove background from photo free, background remover india, meesho product photo white background",
+      "remove background from photo free, background remover online, etsy product photo white background, ai background removal free",
   },
   "how-to-unlock-password-protected-pdf": {
     title: "Open Password Protected PDF Free Online (2026) | WorkUtilities",
@@ -785,6 +850,13 @@ export const blogSeoMetadata: Record<
       "Top free online tools for Indian students — PDF tools, photo resizer, word counter, percentage calculator, and more. No signup required.",
     keywords:
       "free tools for students india, online tools for college students, pdf tools students, exam photo resize free",
+  },
+  "best-free-calculators-for-students-2026": {
+    title: "Best Free Online Calculators for Students 2026 | WorkUtilities",
+    description:
+      "Free online calculators for students — percentage, CGPA, EMI, SIP, Pomodoro timer, stopwatch, and more. No signup, works on mobile.",
+    keywords:
+      "free calculators for students, student loan emi calculator, pomodoro timer study, cgpa percentage calculator, online calculators college",
   },
   "how-to-make-passport-size-photo-at-home": {
     title: "Make Passport Size Photo at Home Free 2026 | WorkUtilities",
