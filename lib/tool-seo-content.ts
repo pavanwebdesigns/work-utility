@@ -44,7 +44,12 @@ export type ToolSeoSlug =
   | "discount-calculator"
   | "binary-converter"
   | "hash-generator"
-  | "number-to-words";
+  | "number-to-words"
+  | "pomodoro-timer"
+  | "stopwatch"
+  | "csv-to-json"
+  | "text-diff"
+  | "hra-calculator";
 
 type ToolSeoEntry = {
   aboutTitle: string;
@@ -2351,6 +2356,121 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
       { question: "Can I add Rupees or Dollars suffix?", answer: "Yes. Enable the currency suffix checkbox to append Rupees (INR) or Dollars (USD)." },
       { question: "What is the maximum number supported?", answer: "Indian system: up to 9,99,99,99,999. International: up to 999,999,999,999." },
       { question: "Is number to words converter free?", answer: "Yes. WorkUtilities Number to Words is free with no signup." },
+    ],
+  },
+  "pomodoro-timer": {
+    aboutTitle: "About Pomodoro Timer",
+    aboutParagraphs: [
+      "Our free Pomodoro Timer helps you work in focused 25-minute sessions with short and long breaks. The Pomodoro Technique boosts productivity by balancing deep work with regular rest.",
+      "Customize work duration, break lengths, and sessions before a long break. Visual circular progress, session tracking, and audio notifications keep you on schedule.",
+      "Perfect for students, remote workers, freelancers, and anyone who struggles with distractions. No app install — works in any browser on phone or desktop.",
+    ],
+    whenToUseTitle: "When Should You Use Pomodoro Timer?",
+    useCases: [
+      { title: "Deep work", description: "Focus on coding, writing, or studying without distractions." },
+      { title: "Exam preparation", description: "Break revision into manageable 25-minute blocks." },
+      { title: "Remote work", description: "Structure your workday with timed focus and break cycles." },
+      { title: "Creative projects", description: "Maintain momentum on design, content, or art projects." },
+      { title: "Avoiding burnout", description: "Take regular breaks to stay fresh throughout the day." },
+    ],
+    faqs: [
+      { question: "What is the Pomodoro Technique?", answer: "Work for 25 minutes, take a 5-minute break, repeat. After 4 sessions, take a longer 15-minute break." },
+      { question: "Can I customize timer durations?", answer: "Yes. Open Settings to change work, short break, long break, and sessions before long break." },
+      { question: "Does the timer work in the background?", answer: "Yes. The browser tab title shows remaining time. Keep the tab open for accurate timing." },
+      { question: "Is there a sound when the timer ends?", answer: "Yes. A short beep plays when each session completes." },
+      { question: "Is the Pomodoro timer free?", answer: "Yes. WorkUtilities Pomodoro Timer is completely free with no signup." },
+    ],
+  },
+  stopwatch: {
+    aboutTitle: "About Online Stopwatch",
+    aboutParagraphs: [
+      "Our free online Stopwatch provides precise timing with centisecond accuracy and unlimited lap recording. Start, stop, lap, and reset instantly in your browser.",
+      "Lap times are displayed in a sortable table with fastest and slowest laps highlighted. View total time, lap count, and statistics when stopped.",
+      "Ideal for workouts, cooking, presentations, experiments, and any activity where you need accurate split times without installing an app.",
+    ],
+    whenToUseTitle: "When Should You Use Stopwatch?",
+    useCases: [
+      { title: "Fitness training", description: "Time intervals and record lap splits during workouts." },
+      { title: "Cooking", description: "Track multiple dishes with lap times for each step." },
+      { title: "Presentations", description: "Practice and time each section of your talk." },
+      { title: "Sports", description: "Record split times for running, swimming, or cycling." },
+      { title: "Experiments", description: "Measure precise durations in lab or DIY projects." },
+    ],
+    faqs: [
+      { question: "How accurate is the online stopwatch?", answer: "The stopwatch updates every 10ms, displaying centiseconds (hundredths of a second)." },
+      { question: "How to record lap times?", answer: "Click Start, then press Lap while running. Each lap records split and total time." },
+      { question: "Can I see fastest and slowest laps?", answer: "Yes. Fastest lap is highlighted green and slowest in red when you have multiple laps." },
+      { question: "How to reset the stopwatch?", answer: "Stop the timer first, then click Reset to clear time and laps." },
+      { question: "Is the stopwatch free online?", answer: "Yes. WorkUtilities Stopwatch is free with no limits." },
+    ],
+  },
+  "csv-to-json": {
+    aboutTitle: "About CSV to JSON Converter",
+    aboutParagraphs: [
+      "Our free CSV to JSON Converter transforms comma-separated data into formatted JSON instantly. Paste CSV text or upload a .csv file — no server upload required.",
+      "Auto-detect delimiter, support for comma, semicolon, tab, and pipe separators. Toggle header row and whitespace trimming. Preview results as JSON or HTML table.",
+      "Built for Indian developers, data analysts, and students working with spreadsheet exports from Excel, Google Sheets, and government portals.",
+    ],
+    whenToUseTitle: "When Should You Use CSV to JSON?",
+    useCases: [
+      { title: "API development", description: "Convert CSV test data to JSON for API payloads." },
+      { title: "Data migration", description: "Transform spreadsheet exports for database imports." },
+      { title: "Quick inspection", description: "Preview CSV structure as a formatted table." },
+      { title: "Config files", description: "Convert tabular config data to JSON format." },
+      { title: "Learning", description: "Understand how CSV maps to JSON objects." },
+    ],
+    faqs: [
+      { question: "How to convert CSV to JSON online?", answer: "Paste your CSV data or upload a file. JSON output appears instantly on the right panel." },
+      { question: "Does it handle quoted commas?", answer: "Yes. Values wrapped in double quotes are parsed correctly, including commas inside quotes." },
+      { question: "Can I change the delimiter?", answer: "Yes. Use Auto-detect or manually select comma, semicolon, tab, or pipe." },
+      { question: "Is my CSV data uploaded to a server?", answer: "No. All conversion happens locally in your browser." },
+      { question: "Is CSV to JSON conversion free?", answer: "Yes. WorkUtilities CSV to JSON is free with no file limits." },
+    ],
+  },
+  "text-diff": {
+    aboutTitle: "About Text Diff Checker",
+    aboutParagraphs: [
+      "Our free Text Diff Checker compares two texts and highlights added, removed, and unchanged lines. Use split view or unified diff format.",
+      "Auto-compare as you type with 500ms debounce, or click Compare for instant results. Line numbers and color-coded highlights make differences easy to spot.",
+      "Essential for developers reviewing code changes, writers comparing document versions, and students checking assignment edits.",
+    ],
+    whenToUseTitle: "When Should You Use Text Diff?",
+    useCases: [
+      { title: "Code review", description: "Compare two versions of code snippets or config files." },
+      { title: "Document editing", description: "See what changed between two drafts of text." },
+      { title: "Plagiarism check", description: "Quickly spot differences between two similar texts." },
+      { title: "Data validation", description: "Verify that two text exports match or find discrepancies." },
+      { title: "Learning Git", description: "Understand how diff output shows changes between versions." },
+    ],
+    faqs: [
+      { question: "How to compare two texts online?", answer: "Paste original text on the left and modified text on the right. Differences highlight automatically." },
+      { question: "What is split vs unified view?", answer: "Split shows original and modified side by side. Unified shows all changes in one column with + and - prefixes." },
+      { question: "Does it compare line by line?", answer: "Yes. The diff algorithm compares texts line by line using longest common subsequence." },
+      { question: "Is my text sent to a server?", answer: "No. All comparison runs locally in your browser." },
+      { question: "Is text diff checker free?", answer: "Yes. WorkUtilities Text Diff is free with no character limits." },
+    ],
+  },
+  "hra-calculator": {
+    aboutTitle: "About HRA Calculator",
+    aboutParagraphs: [
+      "Our free HRA Calculator computes House Rent Allowance exemption and taxable amount as per Section 10(13A) of the Indian Income Tax Act.",
+      "Enter basic salary, DA, HRA received, rent paid, and metro/non-metro city. See the three exemption conditions and which minimum applies.",
+      "Essential for salaried employees in India planning taxes, filing returns, and comparing old vs new tax regime HRA benefits.",
+    ],
+    whenToUseTitle: "When Should You Use HRA Calculator?",
+    useCases: [
+      { title: "Tax planning", description: "Estimate how much HRA is exempt before the financial year ends." },
+      { title: "Salary negotiation", description: "Understand tax impact of HRA component in your CTC." },
+      { title: "ITR filing", description: "Verify exempt HRA amount for income tax return." },
+      { title: "Rent receipts", description: "Cross-check HRA exemption with monthly rent paid." },
+      { title: "Metro vs non-metro", description: "See how 50% vs 40% rule affects your exemption." },
+    ],
+    faqs: [
+      { question: "How is HRA exemption calculated?", answer: "Exemption is the minimum of: actual HRA received, 50%/40% of Basic+DA, and rent paid minus 10% of Basic+DA." },
+      { question: "Which cities are metro for HRA?", answer: "Mumbai, Delhi, Kolkata, and Chennai are metro cities (50% rule). All others use 40%." },
+      { question: "Do I need rent receipts for HRA?", answer: "Yes, for HRA above ₹3,000/month you typically need rent receipts and landlord PAN for claims above ₹1 lakh annually." },
+      { question: "Can I claim HRA if I live with parents?", answer: "Yes, if you pay rent to parents and have proper rent receipts. The rent must be genuine and documented." },
+      { question: "Is HRA calculator free?", answer: "Yes. WorkUtilities HRA Calculator is free with no signup." },
     ],
   },
 };
