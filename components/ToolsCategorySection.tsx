@@ -7,12 +7,14 @@ import {
   TOOL_PAGE_CATEGORY_TABS,
   TOOL_PAGE_SECTION_LABELS,
   buildToolListing,
+  getToolCountByCategory,
   type ToolPageCategoryId,
 } from "@/lib/tool-categories";
 
 export function ToolsCategorySection() {
   const [activeCategory, setActiveCategory] = useState<ToolPageCategoryId>("all");
   const tools = useMemo(() => buildToolListing(), []);
+  const counts = useMemo(() => getToolCountByCategory(), []);
 
   const filteredTools =
     activeCategory === "all"
@@ -25,6 +27,7 @@ export function ToolsCategorySection() {
         {TOOL_PAGE_CATEGORY_TABS.map((category) => {
           const Icon = TOOL_CATEGORY_ICONS[category.id];
           const isActive = activeCategory === category.id;
+          const count = counts[category.id];
 
           return (
             <button
@@ -40,14 +43,23 @@ export function ToolsCategorySection() {
               }`}
             >
               <Icon className="h-4 w-4" strokeWidth={1.75} />
-              {category.label}
+              <span>{category.label}</span>
+              <span
+                className={`rounded-full px-1.5 py-0.5 text-[10px] font-semibold ${
+                  isActive
+                    ? "bg-white/20 text-white"
+                    : "bg-surface-elevated text-content-muted"
+                }`}
+              >
+                {count}
+              </span>
             </button>
           );
         })}
       </div>
 
       <p className="mb-4 text-left text-[11px] font-semibold tracking-[2px] text-content-muted">
-        {TOOL_PAGE_SECTION_LABELS[activeCategory]}
+        {TOOL_PAGE_SECTION_LABELS[activeCategory]} ({filteredTools.length})
       </p>
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">

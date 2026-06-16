@@ -63,6 +63,23 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import type { ToolAccent } from "@/components/ToolCard";
+import {
+  MENU_CATEGORY_META,
+  MENU_CATEGORY_ORDER,
+  SLUG_TO_MENU_CATEGORY,
+  type MenuCategoryId,
+} from "@/lib/menu-categories";
+
+export type { MenuCategoryId };
+export {
+  MENU_CATEGORY_META,
+  MENU_CATEGORY_ORDER,
+  SLUG_TO_MENU_CATEGORY,
+};
+
+export function getMenuCategoryForSlug(slug: string): MenuCategoryId | undefined {
+  return SLUG_TO_MENU_CATEGORY[slug];
+}
 
 export type ToolFilterCategory = "pdf" | "images" | "convert";
 
@@ -1118,121 +1135,18 @@ export type MegaMenuCategoryConfig = {
   items: MegaMenuItemConfig[];
 };
 
-export const MEGA_MENU_CATEGORIES: MegaMenuCategoryConfig[] = [
-  {
-    id: "pdf",
-    title: "PDF Tools",
-    emoji: "📄",
-    items: [
-      { slug: "pdf-merge", description: "Combine multiple PDFs into one" },
-      { slug: "pdf-split", description: "Extract pages from PDF" },
-      { slug: "pdf-compress", description: "Reduce PDF file size" },
-      { slug: "pdf-to-word", description: "Convert PDF to editable Word" },
-      { slug: "pdf-to-jpg", description: "Convert PDF pages to images" },
-      {
-        slug: "pdf-unlock",
-        description: "Unlock password protected PDF",
-      },
-    ],
-  },
-  {
-    id: "image",
-    title: "Image Tools",
-    emoji: "🖼️",
-    items: [
-      { slug: "image-compress", description: "Reduce image file size" },
-      { slug: "photo-resizer", description: "Resize to exact dimensions" },
-      { slug: "bg-remove", description: "Remove image background" },
-      { slug: "image-to-pdf", description: "Convert images to PDF" },
-      { slug: "image-converter", description: "Convert between JPG, PNG, WebP" },
-      { slug: "heic-to-jpg", description: "Convert iPhone HEIC to JPG" },
-      { slug: "webp-to-jpg", description: "Convert WebP to JPG or PNG" },
-    ],
-  },
-  {
-    id: "document",
-    title: "Document Tools",
-    emoji: "📝",
-    items: [
-      { slug: "word-to-pdf", description: "Convert Word documents to PDF" },
-      { slug: "excel-to-pdf", description: "Convert Excel spreadsheets to PDF" },
-      { slug: "ppt-to-pdf", description: "Convert PowerPoint to PDF" },
-      { slug: "signature-maker", description: "Create digital signature" },
-      { slug: "rent-receipt-generator", description: "Generate rent receipts PDF" },
-    ],
-  },
-  {
-    id: "finance",
-    title: "Finance Calculators",
-    emoji: "🧮",
-    items: [
-      { slug: "emi-calculator", description: "Calculate loan EMI instantly" },
-      { slug: "gst-calculator", description: "Add or remove GST" },
-      { slug: "sip-calculator", description: "Calculate mutual fund returns" },
-      { slug: "fd-calculator", description: "Calculate fixed deposit returns" },
-      { slug: "ctc-calculator", description: "Know your in-hand salary" },
-      { slug: "salary-hike-calculator", description: "Calculate new salary after hike" },
-      { slug: "income-tax-calculator", description: "Old vs New regime comparison" },
-      { slug: "tip-calculator", description: "Calculate tip and split bills" },
-      { slug: "discount-calculator", description: "Calculate discounts and sale price" },
-      { slug: "hra-calculator", description: "Calculate HRA tax exemption" },
-      { slug: "bmi-calculator", description: "Calculate your Body Mass Index" },
-      { slug: "compound-interest", description: "Calculate compound interest growth" },
-      { slug: "epf-calculator", description: "Calculate EPF maturity amount" },
-      { slug: "gratuity-calculator", description: "Calculate gratuity on retirement" },
-      { slug: "lta-calculator", description: "Calculate LTA tax exemption" },
-      { slug: "hourly-to-salary", description: "Convert hourly wage to salary" },
-      { slug: "inflation-calculator", description: "Calculate money value over time" },
-    ],
-  },
-  {
-    id: "student",
-    title: "Student Tools",
-    emoji: "🎓",
-    items: [
-      { slug: "cgpa-to-percentage", description: "Convert CGPA to percentage" },
-      { slug: "percentage-calculator", description: "Calculate percentages easily" },
-      { slug: "word-counter", description: "Count words and characters" },
-      { slug: "age-calculator", description: "Calculate exact age" },
-    ],
-  },
-  {
-    id: "utility",
-    title: "Utility Tools",
-    emoji: "⚙️",
-    items: [
-      { slug: "qr-code-generator", description: "Generate QR codes free" },
-      { slug: "json-formatter", description: "Format and validate JSON" },
-      { slug: "color-picker", description: "Pick colors, get HEX/RGB/HSL" },
-      { slug: "markdown-to-html", description: "Convert Markdown to HTML" },
-      { slug: "base64", description: "Encode and decode Base64" },
-      { slug: "url-encoder", description: "Encode and decode URLs" },
-      { slug: "text-case-converter", description: "Convert text case formats" },
-      { slug: "lorem-ipsum", description: "Generate placeholder text" },
-      { slug: "aspect-ratio", description: "Calculate image aspect ratios" },
-      { slug: "random-number", description: "Generate random numbers" },
-      { slug: "password-generator", description: "Create strong passwords" },
-      { slug: "unit-converter", description: "Convert length, weight, temp" },
-      { slug: "notice-period-calculator", description: "Find your last working day" },
-      { slug: "binary-converter", description: "Convert binary, decimal, hex, octal" },
-      { slug: "hash-generator", description: "Generate MD5, SHA-256 hashes" },
-      { slug: "number-to-words", description: "Convert numbers to words" },
-      { slug: "pomodoro-timer", description: "Focus timer with breaks" },
-      { slug: "stopwatch", description: "Precise stopwatch with laps" },
-      { slug: "csv-to-json", description: "Convert CSV to JSON" },
-      { slug: "text-diff", description: "Compare two texts" },
-      { slug: "character-counter", description: "Count characters, words, sentences" },
-      { slug: "timezone-converter", description: "Convert time between time zones" },
-      { slug: "regex-tester", description: "Test and debug regular expressions" },
-      { slug: "html-entity", description: "Encode and decode HTML entities" },
-      { slug: "color-contrast", description: "Check WCAG color contrast ratios" },
-      { slug: "jwt-decoder", description: "Decode and inspect JWT tokens" },
-      { slug: "keyword-density", description: "Analyze keyword frequency in content" },
-      { slug: "morse-code", description: "Convert text to Morse code" },
-      { slug: "xml-formatter", description: "Format and validate XML" },
-    ],
-  },
-];
+export const MEGA_MENU_CATEGORIES: MegaMenuCategoryConfig[] =
+  MENU_CATEGORY_ORDER.map((id) => ({
+    id,
+    title: MENU_CATEGORY_META[id].title,
+    emoji: MENU_CATEGORY_META[id].emoji,
+    items: ALL_TOOLS.filter((tool) => SLUG_TO_MENU_CATEGORY[tool.slug] === id).map(
+      (tool) => ({
+        slug: tool.slug,
+        description: tool.description,
+      }),
+    ),
+  }));
 
 /** @deprecated Use MEGA_MENU_CATEGORIES via getMegaMenuCategories() */
 export const HEADER_MENU_CATEGORIES = MEGA_MENU_CATEGORIES.map((category) => ({

@@ -4,42 +4,57 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ArrowRight, ChevronDown, Menu, Search, X } from "lucide-react";
+import { ArrowRight, ChevronDown, Menu, Search, Star, X } from "lucide-react";
 import { MegaMenuDesktop, MegaMenuMobile } from "@/components/MegaMenu";
 import PWAInstallButton from "@/components/PWAInstallButton";
 import { ToolsSearch } from "@/components/ToolsSearch";
-import { useCurrency } from "@/lib/currency-context";
+import { useCurrency, type Region } from "@/lib/currency-context";
+import { useFavorites } from "@/lib/favorites-context";
+import { useFavoritesDrawer } from "@/lib/favorites-drawer-context";
 
-function CurrencyToggle({ className = "" }: { className?: string }) {
-  const { currency, setCurrency } = useCurrency();
+function RegionSelector({ className = "" }: { className?: string }) {
+  const { region, setRegion } = useCurrency();
+
+  const toggleRegion = () => {
+    const next: Region = region === "IN" ? "US" : "IN";
+    setRegion(next);
+  };
+
+  const label = region === "IN" ? "🇮🇳 India" : "🇺🇸 USA";
 
   return (
-    <div
-      className={`flex items-center gap-0.5 rounded-lg border border-surface-border bg-surface-card p-0.5 ${className}`}
+    <button
+      type="button"
+      onClick={toggleRegion}
+      className={`flex cursor-pointer items-center gap-1.5 rounded-lg border border-surface-border bg-surface-card px-2.5 py-1.5 text-xs font-semibold text-content-primary transition-colors hover:bg-surface-elevated ${className}`}
+      aria-label={`Region: ${region === "IN" ? "India" : "USA"}. Click to switch.`}
     >
-      <button
-        type="button"
-        onClick={() => setCurrency("INR")}
-        className={`rounded-md px-2.5 py-1 text-xs font-semibold transition-all ${
-          currency === "INR"
-            ? "bg-surface-elevated text-content-primary"
-            : "text-content-muted hover:text-content-secondary"
-        }`}
-      >
-        ₹ INR
-      </button>
-      <button
-        type="button"
-        onClick={() => setCurrency("USD")}
-        className={`rounded-md px-2.5 py-1 text-xs font-semibold transition-all ${
-          currency === "USD"
-            ? "bg-surface-elevated text-content-primary"
-            : "text-content-muted hover:text-content-secondary"
-        }`}
-      >
-        $ USD
-      </button>
-    </div>
+      {label}
+    </button>
+  );
+}
+
+function FavoritesButton({ className = "" }: { className?: string }) {
+  const { favorites } = useFavorites();
+  const { openDrawer } = useFavoritesDrawer();
+  const count = favorites.length;
+
+  return (
+    <button
+      type="button"
+      onClick={openDrawer}
+      className={`relative rounded-lg p-2 text-content-secondary transition-colors hover:bg-surface-elevated hover:text-content-primary ${className}`}
+      aria-label={`My favorites${count > 0 ? ` (${count})` : ""}`}
+    >
+      <Star
+        className={`h-[18px] w-[18px] ${count > 0 ? "fill-brand-blue text-brand-blue" : ""}`}
+      />
+      {count > 0 && (
+        <span className="absolute -right-0.5 -top-0.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-brand-blue px-1 text-[10px] font-bold text-white">
+          {count > 9 ? "9+" : count}
+        </span>
+      )}
+    </button>
   );
 }
 
@@ -51,6 +66,7 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const { openDrawer } = useFavoritesDrawer();
 
   const handleMouseEnter = () => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
@@ -160,7 +176,7 @@ export function Header() {
           </div>
 
           <nav
-            className="hidden items-center gap-4 md:flex"
+            className="hidden items-center gap-3 md:flex"
             role="navigation"
             aria-label="Main navigation"
           >
@@ -191,7 +207,13 @@ export function Header() {
                   className="fixed left-0 right-0 top-16 z-50 max-w-[100vw] overflow-x-hidden px-4 pt-2 sm:px-6 lg:px-8 xl:px-10"
                 >
                   <div className="mx-auto w-full max-w-[900px]">
-                    <MegaMenuDesktop onNavigate={() => setIsMenuOpen(false)} />
+                    <MegaMenuDesktop
+                      onNavigate={() => setIsMenuOpen(false)}
+                      onOpenFavorites={() => {
+                        setIsMenuOpen(false);
+                        openDrawer();
+                      }}
+                    />
                   </div>
                 </div>
               )}
@@ -206,7 +228,9 @@ export function Header() {
               <Search className="h-[18px] w-[18px]" />
             </button>
 
-            <CurrencyToggle className="hidden md:flex" />
+            <FavoritesButton />
+
+            <RegionSelector className="hidden lg:flex" />
 
             <Link
               href="/blog"
@@ -219,7 +243,8 @@ export function Header() {
             <PWAInstallButton />
           </nav>
 
-          <div className="flex items-center gap-2 md:hidden">
+          <div className="flex items-center gap-1 md:hidden">
+            <FavoritesButton />
             <button
               type="button"
               onClick={() => setIsSearchOpen(true)}
@@ -272,10 +297,16 @@ export function Header() {
           </div>
 
           <div className="p-4">
-            <MegaMenuMobile onNavigate={closeMenus} />
+            <MegaMenuMobile
+              onNavigate={closeMenus}
+              onOpenFavorites={() => {
+                closeMenus();
+                openDrawer();
+              }}
+            />
 
             <div className="mt-4 space-y-2 border-t border-surface-border pt-4">
-              <CurrencyToggle className="w-full justify-center" />
+              <RegionSelector className="w-full justify-center" />
 
               <Link
                 href="/blog"

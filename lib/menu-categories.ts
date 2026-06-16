@@ -1,0 +1,114 @@
+/** Canonical menu / filter category for every tool — single source of truth */
+export type MenuCategoryId =
+  | "pdf"
+  | "image"
+  | "document"
+  | "finance"
+  | "student"
+  | "developer"
+  | "text"
+  | "productivity"
+  | "everyday";
+
+export const MENU_CATEGORY_ORDER: MenuCategoryId[] = [
+  "pdf",
+  "image",
+  "document",
+  "finance",
+  "student",
+  "developer",
+  "text",
+  "productivity",
+  "everyday",
+];
+
+export const MENU_CATEGORY_META: Record<
+  MenuCategoryId,
+  { title: string; emoji: string }
+> = {
+  pdf: { title: "PDF Tools", emoji: "📄" },
+  image: { title: "Image Tools", emoji: "🖼️" },
+  document: { title: "Document Tools", emoji: "📝" },
+  finance: { title: "Finance Calculators", emoji: "🧮" },
+  student: { title: "Student Tools", emoji: "🎓" },
+  developer: { title: "Developer Tools", emoji: "💻" },
+  text: { title: "Text & Writing Tools", emoji: "✍️" },
+  productivity: { title: "Time & Productivity", emoji: "⏱️" },
+  everyday: { title: "Everyday Utilities", emoji: "⚙️" },
+};
+
+/** Maps every tool slug to its menu category */
+export const SLUG_TO_MENU_CATEGORY: Record<string, MenuCategoryId> = {
+  "pdf-compress": "pdf",
+  "pdf-merge": "pdf",
+  "pdf-split": "pdf",
+  "pdf-unlock": "pdf",
+  "pdf-to-jpg": "pdf",
+  "pdf-to-word": "pdf",
+  "image-compress": "image",
+  "image-converter": "image",
+  "heic-to-jpg": "image",
+  "webp-to-jpg": "image",
+  "bg-remove": "image",
+  "photo-resizer": "image",
+  "image-to-pdf": "image",
+  "word-to-pdf": "document",
+  "excel-to-pdf": "document",
+  "ppt-to-pdf": "document",
+  "emi-calculator": "finance",
+  "gst-calculator": "finance",
+  "sip-calculator": "finance",
+  "fd-calculator": "finance",
+  "ctc-calculator": "finance",
+  "salary-hike-calculator": "finance",
+  "income-tax-calculator": "finance",
+  "tip-calculator": "finance",
+  "discount-calculator": "finance",
+  "hra-calculator": "finance",
+  "bmi-calculator": "finance",
+  "compound-interest": "finance",
+  "epf-calculator": "finance",
+  "gratuity-calculator": "finance",
+  "lta-calculator": "finance",
+  "hourly-to-salary": "finance",
+  "inflation-calculator": "finance",
+  "notice-period-calculator": "finance",
+  "word-counter": "student",
+  "age-calculator": "student",
+  "cgpa-to-percentage": "student",
+  "percentage-calculator": "student",
+  "json-formatter": "developer",
+  "base64": "developer",
+  "url-encoder": "developer",
+  "hash-generator": "developer",
+  "binary-converter": "developer",
+  "regex-tester": "developer",
+  "html-entity": "developer",
+  "jwt-decoder": "developer",
+  "xml-formatter": "developer",
+  "markdown-to-html": "developer",
+  "color-picker": "developer",
+  "color-contrast": "developer",
+  "csv-to-json": "developer",
+  "character-counter": "text",
+  "text-case-converter": "text",
+  "lorem-ipsum": "text",
+  "keyword-density": "text",
+  "number-to-words": "text",
+  "morse-code": "text",
+  "text-diff": "text",
+  "pomodoro-timer": "productivity",
+  stopwatch: "productivity",
+  "timezone-converter": "productivity",
+  "qr-code-generator": "everyday",
+  "password-generator": "everyday",
+  "unit-converter": "everyday",
+  "signature-maker": "everyday",
+  "rent-receipt-generator": "everyday",
+  "aspect-ratio": "everyday",
+  "random-number": "everyday",
+};
+
+export function getMenuCategoryForSlug(slug: string): MenuCategoryId | undefined {
+  return SLUG_TO_MENU_CATEGORY[slug];
+}

@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { Search, X } from "lucide-react";
 import { searchTools } from "@/lib/tool-categories";
+import { ALL_TOOLS } from "@/lib/tools-data";
 import { SoonBadge } from "@/components/SoonBadge";
 
 type ToolsSearchProps = {
@@ -72,7 +73,7 @@ export function ToolsSearch({ isOpen, onClose }: ToolsSearchProps) {
               type="text"
               value={query}
               onChange={(event) => setQuery(event.target.value)}
-              placeholder="Search 29 tools..."
+              placeholder={`Search ${ALL_TOOLS.length} tools...`}
               aria-label="Search tools"
               className="flex-1 bg-transparent text-base text-content-primary outline-none placeholder:text-content-muted"
             />

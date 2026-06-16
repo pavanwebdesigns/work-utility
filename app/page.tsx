@@ -2,18 +2,17 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import { Search, Star, X } from "lucide-react";
+import { Search, X } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ToolCard } from "@/components/ToolCard";
 import { ToolsCategorySection } from "@/components/ToolsCategorySection";
-import { useFavorites } from "@/lib/favorites-context";
 import {
   blogPosts,
   getCategoryBadgeClass,
 } from "@/app/blog/posts";
 import { ALL_TOOLS } from "@/lib/tools-data";
-import { buildToolListing, searchTools } from "@/lib/tool-categories";
+import { searchTools } from "@/lib/tool-categories";
 
 function TrustBadge({ children }: { children: React.ReactNode }) {
   return (
@@ -51,7 +50,6 @@ function StatsBar() {
 
 export default function HomePage() {
   const [searchQuery, setSearchQuery] = useState("");
-  const { favorites } = useFavorites();
 
   const isSearching = searchQuery.trim().length > 0;
 
@@ -59,11 +57,6 @@ export default function HomePage() {
     if (!isSearching) return [];
     return searchTools(searchQuery.trim());
   }, [isSearching, searchQuery]);
-
-  const favoriteTools = useMemo(() => {
-    const listing = buildToolListing();
-    return listing.filter((tool) => favorites.includes(tool.slug));
-  }, [favorites]);
 
   return (
     <div className="flex min-h-screen w-full max-w-full flex-col overflow-x-hidden bg-surface-base">
@@ -133,32 +126,6 @@ export default function HomePage() {
                 </button>
               )}
             </div>
-
-            {!isSearching && favoriteTools.length > 0 && (
-              <section id="favorites" className="mb-10">
-                <div className="mb-4 flex items-center gap-2">
-                  <Star className="h-4 w-4 fill-brand-blue text-brand-blue" />
-                  <span className="text-xs font-semibold uppercase tracking-widest text-content-muted">
-                    My Favorites
-                  </span>
-                </div>
-                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                  {favoriteTools.map((tool) => (
-                    <div key={tool.slug} className="w-full min-w-0">
-                      <ToolCard
-                        title={tool.title}
-                        description={tool.description}
-                        href={tool.href}
-                        icon={tool.icon}
-                        accent={tool.accent}
-                        popular={tool.popular}
-                        comingSoon={tool.comingSoon}
-                      />
-                    </div>
-                  ))}
-                </div>
-              </section>
-            )}
 
             {!isSearching && <ToolsCategorySection />}
 

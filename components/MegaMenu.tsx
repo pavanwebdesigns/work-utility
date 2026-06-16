@@ -54,7 +54,13 @@ function MegaMenuToolCard({
   );
 }
 
-function MegaMenuBottomBar({ onNavigate }: { onNavigate?: () => void }) {
+function MegaMenuBottomBar({
+  onNavigate,
+  onOpenFavorites,
+}: {
+  onNavigate?: () => void;
+  onOpenFavorites?: () => void;
+}) {
   const { favorites } = useFavorites();
 
   return (
@@ -64,15 +70,18 @@ function MegaMenuBottomBar({ onNavigate }: { onNavigate?: () => void }) {
       </span>
       <div className="flex flex-wrap items-center gap-4">
         {favorites.length > 0 && (
-          <Link
-            href="/#favorites"
+          <button
+            type="button"
             role="menuitem"
             className="flex items-center gap-1 text-xs text-brand-blue transition-colors hover:underline"
-            onClick={onNavigate}
+            onClick={() => {
+              onNavigate?.();
+              onOpenFavorites?.();
+            }}
           >
             <Star className="h-3 w-3 fill-brand-blue" />
             Favorites
-          </Link>
+          </button>
         )}
         <Link
           href="/tools"
@@ -119,12 +128,18 @@ function CategoryToolsPanel({
 function CategoryTabIcon({ categoryId }: { categoryId: string }) {
   const Icon =
     TOOL_CATEGORY_ICONS[categoryId as ToolPageCategoryId] ??
-    TOOL_CATEGORY_ICONS.utility;
+    TOOL_CATEGORY_ICONS.everyday;
 
   return <Icon className="h-4 w-4 shrink-0" strokeWidth={1.75} aria-hidden="true" />;
 }
 
-export function MegaMenuDesktop({ onNavigate }: { onNavigate?: () => void }) {
+export function MegaMenuDesktop({
+  onNavigate,
+  onOpenFavorites,
+}: {
+  onNavigate?: () => void;
+  onOpenFavorites?: () => void;
+}) {
   const [activeCategoryId, setActiveCategoryId] = useState(
     megaMenuCategories[0]?.id ?? "pdf"
   );
@@ -141,7 +156,7 @@ export function MegaMenuDesktop({ onNavigate }: { onNavigate?: () => void }) {
     >
       <div className="flex min-h-[320px]">
         <div
-          className="w-[220px] flex-shrink-0 border-r border-surface-border bg-surface-base/50 py-2"
+          className="max-h-[min(420px,70vh)] w-[220px] flex-shrink-0 overflow-y-auto border-r border-surface-border bg-surface-base/50 py-2"
           role="tablist"
           aria-label="Tool categories"
         >
@@ -177,12 +192,18 @@ export function MegaMenuDesktop({ onNavigate }: { onNavigate?: () => void }) {
         </div>
       </div>
 
-      <MegaMenuBottomBar onNavigate={onNavigate} />
+      <MegaMenuBottomBar onNavigate={onNavigate} onOpenFavorites={onOpenFavorites} />
     </div>
   );
 }
 
-export function MegaMenuMobile({ onNavigate }: { onNavigate?: () => void }) {
+export function MegaMenuMobile({
+  onNavigate,
+  onOpenFavorites,
+}: {
+  onNavigate?: () => void;
+  onOpenFavorites?: () => void;
+}) {
   const [expandedCategoryId, setExpandedCategoryId] = useState<string | null>(null);
 
   const toggleCategory = (categoryId: string) => {
@@ -230,7 +251,10 @@ export function MegaMenuMobile({ onNavigate }: { onNavigate?: () => void }) {
       })}
 
       <div className="rounded-xl border border-surface-border bg-surface-card">
-        <MegaMenuBottomBar onNavigate={onNavigate} />
+        <MegaMenuBottomBar
+          onNavigate={onNavigate}
+          onOpenFavorites={onOpenFavorites}
+        />
       </div>
     </div>
   );

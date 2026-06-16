@@ -1,10 +1,13 @@
 import {
   Calculator,
+  Code2,
   FileEdit,
   FileText,
   GraduationCap,
   Image as ImageIcon,
   LayoutGrid,
+  PenLine,
+  Timer,
   Wrench,
   type LucideIcon,
 } from "lucide-react";
@@ -17,5 +20,8 @@ export const TOOL_CATEGORY_ICONS: Record<ToolPageCategoryId, LucideIcon> = {
   document: FileEdit,
   finance: Calculator,
   student: GraduationCap,
-  utility: Wrench,
+  developer: Code2,
+  text: PenLine,
+  productivity: Timer,
+  everyday: Wrench,
 };
