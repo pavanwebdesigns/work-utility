@@ -16,6 +16,13 @@ function LinkedInIcon({ className }: { className?: string }) {
   );
 }
 
+const LINKEDIN_URL =
+  "https://www.linkedin.com/in/pavan-kumar-korrapolu-40175224";
+const PORTFOLIO_URL = "https://iampavan.com";
+
+const externalLinkClass =
+  "font-medium text-brand-blue transition-colors hover:underline";
+
 export const metadata: Metadata = {
   title: {
     absolute: "About — WorkUtilities",
@@ -23,28 +30,6 @@ export const metadata: Metadata = {
   description:
     "Learn about WorkUtilities — free, private, browser-based tools for everyday work.",
 };
-
-const sections = [
-  {
-    title: "What we do",
-    body: "Free browser-based tools for Indian workers, students, and professionals. No signup, no uploads to server.",
-  },
-  {
-    title: "Why we built this",
-    body: "Most tool sites are cluttered with ads and require account creation. We wanted something clean and fast.",
-  },
-  {
-    title: "Privacy first",
-    body: "All processing happens in your browser. We never see your files.",
-  },
-  {
-    title: "Built with",
-    body: "Next.js, Tailwind CSS, pdf-lib, browser-image-compression, jsPDF",
-  },
-];
-
-const LINKEDIN_URL =
-  "https://www.linkedin.com/in/pavan-kumar-korrapolu-40175224";
 
 export default function AboutPage() {
   return (
@@ -67,43 +52,111 @@ export default function AboutPage() {
                 Who Built WorkUtilities
               </h2>
               <p className="mt-2 leading-relaxed text-content-secondary">
-                WorkUtilities is built and maintained independently by a
-                UI/UX designer and frontend developer based in Hyderabad,
-                India, with professional experience building software products
-                and user interfaces. This platform was built to give people —
-                especially Indian employees, students, and freelancers — fast,
+                WorkUtilities is built, engineered, and maintained independently
+                by Pavan Kumar, a professional UI/UX Lead and Frontend
+                Developer based in Hyderabad, India. With years of industry
+                experience designing high-density enterprise suites, advanced
+                dashboard architectures, and modern digital products, I created
+                this platform to bridge a critical gap in daily digital
+                workflows.
+              </p>
+              <p className="mt-4 leading-relaxed text-content-secondary">
+                This platform was built to give people — especially Indian
+                employees, software engineers, students, and freelancers — fast,
                 reliable, free tools for everyday document, image, and
                 calculation tasks, without the clutter, fake &quot;download&quot;
                 buttons, and aggressive ads found on many similar tool sites.
               </p>
               <p className="mt-4 leading-relaxed text-content-secondary">
-                Every tool on this site runs entirely in your browser. Nothing
-                you upload is sent to a server, stored, or seen by anyone —
-                which also means there&apos;s nothing to leak or misuse. That
-                privacy-first approach isn&apos;t a marketing line, it&apos;s a
-                deliberate technical decision in how every tool here is built.
+                <span className="font-semibold text-content-primary">
+                  Connect with the Founder:
+                </span>{" "}
+                <span className="inline-flex flex-wrap items-center gap-x-2 gap-y-1">
+                  <a
+                    href={LINKEDIN_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`inline-flex items-center gap-1.5 ${externalLinkClass}`}
+                  >
+                    <LinkedInIcon className="h-4 w-4 shrink-0" />
+                    Connect on LinkedIn
+                  </a>
+                  <span className="text-content-secondary" aria-hidden>
+                    |
+                  </span>
+                  <a
+                    href={PORTFOLIO_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={externalLinkClass}
+                  >
+                    Portfolio &amp; Insights
+                  </a>
+                </span>
               </p>
-              <a
-                href={LINKEDIN_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-4 inline-flex items-center gap-2 rounded-lg border border-surface-border bg-surface-card px-4 py-2.5 text-sm font-medium text-content-primary transition-colors hover:border-brand-blue/40 hover:text-brand-blue"
-              >
-                <LinkedInIcon className="h-4 w-4 shrink-0" />
-                Connect on LinkedIn
-              </a>
             </section>
 
-            {sections.map((section) => (
-              <section key={section.title}>
-                <h2 className="text-lg font-semibold text-content-primary">
-                  {section.title}
-                </h2>
-                <p className="mt-2 leading-relaxed text-content-secondary">
-                  {section.body}
-                </p>
-              </section>
-            ))}
+            <section>
+              <h2 className="text-lg font-semibold text-content-primary">
+                Our Technical Philosophy: Privacy-First Architecture
+              </h2>
+              <p className="mt-2 leading-relaxed text-content-secondary">
+                Every single tool on this site runs entirely in your browser
+                using client-side JavaScript. Nothing you upload is ever sent to
+                an external server, stored, or seen by anyone — which also
+                means there&apos;s absolutely no risk of data leaks or misuse.
+                This privacy-first approach isn&apos;t just a marketing line;
+                it&apos;s a deliberate technical and architectural decision
+                embedded in how every utility here is built.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-lg font-semibold text-content-primary">
+                What We Do
+              </h2>
+              <p className="mt-2 leading-relaxed text-content-secondary">
+                Free, enterprise-grade, browser-based tools optimized for Indian
+                workers, tech professionals, students, and global users. No
+                signup, no corporate paywalls, and no server uploads.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-lg font-semibold text-content-primary">
+                Why We Built This
+              </h2>
+              <p className="mt-2 leading-relaxed text-content-secondary">
+                Most utility sites are cluttered with misleading ads, tracking
+                scripts, and require forced account creation. We wanted
+                something blazing fast, clean, and minimal that respects user
+                time and data privacy.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-lg font-semibold text-content-primary">
+                Built With (Our Tech Stack)
+              </h2>
+              <p className="mt-2 leading-relaxed text-content-secondary">
+                To ensure maximum speed, accessibility, and lightweight
+                rendering, the platform is crafted using:
+              </p>
+              <ul className="mt-3 list-disc space-y-2 pl-5 leading-relaxed text-content-secondary">
+                <li>
+                  <strong className="text-content-primary">
+                    Framework &amp; Styling:
+                  </strong>{" "}
+                  Next.js, Tailwind CSS
+                </li>
+                <li>
+                  <strong className="text-content-primary">
+                    Core Libraries:
+                  </strong>{" "}
+                  pdf-lib, browser-image-compression, jsPDF, and native Web APIs
+                </li>
+              </ul>
+            </section>
           </div>
         </div>
       </main>
