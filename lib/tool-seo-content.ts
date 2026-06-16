@@ -73,6 +73,7 @@ type ToolSeoEntry = {
   whenToUseTitle: string;
   useCases: Array<{ title: string; description: string }>;
   faqs: Array<{ question: string; answer: string }>;
+  blogGuide?: { href: string; title: string };
 };
 
 const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
@@ -2074,6 +2075,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
       { question: "Is my JSON data safe?", answer: "Yes. All processing happens locally in your browser. Nothing is uploaded." },
       { question: "What JSON features are supported?", answer: "Standard JSON syntax including objects, arrays, strings, numbers, booleans, and null values." },
     ],
+    blogGuide: {
+      href: "/blog/how-to-format-json-online-free",
+      title: "How to format and validate JSON online free",
+    },
   },
   "color-picker": {
     aboutTitle: "About Color Picker Tool",
@@ -2143,6 +2148,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
       { question: "Is Base64 encoding reversible?", answer: "Yes. Base64 is a encoding scheme, not encryption. Decoding always recovers the original data." },
       { question: "Is Base64 conversion safe online?", answer: "Yes with WorkUtilities — all encoding and decoding happens locally in your browser." },
     ],
+    blogGuide: {
+      href: "/blog/base64-encode-decode-guide",
+      title: "Base64 encode and decode complete guide",
+    },
   },
   "url-encoder": {
     aboutTitle: "About URL Encoder Decoder",
@@ -2350,6 +2359,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
       { question: "Are hashes reversible?", answer: "No. Hash functions are one-way — you cannot recover the original text from a hash." },
       { question: "Is hash generation private?", answer: "Yes. All hashing happens locally in your browser. Text and files never leave your device." },
     ],
+    blogGuide: {
+      href: "/blog/md5-sha256-hash-generator-guide",
+      title: "MD5 vs SHA-256 hash generator guide",
+    },
   },
   "number-to-words": {
     aboutTitle: "About Number to Words Converter",
@@ -2396,6 +2409,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
       { question: "Is there a sound when the timer ends?", answer: "Yes. A short beep plays when each session completes." },
       { question: "Is the Pomodoro timer free?", answer: "Yes. WorkUtilities Pomodoro Timer is completely free with no signup." },
     ],
+    blogGuide: {
+      href: "/blog/pomodoro-technique-timer-guide",
+      title: "The Pomodoro Technique — how to use a focus timer",
+    },
   },
   stopwatch: {
     aboutTitle: "About Online Stopwatch",
@@ -2419,6 +2436,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
       { question: "How to reset the stopwatch?", answer: "Stop the timer first, then click Reset to clear time and laps." },
       { question: "Is the stopwatch free online?", answer: "Yes. WorkUtilities Stopwatch is free with no limits." },
     ],
+    blogGuide: {
+      href: "/blog/online-stopwatch-guide",
+      title: "Online stopwatch with lap timer guide",
+    },
   },
   "csv-to-json": {
     aboutTitle: "About CSV to JSON Converter",
@@ -2580,6 +2601,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
       { question: "Do live clocks update?", answer: "Yes. Current time in each zone updates every second." },
       { question: "Is time zone converter free?", answer: "Yes. WorkUtilities Time Zone Converter is free with no signup." },
     ],
+    blogGuide: {
+      href: "/blog/time-zone-converter-guide",
+      title: "Time zone converter — schedule across countries",
+    },
   },
   "regex-tester": {
     aboutTitle: "About Regex Tester",
@@ -2603,6 +2628,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
       { question: "Are matches highlighted?", answer: "Yes. All matches are highlighted in the test string with index and group details below." },
       { question: "Is regex tester free?", answer: "Yes. WorkUtilities Regex Tester is free with no limits." },
     ],
+    blogGuide: {
+      href: "/blog/how-to-test-regex-online",
+      title: "How to test regular expressions online",
+    },
   },
   "html-entity": {
     aboutTitle: "About HTML Entity Encoder/Decoder",
@@ -2672,6 +2701,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
       { question: "How do I know if a token expired?", answer: "The tool shows an Expired badge or the expiry date from the exp claim." },
       { question: "Is JWT decoder free?", answer: "Yes. WorkUtilities JWT Decoder is free with no signup required." },
     ],
+    blogGuide: {
+      href: "/blog/how-to-decode-jwt-token-online",
+      title: "How to decode a JWT token online",
+    },
   },
   "epf-calculator": {
     aboutTitle: "About EPF Calculator",

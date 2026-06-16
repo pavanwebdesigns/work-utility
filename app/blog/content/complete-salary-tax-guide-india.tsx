@@ -62,6 +62,10 @@ export default function CompleteSalaryTaxGuideIndiaContent() {
           <li><a href="#emi">Home loan EMI planning</a></li>
           <li><a href="#gst">GST for freelancers</a></li>
           <li><a href="#hike">Salary hike negotiation</a></li>
+          <li><a href="#epf">EPF and retirement corpus</a></li>
+          <li><a href="#gratuity">Gratuity when you leave</a></li>
+          <li><a href="#lta">LTA tax exemption</a></li>
+          <li><a href="#inflation">Inflation and real returns</a></li>
           <li><a href="#faq">FAQ</a></li>
         </ul>
       </nav>
@@ -151,6 +155,56 @@ export default function CompleteSalaryTaxGuideIndiaContent() {
         . Plan exit dates with{" "}
         <Link href="/tools/notice-period-calculator">
           Notice Period Calculator
+        </Link>
+        .
+      </p>
+
+      <h2 id="epf">EPF and Retirement Corpus</h2>
+      <p>
+        Your monthly PF deduction compounds over decades into a significant
+        retirement corpus — but only part of your employer&apos;s contribution
+        lands in EPF (the rest goes to EPS). Project your maturity with the{" "}
+        <Link href="/tools/epf-calculator">EPF Calculator</Link>. Full guide:{" "}
+        <Link href="/blog/epf-calculator-guide-india">
+          EPF calculator guide for India
+        </Link>
+        .
+      </p>
+
+      <h2 id="gratuity">Gratuity When You Leave</h2>
+      <p>
+        After 5+ years of service, you&apos;re entitled to gratuity under the
+        Payment of Gratuity Act — calculated as (Basic + DA) × 15 × years ÷ 26.
+        Calculate yours with the{" "}
+        <Link href="/tools/gratuity-calculator">Gratuity Calculator</Link>.
+        Read{" "}
+        <Link href="/blog/gratuity-calculation-formula-india">
+          Gratuity calculation formula in India
+        </Link>
+        .
+      </p>
+
+      <h2 id="lta">LTA Tax Exemption</h2>
+      <p>
+        Leave Travel Allowance can reduce taxable salary — but only for actual
+        domestic travel fares, within block-year limits and salary-structure
+        caps. Split exempt vs taxable amounts with the{" "}
+        <Link href="/tools/lta-calculator">LTA Calculator</Link>. Rules explained:{" "}
+        <Link href="/blog/lta-exemption-rules-india">
+          LTA exemption rules in India
+        </Link>
+        .
+      </p>
+
+      <h2 id="inflation">Inflation and Real Returns</h2>
+      <p>
+        ₹1 lakh today won&apos;t buy the same in 20 years. When planning SIP,
+        FD, or retirement goals, adjust targets for inflation — not just
+        nominal returns. Model purchasing power with the{" "}
+        <Link href="/tools/inflation-calculator">Inflation Calculator</Link>.
+        Guide:{" "}
+        <Link href="/blog/inflation-calculator-money-value-guide">
+          What will your money be worth in 10, 20, or 30 years?
         </Link>
         .
       </p>

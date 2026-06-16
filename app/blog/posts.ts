@@ -3,6 +3,8 @@ export type BlogCategory =
   | "Images"
   | "Photo"
   | "Finance"
+  | "Developer Tools"
+  | "Productivity"
   | "PDF & Documents"
   | "Students & Utilities"
   | "Complete Guide";
@@ -28,6 +30,7 @@ export const PILLAR_POST_SLUGS = new Set([
   "complete-government-forms-guide-india",
   "complete-student-tools-guide-india",
   "complete-image-tools-guide-india",
+  "complete-developer-tools-guide",
 ]);
 
 export const blogPosts: BlogPost[] = [
@@ -90,6 +93,106 @@ export const blogPosts: BlogPost[] = [
     lastUpdated: "June 2026",
     featured: true,
     cta: { toolName: "All Image Tools", toolHref: "/tools" },
+  },
+  {
+    slug: "complete-developer-tools-guide",
+    title: "Complete Developer Tools Guide 2026 — JSON, Base64, Regex, Hash & More",
+    excerpt:
+      "Free online developer tools: JSON formatter, Base64 encoder, regex tester, hash generator, JWT decoder, and more. No signup, runs in your browser.",
+    category: "Complete Guide",
+    readTime: "10 min read",
+    author: "Alex Morgan",
+    lastUpdated: "June 2026",
+    featured: true,
+    cta: { toolName: "JSON Formatter", toolHref: "/tools/json-formatter" },
+  },
+  {
+    slug: "how-to-format-json-online-free",
+    title: "How to Format and Validate JSON Online Free",
+    excerpt:
+      "Format, validate, and beautify JSON online free. Catch syntax errors instantly, minify or pretty-print. Runs in your browser, nothing uploaded.",
+    category: "Developer Tools",
+    readTime: "6 min read",
+    author: "Alex Morgan",
+    lastUpdated: "June 2026",
+    cta: { toolName: "JSON Formatter", toolHref: "/tools/json-formatter" },
+  },
+  {
+    slug: "base64-encode-decode-guide",
+    title: "Base64 Encode and Decode — Complete Guide",
+    excerpt:
+      "Encode or decode Base64 online free. Convert text, images, and files to Base64 and back instantly. No signup, runs entirely in your browser.",
+    category: "Developer Tools",
+    readTime: "5 min read",
+    author: "Alex Morgan",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Base64 Encoder", toolHref: "/tools/base64" },
+  },
+  {
+    slug: "md5-sha256-hash-generator-guide",
+    title: "MD5 vs SHA-256 — Free Online Hash Generator Guide",
+    excerpt:
+      "Generate MD5, SHA-1, and SHA-256 hashes online free. Verify file integrity and checksums instantly. No signup, processes locally in your browser.",
+    category: "Developer Tools",
+    readTime: "6 min read",
+    author: "Alex Morgan",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Hash Generator", toolHref: "/tools/hash-generator" },
+  },
+  {
+    slug: "how-to-decode-jwt-token-online",
+    title: "How to Decode a JWT Token Online — What Each Part Means",
+    excerpt:
+      "Decode and inspect JSON Web Tokens online free. See header, payload, and claims instantly. No signup, decoding happens locally in your browser.",
+    category: "Developer Tools",
+    readTime: "6 min read",
+    author: "Alex Morgan",
+    lastUpdated: "June 2026",
+    cta: { toolName: "JWT Decoder", toolHref: "/tools/jwt-decoder" },
+  },
+  {
+    slug: "how-to-test-regex-online",
+    title: "How to Test Regular Expressions Online — Regex Cheat Sheet",
+    excerpt:
+      "Test and debug regular expressions online free. Live match highlighting, common patterns, and a quick-reference cheat sheet. No signup needed.",
+    category: "Developer Tools",
+    readTime: "6 min read",
+    author: "Alex Morgan",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Regex Tester", toolHref: "/tools/regex-tester" },
+  },
+  {
+    slug: "pomodoro-technique-timer-guide",
+    title: "The Pomodoro Technique — How to Use a 25-Minute Focus Timer",
+    excerpt:
+      "Free online Pomodoro timer for focused work. Learn the 25-minute technique, customize intervals, and build a sustainable study or work routine.",
+    category: "Productivity",
+    readTime: "5 min read",
+    author: "Alex Morgan",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Pomodoro Timer", toolHref: "/tools/pomodoro-timer" },
+  },
+  {
+    slug: "online-stopwatch-guide",
+    title: "Online Stopwatch with Lap Timer — Free, No Signup",
+    excerpt:
+      "Free online stopwatch with lap timer. Track workouts, study sessions, presentations, and cooking times accurately. No app download, no signup.",
+    category: "Productivity",
+    readTime: "4 min read",
+    author: "Alex Morgan",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Stopwatch", toolHref: "/tools/stopwatch" },
+  },
+  {
+    slug: "time-zone-converter-guide",
+    title: "Time Zone Converter — Schedule Meetings Across Countries Without the Math",
+    excerpt:
+      "Convert time between time zones free online. Schedule international meetings, calls, and remote team standups without timezone math mistakes.",
+    category: "Productivity",
+    readTime: "5 min read",
+    author: "Alex Morgan",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Time Zone Converter", toolHref: "/tools/timezone-converter" },
   },
   {
     slug: "aadhaar-card-photo-size",
@@ -343,6 +446,61 @@ export const blogPosts: BlogPost[] = [
     author: "Priya Sharma",
     lastUpdated: "June 2026",
     cta: { toolName: "Salary Hike Calculator", toolHref: "/tools/salary-hike-calculator" },
+  },
+  {
+    slug: "epf-calculator-guide-india",
+    title: "EPF Calculator Guide — PF Maturity Calculator India",
+    excerpt:
+      "Calculate your EPF maturity amount free online. See employee vs employer contribution split and year-by-year provident fund growth. No signup.",
+    category: "Finance",
+    readTime: "6 min read",
+    author: "Priya Sharma",
+    lastUpdated: "June 2026",
+    cta: { toolName: "EPF Calculator", toolHref: "/tools/epf-calculator" },
+  },
+  {
+    slug: "gratuity-calculation-formula-india",
+    title: "Gratuity Calculation Formula India — Free Calculator 2026",
+    excerpt:
+      "Learn the gratuity calculation formula under Indian law. Calculate your exact gratuity amount and check the ₹20 lakh tax exemption limit free.",
+    category: "Finance",
+    readTime: "5 min read",
+    author: "Ravi Kumar",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Gratuity Calculator", toolHref: "/tools/gratuity-calculator" },
+  },
+  {
+    slug: "lta-exemption-rules-india",
+    title: "LTA Exemption Rules India — How to Claim Leave Travel Allowance",
+    excerpt:
+      "Complete guide to LTA exemption rules in India. Block-of-4-years rule, eligible travel modes, and free LTA calculator to check your exemption.",
+    category: "Finance",
+    readTime: "6 min read",
+    author: "Priya Sharma",
+    lastUpdated: "June 2026",
+    cta: { toolName: "LTA Calculator", toolHref: "/tools/lta-calculator" },
+  },
+  {
+    slug: "hourly-to-salary-calculator-guide",
+    title: "Hourly to Salary Calculator — Convert Wage to Annual Pay",
+    excerpt:
+      "Convert hourly wage to annual salary free online. See daily, weekly, monthly, and yearly pay side by side. Works both directions, no signup.",
+    category: "Finance",
+    readTime: "5 min read",
+    author: "Ravi Kumar",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Hourly to Salary Calculator", toolHref: "/tools/hourly-to-salary" },
+  },
+  {
+    slug: "inflation-calculator-money-value-guide",
+    title: "Inflation Calculator — What Will Your Money Be Worth Later?",
+    excerpt:
+      "Free inflation calculator for India and US. See future or past value of money, and plan retirement and savings goals with real purchasing power.",
+    category: "Finance",
+    readTime: "6 min read",
+    author: "Priya Sharma",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Inflation Calculator", toolHref: "/tools/inflation-calculator" },
   },
   {
     slug: "how-to-merge-pdf-on-mobile-india",
@@ -746,6 +904,41 @@ export const blogSeoMetadata: Record<
     keywords:
       "salary hike negotiation india, appraisal negotiation tips, how to ask for salary hike, salary increment india 2025",
   },
+  "epf-calculator-guide-india": {
+    title: "EPF Calculator Guide — PF Maturity Calculator India",
+    description:
+      "Calculate your EPF maturity amount free online. See employee vs employer contribution split and year-by-year provident fund growth. No signup.",
+    keywords:
+      "EPF calculator, epf maturity calculator india, employee provident fund guide, epf interest rate epfo, pf retirement corpus",
+  },
+  "gratuity-calculation-formula-india": {
+    title: "Gratuity Calculation Formula India — Free Calculator 2026",
+    description:
+      "Learn the gratuity calculation formula under Indian law. Calculate your exact gratuity amount and check the ₹20 lakh tax exemption limit free.",
+    keywords:
+      "gratuity calculation formula, gratuity calculator india, payment of gratuity act, gratuity on resignation, gratuity tax exemption 20 lakh",
+  },
+  "lta-exemption-rules-india": {
+    title: "LTA Exemption Rules India — How to Claim Leave Travel Allowance",
+    description:
+      "Complete guide to LTA exemption rules in India. Block-of-4-years rule, eligible travel modes, and free LTA calculator to check your exemption.",
+    keywords:
+      "LTA exemption rules, leave travel allowance india, lta block year 2022 2025, lta calculator india, lta claim documents",
+  },
+  "hourly-to-salary-calculator-guide": {
+    title: "Hourly to Salary Calculator — Convert Wage to Annual Pay",
+    description:
+      "Convert hourly wage to annual salary free online. See daily, weekly, monthly, and yearly pay side by side. Works both directions, no signup.",
+    keywords:
+      "hourly to salary calculator, hourly wage to annual salary, convert hourly to yearly, freelance hourly rate comparison, 2080 work hours year",
+  },
+  "inflation-calculator-money-value-guide": {
+    title: "Inflation Calculator — What Will Your Money Be Worth Later?",
+    description:
+      "Free inflation calculator for India and US. See future or past value of money, and plan retirement and savings goals with real purchasing power.",
+    keywords:
+      "inflation calculator, inflation calculator india, future value of money, purchasing power inflation, real returns vs inflation",
+  },
   "how-to-merge-pdf-on-mobile-india": {
     title: "How to Merge PDF Files on Mobile Free (2026) | WorkUtilities",
     description:
@@ -928,6 +1121,69 @@ export const blogSeoMetadata: Record<
     keywords:
       "image tools india free, compress resize photo online, digital signature qr code india, passport photo tools",
   },
+  "complete-developer-tools-guide": {
+    title: "Complete Developer Tools Guide 2026 — Free Online Tools",
+    description:
+      "Free online developer tools: JSON formatter, Base64 encoder, regex tester, hash generator, JWT decoder, and more. No signup, runs in your browser.",
+    keywords:
+      "free online developer tools, json formatter online, base64 encode decode, regex tester online, jwt decoder free",
+  },
+  "how-to-format-json-online-free": {
+    title: "JSON Formatter & Validator Online Free — No Signup",
+    description:
+      "Format, validate, and beautify JSON online free. Catch syntax errors instantly, minify or pretty-print. Runs in your browser, nothing uploaded.",
+    keywords:
+      "JSON formatter online, json validator free, pretty print json, minify json online, format json browser",
+  },
+  "base64-encode-decode-guide": {
+    title: "Base64 Encode & Decode Online Free — Text and Files",
+    description:
+      "Encode or decode Base64 online free. Convert text, images, and files to Base64 and back instantly. No signup, runs entirely in your browser.",
+    keywords:
+      "base64 encode decode, base64 encoder online, base64 decoder free, data uri base64, encode file base64",
+  },
+  "md5-sha256-hash-generator-guide": {
+    title: "MD5 & SHA-256 Hash Generator Online Free",
+    description:
+      "Generate MD5, SHA-1, and SHA-256 hashes online free. Verify file integrity and checksums instantly. No signup, processes locally in your browser.",
+    keywords:
+      "MD5 SHA256 hash generator, sha256 checksum online, md5 hash generator free, file integrity hash, checksum verifier",
+  },
+  "how-to-decode-jwt-token-online": {
+    title: "JWT Decoder Online Free — Decode & Inspect Tokens",
+    description:
+      "Decode and inspect JSON Web Tokens online free. See header, payload, and claims instantly. No signup, decoding happens locally in your browser.",
+    keywords:
+      "decode JWT token online, jwt decoder free, inspect jwt payload, jwt debugger, json web token decoder",
+  },
+  "how-to-test-regex-online": {
+    title: "Regex Tester Online Free — Test & Debug Regex Patterns",
+    description:
+      "Test and debug regular expressions online free. Live match highlighting, common patterns, and a quick-reference cheat sheet. No signup needed.",
+    keywords:
+      "regex tester online, test regular expression free, regex debugger, regex cheat sheet, regex pattern tester",
+  },
+  "pomodoro-technique-timer-guide": {
+    title: "Pomodoro Timer Online Free — 25-Minute Focus Technique",
+    description:
+      "Free online Pomodoro timer for focused work. Learn the 25-minute technique, customize intervals, and build a sustainable study or work routine.",
+    keywords:
+      "pomodoro technique timer, pomodoro timer online free, 25 minute focus timer, study timer pomodoro, focus technique",
+  },
+  "online-stopwatch-guide": {
+    title: "Online Stopwatch Free — Precise Timer with Lap Tracking",
+    description:
+      "Free online stopwatch with lap timer. Track workouts, study sessions, presentations, and cooking times accurately. No app download, no signup.",
+    keywords:
+      "online stopwatch, stopwatch with lap timer free, browser stopwatch, workout timer online, presentation timer",
+  },
+  "time-zone-converter-guide": {
+    title: "Time Zone Converter Online Free — Schedule Across Countries",
+    description:
+      "Convert time between time zones free online. Schedule international meetings, calls, and remote team standups without timezone math mistakes.",
+    keywords:
+      "time zone converter, convert time zones online free, schedule international meeting, IST to EST converter, remote team timezone",
+  },
 };
 
 export function getCategoryBadgeClass(category: BlogCategory): string {
@@ -940,6 +1196,10 @@ export function getCategoryBadgeClass(category: BlogCategory): string {
       return "bg-tool-photo/10 text-tool-photo";
     case "Finance":
       return "bg-brand-blue/10 text-brand-blue";
+    case "Developer Tools":
+      return "bg-tool-image/10 text-tool-image";
+    case "Productivity":
+      return "bg-tool-convert/10 text-tool-convert";
     case "PDF & Documents":
       return "bg-tool-convert/10 text-tool-convert";
     case "Students & Utilities":

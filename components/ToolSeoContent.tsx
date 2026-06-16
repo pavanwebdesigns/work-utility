@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { ChevronDown } from "lucide-react";
 import {
   getToolSeoContent,
@@ -39,6 +40,17 @@ export function ToolSeoContent({ slug }: ToolSeoContentProps) {
             <p key={paragraph.slice(0, 48)}>{paragraph}</p>
           ))}
         </div>
+        {content.blogGuide && (
+          <p className="mt-4 text-sm text-content-secondary">
+            Read the full guide:{" "}
+            <Link
+              href={content.blogGuide.href}
+              className="font-medium text-brand-blue hover:underline"
+            >
+              {content.blogGuide.title}
+            </Link>
+          </p>
+        )}
       </section>
 
       <section className="mt-12">

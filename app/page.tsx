@@ -8,7 +8,7 @@ import { Footer } from "@/components/Footer";
 import { ToolCard } from "@/components/ToolCard";
 import { ToolsCategorySection } from "@/components/ToolsCategorySection";
 import {
-  blogPosts,
+  getBlogPostsForListing,
   getCategoryBadgeClass,
 } from "@/app/blog/posts";
 import { ALL_TOOLS } from "@/lib/tools-data";
@@ -184,7 +184,7 @@ export default function HomePage() {
               </Link>
             </div>
             <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-              {blogPosts.slice(0, 3).map((post) => (
+              {getBlogPostsForListing().slice(0, 3).map((post) => (
                 <Link
                   key={post.slug}
                   href={`/blog/${post.slug}`}

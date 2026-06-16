@@ -52,6 +52,20 @@ import CompleteSalaryTaxGuideIndiaContent from "../content/complete-salary-tax-g
 import CompleteGovernmentFormsGuideIndiaContent from "../content/complete-government-forms-guide-india";
 import CompleteStudentToolsGuideIndiaContent from "../content/complete-student-tools-guide-india";
 import CompleteImageToolsGuideIndiaContent from "../content/complete-image-tools-guide-india";
+import CompleteDeveloperToolsGuideContent from "../content/complete-developer-tools-guide";
+import HowToFormatJsonOnlineFreeContent from "../content/how-to-format-json-online-free";
+import Base64EncodeDecodeGuideContent from "../content/base64-encode-decode-guide";
+import Md5Sha256HashGeneratorGuideContent from "../content/md5-sha256-hash-generator-guide";
+import HowToDecodeJwtTokenOnlineContent from "../content/how-to-decode-jwt-token-online";
+import HowToTestRegexOnlineContent from "../content/how-to-test-regex-online";
+import PomodoroTechniqueTimerGuideContent from "../content/pomodoro-technique-timer-guide";
+import OnlineStopwatchGuideContent from "../content/online-stopwatch-guide";
+import TimeZoneConverterGuideContent from "../content/time-zone-converter-guide";
+import EpfCalculatorGuideIndiaContent from "../content/epf-calculator-guide-india";
+import GratuityCalculationFormulaIndiaContent from "../content/gratuity-calculation-formula-india";
+import LtaExemptionRulesIndiaContent from "../content/lta-exemption-rules-india";
+import HourlyToSalaryCalculatorGuideContent from "../content/hourly-to-salary-calculator-guide";
+import InflationCalculatorMoneyValueGuideContent from "../content/inflation-calculator-money-value-guide";
 
 const contentBySlug: Record<string, () => JSX.Element> = {
   "complete-pdf-tools-guide-india": CompletePdfToolsGuideIndiaContent,
@@ -60,6 +74,15 @@ const contentBySlug: Record<string, () => JSX.Element> = {
     CompleteGovernmentFormsGuideIndiaContent,
   "complete-student-tools-guide-india": CompleteStudentToolsGuideIndiaContent,
   "complete-image-tools-guide-india": CompleteImageToolsGuideIndiaContent,
+  "complete-developer-tools-guide": CompleteDeveloperToolsGuideContent,
+  "how-to-format-json-online-free": HowToFormatJsonOnlineFreeContent,
+  "base64-encode-decode-guide": Base64EncodeDecodeGuideContent,
+  "md5-sha256-hash-generator-guide": Md5Sha256HashGeneratorGuideContent,
+  "how-to-decode-jwt-token-online": HowToDecodeJwtTokenOnlineContent,
+  "how-to-test-regex-online": HowToTestRegexOnlineContent,
+  "pomodoro-technique-timer-guide": PomodoroTechniqueTimerGuideContent,
+  "online-stopwatch-guide": OnlineStopwatchGuideContent,
+  "time-zone-converter-guide": TimeZoneConverterGuideContent,
   "aadhaar-card-photo-size": AadhaarCardPhotoSizeContent,
   "how-to-compress-pdf-online-free": HowToCompressPdfOnlineFreeContent,
   "best-free-pdf-tools-online-2026": BestFreePdfToolsOnline2026Content,
@@ -126,6 +149,12 @@ const contentBySlug: Record<string, () => JSX.Element> = {
   "qr-code-for-college-events-india": QrCodeForCollegeEventsIndiaContent,
   "how-to-combine-images-into-pdf-india":
     HowToCombineImagesIntoPdfIndiaContent,
+  "epf-calculator-guide-india": EpfCalculatorGuideIndiaContent,
+  "gratuity-calculation-formula-india": GratuityCalculationFormulaIndiaContent,
+  "lta-exemption-rules-india": LtaExemptionRulesIndiaContent,
+  "hourly-to-salary-calculator-guide": HourlyToSalaryCalculatorGuideContent,
+  "inflation-calculator-money-value-guide":
+    InflationCalculatorMoneyValueGuideContent,
 };
 
 export function generateStaticParams() {
