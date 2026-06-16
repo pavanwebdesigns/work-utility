@@ -49,7 +49,15 @@ export type ToolSeoSlug =
   | "stopwatch"
   | "csv-to-json"
   | "text-diff"
-  | "hra-calculator";
+  | "hra-calculator"
+  | "character-counter"
+  | "bmi-calculator"
+  | "compound-interest"
+  | "timezone-converter"
+  | "regex-tester"
+  | "html-entity"
+  | "color-contrast"
+  | "jwt-decoder";
 
 type ToolSeoEntry = {
   aboutTitle: string;
@@ -2471,6 +2479,190 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
       { question: "Do I need rent receipts for HRA?", answer: "Yes, for HRA above ₹3,000/month you typically need rent receipts and landlord PAN for claims above ₹1 lakh annually." },
       { question: "Can I claim HRA if I live with parents?", answer: "Yes, if you pay rent to parents and have proper rent receipts. The rent must be genuine and documented." },
       { question: "Is HRA calculator free?", answer: "Yes. WorkUtilities HRA Calculator is free with no signup." },
+    ],
+  },
+  "character-counter": {
+    aboutTitle: "About Character Counter",
+    aboutParagraphs: [
+      "Our free Character Counter counts characters, words, sentences, and paragraphs in real time as you type. Perfect for essays, social media posts, meta descriptions, and SEO content limits.",
+      "All counting happens in your browser — your text never leaves your device. No signup, no limits, and instant results.",
+      "Built for students, writers, marketers, and developers who need accurate text statistics for assignments, tweets, LinkedIn posts, and website copy.",
+    ],
+    whenToUseTitle: "When Should You Use Character Counter?",
+    useCases: [
+      { title: "Essay limits", description: "Stay within character or word limits for school and college assignments." },
+      { title: "Social media", description: "Count characters for Twitter/X, Instagram captions, and LinkedIn posts." },
+      { title: "SEO meta tags", description: "Keep title tags and meta descriptions within recommended lengths." },
+      { title: "Content writing", description: "Track paragraph and sentence counts for readability." },
+      { title: "Translation work", description: "Compare character counts between source and translated text." },
+    ],
+    faqs: [
+      { question: "How do I count characters online?", answer: "Paste or type your text. Character, word, sentence, and paragraph counts update instantly." },
+      { question: "Does it count spaces?", answer: "Yes. We show both total characters and characters without spaces." },
+      { question: "Is character counter free?", answer: "Yes. WorkUtilities Character Counter is completely free with no signup." },
+      { question: "Is my text private?", answer: "Yes. All counting happens locally in your browser. Nothing is uploaded." },
+      { question: "What's the difference from Word Counter?", answer: "Character Counter focuses on character and paragraph stats. Word Counter also shows reading time." },
+    ],
+  },
+  "bmi-calculator": {
+    aboutTitle: "About BMI Calculator",
+    aboutParagraphs: [
+      "Our free BMI Calculator computes your Body Mass Index using metric (kg/cm) or imperial (lbs/inches) units. Get instant BMI value, category, and healthy weight range.",
+      "BMI is a widely used screening tool for weight categories. Results include a visual scale showing where you fall across underweight, normal, overweight, and obese ranges.",
+      "Useful for health awareness, fitness planning, and general wellness tracking. Remember BMI does not account for muscle mass or body composition.",
+    ],
+    whenToUseTitle: "When Should You Use BMI Calculator?",
+    useCases: [
+      { title: "Health check", description: "Get a quick BMI reading for general wellness awareness." },
+      { title: "Fitness goals", description: "Track BMI changes alongside diet and exercise programs." },
+      { title: "Medical forms", description: "Calculate BMI before filling health or insurance forms." },
+      { title: "Weight planning", description: "See your healthy weight range based on height." },
+      { title: "Unit conversion", description: "Switch between metric and imperial units easily." },
+    ],
+    faqs: [
+      { question: "How is BMI calculated?", answer: "Metric: weight (kg) ÷ height (m)². Imperial: (weight in lbs ÷ height in inches²) × 703." },
+      { question: "What is a healthy BMI?", answer: "A BMI between 18.5 and 24.9 is considered normal weight for adults." },
+      { question: "Is BMI accurate for athletes?", answer: "BMI may overestimate body fat in muscular people. It does not distinguish muscle from fat." },
+      { question: "Can I use kg and cm?", answer: "Yes. Select Metric mode for kilograms and centimeters." },
+      { question: "Is BMI calculator free?", answer: "Yes. WorkUtilities BMI Calculator is free with no signup required." },
+    ],
+  },
+  "compound-interest": {
+    aboutTitle: "About Compound Interest Calculator",
+    aboutParagraphs: [
+      "Our free Compound Interest Calculator shows how investments grow over time with compounding. Enter principal, annual rate, years, compounding frequency, and optional monthly contributions.",
+      "See final amount, total interest earned, total contributions, and a year-by-year growth table. Supports annual, semi-annual, quarterly, monthly, and daily compounding.",
+      "Ideal for Indian investors planning SIPs, fixed deposits, mutual funds, and long-term savings goals with compound growth projections.",
+    ],
+    whenToUseTitle: "When Should You Use Compound Interest Calculator?",
+    useCases: [
+      { title: "Investment planning", description: "Project how a lump sum grows with compound interest." },
+      { title: "SIP comparison", description: "Add monthly contributions to model recurring investments." },
+      { title: "FD returns", description: "Estimate maturity value with different compounding frequencies." },
+      { title: "Retirement savings", description: "See long-term growth over 10, 20, or 30 years." },
+      { title: "Financial education", description: "Understand the power of compounding for students." },
+    ],
+    faqs: [
+      { question: "What is compound interest?", answer: "Interest calculated on both the initial principal and accumulated interest from previous periods." },
+      { question: "How often should interest compound?", answer: "More frequent compounding (monthly vs annually) yields slightly higher returns at the same rate." },
+      { question: "Can I add monthly contributions?", answer: "Yes. Enter an optional monthly contribution to model recurring investments." },
+      { question: "What rate should I use?", answer: "Use your expected annual return rate. FD rates are typically 6–8%, equity may be higher long-term." },
+      { question: "Is compound interest calculator free?", answer: "Yes. WorkUtilities Compound Interest Calculator is free with no limits." },
+    ],
+  },
+  "timezone-converter": {
+    aboutTitle: "About Time Zone Converter",
+    aboutParagraphs: [
+      "Our free Time Zone Converter lets you convert any date and time between world time zones. Compare multiple cities side by side with live clock updates.",
+      "Choose from popular zones including IST, EST, GMT, JST, and more. Add multiple target cities as chips and see converted times instantly.",
+      "Perfect for scheduling international meetings, coordinating with remote teams, and tracking family or colleagues across time zones.",
+    ],
+    whenToUseTitle: "When Should You Use Time Zone Converter?",
+    useCases: [
+      { title: "Meeting scheduling", description: "Find overlapping hours for calls across US, India, and Europe." },
+      { title: "Remote work", description: "Convert deadlines and standup times for distributed teams." },
+      { title: "Travel planning", description: "Know local time at your destination before you arrive." },
+      { title: "Event coordination", description: "Convert webinar or launch times for global audiences." },
+      { title: "Family abroad", description: "Check what time it is for relatives in other countries." },
+    ],
+    faqs: [
+      { question: "How do I convert IST to EST?", answer: "Set your source time and zone to IST, then add America/New_York as a comparison zone." },
+      { question: "Does it handle daylight saving?", answer: "Yes. The tool uses IANA time zones which automatically account for DST." },
+      { question: "Can I compare multiple cities?", answer: "Yes. Add as many target time zones as you need using the Add button." },
+      { question: "Do live clocks update?", answer: "Yes. Current time in each zone updates every second." },
+      { question: "Is time zone converter free?", answer: "Yes. WorkUtilities Time Zone Converter is free with no signup." },
+    ],
+  },
+  "regex-tester": {
+    aboutTitle: "About Regex Tester",
+    aboutParagraphs: [
+      "Our free Regex Tester lets you write, test, and debug regular expressions with live match highlighting. Supports global, case-insensitive, multiline, and dotall flags.",
+      "See matches with index positions and capture groups. Load common patterns for email, URL, phone numbers, dates, and hex colors with one click.",
+      "Essential for developers, QA engineers, and students learning pattern matching for validation, parsing, and text processing.",
+    ],
+    whenToUseTitle: "When Should You Use Regex Tester?",
+    useCases: [
+      { title: "Form validation", description: "Test email, phone, and URL patterns before deploying." },
+      { title: "Log parsing", description: "Debug regex patterns against sample log lines." },
+      { title: "Data extraction", description: "Find and verify capture groups in structured text." },
+      { title: "Learning regex", description: "Experiment with patterns and see matches instantly." },
+      { title: "Code review", description: "Validate regex used in production code against edge cases." },
+    ],
+    faqs: [
+      { question: "What regex flags are supported?", answer: "g (global), i (case-insensitive), m (multiline), and s (dotall)." },
+      { question: "How do I test an email regex?", answer: "Click the Email quick-load pill or enter your pattern, then paste test strings." },
+      { question: "Why is my regex invalid?", answer: "Check for unescaped special characters and unclosed groups or brackets." },
+      { question: "Are matches highlighted?", answer: "Yes. All matches are highlighted in the test string with index and group details below." },
+      { question: "Is regex tester free?", answer: "Yes. WorkUtilities Regex Tester is free with no limits." },
+    ],
+  },
+  "html-entity": {
+    aboutTitle: "About HTML Entity Encoder/Decoder",
+    aboutParagraphs: [
+      "Our free HTML Entity tool encodes and decodes HTML entities instantly. Convert special characters like <, >, &, and quotes to safe HTML entities and back.",
+      "Real-time conversion as you type with encode and decode modes. Includes a reference table of common HTML entities.",
+      "Essential for web developers, content editors, and anyone working with HTML, XML, or CMS content that requires escaped characters.",
+    ],
+    whenToUseTitle: "When Should You Use HTML Entity Encoder?",
+    useCases: [
+      { title: "Web development", description: "Escape user input before rendering in HTML templates." },
+      { title: "CMS content", description: "Fix special characters in blog posts and product descriptions." },
+      { title: "Debugging", description: "Decode garbled entity strings from APIs or databases." },
+      { title: "Email templates", description: "Encode symbols that break HTML email rendering." },
+      { title: "Security", description: "Prevent XSS by encoding dangerous characters in output." },
+    ],
+    faqs: [
+      { question: "What is an HTML entity?", answer: "A character reference like &lt; that represents a special character in HTML." },
+      { question: "How do I encode < and >?", answer: "Switch to Encode mode and type your text. < becomes &lt; and > becomes &gt;." },
+      { question: "Can I decode entities back?", answer: "Yes. Switch to Decode mode and paste encoded text." },
+      { question: "What entities are supported?", answer: "Common entities including ampersand, angle brackets, quotes, copyright, and euro symbol." },
+      { question: "Is HTML entity tool free?", answer: "Yes. WorkUtilities HTML Entity Encoder/Decoder is free with no signup." },
+    ],
+  },
+  "color-contrast": {
+    aboutTitle: "About Color Contrast Checker",
+    aboutParagraphs: [
+      "Our free Color Contrast Checker calculates WCAG contrast ratios between foreground and background colors. Test AA and AAA compliance for normal and large text.",
+      "Pick colors with native color pickers or enter hex values. See a live text preview and pass/fail badges for each WCAG level.",
+      "Essential for web designers, developers, and accessibility auditors ensuring readable text for all users.",
+    ],
+    whenToUseTitle: "When Should You Use Color Contrast Checker?",
+    useCases: [
+      { title: "Web accessibility", description: "Verify text meets WCAG 2.1 AA or AAA contrast requirements." },
+      { title: "Brand colors", description: "Test brand palette combinations before launching a site." },
+      { title: "UI design", description: "Check button text and link colors against backgrounds." },
+      { title: "Dark mode", description: "Ensure readable contrast in dark theme designs." },
+      { title: "Compliance audits", description: "Document contrast ratios for accessibility reports." },
+    ],
+    faqs: [
+      { question: "What is a good contrast ratio?", answer: "WCAG AA requires 4.5:1 for normal text and 3:1 for large text. AAA requires 7:1 and 4.5:1." },
+      { question: "What counts as large text?", answer: "18pt (24px) regular or 14pt (18.5px) bold text qualifies as large." },
+      { question: "Can I swap foreground and background?", answer: "Yes. Click Swap colors to reverse the two colors instantly." },
+      { question: "What color formats work?", answer: "Enter 6-digit hex values like #000000 and #FFFFFF." },
+      { question: "Is color contrast checker free?", answer: "Yes. WorkUtilities Color Contrast Checker is free with no signup." },
+    ],
+  },
+  "jwt-decoder": {
+    aboutTitle: "About JWT Decoder",
+    aboutParagraphs: [
+      "Our free JWT Decoder inspects JSON Web Tokens by decoding the header, payload, and signature. See claims, expiry status, and algorithm used.",
+      "All decoding happens entirely in your browser. Tokens are never sent to any server, keeping your credentials private.",
+      "Essential for developers debugging OAuth, API authentication, and session tokens during development and testing.",
+    ],
+    whenToUseTitle: "When Should You Use JWT Decoder?",
+    useCases: [
+      { title: "API debugging", description: "Inspect token claims when authentication fails." },
+      { title: "OAuth development", description: "Verify issuer, audience, and scope claims in tokens." },
+      { title: "Expiry checks", description: "See if a token is expired before troubleshooting 401 errors." },
+      { title: "Learning JWT", description: "Understand JWT structure with real token examples." },
+      { title: "Support tickets", description: "Decode customer tokens to diagnose login issues (with permission)." },
+    ],
+    faqs: [
+      { question: "Does this verify JWT signatures?", answer: "No. This tool only decodes tokens. Signature verification requires the secret or public key." },
+      { question: "Is it safe to paste JWT tokens?", answer: "Decoding is local in your browser. Never paste production tokens in untrusted tools — this one runs entirely client-side." },
+      { question: "What is in a JWT payload?", answer: "Claims like sub (subject), exp (expiry), iat (issued at), and custom application data." },
+      { question: "How do I know if a token expired?", answer: "The tool shows an Expired badge or the expiry date from the exp claim." },
+      { question: "Is JWT decoder free?", answer: "Yes. WorkUtilities JWT Decoder is free with no signup required." },
     ],
   },
 };
