@@ -9,6 +9,7 @@ import { RelatedTools } from "@/components/RelatedTools";
 import { ToolFeedback } from "@/components/ToolFeedback";
 import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
+import { FavoriteButton } from "@/components/FavoriteButton";
 import { decodeJWT, type DecodedJWT } from "@/lib/jwt-decoder";
 
 const howItWorksSteps = [
@@ -111,6 +112,9 @@ export default function JwtDecoderPage() {
               Decode and inspect JWT tokens entirely in your browser. Private
               and secure.
             </p>
+            <div className="mt-4 flex justify-center">
+              <FavoriteButton slug="jwt-decoder" />
+            </div>
           </div>
 
           <div className="mt-10 space-y-4">

@@ -9,6 +9,7 @@ import { RelatedTools } from "@/components/RelatedTools";
 import { ToolFeedback } from "@/components/ToolFeedback";
 import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
+import { FavoriteButton } from "@/components/FavoriteButton";
 import { COMMON_PATTERNS, testRegex } from "@/lib/regex-tester";
 
 const howItWorksSteps = [
@@ -115,6 +116,9 @@ export default function RegexTesterPage() {
             <p className="mx-auto mt-3 max-w-md text-content-secondary">
               Test and debug regular expressions with live match highlighting.
             </p>
+            <div className="mt-4 flex justify-center">
+              <FavoriteButton slug="regex-tester" />
+            </div>
           </div>
 
           <div className="mt-10 space-y-5">

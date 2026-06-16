@@ -18,6 +18,7 @@ import { ToolFeedback } from "@/components/ToolFeedback";
 import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
 import { ImageCropEditor } from "@/components/ImageCropEditor";
+import { FavoriteButton } from "@/components/FavoriteButton";
 import { useImageCropGate } from "@/hooks/useImageCropGate";
 import {
   compressImage,
@@ -287,6 +288,9 @@ export default function ImageCompressPage() {
                 Compress JPG, PNG, and WebP images without visible quality
                 loss. Runs entirely in your browser.
               </p>
+            <div className="mt-4 flex justify-center">
+              <FavoriteButton slug="image-compress" />
+            </div>
             </div>
 
             <div className="mt-10 space-y-6">

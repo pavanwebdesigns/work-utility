@@ -16,6 +16,7 @@ import { ToolFeedback } from "@/components/ToolFeedback";
 import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
 import { ImageCropEditor } from "@/components/ImageCropEditor";
+import { FavoriteButton } from "@/components/FavoriteButton";
 import {
   CalculatorField,
   CalculatorInput,
@@ -230,6 +231,9 @@ export default function SignatureMakerPage() {
               Draw, type, or upload your signature and download PNG/JPG or copy
               to clipboard instantly.
             </p>
+            <div className="mt-4 flex justify-center">
+              <FavoriteButton slug="signature-maker" />
+            </div>
           </div>
 
           <div className="mx-auto mt-10 max-w-2xl space-y-5">

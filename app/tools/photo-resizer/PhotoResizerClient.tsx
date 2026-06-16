@@ -19,6 +19,7 @@ import { ToolFeedback } from "@/components/ToolFeedback";
 import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
 import { ImageCropEditor } from "@/components/ImageCropEditor";
+import { FavoriteButton } from "@/components/FavoriteButton";
 import { useImageCropGate } from "@/hooks/useImageCropGate";
 import {
   formatFileSize,
@@ -346,6 +347,9 @@ export function PhotoResizerClient() {
                 Resize your photo to exact Aadhaar, PAN, Passport, or Visa
                 dimensions. Perfect for Indian government documents.
               </p>
+            <div className="mt-4 flex justify-center">
+              <FavoriteButton slug="photo-resizer" />
+            </div>
             </div>
 
             {!isCustom && activePreset && (

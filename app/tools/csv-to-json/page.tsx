@@ -9,6 +9,7 @@ import { RelatedTools } from "@/components/RelatedTools";
 import { ToolFeedback } from "@/components/ToolFeedback";
 import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
+import { FavoriteButton } from "@/components/FavoriteButton";
 import {
   detectDelimiter,
   parseCSV,
@@ -116,6 +117,9 @@ export default function CsvToJsonPage() {
             <p className="mx-auto mt-3 max-w-md text-content-secondary">
               Paste CSV data or upload a file for instant JSON conversion.
             </p>
+            <div className="mt-4 flex justify-center">
+              <FavoriteButton slug="csv-to-json" />
+            </div>
           </div>
 
           <div className="mt-8 flex flex-wrap items-center gap-3 rounded-xl border border-surface-border bg-surface-card p-3">

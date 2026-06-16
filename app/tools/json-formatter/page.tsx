@@ -9,6 +9,7 @@ import { RelatedTools } from "@/components/RelatedTools";
 import { ToolFeedback } from "@/components/ToolFeedback";
 import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
+import { FavoriteButton } from "@/components/FavoriteButton";
 import {
   countJSON,
   formatJSON,
@@ -130,6 +131,9 @@ export default function JsonFormatterPage() {
               Format, validate, and minify JSON instantly. Paste your data and
               get clean output in seconds.
             </p>
+            <div className="mt-4 flex justify-center">
+              <FavoriteButton slug="json-formatter" />
+            </div>
           </div>
 
           <div className="mt-10 space-y-4">

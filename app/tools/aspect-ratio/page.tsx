@@ -9,6 +9,7 @@ import { RelatedTools } from "@/components/RelatedTools";
 import { ToolFeedback } from "@/components/ToolFeedback";
 import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
+import { FavoriteButton } from "@/components/FavoriteButton";
 import {
   calculateHeight,
   calculateWidth,
@@ -75,6 +76,9 @@ export default function AspectRatioPage() {
             <p className="mx-auto mt-3 max-w-md text-content-secondary">
               Calculate image aspect ratios and find width or height for any ratio instantly.
             </p>
+            <div className="mt-4 flex justify-center">
+              <FavoriteButton slug="aspect-ratio" />
+            </div>
           </div>
 
           <div className="mx-auto mt-10 max-w-2xl space-y-8">

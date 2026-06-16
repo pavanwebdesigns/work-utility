@@ -16,6 +16,7 @@ import { RelatedTools } from "@/components/RelatedTools";
 import { ToolFeedback } from "@/components/ToolFeedback";
 import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
+import { FavoriteButton } from "@/components/FavoriteButton";
 import { getContrastRatio, getWCAGRating } from "@/lib/color-contrast";
 
 const howItWorksSteps = [
@@ -109,6 +110,9 @@ export default function ColorContrastPage() {
             <p className="mx-auto mt-3 max-w-md text-content-secondary">
               Check color contrast ratios for WCAG accessibility compliance.
             </p>
+            <div className="mt-4 flex justify-center">
+              <FavoriteButton slug="color-contrast" />
+            </div>
           </div>
 
           <div className="mx-auto mt-10 max-w-xl space-y-6">

@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { ArrowRight, ChevronDown, Star } from "lucide-react";
+import { useFavorites } from "@/lib/favorites-context";
 import {
   ALL_TOOLS,
   getMegaMenuCategories,
@@ -54,12 +55,25 @@ function MegaMenuToolCard({
 }
 
 function MegaMenuBottomBar({ onNavigate }: { onNavigate?: () => void }) {
+  const { favorites } = useFavorites();
+
   return (
     <div className="flex flex-col gap-3 border-t border-surface-border px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:px-5 sm:py-3.5">
       <span className="text-xs text-content-muted">
         {ALL_TOOLS.length} free tools — no signup required
       </span>
       <div className="flex flex-wrap items-center gap-4">
+        {favorites.length > 0 && (
+          <Link
+            href="/#favorites"
+            role="menuitem"
+            className="flex items-center gap-1 text-xs text-brand-blue transition-colors hover:underline"
+            onClick={onNavigate}
+          >
+            <Star className="h-3 w-3 fill-brand-blue" />
+            Favorites
+          </Link>
+        )}
         <Link
           href="/tools"
           role="menuitem"

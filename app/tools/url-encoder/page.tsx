@@ -9,6 +9,7 @@ import { RelatedTools } from "@/components/RelatedTools";
 import { ToolFeedback } from "@/components/ToolFeedback";
 import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
+import { FavoriteButton } from "@/components/FavoriteButton";
 import {
   decodeURL,
   encodeURL,
@@ -106,6 +107,9 @@ export default function UrlEncoderPage() {
             <p className="mx-auto mt-3 max-w-md text-content-secondary">
               Encode and decode URLs instantly. Convert special characters for safe URL usage.
             </p>
+            <div className="mt-4 flex justify-center">
+              <FavoriteButton slug="url-encoder" />
+            </div>
           </div>
 
           <div className="mx-auto mt-10 max-w-4xl space-y-4">

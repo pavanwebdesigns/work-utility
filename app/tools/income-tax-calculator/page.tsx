@@ -33,6 +33,7 @@ import {
 } from "@/lib/income-tax-calculator";
 import { useCurrency } from "@/lib/currency-context";
 import { IndiaTaxNotice } from "@/components/IndiaTaxNotice";
+import { FavoriteButton } from "@/components/FavoriteButton";
 
 const PIE_COLORS = ["#3B82F6", "#EF4444", "#10B981"];
 
@@ -134,6 +135,9 @@ export default function IncomeTaxCalculatorPage() {
               Compare income tax under old and new regime with slab-wise
               breakdown, rebate, cess, and take-home estimate.
             </p>
+            <div className="mt-4 flex justify-center">
+              <FavoriteButton slug="income-tax-calculator" />
+            </div>
           </div>
 
           <IndiaTaxNotice />

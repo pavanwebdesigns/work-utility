@@ -18,6 +18,7 @@ import { ToolFeedback } from "@/components/ToolFeedback";
 import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
 import { ImageCropEditor } from "@/components/ImageCropEditor";
+import { FavoriteButton } from "@/components/FavoriteButton";
 import { useImageCropGate } from "@/hooks/useImageCropGate";
 import {
   convertImage,
@@ -263,6 +264,9 @@ export default function ImageConverterPage() {
                 Convert images between JPG, PNG, and WebP formats. Runs entirely
                 in your browser.
               </p>
+            <div className="mt-4 flex justify-center">
+              <FavoriteButton slug="image-converter" />
+            </div>
             </div>
 
             <div className="mt-10 space-y-6">

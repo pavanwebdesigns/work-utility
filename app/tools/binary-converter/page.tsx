@@ -9,6 +9,7 @@ import { RelatedTools } from "@/components/RelatedTools";
 import { ToolFeedback } from "@/components/ToolFeedback";
 import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
+import { FavoriteButton } from "@/components/FavoriteButton";
 import {
   convert,
   validateInput,
@@ -106,6 +107,9 @@ export default function BinaryConverterPage() {
             <p className="mx-auto mt-3 max-w-md text-content-secondary">
               Convert between binary, decimal, hexadecimal, and octal number systems instantly.
             </p>
+            <div className="mt-4 flex justify-center">
+              <FavoriteButton slug="binary-converter" />
+            </div>
           </div>
 
           <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2">

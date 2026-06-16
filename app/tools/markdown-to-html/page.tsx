@@ -9,6 +9,7 @@ import { RelatedTools } from "@/components/RelatedTools";
 import { ToolFeedback } from "@/components/ToolFeedback";
 import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
+import { FavoriteButton } from "@/components/FavoriteButton";
 import {
   convertMarkdownToHtml,
   getMarkdownStats,
@@ -122,6 +123,9 @@ export default function MarkdownToHtmlPage() {
               Convert Markdown to HTML with live preview. Copy clean HTML output
               instantly.
             </p>
+            <div className="mt-4 flex justify-center">
+              <FavoriteButton slug="markdown-to-html" />
+            </div>
           </div>
 
           <div className="mt-10 space-y-4">

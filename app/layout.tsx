@@ -5,6 +5,7 @@ import { Analytics } from "@vercel/analytics/react";
 import PWAInstallBanner from "@/components/PWAInstallBanner";
 import ServiceWorkerRegistration from "@/components/ServiceWorkerRegistration";
 import { CurrencyProvider } from "@/lib/currency-context";
+import { FavoritesProvider } from "@/lib/favorites-context";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -66,6 +67,7 @@ export default function RootLayout({
       </head>
       <body className="overflow-x-hidden max-w-full">
         <CurrencyProvider>
+          <FavoritesProvider>
           <div className="min-h-screen w-full max-w-[100vw] overflow-x-hidden">
             <a
               href="#main-content"
@@ -76,6 +78,7 @@ export default function RootLayout({
             {children}
           </div>
           <PWAInstallBanner />
+          </FavoritesProvider>
         </CurrencyProvider>
         <ServiceWorkerRegistration />
         <Analytics />

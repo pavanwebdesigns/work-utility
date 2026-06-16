@@ -9,6 +9,7 @@ import { RelatedTools } from "@/components/RelatedTools";
 import { ToolFeedback } from "@/components/ToolFeedback";
 import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
+import { FavoriteButton } from "@/components/FavoriteButton";
 import {
   CalculatorField,
   CalculatorInput,
@@ -68,6 +69,9 @@ export default function SalaryHikeCalculatorPage() {
               Calculate new salary after appraisal or find hike percentage from
               your target salary.
             </p>
+            <div className="mt-4 flex justify-center">
+              <FavoriteButton slug="salary-hike-calculator" />
+            </div>
           </div>
 
           <div className="mx-auto mt-10 max-w-xl space-y-5">

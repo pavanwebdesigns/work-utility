@@ -15,6 +15,7 @@ import { RelatedTools } from "@/components/RelatedTools";
 import { ToolFeedback } from "@/components/ToolFeedback";
 import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
+import { FavoriteButton } from "@/components/FavoriteButton";
 import {
   buildQrPayload,
   DEFAULT_QR_INPUTS,
@@ -197,6 +198,9 @@ export default function QrCodeGeneratorPage() {
               Create customizable QR codes for URLs, WiFi, contacts, social
               links, and more. Download as PNG or SVG.
             </p>
+            <div className="mt-4 flex justify-center">
+              <FavoriteButton slug="qr-code-generator" />
+            </div>
           </div>
 
           <div className="mt-8 flex min-w-0 max-w-full gap-2 overflow-x-auto border-b border-surface-border pb-3">

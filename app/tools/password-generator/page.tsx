@@ -10,6 +10,7 @@ import { ToolFeedback } from "@/components/ToolFeedback";
 import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
 import { CalculatorField } from "@/components/calculator/CalculatorUi";
+import { FavoriteButton } from "@/components/FavoriteButton";
 import {
   generatePasswords,
   getPasswordStrength,
@@ -109,6 +110,9 @@ export default function PasswordGeneratorPage() {
               Generate secure random passwords with custom length, character
               types, and strength indicator. Runs entirely in your browser.
             </p>
+            <div className="mt-4 flex justify-center">
+              <FavoriteButton slug="password-generator" />
+            </div>
           </div>
 
           <div className="mx-auto mt-10 max-w-xl space-y-5">

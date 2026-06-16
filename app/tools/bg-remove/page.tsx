@@ -6,6 +6,7 @@ import { RelatedTools } from "@/components/RelatedTools";
 import { ToolFeedback } from "@/components/ToolFeedback";
 import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
+import { FavoriteButton } from "@/components/FavoriteButton";
 
 const howItWorksSteps = [
   {
@@ -55,6 +56,9 @@ export default function BgRemovePage() {
                 Remove the background from any image with AI. Runs entirely in
                 your browser — no uploads.
               </p>
+            <div className="mt-4 flex justify-center">
+              <FavoriteButton slug="bg-remove" />
+            </div>
             </div>
 
             <div className="flex flex-col items-center justify-center py-20 text-center">

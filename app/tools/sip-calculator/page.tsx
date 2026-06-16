@@ -19,6 +19,7 @@ import { RelatedTools } from "@/components/RelatedTools";
 import { ToolFeedback } from "@/components/ToolFeedback";
 import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
+import { FavoriteButton } from "@/components/FavoriteButton";
 import {
   CalculatorField,
   CalculatorInput,
@@ -76,6 +77,9 @@ export default function SipCalculatorPage() {
               Estimate SIP maturity value, total invested amount, and returns
               with a year-by-year growth chart.
             </p>
+            <div className="mt-4 flex justify-center">
+              <FavoriteButton slug="sip-calculator" />
+            </div>
           </div>
 
           <div className="mx-auto mt-10 max-w-xl space-y-5">

@@ -9,6 +9,7 @@ import { RelatedTools } from "@/components/RelatedTools";
 import { ToolFeedback } from "@/components/ToolFeedback";
 import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
+import { FavoriteButton } from "@/components/FavoriteButton";
 import {
   CalculatorField,
   CalculatorInput,
@@ -133,6 +134,9 @@ export default function RentReceiptGeneratorPage() {
               Generate professional rent receipts for HRA claims. Download PDF
               for one or multiple months instantly.
             </p>
+            <div className="mt-4 flex justify-center">
+              <FavoriteButton slug="rent-receipt-generator" />
+            </div>
           </div>
 
           <div className="mx-auto mt-10 grid max-w-5xl gap-8 lg:grid-cols-2 print:hidden">

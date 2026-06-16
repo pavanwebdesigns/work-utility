@@ -9,6 +9,7 @@ import { RelatedTools } from "@/components/RelatedTools";
 import { ToolFeedback } from "@/components/ToolFeedback";
 import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
+import { FavoriteButton } from "@/components/FavoriteButton";
 import {
   CalculatorField,
   CalculatorInput,
@@ -105,6 +106,9 @@ export default function CompoundInterestPage() {
               Calculate how your investment grows with compound interest and
               optional monthly contributions.
             </p>
+            <div className="mt-4 flex justify-center">
+              <FavoriteButton slug="compound-interest" />
+            </div>
           </div>
 
           <div className="mx-auto mt-10 max-w-xl space-y-5">

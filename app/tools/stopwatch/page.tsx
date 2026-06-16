@@ -9,6 +9,7 @@ import { RelatedTools } from "@/components/RelatedTools";
 import { ToolFeedback } from "@/components/ToolFeedback";
 import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
+import { FavoriteButton } from "@/components/FavoriteButton";
 import { formatLapTime, formatStopwatch } from "@/lib/stopwatch";
 
 type Lap = { lapTime: number; totalTime: number };
@@ -91,6 +92,9 @@ export default function StopwatchPage() {
             <p className="mx-auto mt-3 max-w-md text-content-secondary">
               Precise stopwatch with lap timer and centisecond accuracy.
             </p>
+            <div className="mt-4 flex justify-center">
+              <FavoriteButton slug="stopwatch" />
+            </div>
           </div>
 
           <p

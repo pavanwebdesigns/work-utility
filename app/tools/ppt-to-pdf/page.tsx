@@ -17,6 +17,7 @@ import { RelatedTools } from "@/components/RelatedTools";
 import { ToolFeedback } from "@/components/ToolFeedback";
 import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
+import { FavoriteButton } from "@/components/FavoriteButton";
 import {
   convertPptToPdf,
   formatFileSize,
@@ -204,6 +205,9 @@ export default function PptToPdfPage() {
                 Convert PowerPoint presentations to PDF instantly. Each slide
                 becomes a PDF page — runs in your browser.
               </p>
+            <div className="mt-4 flex justify-center">
+              <FavoriteButton slug="ppt-to-pdf" />
+            </div>
             </div>
 
             <div className="mt-10 space-y-6">

@@ -9,6 +9,7 @@ import { RelatedTools } from "@/components/RelatedTools";
 import { ToolFeedback } from "@/components/ToolFeedback";
 import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
+import { FavoriteButton } from "@/components/FavoriteButton";
 import {
   CalculatorField,
   CalculatorInput,
@@ -72,6 +73,9 @@ export default function TipCalculatorPage() {
             <p className="mx-auto mt-3 max-w-md text-content-secondary">
               Calculate tip amount and split the total bill between friends instantly.
             </p>
+            <div className="mt-4 flex justify-center">
+              <FavoriteButton slug="tip-calculator" />
+            </div>
           </div>
 
           <div className="mt-10 space-y-5">

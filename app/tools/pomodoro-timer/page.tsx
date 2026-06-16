@@ -9,6 +9,7 @@ import { RelatedTools } from "@/components/RelatedTools";
 import { ToolFeedback } from "@/components/ToolFeedback";
 import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
+import { FavoriteButton } from "@/components/FavoriteButton";
 import {
   DEFAULT_SETTINGS,
   formatTime,
@@ -149,6 +150,9 @@ export default function PomodoroTimerPage() {
             <p className="mx-auto mt-3 max-w-md text-content-secondary">
               25-minute focus sessions with short and long breaks to boost productivity.
             </p>
+            <div className="mt-4 flex justify-center">
+              <FavoriteButton slug="pomodoro-timer" />
+            </div>
           </div>
 
           <div className="mt-8 flex justify-center gap-2">

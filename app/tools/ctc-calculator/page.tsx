@@ -9,6 +9,7 @@ import { RelatedTools } from "@/components/RelatedTools";
 import { ToolFeedback } from "@/components/ToolFeedback";
 import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
+import { FavoriteButton } from "@/components/FavoriteButton";
 import {
   BreakdownRow,
   CalculatorField,
@@ -74,6 +75,9 @@ export default function CtcCalculatorPage() {
               Estimate monthly take-home salary from annual CTC with PF,
               professional tax, and income tax deductions.
             </p>
+            <div className="mt-4 flex justify-center">
+              <FavoriteButton slug="ctc-calculator" />
+            </div>
           </div>
 
           <div className="mx-auto mt-10 max-w-xl space-y-5">

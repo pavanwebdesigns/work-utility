@@ -57,7 +57,15 @@ export type ToolSeoSlug =
   | "regex-tester"
   | "html-entity"
   | "color-contrast"
-  | "jwt-decoder";
+  | "jwt-decoder"
+  | "epf-calculator"
+  | "gratuity-calculator"
+  | "lta-calculator"
+  | "hourly-to-salary"
+  | "keyword-density"
+  | "morse-code"
+  | "xml-formatter"
+  | "inflation-calculator";
 
 type ToolSeoEntry = {
   aboutTitle: string;
@@ -2663,6 +2671,190 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
       { question: "What is in a JWT payload?", answer: "Claims like sub (subject), exp (expiry), iat (issued at), and custom application data." },
       { question: "How do I know if a token expired?", answer: "The tool shows an Expired badge or the expiry date from the exp claim." },
       { question: "Is JWT decoder free?", answer: "Yes. WorkUtilities JWT Decoder is free with no signup required." },
+    ],
+  },
+  "epf-calculator": {
+    aboutTitle: "About EPF Calculator",
+    aboutParagraphs: [
+      "Our free EPF Calculator estimates Employee Provident Fund maturity based on basic salary, current balance, age, and interest rate.",
+      "Includes employee 12% contribution and employer 3.67% EPF portion with monthly compounding and annual salary increments.",
+      "Essential for salaried employees in India planning retirement savings and understanding long-term PF growth.",
+    ],
+    whenToUseTitle: "When Should You Use EPF Calculator?",
+    useCases: [
+      { title: "Retirement planning", description: "Project EPF corpus at retirement age." },
+      { title: "Salary negotiation", description: "Understand PF component impact on take-home pay." },
+      { title: "Job change", description: "Estimate maturity with current balance and remaining years." },
+      { title: "Financial goals", description: "See how increments affect long-term EPF growth." },
+      { title: "Tax planning", description: "Plan EPF withdrawals and retirement corpus." },
+    ],
+    faqs: [
+      { question: "What is the default EPF interest rate?", answer: "The calculator defaults to 8.25% but you can edit it to match current EPFO rates." },
+      { question: "How is employer contribution calculated?", answer: "3.67% of basic salary goes to EPF; 8.33% goes to EPS as per current rules." },
+      { question: "Does it include salary increments?", answer: "Yes. Enter annual increment % to model salary growth over your career." },
+      { question: "What retirement age is used?", answer: "Default is 58 years, which you can change based on your plans." },
+      { question: "Is EPF calculator free?", answer: "Yes. WorkUtilities EPF Calculator is free with no signup." },
+    ],
+  },
+  "gratuity-calculator": {
+    aboutTitle: "About Gratuity Calculator",
+    aboutParagraphs: [
+      "Our free Gratuity Calculator computes gratuity amount as per Payment of Gratuity Act 1972 formula for covered establishments.",
+      "Enter last drawn salary (Basic + DA) and years of service. See formula used, rounded years, and tax-free limit applied.",
+      "Useful for employees in India planning resignation, retirement, or understanding statutory gratuity benefits.",
+    ],
+    whenToUseTitle: "When Should You Use Gratuity Calculator?",
+    useCases: [
+      { title: "Retirement", description: "Estimate gratuity payout on retirement." },
+      { title: "Resignation", description: "Know expected gratuity after 5+ years of service." },
+      { title: "HR planning", description: "Calculate gratuity liability for employees." },
+      { title: "Tax planning", description: "Understand ₹20 lakh tax-free gratuity limit." },
+      { title: "Job offers", description: "Factor gratuity into total compensation." },
+    ],
+    faqs: [
+      { question: "What is the gratuity formula?", answer: "Covered: (15 × Salary × Years) / 26. Not covered: (15 × Salary × Years) / 30." },
+      { question: "Minimum years for gratuity?", answer: "5 years of continuous service, except death or disability." },
+      { question: "What is the tax-free limit?", answer: "₹20,00,000 as per current rules for eligible employees." },
+      { question: "Is partial year counted?", answer: "Service over 6 months in the last year is rounded up to a full year." },
+      { question: "Is gratuity calculator free?", answer: "Yes. WorkUtilities Gratuity Calculator is free with no signup." },
+    ],
+  },
+  "lta-calculator": {
+    aboutTitle: "About LTA Calculator",
+    aboutParagraphs: [
+      "Our free LTA Calculator computes Leave Travel Allowance tax exemption as per Indian income tax rules.",
+      "Enter annual LTA received and actual eligible travel expenses to see exempt and taxable amounts.",
+      "Helps salaried employees in India maximize LTA tax benefits during the 4-year block period.",
+    ],
+    whenToUseTitle: "When Should You Use LTA Calculator?",
+    useCases: [
+      { title: "Tax planning", description: "Estimate LTA exemption before filing ITR." },
+      { title: "Travel claims", description: "Verify exempt amount against actual fare expenses." },
+      { title: "Salary structure", description: "Understand LTA component in your CTC." },
+      { title: "Block year planning", description: "Plan 2 journeys per 4-year block optimally." },
+      { title: "HR compliance", description: "Validate LTA exemption calculations." },
+    ],
+    faqs: [
+      { question: "What expenses qualify for LTA?", answer: "Air, rail, or bus fare for self and family — not hotel, food, or local transport." },
+      { question: "How many trips are allowed?", answer: "Maximum 2 journeys in a block of 4 calendar years." },
+      { question: "How is exemption calculated?", answer: "Minimum of LTA received and actual eligible travel expense." },
+      { question: "Is LTA available every year?", answer: "LTA exemption is limited to 2 trips per 4-year block, not every year." },
+      { question: "Is LTA calculator free?", answer: "Yes. WorkUtilities LTA Calculator is free with no signup." },
+    ],
+  },
+  "hourly-to-salary": {
+    aboutTitle: "About Hourly to Salary Calculator",
+    aboutParagraphs: [
+      "Our free Hourly to Salary Calculator converts hourly wage to daily, weekly, bi-weekly, monthly, and annual salary.",
+      "Also works in reverse — enter annual salary to get equivalent hourly rate. Customize hours per week and weeks per year.",
+      "Perfect for freelancers, contractors, part-time workers, and anyone comparing job offers across pay structures.",
+    ],
+    whenToUseTitle: "When Should You Use Hourly to Salary Calculator?",
+    useCases: [
+      { title: "Job comparison", description: "Compare hourly contract rate vs salaried offers." },
+      { title: "Freelancing", description: "Set hourly rates to reach annual income goals." },
+      { title: "Part-time work", description: "Calculate annual income from part-time hourly pay." },
+      { title: "Overtime planning", description: "Understand full-time equivalent earnings." },
+      { title: "Budgeting", description: "Convert paycheck periods for monthly budgets." },
+    ],
+    faqs: [
+      { question: "How is annual salary calculated?", answer: "Hourly rate × hours per week × weeks per year." },
+      { question: "What are default hours?", answer: "40 hours per week and 52 weeks per year (standard full-time US)." },
+      { question: "Can I convert salary to hourly?", answer: "Yes. Switch to Salary → Hourly mode and enter annual salary." },
+      { question: "Does it support INR and USD?", answer: "Yes. Use the currency toggle in the header for your preferred symbol." },
+      { question: "Is hourly to salary calculator free?", answer: "Yes. WorkUtilities calculator is free with no signup." },
+    ],
+  },
+  "keyword-density": {
+    aboutTitle: "About Keyword Density Checker",
+    aboutParagraphs: [
+      "Our free Keyword Density Checker analyzes word frequency and density in your content for SEO optimization.",
+      "See top 20 keywords with count and density percentage. Optionally exclude common stop words and set minimum word length.",
+      "Essential for content writers, bloggers, and SEO professionals optimizing articles for search engines.",
+    ],
+    whenToUseTitle: "When Should You Use Keyword Density Checker?",
+    useCases: [
+      { title: "SEO optimization", description: "Check if target keywords appear at optimal frequency." },
+      { title: "Content audit", description: "Analyze existing articles for keyword overuse." },
+      { title: "Blog writing", description: "Balance keyword usage while writing new posts." },
+      { title: "Competitor analysis", description: "Study keyword patterns in competitor content." },
+      { title: "Academic writing", description: "Identify most frequent terms in essays." },
+    ],
+    faqs: [
+      { question: "What is ideal keyword density?", answer: "Generally 1-2% for primary keywords, but focus on natural writing over exact percentages." },
+      { question: "What are stop words?", answer: "Common words like 'the', 'and', 'is' that are excluded from analysis by default." },
+      { question: "How is density calculated?", answer: "(keyword count / total words) × 100." },
+      { question: "Is my content uploaded?", answer: "No. All analysis happens locally in your browser." },
+      { question: "Is keyword density checker free?", answer: "Yes. WorkUtilities Keyword Density Checker is free with no limits." },
+    ],
+  },
+  "morse-code": {
+    aboutTitle: "About Morse Code Converter",
+    aboutParagraphs: [
+      "Our free Morse Code Converter translates text to Morse code and decodes Morse back to text instantly.",
+      "Includes a collapsible Morse alphabet reference for letters A-Z and digits 0-9. Copy output with one click.",
+      "Fun and educational tool for ham radio enthusiasts, scouts, students, and anyone learning Morse code.",
+    ],
+    whenToUseTitle: "When Should You Use Morse Code Converter?",
+    useCases: [
+      { title: "Learning Morse", description: "Practice encoding and decoding messages." },
+      { title: "Ham radio", description: "Quickly convert messages for amateur radio." },
+      { title: "Education", description: "Teach Morse code in classrooms and scouting." },
+      { title: "Puzzles", description: "Decode Morse clues in escape rooms and games." },
+      { title: "Emergency signals", description: "Learn SOS (... --- ...) and basic signals." },
+    ],
+    faqs: [
+      { question: "How do I write Morse code?", answer: "Dots (.) and dashes (-) separated by spaces between letters." },
+      { question: "What is SOS in Morse?", answer: "... --- ... (three dots, three dashes, three dots)." },
+      { question: "Are numbers supported?", answer: "Yes. Digits 0-9 have standard Morse representations." },
+      { question: "Is conversion instant?", answer: "Yes. Output updates in real time as you type." },
+      { question: "Is Morse code converter free?", answer: "Yes. WorkUtilities Morse Code Converter is free with no signup." },
+    ],
+  },
+  "xml-formatter": {
+    aboutTitle: "About XML Formatter",
+    aboutParagraphs: [
+      "Our free XML Formatter beautifies, minifies, and validates XML data in your browser.",
+      "Format mode adds indentation for readability. Minify removes whitespace. Validate checks for syntax errors.",
+      "Essential for developers working with APIs, config files, RSS feeds, and SOAP services.",
+    ],
+    whenToUseTitle: "When Should You Use XML Formatter?",
+    useCases: [
+      { title: "API debugging", description: "Pretty-print XML API responses for inspection." },
+      { title: "Config files", description: "Format messy XML configuration files." },
+      { title: "RSS/Atom feeds", description: "Validate and beautify feed XML." },
+      { title: "SOAP services", description: "Format SOAP request and response envelopes." },
+      { title: "Learning XML", description: "Understand XML structure with proper indentation." },
+    ],
+    faqs: [
+      { question: "Does it validate XML?", answer: "Yes. Use Validate mode to check for syntax errors with detailed error messages." },
+      { question: "Can I minify XML?", answer: "Yes. Minify mode removes unnecessary whitespace between tags." },
+      { question: "Is my XML uploaded?", answer: "No. All processing happens locally in your browser." },
+      { question: "What if XML is invalid?", answer: "A red error card shows the parser error message." },
+      { question: "Is XML formatter free?", answer: "Yes. WorkUtilities XML Formatter is free with no limits." },
+    ],
+  },
+  "inflation-calculator": {
+    aboutTitle: "About Inflation Calculator",
+    aboutParagraphs: [
+      "Our free Inflation Calculator shows how inflation affects money value over time with future and past value modes.",
+      "Pre-fills average inflation rates for India (6.5%) and US (3.2%) based on currency. Shows purchasing power loss visually.",
+      "Essential for financial planning, retirement savings goals, and understanding real vs nominal value of money.",
+    ],
+    whenToUseTitle: "When Should You Use Inflation Calculator?",
+    useCases: [
+      { title: "Retirement planning", description: "See how much you'll need in future rupees or dollars." },
+      { title: "Savings goals", description: "Adjust targets for inflation over decades." },
+      { title: "Historical comparison", description: "Find past equivalent of today's amount." },
+      { title: "Investment returns", description: "Compare nominal vs real returns after inflation." },
+      { title: "Education costs", description: "Project future education expenses with inflation." },
+    ],
+    faqs: [
+      { question: "What is future value mode?", answer: "Shows how much money you'll need in the future to match today's purchasing power." },
+      { question: "What is past value mode?", answer: "Shows what a today's amount was worth X years ago in real terms." },
+      { question: "What inflation rate should I use?", answer: "India: ~6.5%, US: ~3.2% historical averages. Edit to match your expectation." },
+      { question: "What is purchasing power loss?", answer: "The percentage of value eroded by inflation over the selected period." },
+      { question: "Is inflation calculator free?", answer: "Yes. WorkUtilities Inflation Calculator is free with no signup." },
     ],
   },
 };

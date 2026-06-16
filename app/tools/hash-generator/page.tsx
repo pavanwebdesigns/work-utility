@@ -9,6 +9,7 @@ import { RelatedTools } from "@/components/RelatedTools";
 import { ToolFeedback } from "@/components/ToolFeedback";
 import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
+import { FavoriteButton } from "@/components/FavoriteButton";
 import {
   generateAllHashes,
   type HashAlgorithm,
@@ -110,6 +111,9 @@ export default function HashGeneratorPage() {
             <p className="mx-auto mt-3 max-w-md text-content-secondary">
               Generate MD5, SHA-1, SHA-256, and SHA-512 hashes instantly in your browser.
             </p>
+            <div className="mt-4 flex justify-center">
+              <FavoriteButton slug="hash-generator" />
+            </div>
           </div>
 
           <div className="mt-10 space-y-5">

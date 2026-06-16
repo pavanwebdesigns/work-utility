@@ -10,6 +10,7 @@ import { ToolFeedback } from "@/components/ToolFeedback";
 import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
 import { IndiaTaxNotice } from "@/components/IndiaTaxNotice";
+import { FavoriteButton } from "@/components/FavoriteButton";
 import {
   CalculatorField,
   CalculatorInput,
@@ -71,6 +72,9 @@ export default function HraCalculatorPage() {
             <p className="mx-auto mt-3 max-w-md text-content-secondary">
               Calculate exempt and taxable HRA as per Indian income tax rules.
             </p>
+            <div className="mt-4 flex justify-center">
+              <FavoriteButton slug="hra-calculator" />
+            </div>
             <IndiaTaxNotice />
             {currency === "USD" && (
               <p className="mx-auto mt-3 max-w-md rounded-lg border border-tool-photo/20 bg-tool-photo/5 px-3 py-2 text-xs text-content-secondary">

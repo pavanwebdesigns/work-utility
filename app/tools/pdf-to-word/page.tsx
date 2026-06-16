@@ -17,6 +17,7 @@ import { RelatedTools } from "@/components/RelatedTools";
 import { ToolFeedback } from "@/components/ToolFeedback";
 import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
+import { FavoriteButton } from "@/components/FavoriteButton";
 import { convertToWord, formatFileSize } from "@/lib/pdf-api";
 
 const MAX_FILE_SIZE = 50 * 1024 * 1024;
@@ -123,6 +124,9 @@ export default function PdfToWordPage() {
                 Convert your PDF to an editable Word document. Text and
                 structure preserved.
               </p>
+            <div className="mt-4 flex justify-center">
+              <FavoriteButton slug="pdf-to-word" />
+            </div>
             </div>
 
             <div className="mt-10 space-y-6">

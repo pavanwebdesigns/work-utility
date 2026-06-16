@@ -19,6 +19,7 @@ import { RelatedTools } from "@/components/RelatedTools";
 import { ToolFeedback } from "@/components/ToolFeedback";
 import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
+import { FavoriteButton } from "@/components/FavoriteButton";
 import { formatFileSize, unlockPDF } from "@/lib/pdf-api";
 
 const MAX_FILE_SIZE = 50 * 1024 * 1024;
@@ -130,6 +131,9 @@ export default function PdfUnlockPage() {
               <p className="mx-auto mt-3 max-w-md text-content-secondary">
                 Unlock password-protected PDFs when you know the password.
               </p>
+            <div className="mt-4 flex justify-center">
+              <FavoriteButton slug="pdf-unlock" />
+            </div>
             </div>
 
             <div className="mt-10 space-y-6">

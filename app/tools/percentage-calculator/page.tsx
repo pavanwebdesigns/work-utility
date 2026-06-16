@@ -9,6 +9,7 @@ import { RelatedTools } from "@/components/RelatedTools";
 import { ToolFeedback } from "@/components/ToolFeedback";
 import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
+import { FavoriteButton } from "@/components/FavoriteButton";
 import {
   CalculatorField,
   CalculatorInput,
@@ -109,6 +110,9 @@ export default function PercentageCalculatorPage() {
               Calculate percentage of a number, find what percent one value is of
               another, percentage change, and add or subtract percentages.
             </p>
+            <div className="mt-4 flex justify-center">
+              <FavoriteButton slug="percentage-calculator" />
+            </div>
           </div>
 
           <div className="mx-auto mt-10 max-w-xl space-y-5">

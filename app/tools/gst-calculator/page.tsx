@@ -21,6 +21,7 @@ import { GST_RATES, calculateGst, type GstMode } from "@/lib/gst-calculator";
 import { formatCurrency, parseNumberInput } from "@/lib/format-inr";
 import { useCurrency } from "@/lib/currency-context";
 import { IndiaTaxNotice } from "@/components/IndiaTaxNotice";
+import { FavoriteButton } from "@/components/FavoriteButton";
 
 export default function GstCalculatorPage() {
   const { symbol, currency } = useCurrency();
@@ -59,6 +60,9 @@ export default function GstCalculatorPage() {
               Add or remove GST from any amount with CGST and SGST split for
               Indian tax rates.
             </p>
+            <div className="mt-4 flex justify-center">
+              <FavoriteButton slug="gst-calculator" />
+            </div>
           </div>
 
           <IndiaTaxNotice />

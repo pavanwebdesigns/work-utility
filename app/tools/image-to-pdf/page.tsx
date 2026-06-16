@@ -20,6 +20,7 @@ import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
 import { convertImagesToPdf, formatFileSize } from "@/lib/image-to-pdf";
 import { ImageCropEditor } from "@/components/ImageCropEditor";
+import { FavoriteButton } from "@/components/FavoriteButton";
 import {
   A4_PDF_CROP_TARGET,
   shouldShowCropUI,
@@ -279,6 +280,9 @@ export default function ImageToPdfPage() {
                 Combine multiple JPG, PNG images into a single PDF. Each image
                 gets its own page. Runs in your browser.
               </p>
+            <div className="mt-4 flex justify-center">
+              <FavoriteButton slug="image-to-pdf" />
+            </div>
             </div>
 
             <div className="mt-10 space-y-6">

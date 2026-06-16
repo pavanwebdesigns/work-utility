@@ -17,6 +17,7 @@ import { RelatedTools } from "@/components/RelatedTools";
 import { ToolFeedback } from "@/components/ToolFeedback";
 import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
+import { FavoriteButton } from "@/components/FavoriteButton";
 import {
   decodeFromBase64,
   encodeFileToBase64,
@@ -220,6 +221,9 @@ export default function Base64Page() {
                 Encode and decode Base64 text or files instantly. Private,
                 browser-only processing.
               </p>
+            <div className="mt-4 flex justify-center">
+              <FavoriteButton slug="base64" />
+            </div>
             </div>
 
             <div className="mt-10 space-y-6">

@@ -18,6 +18,7 @@ import { RelatedTools } from "@/components/RelatedTools";
 import { ToolFeedback } from "@/components/ToolFeedback";
 import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
+import { FavoriteButton } from "@/components/FavoriteButton";
 import {
   convertWebpTo,
   formatFileSize,
@@ -217,6 +218,9 @@ export default function WebpToJpgPage() {
                 Convert WebP images to JPG or PNG instantly. Private,
                 browser-only conversion — no signup needed.
               </p>
+            <div className="mt-4 flex justify-center">
+              <FavoriteButton slug="webp-to-jpg" />
+            </div>
             </div>
 
             <div className="mt-10 space-y-6">

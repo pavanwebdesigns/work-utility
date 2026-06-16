@@ -17,6 +17,7 @@ import { Footer } from "@/components/Footer";
 import { RelatedTools } from "@/components/RelatedTools";
 import { ToolFeedback } from "@/components/ToolFeedback";
 import { DinoGame } from "@/components/DinoGame";
+import { FavoriteButton } from "@/components/FavoriteButton";
 import {
   calcSavingsPercent,
   compressPDF,
@@ -214,6 +215,9 @@ export default function PdfCompressPage() {
                 Reduce your PDF file size while maintaining quality. Fast
                 compression powered by our secure PDF service.
               </p>
+            <div className="mt-4 flex justify-center">
+              <FavoriteButton slug="pdf-compress" />
+            </div>
             </div>
 
             <div className="mt-10 space-y-6">

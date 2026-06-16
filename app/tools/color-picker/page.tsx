@@ -9,6 +9,7 @@ import { RelatedTools } from "@/components/RelatedTools";
 import { ToolFeedback } from "@/components/ToolFeedback";
 import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
+import { FavoriteButton } from "@/components/FavoriteButton";
 import {
   hexToRgb,
   hslToRgb,
@@ -136,6 +137,9 @@ export default function ColorPickerPage() {
                 Pick colors and get HEX, RGB, and HSL values instantly. Save
                 your favorite colors to a palette.
               </p>
+            <div className="mt-4 flex justify-center">
+              <FavoriteButton slug="color-picker" />
+            </div>
             </div>
 
             <div className="mt-10 space-y-6">

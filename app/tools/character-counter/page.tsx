@@ -16,6 +16,7 @@ import { RelatedTools } from "@/components/RelatedTools";
 import { ToolFeedback } from "@/components/ToolFeedback";
 import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
+import { FavoriteButton } from "@/components/FavoriteButton";
 import { analyzeText } from "@/lib/character-counter";
 
 const howItWorksSteps = [
@@ -93,6 +94,9 @@ export default function CharacterCounterPage() {
               Count characters, words, sentences, and paragraphs in real time.
               Private, fast, and free.
             </p>
+            <div className="mt-4 flex justify-center">
+              <FavoriteButton slug="character-counter" />
+            </div>
           </div>
 
           <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">

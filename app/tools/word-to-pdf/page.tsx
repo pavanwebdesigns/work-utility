@@ -17,6 +17,7 @@ import { RelatedTools } from "@/components/RelatedTools";
 import { ToolFeedback } from "@/components/ToolFeedback";
 import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
+import { FavoriteButton } from "@/components/FavoriteButton";
 import { convertWordToPdf, formatFileSize } from "@/lib/word-to-pdf";
 
 const MAX_FILE_SIZE = 20 * 1024 * 1024;
@@ -178,6 +179,9 @@ export default function WordToPdfPage() {
                 Convert Word documents to PDF instantly. Text and formatting
                 preserved. Runs in your browser.
               </p>
+            <div className="mt-4 flex justify-center">
+              <FavoriteButton slug="word-to-pdf" />
+            </div>
             </div>
 
             <div className="mt-10 space-y-6">

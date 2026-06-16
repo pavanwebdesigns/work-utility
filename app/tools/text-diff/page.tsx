@@ -9,6 +9,7 @@ import { RelatedTools } from "@/components/RelatedTools";
 import { ToolFeedback } from "@/components/ToolFeedback";
 import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
+import { FavoriteButton } from "@/components/FavoriteButton";
 import { diffTexts, type DiffLine } from "@/lib/text-diff";
 
 type ViewMode = "split" | "unified";
@@ -76,6 +77,9 @@ export default function TextDiffPage() {
             <p className="mx-auto mt-3 max-w-md text-content-secondary">
               Compare two texts and highlight added, removed, and unchanged lines.
             </p>
+            <div className="mt-4 flex justify-center">
+              <FavoriteButton slug="text-diff" />
+            </div>
           </div>
 
           <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2">

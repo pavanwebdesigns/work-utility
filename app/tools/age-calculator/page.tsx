@@ -9,6 +9,7 @@ import { RelatedTools } from "@/components/RelatedTools";
 import { ToolFeedback } from "@/components/ToolFeedback";
 import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
+import { FavoriteButton } from "@/components/FavoriteButton";
 import { calculateAge, parseDateInput } from "@/lib/age-calculator";
 
 const howItWorksSteps = [
@@ -92,6 +93,9 @@ export default function AgeCalculatorPage() {
               Enter your date of birth to get your exact age in years, months,
               and days.
             </p>
+            <div className="mt-4 flex justify-center">
+              <FavoriteButton slug="age-calculator" />
+            </div>
           </div>
 
           <div className="mx-auto mt-10 max-w-md">

@@ -19,6 +19,7 @@ import { RelatedTools } from "@/components/RelatedTools";
 import { ToolFeedback } from "@/components/ToolFeedback";
 import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
+import { FavoriteButton } from "@/components/FavoriteButton";
 import {
   formatFileSize,
   getTotalPages,
@@ -180,6 +181,9 @@ export default function PdfSplitPage() {
                 Extract pages from a PDF or split into individual files. Runs
                 in your browser.
               </p>
+            <div className="mt-4 flex justify-center">
+              <FavoriteButton slug="pdf-split" />
+            </div>
             </div>
 
             <div className="mt-10 space-y-6">

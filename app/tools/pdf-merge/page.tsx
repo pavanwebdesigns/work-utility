@@ -19,6 +19,7 @@ import { RelatedTools } from "@/components/RelatedTools";
 import { ToolFeedback } from "@/components/ToolFeedback";
 import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
+import { FavoriteButton } from "@/components/FavoriteButton";
 import { formatFileSize, mergePDFs } from "@/lib/pdf-merge";
 
 const MAX_FILE_SIZE = 50 * 1024 * 1024;
@@ -163,6 +164,9 @@ export default function PdfMergePage() {
                 Combine multiple PDF files into one document. Runs entirely in
                 your browser.
               </p>
+            <div className="mt-4 flex justify-center">
+              <FavoriteButton slug="pdf-merge" />
+            </div>
             </div>
 
             <div className="mt-10 space-y-6">

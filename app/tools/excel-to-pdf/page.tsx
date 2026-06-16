@@ -17,6 +17,7 @@ import { RelatedTools } from "@/components/RelatedTools";
 import { ToolFeedback } from "@/components/ToolFeedback";
 import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
+import { FavoriteButton } from "@/components/FavoriteButton";
 import {
   convertExcelToPdf,
   formatFileSize,
@@ -188,6 +189,9 @@ export default function ExcelToPdfPage() {
                 Convert Excel spreadsheets to PDF instantly. All sheets included.
                 Runs in your browser — private and free.
               </p>
+            <div className="mt-4 flex justify-center">
+              <FavoriteButton slug="excel-to-pdf" />
+            </div>
             </div>
 
             <div className="mt-10 space-y-6">
