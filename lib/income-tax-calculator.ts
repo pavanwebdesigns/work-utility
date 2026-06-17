@@ -125,8 +125,8 @@ function calculateSlabTax(
   return { tax, breakdown };
 }
 
-function applyOldRebate(tax: number, totalIncome: number): number {
-  if (totalIncome <= 700000) {
+function applyOldRebate(tax: number, taxableIncome: number): number {
+  if (taxableIncome <= 700000) {
     return Math.max(0, tax - 25000);
   }
   return tax;
@@ -134,14 +134,14 @@ function applyOldRebate(tax: number, totalIncome: number): number {
 
 function applyNewRebate(
   tax: number,
-  totalIncome: number,
+  taxableIncome: number,
   financialYear: FinancialYear
 ): number {
-  if (financialYear === "fy-2025-26" && totalIncome <= 1200000) {
+  if (financialYear === "fy-2025-26" && taxableIncome <= 1200000) {
     return Math.max(0, tax - 60000);
   }
 
-  if (financialYear === "fy-2024-25" && totalIncome <= 700000) {
+  if (financialYear === "fy-2024-25" && taxableIncome <= 700000) {
     return Math.max(0, tax - 25000);
   }
 
@@ -152,14 +152,14 @@ function finalizeTax(
   grossIncome: number,
   deductions: number,
   slabs: Slab[],
-  rebateFn: (tax: number, totalIncome: number) => number
+  rebateFn: (tax: number, taxableIncome: number) => number
 ): RegimeTaxResult {
   const taxableIncome = Math.max(0, grossIncome - deductions);
   const { tax: taxBeforeRebate, breakdown } = calculateSlabTax(
     taxableIncome,
     slabs
   );
-  const taxAfterRebate = rebateFn(taxBeforeRebate, grossIncome);
+  const taxAfterRebate = rebateFn(taxBeforeRebate, taxableIncome);
   const rebate = Math.max(0, taxBeforeRebate - taxAfterRebate);
   const cess = taxAfterRebate * 0.04;
   const totalTax = taxAfterRebate + cess;
@@ -209,7 +209,7 @@ export function calculateNewRegimeTax(
     annualIncome,
     NEW_STANDARD_DEDUCTION,
     getNewRegimeSlabs(financialYear),
-    (tax, totalIncome) => applyNewRebate(tax, totalIncome, financialYear)
+    (tax, taxableIncome) => applyNewRebate(tax, taxableIncome, financialYear)
   );
 }
 

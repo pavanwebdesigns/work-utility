@@ -1,6 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {},
+  experimental: {
+    // Avoid serving a stale prerendered homepage shell on client-side back navigation.
+    staleTimes: {
+      dynamic: 30,
+      static: 0,
+    },
+  },
   async redirects() {
     return [
       {

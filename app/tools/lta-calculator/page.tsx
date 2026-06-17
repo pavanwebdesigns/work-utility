@@ -13,7 +13,8 @@ import { FavoriteButton } from "@/components/FavoriteButton";
 import { CalculatorField, CalculatorInput } from "@/components/calculator/CalculatorUi";
 import { calculateLTA, LTA_RULES } from "@/lib/lta-calculator";
 import { formatCurrency, parseNumberInput } from "@/lib/format-inr";
-import { useCurrency } from "@/lib/currency-context";
+import { useIndiaRulesCurrency } from "@/lib/use-india-rules-currency";
+import { IndiaRulesBadge } from "@/components/IndiaRulesBadge";
 
 const howItWorksSteps = [
   { step: "01", icon: Plane, title: "Enter LTA & Expense", description: "Enter LTA received and travel costs" },
@@ -22,7 +23,7 @@ const howItWorksSteps = [
 ];
 
 export default function LtaCalculatorPage() {
-  const { symbol, currency } = useCurrency();
+  const { symbol, currency } = useIndiaRulesCurrency();
   const fmt = (v: number) => formatCurrency(v, currency);
 
   const [ltaReceived, setLtaReceived] = useState("50000");
@@ -50,6 +51,9 @@ export default function LtaCalculatorPage() {
             <p className="mx-auto mt-3 max-w-md text-content-secondary">Calculate LTA tax exemption for your annual Leave Travel Allowance.</p>
             <div className="mt-4 flex justify-center"><FavoriteButton slug="lta-calculator" /></div>
           </div>
+
+          <IndiaRulesBadge toolSlug="lta-calculator" />
+
           <div className="mx-auto mt-10 max-w-xl space-y-5">
             <CalculatorField label={`LTA Received (annual ${symbol})`} htmlFor="lta-received"><CalculatorInput id="lta-received" value={ltaReceived} onChange={setLtaReceived} /></CalculatorField>
             <CalculatorField label={`Actual Travel Expense (${symbol})`} htmlFor="lta-expense"><CalculatorInput id="lta-expense" value={travelExpense} onChange={setTravelExpense} /></CalculatorField>
@@ -65,8 +69,13 @@ export default function LtaCalculatorPage() {
           <div className="mx-auto mt-8 max-w-xl rounded-xl border border-surface-border bg-surface-card p-5 text-sm text-content-secondary">
             <p className="font-medium text-content-primary">LTA Rules</p>
             <ul className="mt-2 list-inside list-disc space-y-1">
+              <li>
+                Current block: {LTA_RULES.currentBlock} (previous block{" "}
+                {LTA_RULES.previousBlock} ended 31 Dec 2025)
+              </li>
               <li>Max {LTA_RULES.maxJourneysPerBlock} journeys per {LTA_RULES.blockYears}-year block</li>
               <li>{LTA_RULES.eligibleExpenses}</li>
+              <li>{LTA_RULES.taxRegimeNote}</li>
             </ul>
           </div>
           <div className="mt-16">

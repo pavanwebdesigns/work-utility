@@ -31,14 +31,14 @@ import {
   type FinancialYear,
   type RegimeTaxResult,
 } from "@/lib/income-tax-calculator";
-import { useCurrency } from "@/lib/currency-context";
-import { IndiaTaxNotice } from "@/components/IndiaTaxNotice";
+import { useIndiaRulesCurrency } from "@/lib/use-india-rules-currency";
+import { IndiaRulesBadge } from "@/components/IndiaRulesBadge";
 import { FavoriteButton } from "@/components/FavoriteButton";
 
 const PIE_COLORS = ["#3B82F6", "#EF4444", "#10B981"];
 
 function SlabBreakdownTable({ result }: { result: RegimeTaxResult }) {
-  const { currency } = useCurrency();
+  const { currency } = useIndiaRulesCurrency();
   const fmt = (value: number, decimals = 0) =>
     formatCurrency(value, currency, decimals);
   return (
@@ -61,7 +61,7 @@ function SlabBreakdownTable({ result }: { result: RegimeTaxResult }) {
 }
 
 export default function IncomeTaxCalculatorPage() {
-  const { symbol, currency } = useCurrency();
+  const { symbol, currency } = useIndiaRulesCurrency();
   const fmt = (value: number, decimals = 0) =>
     formatCurrency(value, currency, decimals);
   const [annualIncome, setAnnualIncome] = useState("1200000");
@@ -140,7 +140,7 @@ export default function IncomeTaxCalculatorPage() {
             </div>
           </div>
 
-          <IndiaTaxNotice />
+          <IndiaRulesBadge toolSlug="income-tax-calculator" />
 
           <div className="mx-auto mt-10 max-w-xl space-y-5">
             <CalculatorField label={`Annual Income (${symbol})`} htmlFor="annual-income">

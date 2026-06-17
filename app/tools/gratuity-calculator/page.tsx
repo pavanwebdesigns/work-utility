@@ -13,7 +13,8 @@ import { FavoriteButton } from "@/components/FavoriteButton";
 import { CalculatorField, CalculatorInput, ToggleButtonGroup } from "@/components/calculator/CalculatorUi";
 import { calculateGratuity, GRATUITY_MAX_LIMIT, MIN_YEARS_ELIGIBLE } from "@/lib/gratuity-calculator";
 import { formatCurrency, parseNumberInput } from "@/lib/format-inr";
-import { useCurrency } from "@/lib/currency-context";
+import { useIndiaRulesCurrency } from "@/lib/use-india-rules-currency";
+import { IndiaRulesBadge } from "@/components/IndiaRulesBadge";
 
 const howItWorksSteps = [
   { step: "01", icon: Wallet, title: "Enter Salary & Years", description: "Enter last drawn salary and years of service" },
@@ -22,7 +23,7 @@ const howItWorksSteps = [
 ];
 
 export default function GratuityCalculatorPage() {
-  const { symbol, currency } = useCurrency();
+  const { symbol, currency } = useIndiaRulesCurrency();
   const fmt = (v: number) => formatCurrency(v, currency);
 
   const [salary, setSalary] = useState("50000");
@@ -48,6 +49,9 @@ export default function GratuityCalculatorPage() {
             <p className="mx-auto mt-3 max-w-md text-content-secondary">Calculate gratuity amount on retirement or resignation as per Payment of Gratuity Act.</p>
             <div className="mt-4 flex justify-center"><FavoriteButton slug="gratuity-calculator" /></div>
           </div>
+
+          <IndiaRulesBadge toolSlug="gratuity-calculator" />
+
           <div className="mx-auto mt-10 max-w-xl space-y-5">
             <CalculatorField label={`Last Drawn Salary Basic+DA (${symbol}/month)`} htmlFor="grat-salary"><CalculatorInput id="grat-salary" value={salary} onChange={setSalary} /></CalculatorField>
             <CalculatorField label="Years of Service" htmlFor="grat-years"><CalculatorInput id="grat-years" value={years} onChange={setYears} placeholder="10" /></CalculatorField>

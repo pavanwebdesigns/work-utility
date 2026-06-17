@@ -9,6 +9,12 @@ export interface EPFInput {
   interestRate: number;
 }
 
+/** EPFO-declared rate for FY2025-26. Review/update when EPFO announces a new rate (typically Feb–Mar, government approval follows). */
+export const DEFAULT_EPF_INTEREST_RATE = 8.25;
+
+/** Employer EPF share (3.67% of basic); remainder of the 12% employer contribution goes to EPS. */
+export const EMPLOYER_EPF_CONTRIBUTION_RATE = 3.67;
+
 export function calculateEPF(input: EPFInput): {
   maturityAmount: number;
   totalEmployeeContribution: number;
@@ -27,7 +33,8 @@ export function calculateEPF(input: EPFInput): {
 
   for (let month = 1; month <= months; month++) {
     const empContribution = salary * (input.employeeContribution / 100);
-    const employerEPFContribution = salary * 0.0367;
+    const employerEPFContribution =
+      salary * (EMPLOYER_EPF_CONTRIBUTION_RATE / 100);
 
     balance += empContribution + employerEPFContribution;
     balance += balance * monthlyRate;

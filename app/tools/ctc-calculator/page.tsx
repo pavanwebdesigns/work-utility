@@ -23,10 +23,11 @@ import {
   calculateCtcToInHand,
 } from "@/lib/ctc-calculator";
 import { formatCurrency, parseNumberInput } from "@/lib/format-inr";
-import { useCurrency } from "@/lib/currency-context";
+import { useIndiaRulesCurrency } from "@/lib/use-india-rules-currency";
+import { IndiaRulesBadge } from "@/components/IndiaRulesBadge";
 
 export default function CtcCalculatorPage() {
-  const { symbol, currency } = useCurrency();
+  const { symbol, currency } = useIndiaRulesCurrency();
   const fmt = (value: number, decimals = 0) =>
     formatCurrency(value, currency, decimals);
   const [annualCtc, setAnnualCtc] = useState("1200000");
@@ -79,6 +80,8 @@ export default function CtcCalculatorPage() {
               <FavoriteButton slug="ctc-calculator" />
             </div>
           </div>
+
+          <IndiaRulesBadge toolSlug="ctc-calculator" />
 
           <div className="mx-auto mt-10 max-w-xl space-y-5">
             <CalculatorField label={`Annual CTC (${symbol})`} htmlFor="annual-ctc">

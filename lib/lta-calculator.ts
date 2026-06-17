@@ -23,6 +23,10 @@ export function calculateLTA(input: LTAInput): {
 export const LTA_RULES = {
   maxJourneysPerBlock: 2,
   blockYears: 4,
+  currentBlock: "2026–2029",
+  previousBlock: "2022–2025",
   eligibleExpenses:
     "Air, rail, or bus fare for self and family only (not hotel, food, or local transport)",
+  taxRegimeNote:
+    "LTA exemption is available only under the Old Tax Regime — not the New Tax Regime (Section 115BAC).",
 };

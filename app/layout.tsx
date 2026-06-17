@@ -4,7 +4,7 @@ import { GeistSans } from "geist/font/sans";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/react";
 import PWAInstallBanner from "@/components/PWAInstallBanner";
-import ServiceWorkerRegistration from "@/components/ServiceWorkerRegistration";
+import PWAUpdateBanner from "@/components/PWAUpdateBanner";
 import { Providers } from "@/app/providers";
 import type { Currency } from "@/lib/currency-context";
 import "./globals.css";
@@ -83,8 +83,8 @@ export default function RootLayout({
             {children}
           </div>
           <PWAInstallBanner />
+          <PWAUpdateBanner />
         </Providers>
-        <ServiceWorkerRegistration />
         <Analytics />
         <GoogleAnalytics gaId="G-N85BQ3XV27" />
       </body>

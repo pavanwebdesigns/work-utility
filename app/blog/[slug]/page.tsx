@@ -61,11 +61,23 @@ import HowToTestRegexOnlineContent from "../content/how-to-test-regex-online";
 import PomodoroTechniqueTimerGuideContent from "../content/pomodoro-technique-timer-guide";
 import OnlineStopwatchGuideContent from "../content/online-stopwatch-guide";
 import TimeZoneConverterGuideContent from "../content/time-zone-converter-guide";
+import BmiCalculatorGuideContent from "../content/bmi-calculator-guide";
+import CompoundInterestCalculatorGuideContent from "../content/compound-interest-calculator-guide";
+import HowToConvertPdfToJpgOnlineFreeContent from "../content/how-to-convert-pdf-to-jpg-online-free";
+import HowToConvertImageFormatsOnlineContent from "../content/how-to-convert-image-formats-online";
+import HowToConvertWebpToJpgContent from "../content/how-to-convert-webp-to-jpg";
+import HowToConvertExcelToPdfFreeContent from "../content/how-to-convert-excel-to-pdf-free";
+import HowToConvertPptToPdfFreeContent from "../content/how-to-convert-ppt-to-pdf-free";
 import EpfCalculatorGuideIndiaContent from "../content/epf-calculator-guide-india";
 import GratuityCalculationFormulaIndiaContent from "../content/gratuity-calculation-formula-india";
 import LtaExemptionRulesIndiaContent from "../content/lta-exemption-rules-india";
 import HourlyToSalaryCalculatorGuideContent from "../content/hourly-to-salary-calculator-guide";
 import InflationCalculatorMoneyValueGuideContent from "../content/inflation-calculator-money-value-guide";
+import TipCalculatorGuideContent from "../content/tip-calculator-guide";
+import DeveloperDataEncodingToolsGuideContent from "../content/developer-data-encoding-tools-guide";
+import DesignToolsForDevelopersGuideContent from "../content/design-tools-for-developers-guide";
+import WritingSeoToolsForContentCreatorsContent from "../content/writing-seo-tools-for-content-creators";
+import UsefulTextUtilityToolsGuideContent from "../content/useful-text-utility-tools-guide";
 
 const contentBySlug: Record<string, () => JSX.Element> = {
   "complete-pdf-tools-guide-india": CompletePdfToolsGuideIndiaContent,
@@ -83,6 +95,13 @@ const contentBySlug: Record<string, () => JSX.Element> = {
   "pomodoro-technique-timer-guide": PomodoroTechniqueTimerGuideContent,
   "online-stopwatch-guide": OnlineStopwatchGuideContent,
   "time-zone-converter-guide": TimeZoneConverterGuideContent,
+  "bmi-calculator-guide": BmiCalculatorGuideContent,
+  "compound-interest-calculator-guide": CompoundInterestCalculatorGuideContent,
+  "how-to-convert-pdf-to-jpg-online-free": HowToConvertPdfToJpgOnlineFreeContent,
+  "how-to-convert-image-formats-online": HowToConvertImageFormatsOnlineContent,
+  "how-to-convert-webp-to-jpg": HowToConvertWebpToJpgContent,
+  "how-to-convert-excel-to-pdf-free": HowToConvertExcelToPdfFreeContent,
+  "how-to-convert-ppt-to-pdf-free": HowToConvertPptToPdfFreeContent,
   "aadhaar-card-photo-size": AadhaarCardPhotoSizeContent,
   "how-to-compress-pdf-online-free": HowToCompressPdfOnlineFreeContent,
   "best-free-pdf-tools-online-2026": BestFreePdfToolsOnline2026Content,
@@ -155,6 +174,12 @@ const contentBySlug: Record<string, () => JSX.Element> = {
   "hourly-to-salary-calculator-guide": HourlyToSalaryCalculatorGuideContent,
   "inflation-calculator-money-value-guide":
     InflationCalculatorMoneyValueGuideContent,
+  "tip-calculator-guide": TipCalculatorGuideContent,
+  "developer-data-encoding-tools-guide": DeveloperDataEncodingToolsGuideContent,
+  "design-tools-for-developers-guide": DesignToolsForDevelopersGuideContent,
+  "writing-seo-tools-for-content-creators":
+    WritingSeoToolsForContentCreatorsContent,
+  "useful-text-utility-tools-guide": UsefulTextUtilityToolsGuideContent,
 };
 
 export function generateStaticParams() {

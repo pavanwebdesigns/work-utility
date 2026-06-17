@@ -895,6 +895,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
           "Open this page in your phone browser, upload from your gallery, pick the output format, and download.",
       },
     ],
+    blogGuide: {
+      href: "/blog/how-to-convert-image-formats-online",
+      title: "How to convert image formats online — JPG, PNG, WebP",
+    },
   },
   "emi-calculator": {
     aboutTitle: "About EMI Calculator",
@@ -1840,6 +1844,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
           "Yes with WorkUtilities — processing is client-side only. Your PDF never leaves your browser.",
       },
     ],
+    blogGuide: {
+      href: "/blog/how-to-convert-pdf-to-jpg-online-free",
+      title: "How to convert PDF to JPG online free",
+    },
   },
   "heic-to-jpg": {
     aboutTitle: "About HEIC to JPG Converter",
@@ -1966,6 +1974,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
           "Convert one file at a time on this page. For batch JPG/PNG/WebP conversion, try our Image Converter tool.",
       },
     ],
+    blogGuide: {
+      href: "/blog/how-to-convert-webp-to-jpg",
+      title: "How to convert WebP to JPG online free",
+    },
   },
   "excel-to-pdf": {
     aboutTitle: "About Excel to PDF Converter",
@@ -2029,6 +2041,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
           "Both .xlsx (Excel 2007+) and .xls (older Excel format) files up to 20MB are supported.",
       },
     ],
+    blogGuide: {
+      href: "/blog/how-to-convert-excel-to-pdf-free",
+      title: "How to convert Excel to PDF online free",
+    },
   },
   "ppt-to-pdf": {
     aboutTitle: "About PPT to PDF Converter",
@@ -2052,6 +2068,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
       { question: "Is PPT to PDF conversion safe?", answer: "Yes with WorkUtilities — your file is processed locally in your browser and never uploaded to a server." },
       { question: "How many slides can I convert?", answer: "There is no slide limit. Files up to 50MB are supported." },
     ],
+    blogGuide: {
+      href: "/blog/how-to-convert-ppt-to-pdf-free",
+      title: "How to convert PowerPoint to PDF online free",
+    },
   },
   "json-formatter": {
     aboutTitle: "About JSON Formatter Tool",
@@ -2102,6 +2122,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
       { question: "Can I save colors?", answer: "Yes. Click 'Save current color' to add up to 10 colors to your palette." },
       { question: "Is the color picker free?", answer: "Yes. WorkUtilities Color Picker is completely free with no signup." },
     ],
+    blogGuide: {
+      href: "/blog/design-tools-for-developers-guide",
+      title: "Color and design tools every developer needs",
+    },
   },
   "markdown-to-html": {
     aboutTitle: "About Markdown to HTML Converter",
@@ -2125,6 +2149,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
       { question: "Is Markdown conversion private?", answer: "Yes. All conversion happens locally in your browser." },
       { question: "Can I copy just the text content?", answer: "Yes. Use 'Copy Preview Text' to copy the rendered text without HTML tags." },
     ],
+    blogGuide: {
+      href: "/blog/design-tools-for-developers-guide",
+      title: "Color and design tools every developer needs",
+    },
   },
   "base64": {
     aboutTitle: "About Base64 Encoder Decoder",
@@ -2175,6 +2203,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
       { question: "How to decode a URL?", answer: "Switch to Decode mode, paste the encoded string, and the original text appears in the output panel." },
       { question: "Is URL encoding safe online?", answer: "Yes with WorkUtilities — all encoding happens locally in your browser." },
     ],
+    blogGuide: {
+      href: "/blog/developer-data-encoding-tools-guide",
+      title: "5 essential data encoding tools for developers",
+    },
   },
   "text-case-converter": {
     aboutTitle: "About Text Case Converter",
@@ -2198,6 +2230,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
       { question: "Does it support multiple formats at once?", answer: "Yes. All 11 case formats update simultaneously as you type." },
       { question: "Is the text case converter free?", answer: "Yes. WorkUtilities Text Case Converter is completely free with no signup." },
     ],
+    blogGuide: {
+      href: "/blog/writing-seo-tools-for-content-creators",
+      title: "Free writing and SEO tools for content creators",
+    },
   },
   "lorem-ipsum": {
     aboutTitle: "About Lorem Ipsum Generator",
@@ -2221,6 +2257,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
       { question: "Can I start with 'Lorem ipsum'?", answer: "Yes. Keep the checkbox enabled to always begin with the classic opening phrase." },
       { question: "Is lorem ipsum generator free?", answer: "Yes. WorkUtilities Lorem Ipsum Generator is free with unlimited generations." },
     ],
+    blogGuide: {
+      href: "/blog/useful-text-utility-tools-guide",
+      title: "Lorem Ipsum, number to words, text diff, and Morse code explained",
+    },
   },
   "aspect-ratio": {
     aboutTitle: "About Aspect Ratio Calculator",
@@ -2244,6 +2284,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
       { question: "What ratios are supported?", answer: "Any custom ratio plus presets: 16:9, 4:3, 1:1, 3:2, 9:16, 4:5, 2:1, and 21:9." },
       { question: "Is aspect ratio calculator free?", answer: "Yes. WorkUtilities Aspect Ratio Calculator is free with no limits." },
     ],
+    blogGuide: {
+      href: "/blog/design-tools-for-developers-guide",
+      title: "Color and design tools every developer needs",
+    },
   },
   "random-number": {
     aboutTitle: "About Random Number Generator",
@@ -2290,6 +2334,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
       { question: "Can I use a custom tip percentage?", answer: "Yes. Click a preset or type any custom percentage in the input field." },
       { question: "Is the tip calculator free?", answer: "Yes. WorkUtilities Tip Calculator is completely free with no signup." },
     ],
+    blogGuide: {
+      href: "/blog/tip-calculator-guide",
+      title: "Tip calculator — how to split a bill and calculate tips fairly",
+    },
   },
   "discount-calculator": {
     aboutTitle: "About Discount Calculator",
@@ -2336,6 +2384,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
       { question: "Can I copy converted values?", answer: "Yes. Click the copy button on any card to copy that format to your clipboard." },
       { question: "Is binary conversion free online?", answer: "Yes. WorkUtilities Binary Converter is free with no limits." },
     ],
+    blogGuide: {
+      href: "/blog/developer-data-encoding-tools-guide",
+      title: "5 essential data encoding tools for developers",
+    },
   },
   "hash-generator": {
     aboutTitle: "About Hash Generator",
@@ -2386,6 +2438,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
       { question: "What is the maximum number supported?", answer: "Indian system: up to 9,99,99,99,999. International: up to 999,999,999,999." },
       { question: "Is number to words converter free?", answer: "Yes. WorkUtilities Number to Words is free with no signup." },
     ],
+    blogGuide: {
+      href: "/blog/useful-text-utility-tools-guide",
+      title: "Lorem Ipsum, number to words, text diff, and Morse code explained",
+    },
   },
   "pomodoro-timer": {
     aboutTitle: "About Pomodoro Timer",
@@ -2463,6 +2519,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
       { question: "Is my CSV data uploaded to a server?", answer: "No. All conversion happens locally in your browser." },
       { question: "Is CSV to JSON conversion free?", answer: "Yes. WorkUtilities CSV to JSON is free with no file limits." },
     ],
+    blogGuide: {
+      href: "/blog/developer-data-encoding-tools-guide",
+      title: "5 essential data encoding tools for developers",
+    },
   },
   "text-diff": {
     aboutTitle: "About Text Diff Checker",
@@ -2486,6 +2546,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
       { question: "Is my text sent to a server?", answer: "No. All comparison runs locally in your browser." },
       { question: "Is text diff checker free?", answer: "Yes. WorkUtilities Text Diff is free with no character limits." },
     ],
+    blogGuide: {
+      href: "/blog/useful-text-utility-tools-guide",
+      title: "Lorem Ipsum, number to words, text diff, and Morse code explained",
+    },
   },
   "hra-calculator": {
     aboutTitle: "About HRA Calculator",
@@ -2532,6 +2596,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
       { question: "Is my text private?", answer: "Yes. All counting happens locally in your browser. Nothing is uploaded." },
       { question: "What's the difference from Word Counter?", answer: "Character Counter focuses on character and paragraph stats. Word Counter also shows reading time." },
     ],
+    blogGuide: {
+      href: "/blog/writing-seo-tools-for-content-creators",
+      title: "Free writing and SEO tools for content creators",
+    },
   },
   "bmi-calculator": {
     aboutTitle: "About BMI Calculator",
@@ -2555,6 +2623,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
       { question: "Can I use kg and cm?", answer: "Yes. Select Metric mode for kilograms and centimeters." },
       { question: "Is BMI calculator free?", answer: "Yes. WorkUtilities BMI Calculator is free with no signup required." },
     ],
+    blogGuide: {
+      href: "/blog/bmi-calculator-guide",
+      title: "BMI calculator — what your body mass index means",
+    },
   },
   "compound-interest": {
     aboutTitle: "About Compound Interest Calculator",
@@ -2578,6 +2650,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
       { question: "What rate should I use?", answer: "Use your expected annual return rate. FD rates are typically 6–8%, equity may be higher long-term." },
       { question: "Is compound interest calculator free?", answer: "Yes. WorkUtilities Compound Interest Calculator is free with no limits." },
     ],
+    blogGuide: {
+      href: "/blog/compound-interest-calculator-guide",
+      title: "Compound interest calculator — how compounding grows money",
+    },
   },
   "timezone-converter": {
     aboutTitle: "About Time Zone Converter",
@@ -2655,6 +2731,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
       { question: "What entities are supported?", answer: "Common entities including ampersand, angle brackets, quotes, copyright, and euro symbol." },
       { question: "Is HTML entity tool free?", answer: "Yes. WorkUtilities HTML Entity Encoder/Decoder is free with no signup." },
     ],
+    blogGuide: {
+      href: "/blog/developer-data-encoding-tools-guide",
+      title: "5 essential data encoding tools for developers",
+    },
   },
   "color-contrast": {
     aboutTitle: "About Color Contrast Checker",
@@ -2678,6 +2758,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
       { question: "What color formats work?", answer: "Enter 6-digit hex values like #000000 and #FFFFFF." },
       { question: "Is color contrast checker free?", answer: "Yes. WorkUtilities Color Contrast Checker is free with no signup." },
     ],
+    blogGuide: {
+      href: "/blog/design-tools-for-developers-guide",
+      title: "Color and design tools every developer needs",
+    },
   },
   "jwt-decoder": {
     aboutTitle: "About JWT Decoder",
@@ -2757,7 +2841,7 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
     aboutParagraphs: [
       "Our free LTA Calculator computes Leave Travel Allowance tax exemption as per Indian income tax rules.",
       "Enter annual LTA received and actual eligible travel expenses to see exempt and taxable amounts.",
-      "Helps salaried employees in India maximize LTA tax benefits during the 4-year block period.",
+      "Helps salaried employees in India maximize LTA tax benefits during the current 2026–2029 block period.",
     ],
     whenToUseTitle: "When Should You Use LTA Calculator?",
     useCases: [
@@ -2769,8 +2853,9 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
     ],
     faqs: [
       { question: "What expenses qualify for LTA?", answer: "Air, rail, or bus fare for self and family — not hotel, food, or local transport." },
-      { question: "How many trips are allowed?", answer: "Maximum 2 journeys in a block of 4 calendar years." },
+      { question: "How many trips are allowed?", answer: "Maximum 2 journeys in a block of 4 calendar years. The current block is 2026–2029." },
       { question: "How is exemption calculated?", answer: "Minimum of LTA received and actual eligible travel expense." },
+      { question: "Is LTA available under the New Tax Regime?", answer: "No. LTA exemption applies only under the Old Tax Regime — under the New Regime, LTA is fully taxable." },
       { question: "Is LTA available every year?", answer: "LTA exemption is limited to 2 trips per 4-year block, not every year." },
       { question: "Is LTA calculator free?", answer: "Yes. WorkUtilities LTA Calculator is free with no signup." },
     ],
@@ -2820,6 +2905,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
       { question: "Is my content uploaded?", answer: "No. All analysis happens locally in your browser." },
       { question: "Is keyword density checker free?", answer: "Yes. WorkUtilities Keyword Density Checker is free with no limits." },
     ],
+    blogGuide: {
+      href: "/blog/writing-seo-tools-for-content-creators",
+      title: "Free writing and SEO tools for content creators",
+    },
   },
   "morse-code": {
     aboutTitle: "About Morse Code Converter",
@@ -2843,6 +2932,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
       { question: "Is conversion instant?", answer: "Yes. Output updates in real time as you type." },
       { question: "Is Morse code converter free?", answer: "Yes. WorkUtilities Morse Code Converter is free with no signup." },
     ],
+    blogGuide: {
+      href: "/blog/useful-text-utility-tools-guide",
+      title: "Lorem Ipsum, number to words, text diff, and Morse code explained",
+    },
   },
   "xml-formatter": {
     aboutTitle: "About XML Formatter",
@@ -2866,6 +2959,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
       { question: "What if XML is invalid?", answer: "A red error card shows the parser error message." },
       { question: "Is XML formatter free?", answer: "Yes. WorkUtilities XML Formatter is free with no limits." },
     ],
+    blogGuide: {
+      href: "/blog/developer-data-encoding-tools-guide",
+      title: "5 essential data encoding tools for developers",
+    },
   },
   "inflation-calculator": {
     aboutTitle: "About Inflation Calculator",

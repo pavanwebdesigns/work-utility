@@ -195,6 +195,83 @@ export const blogPosts: BlogPost[] = [
     cta: { toolName: "Time Zone Converter", toolHref: "/tools/timezone-converter" },
   },
   {
+    slug: "bmi-calculator-guide",
+    title: "BMI Calculator — What Your Body Mass Index Actually Means",
+    excerpt:
+      "Calculate your BMI free online using metric or imperial units. See WHO weight categories and understand what BMI does and doesn't tell you.",
+    category: "Finance",
+    readTime: "5 min read",
+    author: "Alex Morgan",
+    lastUpdated: "June 2026",
+    cta: { toolName: "BMI Calculator", toolHref: "/tools/bmi-calculator" },
+  },
+  {
+    slug: "compound-interest-calculator-guide",
+    title: "Compound Interest Calculator — How Compounding Actually Grows Your Money",
+    excerpt:
+      "Free compound interest calculator. See exactly how your investment grows over time, and the difference compounding frequency makes to your returns.",
+    category: "Finance",
+    readTime: "6 min read",
+    author: "Alex Morgan",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Compound Interest Calculator", toolHref: "/tools/compound-interest" },
+  },
+  {
+    slug: "how-to-convert-pdf-to-jpg-online-free",
+    title: "How to Convert PDF to JPG Online Free",
+    excerpt:
+      "Convert PDF pages to JPG images free online. Each page becomes a separate image, ready to download. No signup, nothing uploaded to a server.",
+    category: "PDF",
+    readTime: "5 min read",
+    author: "Alex Morgan",
+    lastUpdated: "June 2026",
+    cta: { toolName: "PDF to JPG", toolHref: "/tools/pdf-to-jpg" },
+  },
+  {
+    slug: "how-to-convert-image-formats-online",
+    title: "How to Convert Image Formats Online — JPG, PNG, WebP Explained",
+    excerpt:
+      "Convert images between JPG, PNG, and WebP free online. Understand which format to use for photos, graphics, and web performance. No signup.",
+    category: "Images",
+    readTime: "6 min read",
+    author: "Alex Morgan",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Image Converter", toolHref: "/tools/image-converter" },
+  },
+  {
+    slug: "how-to-convert-webp-to-jpg",
+    title: "How to Convert WebP to JPG Online Free",
+    excerpt:
+      "Convert WebP images to JPG free online. Fix compatibility issues with older apps, devices, and editors that don't support WebP. No signup.",
+    category: "Images",
+    readTime: "4 min read",
+    author: "Alex Morgan",
+    lastUpdated: "June 2026",
+    cta: { toolName: "WebP to JPG", toolHref: "/tools/webp-to-jpg" },
+  },
+  {
+    slug: "how-to-convert-excel-to-pdf-free",
+    title: "How to Convert Excel to PDF Online Free",
+    excerpt:
+      "Convert Excel spreadsheets to PDF free online. Keep formatting consistent for sharing, printing, or submitting reports. No signup, no uploads.",
+    category: "PDF & Documents",
+    readTime: "5 min read",
+    author: "Alex Morgan",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Excel to PDF", toolHref: "/tools/excel-to-pdf" },
+  },
+  {
+    slug: "how-to-convert-ppt-to-pdf-free",
+    title: "How to Convert PowerPoint to PDF Online Free",
+    excerpt:
+      "Convert PowerPoint presentations to PDF free online. Share slides without editable access, and keep formatting and fonts identical for everyone.",
+    category: "PDF & Documents",
+    readTime: "5 min read",
+    author: "Alex Morgan",
+    lastUpdated: "June 2026",
+    cta: { toolName: "PPT to PDF", toolHref: "/tools/ppt-to-pdf" },
+  },
+  {
     slug: "aadhaar-card-photo-size",
     title: "Aadhaar Card Photo Size: The Complete Guide (2026)",
     excerpt:
@@ -733,6 +810,61 @@ export const blogPosts: BlogPost[] = [
     lastUpdated: "June 2026",
     cta: { toolName: "Image to PDF", toolHref: "/tools/image-to-pdf" },
   },
+  {
+    slug: "tip-calculator-guide",
+    title: "Tip Calculator — How to Split a Bill and Calculate Tips Fairly",
+    excerpt:
+      "Free tip calculator. Calculate tip amount, split the bill between any number of people, and see the total per person instantly. No signup.",
+    category: "Finance",
+    readTime: "5 min read",
+    author: "Alex Morgan",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Tip Calculator", toolHref: "/tools/tip-calculator" },
+  },
+  {
+    slug: "developer-data-encoding-tools-guide",
+    title: "5 Essential Data Encoding & Conversion Tools for Developers",
+    excerpt:
+      "Free online tools for URL encoding, binary conversion, HTML entities, CSV to JSON, and XML formatting. No signup, runs entirely in your browser.",
+    category: "Developer Tools",
+    readTime: "6 min read",
+    author: "Alex Morgan",
+    lastUpdated: "June 2026",
+    cta: { toolName: "URL Encoder", toolHref: "/tools/url-encoder" },
+  },
+  {
+    slug: "design-tools-for-developers-guide",
+    title: "Color and Design Tools Every Developer Needs",
+    excerpt:
+      "Free online color picker, contrast checker, aspect ratio calculator, and Markdown converter for developers and designers. No signup needed.",
+    category: "Developer Tools",
+    readTime: "6 min read",
+    author: "Alex Morgan",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Color Picker", toolHref: "/tools/color-picker" },
+  },
+  {
+    slug: "writing-seo-tools-for-content-creators",
+    title: "Free Writing and SEO Tools for Content Creators",
+    excerpt:
+      "Free character counter, text case converter, and keyword density checker for writers and SEO content creators. No signup, instant results.",
+    category: "Developer Tools",
+    readTime: "5 min read",
+    author: "Alex Morgan",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Character Counter", toolHref: "/tools/character-counter" },
+  },
+  {
+    slug: "useful-text-utility-tools-guide",
+    title: "Lorem Ipsum, Number to Words, Text Diff, and Morse Code — Handy Text Utilities Explained",
+    excerpt:
+      "Free online text tools: Lorem Ipsum generator, number to words converter, text diff checker, and Morse code translator. No signup needed.",
+    category: "Developer Tools",
+    readTime: "6 min read",
+    author: "Alex Morgan",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Lorem Ipsum Generator", toolHref: "/tools/lorem-ipsum" },
+  },
 ];
 
 export const blogPostBySlug = Object.fromEntries(
@@ -1183,6 +1315,90 @@ export const blogSeoMetadata: Record<
       "Convert time between time zones free online. Schedule international meetings, calls, and remote team standups without timezone math mistakes.",
     keywords:
       "time zone converter, convert time zones online free, schedule international meeting, IST to EST converter, remote team timezone",
+  },
+  "bmi-calculator-guide": {
+    title: "BMI Calculator Free — Check Your Body Mass Index Online",
+    description:
+      "Calculate your BMI free online using metric or imperial units. See WHO weight categories and understand what BMI does and doesn't tell you.",
+    keywords:
+      "BMI calculator, body mass index calculator free, BMI chart WHO categories, calculate BMI metric imperial, BMI meaning",
+  },
+  "compound-interest-calculator-guide": {
+    title: "Compound Interest Calculator Free — See How Money Grows",
+    description:
+      "Free compound interest calculator. See exactly how your investment grows over time, and the difference compounding frequency makes to your returns.",
+    keywords:
+      "compound interest calculator, compound interest formula calculator free, rule of 72, investment growth calculator, compounding frequency",
+  },
+  "how-to-convert-pdf-to-jpg-online-free": {
+    title: "PDF to JPG Converter Online Free — No Signup",
+    description:
+      "Convert PDF pages to JPG images free online. Each page becomes a separate image, ready to download. No signup, nothing uploaded to a server.",
+    keywords:
+      "PDF to JPG converter, convert PDF to image free online, PDF page to JPG, extract PDF pages as images, PDF to JPEG browser",
+  },
+  "how-to-convert-image-formats-online": {
+    title: "Image Converter Online Free — JPG, PNG, WebP",
+    description:
+      "Convert images between JPG, PNG, and WebP free online. Understand which format to use for photos, graphics, and web performance. No signup.",
+    keywords:
+      "image converter online, convert JPG PNG WebP free, image format converter, PNG to JPG online, WebP converter",
+  },
+  "how-to-convert-webp-to-jpg": {
+    title: "WebP to JPG Converter Online Free — No Signup",
+    description:
+      "Convert WebP images to JPG free online. Fix compatibility issues with older apps, devices, and editors that don't support WebP. No signup.",
+    keywords:
+      "WebP to JPG converter, convert WebP to JPEG free, WebP compatibility fix, WebP image converter online, open WebP in photo editor",
+  },
+  "how-to-convert-excel-to-pdf-free": {
+    title: "Excel to PDF Converter Online Free — No Signup",
+    description:
+      "Convert Excel spreadsheets to PDF free online. Keep formatting consistent for sharing, printing, or submitting reports. No signup, no uploads.",
+    keywords:
+      "Excel to PDF converter, convert XLSX to PDF free online, spreadsheet to PDF, Excel PDF no upload, Excel report PDF",
+  },
+  "how-to-convert-ppt-to-pdf-free": {
+    title: "PowerPoint to PDF Converter Online Free — No Signup",
+    description:
+      "Convert PowerPoint presentations to PDF free online. Share slides without editable access, and keep formatting and fonts identical for everyone.",
+    keywords:
+      "PowerPoint to PDF converter, PPT to PDF free online, convert PPTX to PDF, presentation to PDF no signup, slides to PDF",
+  },
+  "tip-calculator-guide": {
+    title: "Tip Calculator Free — Split Bills & Calculate Tips Online",
+    description:
+      "Free tip calculator. Calculate tip amount, split the bill between any number of people, and see the total per person instantly. No signup.",
+    keywords:
+      "tip calculator, split bill calculator, calculate tip online free, restaurant tip calculator, bill splitter",
+  },
+  "developer-data-encoding-tools-guide": {
+    title: "5 Data Encoding Tools for Developers — Free Online",
+    description:
+      "Free online tools for URL encoding, binary conversion, HTML entities, CSV to JSON, and XML formatting. No signup, runs entirely in your browser.",
+    keywords:
+      "data encoding tools online, URL encoder, binary converter, HTML entity encoder, CSV to JSON, XML formatter",
+  },
+  "design-tools-for-developers-guide": {
+    title: "Color & Design Tools for Developers — Free Online",
+    description:
+      "Free online color picker, contrast checker, aspect ratio calculator, and Markdown converter for developers and designers. No signup needed.",
+    keywords:
+      "color tools for developers, color picker online, WCAG contrast checker, aspect ratio calculator, markdown to HTML",
+  },
+  "writing-seo-tools-for-content-creators": {
+    title: "Free Writing & SEO Tools for Content Creators",
+    description:
+      "Free character counter, text case converter, and keyword density checker for writers and SEO content creators. No signup, instant results.",
+    keywords:
+      "writing tools for content creators, character counter, text case converter, keyword density checker, SEO writing tools",
+  },
+  "useful-text-utility-tools-guide": {
+    title: "Text Utility Tools Online Free — Lorem Ipsum & More",
+    description:
+      "Free online text tools: Lorem Ipsum generator, number to words converter, text diff checker, and Morse code translator. No signup needed.",
+    keywords:
+      "text utility tools online, lorem ipsum generator, number to words converter, text diff checker, morse code translator",
   },
 };
 

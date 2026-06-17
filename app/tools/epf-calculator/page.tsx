@@ -15,9 +15,10 @@ import {
   CalculatorInput,
   ResultCard,
 } from "@/components/calculator/CalculatorUi";
-import { calculateEPF } from "@/lib/epf-calculator";
+import { calculateEPF, DEFAULT_EPF_INTEREST_RATE } from "@/lib/epf-calculator";
 import { formatCurrency, parseNumberInput } from "@/lib/format-inr";
-import { useCurrency } from "@/lib/currency-context";
+import { useIndiaRulesCurrency } from "@/lib/use-india-rules-currency";
+import { IndiaRulesBadge } from "@/components/IndiaRulesBadge";
 
 const howItWorksSteps = [
   { step: "01", icon: PiggyBank, title: "Enter Details", description: "Enter salary, age, and EPF balance" },
@@ -26,7 +27,7 @@ const howItWorksSteps = [
 ];
 
 export default function EpfCalculatorPage() {
-  const { symbol, currency } = useCurrency();
+  const { symbol, currency } = useIndiaRulesCurrency();
   const fmt = (v: number) => formatCurrency(v, currency);
 
   const [basicSalary, setBasicSalary] = useState("30000");
@@ -34,7 +35,7 @@ export default function EpfCalculatorPage() {
   const [retirementAge, setRetirementAge] = useState("58");
   const [currentBalance, setCurrentBalance] = useState("50000");
   const [annualIncrement, setAnnualIncrement] = useState("5");
-  const [interestRate, setInterestRate] = useState("8.25");
+  const [interestRate, setInterestRate] = useState(String(DEFAULT_EPF_INTEREST_RATE));
   const [result, setResult] = useState<ReturnType<typeof calculateEPF> | null>(null);
 
   const handleCalculate = () => {
@@ -68,13 +69,16 @@ export default function EpfCalculatorPage() {
             <p className="mx-auto mt-3 max-w-md text-content-secondary">Estimate your Employee Provident Fund maturity with employer and employee contributions.</p>
             <div className="mt-4 flex justify-center"><FavoriteButton slug="epf-calculator" /></div>
           </div>
+
+          <IndiaRulesBadge toolSlug="epf-calculator" />
+
           <div className="mx-auto mt-10 max-w-xl space-y-5">
             <CalculatorField label={`Basic Salary (${symbol}/month)`} htmlFor="epf-salary"><CalculatorInput id="epf-salary" value={basicSalary} onChange={setBasicSalary} placeholder="30,000" /></CalculatorField>
             <CalculatorField label="Current Age" htmlFor="epf-age"><CalculatorInput id="epf-age" value={currentAge} onChange={setCurrentAge} placeholder="25" /></CalculatorField>
             <CalculatorField label="Retirement Age" htmlFor="epf-retire"><CalculatorInput id="epf-retire" value={retirementAge} onChange={setRetirementAge} placeholder="58" /></CalculatorField>
             <CalculatorField label={`Current EPF Balance (${symbol})`} htmlFor="epf-balance"><CalculatorInput id="epf-balance" value={currentBalance} onChange={setCurrentBalance} placeholder="50,000" /></CalculatorField>
             <CalculatorField label="Annual Salary Increment (%)" htmlFor="epf-inc"><CalculatorInput id="epf-inc" value={annualIncrement} onChange={setAnnualIncrement} placeholder="5" /></CalculatorField>
-            <CalculatorField label="Interest Rate (% p.a.)" htmlFor="epf-rate"><CalculatorInput id="epf-rate" value={interestRate} onChange={setInterestRate} placeholder="8.25" /></CalculatorField>
+            <CalculatorField label="Interest Rate (% p.a.)" htmlFor="epf-rate"><CalculatorInput id="epf-rate" value={interestRate} onChange={setInterestRate} placeholder={String(DEFAULT_EPF_INTEREST_RATE)} /></CalculatorField>
             <button type="button" onClick={handleCalculate} className="w-full rounded-xl bg-tool-convert py-3 text-sm font-semibold text-white hover:bg-tool-convert/90">Calculate</button>
           </div>
           {result && (

@@ -9,19 +9,19 @@ import { RelatedTools } from "@/components/RelatedTools";
 import { ToolFeedback } from "@/components/ToolFeedback";
 import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
-import { IndiaTaxNotice } from "@/components/IndiaTaxNotice";
+import { IndiaRulesBadge } from "@/components/IndiaRulesBadge";
 import { FavoriteButton } from "@/components/FavoriteButton";
 import {
   CalculatorField,
   CalculatorInput,
   BreakdownRow,
 } from "@/components/calculator/CalculatorUi";
-import { useCurrency } from "@/lib/currency-context";
+import { useIndiaRulesCurrency } from "@/lib/use-india-rules-currency";
 import { formatCurrency, parseNumberInput } from "@/lib/format-inr";
 import { annualHRA, calculateHRA } from "@/lib/hra-calculator";
 
 export default function HraCalculatorPage() {
-  const { symbol, currency } = useCurrency();
+  const { symbol, currency } = useIndiaRulesCurrency();
   const fmt = (value: number, decimals = 0) =>
     formatCurrency(value, currency, decimals);
 
@@ -75,14 +75,9 @@ export default function HraCalculatorPage() {
             <div className="mt-4 flex justify-center">
               <FavoriteButton slug="hra-calculator" />
             </div>
-            <IndiaTaxNotice />
-            {currency === "USD" && (
-              <p className="mx-auto mt-3 max-w-md rounded-lg border border-tool-photo/20 bg-tool-photo/5 px-3 py-2 text-xs text-content-secondary">
-                HRA is an Indian tax benefit. Results shown in USD are for
-                reference only.
-              </p>
-            )}
           </div>
+
+          <IndiaRulesBadge toolSlug="hra-calculator" />
 
           <div className="mt-10 space-y-5">
             <CalculatorField

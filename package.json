@@ -3,10 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "node scripts/generate-sw.mjs && next dev",
+    "build": "node scripts/generate-sw.mjs && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "jest",
+    "test:audit": "jest lib/__tests__/calculator-audit.test.ts"
   },
   "dependencies": {
     "@base-ui/react": "^1.5.0",
@@ -42,6 +44,7 @@
     "xlsx": "^0.18.5"
   },
   "devDependencies": {
+    "@types/jest": "^30.0.0",
     "@types/marked": "^5.0.2",
     "@types/node": "^20",
     "@types/qrcode": "^1.5.6",
@@ -50,8 +53,10 @@
     "autoprefixer": "^10.5.0",
     "eslint": "^8",
     "eslint-config-next": "14.2.35",
+    "jest": "^30.4.2",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
+    "ts-jest": "^29.4.11",
     "typescript": "^5"
   }
 }

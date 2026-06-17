@@ -76,14 +76,28 @@ export default function LtaExemptionRulesIndiaContent() {
 
       <hr />
 
+      <h2>Old Tax Regime Only</h2>
+
+      <p>
+        LTA exemption is available only under the Old Tax Regime. If you opt for
+        the New Tax Regime (Section 115BAC), the LTA component in your salary is
+        fully taxable — there is no exemption, regardless of actual travel. This
+        is one of the most commonly overlooked differences between the two
+        regimes.
+      </p>
+
+      <hr />
+
       <h2>The Block-of-4-Years Rule</h2>
 
       <p>
         LTA exemption can be claimed twice within a block of 4 calendar years,
-        not financial years — these blocks are fixed by the government (the
-        current block runs 2022–2025). If you don&apos;t use both claims within
-        a block, one unused claim can be carried over to the first year of the
-        next block, but only one.
+        not financial years — these blocks are fixed by the government. The
+        previous block (2022–2025) ended on 31 December 2025. The current block
+        runs 2026–2029. If you did not use both claims in the 2022–2025 block,
+        one unused claim could be carried forward — but only into calendar year
+        2026 (the first year of the new block). After 2026, any unclaimed
+        carry-forward from the old block is lost.
       </p>
 
       <hr />

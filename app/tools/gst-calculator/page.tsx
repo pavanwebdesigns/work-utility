@@ -19,12 +19,12 @@ import {
 } from "@/components/calculator/CalculatorUi";
 import { GST_RATES, calculateGst, type GstMode } from "@/lib/gst-calculator";
 import { formatCurrency, parseNumberInput } from "@/lib/format-inr";
-import { useCurrency } from "@/lib/currency-context";
-import { IndiaTaxNotice } from "@/components/IndiaTaxNotice";
+import { useIndiaRulesCurrency } from "@/lib/use-india-rules-currency";
+import { IndiaRulesBadge } from "@/components/IndiaRulesBadge";
 import { FavoriteButton } from "@/components/FavoriteButton";
 
 export default function GstCalculatorPage() {
-  const { symbol, currency } = useCurrency();
+  const { symbol, currency } = useIndiaRulesCurrency();
   const fmt = (value: number, decimals = 0) =>
     formatCurrency(value, currency, decimals);
   const [amount, setAmount] = useState("10000");
@@ -65,7 +65,7 @@ export default function GstCalculatorPage() {
             </div>
           </div>
 
-          <IndiaTaxNotice />
+          <IndiaRulesBadge toolSlug="gst-calculator" />
 
           <div className="mx-auto mt-10 max-w-xl space-y-5">
             <CalculatorField label={`Amount (${symbol})`} htmlFor="gst-amount">
