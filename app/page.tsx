@@ -131,11 +131,11 @@ export default function HomePage() {
 
             {isSearching && (
               <>
-                <p className="mb-4 text-left text-[11px] font-semibold tracking-[2px] text-content-muted">
+                <h2 className="mb-4 text-left text-[11px] font-semibold tracking-[2px] text-content-muted">
                   {searchResults.length > 0
                     ? `${searchResults.length} result${searchResults.length === 1 ? "" : "s"} for '${searchQuery.trim()}'`
                     : `No tools found for '${searchQuery.trim()}'`}
-                </p>
+                </h2>
 
                 {searchResults.length === 0 ? (
                   <div className="rounded-xl border border-surface-border bg-surface-card px-6 py-12 text-center">

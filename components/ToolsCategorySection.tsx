@@ -58,9 +58,9 @@ export function ToolsCategorySection() {
         })}
       </div>
 
-      <p className="mb-4 text-left text-[11px] font-semibold tracking-[2px] text-content-muted">
+      <h2 className="mb-4 text-left text-[11px] font-semibold tracking-[2px] text-content-muted">
         {TOOL_PAGE_SECTION_LABELS[activeCategory]} ({filteredTools.length})
-      </p>
+      </h2>
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {filteredTools.map((tool) => (

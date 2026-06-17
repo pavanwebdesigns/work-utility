@@ -59,7 +59,7 @@ const config: Config = {
         "surface-border": "#1F2D45",
         "content-primary": "#F0F4FF",
         "content-secondary": "#8B9ABB",
-        "content-muted": "#4A5568",
+        "content-muted": "#7F8A94",
         "brand-blue": "#3B82F6",
         "brand-blue-light": "#60A5FA",
         "tool-pdf": "#EF4444",

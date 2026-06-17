@@ -113,9 +113,9 @@ export function ToolsSection() {
 
       <section className="bg-surface-base px-4 py-12 sm:px-10">
         <div className="mx-auto max-w-6xl">
-          <p className="mb-4 text-[11px] font-semibold tracking-[2px] text-content-muted">
+          <h2 className="mb-4 text-[11px] font-semibold tracking-[2px] text-content-muted">
             {sectionLabels[activeCategory]}
-          </p>
+          </h2>
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {filteredTools.map((tool) => (
               <ToolCard key={tool.href} {...tool} />
