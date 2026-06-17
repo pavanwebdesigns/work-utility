@@ -49,16 +49,8 @@ function setCookie(name: string, value: string) {
   document.cookie = `${name}=${encodeURIComponent(value)};path=/;max-age=${60 * 60 * 24 * 365};samesite=lax`;
 }
 
-export function CurrencyProvider({
-  children,
-  defaultCurrency,
-}: {
-  children: ReactNode;
-  defaultCurrency?: Currency;
-}) {
-  const [currency, setCurrencyState] = useState<Currency>(
-    defaultCurrency ?? "USD",
-  );
+export function CurrencyProvider({ children }: { children: ReactNode }) {
+  const [currency, setCurrencyState] = useState<Currency>("USD");
 
   useEffect(() => {
     const saved = localStorage.getItem(STORAGE_KEY) as Currency | null;
@@ -70,10 +62,8 @@ export function CurrencyProvider({
     const cookieDefault = readCookie(DEFAULT_COOKIE) as Currency | null;
     if (cookieDefault === "INR" || cookieDefault === "USD") {
       setCurrencyState(cookieDefault);
-    } else if (defaultCurrency) {
-      setCurrencyState(defaultCurrency);
     }
-  }, [defaultCurrency]);
+  }, []);
 
   const setRegion = (region: Region) => {
     const next = regionToCurrency(region);

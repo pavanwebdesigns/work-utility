@@ -1,23 +1,20 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import type { ReactNode } from "react";
-import { FavoritesDrawer } from "@/components/FavoritesDrawer";
-import {
-  CurrencyProvider,
-  type Currency,
-} from "@/lib/currency-context";
+import { CurrencyProvider } from "@/lib/currency-context";
 import { FavoritesProvider } from "@/lib/favorites-context";
 import { FavoritesDrawerProvider } from "@/lib/favorites-drawer-context";
 
-export function Providers({
-  children,
-  defaultCurrency,
-}: {
-  children: ReactNode;
-  defaultCurrency?: Currency;
-}) {
+const FavoritesDrawer = dynamic(
+  () =>
+    import("@/components/FavoritesDrawer").then((mod) => mod.FavoritesDrawer),
+  { ssr: false },
+);
+
+export function Providers({ children }: { children: ReactNode }) {
   return (
-    <CurrencyProvider defaultCurrency={defaultCurrency}>
+    <CurrencyProvider>
       <FavoritesProvider>
         <FavoritesDrawerProvider>
           {children}
