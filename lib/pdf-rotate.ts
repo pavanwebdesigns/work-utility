@@ -1,18 +1,20 @@
-import { degrees } from "pdf-lib";
+import { degrees, reduceRotation } from "pdf-lib";
 import { loadPdfDocument } from "@/lib/pdf-document";
 
 export type PageRotation = 0 | 90 | 180 | 270;
 
 export async function applyPageRotations(
-  file: File,
+  source: File | Uint8Array,
   pageRotations: PageRotation[],
 ): Promise<Blob> {
-  const pdfDoc = await loadPdfDocument(file);
+  const pdfDoc = await loadPdfDocument(source);
   const pages = pdfDoc.getPages();
 
   pages.forEach((page, index) => {
-    const rotation = pageRotations[index] ?? 0;
-    page.setRotation(degrees(rotation));
+    const uiRotation = pageRotations[index] ?? 0;
+    const existingRotation = page.getRotation().angle;
+    const totalRotation = reduceRotation(existingRotation + uiRotation);
+    page.setRotation(degrees(totalRotation));
   });
 
   const pdfBytes = await pdfDoc.save();

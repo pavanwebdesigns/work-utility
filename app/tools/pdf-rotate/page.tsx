@@ -36,6 +36,7 @@ const howItWorksSteps = [
 export default function PdfRotatePage() {
   const inputRef = useRef<HTMLInputElement>(null);
   const [file, setFile] = useState<File | null>(null);
+  const pdfBytesRef = useRef<Uint8Array | null>(null);
   const [thumbnails, setThumbnails] = useState<{ pageNumber: number; dataUrl: string }[]>([]);
   const [rotations, setRotations] = useState<PageRotation[]>([]);
   const [outputBlob, setOutputBlob] = useState<Blob | null>(null);
@@ -64,12 +65,18 @@ export default function PdfRotatePage() {
     setIsLoading(true);
 
     try {
-      const thumbs = await renderPdfThumbnails(selected);
+      const bytes = new Uint8Array(await selected.arrayBuffer());
+      pdfBytesRef.current = bytes;
+      const thumbs = await renderPdfThumbnails(
+        new File([bytes], selected.name, { type: "application/pdf" }),
+      );
       setThumbnails(thumbs);
       setRotations(thumbs.map(() => 0 as PageRotation));
-    } catch {
+    } catch (err) {
+      console.error("PDF rotate upload failed:", err);
       setError("Unable to read PDF. The file may be corrupted or password-protected.");
       setFile(null);
+      pdfBytesRef.current = null;
       setThumbnails([]);
     } finally {
       setIsLoading(false);
@@ -91,13 +98,14 @@ export default function PdfRotatePage() {
   };
 
   const handleApply = async () => {
-    if (!file) return;
+    if (!pdfBytesRef.current) return;
     setIsProcessing(true);
     setError(null);
     try {
-      const blob = await applyPageRotations(file, rotations);
+      const blob = await applyPageRotations(pdfBytesRef.current, rotations);
       setOutputBlob(blob);
-    } catch {
+    } catch (err) {
+      console.error("PDF rotate apply failed:", err);
       setError("Rotation failed. Please try again.");
     } finally {
       setIsProcessing(false);
@@ -116,6 +124,7 @@ export default function PdfRotatePage() {
 
   const handleClear = () => {
     setFile(null);
+    pdfBytesRef.current = null;
     setThumbnails([]);
     setRotations([]);
     resetOutput();

@@ -1,11 +1,8 @@
-const PDFJS_LEGACY_MODULE = "pdfjs-dist/legacy/build/pdf.mjs";
-
 async function loadPdfJs() {
-  const pdfjsLib = await import(PDFJS_LEGACY_MODULE);
+  const pdfjsLib = await import("pdfjs-dist/legacy/build/pdf.mjs");
 
   if (!pdfjsLib.GlobalWorkerOptions.workerSrc) {
-    // Bundled at build time from node_modules/pdfjs-dist (see scripts/generate-sw.mjs).
-    // Old code used pdf.js v3.11.174 CDN worker with pdfjs-dist v6 — version mismatch broke loading.
+    // Copied from node_modules at build/dev time (scripts/generate-sw.mjs).
     pdfjsLib.GlobalWorkerOptions.workerSrc = "/pdf.worker.min.mjs";
   }
 
