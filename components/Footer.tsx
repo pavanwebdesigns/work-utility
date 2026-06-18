@@ -66,6 +66,17 @@ export function Footer() {
         <p className="text-center text-xs text-content-secondary">
           © 2026 WorkUtilities.com — Free tools, always.
         </p>
+        <p className="mt-1 text-center text-xs text-content-secondary">
+          Also by us:{" "}
+          <a
+            href="https://workprompts.in"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#8B9ABB] transition-colors hover:text-content-primary"
+          >
+            WorkPrompts — AI Prompt Directory →
+          </a>
+        </p>
       </div>
     </footer>
   );
