@@ -1,7 +1,14 @@
+const PDFJS_LEGACY_MODULE = "pdfjs-dist/legacy/build/pdf.mjs";
+
 async function loadPdfJs() {
-  const pdfjsLib = await import("pdfjs-dist/legacy/build/pdf.mjs");
-  pdfjsLib.GlobalWorkerOptions.workerSrc =
-    "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+  const pdfjsLib = await import(PDFJS_LEGACY_MODULE);
+
+  if (!pdfjsLib.GlobalWorkerOptions.workerSrc) {
+    // Bundled at build time from node_modules/pdfjs-dist (see scripts/generate-sw.mjs).
+    // Old code used pdf.js v3.11.174 CDN worker with pdfjs-dist v6 — version mismatch broke loading.
+    pdfjsLib.GlobalWorkerOptions.workerSrc = "/pdf.worker.min.mjs";
+  }
+
   return pdfjsLib;
 }
 

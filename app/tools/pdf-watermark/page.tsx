@@ -11,7 +11,7 @@ import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
 import { FavoriteButton } from "@/components/FavoriteButton";
 import { applyWatermark, formatFileSize, type WatermarkType } from "@/lib/pdf-watermark";
-import { getPdfPageCount } from "@/lib/pdf-thumbnails";
+import { getTotalPages } from "@/lib/pdf-document";
 
 const MAX_FILE_SIZE = 50 * 1024 * 1024;
 
@@ -41,7 +41,7 @@ export default function PdfWatermarkPage() {
     setOutputBlob(null);
     setError(null);
     setIsLoading(true);
-    try { setPageCount(await getPdfPageCount(selected)); } catch { setError("Unable to read PDF."); setFile(null); }
+    try { setPageCount(await getTotalPages(selected)); } catch { setError("Unable to read PDF."); setFile(null); }
     finally { setIsLoading(false); }
   };
 

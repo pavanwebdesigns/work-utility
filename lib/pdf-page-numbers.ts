@@ -1,4 +1,5 @@
-import { PDFDocument, StandardFonts, rgb } from "pdf-lib";
+import { StandardFonts, rgb } from "pdf-lib";
+import { loadPdfDocument } from "@/lib/pdf-document";
 
 export type PageNumberPosition =
   | "top-left"
@@ -47,8 +48,7 @@ export async function addPageNumbers(
   file: File,
   options: PageNumberOptions,
 ): Promise<Blob> {
-  const arrayBuffer = await file.arrayBuffer();
-  const pdfDoc = await PDFDocument.load(arrayBuffer);
+  const pdfDoc = await loadPdfDocument(file);
   const font = await pdfDoc.embedFont(StandardFonts.Helvetica);
   const pages = pdfDoc.getPages();
   const total = pages.length;

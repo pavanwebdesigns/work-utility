@@ -16,7 +16,7 @@ import {
   type PageNumberFormat,
   type PageNumberPosition,
 } from "@/lib/pdf-page-numbers";
-import { getPdfPageCount } from "@/lib/pdf-thumbnails";
+import { getTotalPages } from "@/lib/pdf-document";
 
 const MAX_FILE_SIZE = 50 * 1024 * 1024;
 
@@ -63,7 +63,7 @@ export default function PdfPageNumbersPage() {
     setError(null);
     setIsLoading(true);
     try {
-      setPageCount(await getPdfPageCount(selected));
+      setPageCount(await getTotalPages(selected));
     } catch {
       setError("Unable to read PDF.");
       setFile(null);

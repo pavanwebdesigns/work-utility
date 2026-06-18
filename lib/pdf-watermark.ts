@@ -1,5 +1,4 @@
 import {
-  PDFDocument,
   StandardFonts,
   rgb,
   degrees,
@@ -7,6 +6,7 @@ import {
   type PDFFont,
   type PDFImage,
 } from "pdf-lib";
+import { loadPdfDocument } from "@/lib/pdf-document";
 
 export type WatermarkType = "text" | "image";
 
@@ -113,8 +113,7 @@ export async function applyWatermark(
   file: File,
   options: WatermarkOptions,
 ): Promise<Blob> {
-  const arrayBuffer = await file.arrayBuffer();
-  const pdfDoc = await PDFDocument.load(arrayBuffer);
+  const pdfDoc = await loadPdfDocument(file);
   const pages = pdfDoc.getPages();
 
   if (options.type === "text") {

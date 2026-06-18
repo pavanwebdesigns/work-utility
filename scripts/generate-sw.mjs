@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync } from "node:fs";
+import { readFileSync, writeFileSync, copyFileSync } from "node:fs";
 import { createHash } from "node:crypto";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
@@ -22,6 +22,11 @@ writeFileSync(join(root, "..", "public", "sw.js"), sw);
 writeFileSync(
   join(root, "..", "public", "sw-version.json"),
   JSON.stringify({ version }, null, 2),
+);
+
+copyFileSync(
+  join(root, "..", "node_modules/pdfjs-dist/legacy/build/pdf.worker.min.mjs"),
+  join(root, "..", "public", "pdf.worker.min.mjs"),
 );
 
 console.log(`Generated service worker (version: ${version})`);
