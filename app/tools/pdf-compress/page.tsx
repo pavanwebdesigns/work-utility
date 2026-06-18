@@ -15,6 +15,7 @@ import {
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { RelatedTools } from "@/components/RelatedTools";
+import { SoftwareApplicationJsonLd } from "@/components/SoftwareApplicationJsonLd";
 import { ToolFeedback } from "@/components/ToolFeedback";
 import { DinoGame } from "@/components/DinoGame";
 import { FavoriteButton } from "@/components/FavoriteButton";
@@ -452,6 +453,7 @@ export default function PdfCompressPage() {
           </div>
 
           <RelatedTools currentSlug="pdf-compress" />
+          <SoftwareApplicationJsonLd slug="pdf-compress" />
           <ToolFeedback toolName="PDF Compress" />
 
           <div className="mt-12 border-t border-surface-border pt-12">

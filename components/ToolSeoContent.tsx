@@ -7,6 +7,7 @@ import {
   getToolSeoContent,
   type ToolSeoSlug,
 } from "@/lib/tool-seo-content";
+import { SoftwareApplicationJsonLd } from "@/components/SoftwareApplicationJsonLd";
 
 type ToolSeoContentProps = {
   slug: ToolSeoSlug;
@@ -31,6 +32,7 @@ export function ToolSeoContent({ slug }: ToolSeoContentProps) {
 
   return (
     <div className="mt-12 border-t border-surface-border pt-12">
+      <SoftwareApplicationJsonLd slug={slug} />
       <section>
         <h2 className="text-lg font-semibold text-content-primary sm:text-xl">
           {content.aboutTitle}
