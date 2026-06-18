@@ -77,6 +77,8 @@ export const SLUG_TO_MENU_CATEGORY: Record<string, MenuCategoryId> = {
   "hourly-to-salary": "finance",
   "inflation-calculator": "finance",
   "notice-period-calculator": "finance",
+  "paycheck-calculator": "finance",
+  "mortgage-calculator": "finance",
   "word-counter": "student",
   "age-calculator": "student",
   "cgpa-to-percentage": "student",

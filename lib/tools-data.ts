@@ -1081,6 +1081,30 @@ export const ALL_TOOLS = [
     category: "Time & Productivity",
   },
   {
+    slug: "paycheck-calculator",
+    name: "Paycheck Calculator",
+    description: "Estimate US take-home pay after tax & FICA",
+    href: "/tools/paycheck-calculator",
+    icon: "DollarSign",
+    color: "#3B82F6",
+    bgClass: "bg-tool-blue/10",
+    textClass: "text-tool-blue",
+    borderClass: "border-tool-blue",
+    category: "Finance Calculators",
+  },
+  {
+    slug: "mortgage-calculator",
+    name: "Mortgage Calculator",
+    description: "Monthly payment, PMI & amortization schedule",
+    href: "/tools/mortgage-calculator",
+    icon: "Home",
+    color: "#3B82F6",
+    bgClass: "bg-tool-blue/10",
+    textClass: "text-tool-blue",
+    borderClass: "border-tool-blue",
+    category: "Finance Calculators",
+  },
+  {
     slug: "rent-receipt-generator",
     name: "Rent Receipt Generator",
     description: "Create and download rent receipt PDFs",
@@ -1120,6 +1144,8 @@ export const RELATED_TOOLS: Record<string, string[]> = {
   "days-between-dates": ["age-calculator", "leap-year-checker", "timezone-converter"],
   "roman-numeral-converter": ["number-to-words", "text-case-converter", "percentage-calculator"],
   "leap-year-checker": ["days-between-dates", "age-calculator", "timezone-converter"],
+  "paycheck-calculator": ["hourly-to-salary", "mortgage-calculator", "income-tax-calculator"],
+  "mortgage-calculator": ["emi-calculator", "compound-interest", "paycheck-calculator"],
   "image-converter": ["image-compress", "photo-resizer", "image-to-pdf"],
   "heic-to-jpg": ["image-compress", "webp-to-jpg", "image-converter"],
   "webp-to-jpg": ["heic-to-jpg", "image-compress", "image-converter"],
@@ -1344,6 +1370,8 @@ export const TOOL_UI_META: Record<
   "days-between-dates": { accent: "blue", filterCategory: "convert" },
   "roman-numeral-converter": { accent: "pink", filterCategory: "convert" },
   "leap-year-checker": { accent: "blue", filterCategory: "convert" },
+  "paycheck-calculator": { accent: "blue", filterCategory: "convert", popular: true },
+  "mortgage-calculator": { accent: "blue", filterCategory: "convert", popular: true },
 };
 
 export function getToolBySlug(slug: string) {

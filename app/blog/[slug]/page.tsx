@@ -93,6 +93,8 @@ import GpaCalculatorGuideContent from "../content/gpa-calculator-guide";
 import DaysBetweenDatesCalculatorGuideContent from "../content/days-between-dates-calculator-guide";
 import RomanNumeralConverterGuideContent from "../content/roman-numeral-converter-guide";
 import LeapYearCheckerGuideContent from "../content/leap-year-checker-guide";
+import USPaycheckCalculatorGuideContent from "../content/us-paycheck-calculator-guide";
+import MortgageCalculatorGuideContent from "../content/mortgage-calculator-guide";
 
 const contentBySlug: Record<string, () => JSX.Element> = {
   "complete-pdf-tools-guide-india": CompletePdfToolsGuideIndiaContent,
@@ -210,6 +212,8 @@ const contentBySlug: Record<string, () => JSX.Element> = {
   "days-between-dates-calculator-guide": DaysBetweenDatesCalculatorGuideContent,
   "roman-numeral-converter-guide": RomanNumeralConverterGuideContent,
   "leap-year-checker-guide": LeapYearCheckerGuideContent,
+  "us-paycheck-calculator-guide": USPaycheckCalculatorGuideContent,
+  "mortgage-calculator-guide": MortgageCalculatorGuideContent,
 };
 
 export function generateStaticParams() {

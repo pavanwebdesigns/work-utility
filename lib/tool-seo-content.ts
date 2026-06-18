@@ -80,7 +80,9 @@ export type ToolSeoSlug =
   | "gpa-calculator"
   | "days-between-dates"
   | "roman-numeral-converter"
-  | "leap-year-checker";
+  | "leap-year-checker"
+  | "paycheck-calculator"
+  | "mortgage-calculator";
 
 type ToolSeoEntry = {
   aboutTitle: string;
@@ -3361,6 +3363,54 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
       { question: "Is leap year checker free?", answer: "Yes. WorkUtilities Leap Year Checker is free with no signup." },
     ],
     blogGuide: { href: "/blog/leap-year-checker-guide", title: "Leap year checker guide — the full rule explained" },
+  },
+  "paycheck-calculator": {
+    aboutTitle: "About Paycheck Calculator",
+    aboutParagraphs: [
+      "Our free 2026 Paycheck Calculator estimates your take-home pay after federal income tax, FICA (Social Security and Medicare), pre-tax deductions, and a simplified state tax estimate.",
+      "Uses precise 2026 IRS federal brackets and standard deductions (Rev. Proc. 2025-32). FICA includes the Social Security wage base and Additional Medicare thresholds.",
+      "Supports annual or hourly salary input, all common pay frequencies, filing status, and optional 401(k), health insurance, and HSA deductions.",
+    ],
+    whenToUseTitle: "When Should You Use Paycheck Calculator?",
+    useCases: [
+      { title: "Job offer comparison", description: "See estimated net pay before accepting a new salary." },
+      { title: "Raise planning", description: "Understand how a raise affects take-home after progressive tax brackets." },
+      { title: "Budgeting", description: "Convert annual salary to per-paycheck amounts for monthly budgets." },
+      { title: "401(k) decisions", description: "See how pre-tax retirement contributions lower federal tax." },
+      { title: "Relocation", description: "Compare take-home between no-income-tax and taxed states." },
+    ],
+    faqs: [
+      { question: "Why is my federal tax bracket different from my effective tax rate?", answer: "Your tax bracket is the rate on your highest dollar of income, but the US system is progressive — lower portions of your income are taxed at lower rates first, so your effective (average) rate is always lower than your top bracket." },
+      { question: "Will a raise ever reduce my take-home pay?", answer: "No — only the income that falls within a higher bracket is taxed at that bracket's rate; the rest continues being taxed at the lower rates it always was. A raise always increases take-home pay, even if part of it lands in a higher bracket." },
+      { question: "What's the difference between federal income tax and FICA?", answer: "Federal income tax funds general government operations and is based on your tax bracket. FICA (Social Security and Medicare taxes) is a separate flat-rate payroll tax that funds those specific programs, calculated differently from income tax." },
+      { question: "How accurate is the state tax shown?", answer: "Federal tax and FICA are calculated precisely from current IRS figures. State tax is a simplified flat-rate estimate (or zero, for the 9 no-income-tax states) — for an exact figure, check your specific state's tax tables." },
+      { question: "Is paycheck calculator free?", answer: "Yes. WorkUtilities Paycheck Calculator is free with no signup." },
+    ],
+    blogGuide: { href: "/blog/us-paycheck-calculator-guide", title: "Paycheck calculator guide — gross vs net, FICA, and tax brackets" },
+  },
+  "mortgage-calculator": {
+    aboutTitle: "About Mortgage Calculator",
+    aboutParagraphs: [
+      "Our free Mortgage Calculator shows your full monthly payment — principal, interest, property taxes, insurance, PMI, and HOA — not just P&I.",
+      "Includes a complete amortization schedule with CSV download and an extra-payment simulator showing interest saved and months shaved off.",
+      "PMI is auto-estimated when down payment is under 20%, with informational guidance on when equity may reach the 80% LTV threshold.",
+    ],
+    whenToUseTitle: "When Should You Use Mortgage Calculator?",
+    useCases: [
+      { title: "Home shopping", description: "See true monthly cost including taxes, insurance, and PMI." },
+      { title: "Down payment decisions", description: "Compare 10% vs 20% down and PMI impact." },
+      { title: "Rate shopping", description: "Model how interest rate changes affect payment and total interest." },
+      { title: "Extra payment planning", description: "See how additional monthly payments shorten the loan." },
+      { title: "Amortization review", description: "Understand how principal vs interest shifts over 15–30 years." },
+    ],
+    faqs: [
+      { question: "What does PITI mean in a mortgage payment?", answer: "PITI stands for Principal, Interest, Taxes, and Insurance — the four components that typically make up a full monthly mortgage payment, beyond just the loan repayment itself." },
+      { question: "Why do I have to pay PMI?", answer: "Private Mortgage Insurance is generally required when your down payment is under 20% of the home price. It protects the lender if you default, not you directly, and can usually be removed once you've built enough equity." },
+      { question: "Why is most of my early mortgage payment interest instead of principal?", answer: "Interest is calculated on your remaining loan balance, which is highest early in the loan — so a larger share of each payment goes to interest at first, gradually shifting toward principal as the balance shrinks." },
+      { question: "How much can extra payments actually save?", answer: "Even a modest extra amount paid early in a 30-year loan can meaningfully shorten the payoff timeline and reduce total interest, since it directly reduces the balance that future interest is calculated on — the calculator's extra-payment simulator shows the exact effect for your numbers." },
+      { question: "Is mortgage calculator free?", answer: "Yes. WorkUtilities Mortgage Calculator is free with no signup." },
+    ],
+    blogGuide: { href: "/blog/mortgage-calculator-guide", title: "Mortgage calculator guide — PITI, PMI, and amortization explained" },
   },
 };
 

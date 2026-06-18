@@ -1030,6 +1030,28 @@ export const blogPosts: BlogPost[] = [
     lastUpdated: "June 2026",
     cta: { toolName: "Leap Year Checker", toolHref: "/tools/leap-year-checker" },
   },
+  {
+    slug: "us-paycheck-calculator-guide",
+    title: "Paycheck Calculator Guide — Gross vs Net, FICA & Tax Brackets",
+    excerpt:
+      "Free 2026 paycheck calculator guide. Learn gross vs net pay, what FICA funds, why raises never reduce take-home, and how state tax estimates work.",
+    category: "Finance",
+    readTime: "7 min read",
+    author: "Sarah Mitchell",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Paycheck Calculator", toolHref: "/tools/paycheck-calculator" },
+  },
+  {
+    slug: "mortgage-calculator-guide",
+    title: "Mortgage Calculator Guide — PITI, PMI & Amortization Explained",
+    excerpt:
+      "Free mortgage calculator guide. Understand PITI, PMI, why early payments are mostly interest, and how extra payments save thousands over a 30-year loan.",
+    category: "Finance",
+    readTime: "8 min read",
+    author: "Sarah Mitchell",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Mortgage Calculator", toolHref: "/tools/mortgage-calculator" },
+  },
 ];
 
 export const blogPostBySlug = Object.fromEntries(
@@ -1669,6 +1691,20 @@ export const blogSeoMetadata: Record<
       "Check if any year is a leap year free online. Learn the divisible-by-4/100/400 rule, why 1900 wasn't a leap year, and why we need leap years at all.",
     keywords:
       "leap year checker guide, leap year rule explained, is 2026 a leap year",
+  },
+  "us-paycheck-calculator-guide": {
+    title: "Paycheck Calculator Guide — Gross vs Net Pay & FICA | WorkUtilities",
+    description:
+      "Free 2026 paycheck calculator guide. Learn gross vs net pay, what FICA funds, why raises never reduce take-home, and how state tax estimates work.",
+    keywords:
+      "paycheck calculator, take home pay calculator, salary after tax, 2026 tax brackets",
+  },
+  "mortgage-calculator-guide": {
+    title: "Mortgage Calculator Guide — PITI, PMI & Amortization | WorkUtilities",
+    description:
+      "Free mortgage calculator guide. Understand PITI, PMI, why early payments are mostly interest, and how extra payments save thousands over a 30-year loan.",
+    keywords:
+      "mortgage calculator, PITI explained, PMI mortgage, amortization schedule",
   },
 };
 
