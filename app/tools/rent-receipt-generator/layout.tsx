@@ -2,15 +2,14 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: {
-    absolute:
-      "Rent Receipt Generator Free — Download PDF Rent Receipt India | WorkUtilities",
+    absolute: "Rent Receipt Generator Free — PDF for HRA Claims",
   },
   description:
-    "Generate professional rent receipts for HRA claims. Create single or multiple month PDF rent receipts instantly.",
+    "Generate professional rent receipt PDFs for HRA tax claims in India. Create single or multi-month receipts with landlord and tenant details. Free download.",
   keywords:
     "rent receipt generator free, rent receipt pdf download, hra rent receipt format india",
   openGraph: {
-    title: "Rent Receipt Generator Free — Download PDF Rent Receipt India",
+    title: "Rent Receipt Generator Free — PDF for HRA Claims",
     description:
       "Create and download professional rent receipt PDFs for multiple months.",
     url: "https://workutilities.com/tools/rent-receipt-generator",

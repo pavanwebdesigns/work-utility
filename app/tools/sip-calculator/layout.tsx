@@ -2,15 +2,14 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: {
-    absolute:
-      "SIP Calculator Online Free — Mutual Fund SIP Returns Calculator India | WorkUtilities",
+    absolute: "SIP Calculator India Free — Mutual Fund Returns",
   },
   description:
-    "Calculate mutual fund SIP returns instantly. Free SIP calculator with maturity value, estimated returns, and year-by-year growth chart.",
+    "Calculate mutual fund SIP returns with maturity value, total invested, and estimated gains. Free SIP calculator with year-by-year growth projection for India.",
   keywords:
     "sip calculator online free, mutual fund sip calculator india, sip returns calculator, monthly sip calculator",
   openGraph: {
-    title: "SIP Calculator Online Free — Mutual Fund SIP Returns Calculator India",
+    title: "SIP Calculator India Free — Mutual Fund Returns",
     description:
       "Calculate SIP maturity value, total invested, and estimated returns instantly.",
     url: "https://workutilities.com/tools/sip-calculator",

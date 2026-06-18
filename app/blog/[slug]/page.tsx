@@ -78,6 +78,21 @@ import DeveloperDataEncodingToolsGuideContent from "../content/developer-data-en
 import DesignToolsForDevelopersGuideContent from "../content/design-tools-for-developers-guide";
 import WritingSeoToolsForContentCreatorsContent from "../content/writing-seo-tools-for-content-creators";
 import UsefulTextUtilityToolsGuideContent from "../content/useful-text-utility-tools-guide";
+import HowToRotatePdfPagesOnlineFreeContent from "../content/how-to-rotate-pdf-pages-online-free";
+import HowToAddPageNumbersToPdfFreeContent from "../content/how-to-add-page-numbers-to-pdf-free";
+import HowToAddWatermarkToPdfFreeContent from "../content/how-to-add-watermark-to-pdf-free";
+import HowToCreateFaviconOnlineFreeContent from "../content/how-to-create-favicon-online-free";
+import CalorieDeficitCalculatorGuideContent from "../content/calorie-deficit-calculator-guide";
+import HowToFormatSqlOnlineFreeContent from "../content/how-to-format-sql-online-free";
+import HowToConvertSvgToPngOnlineContent from "../content/how-to-convert-svg-to-png-online";
+import HowToExtractColorPaletteFromImageContent from "../content/how-to-extract-color-palette-from-image";
+import FreeTextToSpeechOnlineGuideContent from "../content/free-text-to-speech-online-guide";
+import CheckDeviceBrowserInfoOnlineContent from "../content/check-device-browser-info-online";
+import UuidGeneratorGuideContent from "../content/uuid-generator-guide";
+import GpaCalculatorGuideContent from "../content/gpa-calculator-guide";
+import DaysBetweenDatesCalculatorGuideContent from "../content/days-between-dates-calculator-guide";
+import RomanNumeralConverterGuideContent from "../content/roman-numeral-converter-guide";
+import LeapYearCheckerGuideContent from "../content/leap-year-checker-guide";
 
 const contentBySlug: Record<string, () => JSX.Element> = {
   "complete-pdf-tools-guide-india": CompletePdfToolsGuideIndiaContent,
@@ -180,6 +195,21 @@ const contentBySlug: Record<string, () => JSX.Element> = {
   "writing-seo-tools-for-content-creators":
     WritingSeoToolsForContentCreatorsContent,
   "useful-text-utility-tools-guide": UsefulTextUtilityToolsGuideContent,
+  "how-to-rotate-pdf-pages-online-free": HowToRotatePdfPagesOnlineFreeContent,
+  "how-to-add-page-numbers-to-pdf-free": HowToAddPageNumbersToPdfFreeContent,
+  "how-to-add-watermark-to-pdf-free": HowToAddWatermarkToPdfFreeContent,
+  "how-to-create-favicon-online-free": HowToCreateFaviconOnlineFreeContent,
+  "calorie-deficit-calculator-guide": CalorieDeficitCalculatorGuideContent,
+  "how-to-format-sql-online-free": HowToFormatSqlOnlineFreeContent,
+  "how-to-convert-svg-to-png-online": HowToConvertSvgToPngOnlineContent,
+  "how-to-extract-color-palette-from-image": HowToExtractColorPaletteFromImageContent,
+  "free-text-to-speech-online-guide": FreeTextToSpeechOnlineGuideContent,
+  "check-device-browser-info-online": CheckDeviceBrowserInfoOnlineContent,
+  "uuid-generator-guide": UuidGeneratorGuideContent,
+  "gpa-calculator-guide": GpaCalculatorGuideContent,
+  "days-between-dates-calculator-guide": DaysBetweenDatesCalculatorGuideContent,
+  "roman-numeral-converter-guide": RomanNumeralConverterGuideContent,
+  "leap-year-checker-guide": LeapYearCheckerGuideContent,
 };
 
 export function generateStaticParams() {

@@ -865,6 +865,171 @@ export const blogPosts: BlogPost[] = [
     lastUpdated: "June 2026",
     cta: { toolName: "Lorem Ipsum Generator", toolHref: "/tools/lorem-ipsum" },
   },
+  {
+    slug: "how-to-rotate-pdf-pages-online-free",
+    title: "How to Rotate PDF Pages Online Free — Fix Sideways Scans (2026)",
+    excerpt:
+      "Rotate PDF pages online free to fix sideways or upside-down scans. Rotate individual pages or the whole document. Permanent fix, no signup.",
+    category: "PDF",
+    readTime: "5 min read",
+    author: "Ravi Kumar",
+    lastUpdated: "June 2026",
+    cta: { toolName: "PDF Rotate", toolHref: "/tools/pdf-rotate" },
+  },
+  {
+    slug: "how-to-add-page-numbers-to-pdf-free",
+    title: "How to Add Page Numbers to PDF Free — Position, Format & Start Number",
+    excerpt:
+      "Add page numbers to any PDF online free. Choose position, starting number, and format. Skip cover pages. No signup, runs in your browser.",
+    category: "PDF",
+    readTime: "5 min read",
+    author: "Ravi Kumar",
+    lastUpdated: "June 2026",
+    cta: { toolName: "PDF Page Numbers", toolHref: "/tools/pdf-page-numbers" },
+  },
+  {
+    slug: "how-to-add-watermark-to-pdf-free",
+    title: "How to Add a Watermark to PDF Free — Text, Logo & Opacity Guide",
+    excerpt:
+      "Add text or image watermarks to PDFs online free. Mark drafts, confidential docs, or add your logo. Adjustable opacity. No signup needed.",
+    category: "PDF",
+    readTime: "5 min read",
+    author: "Ravi Kumar",
+    lastUpdated: "June 2026",
+    cta: { toolName: "PDF Watermark", toolHref: "/tools/pdf-watermark" },
+  },
+  {
+    slug: "how-to-create-favicon-online-free",
+    title: "How to Create a Favicon Online Free — favicon.ico, PNG Sizes & HTML Tags",
+    excerpt:
+      "Generate favicon.ico and all standard PNG sizes from any image free online. Get ready-to-paste HTML link tags. No signup needed.",
+    category: "Developer Tools",
+    readTime: "5 min read",
+    author: "Alex Morgan",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Favicon Generator", toolHref: "/tools/favicon-generator" },
+  },
+  {
+    slug: "calorie-deficit-calculator-guide",
+    title: "Calorie Deficit Calculator Guide — BMR, TDEE & Daily Targets Explained",
+    excerpt:
+      "Understand BMR, TDEE, and calorie deficits using the Mifflin-St Jeor formula. Informational guide with sustainable deficit context. Not medical advice.",
+    category: "Finance",
+    readTime: "6 min read",
+    author: "Sarah Mitchell",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Calorie Deficit Calculator", toolHref: "/tools/calorie-deficit-calculator" },
+  },
+  {
+    slug: "how-to-format-sql-online-free",
+    title: "How to Format SQL Online Free — Beautify Queries for Code Review",
+    excerpt:
+      "Format and beautify SQL queries online free. Auto-indent, capitalize keywords, and minify long queries. No signup, runs in your browser.",
+    category: "Developer Tools",
+    readTime: "5 min read",
+    author: "Alex Morgan",
+    lastUpdated: "June 2026",
+    cta: { toolName: "SQL Formatter", toolHref: "/tools/sql-formatter" },
+  },
+  {
+    slug: "how-to-convert-svg-to-png-online",
+    title: "How to Convert SVG to PNG Online Free — Any Resolution Guide",
+    excerpt:
+      "Convert SVG to PNG online free at any resolution. Transparent or solid background. Choose the right export size before converting.",
+    category: "Developer Tools",
+    readTime: "5 min read",
+    author: "Alex Morgan",
+    lastUpdated: "June 2026",
+    cta: { toolName: "SVG to PNG", toolHref: "/tools/svg-to-png" },
+  },
+  {
+    slug: "how-to-extract-color-palette-from-image",
+    title: "How to Extract a Color Palette from an Image Free Online",
+    excerpt:
+      "Extract dominant colors from any image with HEX and RGB codes. Great for branding, CSS, and design projects. No signup needed.",
+    category: "Developer Tools",
+    readTime: "5 min read",
+    author: "Alex Morgan",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Color Palette Extractor", toolHref: "/tools/color-palette-extractor" },
+  },
+  {
+    slug: "free-text-to-speech-online-guide",
+    title: "Free Text to Speech Online — Listen to Text in Your Browser",
+    excerpt:
+      "Convert text to speech free online using your browser's built-in voices. Proofread, practice pronunciation, and preview scripts. Playback only.",
+    category: "Students & Utilities",
+    readTime: "5 min read",
+    author: "Sarah Mitchell",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Text to Speech", toolHref: "/tools/text-to-speech" },
+  },
+  {
+    slug: "check-device-browser-info-online",
+    title: "Check Browser and Device Info Online Free — For Bug Reports",
+    excerpt:
+      "Check your browser, OS, screen resolution, and viewport details online free. Copy a full report for bug reports and troubleshooting.",
+    category: "Students & Utilities",
+    readTime: "4 min read",
+    author: "Sarah Mitchell",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Device Info", toolHref: "/tools/device-info" },
+  },
+  {
+    slug: "uuid-generator-guide",
+    title: "UUID Generator Guide — What UUIDs Are and When to Use Them",
+    excerpt:
+      "Generate random UUID v4 identifiers online free. Learn what UUIDs are, why they're practically collision-free, and when to use v4 vs other versions.",
+    category: "Developer Tools",
+    readTime: "5 min read",
+    author: "Alex Morgan",
+    lastUpdated: "June 2026",
+    cta: { toolName: "UUID Generator", toolHref: "/tools/uuid-generator" },
+  },
+  {
+    slug: "gpa-calculator-guide",
+    title: "GPA Calculator Guide — 4.0 Scale and Weighted GPA Explained",
+    excerpt:
+      "Free GPA calculator for US students. Learn the standard 4.0 grade-point mapping, weighted vs unweighted GPA, and a worked example with three courses.",
+    category: "Students & Utilities",
+    readTime: "6 min read",
+    author: "Sarah Mitchell",
+    lastUpdated: "June 2026",
+    cta: { toolName: "GPA Calculator", toolHref: "/tools/gpa-calculator" },
+  },
+  {
+    slug: "days-between-dates-calculator-guide",
+    title: "Days Between Dates Calculator Guide — Count Days Free Online",
+    excerpt:
+      "Calculate the exact number of days between two dates free online. Learn common use cases and which start-date counting convention this tool uses.",
+    category: "Productivity",
+    readTime: "5 min read",
+    author: "Sarah Mitchell",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Days Between Dates", toolHref: "/tools/days-between-dates" },
+  },
+  {
+    slug: "roman-numeral-converter-guide",
+    title: "Roman Numeral Converter Guide — Symbols, Rules & Modern Uses",
+    excerpt:
+      "Convert numbers to Roman numerals or Roman numerals to numbers free online. Learn symbol values, subtractive notation, and where Roman numerals appear today.",
+    category: "Students & Utilities",
+    readTime: "5 min read",
+    author: "Alex Morgan",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Roman Numeral Converter", toolHref: "/tools/roman-numeral-converter" },
+  },
+  {
+    slug: "leap-year-checker-guide",
+    title: "Leap Year Checker Guide — The Full Rule with Examples",
+    excerpt:
+      "Check if any year is a leap year free online. Learn the divisible-by-4/100/400 rule, why 1900 wasn't a leap year, and why we need leap years at all.",
+    category: "Productivity",
+    readTime: "5 min read",
+    author: "Sarah Mitchell",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Leap Year Checker", toolHref: "/tools/leap-year-checker" },
+  },
 ];
 
 export const blogPostBySlug = Object.fromEntries(
@@ -1399,6 +1564,111 @@ export const blogSeoMetadata: Record<
       "Free online text tools: Lorem Ipsum generator, number to words converter, text diff checker, and Morse code translator. No signup needed.",
     keywords:
       "text utility tools online, lorem ipsum generator, number to words converter, text diff checker, morse code translator",
+  },
+  "how-to-rotate-pdf-pages-online-free": {
+    title: "Rotate PDF Pages Online Free — Fix Sideways Scans | WorkUtilities",
+    description:
+      "Rotate PDF pages online free — fix sideways or upside-down scanned pages. Rotate individual pages or the whole document. No signup, no uploads.",
+    keywords:
+      "rotate pdf online, rotate pdf pages free, fix sideways pdf scan, rotate pdf 90 degrees",
+  },
+  "how-to-add-page-numbers-to-pdf-free": {
+    title: "Add Page Numbers to PDF Online Free — No Signup | WorkUtilities",
+    description:
+      "Add page numbers to any PDF online free. Choose position, starting number, and format like 'Page 1 of 10'. No signup, nothing uploaded.",
+    keywords:
+      "add page numbers to pdf, pdf page numbering online free, number pdf pages",
+  },
+  "how-to-add-watermark-to-pdf-free": {
+    title: "Add Watermark to PDF Online Free — Text or Logo | WorkUtilities",
+    description:
+      "Add a text or image watermark to any PDF online free. Mark documents as Draft, Confidential, or add your logo. Adjustable opacity. No signup.",
+    keywords:
+      "add watermark to pdf, pdf watermark online free, draft confidential watermark pdf",
+  },
+  "how-to-create-favicon-online-free": {
+    title: "Favicon Generator Online Free — Create Favicon.ico & PNG | WorkUtilities",
+    description:
+      "Generate a favicon from any image free online. Get favicon.ico plus all standard PNG sizes and ready-to-paste HTML tags. No signup needed.",
+    keywords:
+      "favicon generator, create favicon online free, favicon.ico generator, apple touch icon generator",
+  },
+  "calorie-deficit-calculator-guide": {
+    title: "Calorie Deficit Calculator Guide — BMR, TDEE & Targets | WorkUtilities",
+    description:
+      "Free calorie deficit calculator using the Mifflin-St Jeor formula. Calculate your BMR, maintenance calories, and a sustainable daily target.",
+    keywords:
+      "calorie deficit calculator, tdee calculator, bmr calculator, maintenance calories calculator",
+  },
+  "how-to-format-sql-online-free": {
+    title: "SQL Formatter Online Free — Beautify & Format Queries | WorkUtilities",
+    description:
+      "Format and beautify SQL queries online free. Auto-indent, capitalize keywords, and make long queries readable. No signup, runs in your browser.",
+    keywords:
+      "sql formatter online, beautify sql, format sql query free, sql pretty print",
+  },
+  "how-to-convert-svg-to-png-online": {
+    title: "SVG to PNG Converter Online Free — Any Resolution | WorkUtilities",
+    description:
+      "Convert SVG to PNG online free at any resolution. Choose transparent or solid background. No signup, conversion happens in your browser.",
+    keywords:
+      "svg to png converter, convert svg to png online free, svg png export",
+  },
+  "how-to-extract-color-palette-from-image": {
+    title: "Color Palette Extractor Online Free — From Any Image | WorkUtilities",
+    description:
+      "Extract a color palette from any image free online. Get HEX and RGB codes for dominant colors. Great for design, branding, and CSS. No signup.",
+    keywords:
+      "extract color palette from image, color palette extractor, dominant colors from image",
+  },
+  "free-text-to-speech-online-guide": {
+    title: "Text to Speech Online Free — Convert Text to Audio | WorkUtilities",
+    description:
+      "Free text to speech converter. Type or paste text and listen instantly with natural voices. No signup, works directly in your browser.",
+    keywords:
+      "text to speech online free, tts converter, read text aloud online",
+  },
+  "check-device-browser-info-online": {
+    title: "Device & Browser Info Checker Online Free — No Signup | WorkUtilities",
+    description:
+      "Check your browser, OS, screen resolution, and device details online free. Useful for bug reports and troubleshooting. No signup needed.",
+    keywords:
+      "check browser and device info online, browser info checker, screen resolution checker",
+  },
+  "uuid-generator-guide": {
+    title: "UUID Generator Guide — What UUIDs Are and When to Use Them | WorkUtilities",
+    description:
+      "Generate random UUID v4 identifiers online free. Learn what UUIDs are, why they're practically collision-free, and when to use v4 vs other versions.",
+    keywords:
+      "uuid generator guide, what is a uuid, uuid v4 explained, generate uuid online",
+  },
+  "gpa-calculator-guide": {
+    title: "GPA Calculator Guide — 4.0 Scale and Weighted GPA Explained | WorkUtilities",
+    description:
+      "Free GPA calculator for US students. Learn the standard 4.0 grade-point mapping, weighted vs unweighted GPA, and a worked example with three courses.",
+    keywords:
+      "gpa calculator guide, 4.0 scale gpa, weighted gpa explained, how to calculate gpa",
+  },
+  "days-between-dates-calculator-guide": {
+    title: "Days Between Dates Calculator Guide — Count Days Free Online | WorkUtilities",
+    description:
+      "Calculate the exact number of days between two dates free online. Learn common use cases and which start-date counting convention this tool uses.",
+    keywords:
+      "days between dates guide, date difference calculator, count days between dates",
+  },
+  "roman-numeral-converter-guide": {
+    title: "Roman Numeral Converter Guide — Symbols, Rules & Modern Uses | WorkUtilities",
+    description:
+      "Convert numbers to Roman numerals or Roman numerals to numbers free online. Learn symbol values, subtractive notation, and where Roman numerals appear today.",
+    keywords:
+      "roman numeral converter guide, roman numerals explained, number to roman numeral",
+  },
+  "leap-year-checker-guide": {
+    title: "Leap Year Checker Guide — The Full Rule with Examples | WorkUtilities",
+    description:
+      "Check if any year is a leap year free online. Learn the divisible-by-4/100/400 rule, why 1900 wasn't a leap year, and why we need leap years at all.",
+    keywords:
+      "leap year checker guide, leap year rule explained, is 2026 a leap year",
   },
 };
 

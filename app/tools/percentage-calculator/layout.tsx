@@ -2,15 +2,14 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: {
-    absolute:
-      "Percentage Calculator Online Free — Calculate % of Number | WorkUtilities",
+    absolute: "Percentage Calculator Free — % of Number Online",
   },
   description:
-    "Free percentage calculator for finding % of a number, percentage change, and add/subtract percentage instantly.",
+    "Calculate percentage of a number, percentage change between values, and add or subtract a percentage instantly. Free online percentage calculator for students.",
   keywords:
     "percentage calculator online free, calculate percentage of number, percent change calculator",
   openGraph: {
-    title: "Percentage Calculator Online Free — Calculate % of Number",
+    title: "Percentage Calculator Free — % of Number Online",
     description:
       "Calculate percentages, percentage change, and add or subtract % instantly.",
     url: "https://workutilities.com/tools/percentage-calculator",

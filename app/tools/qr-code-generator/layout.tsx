@@ -2,16 +2,14 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: {
-    absolute:
-      "QR Code Generator Free Online — Create QR Code for URL, WhatsApp, WiFi & More | WorkUtilities",
+    absolute: "QR Code Generator Free — URL, WiFi, WhatsApp",
   },
   description:
-    "Generate QR codes instantly for free. URL, WhatsApp, WiFi, VCard, SMS and more. Download as PNG or SVG. No signup, no watermark.",
+    "Generate QR codes for URLs, WhatsApp, WiFi, vCards, and SMS. Download as PNG or SVG with no watermark. Free online QR code generator — no signup needed.",
   keywords:
     "qr code generator free online, wifi qr code, whatsapp qr code, vcard qr generator india",
   openGraph: {
-    title:
-      "QR Code Generator Free Online — Create QR Code for URL, WhatsApp, WiFi & More",
+    title: "QR Code Generator Free — URL, WiFi, WhatsApp",
     description:
       "Generate QR codes instantly for free. Download as PNG or SVG. No signup, no watermark.",
     url: "https://workutilities.com/tools/qr-code-generator",

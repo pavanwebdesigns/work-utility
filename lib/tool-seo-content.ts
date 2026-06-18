@@ -10,6 +10,9 @@ export type ToolSeoSlug =
   | "pdf-merge"
   | "pdf-split"
   | "pdf-unlock"
+  | "pdf-rotate"
+  | "pdf-page-numbers"
+  | "pdf-watermark"
   | "qr-code-generator"
   | "word-counter"
   | "age-calculator"
@@ -32,6 +35,7 @@ export type ToolSeoSlug =
   | "excel-to-pdf"
   | "ppt-to-pdf"
   | "json-formatter"
+  | "favicon-generator"
   | "color-picker"
   | "markdown-to-html"
   | "base64"
@@ -52,6 +56,7 @@ export type ToolSeoSlug =
   | "hra-calculator"
   | "character-counter"
   | "bmi-calculator"
+  | "calorie-deficit-calculator"
   | "compound-interest"
   | "timezone-converter"
   | "regex-tester"
@@ -65,7 +70,17 @@ export type ToolSeoSlug =
   | "keyword-density"
   | "morse-code"
   | "xml-formatter"
-  | "inflation-calculator";
+  | "inflation-calculator"
+  | "sql-formatter"
+  | "svg-to-png"
+  | "color-palette-extractor"
+  | "text-to-speech"
+  | "device-info"
+  | "uuid-generator"
+  | "gpa-calculator"
+  | "days-between-dates"
+  | "roman-numeral-converter"
+  | "leap-year-checker";
 
 type ToolSeoEntry = {
   aboutTitle: string;
@@ -2986,6 +3001,366 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
       { question: "What is purchasing power loss?", answer: "The percentage of value eroded by inflation over the selected period." },
       { question: "Is inflation calculator free?", answer: "Yes. WorkUtilities Inflation Calculator is free with no signup." },
     ],
+  },
+  "pdf-rotate": {
+    aboutTitle: "About PDF Rotate Tool",
+    aboutParagraphs: [
+      "Our free PDF Rotate tool fixes sideways or upside-down scanned pages. Rotate individual pages or the entire document by 90°, 180°, or 270° with live thumbnail preview.",
+      "Rotation is applied permanently in the downloaded file — not just a temporary viewer adjustment. Processing runs entirely in your browser with no upload to any server.",
+      "Ideal for correcting scanner orientation mistakes, phone camera scans converted to PDF, and merged documents with mixed page orientations.",
+    ],
+    whenToUseTitle: "When Should You Use PDF Rotate?",
+    useCases: [
+      { title: "Sideways scanner output", description: "Fix pages fed into a scanner in the wrong orientation." },
+      { title: "Phone photo scans", description: "Correct camera photos converted to PDF at the wrong angle." },
+      { title: "Mixed merged PDFs", description: "Rotate individual pages after combining documents from different sources." },
+      { title: "Upside-down pages", description: "Flip a single misoriented page without re-scanning." },
+      { title: "Print preparation", description: "Ensure all pages print upright before sending to a printer." },
+    ],
+    faqs: [
+      { question: "Does rotating change the actual PDF or just the display?", answer: "It changes the actual page orientation in the saved file — permanent in the downloaded PDF." },
+      { question: "Can I rotate just one page?", answer: "Yes. Each page can be rotated independently, or rotate all pages at once." },
+      { question: "Will rotation reduce quality?", answer: "No. Rotation changes orientation metadata, not the underlying content." },
+      { question: "Why are scans often sideways?", answer: "Usually due to landscape scanner feed or sideways phone camera capture before PDF conversion." },
+      { question: "Is PDF rotate free?", answer: "Yes. WorkUtilities PDF Rotate is free with no signup." },
+    ],
+    blogGuide: { href: "/blog/how-to-rotate-pdf-pages-online-free", title: "How to rotate PDF pages online free" },
+  },
+  "pdf-page-numbers": {
+    aboutTitle: "About PDF Page Numbers Tool",
+    aboutParagraphs: [
+      "Our free PDF Page Numbers tool adds consistent numbering to every page. Choose position, starting number, format, and optionally skip a cover page.",
+      "Runs entirely in your browser — your document is never uploaded to a server. Download a numbered PDF ready for reports, theses, contracts, and legal filings.",
+      "Supports bottom-center, top-right, and all six standard positions. Formats include plain numbers, 'Page X', and 'Page X of Y'.",
+    ],
+    whenToUseTitle: "When Should You Use PDF Page Numbers?",
+    useCases: [
+      { title: "Reports and theses", description: "Add consistent page numbers before submission or printing." },
+      { title: "Legal documents", description: "Number contracts and filings for page-specific references." },
+      { title: "Appendix continuation", description: "Start numbering from a custom number when continuing a larger set." },
+      { title: "Cover page skip", description: "Leave the title page unnumbered while numbering the body." },
+      { title: "Merged documents", description: "Add numbers after combining multiple PDFs into one file." },
+    ],
+    faqs: [
+      { question: "Can I start from a number other than 1?", answer: "Yes. Set a custom starting number for appendices or continuations." },
+      { question: "Can I skip the cover page?", answer: "Yes. Enable 'skip first page' to leave the title page unnumbered." },
+      { question: "What's 'Page X of Y' format?", answer: "Shows current page and total page count for reader orientation." },
+      { question: "Can I remove numbers later?", answer: "Re-process the original unnumbered file rather than editing the numbered PDF." },
+      { question: "Is page numbering free?", answer: "Yes. WorkUtilities PDF Page Numbers is free with no signup." },
+    ],
+    blogGuide: { href: "/blog/how-to-add-page-numbers-to-pdf-free", title: "How to add page numbers to PDF free" },
+  },
+  "pdf-watermark": {
+    aboutTitle: "About PDF Watermark Tool",
+    aboutParagraphs: [
+      "Our free PDF Watermark tool adds text or image watermarks to every page. Mark documents as Draft, Confidential, or brand them with your company logo.",
+      "Adjust opacity, rotation, font size, color, and tiled diagonal placement. All processing happens in your browser — files stay on your device.",
+      "Text watermarks support custom labels. Image watermarks accept PNG or JPG logos with scalable size and opacity control.",
+    ],
+    whenToUseTitle: "When Should You Use PDF Watermark?",
+    useCases: [
+      { title: "Draft review", description: "Mark pre-approval documents as DRAFT before sharing." },
+      { title: "Confidential sharing", description: "Stamp sensitive documents before internal distribution." },
+      { title: "Brand outgoing PDFs", description: "Add a company logo watermark before sending to clients." },
+      { title: "Copyright marking", description: "Signal ownership on shared creative work." },
+      { title: "Tiled protection", description: "Use diagonal tiled watermarks that are harder to crop out." },
+    ],
+    faqs: [
+      { question: "What opacity should I use?", answer: "Moderate opacity (20–40%) balances visibility without obscuring content." },
+      { question: "Why diagonal placement?", answer: "Tiled diagonal watermarks are harder to crop out than corner marks." },
+      { question: "Can I use a logo?", answer: "Yes. Upload a PNG or JPG image as your watermark." },
+      { question: "Does watermark equal copyright?", answer: "It signals status or ownership but isn't legal copyright registration." },
+      { question: "Is PDF watermark free?", answer: "Yes. WorkUtilities PDF Watermark is free with no signup." },
+    ],
+    blogGuide: { href: "/blog/how-to-add-watermark-to-pdf-free", title: "How to add watermark to PDF free" },
+  },
+  "favicon-generator": {
+    aboutTitle: "About Favicon Generator",
+    aboutParagraphs: [
+      "Our free Favicon Generator creates a complete favicon package from any image. Get favicon.ico, standard PNG sizes (16, 32, 180, 192, 512), and ready-to-paste HTML link tags.",
+      "Upload a square image — 512×512 recommended — and download a ZIP with all files. Preview how your icon looks in a browser tab before downloading.",
+      "Essential for web developers, indie makers, and anyone launching a site who needs proper icons for browser tabs, iOS bookmarks, and Android/PWA installs.",
+    ],
+    whenToUseTitle: "When Should You Use Favicon Generator?",
+    useCases: [
+      { title: "New website launch", description: "Generate all required favicon sizes in one step." },
+      { title: "Rebrand", description: "Update favicons when your logo changes." },
+      { title: "PWA setup", description: "Get 192×192 and 512×512 icons for progressive web apps." },
+      { title: "iOS bookmarks", description: "Create the 180×180 Apple touch icon." },
+      { title: "Quick prototyping", description: "Paste HTML link tags into your head without manual resizing." },
+    ],
+    faqs: [
+      { question: "What image size to start with?", answer: "A square image at least 512×512px produces the cleanest smaller sizes." },
+      { question: "Why multiple sizes?", answer: "Browser tabs, iOS, and Android each expect different specific icon dimensions." },
+      { question: "Where to add favicon tags?", answer: "Place files in your site root or assets folder and paste the link tags in your HTML head." },
+      { question: "Will a detailed logo work?", answer: "Complex logos often become illegible at 16×16 — simpler shapes work best." },
+      { question: "Is favicon generator free?", answer: "Yes. WorkUtilities Favicon Generator is free with no signup." },
+    ],
+    blogGuide: { href: "/blog/how-to-create-favicon-online-free", title: "How to create a favicon online free" },
+  },
+  "calorie-deficit-calculator": {
+    aboutTitle: "About Calorie Deficit Calculator",
+    aboutParagraphs: [
+      "Our free Calorie Deficit Calculator estimates BMR and TDEE using the Mifflin-St Jeor formula, then shows a daily calorie target based on your goal.",
+      "Supports metric and imperial units, five activity levels, and four goal options from maintenance to aggressive deficit. Results include BMR, maintenance calories, and target intake.",
+      "This tool provides general estimates for informational purposes only — not medical or nutritional advice. Consult a healthcare professional for personalized guidance.",
+    ],
+    whenToUseTitle: "When Should You Use Calorie Deficit Calculator?",
+    useCases: [
+      { title: "Maintenance estimate", description: "Find your approximate daily maintenance calories (TDEE)." },
+      { title: "Deficit planning", description: "See what a moderate 500 cal/day deficit looks like numerically." },
+      { title: "Activity comparison", description: "Compare how activity level changes your maintenance estimate." },
+      { title: "Unit flexibility", description: "Switch between metric (kg/cm) and imperial (lbs/in)." },
+      { title: "Educational reference", description: "Understand how BMR and TDEE relate to each other." },
+    ],
+    faqs: [
+      { question: "What's the difference between BMR and TDEE?", answer: "BMR is calories at complete rest. TDEE adds activity level for maintenance calories." },
+      { question: "How big a deficit is reasonable?", answer: "A moderate ~500 cal/day deficit is commonly cited as more sustainable than aggressive deficits." },
+      { question: "Is Mifflin-St Jeor exact?", answer: "It's a widely used estimate, but individual metabolism varies." },
+      { question: "Should I consult a doctor?", answer: "Yes, especially with health conditions, pregnancy, or history of disordered eating." },
+      { question: "Is this calculator free?", answer: "Yes. WorkUtilities Calorie Deficit Calculator is free with no signup." },
+    ],
+    blogGuide: { href: "/blog/calorie-deficit-calculator-guide", title: "Calorie deficit calculator guide — BMR, TDEE, and daily targets" },
+  },
+  "sql-formatter": {
+    aboutTitle: "About SQL Formatter",
+    aboutParagraphs: [
+      "Our free SQL Formatter beautifies queries with keyword capitalization, indentation, and line breaks before major clauses. Toggle minify mode to collapse SQL to a single line.",
+      "Runs entirely in your browser — your queries are never uploaded. Useful before code review, documentation, or sharing SQL in chat.",
+      "Supports common statement types including SELECT, INSERT, UPDATE, DELETE, and CREATE TABLE. This is a formatting pass, not a syntax validator.",
+    ],
+    whenToUseTitle: "When Should You Use SQL Formatter?",
+    useCases: [
+      { title: "Code review prep", description: "Make long queries readable before sharing in a PR." },
+      { title: "Debugging", description: "See query structure clearly when tracing JOINs and subqueries." },
+      { title: "Documentation", description: "Format SQL snippets for wikis and README files." },
+      { title: "Minify for logs", description: "Collapse formatted SQL to one line for constrained paste areas." },
+      { title: "Learning SQL", description: "See standard indentation conventions applied to your queries." },
+    ],
+    faqs: [
+      { question: "Does this validate SQL syntax?", answer: "No — it formats for readability without checking syntax or dialect-specific rules." },
+      { question: "Will formatting change execution?", answer: "No — only whitespace, line breaks, and keyword case change." },
+      { question: "Does it work for MySQL and PostgreSQL?", answer: "Basic keyword formatting works across dialects; exotic syntax may format imperfectly." },
+      { question: "Can I minify SQL?", answer: "Yes — switch to minify mode for a single-line compact query." },
+      { question: "Is SQL formatter free?", answer: "Yes. WorkUtilities SQL Formatter is free with no signup." },
+    ],
+    blogGuide: { href: "/blog/how-to-format-sql-online-free", title: "How to format SQL online free" },
+  },
+  "svg-to-png": {
+    aboutTitle: "About SVG to PNG Converter",
+    aboutParagraphs: [
+      "Our free SVG to PNG Converter exports vector graphics as raster PNG at any resolution. Choose 1x, 2x, 4x scale or a custom width, with transparent or solid background.",
+      "Upload an SVG file or paste SVG code, preview the graphic, and download PNG instantly in your browser.",
+      "Ideal when platforms require raster images, for social sharing, or embedding logos where SVG isn't accepted.",
+    ],
+    whenToUseTitle: "When Should You Use SVG to PNG?",
+    useCases: [
+      { title: "Platform uploads", description: "Convert SVG logos for sites that only accept PNG." },
+      { title: "High-res export", description: "Export at 2x or 4x for retina displays." },
+      { title: "Transparent logos", description: "Preserve transparency for icons on colored backgrounds." },
+      { title: "Social media", description: "Share vector artwork where SVG isn't rendered." },
+      { title: "App assets", description: "Generate fixed-size PNG assets from SVG source." },
+    ],
+    faqs: [
+      { question: "Why convert SVG to PNG?", answer: "Many platforms don't support SVG and require a raster format like PNG." },
+      { question: "What resolution should I pick?", answer: "Export at the largest size you need — PNG can't be upscaled cleanly later." },
+      { question: "Does PNG support transparency?", answer: "Yes — choose transparent background to preserve it." },
+      { question: "Will SVG text render correctly?", answer: "Usually yes if fonts are embedded or available in the browser." },
+      { question: "Is SVG to PNG free?", answer: "Yes. WorkUtilities converter is free with no signup." },
+    ],
+    blogGuide: { href: "/blog/how-to-convert-svg-to-png-online", title: "How to convert SVG to PNG online" },
+  },
+  "color-palette-extractor": {
+    aboutTitle: "About Color Palette Extractor",
+    aboutParagraphs: [
+      "Our free Color Palette Extractor analyzes an uploaded image and returns 6 dominant colors with HEX and RGB codes. Click any swatch to copy.",
+      "Processing happens entirely in your browser — images are never uploaded to a server.",
+      "Great for pulling brand colors from logos, matching palettes to reference photos, or starting a design color scheme.",
+    ],
+    whenToUseTitle: "When Should You Use Color Palette Extractor?",
+    useCases: [
+      { title: "Brand colors", description: "Extract a palette from a logo for consistent design." },
+      { title: "Website theming", description: "Match site colors to a reference image." },
+      { title: "CSS variables", description: "Copy HEX codes directly into stylesheets." },
+      { title: "Mood boards", description: "Build a palette from inspiration images." },
+      { title: "Design handoff", description: "Share dominant colors from a client asset quickly." },
+    ],
+    faqs: [
+      { question: "How are dominant colors determined?", answer: "Pixel colors are analyzed and similar tones clustered to find the most prominent groups." },
+      { question: "Can I use colors in CSS?", answer: "Yes — copy HEX codes directly, but verify contrast for text/background pairs." },
+      { question: "Why might colors differ slightly?", answer: "Extraction summarizes gradients into representative swatches — it's an approximation." },
+      { question: "How many colors are returned?", answer: "Six dominant colors by default." },
+      { question: "Is palette extractor free?", answer: "Yes. WorkUtilities tool is free with no signup." },
+    ],
+    blogGuide: { href: "/blog/how-to-extract-color-palette-from-image", title: "How to extract a color palette from an image" },
+  },
+  "text-to-speech": {
+    aboutTitle: "About Text to Speech",
+    aboutParagraphs: [
+      "Our free Text to Speech tool reads your text aloud using your browser's built-in Web Speech API voices. Adjust speed and pitch, then play or stop.",
+      "No external API or signup — voices come from your device and browser. Playback only; the Web Speech API does not support exporting audio files.",
+      "Useful for proofreading, accessibility, language practice, and previewing scripts before recording.",
+    ],
+    whenToUseTitle: "When Should You Use Text to Speech?",
+    useCases: [
+      { title: "Proofreading", description: "Hear awkward phrasing you might miss when reading silently." },
+      { title: "Accessibility", description: "Listen to content when reading on screen is difficult." },
+      { title: "Language practice", description: "Hear pronunciation with available system voices." },
+      { title: "Script preview", description: "Preview how announcements or narration will sound." },
+      { title: "Multitasking", description: "Listen to pasted notes while doing other tasks." },
+    ],
+    faqs: [
+      { question: "Why do voices differ by device?", answer: "The tool uses your browser/OS built-in speech engine — voices vary by platform." },
+      { question: "Can I download audio?", answer: "No — the Web Speech API supports playback only, not audio file export in standard browsers." },
+      { question: "Does it work offline?", answer: "Some voices work offline; others may need connectivity depending on your browser." },
+      { question: "Can TTS help proofreading?", answer: "Yes — hearing text aloud often reveals awkward phrasing more clearly." },
+      { question: "Is text to speech free?", answer: "Yes. WorkUtilities Text to Speech is free with no signup." },
+    ],
+    blogGuide: { href: "/blog/free-text-to-speech-online-guide", title: "Free text to speech online guide" },
+  },
+  "device-info": {
+    aboutTitle: "About Device & Browser Info",
+    aboutParagraphs: [
+      "Our free Device & Browser Info tool displays your browser name, OS, screen resolution, viewport, pixel ratio, timezone, and user agent — then lets you copy the full report.",
+      "Uses standard navigator and screen APIs already available to any website. Nothing hidden is collected — information is shown back to you for bug reports and troubleshooting.",
+      "Essential when support teams ask what browser and screen size you're using.",
+    ],
+    whenToUseTitle: "When Should You Use Device Info?",
+    useCases: [
+      { title: "Bug reports", description: "Paste exact browser/OS details for developers." },
+      { title: "Support tickets", description: "Answer environment questions accurately." },
+      { title: "Responsive testing", description: "Check viewport and pixel ratio on your device." },
+      { title: "Browser verification", description: "Confirm which browser you're actually running." },
+      { title: "QA documentation", description: "Record test environment details quickly." },
+    ],
+    faqs: [
+      { question: "Why is this useful for bugs?", answer: "Developers need exact browser/OS/screen info to reproduce issues." },
+      { question: "Is extra data collected?", answer: "No — only standard APIs any website can access, displayed for you." },
+      { question: "Why does resolution look unexpected?", answer: "High-DPI displays report device pixel ratio separately from physical pixels." },
+      { question: "Does it detect location?", answer: "No — only technical browser/device info and timezone setting." },
+      { question: "Is device info checker free?", answer: "Yes. WorkUtilities tool is free with no signup." },
+    ],
+    blogGuide: { href: "/blog/check-device-browser-info-online", title: "Check device and browser info online" },
+  },
+  "uuid-generator": {
+    aboutTitle: "About UUID Generator",
+    aboutParagraphs: [
+      "Our free UUID Generator creates random UUID v4 identifiers instantly in your browser. Generate one UUID or bulk-create up to 100 at once.",
+      "Toggle uppercase/lowercase and include or remove hyphens. Copy a single UUID or copy all with one click. Uses crypto.randomUUID() when available.",
+      "Essential for developers creating database primary keys, API request IDs, session tokens, and distributed system identifiers without a central counter.",
+    ],
+    whenToUseTitle: "When Should You Use UUID Generator?",
+    useCases: [
+      { title: "Database keys", description: "Generate unique primary keys without a central ID server." },
+      { title: "API development", description: "Create request IDs and correlation tokens for distributed tracing." },
+      { title: "Session tokens", description: "Generate session or transaction identifiers independently." },
+      { title: "Testing", description: "Bulk-generate UUIDs for seeding test data." },
+      { title: "Prototyping", description: "Quickly create sample identifiers for mock APIs and schemas." },
+    ],
+    faqs: [
+      { question: "What is a UUID used for?", answer: "UUIDs are commonly used as unique identifiers for database records, API requests, and distributed systems where IDs need to be generated independently without a central counter or coordination." },
+      { question: "Can two UUIDs ever be the same?", answer: "Theoretically possible but practically negligible — the random UUID v4 address space is large enough that accidental duplicates are astronomically unlikely even at massive scale." },
+      { question: "What's the difference between UUID v4 and other versions?", answer: "v4 is randomly generated (what this tool produces), while other versions like v1 incorporate timestamp/MAC address data or are derived from names — different versions suit different use cases." },
+      { question: "Do I need hyphens in a UUID?", answer: "Hyphens are the standard display format (8-4-4-4-12 character groups), but some systems accept or require UUIDs without hyphens — this tool supports both." },
+      { question: "Is UUID generation private?", answer: "Yes. All UUIDs are generated locally in your browser. Nothing is sent to any server." },
+    ],
+    blogGuide: { href: "/blog/uuid-generator-guide", title: "UUID generator guide — what UUIDs are and when to use them" },
+  },
+  "gpa-calculator": {
+    aboutTitle: "About GPA Calculator",
+    aboutParagraphs: [
+      "Our free GPA Calculator computes weighted GPA on the standard US 4.0 scale. Add courses with letter grades and credit hours to get your cumulative GPA instantly.",
+      "Supports the full standard grade-point mapping from A (4.0) through F (0.0), including plus/minus grades. Add or remove course rows dynamically.",
+      "Ideal for US college students tracking semester or cumulative GPA, and anyone comparing grades on the 4.0 letter-grade system.",
+    ],
+    whenToUseTitle: "When Should You Use GPA Calculator?",
+    useCases: [
+      { title: "Semester planning", description: "Estimate your GPA before final grades are posted." },
+      { title: "Cumulative GPA", description: "Add courses from multiple semesters for an overall weighted average." },
+      { title: "What-if scenarios", description: "See how a different grade would affect your GPA." },
+      { title: "Scholarship tracking", description: "Monitor GPA against minimum requirements." },
+      { title: "Transfer planning", description: "Calculate GPA across courses from different terms." },
+    ],
+    faqs: [
+      { question: "How is GPA calculated?", answer: "Each letter grade converts to a grade point (e.g. A=4.0, B=3.0), multiplied by that course's credit hours, summed across all courses, then divided by total credit hours — giving a credit-weighted average." },
+      { question: "What's the difference between weighted and unweighted GPA?", answer: "Unweighted GPA treats every course equally regardless of credit hours or difficulty. Weighted GPA (what most colleges use) factors in credit hours, and some high schools additionally weight by course difficulty (AP/Honors courses count for more)." },
+      { question: "Does a B+ always equal 3.3 grade points?", answer: "This is the most common standard mapping, though some institutions use slightly different scales — check your specific school's grading policy if precision matters for an official record." },
+      { question: "Can I calculate GPA across multiple semesters?", answer: "Yes — add all courses from every semester you want included; the calculator will compute a single cumulative weighted GPA across everything entered." },
+      { question: "Is GPA calculator free?", answer: "Yes. WorkUtilities GPA Calculator is free with no signup." },
+    ],
+    blogGuide: { href: "/blog/gpa-calculator-guide", title: "GPA calculator guide — 4.0 scale and weighted GPA explained" },
+  },
+  "days-between-dates": {
+    aboutTitle: "About Days Between Dates Calculator",
+    aboutParagraphs: [
+      "Our free Days Between Dates Calculator finds the exact number of calendar days between any two dates, with a years/months/days breakdown.",
+      "Uses end date minus start date — the start date is not counted as a full elapsed day. Leap years are handled automatically through actual calendar dates.",
+      "Also shows a relative framing to today — days from now or days ago — useful for countdowns, contract durations, and planning.",
+    ],
+    whenToUseTitle: "When Should You Use Days Between Dates?",
+    useCases: [
+      { title: "Event countdowns", description: "Count days until a deadline, trip, or exam." },
+      { title: "Contract durations", description: "Calculate exact day count for leases and agreements." },
+      { title: "Elapsed time", description: "See how many days since a past event." },
+      { title: "Project timelines", description: "Measure duration between project milestones." },
+      { title: "Planning", description: "Figure out how long between two dates for scheduling." },
+    ],
+    faqs: [
+      { question: "Does the calculator count the start date as day 1?", answer: "No — the day count is end date minus start date, so the start date itself is not counted as a full elapsed day. For example, Jan 1 to Jan 3 equals 2 days, not 3." },
+      { question: "Can I calculate days between a past date and today?", answer: "Yes — set one date to today and the other to any past or future date to see days elapsed or days remaining." },
+      { question: "Does this account for leap years automatically?", answer: "Yes — the calculation uses actual calendar dates, so leap years are automatically factored into the day count correctly." },
+      { question: "Can I use this to calculate exact contract or lease duration?", answer: "Yes — entering the start and end dates of an agreement gives you the precise day count, useful for contracts, leases, or any duration-based agreement." },
+      { question: "Is days between dates calculator free?", answer: "Yes. WorkUtilities calculator is free with no signup." },
+    ],
+    blogGuide: { href: "/blog/days-between-dates-calculator-guide", title: "Days between dates calculator guide" },
+  },
+  "roman-numeral-converter": {
+    aboutTitle: "About Roman Numeral Converter",
+    aboutParagraphs: [
+      "Our free Roman Numeral Converter converts numbers to Roman numerals and Roman numerals back to numbers instantly. Supports the standard 1–3999 range.",
+      "Uses proper subtractive notation (IV for 4, IX for 9, etc.) and validates Roman input with round-trip checking to reject invalid combinations.",
+      "Useful for students, writers, and anyone decoding movie sequels, clock faces, outlines, or formal document numbering.",
+    ],
+    whenToUseTitle: "When Should You Use Roman Numeral Converter?",
+    useCases: [
+      { title: "Education", description: "Learn and verify Roman numeral notation." },
+      { title: "Writing", description: "Add Roman numerals to outlines and formal documents." },
+      { title: "Decoding", description: "Convert Super Bowl numbers, monarch titles, or clock faces." },
+      { title: "Quick reference", description: "Look up any number from 1 to 3999 in Roman form." },
+      { title: "Validation", description: "Check whether a Roman numeral string is well-formed." },
+    ],
+    faqs: [
+      { question: "Why is 4 written as IV instead of IIII?", answer: "Roman numerals use subtractive notation for certain combinations — placing a smaller numeral before a larger one means subtraction, so IV represents 5-1=4, following the standard convention rather than repeating I four times." },
+      { question: "What's the largest number you can write in standard Roman numerals?", answer: "Basic Roman numeral notation practically extends to 3999 (MMMCMXCIX) using the standard symbols — numbers beyond that require special notation not commonly used in everyday contexts." },
+      { question: "Where are Roman numerals still commonly used today?", answer: "Movie and event sequels (Super Bowl LVIII), clock faces, formal document section numbering, and royal/papal numbering (like Elizabeth II) are common modern uses." },
+      { question: "Can all numbers be converted to Roman numerals?", answer: "Within the standard range (1 to 3999), yes — every whole number has a valid Roman numeral representation using the standard symbol and subtractive notation rules." },
+      { question: "Is Roman numeral converter free?", answer: "Yes. WorkUtilities converter is free with no signup." },
+    ],
+    blogGuide: { href: "/blog/roman-numeral-converter-guide", title: "Roman numeral converter guide" },
+  },
+  "leap-year-checker": {
+    aboutTitle: "About Leap Year Checker",
+    aboutParagraphs: [
+      "Our free Leap Year Checker tells you instantly whether any year is a leap year, with a clear explanation of which rule applies.",
+      "Covers the full three-part rule: divisible by 4, except century years, except those divisible by 400. Also shows the next and previous leap years.",
+      "Useful for calendar questions, trivia, date calculations, and understanding why 1900 was not a leap year but 2000 was.",
+    ],
+    whenToUseTitle: "When Should You Use Leap Year Checker?",
+    useCases: [
+      { title: "Calendar questions", description: "Quickly verify if a year has February 29." },
+      { title: "Date calculations", description: "Understand leap year context for day-count math." },
+      { title: "Education", description: "Learn the full leap year rule with real examples." },
+      { title: "Trivia", description: "Settle debates about century-year exceptions." },
+      { title: "Planning", description: "Find the next or previous leap year from any given year." },
+    ],
+    faqs: [
+      { question: "What is the leap year rule?", answer: "A year is a leap year if divisible by 4, EXCEPT century years (divisible by 100), which are only leap years if also divisible by 400." },
+      { question: "Why was 1900 not a leap year but 2000 was?", answer: "Both are divisible by 100, but 2000 is also divisible by 400 (making it a leap year), while 1900 is not divisible by 400 (so the century exception applies, making it not a leap year)." },
+      { question: "Why do we need leap years at all?", answer: "Earth's orbit takes approximately 365.25 days, not exactly 365 — without leap years, the calendar would gradually drift out of sync with the seasons over centuries." },
+      { question: "How often do leap years occur?", answer: "Roughly every 4 years, with the exception of century years not divisible by 400 — making leap years occur 97 times every 400 years rather than exactly 100 times." },
+      { question: "Is leap year checker free?", answer: "Yes. WorkUtilities Leap Year Checker is free with no signup." },
+    ],
+    blogGuide: { href: "/blog/leap-year-checker-guide", title: "Leap year checker guide — the full rule explained" },
   },
 };
 

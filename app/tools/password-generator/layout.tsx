@@ -2,15 +2,14 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: {
-    absolute:
-      "Password Generator Online Free — Strong Random Password Generator | WorkUtilities",
+    absolute: "Password Generator Free — Strong Random Passwords",
   },
   description:
-    "Generate strong random passwords with custom length and character options. Free password generator with strength indicator.",
+    "Generate strong random passwords with custom length, symbols, and numbers. Built-in strength indicator and one-click copy. Free secure password generator.",
   keywords:
     "password generator online free, strong random password generator, secure password maker",
   openGraph: {
-    title: "Password Generator Online Free — Strong Random Password Generator",
+    title: "Password Generator Free — Strong Random Passwords",
     description:
       "Create strong random passwords instantly with customizable options.",
     url: "https://workutilities.com/tools/password-generator",

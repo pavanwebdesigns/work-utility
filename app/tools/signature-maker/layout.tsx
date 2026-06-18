@@ -2,15 +2,14 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: {
-    absolute:
-      "Free Online Signature Maker — Create Digital Signature | WorkUtilities",
+    absolute: "Signature Maker Free — Create Digital Signature Online",
   },
   description:
-    "Create digital signatures by drawing, typing, or uploading. Download PNG or JPG and copy to clipboard instantly.",
+    "Create a digital signature by drawing, typing your name, or uploading an image. Download PNG or JPG or copy to clipboard. Free signature maker for documents.",
   keywords:
     "signature maker online free, digital signature creator, online signature generator india",
   openGraph: {
-    title: "Free Online Signature Maker — Create Digital Signature",
+    title: "Signature Maker Free — Create Digital Signature Online",
     description:
       "Draw, type, or upload your signature and download it instantly.",
     url: "https://workutilities.com/tools/signature-maker",
