@@ -1,13 +1,16 @@
 "use client";
 
+import Link from "next/link";
 import { useMemo, useState } from "react";
 import { Search, X } from "lucide-react";
 import { ToolCard } from "@/components/ToolCard";
-import { ToolsCategorySection } from "@/components/ToolsCategorySection";
+import { getFeaturedTools } from "@/lib/featured-tools";
 import { searchTools } from "@/lib/tool-categories";
+import { ALL_TOOLS } from "@/lib/tools-data";
 
 export function HomePageTools() {
   const [searchQuery, setSearchQuery] = useState("");
+  const featuredTools = useMemo(() => getFeaturedTools(), []);
 
   const isSearching = searchQuery.trim().length > 0;
 
@@ -44,7 +47,38 @@ export function HomePageTools() {
           )}
         </div>
 
-        {!isSearching && <ToolsCategorySection />}
+        {!isSearching && (
+          <>
+            <h2 className="mb-4 text-left text-[11px] font-semibold tracking-[2px] text-content-muted">
+              Popular Tools
+            </h2>
+
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {featuredTools.map((tool) => (
+                <div key={tool.href} className="w-full min-w-0">
+                  <ToolCard
+                    title={tool.title}
+                    description={tool.description}
+                    href={tool.href}
+                    icon={tool.icon}
+                    accent={tool.accent}
+                    popular={tool.popular}
+                    comingSoon={tool.comingSoon}
+                  />
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-10 text-center">
+              <Link
+                href="/tools"
+                className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl border border-surface-border bg-surface-elevated px-6 py-3 text-sm font-semibold text-content-primary transition-colors hover:border-brand-blue hover:text-brand-blue"
+              >
+                View All {ALL_TOOLS.length} Tools →
+              </Link>
+            </div>
+          </>
+        )}
 
         {isSearching && (
           <>
