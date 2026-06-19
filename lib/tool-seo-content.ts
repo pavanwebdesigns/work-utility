@@ -741,9 +741,9 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
   "word-counter": {
     aboutTitle: "About Word Counter Tool",
     aboutParagraphs: [
-      "Our free Word Counter instantly counts words, characters, sentences, and paragraphs in any text you paste or type. See reading time estimates and check limits before submitting essays, posts, or assignments.",
-      "Everything runs in your browser — your text is never uploaded to a server. Draft essays, cover letters, and confidential notes stay private on your device while you check counts in real time.",
-      "Essential for Indian students hitting UPSC essay word limits, college assignment requirements, content writers tracking article length, and social media users checking character counts for posts. Paste from Word, Google Docs, or any editor and get instant stats without installing apps.",
+      "Our free Word Counter instantly counts words, characters (with and without spaces), sentences, paragraphs, and lines in any text you paste or type. See reading time, speaking time, keyword density, and social media platform limits update in real time.",
+      "Everything runs in your browser — your text is never uploaded to a server. Draft essays, cover letters, and confidential notes stay private on your device while you check counts instantly.",
+      "Essential for students hitting essay word limits, content writers tracking SEO article length, social media managers checking Twitter/X and LinkedIn character limits, and professionals keeping emails concise. Paste from Word, Google Docs, or any editor without installing apps.",
     ],
     whenToUseTitle: "When Should You Use Word Counter?",
     useCases: [
@@ -755,51 +755,55 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
       {
         title: "Social media character limits",
         description:
-          "Count characters for Twitter/X, LinkedIn, and Instagram captions.",
+          "Check progress against Twitter/X, LinkedIn, Instagram, and Meta description limits.",
       },
       {
-        title: "Email length",
+        title: "Content writing & SEO",
         description:
-          "Keep professional emails concise by tracking word and character counts.",
+          "Track article length and top keyword density while drafting blog posts.",
       },
       {
-        title: "College assignment requirements",
+        title: "Presentation timing",
         description:
-          "Match exact word counts specified in syllabus or portal instructions.",
+          "Estimate speaking time at 130 words per minute for speeches and scripts.",
       },
       {
-        title: "Content writing",
+        title: "Email and report length",
         description:
-          "Track article, blog, and SEO content length while drafting.",
+          "Keep professional writing concise with live word and character counts.",
       },
     ],
     faqs: [
       {
-        question: "How to count words in a document free?",
+        question: "How accurate is the word count?",
         answer:
-          "Paste or type your text into the box — word, character, and sentence counts update instantly.",
+          "The tool counts whitespace-separated tokens the same way Microsoft Word and Google Docs do — dates with slashes and currency amounts with symbols count as one word each.",
       },
       {
-        question: "What is the word limit for UPSC essay?",
+        question: "What counts as a sentence?",
         answer:
-          "UPSC essay papers typically specify limits in the notification — often around 1000–1200 words. Use our counter to stay within the stated limit.",
+          "The tool splits on terminal punctuation (period, question mark, exclamation mark) — a paragraph with no punctuation reads as a single sentence.",
       },
       {
-        question: "How many characters are allowed on Twitter/X?",
+        question: "What are stop words in keyword density?",
         answer:
-          "Standard posts allow 280 characters. Premium accounts may have higher limits — check your character count here before posting.",
+          'Common words like "the", "a", "is", "in" are excluded from keyword density analysis since they appear in almost every text and don\'t reflect the actual topics covered.',
       },
       {
-        question: "How to check reading time of an article?",
+        question: "Why do reading time and speaking time differ?",
         answer:
-          "Our tool estimates reading time based on word count using average reading speed.",
+          "Reading speed averages around 200 words per minute silently; speaking aloud is slower at around 130 words per minute — so a 1,000-word piece takes about 5 minutes to read but nearly 8 minutes to speak.",
       },
       {
-        question: "Does word counter count spaces?",
+        question: "Is word counter free?",
         answer:
-          "Character counts typically include spaces. Word counts split on whitespace — check both metrics for your specific requirement.",
+          "Yes. WorkUtilities Word Counter is free with no signup and runs entirely in your browser.",
       },
     ],
+    blogGuide: {
+      href: "/blog/word-counter-online-guide",
+      title: "Word counter online guide — counts, reading time, and platform limits",
+    },
   },
   "age-calculator": {
     aboutTitle: "About Age Calculator Tool",

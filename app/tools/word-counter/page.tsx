@@ -8,6 +8,7 @@ import {
   Copy,
   Eraser,
   Hash,
+  Mic,
   Type,
   WholeWord,
 } from "lucide-react";
@@ -31,18 +32,27 @@ const howItWorksSteps = [
     step: "02",
     icon: Hash,
     title: "Count",
-    description: "See words, characters, and reading time update live",
+    description: "See words, characters, reading time, and more update live",
   },
   {
     step: "03",
     icon: Copy,
     title: "Use",
-    description: "Copy your text or clear and start again",
+    description: "Check platform limits, keyword density, and copy when ready",
   },
 ];
 
 function formatCount(value: number): string {
   return value.toLocaleString("en-IN");
+}
+
+function StatRow({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="flex items-center justify-between gap-3 border-b border-surface-border py-2.5 last:border-b-0">
+      <span className="text-sm text-content-secondary">{label}</span>
+      <span className="text-sm font-semibold text-content-primary">{value}</span>
+    </div>
+  );
 }
 
 export default function WordCounterPage() {
@@ -71,37 +81,10 @@ export default function WordCounterPage() {
     }
   };
 
-  const statCards = [
-    {
-      label: "Words",
-      value: formatCount(stats.words),
-      sub: `${formatCount(stats.paragraphs)} paragraphs`,
-      icon: WholeWord,
-    },
-    {
-      label: "Characters",
-      value: formatCount(stats.charactersWithSpaces),
-      sub: `${formatCount(stats.charactersWithoutSpaces)} without spaces`,
-      icon: Type,
-    },
-    {
-      label: "Sentences",
-      value: formatCount(stats.sentences),
-      sub: "Punctuation-based count",
-      icon: AlignLeft,
-    },
-    {
-      label: "Reading Time",
-      value: stats.readingTime,
-      sub: "At 200 words per minute",
-      icon: Clock,
-    },
-  ];
-
   return (
     <div className="flex min-h-screen w-full max-w-full flex-col overflow-x-hidden bg-surface-base">
       <Header />
-      <main id="main-content" className="flex-1 min-w-0 overflow-x-hidden">
+      <main id="main-content" className="min-w-0 flex-1 overflow-x-hidden">
         <div className="px-6 py-6 sm:px-10">
           <Link
             href="/"
@@ -111,7 +94,7 @@ export default function WordCounterPage() {
           </Link>
         </div>
 
-        <div className="mx-auto max-w-4xl px-4 pb-16 sm:px-6">
+        <div className="mx-auto max-w-6xl px-4 pb-16 sm:px-6">
           <div className="pt-4 text-center">
             <div className="mx-auto mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-brand-blue/10">
               <WholeWord
@@ -122,71 +105,167 @@ export default function WordCounterPage() {
             <h1 className="text-2xl font-bold text-content-primary sm:text-3xl">
               Word Counter Online — Free &amp; Instant
             </h1>
-            <p className="mx-auto mt-3 max-w-md text-content-secondary">
-              Count words, characters, sentences, and reading time as you type.
-              Private, fast, and free.
+            <p className="mx-auto mt-3 max-w-2xl text-content-secondary">
+              Count words, characters, sentences, reading time, keyword density,
+              and social media limits as you type. Private, fast, and free.
             </p>
             <div className="mt-4 flex justify-center">
               <FavoriteButton slug="word-counter" />
             </div>
           </div>
 
-          <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
-            {statCards.map((card) => (
-              <div
-                key={card.label}
-                className="rounded-xl border border-surface-border bg-surface-card p-4"
-              >
-                <div className="mb-3 flex h-8 w-8 items-center justify-center rounded-lg bg-brand-blue/10">
-                  <card.icon
-                    className="h-4 w-4 text-brand-blue"
-                    strokeWidth={1.75}
-                  />
-                </div>
-                <p className="text-2xl font-bold text-content-primary">
-                  {card.value}
-                </p>
-                <p className="mt-1 text-sm font-medium text-content-primary">
-                  {card.label}
-                </p>
-                <p className="mt-1 text-xs text-content-muted">{card.sub}</p>
+          <div className="mt-10 grid gap-6 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:items-start">
+            <div className="space-y-4">
+              <textarea
+                value={text}
+                onChange={(event) => setText(event.target.value)}
+                placeholder="Start typing or paste your text here..."
+                aria-label="Text to count words and characters"
+                className="min-h-[320px] w-full resize-y rounded-xl border border-surface-border bg-surface-card px-4 py-4 text-sm leading-relaxed text-content-primary outline-none transition-colors focus:border-brand-blue sm:min-h-[420px] lg:min-h-[560px]"
+              />
+
+              <div className="flex flex-col gap-3 sm:flex-row">
+                <button
+                  type="button"
+                  onClick={handleClear}
+                  aria-label="Clear text"
+                  className="flex cursor-pointer items-center justify-center gap-2 rounded-xl border border-surface-border bg-surface-elevated px-5 py-3 text-sm font-medium text-content-primary transition-colors hover:border-brand-blue/40"
+                >
+                  <Eraser className="h-4 w-4" />
+                  Clear
+                </button>
+                <button
+                  type="button"
+                  onClick={handleCopy}
+                  disabled={!text}
+                  aria-label="Copy text to clipboard"
+                  className="flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-brand-blue px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-blue/90 disabled:cursor-not-allowed disabled:opacity-50"
+                >
+                  <Copy className="h-4 w-4" />
+                  {copyStatus === "copied"
+                    ? "Copied!"
+                    : copyStatus === "error"
+                      ? "Copy failed"
+                      : "Copy Text"}
+                </button>
               </div>
-            ))}
-          </div>
+            </div>
 
-          <div className="mt-8 space-y-4">
-            <textarea
-              value={text}
-              onChange={(event) => setText(event.target.value)}
-              placeholder="Start typing or paste your text here..."
-              aria-label="Text to count words and characters"
-              className="min-h-[220px] w-full resize-y rounded-xl border border-surface-border bg-surface-card px-4 py-4 text-sm leading-relaxed text-content-primary outline-none transition-colors focus:border-brand-blue sm:min-h-[280px]"
-            />
+            <div className="space-y-4 lg:sticky lg:top-6">
+              <section className="rounded-xl border border-surface-border bg-surface-card p-4">
+                <h2 className="mb-3 flex items-center gap-2 text-sm font-semibold text-content-primary">
+                  <Hash className="h-4 w-4 text-brand-blue" />
+                  Core counts
+                </h2>
+                <StatRow label="Words" value={formatCount(stats.words)} />
+                <StatRow
+                  label="Characters (with spaces)"
+                  value={formatCount(stats.charactersWithSpaces)}
+                />
+                <StatRow
+                  label="Characters (no spaces)"
+                  value={formatCount(stats.charactersWithoutSpaces)}
+                />
+                <StatRow label="Sentences" value={formatCount(stats.sentences)} />
+                <StatRow
+                  label="Paragraphs"
+                  value={formatCount(stats.paragraphs)}
+                />
+                <StatRow label="Lines" value={formatCount(stats.lines)} />
+              </section>
 
-            <div className="flex flex-col gap-3 sm:flex-row">
-              <button
-                type="button"
-                onClick={handleClear}
-                aria-label="Clear text"
-                className="flex cursor-pointer items-center justify-center gap-2 rounded-xl border border-surface-border bg-surface-elevated px-5 py-3 text-sm font-medium text-content-primary transition-colors hover:border-brand-blue/40"
-              >
-                <Eraser className="h-4 w-4" />
-                Clear
-              </button>
-              <button
-                type="button"
-                onClick={handleCopy}
-                disabled={!text}
-                aria-label="Copy text to clipboard"
-                className="flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-brand-blue px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-blue/90 disabled:cursor-not-allowed disabled:opacity-50"
-              >
-                <Copy className="h-4 w-4" />
-                {copyStatus === "copied"
-                  ? "Copied!"
-                  : copyStatus === "error"
-                    ? "Copy failed"
-                    : "Copy Text"}
-              </button>
+              <section className="rounded-xl border border-surface-border bg-surface-card p-4">
+                <h2 className="mb-3 flex items-center gap-2 text-sm font-semibold text-content-primary">
+                  <Clock className="h-4 w-4 text-brand-blue" />
+                  Reading &amp; speaking time
+                </h2>
+                <StatRow
+                  label="Reading time (200 wpm)"
+                  value={stats.readingTime}
+                />
+                <StatRow
+                  label="Speaking time (130 wpm)"
+                  value={stats.speakingTime}
+                />
+              </section>
+
+              <section className="rounded-xl border border-surface-border bg-surface-card p-4">
+                <h2 className="mb-3 flex items-center gap-2 text-sm font-semibold text-content-primary">
+                  <Type className="h-4 w-4 text-brand-blue" />
+                  Keyword density
+                </h2>
+                {stats.topKeywords.length === 0 ? (
+                  <p className="text-sm text-content-muted">
+                    Top keywords appear here once you add text.
+                  </p>
+                ) : (
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-sm">
+                      <thead>
+                        <tr className="text-left text-content-secondary">
+                          <th className="pb-2 pr-3 font-medium">Word</th>
+                          <th className="pb-2 pr-3 font-medium">Count</th>
+                          <th className="pb-2 font-medium">%</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {stats.topKeywords.map((item) => (
+                          <tr
+                            key={item.word}
+                            className="border-t border-surface-border"
+                          >
+                            <td className="py-2 pr-3 font-medium text-content-primary">
+                              {item.word}
+                            </td>
+                            <td className="py-2 pr-3 text-content-secondary">
+                              {item.count}
+                            </td>
+                            <td className="py-2 text-content-secondary">
+                              {item.percent.toFixed(1)}%
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                )}
+              </section>
+
+              <section className="rounded-xl border border-surface-border bg-surface-card p-4">
+                <h2 className="mb-3 flex items-center gap-2 text-sm font-semibold text-content-primary">
+                  <Mic className="h-4 w-4 text-brand-blue" />
+                  Platform limits
+                </h2>
+                <div className="space-y-3">
+                  {stats.platformLimits.map((platform) => (
+                    <div key={platform.name}>
+                      <div className="mb-1 flex items-center justify-between gap-3 text-xs">
+                        <span className="font-medium text-content-primary">
+                          {platform.name}
+                        </span>
+                        <span
+                          className={
+                            platform.over
+                              ? "font-semibold text-red-600"
+                              : "text-content-secondary"
+                          }
+                        >
+                          {formatCount(platform.current)}/
+                          {formatCount(platform.limit)}
+                        </span>
+                      </div>
+                      <div className="h-2 overflow-hidden rounded-full bg-surface-border">
+                        <div
+                          className={`h-full rounded-full transition-all ${
+                            platform.over ? "bg-red-500" : "bg-emerald-500"
+                          }`}
+                          style={{ width: `${platform.percent}%` }}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </section>
             </div>
           </div>
 

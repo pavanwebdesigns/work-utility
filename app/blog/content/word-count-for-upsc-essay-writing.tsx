@@ -132,6 +132,17 @@ export default function WordCountForUpscEssayWritingContent() {
 
       <hr />
 
+      <h2>Related Reading</h2>
+      <ul>
+        <li>
+          <Link href="/blog/word-counter-online-guide">
+            Word Counter Online Guide — count words, reading time, and platform limits
+          </Link>
+        </li>
+      </ul>
+
+      <hr />
+
       <p>
         <Link href="/tools/word-counter">Count Your Essay Words →</Link>
       </p>

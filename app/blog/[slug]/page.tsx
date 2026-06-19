@@ -39,6 +39,7 @@ import HowToCreateStrongPasswordGuideContent from "../content/how-to-create-stro
 import HowToCalculatePercentageOfMarksIndiaContent from "../content/how-to-calculate-percentage-of-marks-india";
 import HowToResizePhotoForGovernmentExamsContent from "../content/how-to-resize-photo-for-government-exams";
 import WordCountForUpscEssayWritingContent from "../content/word-count-for-upsc-essay-writing";
+import WordCounterOnlineGuideContent from "../content/word-counter-online-guide";
 import AgeCalculatorForGovernmentFormsIndiaContent from "../content/age-calculator-for-government-forms-india";
 import BestFreeToolsForIndianStudentsContent from "../content/best-free-tools-for-indian-students";
 import BestFreeCalculatorsForStudents2026Content from "../content/best-free-calculators-for-students-2026";
@@ -186,6 +187,7 @@ const contentBySlug: Record<string, () => JSX.Element> = {
   "how-to-resize-photo-for-government-exams":
     HowToResizePhotoForGovernmentExamsContent,
   "word-count-for-upsc-essay-writing": WordCountForUpscEssayWritingContent,
+  "word-counter-online-guide": WordCounterOnlineGuideContent,
   "age-calculator-for-government-forms-india":
     AgeCalculatorForGovernmentFormsIndiaContent,
   "best-free-tools-for-indian-students": BestFreeToolsForIndianStudentsContent,

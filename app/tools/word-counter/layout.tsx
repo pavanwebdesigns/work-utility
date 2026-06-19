@@ -2,16 +2,16 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Word Counter Online Free — Count Words & Characters",
+    absolute: "Word Counter Online Free — Count Words Instantly",
   },
   description:
-    "Free word counter for essays and documents. Count words, characters, sentences, and reading time instantly. Built for students, writers, and professionals.",
+    "Free online word counter. Count words, characters, sentences, reading time, and keyword density instantly. Perfect for essays, social media, and SEO. No signup.",
   keywords:
-    "word counter online free, character counter, count words in essay, reading time calculator india",
+    "word counter online free, character counter, count words in essay, reading time calculator, keyword density",
   openGraph: {
-    title: "Word Counter Online Free — Count Words & Characters",
+    title: "Word Counter Online Free — Count Words Instantly",
     description:
-      "Count words, characters, sentences, and reading time instantly. Free and private.",
+      "Count words, characters, sentences, reading time, keyword density, and platform limits instantly. Free and private.",
     url: "https://workutilities.com/tools/word-counter",
     siteName: "WorkUtilities",
     type: "website",

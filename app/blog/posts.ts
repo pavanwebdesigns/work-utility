@@ -723,6 +723,17 @@ export const blogPosts: BlogPost[] = [
     cta: { toolName: "Word Counter", toolHref: "/tools/word-counter" },
   },
   {
+    slug: "word-counter-online-guide",
+    title: "Word Counter Online Free — Count Words, Characters & More",
+    excerpt:
+      "Free online word counter. Count words, characters, sentences, reading time, keyword density, and social media limits instantly. No signup.",
+    category: "Students & Utilities",
+    readTime: "6 min read",
+    author: "Sarah Mitchell",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Word Counter", toolHref: "/tools/word-counter" },
+  },
+  {
     slug: "age-calculator-for-government-forms-india",
     title: "Age Calculator for Government Forms India — Exact Age in Years Months Days",
     excerpt:
@@ -1502,6 +1513,13 @@ export const blogSeoMetadata: Record<
       "UPSC essay word limit guide. How to count words, practice within 1000-1200 word limit, and improve essay writing speed.",
     keywords:
       "upsc essay word limit, word count upsc mains, essay writing practice india, upsc gs answer word limit",
+  },
+  "word-counter-online-guide": {
+    title: "Word Counter Online Free — Count Words Instantly | WorkUtilities",
+    description:
+      "Free online word counter. Count words, characters, sentences, reading time, and keyword density instantly. Perfect for essays, social media, and SEO. No signup.",
+    keywords:
+      "word counter online, free word counter, character counter online, reading time calculator, keyword density word counter",
   },
   "age-calculator-for-government-forms-india": {
     title: "Age Calculator for Government Forms India 2026 | WorkUtilities",
