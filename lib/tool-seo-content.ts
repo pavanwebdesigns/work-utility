@@ -82,7 +82,17 @@ export type ToolSeoSlug =
   | "roman-numeral-converter"
   | "leap-year-checker"
   | "paycheck-calculator"
-  | "mortgage-calculator";
+  | "mortgage-calculator"
+  | "box-breathing"
+  | "cron-generator"
+  | "subnet-calculator"
+  | "svg-previewer"
+  | "audio-recorder"
+  | "loan-eligibility"
+  | "css-gradient"
+  | "timestamp-converter"
+  | "json-to-csv"
+  | "word-to-jpg";
 
 type ToolSeoEntry = {
   aboutTitle: string;
@@ -3411,6 +3421,246 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
       { question: "Is mortgage calculator free?", answer: "Yes. WorkUtilities Mortgage Calculator is free with no signup." },
     ],
     blogGuide: { href: "/blog/mortgage-calculator-guide", title: "Mortgage calculator guide — PITI, PMI, and amortization explained" },
+  },
+  "box-breathing": {
+    aboutTitle: "About Box Breathing Timer",
+    aboutParagraphs: [
+      "Our free Box Breathing Timer guides you through the classic 4-4-4-4 pattern with an animated visual cue, phase labels, and an accurate countdown per phase.",
+      "Adjust phase durations from 3–8 seconds or use the 4-7-8 preset. Start, pause, reset, and track completed rounds — all in your browser with no signup.",
+      "Used by Navy SEALs and high-performance teams, box breathing activates the parasympathetic nervous system to reduce acute stress and improve focus.",
+    ],
+    whenToUseTitle: "When Should You Use Box Breathing?",
+    useCases: [
+      { title: "Before presentations", description: "Center yourself with a few cycles before a meeting or talk." },
+      { title: "Anxiety management", description: "Ground yourself during acute stress with a fixed breathing pattern." },
+      { title: "Sleep wind-down", description: "Use as part of a bedtime routine to shift toward calm." },
+      { title: "Post-stress recovery", description: "Recover after an argument or stressful situation." },
+      { title: "Focus reset", description: "Break up long work sessions with a quick breathing reset." },
+    ],
+    faqs: [
+      { question: "What is box breathing?", answer: "Box breathing is a controlled breathing technique involving four equal phases — inhale, hold, exhale, hold — each lasting the same number of counts (commonly 4 seconds each). It's widely used to manage stress and improve focus." },
+      { question: "How many rounds of box breathing should I do?", answer: "Most sources suggest starting with 4 rounds (one full cycle is about 16 seconds), which takes roughly a minute, and working up to however many feel comfortable. Even a few cycles can produce a noticeable calming effect." },
+      { question: "What's the difference between box breathing and 4-7-8 breathing?", answer: "Box breathing uses equal counts for all four phases (4-4-4-4 or similar). The 4-7-8 technique uses different durations — inhale 4, hold 7, exhale 8 — with a longer exhale, which some people find produces a stronger relaxation effect." },
+      { question: "Can box breathing help with anxiety?", answer: "Controlled breathing techniques like box breathing are commonly used as a tool for managing acute stress and anxiety, and the technique is well-regarded in both military and clinical wellness contexts — though it's not a substitute for professional mental health treatment if anxiety is persistent or severe." },
+      { question: "Is box breathing timer free?", answer: "Yes. WorkUtilities Box Breathing Timer is free with no signup." },
+    ],
+    blogGuide: { href: "/blog/box-breathing-technique-guide", title: "Box breathing technique guide — 4-4-4-4 stress relief" },
+  },
+  "cron-generator": {
+    aboutTitle: "About Cron Expression Generator",
+    aboutParagraphs: [
+      "Our free Cron Expression Generator builds standard 5-field Unix cron expressions with a visual field editor, common presets, and instant human-readable descriptions.",
+      "See the next 5 scheduled run times based on today's date, and paste existing expressions to parse them back to plain English.",
+      "Essential for Linux crontab, CI/CD pipelines, database backups, and cloud schedulers like AWS EventBridge and Kubernetes CronJobs.",
+    ],
+    whenToUseTitle: "When Should You Use Cron Expression Generator?",
+    useCases: [
+      { title: "Crontab setup", description: "Build and verify Linux scheduled task expressions." },
+      { title: "CI/CD pipelines", description: "Configure build and deployment schedules." },
+      { title: "Cloud schedulers", description: "Generate cron for AWS EventBridge or Kubernetes CronJobs." },
+      { title: "Debugging schedules", description: "Parse an existing expression to understand what it does." },
+      { title: "Learning cron syntax", description: "See how field values map to human-readable descriptions." },
+    ],
+    faqs: [
+      { question: "What does `0 9 * * 1-5` mean in cron?", answer: "It runs at 9:00 AM every weekday (Monday through Friday). The fields are Minute (0), Hour (9), Day of Month (*=any), Month (*=any), Day of Week (1-5=Monday to Friday)." },
+      { question: "What's the difference between `*/5` and `0,5,10,15...` in a cron expression?", answer: "Both can produce similar schedules, but `*/5` means \"every 5 minutes starting from 0\" and will fire at 0, 5, 10...55. An explicit list gives you more control over exactly which minutes are included." },
+      { question: "Why does my cron job run at the wrong time?", answer: "Cron uses the server's system timezone, not your local timezone — if your server runs on UTC and you expected 9 AM IST, you'd need to set the job for 3:30 AM UTC instead (IST is UTC+5:30)." },
+      { question: "Does this generator work for AWS EventBridge or Kubernetes cron?", answer: "Standard 5-field cron syntax (what this tool generates) is compatible with most Linux systems and many cloud schedulers. AWS EventBridge uses a 6-field format with a seconds field — note this if you're targeting AWS specifically." },
+      { question: "Is cron expression generator free?", answer: "Yes. WorkUtilities Cron Expression Generator is free with no signup." },
+    ],
+    blogGuide: { href: "/blog/cron-expression-generator-guide", title: "Cron expression generator guide — build schedules visually" },
+  },
+  "subnet-calculator": {
+    aboutTitle: "About Subnet Calculator",
+    aboutParagraphs: [
+      "Our free Subnet Calculator computes network address, broadcast address, subnet mask, wildcard mask, total hosts, usable hosts, and IP range from any IPv4 CIDR notation.",
+      "Also supports reverse conversion from dotted-decimal subnet mask to CIDR prefix, with binary representations and a quick-reference subnet table.",
+      "Essential for network engineers, DevOps professionals, and anyone configuring cloud VPCs, firewalls, and router subnets.",
+    ],
+    whenToUseTitle: "When Should You Use Subnet Calculator?",
+    useCases: [
+      { title: "Cloud VPC design", description: "Plan AWS, GCP, or Azure subnet sizes and IP ranges." },
+      { title: "Firewall rules", description: "Determine network boundaries for access control lists." },
+      { title: "Network troubleshooting", description: "Verify whether an IP falls within a given subnet." },
+      { title: "Certification study", description: "Practice subnet math for CCNA and cloud certifications." },
+      { title: "Router configuration", description: "Convert between CIDR and dotted-decimal subnet masks." },
+    ],
+    faqs: [
+      { question: "What does /24 mean in an IP address like 192.168.1.0/24?", answer: "The /24 is CIDR notation, meaning the first 24 bits identify the network, leaving 8 bits for host addresses. This gives 256 total IP addresses (2^8), with 254 usable after reserving the network and broadcast addresses." },
+      { question: "Why are 2 addresses subtracted from the total to get usable hosts?", answer: "The first address is the network address (identifies the subnet itself, not assignable to devices), and the last address is the broadcast address (used to send to all devices on the subnet at once) — both are reserved and can't be assigned to individual hosts." },
+      { question: "What's the difference between a subnet mask and a CIDR prefix?", answer: "They express the same information in different formats. A /24 CIDR prefix is equivalent to a 255.255.255.0 subnet mask — CIDR is more compact and widely used today, while dotted-decimal subnet masks are the older format, still used in some device configuration interfaces." },
+      { question: "Which CIDR prefix should I use for a small office network?", answer: "/24 (256 addresses, 254 usable) is the most common choice for small networks, providing enough addresses for typical office use while keeping the subnet manageable. For very small segments (like point-to-point links), /30 (4 addresses, 2 usable) is common." },
+      { question: "Is subnet calculator free?", answer: "Yes. WorkUtilities Subnet Calculator is free with no signup." },
+    ],
+    blogGuide: { href: "/blog/subnet-calculator-guide", title: "Subnet calculator guide — CIDR notation and IP ranges explained" },
+  },
+  "svg-previewer": {
+    aboutTitle: "About SVG Code Previewer",
+    aboutParagraphs: [
+      "Our free SVG Code Previewer renders SVG markup live as you type or paste — split-pane editor with instant preview, no external libraries required.",
+      "Sanitizes input by stripping script tags, event handlers, and other XSS vectors before rendering. Toggle backgrounds, prettify code, copy, and download as .svg.",
+      "Ideal for checking Figma/Illustrator exports, debugging broken SVG, and editing colors or dimensions directly in code.",
+    ],
+    whenToUseTitle: "When Should You Use SVG Code Previewer?",
+    useCases: [
+      { title: "Export verification", description: "Check SVG from design tools before embedding in code." },
+      { title: "Manual editing", description: "Tweak fill, stroke, width, and height and see results instantly." },
+      { title: "Debugging", description: "Fix SVG that doesn't display correctly by inspecting the markup." },
+      { title: "Background testing", description: "Preview icons on light, dark, or transparent backgrounds." },
+      { title: "Code formatting", description: "Prettify minified SVG for readability before committing." },
+    ],
+    faqs: [
+      { question: "What is SVG and why is it used for web icons?", answer: "SVG (Scalable Vector Graphics) is a code-based image format that stores shapes mathematically rather than as pixels, allowing it to scale to any size without losing quality — ideal for icons, logos, and UI elements that need to look sharp on all screen resolutions including high-DPI/Retina displays." },
+      { question: "Can I edit SVG colors and sizes without an image editor?", answer: "Yes — SVG is just XML/text, so you can directly edit the fill, stroke, width, and height attributes in the code and see the result instantly in a live previewer." },
+      { question: "Is it safe to paste SVG code from the internet into a previewer?", answer: "Exercise caution — SVG can contain embedded JavaScript that may run when rendered. A good SVG previewer sanitizes the input by stripping script tags and event handlers before rendering; this tool does that. Still, only paste SVG from trusted sources." },
+      { question: "How is SVG different from PNG?", answer: "SVG stores images as mathematical descriptions of shapes (lines, curves, fills) while PNG stores a fixed grid of pixels. SVG scales perfectly at any size, PNG loses quality when scaled up — but PNG handles photographic images better than SVG, which is best suited for icons, logos, and geometric illustrations." },
+      { question: "Is SVG code previewer free?", answer: "Yes. WorkUtilities SVG Code Previewer is free with no signup." },
+    ],
+    blogGuide: { href: "/blog/svg-code-previewer-guide", title: "SVG code previewer guide — live preview and safe editing" },
+  },
+  "audio-recorder": {
+    aboutTitle: "About Audio Recorder",
+    aboutParagraphs: [
+      "Our free Online Audio Recorder captures microphone input directly in your browser using the MediaRecorder API — record, pause, resume, play back, and download.",
+      "Recordings stay entirely on your device. Nothing is uploaded to any server. Session recordings are in-memory only and lost on page close.",
+      "Downloads as WebM audio — a modern open format natively supported by most browsers. Includes a live timer and visual recording indicator.",
+    ],
+    whenToUseTitle: "When Should You Use Audio Recorder?",
+    useCases: [
+      { title: "Voice notes", description: "Capture a quick reminder without opening a separate app." },
+      { title: "Voice messages", description: "Record a short audio clip to share or transcribe later." },
+      { title: "Mic testing", description: "Verify your microphone works before a video call." },
+      { title: "Quick dictation", description: "Record an idea when typing isn't convenient." },
+      { title: "Short project audio", description: "Capture audio without installing desktop software." },
+    ],
+    faqs: [
+      { question: "Do I need to install anything to record audio in the browser?", answer: "No — this tool uses your browser's built-in microphone API. Just allow microphone access when prompted and you can start recording immediately." },
+      { question: "Is my recorded audio uploaded anywhere?", answer: "No — recordings are processed entirely in your browser and stay on your device. Nothing is sent to any server, which also means recordings are lost when you close or refresh the page." },
+      { question: "What format does the recording download in?", answer: "Recordings download as WebM audio, a modern open format natively supported by most browsers. If you need MP3 specifically, many free converters can convert WebM to MP3 after downloading." },
+      { question: "Why is the browser asking for microphone permission?", answer: "Accessing your microphone requires explicit permission for privacy and security reasons — your browser prompts you once per site. The permission is only used while you're actively recording and can be revoked anytime from your browser's privacy settings." },
+      { question: "Is audio recorder free?", answer: "Yes. WorkUtilities Audio Recorder is free with no signup." },
+    ],
+    blogGuide: { href: "/blog/free-online-audio-recorder-guide", title: "Free online audio recorder — record in your browser" },
+  },
+  "loan-eligibility": {
+    aboutTitle: "About Loan Eligibility Calculator",
+    aboutParagraphs: [
+      "Our free Loan Eligibility Calculator estimates how much you can borrow based on FOIR (Fixed Obligation to Income Ratio) guidelines used by most Indian banks.",
+      "Enter monthly take-home income, existing EMIs, desired loan amount, interest rate, and tenure to see max eligible loan at 40% and 50% FOIR, EMI for your desired amount, and eligibility status.",
+      "Always shows results in ₹ regardless of region toggle, with an India banking guidelines badge. Includes a clear disclaimer that CIBIL score, employment type, and lender policies also affect approval.",
+    ],
+    whenToUseTitle: "When Should You Use Loan Eligibility Calculator?",
+    useCases: [
+      { title: "Home loan planning", description: "Estimate max home loan before visiting a bank branch." },
+      { title: "Personal loan check", description: "See if your income supports the loan amount you need." },
+      { title: "Car loan budgeting", description: "Compare desired EMI against FOIR limits before applying." },
+      { title: "Refinance assessment", description: "Check how existing EMIs affect room for a new loan." },
+      { title: "Pre-application research", description: "Use FOIR math as a starting reference before formal approval." },
+    ],
+    faqs: [
+      { question: "What is FOIR and why does it affect loan eligibility?", answer: "FOIR is the percentage of your monthly income committed to EMI payments. Most Indian banks require this to stay within 40-50%, so existing EMIs directly reduce how much additional loan you qualify for." },
+      { question: "Will this give me the exact amount a bank will approve?", answer: "No — this is an estimate based on income-to-EMI ratio guidelines. Actual bank approval also considers your CIBIL score, employment type, age, and specific bank policies. Use this as a starting reference." },
+      { question: "Does CIBIL score affect eligibility?", answer: "Yes significantly — a score above 750 typically gets best rates and easier approvals, while lower scores may result in higher rates or rejection regardless of income. This calculator doesn't model CIBIL." },
+      { question: "What's the difference between home loan and personal loan eligibility?", answer: "Home loans allow higher amounts (property acts as collateral) at lower rates with longer tenures. Personal loans are unsecured, have higher rates, shorter tenures, and lower maximum amounts relative to income." },
+      { question: "Is loan eligibility calculator free?", answer: "Yes. WorkUtilities Loan Eligibility Calculator is free with no signup." },
+    ],
+    blogGuide: { href: "/blog/loan-eligibility-calculator-guide", title: "Loan eligibility calculator India — FOIR explained" },
+  },
+  "css-gradient": {
+    aboutTitle: "About CSS Gradient Generator",
+    aboutParagraphs: [
+      "Our free CSS Gradient Generator builds linear, radial, and conic gradients visually with draggable color stops, angle control, and a prominent live preview.",
+      "Six built-in presets (sunset, ocean, midnight, pastel dawn, forest, candy) let you start immediately. Copy the exact background CSS property with one click.",
+      "All processing runs in your browser — no signup, no server upload. Perfect for hero backgrounds, buttons, cards, and gradient text effects.",
+    ],
+    whenToUseTitle: "When Should You Use CSS Gradient Generator?",
+    useCases: [
+      { title: "Hero sections", description: "Create full-width gradient backgrounds without image files." },
+      { title: "Button styling", description: "Design hover states and branded gradient buttons." },
+      { title: "Card backgrounds", description: "Add soft pastel or bold gradient card fills." },
+      { title: "Gradient text", description: "Copy CSS for background-clip text effects." },
+      { title: "Quick prototyping", description: "Iterate gradient colors and angles before adding to code." },
+    ],
+    faqs: [
+      { question: "What is a CSS gradient?", answer: "A CSS gradient is a smooth color transition defined in code rather than as an image file, making it infinitely scalable and requiring zero extra file downloads." },
+      { question: "What's the difference between linear, radial, and conic gradients?", answer: "Linear gradients transition along a straight line at an angle. Radial gradients radiate outward from a center point. Conic gradients transition around a center point, like a color wheel or pie chart." },
+      { question: "Can I use CSS gradients for colored text?", answer: "Yes — apply a gradient as a background, then use background-clip: text and color: transparent to create gradient-colored text, a popular modern design effect." },
+      { question: "Is the generated CSS compatible with all browsers?", answer: "Modern CSS gradients are well-supported across all current browsers — vendor prefixes like -webkit- were needed for older browsers but are rarely necessary today." },
+      { question: "Is CSS gradient generator free?", answer: "Yes. WorkUtilities CSS Gradient Generator is free with no signup." },
+    ],
+    blogGuide: { href: "/blog/css-gradient-generator-guide", title: "CSS gradient generator guide — linear, radial, and conic" },
+  },
+  "timestamp-converter": {
+    aboutTitle: "About Unix Timestamp Converter",
+    aboutParagraphs: [
+      "Our free Unix Timestamp Converter shows the current epoch time live (seconds and milliseconds) with copy buttons — the most-used feature, placed first.",
+      "Convert timestamps to human-readable dates in UTC and your local timezone with auto-detection of 10-digit seconds vs 13-digit milliseconds.",
+      "Convert date-time picker inputs back to Unix timestamps. All outputs have copy-to-clipboard buttons. Runs entirely in your browser.",
+    ],
+    whenToUseTitle: "When Should You Use Unix Timestamp Converter?",
+    useCases: [
+      { title: "API debugging", description: "Decode timestamp fields from JSON API responses." },
+      { title: "Database queries", description: "Convert stored epoch values to readable dates." },
+      { title: "Log analysis", description: "Translate Unix timestamps in server logs." },
+      { title: "JavaScript development", description: "Compare Date.now() milliseconds with server seconds." },
+      { title: "Live epoch reference", description: "Copy current Unix time for test data or cron jobs." },
+    ],
+    faqs: [
+      { question: "What is a Unix timestamp?", answer: "A Unix timestamp is the number of seconds (or milliseconds) elapsed since January 1, 1970 00:00:00 UTC — a universal, timezone-agnostic way to represent a specific moment in time." },
+      { question: "Why do some timestamps have 10 digits and others 13?", answer: "A 10-digit timestamp counts seconds since the Unix epoch; a 13-digit timestamp counts milliseconds. JavaScript's Date.now() returns milliseconds while many server-side APIs use seconds." },
+      { question: "Is a Unix timestamp always UTC?", answer: "The timestamp itself is timezone-agnostic — it refers to a specific moment globally. The timezone only matters when converting to a human-readable date for display." },
+      { question: "What is the Unix epoch?", answer: "January 1, 1970 at 00:00:00 UTC — the reference point from which all Unix timestamps are counted." },
+      { question: "Is unix timestamp converter free?", answer: "Yes. WorkUtilities Unix Timestamp Converter is free with no signup." },
+    ],
+    blogGuide: { href: "/blog/unix-timestamp-converter-guide", title: "Unix timestamp converter guide — epoch explained" },
+  },
+  "json-to-csv": {
+    aboutTitle: "About JSON to CSV Converter",
+    aboutParagraphs: [
+      "Our free JSON to CSV Converter transforms a JSON array of objects into spreadsheet-ready CSV with object keys as headers and each object as a row.",
+      "Nested objects are flattened one level with dot notation; deeper nesting is stringified with clear warnings — never silently broken output.",
+      "Preview CSV before downloading, copy to clipboard, or download as .csv. The natural complement to our CSV to JSON tool.",
+    ],
+    whenToUseTitle: "When Should You Use JSON to CSV Converter?",
+    useCases: [
+      { title: "API data export", description: "Turn JSON API responses into Excel-ready spreadsheets." },
+      { title: "Reporting", description: "Share flat data with non-developers who use Google Sheets." },
+      { title: "Data pipelines", description: "Quickly convert test JSON fixtures to CSV format." },
+      { title: "Product analytics", description: "Export user records from JSON logs to spreadsheet columns." },
+      { title: "Reverse of CSV to JSON", description: "Complete the round-trip with our CSV to JSON tool." },
+    ],
+    faqs: [
+      { question: "What JSON structure works best for CSV conversion?", answer: "A flat array of objects where every object has the same keys — for example, an array of user records each with name, email, and age fields. This maps cleanly to CSV rows and columns." },
+      { question: "What happens to nested objects in the JSON?", answer: "Nested objects (objects inside objects) don't have a natural flat-CSV equivalent — the converter flattens one level with dot notation or stringifies deeper fields. Check the output preview to confirm the result matches your expectation." },
+      { question: "Can I open the downloaded CSV directly in Excel?", answer: "Yes — the downloaded .csv file can be opened directly in Excel, Google Sheets, or any spreadsheet application." },
+      { question: "What if I need to go the other direction — CSV to JSON?", answer: "Use the CSV to JSON tool, also available on this site." },
+      { question: "Is JSON to CSV converter free?", answer: "Yes. WorkUtilities JSON to CSV Converter is free with no signup." },
+    ],
+    blogGuide: { href: "/blog/how-to-convert-json-to-csv-online-free", title: "How to convert JSON to CSV online free" },
+  },
+  "word-to-jpg": {
+    aboutTitle: "About Word to JPG Converter",
+    aboutParagraphs: [
+      "Our free Word to JPG Converter uploads a .docx file and converts it to a JPG image entirely in your browser using mammoth.js and html2canvas.",
+      "Works best with simple document layouts. Complex formatting (custom fonts, advanced tables) may not render perfectly — with an honest on-page note and PDF-to-JPG alternative linked.",
+      "Outputs a single continuous JPG of the full rendered document height — multi-page documents become one tall image, not separate files per page.",
+    ],
+    whenToUseTitle: "When Should You Use Word to JPG Converter?",
+    useCases: [
+      { title: "Share without edits", description: "Send a document as a non-editable JPG image." },
+      { title: "Social media posts", description: "Embed document content where only images are accepted." },
+      { title: "Email signatures", description: "Include letterhead or certificate visuals as images." },
+      { title: "Quick previews", description: "Create a visual thumbnail without requiring Word installed." },
+      { title: "Simple letters", description: "Convert basic formatted letters to shareable images." },
+    ],
+    faqs: [
+      { question: "Why would I convert a Word doc to a JPG?", answer: "Common reasons include sharing without allowing edits, embedding in a presentation or email where images are needed, or creating a visual preview without the recipient needing Word installed." },
+      { question: "What happens to complex formatting in conversion?", answer: "Simple formatting (text, basic tables, headings) generally converts well. Complex elements like custom fonts, advanced table styles, or embedded objects may not render perfectly in a browser-based converter." },
+      { question: "What's a better option for complex documents?", answer: "Save from Word as PDF first, then use the PDF to JPG tool on this site — PDF-to-image conversion typically gives cleaner results for complex layouts." },
+      { question: "Can I convert multiple pages?", answer: "The tool outputs your document as a single continuous JPG image covering the full rendered document height. Multi-page documents become one tall image, not separate JPG files per page." },
+      { question: "Is Word to JPG converter free?", answer: "Yes. WorkUtilities Word to JPG Converter is free with no signup." },
+    ],
+    blogGuide: { href: "/blog/how-to-convert-word-to-jpg-online-free", title: "How to convert Word to JPG online free" },
   },
 };
 

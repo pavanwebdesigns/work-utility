@@ -2,10 +2,12 @@
 export const TOOL_PAGE_DESCRIPTIONS: Record<string, string> = {
   "age-calculator": "Calculate your exact age in years, months, and days from your date of birth. Free age calculator for government forms, exams, and eligibility checks in India.",
   "aspect-ratio": "Calculate image aspect ratios and resize dimensions free online. Find width or height for any aspect ratio instantly.",
+  "audio-recorder": "Free online audio recorder. Record from your microphone in the browser, play back, and download instantly. No app download or signup required.",
   "base64": "Encode and decode Base64 text or files free online. Fast, private, browser-only Base64 converter.",
   "bg-remove": "Remove image background online free. No signup, no server upload. AI-powered background removal runs in your browser.",
   "binary-converter": "Convert between binary, decimal, hexadecimal and octal number systems free online. Instant conversion.",
   "bmi-calculator": "Calculate your BMI free online. Supports metric and imperial units. Get instant BMI category results.",
+  "box-breathing": "Free box breathing timer with animated guide. Practice the 4-4-4-4 breathing technique to reduce stress instantly. No signup, runs in your browser.",
   "calorie-deficit-calculator": "Free calorie deficit calculator using the Mifflin-St Jeor formula. Calculate your BMR, maintenance calories, and a sustainable daily target.",
   "cgpa-to-percentage": "Convert CGPA to percentage using VTU, CBSE, Anna University, and 4-point scale formulas. Reverse percentage-to-CGPA converter included. Free for students.",
   "character-counter": "Count characters, words, sentences and paragraphs free online. Real-time counting with no signup required.",
@@ -14,6 +16,7 @@ export const TOOL_PAGE_DESCRIPTIONS: Record<string, string> = {
   "color-picker": "Pick colors and get HEX, RGB, HSL values free online. Color palette generator and converter tool.",
   "compound-interest": "Calculate compound interest growth free online. See how your investment grows with monthly or yearly compounding.",
   "csv-to-json": "Convert CSV data to JSON format free online. Paste CSV or upload a file. Instant conversion with preview.",
+  "cron-generator": "Generate and explain cron expressions with a visual builder. See next 5 run times, human-readable description, and common presets. No signup.",
   "ctc-calculator": "Calculate monthly in-hand salary from annual CTC with PF, professional tax, and income tax estimates. Free take-home pay calculator for Indian employees.",
   "days-between-dates": "Calculate the exact number of days between two dates free online. Count days until an event or days since a past date. No signup needed.",
   "device-info": "Check your browser, OS, screen resolution, and device details online free. Useful for bug reports and troubleshooting. No signup needed.",
@@ -72,7 +75,9 @@ export const TOOL_PAGE_DESCRIPTIONS: Record<string, string> = {
   "sip-calculator": "Calculate mutual fund SIP returns with maturity value, total invested, and estimated gains. Free SIP calculator with year-by-year growth projection for India.",
   "sql-formatter": "Format and beautify SQL queries online free. Auto-indent, capitalize keywords, and make long queries readable. No signup, runs in your browser.",
   "stopwatch": "Free online stopwatch with lap timer. Precise timing with milliseconds. Start, stop, lap, and reset instantly.",
+  "subnet-calculator": "Free subnet calculator for IPv4 CIDR. Find network address, broadcast, usable hosts, IP range, and subnet mask instantly. No signup needed.",
   "svg-to-png": "Convert SVG to PNG online free at any resolution. Choose transparent or solid background. No signup, conversion happens in your browser.",
+  "svg-previewer": "Preview SVG code live in your browser. Paste SVG markup and see it render instantly. Download, prettify, and test on different backgrounds. No signup.",
   "text-case-converter": "Convert text to uppercase, lowercase, title case, camelCase, snake_case and more. Free online text case tool.",
   "text-diff": "Compare two texts and find differences online free. Highlight added, removed, and changed lines instantly.",
   "text-to-speech": "Free text to speech converter. Type or paste text and listen instantly with natural voices. No signup, works directly in your browser.",
@@ -85,6 +90,11 @@ export const TOOL_PAGE_DESCRIPTIONS: Record<string, string> = {
   "word-counter": "Free word counter for essays and documents. Count words, characters, sentences, and reading time instantly. Built for students, writers, and professionals.",
   "word-to-pdf": "Convert Word documents to PDF online free. Fast DOCX to PDF conversion. No signup needed, browser-only processing.",
   "xml-formatter": "Format, beautify and validate XML data free online. Fix XML errors and view structured data instantly.",
+  "loan-eligibility": "Check your home, personal or car loan eligibility free online. Based on Indian FOIR guidelines — see max eligible amount and EMI. No signup required.",
+  "css-gradient": "Create CSS gradients visually and copy the code instantly. Linear, radial, and conic gradients with live preview and one-click copy. No signup needed.",
+  "timestamp-converter": "Convert Unix timestamps to readable dates and back. See current epoch time live. Auto-detects seconds vs milliseconds instantly. No signup needed.",
+  "json-to-csv": "Convert JSON arrays to CSV online free. Paste JSON data and download a spreadsheet-ready CSV file instantly. No signup, runs in your browser.",
+  "word-to-jpg": "Convert Word documents to JPG images online free. Upload a DOCX file and download as an image. Share docs without editing access. No signup needed.",
 };
 
 export function getToolPageDescription(slug: string): string | undefined {

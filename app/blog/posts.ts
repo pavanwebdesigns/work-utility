@@ -1052,6 +1052,116 @@ export const blogPosts: BlogPost[] = [
     lastUpdated: "June 2026",
     cta: { toolName: "Mortgage Calculator", toolHref: "/tools/mortgage-calculator" },
   },
+  {
+    slug: "box-breathing-technique-guide",
+    title: "Box Breathing Technique Guide — 4-4-4-4 Stress Relief",
+    excerpt:
+      "Free box breathing timer with animated guide. Learn the 4-4-4-4 technique used by Navy SEALs, how it calms stress, and when to use 4-7-8 breathing instead.",
+    category: "Productivity",
+    readTime: "6 min read",
+    author: "Sarah Mitchell",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Box Breathing Timer", toolHref: "/tools/box-breathing" },
+  },
+  {
+    slug: "cron-expression-generator-guide",
+    title: "Cron Expression Generator Guide — Build Schedules Visually",
+    excerpt:
+      "Generate and explain cron expressions with a visual builder. Learn the 5 cron fields, common pitfalls, and how to avoid timezone mistakes.",
+    category: "Developer Tools",
+    readTime: "7 min read",
+    author: "Alex Morgan",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Cron Expression Generator", toolHref: "/tools/cron-generator" },
+  },
+  {
+    slug: "subnet-calculator-guide",
+    title: "Subnet Calculator Guide — CIDR Notation & IP Ranges Explained",
+    excerpt:
+      "Free subnet calculator for IPv4 CIDR. Learn what /24 means, why 2 addresses are subtracted, and common VPC subnet sizes for cloud networks.",
+    category: "Developer Tools",
+    readTime: "7 min read",
+    author: "Alex Morgan",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Subnet Calculator", toolHref: "/tools/subnet-calculator" },
+  },
+  {
+    slug: "svg-code-previewer-guide",
+    title: "SVG Code Previewer Guide — Live Preview & Safe Editing",
+    excerpt:
+      "Preview SVG code live in your browser. Learn why SVG beats PNG for icons, how to edit colors in code, and when to sanitize untrusted SVG.",
+    category: "Developer Tools",
+    readTime: "6 min read",
+    author: "Alex Morgan",
+    lastUpdated: "June 2026",
+    cta: { toolName: "SVG Code Previewer", toolHref: "/tools/svg-previewer" },
+  },
+  {
+    slug: "free-online-audio-recorder-guide",
+    title: "Free Online Audio Recorder — Record in Your Browser",
+    excerpt:
+      "Free online audio recorder. Record from your microphone, play back, and download as WebM. No app install, no server upload, no signup.",
+    category: "Students & Utilities",
+    readTime: "5 min read",
+    author: "Sarah Mitchell",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Audio Recorder", toolHref: "/tools/audio-recorder" },
+  },
+  {
+    slug: "loan-eligibility-calculator-guide",
+    title: "Loan Eligibility Calculator India — FOIR Explained",
+    excerpt:
+      "Check home, personal, or car loan eligibility free online. Learn what FOIR means, why existing EMIs matter, and how banks decide approval beyond income.",
+    category: "Finance",
+    readTime: "7 min read",
+    author: "Priya Sharma",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Loan Eligibility Calculator", toolHref: "/tools/loan-eligibility" },
+  },
+  {
+    slug: "css-gradient-generator-guide",
+    title: "CSS Gradient Generator Guide — Linear, Radial & Conic",
+    excerpt:
+      "Create CSS gradients visually and copy ready code. Learn gradient types, color stops, and practical uses for hero sections, buttons, and gradient text.",
+    category: "Developer Tools",
+    readTime: "6 min read",
+    author: "Alex Morgan",
+    lastUpdated: "June 2026",
+    cta: { toolName: "CSS Gradient Generator", toolHref: "/tools/css-gradient" },
+  },
+  {
+    slug: "unix-timestamp-converter-guide",
+    title: "Unix Timestamp Converter Guide — Epoch Time Explained",
+    excerpt:
+      "Convert Unix timestamps to readable dates and back. Learn what the Unix epoch is, seconds vs milliseconds, and UTC vs local timezone display.",
+    category: "Developer Tools",
+    readTime: "6 min read",
+    author: "Alex Morgan",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Unix Timestamp Converter", toolHref: "/tools/timestamp-converter" },
+  },
+  {
+    slug: "how-to-convert-json-to-csv-online-free",
+    title: "How to Convert JSON to CSV Online Free",
+    excerpt:
+      "Convert JSON arrays to CSV for Excel and Google Sheets. Learn required JSON structure, nested object handling, and when to use CSV to JSON instead.",
+    category: "Developer Tools",
+    readTime: "6 min read",
+    author: "Alex Morgan",
+    lastUpdated: "June 2026",
+    cta: { toolName: "JSON to CSV Converter", toolHref: "/tools/json-to-csv" },
+  },
+  {
+    slug: "how-to-convert-word-to-jpg-online-free",
+    title: "How to Convert Word to JPG Online Free",
+    excerpt:
+      "Convert DOCX to JPG in your browser. Learn why people share docs as images, formatting limits, and when PDF to JPG works better for complex layouts.",
+    category: "PDF & Documents",
+    readTime: "6 min read",
+    author: "Sarah Mitchell",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Word to JPG Converter", toolHref: "/tools/word-to-jpg" },
+  },
 ];
 
 export const blogPostBySlug = Object.fromEntries(
@@ -1705,6 +1815,76 @@ export const blogSeoMetadata: Record<
       "Free mortgage calculator guide. Understand PITI, PMI, why early payments are mostly interest, and how extra payments save thousands over a 30-year loan.",
     keywords:
       "mortgage calculator, PITI explained, PMI mortgage, amortization schedule",
+  },
+  "box-breathing-technique-guide": {
+    title: "Box Breathing Timer Online — 4-4-4-4 Guided Exercise | WorkUtilities",
+    description:
+      "Free box breathing timer with animated guide. Practice the 4-4-4-4 breathing technique to reduce stress instantly. No signup, runs in your browser.",
+    keywords:
+      "box breathing technique, box breathing timer, 4-4-4-4 breathing, stress relief breathing",
+  },
+  "cron-expression-generator-guide": {
+    title: "Cron Expression Generator Online Free — Visual Builder | WorkUtilities",
+    description:
+      "Generate and explain cron expressions with a visual builder. See next 5 run times, human-readable description, and common presets. No signup.",
+    keywords:
+      "cron expression generator, cron builder, crontab generator, cron schedule tool",
+  },
+  "subnet-calculator-guide": {
+    title: "Subnet Calculator Online Free — CIDR IP Range Tool | WorkUtilities",
+    description:
+      "Free subnet calculator for IPv4 CIDR. Find network address, broadcast, usable hosts, IP range, and subnet mask instantly. No signup needed.",
+    keywords:
+      "subnet calculator, cidr calculator, ip subnet calculator, network address calculator",
+  },
+  "svg-code-previewer-guide": {
+    title: "SVG Code Previewer Online Free — Live Preview & Editor | WorkUtilities",
+    description:
+      "Preview SVG code live in your browser. Paste SVG markup and see it render instantly. Download, prettify, and test on different backgrounds. No signup.",
+    keywords:
+      "svg code previewer, svg live preview, svg editor online, svg viewer",
+  },
+  "free-online-audio-recorder-guide": {
+    title: "Online Audio Recorder Free — Record from Browser | WorkUtilities",
+    description:
+      "Free online audio recorder. Record from your microphone in the browser, play back, and download instantly. No app download or signup required.",
+    keywords:
+      "online audio recorder, record audio online free, browser microphone recorder, voice recorder online",
+  },
+  "loan-eligibility-calculator-guide": {
+    title: "Loan Eligibility Calculator India — FOIR Guide | WorkUtilities",
+    description:
+      "Check home, personal or car loan eligibility free online. Based on Indian FOIR guidelines — see max eligible amount and EMI. No signup required.",
+    keywords:
+      "loan eligibility calculator India, FOIR calculator, home loan eligibility, personal loan eligibility",
+  },
+  "css-gradient-generator-guide": {
+    title: "CSS Gradient Generator Online Free — Copy Ready CSS | WorkUtilities",
+    description:
+      "Create CSS gradients visually and copy the code instantly. Linear, radial, and conic gradients with live preview and one-click copy. No signup needed.",
+    keywords:
+      "CSS gradient generator, linear gradient generator, radial gradient CSS, conic gradient online",
+  },
+  "unix-timestamp-converter-guide": {
+    title: "Unix Timestamp Converter — Epoch to Date Online | WorkUtilities",
+    description:
+      "Convert Unix timestamps to readable dates and back. See current epoch time live. Auto-detects seconds vs milliseconds instantly. No signup needed.",
+    keywords:
+      "unix timestamp converter, epoch converter, timestamp to date, date to unix timestamp",
+  },
+  "how-to-convert-json-to-csv-online-free": {
+    title: "JSON to CSV Converter Online Free — No Signup | WorkUtilities",
+    description:
+      "Convert JSON arrays to CSV online free. Paste JSON data and download a spreadsheet-ready CSV file instantly. No signup, runs in your browser.",
+    keywords:
+      "JSON to CSV converter, convert JSON to CSV online, JSON array to spreadsheet, export JSON to Excel",
+  },
+  "how-to-convert-word-to-jpg-online-free": {
+    title: "Word to JPG Converter Online Free — DOCX to Image | WorkUtilities",
+    description:
+      "Convert Word documents to JPG images online free. Upload a DOCX file and download as an image. Share docs without editing access. No signup needed.",
+    keywords:
+      "convert Word to JPG online, DOCX to JPG, Word document to image, docx to jpeg converter",
   },
 };
 

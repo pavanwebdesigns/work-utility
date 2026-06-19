@@ -95,6 +95,16 @@ import RomanNumeralConverterGuideContent from "../content/roman-numeral-converte
 import LeapYearCheckerGuideContent from "../content/leap-year-checker-guide";
 import USPaycheckCalculatorGuideContent from "../content/us-paycheck-calculator-guide";
 import MortgageCalculatorGuideContent from "../content/mortgage-calculator-guide";
+import BoxBreathingTechniqueGuideContent from "../content/box-breathing-technique-guide";
+import CronExpressionGeneratorGuideContent from "../content/cron-expression-generator-guide";
+import SubnetCalculatorGuideContent from "../content/subnet-calculator-guide";
+import SvgCodePreviewerGuideContent from "../content/svg-code-previewer-guide";
+import FreeOnlineAudioRecorderGuideContent from "../content/free-online-audio-recorder-guide";
+import LoanEligibilityCalculatorGuideContent from "../content/loan-eligibility-calculator-guide";
+import CssGradientGeneratorGuideContent from "../content/css-gradient-generator-guide";
+import UnixTimestampConverterGuideContent from "../content/unix-timestamp-converter-guide";
+import HowToConvertJsonToCsvOnlineFreeContent from "../content/how-to-convert-json-to-csv-online-free";
+import HowToConvertWordToJpgOnlineFreeContent from "../content/how-to-convert-word-to-jpg-online-free";
 
 const contentBySlug: Record<string, () => JSX.Element> = {
   "complete-pdf-tools-guide-india": CompletePdfToolsGuideIndiaContent,
@@ -214,6 +224,16 @@ const contentBySlug: Record<string, () => JSX.Element> = {
   "leap-year-checker-guide": LeapYearCheckerGuideContent,
   "us-paycheck-calculator-guide": USPaycheckCalculatorGuideContent,
   "mortgage-calculator-guide": MortgageCalculatorGuideContent,
+  "box-breathing-technique-guide": BoxBreathingTechniqueGuideContent,
+  "cron-expression-generator-guide": CronExpressionGeneratorGuideContent,
+  "subnet-calculator-guide": SubnetCalculatorGuideContent,
+  "svg-code-previewer-guide": SvgCodePreviewerGuideContent,
+  "free-online-audio-recorder-guide": FreeOnlineAudioRecorderGuideContent,
+  "loan-eligibility-calculator-guide": LoanEligibilityCalculatorGuideContent,
+  "css-gradient-generator-guide": CssGradientGeneratorGuideContent,
+  "unix-timestamp-converter-guide": UnixTimestampConverterGuideContent,
+  "how-to-convert-json-to-csv-online-free": HowToConvertJsonToCsvOnlineFreeContent,
+  "how-to-convert-word-to-jpg-online-free": HowToConvertWordToJpgOnlineFreeContent,
 };
 
 export function generateStaticParams() {

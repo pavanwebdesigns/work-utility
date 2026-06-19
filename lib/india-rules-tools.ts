@@ -6,6 +6,7 @@ export const INDIA_RULES_TOOL_SLUGS = [
   "gratuity-calculator",
   "lta-calculator",
   "gst-calculator",
+  "loan-eligibility",
 ] as const;
 
 export type IndiaRulesToolSlug = (typeof INDIA_RULES_TOOL_SLUGS)[number];
@@ -21,6 +22,7 @@ export const INDIA_RULES_BADGE_LABELS: Record<IndiaRulesToolSlug, string> = {
     "Based on the Payment of Gratuity Act — FY2025-26",
   "lta-calculator": "Based on Indian LTA exemption rules — FY2025-26",
   "gst-calculator": "Based on Indian GST rules — FY2025-26",
+  "loan-eligibility": "Based on Indian banking guidelines",
 };
 
 export const INDIA_RULES_CURRENCY = {
