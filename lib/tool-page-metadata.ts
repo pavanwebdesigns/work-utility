@@ -95,6 +95,10 @@ export const TOOL_PAGE_DESCRIPTIONS: Record<string, string> = {
   "timestamp-converter": "Convert Unix timestamps to readable dates and back. See current epoch time live. Auto-detects seconds vs milliseconds instantly. No signup needed.",
   "json-to-csv": "Convert JSON arrays to CSV online free. Paste JSON data and download a spreadsheet-ready CSV file instantly. No signup, runs in your browser.",
   "word-to-jpg": "Convert Word documents to JPG images online free. Upload a DOCX file and download as an image. Share docs without editing access. No signup needed.",
+  "currency-converter": "Convert currencies with live exchange rates from the European Central Bank. Free online currency converter — USD, EUR, GBP, INR and more. No signup.",
+  "crypto-tracker": "Track live cryptocurrency prices free online. Bitcoin, Ethereum, and top 15 cryptos with 24h change, market cap, and USD converter. No signup.",
+  "dns-lookup": "Look up DNS records for any domain free online. Check A, AAAA, CNAME, MX, TXT, NS records instantly. Powered by Cloudflare DNS. No signup.",
+  "ip-lookup": "Look up any IP address location, ISP, and timezone online free. See your own IP or check any IP address instantly. No signup needed.",
 };
 
 export function getToolPageDescription(slug: string): string | undefined {

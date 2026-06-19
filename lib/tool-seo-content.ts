@@ -92,7 +92,11 @@ export type ToolSeoSlug =
   | "css-gradient"
   | "timestamp-converter"
   | "json-to-csv"
-  | "word-to-jpg";
+  | "word-to-jpg"
+  | "currency-converter"
+  | "crypto-tracker"
+  | "dns-lookup"
+  | "ip-lookup";
 
 type ToolSeoEntry = {
   aboutTitle: string;
@@ -3661,6 +3665,102 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
       { question: "Is Word to JPG converter free?", answer: "Yes. WorkUtilities Word to JPG Converter is free with no signup." },
     ],
     blogGuide: { href: "/blog/how-to-convert-word-to-jpg-online-free", title: "How to convert Word to JPG online free" },
+  },
+  "currency-converter": {
+    aboutTitle: "About Currency Converter",
+    aboutParagraphs: [
+      "Our free Currency Converter uses European Central Bank reference exchange rates via the Frankfurter API — updated each business day and cached for one hour on our server.",
+      "Select a base currency, enter an amount, and see converted values for USD, EUR, GBP, INR, JPY, AUD, CAD, CHF, CNY, SGD, AED, and SAR simultaneously.",
+      "Rates are mid-market reference values for planning — not exact bank or money transfer quotes, which include spreads and fees.",
+    ],
+    whenToUseTitle: "When Should You Use Currency Converter?",
+    useCases: [
+      { title: "Travel planning", description: "Estimate costs abroad before your trip." },
+      { title: "International shopping", description: "Compare prices listed in foreign currencies." },
+      { title: "Freelancer invoicing", description: "Convert client rates between currencies." },
+      { title: "Salary comparisons", description: "Compare international job offers in a common currency." },
+      { title: "Quick reference", description: "Check ECB benchmark rates without opening a forex platform." },
+    ],
+    faqs: [
+      { question: "Where do the exchange rates come from?", answer: "Rates are sourced from the European Central Bank's reference rates, a widely used official benchmark updated each business day." },
+      { question: "Why is the rate I get from my bank different?", answer: "The rates shown are mid-market reference rates. Banks and money transfer services add their own spread or fee on top, so the actual rate you receive for a transaction will differ." },
+      { question: "How often are the rates updated?", answer: "ECB reference rates are updated each business day (Monday through Friday, excluding ECB holidays). Weekend rates reflect Friday's closing rate." },
+      { question: "Can I use this for exact transaction planning?", answer: "Use it as a reference and planning tool — for the exact rate on a specific transaction, check directly with your bank or transfer service at the time of the transaction." },
+      { question: "Is currency converter free?", answer: "Yes. WorkUtilities Currency Converter is free with no signup." },
+    ],
+    blogGuide: { href: "/blog/currency-converter-guide", title: "Currency converter guide — ECB exchange rates explained" },
+  },
+  "crypto-tracker": {
+    aboutTitle: "About Crypto Price Tracker",
+    aboutParagraphs: [
+      "Our free Crypto Price Tracker shows live prices for Bitcoin, Ethereum, and 15 top cryptocurrencies via CoinGecko — with 24h change, market cap, and volume.",
+      "Prices refresh every 5 minutes (cached on our server) with a manual refresh button. Includes a simple crypto-to-USD and crypto-to-INR converter.",
+      "Prices are aggregated mid-market reference values — not financial advice. Cryptocurrency markets are highly volatile.",
+    ],
+    whenToUseTitle: "When Should You Use Crypto Price Tracker?",
+    useCases: [
+      { title: "Price monitoring", description: "Check current crypto prices without opening an exchange." },
+      { title: "Portfolio reference", description: "See 24h momentum across major coins at a glance." },
+      { title: "Quick conversion", description: "Convert a crypto amount to USD or INR instantly." },
+      { title: "Market overview", description: "Compare market cap and volume across top cryptocurrencies." },
+      { title: "Research starting point", description: "Use as a reference before deeper analysis on exchange platforms." },
+    ],
+    faqs: [
+      { question: "Where do the prices come from?", answer: "Prices are sourced from CoinGecko, which aggregates data across major cryptocurrency exchanges to provide a representative mid-market price." },
+      { question: "Why does the price here differ slightly from what I see on a specific exchange?", answer: "This shows an aggregated mid-market price across multiple exchanges. Individual exchange prices vary slightly based on their own order books and liquidity." },
+      { question: "How often are prices updated?", answer: "Prices refresh approximately every 5 minutes. Use the refresh button for the latest data. For second-by-second trading data, use a dedicated exchange platform." },
+      { question: "Is this financial advice?", answer: "No — this is a reference price tracker only. Cryptocurrency prices are highly volatile; never make financial decisions based solely on a single tool's data." },
+      { question: "Is crypto price tracker free?", answer: "Yes. WorkUtilities Crypto Price Tracker is free with no signup." },
+    ],
+    blogGuide: { href: "/blog/crypto-price-tracker-guide", title: "Crypto price tracker guide — live Bitcoin and altcoin prices" },
+  },
+  "dns-lookup": {
+    aboutTitle: "About DNS Lookup Tool",
+    aboutParagraphs: [
+      "Our free DNS Lookup Tool queries A, AAAA, CNAME, MX, TXT, NS, and SOA records via Cloudflare DNS over HTTPS — fast, reliable, and no signup.",
+      "Run a single record type or query all common types at once. Results show name, type, TTL, and value with copy-to-clipboard on each row.",
+      "Essential for verifying DNS propagation, debugging email delivery, and confirming CDN or nameserver configuration.",
+    ],
+    whenToUseTitle: "When Should You Use DNS Lookup Tool?",
+    useCases: [
+      { title: "DNS propagation checks", description: "Verify record changes have taken effect after an update." },
+      { title: "Email debugging", description: "Inspect MX and TXT (SPF/DKIM) records for delivery issues." },
+      { title: "CDN verification", description: "Confirm CNAME points to the correct CDN endpoint." },
+      { title: "Domain transfers", description: "Check NS records after moving to a new registrar." },
+      { title: "DevOps troubleshooting", description: "Quick DNS inspection without terminal dig commands." },
+    ],
+    faqs: [
+      { question: "What is a DNS record?", answer: "DNS records are instructions stored in DNS servers that tell the internet how to handle requests for a domain — where to find its website (A record), which servers handle its email (MX record), and more." },
+      { question: "Why might results look different from another DNS lookup tool?", answer: "DNS results can vary slightly between different DNS resolvers and depend on which nameserver is queried. This tool uses Cloudflare's DNS resolver, which is one of the most accurate and up-to-date." },
+      { question: "What is TTL in DNS?", answer: "TTL (Time to Live) is how many seconds other DNS servers should cache this record before asking again for a fresh copy — lower TTL means changes propagate faster, higher TTL reduces DNS query load." },
+      { question: "How long do DNS changes take to propagate?", answer: "It depends on the TTL of the old record — if the previous TTL was 3600 seconds (1 hour), propagation can take up to an hour. Lower TTL values (like 300 seconds) allow changes to spread more quickly." },
+      { question: "Is DNS lookup tool free?", answer: "Yes. WorkUtilities DNS Lookup Tool is free with no signup." },
+    ],
+    blogGuide: { href: "/blog/dns-lookup-tool-guide", title: "DNS lookup tool guide — record types explained" },
+  },
+  "ip-lookup": {
+    aboutTitle: "About IP Address Lookup",
+    aboutParagraphs: [
+      "Our free IP Address Lookup shows your public IP on page load or lets you look up any IPv4 address — country, region, city, ISP, timezone, and coordinates.",
+      "My IP mode detects your public IP via ipify in the browser, then geolocates it through our Railway server — ensuring you see your IP, not the server's.",
+      "Geolocation is approximate based on ISP registration data — not your precise street-level location.",
+    ],
+    whenToUseTitle: "When Should You Use IP Address Lookup?",
+    useCases: [
+      { title: "Find my IP", description: "See your current public IP address instantly." },
+      { title: "Server log analysis", description: "Identify where traffic originates in access logs." },
+      { title: "Network debugging", description: "Verify geo-routing and ISP assignment." },
+      { title: "Security review", description: "Look up suspicious IP addresses from alerts." },
+      { title: "Geo-restriction testing", description: "Confirm which country an IP resolves to." },
+    ],
+    faqs: [
+      { question: "How accurate is IP geolocation?", answer: "IP geolocation is approximate — typically accurate to country level and often to city level, but not to exact street address. The location shown is based on where your ISP registered the IP block, which may differ from your actual physical location." },
+      { question: "Why does my IP show a different city than where I am?", answer: "IP addresses are assigned in blocks to ISPs, and the registered location of that block may be a different city than where you're physically located — especially if your ISP routes traffic through a regional hub." },
+      { question: "What's the difference between a public and private IP address?", answer: "Your public IP is visible to the internet and assigned by your ISP. Private IP addresses (like 192.168.x.x) are used within your local network and not visible externally — this tool shows public IPs only." },
+      { question: "Can I look up my phone's IP address?", answer: "Yes — visiting this tool on your phone will show your phone's current public IP (assigned by your mobile carrier or WiFi network)." },
+      { question: "Is IP address lookup free?", answer: "Yes. WorkUtilities IP Address Lookup is free with no signup." },
+    ],
+    blogGuide: { href: "/blog/ip-address-lookup-guide", title: "IP address lookup guide — geolocation explained" },
   },
 };
 

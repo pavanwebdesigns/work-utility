@@ -105,6 +105,10 @@ import CssGradientGeneratorGuideContent from "../content/css-gradient-generator-
 import UnixTimestampConverterGuideContent from "../content/unix-timestamp-converter-guide";
 import HowToConvertJsonToCsvOnlineFreeContent from "../content/how-to-convert-json-to-csv-online-free";
 import HowToConvertWordToJpgOnlineFreeContent from "../content/how-to-convert-word-to-jpg-online-free";
+import CurrencyConverterGuideContent from "../content/currency-converter-guide";
+import CryptoPriceTrackerGuideContent from "../content/crypto-price-tracker-guide";
+import DnsLookupToolGuideContent from "../content/dns-lookup-tool-guide";
+import IpAddressLookupGuideContent from "../content/ip-address-lookup-guide";
 
 const contentBySlug: Record<string, () => JSX.Element> = {
   "complete-pdf-tools-guide-india": CompletePdfToolsGuideIndiaContent,
@@ -234,6 +238,10 @@ const contentBySlug: Record<string, () => JSX.Element> = {
   "unix-timestamp-converter-guide": UnixTimestampConverterGuideContent,
   "how-to-convert-json-to-csv-online-free": HowToConvertJsonToCsvOnlineFreeContent,
   "how-to-convert-word-to-jpg-online-free": HowToConvertWordToJpgOnlineFreeContent,
+  "currency-converter-guide": CurrencyConverterGuideContent,
+  "crypto-price-tracker-guide": CryptoPriceTrackerGuideContent,
+  "dns-lookup-tool-guide": DnsLookupToolGuideContent,
+  "ip-address-lookup-guide": IpAddressLookupGuideContent,
 };
 
 export function generateStaticParams() {

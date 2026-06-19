@@ -1162,6 +1162,50 @@ export const blogPosts: BlogPost[] = [
     lastUpdated: "June 2026",
     cta: { toolName: "Word to JPG Converter", toolHref: "/tools/word-to-jpg" },
   },
+  {
+    slug: "currency-converter-guide",
+    title: "Currency Converter Guide — Live ECB Exchange Rates",
+    excerpt:
+      "Convert currencies with live ECB reference rates. Learn where exchange rates come from, why bank rates differ, and how to use mid-market rates for planning.",
+    category: "Finance",
+    readTime: "6 min read",
+    author: "Alex Morgan",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Currency Converter", toolHref: "/tools/currency-converter" },
+  },
+  {
+    slug: "crypto-price-tracker-guide",
+    title: "Crypto Price Tracker Guide — Live Bitcoin & Altcoin Prices",
+    excerpt:
+      "Track live crypto prices free online. Learn what mid-market prices mean, how to read 24h change and market cap, and why this is not financial advice.",
+    category: "Finance",
+    readTime: "7 min read",
+    author: "Alex Morgan",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Crypto Price Tracker", toolHref: "/tools/crypto-tracker" },
+  },
+  {
+    slug: "dns-lookup-tool-guide",
+    title: "DNS Lookup Tool Guide — Check Any DNS Record Free",
+    excerpt:
+      "Look up DNS records for any domain free online. Learn what A, MX, TXT, and CNAME records mean, what TTL is, and how to verify DNS propagation.",
+    category: "Developer Tools",
+    readTime: "7 min read",
+    author: "Alex Morgan",
+    lastUpdated: "June 2026",
+    cta: { toolName: "DNS Lookup Tool", toolHref: "/tools/dns-lookup" },
+  },
+  {
+    slug: "ip-address-lookup-guide",
+    title: "IP Address Lookup Guide — Find Location & ISP Free",
+    excerpt:
+      "Look up any IP address location, ISP, and timezone online free. Learn how IP geolocation works, its accuracy limits, and IPv4 vs IPv6 basics.",
+    category: "Developer Tools",
+    readTime: "6 min read",
+    author: "Alex Morgan",
+    lastUpdated: "June 2026",
+    cta: { toolName: "IP Address Lookup", toolHref: "/tools/ip-lookup" },
+  },
 ];
 
 export const blogPostBySlug = Object.fromEntries(
@@ -1885,6 +1929,34 @@ export const blogSeoMetadata: Record<
       "Convert Word documents to JPG images online free. Upload a DOCX file and download as an image. Share docs without editing access. No signup needed.",
     keywords:
       "convert Word to JPG online, DOCX to JPG, Word document to image, docx to jpeg converter",
+  },
+  "currency-converter-guide": {
+    title: "Currency Converter Online Free — Live Exchange Rates | WorkUtilities",
+    description:
+      "Convert currencies with live exchange rates from the European Central Bank. Free online currency converter — USD, EUR, GBP, INR and more. No signup.",
+    keywords:
+      "currency converter, exchange rate calculator, live forex rates, USD to INR converter",
+  },
+  "crypto-price-tracker-guide": {
+    title: "Crypto Price Tracker Online Free — Live Bitcoin Prices | WorkUtilities",
+    description:
+      "Track live cryptocurrency prices free online. Bitcoin, Ethereum, and top 15 cryptos with 24h change, market cap, and USD converter. No signup.",
+    keywords:
+      "crypto price tracker, bitcoin price live, cryptocurrency prices, crypto market cap",
+  },
+  "dns-lookup-tool-guide": {
+    title: "DNS Lookup Tool Online Free — Check DNS Records | WorkUtilities",
+    description:
+      "Look up DNS records for any domain free online. Check A, AAAA, CNAME, MX, TXT, NS records instantly. Powered by Cloudflare DNS. No signup.",
+    keywords:
+      "DNS lookup tool, check DNS records, MX record lookup, domain DNS checker",
+  },
+  "ip-address-lookup-guide": {
+    title: "IP Address Lookup Online Free — Find Location & ISP | WorkUtilities",
+    description:
+      "Look up any IP address location, ISP, and timezone online free. See your own IP or check any IP address instantly. No signup needed.",
+    keywords:
+      "IP address lookup, IP geolocation, find my IP, IP location checker",
   },
 };
 
