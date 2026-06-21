@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "node scripts/generate-sw.mjs && next dev",
-    "build": "node scripts/generate-sw.mjs && next build",
+    "dev": "node scripts/generate-sw.mjs && node scripts/copy-onnxruntime.mjs && next dev",
+    "build": "node scripts/generate-sw.mjs && node scripts/copy-onnxruntime.mjs && next build",
     "start": "next start",
     "lint": "next lint",
     "test": "jest",

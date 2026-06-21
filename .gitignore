@@ -16,6 +16,7 @@
 # production
 /build
 /public/pdf.worker.min.mjs
+/public/onnxruntime-web/
 
 # misc
 .DS_Store

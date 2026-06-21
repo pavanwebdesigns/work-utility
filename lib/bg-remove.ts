@@ -1,31 +1,18 @@
+"use client";
+
 export const MAX_BG_REMOVE_SIZE = 10 * 1024 * 1024;
 export const ACCEPTED_BG_TYPES = ["image/jpeg", "image/png", "image/webp"];
 export const BG_REMOVE_MODEL = "isnet_fp16";
 export const BG_REMOVE_FIRST_RUN_KEY = "bg-remove-model-loaded";
 
-const IMGLY_CDN =
-  "https://unpkg.com/@imgly/background-removal@1.7.0/dist/index.mjs";
-
-type RemoveBackgroundFn = (
-  image: Blob | string,
-  configuration?: {
-    proxyToWorker?: boolean;
-    model?: string;
-    output?: {
-      format?: string;
-      quality?: number;
-      type?: string;
-    };
-    progress?: (key: string, current: number, total: number) => void;
-  }
-) => Promise<Blob>;
+type RemoveBackgroundFn = typeof import("@imgly/background-removal").removeBackground;
 
 let removeBackgroundPromise: Promise<RemoveBackgroundFn> | null = null;
 
 async function loadRemoveBackground(): Promise<RemoveBackgroundFn> {
   if (!removeBackgroundPromise) {
-    removeBackgroundPromise = import(/* webpackIgnore: true */ IMGLY_CDN).then(
-      (mod: { default: RemoveBackgroundFn }) => mod.default
+    removeBackgroundPromise = import("@imgly/background-removal").then(
+      (mod) => mod.removeBackground
     );
   }
   return removeBackgroundPromise;
@@ -83,14 +70,11 @@ export async function removeBgInBrowser(
 
   try {
     return await removeBackground(file, {
-      // Inference runs in imgly's internal Web Worker (off main thread).
-      // Do NOT set publicPath — library defaults to staticimgly.com (valid resources.json).
       proxyToWorker: true,
       model: BG_REMOVE_MODEL,
       output: {
         format: "image/png",
         quality: 1,
-        type: "foreground",
       },
       progress: (_key, current, total) => {
         if (total > 0) {
