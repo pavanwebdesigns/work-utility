@@ -5,13 +5,13 @@ export const metadata: Metadata = {
     absolute: "Remove Background from Image Free Online | WorkUtilities",
   },
   description:
-    "Remove image background online free. No signup, no server upload. AI-powered background removal runs in your browser.",
+    "Remove image background online free. AI-powered cutout with transparent PNG download. Max 10MB, JPG/PNG/WebP supported.",
   keywords:
     "remove background from image free, background remover online india, remove bg free",
   openGraph: {
     title: "Remove Background from Image Free Online",
     description:
-      "AI-powered background removal in your browser. Free and private.",
+      "AI background removal with transparent PNG download. Free, up to 10MB.",
     url: "https://workutilities.com/tools/bg-remove",
     siteName: "WorkUtilities",
     type: "website",

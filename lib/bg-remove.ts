@@ -1,36 +1,32 @@
-type RemoveBackground = typeof import("@imgly/background-removal").removeBackground;
+import { removeBackground, formatFileSize } from "@/lib/pdf-api";
 
-const BG_REMOVAL_CDN =
-  "https://unpkg.com/@imgly/background-removal@1.7.0/dist/index.mjs";
+export const MAX_BG_REMOVE_SIZE = 10 * 1024 * 1024;
+export const ACCEPTED_BG_TYPES = ["image/jpeg", "image/png", "image/webp"];
 
-let removeBackgroundPromise: Promise<RemoveBackground> | null = null;
+export function isAcceptedBgImage(file: File): boolean {
+  return (
+    ACCEPTED_BG_TYPES.includes(file.type) ||
+    /\.(jpe?g|png|webp)$/i.test(file.name)
+  );
+}
 
-async function loadRemoveBackground(): Promise<RemoveBackground> {
-  if (!removeBackgroundPromise) {
-    removeBackgroundPromise = import(/* webpackIgnore: true */ BG_REMOVAL_CDN).then(
-      (mod: { removeBackground: RemoveBackground }) => mod.removeBackground
-    );
+export function validateBgRemoveFile(file: File): string | null {
+  if (!isAcceptedBgImage(file)) {
+    return "Please upload a JPG, PNG, or WebP image.";
   }
-  return removeBackgroundPromise;
+  if (file.size > MAX_BG_REMOVE_SIZE) {
+    return "File too large. Maximum size is 10MB.";
+  }
+  return null;
+}
+
+export function getBgRemoveDownloadName(filename: string): string {
+  const base = filename.replace(/\.[^.]+$/i, "") || "image";
+  return `${base}-no-bg.png`;
 }
 
 export async function removeBg(file: File): Promise<Blob> {
-  const removeBackground = await loadRemoveBackground();
-
-  const blob = await removeBackground(file, {
-    publicPath:
-      "https://unpkg.com/@imgly/background-removal@1.4.5/dist/",
-    output: {
-      format: "image/png",
-      quality: 1,
-    },
-  });
-
-  return blob;
+  return removeBackground(file);
 }
 
-export function formatFileSize(bytes: number): string {
-  if (bytes < 1024) return bytes + " B";
-  if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + " KB";
-  return (bytes / (1024 * 1024)).toFixed(2) + " MB";
-}
+export { formatFileSize };

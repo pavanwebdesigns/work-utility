@@ -426,8 +426,8 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
   "bg-remove": {
     aboutTitle: "About Background Remover Tool",
     aboutParagraphs: [
-      "Our free Background Remover instantly cuts out subjects from photos and replaces cluttered backgrounds with clean white or transparent backgrounds. Perfect for passport photos, product listings, and professional headshots.",
-      "Processing runs entirely in your browser using client-side AI — your photos are never uploaded to external servers. Personal ID photos, product shots, and profile pictures stay private on your device.",
+      "Our free Background Remover instantly cuts out subjects from photos and delivers clean transparent PNGs. Perfect for passport photos, product listings, and professional headshots.",
+      "Images are processed on our secure server and are not stored after background removal completes. Download a transparent PNG ready for marketplaces, documents, or design tools.",
       "Designed for Indian sellers on Meesho, Amazon, and Flipkart who need clean product images, job seekers updating LinkedIn photos, and anyone preparing passport or visa application pictures with plain white backgrounds. Also useful for Aadhaar-style ID photos and removing distracting home or office backgrounds from official submissions.",
     ],
     whenToUseTitle: "When Should You Use Background Remover?",
@@ -477,7 +477,7 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
       {
         question: "Is background remover safe to use online?",
         answer:
-          "Yes. WorkUtilities runs background removal in your browser. Images are not stored on our servers.",
+          "Your image is sent to our server only for processing and is not stored afterward. Avoid uploading highly sensitive documents on shared devices.",
       },
       {
         question: "How to remove background for product photos India?",

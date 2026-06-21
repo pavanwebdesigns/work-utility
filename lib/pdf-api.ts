@@ -106,13 +106,13 @@ export async function removeBackground(file: File): Promise<Blob> {
   const formData = new FormData();
   formData.append("file", file);
 
-  const response = await fetch(`${getPdfApiBaseUrl()}/remove-bg`, {
+  const response = await fetch(`${getPdfApiBaseUrl()}/api/bg-remove`, {
     method: "POST",
     body: formData,
   });
 
   if (!response.ok) {
-    let message = "Background removal failed";
+    let message = "Background removal failed — try a different image";
     try {
       const error = await response.json();
       if (typeof error.detail === "string") {
