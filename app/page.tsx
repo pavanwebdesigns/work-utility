@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Package, Shield, Zap } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { HomePageTools } from "@/components/HomePageTools";
@@ -17,10 +18,62 @@ function TrustBadge({ children }: { children: React.ReactNode }) {
   );
 }
 
+function WhyWorkUtilities() {
+  const reasons = [
+    {
+      icon: Shield,
+      title: "Nothing leaves your browser",
+      description:
+        "Every tool runs client-side — no uploads, no server, no risk of your files being stored or leaked.",
+    },
+    {
+      icon: Package,
+      title: `${ALL_TOOLS.length}+ tools, one tab`,
+      description:
+        "PDF editing, image tools, finance calculators, developer utilities — stop switching between Smallpdf, WordCounter, Calculator.net, and 15 other sites.",
+    },
+    {
+      icon: Zap,
+      title: "Free, forever, no catch",
+      description:
+        'No signup. No fake "Download" buttons. No premium tier hiding basic features. Just tools that work.',
+    },
+  ];
+
+  return (
+    <section className="border-b border-surface-border bg-surface-base px-4 py-10 sm:px-10">
+      <div className="mx-auto max-w-6xl">
+        <h2 className="mb-6 text-center text-lg font-semibold text-content-primary sm:text-xl">
+          Why WorkUtilities?
+        </h2>
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+          {reasons.map((reason) => (
+            <div
+              key={reason.title}
+              className="rounded-2xl border border-surface-border bg-surface-card p-5"
+            >
+              <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-brand-blue/10">
+                <reason.icon
+                  className="h-5 w-5 text-brand-blue"
+                  strokeWidth={1.75}
+                />
+              </div>
+              <h3 className="font-semibold text-content-primary">{reason.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-content-secondary">
+                {reason.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function StatsBar() {
   const stats = [
-    { value: `${ALL_TOOLS.length} Tools`, label: "Available now" },
-    { value: "0ms Upload", label: "Browser-only processing" },
+    { value: `${ALL_TOOLS.length}+ Tools`, label: "Available now" },
+    { value: "Instant", label: "No upload needed — runs in your browser" },
     { value: "Free Forever", label: "No hidden fees" },
   ];
 
@@ -57,8 +110,9 @@ export default function HomePage() {
               <br />
               <span className="text-brand-blue">just work.</span>
             </h1>
-            <p className="mx-auto mt-5 max-w-xl text-base text-content-secondary sm:text-lg">
-              No signup. No uploads. Everything runs in your browser.
+            <p className="mx-auto mt-5 max-w-2xl text-base text-content-secondary sm:text-lg">
+              One site for all your tools — instead of bookmarking 20 different
+              websites. Everything free, everything in your browser.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
               <TrustBadge>🔒 100% Private</TrustBadge>
@@ -86,6 +140,8 @@ export default function HomePage() {
           </div>
           <div className="mx-auto mt-16 max-w-3xl hero-gradient-line" />
         </section>
+
+        <WhyWorkUtilities />
 
         <HomePageTools />
 

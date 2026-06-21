@@ -15,7 +15,7 @@ const faqs = [
     question:
       "Why does my JWT decoder show valid data even for an expired or invalid token?",
     answer:
-      "A decoder only reads/displays the token's contents — it doesn't check signature validity or expiry against the current time. Always verify expiry (exp claim) and signature server-side, not by visually inspecting a decoded token.",
+      "Decoding always reads the token's contents — but WorkUtilities JWT Decoder also checks the exp claim and shows expired/valid badges. Signature verification requires your secret or public key; without it, the tool shows decoded claims but cannot confirm the token is genuine.",
   },
   {
     question: "What's the difference between a JWT and a session cookie?",
@@ -70,16 +70,78 @@ export default function HowToDecodeJwtTokenOnlineContent() {
 
       <hr />
 
-      <h2>Decoding ≠ Verifying</h2>
+      <h2>Decoding vs Verifying</h2>
       <p>
-        This is the single most important point: &quot;decoding&quot; a JWT
-        (reading the header/payload) requires no secret key — anyone can do it,
-        since the payload is only Base64-encoded, not encrypted. But
-        &quot;verifying&quot; a JWT (confirming the signature is valid and the
-        token is genuine, not forged) requires the secret/private key, which only
-        the issuing server has. A decoder tool lets you read a token&apos;s
-        contents for debugging — it does not and cannot tell you if the token is
-        cryptographically valid.
+        &quot;Decoding&quot; a JWT (reading the header/payload) requires no secret
+        key — anyone can do it, since the payload is only Base64-encoded, not
+        encrypted. &quot;Verifying&quot; a JWT (confirming the signature is valid
+        and the token is genuine, not forged) requires the secret or public key.
+        WorkUtilities JWT Decoder does both: it decodes instantly and can verify
+        signatures when you provide your key.
+      </p>
+
+      <hr />
+
+      <h2>Signature Verification (Client-Side)</h2>
+      <p>
+        The{" "}
+        <Link href="/tools/jwt-decoder">JWT Decoder</Link> supports signature
+        verification for common algorithms — HMAC (HS256, HS384, HS512), RSA
+        (RS256, RS384, RS512, PS256), and ECDSA (ES256, ES384, ES512). The
+        algorithm is auto-detected from the token header.
+      </p>
+      <ul>
+        <li>
+          <strong>HMAC (HS*)</strong> — paste your shared secret. Toggle
+          &quot;base64 encoded&quot; if your secret is stored as Base64.
+        </li>
+        <li>
+          <strong>RSA / ECDSA (RS*, ES*, PS*)</strong> — paste the public key in
+          PEM format (<code>-----BEGIN PUBLIC KEY-----</code>).
+        </li>
+      </ul>
+      <p>
+        Verification runs entirely in your browser using the Web Crypto API —
+        your secret never leaves the page. You&apos;ll see ✅ Signature Verified
+        or ❌ Invalid Signature. If no key is provided, the tool still decodes
+        the token and shows an informational message to add a key.
+      </p>
+
+      <hr />
+
+      <h2>Claims Explainer</h2>
+      <p>
+        Standard JWT claims use short keys. The decoder shows both the key and
+        its expanded name, similar to jwt.io:
+      </p>
+      <ul>
+        <li>
+          <code>iss</code> — Issuer (who created the token)
+        </li>
+        <li>
+          <code>sub</code> — Subject (who the token is about)
+        </li>
+        <li>
+          <code>aud</code> — Audience (intended recipient)
+        </li>
+        <li>
+          <code>exp</code> — Expiration Time (when the token expires)
+        </li>
+        <li>
+          <code>nbf</code> — Not Before (token not valid before this time)
+        </li>
+        <li>
+          <code>iat</code> — Issued At (when the token was created)
+        </li>
+        <li>
+          <code>jti</code> — JWT ID (unique token identifier)
+        </li>
+      </ul>
+      <p>
+        Timestamp claims (<code>exp</code>, <code>iat</code>, <code>nbf</code>)
+        show both the Unix timestamp and a human-readable date. When{" "}
+        <code>exp</code> is present, the payload panel shows a green valid badge
+        or red expired badge with time remaining.
       </p>
 
       <hr />

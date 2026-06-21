@@ -143,7 +143,7 @@ export const blogPosts: BlogPost[] = [
     slug: "how-to-decode-jwt-token-online",
     title: "How to Decode a JWT Token Online — What Each Part Means",
     excerpt:
-      "Decode and inspect JSON Web Tokens online free. See header, payload, and claims instantly. No signup, decoding happens locally in your browser.",
+      "Decode and verify JWT signatures online free. Color-coded panels, claims explainer, expiry badges, and client-side verification in your browser.",
     category: "Developer Tools",
     readTime: "6 min read",
     author: "Alex Morgan",
@@ -1641,11 +1641,11 @@ export const blogSeoMetadata: Record<
       "MD5 SHA256 hash generator, sha256 checksum online, md5 hash generator free, file integrity hash, checksum verifier",
   },
   "how-to-decode-jwt-token-online": {
-    title: "JWT Decoder Online Free — Decode & Inspect Tokens",
+    title: "JWT Decoder Online Free — Decode & Verify Signatures",
     description:
-      "Decode and inspect JSON Web Tokens online free. See header, payload, and claims instantly. No signup, decoding happens locally in your browser.",
+      "Decode and verify JWT signatures online free. Color-coded panels, claims explainer, expiry badges, and client-side verification. No signup — your secret never leaves your browser.",
     keywords:
-      "decode JWT token online, jwt decoder free, inspect jwt payload, jwt debugger, json web token decoder",
+      "decode JWT token online, verify jwt signature, jwt decoder free, inspect jwt payload, jwt debugger, json web token decoder",
   },
   "how-to-test-regex-online": {
     title: "Regex Tester Online Free — Test & Debug Regex Patterns",

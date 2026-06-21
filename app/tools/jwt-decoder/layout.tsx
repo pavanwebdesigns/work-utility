@@ -2,16 +2,16 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "JWT Decoder — Free Online JSON Web Token Tool | WorkUtilities",
+    absolute: "JWT Decoder — Decode & Verify Signatures Online Free",
   },
   description:
-    "Decode and inspect JWT tokens free online. View header, payload, and signature instantly. Browser-only, private.",
+    "Decode and verify JWT signatures free online. Color-coded header, payload, and signature panels with claims explainer. Browser-only, your secret never leaves this page.",
   keywords:
-    "jwt decoder online free, json web token decoder, decode jwt token",
+    "jwt decoder online free, verify jwt signature, json web token decoder, decode jwt token",
   openGraph: {
-    title: "JWT Decoder — Free Online JSON Web Token Tool",
+    title: "JWT Decoder — Decode & Verify Signatures Online Free",
     description:
-      "Decode and inspect JWT tokens free online. View header, payload, and signature instantly. Browser-only, private.",
+      "Decode and verify JWT signatures with color-coded panels, claims explainer, and client-side verification.",
     url: "https://workutilities.com/tools/jwt-decoder",
     siteName: "WorkUtilities",
     type: "website",

@@ -2801,23 +2801,23 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
   "jwt-decoder": {
     aboutTitle: "About JWT Decoder",
     aboutParagraphs: [
-      "Our free JWT Decoder inspects JSON Web Tokens by decoding the header, payload, and signature. See claims, expiry status, and algorithm used.",
-      "All decoding happens entirely in your browser. Tokens are never sent to any server, keeping your credentials private.",
+      "Our free JWT Decoder inspects JSON Web Tokens with jwt.io-style color-coded header, payload, and signature panels. See claims with expanded labels, expiry badges, and human-readable timestamps.",
+      "Verify HMAC, RSA, and ECDSA signatures client-side using the Web Crypto API — your secret or public key never leaves your browser.",
       "Essential for developers debugging OAuth, API authentication, and session tokens during development and testing.",
     ],
     whenToUseTitle: "When Should You Use JWT Decoder?",
     useCases: [
       { title: "API debugging", description: "Inspect token claims when authentication fails." },
+      { title: "Signature verification", description: "Confirm a token is genuine with your secret or public key." },
+      { title: "Expiry checks", description: "See if a token is expired with clear valid/expired badges." },
       { title: "OAuth development", description: "Verify issuer, audience, and scope claims in tokens." },
-      { title: "Expiry checks", description: "See if a token is expired before troubleshooting 401 errors." },
-      { title: "Learning JWT", description: "Understand JWT structure with real token examples." },
-      { title: "Support tickets", description: "Decode customer tokens to diagnose login issues (with permission)." },
+      { title: "Learning JWT", description: "Understand JWT structure with labeled claims and a demo token." },
     ],
     faqs: [
-      { question: "Does this verify JWT signatures?", answer: "No. This tool only decodes tokens. Signature verification requires the secret or public key." },
-      { question: "Is it safe to paste JWT tokens?", answer: "Decoding is local in your browser. Never paste production tokens in untrusted tools — this one runs entirely client-side." },
-      { question: "What is in a JWT payload?", answer: "Claims like sub (subject), exp (expiry), iat (issued at), and custom application data." },
-      { question: "How do I know if a token expired?", answer: "The tool shows an Expired badge or the expiry date from the exp claim." },
+      { question: "Does this verify JWT signatures?", answer: "Yes — for HMAC (HS256/384/512), RSA (RS256/384/512, PS256), and ECDSA (ES256/384/512) algorithms. Verification runs entirely in your browser using the Web Crypto API." },
+      { question: "Is it safe to paste JWT tokens and secrets?", answer: "Decoding and verification are local in your browser. Your secret never leaves this page — but avoid pasting production secrets on shared machines." },
+      { question: "What do the JWT claim abbreviations mean?", answer: "Common claims include iss (Issuer), sub (Subject), aud (Audience), exp (Expiration Time), nbf (Not Before), iat (Issued At), and jti (JWT ID)." },
+      { question: "How do I know if a token expired?", answer: "The payload panel shows a green valid badge or red expired badge based on the exp claim, with a human-readable expiry date." },
       { question: "Is JWT decoder free?", answer: "Yes. WorkUtilities JWT Decoder is free with no signup required." },
     ],
     blogGuide: {

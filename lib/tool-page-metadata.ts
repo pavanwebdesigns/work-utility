@@ -40,7 +40,7 @@ export const TOOL_PAGE_DESCRIPTIONS: Record<string, string> = {
   "income-tax-calculator": "Compare income tax under old and new regime for FY 2025-26. Free calculator with slab breakdown, rebates, and estimated take-home pay for salaried employees.",
   "inflation-calculator": "Calculate the value of money over time adjusted for inflation free online. See purchasing power changes instantly.",
   "json-formatter": "Format, beautify and validate JSON online free. Minify JSON, fix errors, and view structured data instantly.",
-  "jwt-decoder": "Decode and inspect JWT tokens free online. View header, payload, and signature instantly. Browser-only, private.",
+  "jwt-decoder": "Decode and verify JWT signatures free online. Color-coded header, payload, and signature with claims explainer. Browser-only — your secret never leaves this page.",
   "keyword-density": "Check keyword density and frequency in your content free online. Optimize your text for SEO instantly.",
   "leap-year-checker": "Check if any year is a leap year free online. See the exact rule explained, plus the next and previous leap years. No signup needed.",
   "lorem-ipsum": "Generate lorem ipsum placeholder text free online. Choose paragraphs, sentences, or words. Copy instantly.",
