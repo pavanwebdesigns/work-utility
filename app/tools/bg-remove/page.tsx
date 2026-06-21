@@ -1,10 +1,17 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState, type CSSProperties } from "react";
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  type CSSProperties,
+} from "react";
 import Link from "next/link";
 import {
   Download,
   Eraser,
+  Info,
   Loader2,
   Sparkles,
   Upload,
@@ -20,10 +27,13 @@ import { DinoGame } from "@/components/DinoGame";
 import { FavoriteButton } from "@/components/FavoriteButton";
 import { downloadBlob } from "@/lib/pdf-api";
 import {
+  createBgRemoveWorker,
   formatFileSize,
   getBgRemoveDownloadName,
-  removeBg,
+  hasBgRemoveModelLoaded,
+  markBgRemoveModelLoaded,
   validateBgRemoveFile,
+  type BgRemoveWorkerEvent,
 } from "@/lib/bg-remove";
 
 const howItWorksSteps = [
@@ -37,7 +47,7 @@ const howItWorksSteps = [
     step: "02",
     icon: Sparkles,
     title: "Process",
-    description: "Our server removes the background with AI",
+    description: "AI removes the background in your browser",
   },
   {
     step: "03",
@@ -57,6 +67,7 @@ const checkerboardStyle: CSSProperties = {
 
 export default function BgRemovePage() {
   const inputRef = useRef<HTMLInputElement>(null);
+  const workerRef = useRef<Worker | null>(null);
   const [file, setFile] = useState<File | null>(null);
   const [originalPreviewUrl, setOriginalPreviewUrl] = useState<string | null>(
     null
@@ -64,8 +75,56 @@ export default function BgRemovePage() {
   const [resultBlob, setResultBlob] = useState<Blob | null>(null);
   const [resultPreviewUrl, setResultPreviewUrl] = useState<string | null>(null);
   const [isProcessing, setIsProcessing] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const [statusText, setStatusText] = useState("Removing background...");
   const [error, setError] = useState<string | null>(null);
   const [isDragging, setIsDragging] = useState(false);
+  const [showFirstRunBanner, setShowFirstRunBanner] = useState(false);
+
+  useEffect(() => {
+    setShowFirstRunBanner(!hasBgRemoveModelLoaded());
+  }, []);
+
+  useEffect(() => {
+    workerRef.current = createBgRemoveWorker();
+
+    workerRef.current.onmessage = (event: MessageEvent<BgRemoveWorkerEvent>) => {
+      const { type, payload } = event.data;
+
+      switch (type) {
+        case "STATUS":
+          setStatusText(payload);
+          break;
+        case "PROGRESS":
+          setProgress(payload);
+          break;
+        case "SUCCESS":
+          markBgRemoveModelLoaded();
+          setShowFirstRunBanner(false);
+          setResultBlob(payload);
+          setResultPreviewUrl(URL.createObjectURL(payload));
+          setIsProcessing(false);
+          setProgress(100);
+          break;
+        case "ERROR":
+          setError(
+            payload || "Background removal failed. Please try a different image."
+          );
+          setIsProcessing(false);
+          break;
+      }
+    };
+
+    workerRef.current.onerror = () => {
+      setError("Background removal failed. Please try a different image.");
+      setIsProcessing(false);
+    };
+
+    return () => {
+      workerRef.current?.terminate();
+      workerRef.current = null;
+    };
+  }, []);
 
   useEffect(() => {
     return () => {
@@ -80,11 +139,13 @@ export default function BgRemovePage() {
       if (current) URL.revokeObjectURL(current);
       return null;
     });
+    setProgress(0);
+    setStatusText("Removing background...");
     setError(null);
   }, []);
 
-  const processFile = useCallback(
-    async (selected: File) => {
+  const handleRemove = useCallback(
+    (selected: File) => {
       const validationError = validateBgRemoveFile(selected);
       if (validationError) {
         setError(validationError);
@@ -100,33 +161,16 @@ export default function BgRemovePage() {
       });
 
       setIsProcessing(true);
-      try {
-        const blob = await removeBg(selected);
-        setResultBlob(blob);
-        setResultPreviewUrl(URL.createObjectURL(blob));
-      } catch (err) {
-        setError(
-          err instanceof Error
-            ? err.message
-            : "Background removal failed — try a different image"
-        );
-      } finally {
-        setIsProcessing(false);
-      }
+      setProgress(0);
+      setStatusText("Removing background...");
+      workerRef.current?.postMessage({ imageBlob: selected });
     },
     [resetResult]
   );
 
-  const handleFile = useCallback(
-    (selected: File) => {
-      void processFile(selected);
-    },
-    [processFile]
-  );
-
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selected = event.target.files?.[0];
-    if (selected) handleFile(selected);
+    if (selected) handleRemove(selected);
     event.target.value = "";
   };
 
@@ -141,7 +185,7 @@ export default function BgRemovePage() {
     event.preventDefault();
     setIsDragging(false);
     const dropped = event.dataTransfer.files?.[0];
-    if (dropped) handleFile(dropped);
+    if (dropped) handleRemove(dropped);
   };
 
   const handleRemoveFile = () => {
@@ -182,8 +226,8 @@ export default function BgRemovePage() {
                 Background Remover
               </h1>
               <p className="mx-auto mt-3 max-w-md text-content-secondary">
-                Remove the background from any image with AI. Download a
-                transparent PNG — perfect for product photos and profile shots.
+                Remove the background from any image with AI. Runs entirely in
+                your browser — no uploads, unlimited free use.
               </p>
               <div className="mt-4 flex justify-center">
                 <FavoriteButton slug="bg-remove" />
@@ -191,6 +235,16 @@ export default function BgRemovePage() {
             </div>
 
             <div className="mt-8 space-y-4">
+              {showFirstRunBanner && (
+                <div className="flex gap-3 rounded-xl border border-brand-blue/30 bg-brand-blue/10 p-4 text-sm text-content-secondary">
+                  <Info className="mt-0.5 h-4 w-4 shrink-0 text-brand-blue" />
+                  <p>
+                    First use downloads the AI model (~40MB). Subsequent uses
+                    are instant.
+                  </p>
+                </div>
+              )}
+
               {!file && (
                 <div
                   onDragOver={handleDragOver}
@@ -251,11 +305,22 @@ export default function BgRemovePage() {
               )}
 
               {isProcessing && (
-                <div className="flex items-center justify-center gap-3 rounded-xl border border-surface-border bg-surface-card py-10">
-                  <Loader2 className="h-6 w-6 animate-spin text-tool-image" />
-                  <span className="font-medium text-content-primary">
-                    Removing background...
-                  </span>
+                <div className="space-y-3 rounded-xl border border-surface-border bg-surface-card p-6">
+                  <div className="flex items-center justify-center gap-3">
+                    <Loader2 className="h-5 w-5 animate-spin text-tool-image" />
+                    <span className="font-medium text-content-primary">
+                      {statusText}
+                    </span>
+                  </div>
+                  <div className="h-2 overflow-hidden rounded-full bg-surface-elevated">
+                    <div
+                      className="h-full rounded-full bg-tool-image transition-all duration-300"
+                      style={{ width: `${Math.max(progress, 4)}%` }}
+                    />
+                  </div>
+                  <p className="text-center text-xs text-content-muted">
+                    {progress}% complete
+                  </p>
                 </div>
               )}
 
@@ -309,8 +374,8 @@ export default function BgRemovePage() {
               )}
 
               <p className="text-center text-xs text-content-muted">
-                Processing happens on our server — your image is used only to
-                remove the background and is not stored.
+                🔒 Your image is processed entirely in your browser — nothing
+                is uploaded to any server
               </p>
             </div>
           </div>

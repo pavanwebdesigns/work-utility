@@ -25,6 +25,11 @@ const nextConfig = {
   },
   webpack: (config, { isServer }) => {
     if (!isServer) {
+      config.output.globalObject = "self";
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        "onnxruntime-node": false,
+      };
       config.experiments = {
         ...config.experiments,
         asyncWebAssembly: true,

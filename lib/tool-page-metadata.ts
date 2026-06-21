@@ -4,7 +4,7 @@ export const TOOL_PAGE_DESCRIPTIONS: Record<string, string> = {
   "aspect-ratio": "Calculate image aspect ratios and resize dimensions free online. Find width or height for any aspect ratio instantly.",
   "audio-recorder": "Free online audio recorder. Record from your microphone in the browser, play back, and download instantly. No app download or signup required.",
   "base64": "Encode and decode Base64 text or files free online. Fast, private, browser-only Base64 converter.",
-  "bg-remove": "Remove image background online free. AI-powered cutout with transparent PNG download. Max 10MB, JPG/PNG/WebP supported.",
+  "bg-remove": "Remove image backgrounds free online. AI-powered, 100% in-browser — no uploads, no server, no account needed.",
   "binary-converter": "Convert between binary, decimal, hexadecimal and octal number systems free online. Instant conversion.",
   "bmi-calculator": "Calculate your BMI free online. Supports metric and imperial units. Get instant BMI category results.",
   "box-breathing": "Free box breathing timer with animated guide. Practice the 4-4-4-4 breathing technique to reduce stress instantly. No signup, runs in your browser.",
