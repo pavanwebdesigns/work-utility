@@ -27,13 +27,12 @@ import { DinoGame } from "@/components/DinoGame";
 import { FavoriteButton } from "@/components/FavoriteButton";
 import { downloadBlob } from "@/lib/pdf-api";
 import {
-  createBgRemoveWorker,
   formatFileSize,
   getBgRemoveDownloadName,
   hasBgRemoveModelLoaded,
   markBgRemoveModelLoaded,
+  removeBgInBrowser,
   validateBgRemoveFile,
-  type BgRemoveWorkerEvent,
 } from "@/lib/bg-remove";
 
 const howItWorksSteps = [
@@ -67,7 +66,6 @@ const checkerboardStyle: CSSProperties = {
 
 export default function BgRemovePage() {
   const inputRef = useRef<HTMLInputElement>(null);
-  const workerRef = useRef<Worker | null>(null);
   const [file, setFile] = useState<File | null>(null);
   const [originalPreviewUrl, setOriginalPreviewUrl] = useState<string | null>(
     null
@@ -83,47 +81,6 @@ export default function BgRemovePage() {
 
   useEffect(() => {
     setShowFirstRunBanner(!hasBgRemoveModelLoaded());
-  }, []);
-
-  useEffect(() => {
-    workerRef.current = createBgRemoveWorker();
-
-    workerRef.current.onmessage = (event: MessageEvent<BgRemoveWorkerEvent>) => {
-      const { type, payload } = event.data;
-
-      switch (type) {
-        case "STATUS":
-          setStatusText(payload);
-          break;
-        case "PROGRESS":
-          setProgress(payload);
-          break;
-        case "SUCCESS":
-          markBgRemoveModelLoaded();
-          setShowFirstRunBanner(false);
-          setResultBlob(payload);
-          setResultPreviewUrl(URL.createObjectURL(payload));
-          setIsProcessing(false);
-          setProgress(100);
-          break;
-        case "ERROR":
-          setError(
-            payload || "Background removal failed. Please try a different image."
-          );
-          setIsProcessing(false);
-          break;
-      }
-    };
-
-    workerRef.current.onerror = () => {
-      setError("Background removal failed. Please try a different image.");
-      setIsProcessing(false);
-    };
-
-    return () => {
-      workerRef.current?.terminate();
-      workerRef.current = null;
-    };
   }, []);
 
   useEffect(() => {
@@ -163,7 +120,28 @@ export default function BgRemovePage() {
       setIsProcessing(true);
       setProgress(0);
       setStatusText("Removing background...");
-      workerRef.current?.postMessage({ imageBlob: selected });
+
+      void removeBgInBrowser(selected, {
+        onStatus: setStatusText,
+        onProgress: setProgress,
+      })
+        .then((blob) => {
+          markBgRemoveModelLoaded();
+          setShowFirstRunBanner(false);
+          setResultBlob(blob);
+          setResultPreviewUrl(URL.createObjectURL(blob));
+          setProgress(100);
+        })
+        .catch((err) => {
+          setError(
+            err instanceof Error
+              ? err.message
+              : "Background removal failed. Please try a different image."
+          );
+        })
+        .finally(() => {
+          setIsProcessing(false);
+        });
     },
     [resetResult]
   );
