@@ -80,6 +80,62 @@ h2 {
   }
 }
 
+@keyframes wu-float {
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px);
+  }
+  33% {
+    transform: translateY(-12px) translateX(6px);
+  }
+  66% {
+    transform: translateY(6px) translateX(-4px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wu-particle {
+    animation: none !important;
+  }
+}
+
+@keyframes wu-gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.wu-gradient-text {
+  background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    #4f8ef7 35%,
+    #a78bfa 65%,
+    #ffffff 100%
+  );
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  animation: wu-gradient-shift 8s ease infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wu-gradient-text {
+    animation: none;
+    background: none;
+    -webkit-text-fill-color: white;
+    color: white;
+  }
+}
+
 .prose-custom h2 {
   font-size: 1.4rem;
   font-weight: 600;

@@ -9,6 +9,16 @@ import {
 } from "@/app/blog/posts";
 import { ALL_TOOLS } from "@/lib/tools-data";
 
+const PARTICLES = Array.from({ length: 20 }, (_, i) => ({
+  id: i,
+  left: `${(i * 37 + 11) % 100}%`,
+  top: `${(i * 53 + 7) % 100}%`,
+  size: (i % 3) + 2,
+  duration: 15 + (i % 10),
+  delay: -(i * 1.5),
+  opacity: 0.1 + (i % 3) * 0.08,
+}));
+
 function TrustBadge({ children }: { children: React.ReactNode }) {
   return (
     <span className="inline-flex items-center gap-2 rounded-full border border-surface-border bg-surface-card px-4 py-1.5 text-xs text-content-secondary">
@@ -103,12 +113,32 @@ export default function HomePage() {
       <Header />
 
       <main id="main-content" className="flex-1 min-w-0 overflow-x-hidden">
-        <section className="bg-surface-base px-4 pb-[60px] pt-12 text-center sm:px-10">
-          <div className="mx-auto max-w-4xl">
-            <h1 className="text-balance text-3xl md:text-5xl">
+        <section className="relative bg-surface-base px-4 pb-[60px] pt-12 text-center sm:px-10">
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 overflow-hidden"
+          >
+            {PARTICLES.map((particle) => (
+              <div
+                key={particle.id}
+                className="wu-particle pointer-events-none absolute rounded-full"
+                style={{
+                  left: particle.left,
+                  top: particle.top,
+                  width: particle.size,
+                  height: particle.size,
+                  backgroundColor: `rgba(79, 142, 247, ${particle.opacity})`,
+                  animation: `wu-float ${particle.duration}s ease-in-out ${particle.delay}s infinite`,
+                  willChange: "transform",
+                }}
+              />
+            ))}
+          </div>
+          <div className="relative mx-auto max-w-4xl">
+            <h1 className="wu-gradient-text text-balance text-3xl md:text-5xl">
               Free tools that
               <br />
-              <span className="text-brand-blue">just work.</span>
+              just work.
             </h1>
             <p className="mx-auto mt-5 max-w-2xl text-base text-content-secondary sm:text-lg">
               One site for all your tools — instead of bookmarking 20 different

@@ -35,6 +35,7 @@ export function HomePageTools() {
                 accent={tool.accent}
                 popular={tool.popular}
                 comingSoon={tool.comingSoon}
+                homepageEffects
               />
             </div>
           ))}

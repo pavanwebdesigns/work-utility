@@ -48,6 +48,7 @@ export interface ToolCardProps {
   accent: ToolAccent;
   popular?: boolean;
   comingSoon?: boolean;
+  homepageEffects?: boolean;
 }
 
 export function ToolCard({
@@ -58,6 +59,7 @@ export function ToolCard({
   accent,
   popular,
   comingSoon,
+  homepageEffects = false,
 }: ToolCardProps) {
   const colors = accentClasses[accent];
 
@@ -65,9 +67,11 @@ export function ToolCard({
     <Link
       href={href}
       aria-label={`${title} tool`}
-      className={`group relative block cursor-pointer rounded-2xl border border-surface-border bg-surface-card p-6 no-underline transition-all duration-200 ease-in-out hover:-translate-y-0.5 hover:border-brand-blue hover:bg-surface-elevated ${
-        comingSoon ? "opacity-70 hover:opacity-100" : ""
-      }`}
+      className={`group relative block cursor-pointer rounded-2xl border border-surface-border bg-surface-card p-6 no-underline ${
+        homepageEffects
+          ? "transition-all duration-300 ease-out hover:-translate-y-1 hover:border-brand-blue/40 hover:shadow-[0_0_20px_rgba(79,142,247,0.15)]"
+          : "transition-all duration-200 ease-in-out hover:-translate-y-0.5 hover:border-brand-blue hover:bg-surface-elevated"
+      } ${comingSoon ? "opacity-70 hover:opacity-100" : ""}`}
     >
       {popular && !comingSoon && (
         <span className="absolute right-4 top-4 rounded bg-brand-blue/15 px-2 py-0.5 text-[10px] font-semibold text-brand-blue-light">
@@ -90,7 +94,13 @@ export function ToolCard({
         {title}
       </h3>
       <p className="mt-1 text-[13px] text-content-secondary">{description}</p>
-      <span className={`mt-4 inline-block text-xs font-medium ${colors.link}`}>
+      <span
+        className={`mt-4 inline-block text-xs font-medium transition-colors duration-200 ${
+          homepageEffects
+            ? `${colors.link} group-hover:text-brand-blue`
+            : colors.link
+        }`}
+      >
         Use Tool →
       </span>
     </Link>
