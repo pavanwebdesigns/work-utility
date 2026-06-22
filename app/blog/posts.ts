@@ -682,7 +682,18 @@ export const blogPosts: BlogPost[] = [
     slug: "how-to-create-strong-password-guide",
     title: "How to Create a Strong Password — Cybersecurity Guide for Indians 2026",
     excerpt:
-      "Learn how to create strong passwords for bank accounts, email, and social media. Free password generator tool included.",
+      "Learn how to create strong passwords for bank accounts, email, and social media. Includes passphrase generator and password strength checker.",
+    category: "PDF & Documents",
+    readTime: "6 min read",
+    author: "Priya Sharma",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Password Generator", toolHref: "/tools/password-generator" },
+  },
+  {
+    slug: "passphrase-generator-guide",
+    title: "Passphrase Generator Free — Strong & Memorable Passwords",
+    excerpt:
+      "Generate strong, memorable passphrases free online. Random word combinations are easier to remember and harder to crack than random characters.",
     category: "PDF & Documents",
     readTime: "6 min read",
     author: "Priya Sharma",
@@ -1489,9 +1500,16 @@ export const blogSeoMetadata: Record<
   "how-to-create-strong-password-guide": {
     title: "How to Create Strong Password — Cybersecurity Guide India 2026 | WorkUtilities",
     description:
-      "Learn how to create strong passwords for bank accounts, email, and social media. Free password generator tool included.",
+      "Learn how to create strong passwords for bank accounts, email, and social media. Free passphrase generator and password strength checker included.",
     keywords:
-      "strong password guide india, create secure password, password generator free, net banking password tips",
+      "strong password guide india, passphrase generator, password strength checker, create secure password, password generator free",
+  },
+  "passphrase-generator-guide": {
+    title: "Passphrase Generator Free — Strong & Memorable Passwords | WorkUtilities",
+    description:
+      "Generate strong, memorable passphrases free online. Random word combinations are easier to remember and harder to crack than random characters. No signup.",
+    keywords:
+      "passphrase generator, random passphrase generator, correct horse battery staple, memorable password generator, passphrase vs password",
   },
   "how-to-calculate-percentage-of-marks-india": {
     title: "How to Calculate Percentage of Marks — Indian Students 2026 | WorkUtilities",

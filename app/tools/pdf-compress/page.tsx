@@ -27,12 +27,13 @@ import {
 
 const MAX_FILE_SIZE = 50 * 1024 * 1024;
 
-const compressionPresets = [
-  { id: "email", label: "Email", quality: 70 },
-  { id: "portal", label: "Portal Upload", quality: 80 },
-  { id: "whatsapp", label: "WhatsApp", quality: 60 },
-  { id: "archive", label: "Archive", quality: 50 },
-] as const;
+const PRESETS = {
+  low: { label: "Low", desc: "Smaller size", quality: 0.5 },
+  medium: { label: "Medium", desc: "Balanced", quality: 0.7 },
+  high: { label: "High", desc: "Best quality", quality: 0.9 },
+} as const;
+
+type PresetKey = keyof typeof PRESETS;
 
 const whenToUseItems = [
   {
@@ -119,7 +120,7 @@ const howItWorksSteps = [
     step: "02",
     icon: SlidersHorizontal,
     title: "Choose Compression",
-    description: "Adjust the slider to your target size",
+    description: "Pick Low, Medium, or High quality",
   },
   {
     step: "03",
@@ -137,7 +138,7 @@ export default function PdfCompressPage() {
   const inputRef = useRef<HTMLInputElement>(null);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
   const [file, setFile] = useState<File | null>(null);
-  const [quality, setQuality] = useState(50);
+  const [preset, setPreset] = useState<PresetKey>("medium");
   const [isProcessing, setIsProcessing] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [isDragging, setIsDragging] = useState(false);
@@ -176,7 +177,7 @@ export default function PdfCompressPage() {
     setError(null);
 
     try {
-      const stats = await compressPDF(file, quality);
+      const stats = await compressPDF(file, PRESETS[preset].quality);
       setResult(stats);
     } catch {
       setError("Compression failed. Please try again.");
@@ -292,48 +293,35 @@ export default function PdfCompressPage() {
                   </div>
 
                   <div>
-                    <div className="mb-3 flex items-center justify-between gap-4">
-                      <p className="text-sm font-medium text-content-primary">
-                        Compression level
-                      </p>
-                      <span className="text-sm font-semibold text-tool-pdf">
-                        {quality}%
-                      </span>
-                    </div>
-                    <input
-                      type="range"
-                      min={10}
-                      max={90}
-                      step={5}
-                      value={quality}
-                      onChange={(e) => setQuality(Number(e.target.value))}
-                      className="w-full accent-tool-pdf"
-                    />
-                    <div className="mt-1 flex justify-between text-xs text-content-muted">
-                      <span>Light (10%)</span>
-                      <span>Heavy (90%)</span>
-                    </div>
-                  </div>
-
-                  <div>
                     <p className="mb-3 text-sm font-medium text-content-primary">
-                      Quick presets
+                      Compression level
                     </p>
-                    <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-                      {compressionPresets.map((preset) => (
-                        <button
-                          key={preset.id}
-                          type="button"
-                          onClick={() => setQuality(preset.quality)}
-                          className={`rounded-lg border px-3 py-2 text-sm font-medium transition-colors ${
-                            quality === preset.quality
-                              ? "border-tool-pdf bg-tool-pdf/10 text-tool-pdf"
-                              : "border-surface-border bg-surface-card text-content-secondary hover:border-tool-pdf/40"
-                          }`}
-                        >
-                          {preset.label}
-                        </button>
-                      ))}
+                    <div className="grid grid-cols-3 gap-3">
+                      {(Object.keys(PRESETS) as PresetKey[]).map((key) => {
+                        const option = PRESETS[key];
+                        const isSelected = preset === key;
+
+                        return (
+                          <button
+                            key={key}
+                            type="button"
+                            onClick={() => setPreset(key)}
+                            className={`rounded-xl border px-3 py-3 text-center transition-colors ${
+                              isSelected
+                                ? "border-tool-pdf bg-tool-pdf/10 text-tool-pdf"
+                                : "border-surface-border bg-surface-card text-content-secondary hover:border-tool-pdf/40"
+                            }`}
+                          >
+                            <span className="block text-sm font-semibold">
+                              {option.label}
+                              {isSelected ? " ✓" : ""}
+                            </span>
+                            <span className="mt-1 block text-xs opacity-80">
+                              {option.desc}
+                            </span>
+                          </button>
+                        );
+                      })}
                     </div>
                   </div>
 
@@ -383,7 +371,7 @@ export default function PdfCompressPage() {
                     </div>
                   </div>
 
-                  {savingsPercent > 85 && quality < 30 && (
+                  {savingsPercent > 85 && preset === "low" && (
                     <div className="rounded-xl border border-brand-blue/30 bg-brand-blue/5 px-4 py-3 text-sm leading-relaxed text-content-secondary">
                       <p className="font-medium text-brand-blue">
                         💡 This is a scanned document.

@@ -71,6 +71,52 @@ export default function HowToCreateStrongPasswordGuideContent() {
 
       <hr />
 
+      <h2>Passphrases vs Random Passwords</h2>
+
+      <p>
+        <strong>Random passwords</strong> (16+ mixed characters) are best for
+        website logins stored in a password manager.{" "}
+        <strong>Passphrases</strong> (4+ random words like{" "}
+        <strong>river-canvas-bright-forest</strong>) are easier to remember and
+        type — ideal for master passwords and WiFi. Use our{" "}
+        <Link href="/tools/password-generator">Password Generator</Link> — switch
+        to Passphrase mode for word-based passwords, or Password mode for random
+        strings.
+      </p>
+
+      <p>
+        Read more in our{" "}
+        <Link href="/blog/passphrase-generator-guide">passphrase generator guide</Link>.
+      </p>
+
+      <hr />
+
+      <h2>What the Strength Meter Measures</h2>
+
+      <p>
+        The built-in strength meter uses <strong>zxcvbn</strong> — the same
+        approach used by Dropbox and other security-focused products. It checks
+        against common password lists, keyboard patterns, names, and dictionary
+        words — not just character count. A long password like{" "}
+        <strong>passwordpassword</strong> scores poorly; a shorter random mix
+        scores higher.
+      </p>
+
+      <hr />
+
+      <h2>Why Exclude Ambiguous Characters?</h2>
+
+      <p>
+        Characters like <strong>0</strong>, <strong>O</strong>,{" "}
+        <strong>l</strong>, <strong>1</strong>, and <strong>I</strong> look
+        nearly identical in many fonts. Excluding them reduces transcription
+        errors when you read a password from screen to paper, or share a WiFi
+        password verbally. Enable &quot;Exclude ambiguous characters&quot; in
+        the generator when typing accuracy matters.
+      </p>
+
+      <hr />
+
       <h2>How to Create a Password You Can Remember</h2>
 
       <h3>Passphrase Method</h3>
@@ -107,8 +153,9 @@ export default function HowToCreateStrongPasswordGuideContent() {
 
       <p>
         Generate strong passwords instantly with our{" "}
-        <Link href="/tools/password-generator">Password Generator</Link>. Secure
-        your WiFi with a QR code using{" "}
+        <Link href="/tools/password-generator">Password Generator</Link> —
+        includes passphrase generator and password strength checker powered by
+        zxcvbn. Secure your WiFi with a QR code using{" "}
         <Link href="/tools/qr-code-generator">QR Code Generator</Link>.
       </p>
 

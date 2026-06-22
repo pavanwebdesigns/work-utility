@@ -50,7 +50,7 @@ export const TOOL_PAGE_DESCRIPTIONS: Record<string, string> = {
   "mortgage-calculator": "Free mortgage calculator with full amortization schedule. See monthly payment, PMI, taxes, insurance, and how extra payments save you money. No signup.",
   "notice-period-calculator": "Calculate your last working day from resignation date and notice period length. Includes buyout estimate and working-day calendar. Free for Indian employees.",
   "number-to-words": "Convert numbers to words in English free online. Supports Indian and International number systems.",
-  "password-generator": "Generate strong random passwords with custom length, symbols, and numbers. Built-in strength indicator and one-click copy. Free secure password generator.",
+  "password-generator": "Generate strong random passwords or memorable passphrases with zxcvbn strength meter. Bulk generate, session history, ambiguous character exclusion. Free, browser-only.",
   "paycheck-calculator": "Free 2026 paycheck calculator. Estimate your take-home pay after federal tax, FICA, and deductions. Based on current IRS tax brackets. No signup.",
   "pdf-compress": "Compress PDF files online for free. Reduce PDF size without losing quality. No upload, no signup — runs entirely in your browser.",
   "pdf-merge": "Merge multiple PDF files into one online free. No signup, no upload to server. Combine PDFs instantly in your browser.",

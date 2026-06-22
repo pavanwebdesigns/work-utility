@@ -36,6 +36,7 @@ import QrCodeForSmallBusinessIndiaContent from "../content/qr-code-for-small-bus
 import RentReceiptForHraExemptionIndiaContent from "../content/rent-receipt-for-hra-exemption-india";
 import CgpaToPercentageForJobApplicationsContent from "../content/cgpa-to-percentage-for-job-applications";
 import HowToCreateStrongPasswordGuideContent from "../content/how-to-create-strong-password-guide";
+import PassphraseGeneratorGuideContent from "../content/passphrase-generator-guide";
 import HowToCalculatePercentageOfMarksIndiaContent from "../content/how-to-calculate-percentage-of-marks-india";
 import HowToResizePhotoForGovernmentExamsContent from "../content/how-to-resize-photo-for-government-exams";
 import WordCountForUpscEssayWritingContent from "../content/word-count-for-upsc-essay-writing";
@@ -182,6 +183,7 @@ const contentBySlug: Record<string, () => JSX.Element> = {
     CgpaToPercentageForJobApplicationsContent,
   "how-to-create-strong-password-guide":
     HowToCreateStrongPasswordGuideContent,
+  "passphrase-generator-guide": PassphraseGeneratorGuideContent,
   "how-to-calculate-percentage-of-marks-india":
     HowToCalculatePercentageOfMarksIndiaContent,
   "how-to-resize-photo-for-government-exams":
