@@ -28,9 +28,9 @@ import {
 const MAX_FILE_SIZE = 50 * 1024 * 1024;
 
 const PRESETS = {
-  low: { label: "Low", desc: "Smaller size", quality: 0.5 },
-  medium: { label: "Medium", desc: "Balanced", quality: 0.7 },
-  high: { label: "High", desc: "Best quality", quality: 0.9 },
+  low: { label: "Low", desc: "Smaller size", quality: 80 },
+  medium: { label: "Medium", desc: "Balanced", quality: 50 },
+  high: { label: "High", desc: "Best quality", quality: 25 },
 } as const;
 
 type PresetKey = keyof typeof PRESETS;
@@ -179,7 +179,8 @@ export default function PdfCompressPage() {
     try {
       const stats = await compressPDF(file, PRESETS[preset].quality);
       setResult(stats);
-    } catch {
+    } catch (err) {
+      console.error("PDF compression failed:", err);
       setError("Compression failed. Please try again.");
     } finally {
       setIsProcessing(false);

@@ -87,7 +87,18 @@ export async function compressPDF(
   });
 
   if (!response.ok) {
-    throw new Error("Compression failed");
+    let detail = "Compression failed";
+    try {
+      const error = await response.json();
+      if (Array.isArray(error.detail)) {
+        detail = error.detail.map((d: { msg?: string }) => d.msg).filter(Boolean).join("; ") || detail;
+      } else if (typeof error.detail === "string") {
+        detail = error.detail;
+      }
+    } catch {
+      // ignore JSON parse errors
+    }
+    throw new Error(`${detail} (HTTP ${response.status})`);
   }
 
   const originalSize = parseInt(response.headers.get("X-Original-Size") || "0", 10);
