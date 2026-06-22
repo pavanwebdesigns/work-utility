@@ -34,6 +34,11 @@ import {
   removeBgInBrowser,
   validateBgRemoveFile,
 } from "@/lib/bg-remove";
+import { removeSolidBackground } from "@/lib/bg-remove-solid";
+
+type BgRemoveMode = "ai" | "solid";
+
+const DEFAULT_SOLID_TOLERANCE = 35;
 
 const howItWorksSteps = [
   {
@@ -78,10 +83,12 @@ export default function BgRemovePage() {
   const [error, setError] = useState<string | null>(null);
   const [isDragging, setIsDragging] = useState(false);
   const [showFirstRunBanner, setShowFirstRunBanner] = useState(false);
+  const [mode, setMode] = useState<BgRemoveMode>("ai");
+  const [tolerance, setTolerance] = useState(DEFAULT_SOLID_TOLERANCE);
 
   useEffect(() => {
-    setShowFirstRunBanner(!hasBgRemoveModelLoaded());
-  }, []);
+    setShowFirstRunBanner(mode === "ai" && !hasBgRemoveModelLoaded());
+  }, [mode]);
 
   useEffect(() => {
     return () => {
@@ -101,8 +108,8 @@ export default function BgRemovePage() {
     setError(null);
   }, []);
 
-  const handleRemove = useCallback(
-    (selected: File) => {
+  const processFile = useCallback(
+    (selected: File, activeMode: BgRemoveMode, activeTolerance: number) => {
       const validationError = validateBgRemoveFile(selected);
       if (validationError) {
         setError(validationError);
@@ -119,15 +126,29 @@ export default function BgRemovePage() {
 
       setIsProcessing(true);
       setProgress(0);
-      setStatusText("Removing background...");
+      setStatusText(
+        activeMode === "ai"
+          ? "Removing background..."
+          : "Removing solid background..."
+      );
 
-      void removeBgInBrowser(selected, {
-        onStatus: setStatusText,
-        onProgress: setProgress,
-      })
+      const task =
+        activeMode === "ai"
+          ? removeBgInBrowser(selected, {
+              onStatus: setStatusText,
+              onProgress: setProgress,
+            }).then((blob) => {
+              markBgRemoveModelLoaded();
+              setShowFirstRunBanner(false);
+              return blob;
+            })
+          : removeSolidBackground(selected, activeTolerance).then((blob) => {
+              setProgress(100);
+              return blob;
+            });
+
+      void task
         .then((blob) => {
-          markBgRemoveModelLoaded();
-          setShowFirstRunBanner(false);
           setResultBlob(blob);
           setResultPreviewUrl(URL.createObjectURL(blob));
           setProgress(100);
@@ -144,6 +165,13 @@ export default function BgRemovePage() {
         });
     },
     [resetResult]
+  );
+
+  const handleRemove = useCallback(
+    (selected: File) => {
+      processFile(selected, mode, tolerance);
+    },
+    [mode, tolerance, processFile]
   );
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -181,6 +209,16 @@ export default function BgRemovePage() {
     downloadBlob(resultBlob, getBgRemoveDownloadName(file.name));
   };
 
+  const handleModeChange = (nextMode: BgRemoveMode) => {
+    setMode(nextMode);
+    if (file) processFile(file, nextMode, tolerance);
+  };
+
+  const handleToleranceChange = (value: number) => {
+    setTolerance(value);
+    if (file && mode === "solid") processFile(file, "solid", value);
+  };
+
   return (
     <div className="flex min-h-screen w-full max-w-full flex-col overflow-x-hidden bg-surface-base">
       <Header />
@@ -213,7 +251,7 @@ export default function BgRemovePage() {
             </div>
 
             <div className="mt-8 space-y-4">
-              {showFirstRunBanner && (
+              {showFirstRunBanner && mode === "ai" && (
                 <div className="flex gap-3 rounded-xl border border-brand-blue/30 bg-brand-blue/10 p-4 text-sm text-content-secondary">
                   <Info className="mt-0.5 h-4 w-4 shrink-0 text-brand-blue" />
                   <p>
@@ -222,6 +260,63 @@ export default function BgRemovePage() {
                   </p>
                 </div>
               )}
+
+              <div className="flex flex-col items-center gap-3">
+                <div
+                  className="inline-flex rounded-xl border border-surface-border bg-surface-card p-1"
+                  role="group"
+                  aria-label="Background removal mode"
+                >
+                  <button
+                    type="button"
+                    onClick={() => handleModeChange("ai")}
+                    className={`rounded-lg px-3 py-2 text-xs font-medium transition-colors sm:px-4 sm:text-sm ${
+                      mode === "ai"
+                        ? "bg-tool-image text-white"
+                        : "text-content-secondary hover:text-content-primary"
+                    }`}
+                  >
+                    📸 AI (Photos)
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => handleModeChange("solid")}
+                    className={`rounded-lg px-3 py-2 text-xs font-medium transition-colors sm:px-4 sm:text-sm ${
+                      mode === "solid"
+                        ? "bg-tool-image text-white"
+                        : "text-content-secondary hover:text-content-primary"
+                    }`}
+                  >
+                    🎨 Solid BG (Logos)
+                  </button>
+                </div>
+
+                {mode === "solid" && (
+                  <div className="w-full max-w-sm rounded-xl border border-surface-border bg-surface-card px-4 py-3">
+                    <label
+                      htmlFor="solid-tolerance"
+                      className="mb-2 flex items-center justify-between text-sm text-content-primary"
+                    >
+                      <span>Sensitivity</span>
+                      <span className="text-content-secondary">{tolerance}</span>
+                    </label>
+                    <input
+                      id="solid-tolerance"
+                      type="range"
+                      min={1}
+                      max={60}
+                      value={tolerance}
+                      onChange={(event) =>
+                        handleToleranceChange(Number(event.target.value))
+                      }
+                      className="w-full accent-tool-image"
+                    />
+                    <p className="mt-1 text-center text-xs text-content-muted">
+                      1–60 · higher removes more similar colors
+                    </p>
+                  </div>
+                )}
+              </div>
 
               {!file && (
                 <div
@@ -282,7 +377,7 @@ export default function BgRemovePage() {
                 </div>
               )}
 
-              {isProcessing && (
+              {isProcessing && mode === "ai" && (
                 <div className="space-y-3 rounded-xl border border-surface-border bg-surface-card p-6">
                   <div className="flex items-center justify-center gap-3">
                     <Loader2 className="h-5 w-5 animate-spin text-tool-image" />
@@ -299,6 +394,15 @@ export default function BgRemovePage() {
                   <p className="text-center text-xs text-content-muted">
                     {progress}% complete
                   </p>
+                </div>
+              )}
+
+              {isProcessing && mode === "solid" && (
+                <div className="flex items-center justify-center gap-3 rounded-xl border border-surface-border bg-surface-card p-6">
+                  <Loader2 className="h-5 w-5 animate-spin text-tool-image" />
+                  <span className="font-medium text-content-primary">
+                    {statusText}
+                  </span>
                 </div>
               )}
 
