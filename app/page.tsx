@@ -9,7 +9,7 @@ import {
 } from "@/app/blog/posts";
 import { ALL_TOOLS } from "@/lib/tools-data";
 
-const PARTICLES = Array.from({ length: 20 }, (_, i) => ({
+const PARTICLES = Array.from({ length: 8 }, (_, i) => ({
   id: i,
   left: `${(i * 37 + 11) % 100}%`,
   top: `${(i * 53 + 7) % 100}%`,
