@@ -44,7 +44,23 @@ export function PhotoSizeGuidePage({ guide }: { guide: PhotoSizeGuide }) {
             ← Home
           </Link>
 
-          <div className="mt-8 flex flex-wrap items-center gap-3">
+          {guide.alertBanner && (
+            <div className="mt-6 rounded-xl border border-tool-pdf/40 bg-tool-pdf/10 p-5 sm:p-6">
+              <div className="flex items-start gap-3">
+                <AlertTriangle className="mt-0.5 h-5 w-5 shrink-0 text-tool-pdf" />
+                <div>
+                  <p className="font-semibold text-tool-pdf">
+                    ⚠️ {guide.alertBanner.title}
+                  </p>
+                  <p className="mt-2 text-sm leading-relaxed text-content-secondary">
+                    {guide.alertBanner.body}
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
+
+          <div className={`flex flex-wrap items-center gap-3 ${guide.alertBanner ? "mt-6" : "mt-8"}`}>
             <h1 className="text-2xl font-bold text-content-primary sm:text-3xl">
               {guide.h1}
             </h1>
@@ -92,9 +108,13 @@ export function PhotoSizeGuidePage({ guide }: { guide: PhotoSizeGuide }) {
                 </dd>
               </div>
               <div>
-                <dt className="text-xs text-content-muted">Max File Size</dt>
+                <dt className="text-xs text-content-muted">
+                  {guide.minKb ? "File Size" : "Max File Size"}
+                </dt>
                 <dd className="mt-0.5 font-medium text-content-primary">
-                  {guide.maxKb}
+                  {guide.minKb
+                    ? `${guide.minKb} – ${guide.maxKb}`
+                    : guide.maxKb}
                 </dd>
               </div>
               <div>
@@ -111,7 +131,19 @@ export function PhotoSizeGuidePage({ guide }: { guide: PhotoSizeGuide }) {
                   </dd>
                 </div>
               )}
-              <div className={guide.faceCoverage ? "" : "sm:col-span-2"}>
+              {guide.photoAge && (
+                <div>
+                  <dt className="text-xs text-content-muted">Photo Age</dt>
+                  <dd className="mt-0.5 font-medium text-content-primary">
+                    {guide.photoAge}
+                  </dd>
+                </div>
+              )}
+              <div
+                className={
+                  guide.faceCoverage && guide.photoAge ? "sm:col-span-2" : ""
+                }
+              >
                 <dt className="text-xs text-content-muted">Background</dt>
                 <dd className="mt-0.5 font-medium text-content-primary">
                   {guide.background}
@@ -120,34 +152,106 @@ export function PhotoSizeGuidePage({ guide }: { guide: PhotoSizeGuide }) {
             </dl>
           </div>
 
+          {guide.formatComparison && (
+            <section className="mt-10">
+              <h2 className="text-lg font-semibold text-content-primary">
+                {guide.formatComparison.title}
+              </h2>
+              <p className="mt-3 text-sm leading-relaxed text-content-secondary">
+                {guide.formatComparison.intro}
+              </p>
+              <div className="mt-4 overflow-x-auto rounded-xl border border-surface-border">
+                <table className="w-full min-w-[480px] text-sm">
+                  <thead>
+                    <tr className="border-b border-surface-border bg-surface-card">
+                      <th className="px-4 py-3 text-left font-medium text-content-primary">
+                        Document
+                      </th>
+                      <th className="px-4 py-3 text-left font-medium text-content-primary">
+                        Size
+                      </th>
+                      <th className="px-4 py-3 text-left font-medium text-content-primary">
+                        Digital Pixels
+                      </th>
+                      <th className="px-4 py-3 text-left font-medium text-content-primary">
+                        Notes
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {guide.formatComparison.rows.map((row) => (
+                      <tr
+                        key={row.document}
+                        className="border-b border-surface-border last:border-0"
+                      >
+                        <td className="px-4 py-3 font-medium text-content-primary">
+                          {row.document}
+                        </td>
+                        <td className="px-4 py-3 text-content-secondary">
+                          {row.size}
+                        </td>
+                        <td className="px-4 py-3 text-content-secondary">
+                          {row.pixels}
+                        </td>
+                        <td className="px-4 py-3 text-content-secondary">
+                          {row.notes}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </section>
+          )}
+
+          {guide.ruleChanges && guide.ruleChanges.length > 0 && (
+            <section className="mt-10">
+              <h2 className="text-lg font-semibold text-content-primary">
+                {guide.ruleChangesTitle ?? "What Changed"}
+              </h2>
+              <ul className="mt-4 space-y-3">
+                {guide.ruleChanges.map((change) => (
+                  <li
+                    key={change.oldRule}
+                    className="rounded-xl border border-surface-border bg-surface-card px-4 py-3 text-sm leading-relaxed text-content-secondary"
+                  >
+                    <span className="text-tool-pdf">❌</span> {change.oldRule}{" "}
+                    → <span className="text-tool-convert">✅</span>{" "}
+                    {change.newRule}
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+
           {guide.pixelDimensions && guide.pixelDimensions.length > 0 && (
             <section className="mt-10">
               <h2 className="text-lg font-semibold text-content-primary">
-                Pixel Dimensions at Different DPI
+                {guide.pixelDimensionsTitle ?? "Pixel Dimensions at Different DPI"}
               </h2>
               <div className="mt-4 overflow-x-auto rounded-xl border border-surface-border">
                 <table className="w-full min-w-[320px] text-sm">
                   <thead>
                     <tr className="border-b border-surface-border bg-surface-card">
                       <th className="px-4 py-3 text-left font-medium text-content-primary">
-                        DPI
+                        {guide.pixelDimensionsColumnLabel ?? "DPI"}
                       </th>
                       <th className="px-4 py-3 text-left font-medium text-content-primary">
-                        Width × Height
+                        Pixels
                       </th>
                       <th className="px-4 py-3 text-left font-medium text-content-primary">
-                        Best for
+                        Use case
                       </th>
                     </tr>
                   </thead>
                   <tbody>
                     {guide.pixelDimensions.map((row) => (
                       <tr
-                        key={row.dpi}
+                        key={row.label ?? row.dpi}
                         className="border-b border-surface-border last:border-0"
                       >
                         <td className="px-4 py-3 text-content-secondary">
-                          {row.dpi} DPI
+                          {row.label ?? `${row.dpi} DPI`}
                         </td>
                         <td className="px-4 py-3 font-medium text-content-primary">
                           {row.pixels}
@@ -211,7 +315,7 @@ export function PhotoSizeGuidePage({ guide }: { guide: PhotoSizeGuide }) {
           {guide.rejectionReasons && guide.rejectionReasons.length > 0 && (
             <section className="mt-10">
               <h2 className="text-lg font-semibold text-content-primary">
-                Common Rejection Reasons
+                {guide.rejectionReasonsTitle ?? "Common Rejection Reasons"}
               </h2>
               <ul className="mt-4 space-y-2.5">
                 {guide.rejectionReasons.map((reason) => (

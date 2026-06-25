@@ -4,7 +4,8 @@ export interface PhotoSizeGuideFaq {
 }
 
 export interface PixelDimensionRow {
-  dpi: number;
+  dpi?: number;
+  label?: string;
   pixels: string;
   bestFor: string;
   recommended?: boolean;
@@ -14,6 +15,18 @@ export interface OrientationWarning {
   title: string;
   items: { label: string; dimensions: string; note: string }[];
   footer: string;
+}
+
+export interface FormatComparisonRow {
+  document: string;
+  size: string;
+  pixels: string;
+  notes: string;
+}
+
+export interface RuleChange {
+  oldRule: string;
+  newRule: string;
 }
 
 export interface PhotoSizeGuide {
@@ -35,11 +48,24 @@ export interface PhotoSizeGuide {
   faceCoverage?: string;
   pixelDimensions?: PixelDimensionRow[];
   pixelDimensionsNote?: string;
+  pixelDimensionsTitle?: string;
+  pixelDimensionsColumnLabel?: string;
   orientationWarning?: OrientationWarning;
   whyKbLimit?: string;
   rejectionReasons?: string[];
+  rejectionReasonsTitle?: string;
   ctaBullets?: string[];
   enhancedCtaLabel?: string;
+  alertBanner?: { title: string; body: string };
+  formatComparison?: {
+    title: string;
+    intro: string;
+    rows: FormatComparisonRow[];
+  };
+  ruleChanges?: RuleChange[];
+  ruleChangesTitle?: string;
+  minKb?: string;
+  photoAge?: string;
 }
 
 export const PHOTO_SIZE_GUIDES: Record<string, PhotoSizeGuide> = {
@@ -141,7 +167,7 @@ export const PHOTO_SIZE_GUIDES: Record<string, PhotoSizeGuide> = {
       {
         question: "Can I use the same photo for Aadhaar and Passport?",
         answer:
-          "Indian Passport requires 35×45 mm (same proportions) with similar white background requirements. A good passport photo often works for Aadhaar too, but verify the file size is under 50KB for Aadhaar upload specifically.",
+          "Both use 35×45mm portrait proportions, but digital specs differ: Passport Seva requires 630×810 px (10–250KB) while Aadhaar requires 413×531 px (under 50KB). Resize separately for each portal.",
       },
       {
         question: "Why was my Aadhaar photo rejected even though it looked correct?",
@@ -225,52 +251,162 @@ export const PHOTO_SIZE_GUIDES: Record<string, PhotoSizeGuide> = {
   },
   passport: {
     id: "passport",
-    h1: "Passport Photo Size Requirements",
-    dimensions: "350 × 350 pixels",
-    physicalSize: "35mm × 35mm (3.5cm × 3.5cm)",
-    maxKb: "50 KB",
-    format: "JPG / JPEG",
-    background: "Plain white background (mandatory)",
+    h1: "Indian Passport Photo Size Requirements (2026)",
+    dimensions: "630 × 810 pixels",
+    physicalSize: "35mm × 45mm (3.5cm × 4.5cm) — portrait",
+    maxKb: "250 KB",
+    minKb: "10 KB",
+    format: "JPEG only",
+    background: "Pure white only (off-white rejected by AI)",
+    faceCoverage: "80–85% of frame",
+    photoAge: "Within 3 months",
+    lastVerified: "June 2026",
+    alertBanner: {
+      title: "Rule Change: September 2025",
+      body: "India changed passport photo rules. The old 2×2 inch (51×51mm) square format is NOW REJECTED for Passport Seva applications. New format: 35×45mm portrait rectangle.",
+    },
+    quickSpecs: [
+      "Size: 35 × 45 mm (portrait — NOT square)",
+      "Digital pixels: 630 × 810 pixels exactly",
+      "File size: 10KB – 250KB (JPEG only)",
+      "Background: Pure white only (off-white rejected by AI system)",
+      "Face coverage: 80–85% of frame (increased from 70–80% in September 2025)",
+      "Glasses: Not recommended (any glare = automatic rejection)",
+      "Photo age: Must be within 3 months",
+    ],
+    formatComparison: {
+      title: "3 Different Formats — Don't Mix Them Up",
+      intro: "India has 3 completely different photo formats — using the wrong one means rejection:",
+      rows: [
+        {
+          document: "Passport (Passport Seva)",
+          size: "35×45mm",
+          pixels: "630×810 px",
+          notes: "New rule from Sep 2025",
+        },
+        {
+          document: "OCI Card",
+          size: "51×51mm (square)",
+          pixels: "600×600 px",
+          notes: "Still uses old square format",
+        },
+        {
+          document: "e-Visa",
+          size: "35×45mm",
+          pixels: "350×350 to 1000×1000 px",
+          notes: "Slightly different file size limit",
+        },
+      ],
+    },
+    ruleChangesTitle: "New 2025–26 Rule Changes",
+    ruleChanges: [
+      {
+        oldRule: "Old: 2×2 inch (51×51mm) square",
+        newRule: "New: 35×45mm portrait",
+      },
+      {
+        oldRule: "Old: Face 70–80% of frame",
+        newRule: "New: Face 80–85% (tighter crop!)",
+      },
+      {
+        oldRule: "Old: Glasses allowed with care",
+        newRule: "New: Glasses strongly discouraged (any glare = instant rejection)",
+      },
+      {
+        oldRule: "Old: Manual check at PSK",
+        newRule: "New: AI automated check on upload (Passport Seva 2.0, Feb 2026) — zero tolerance",
+      },
+    ],
+    pixelDimensionsTitle: "Pixel Dimensions",
+    pixelDimensionsColumnLabel: "Resolution",
+    pixelDimensions: [
+      {
+        label: "Minimum",
+        pixels: "630 × 810 px",
+        bestFor: "Passport Seva digital upload",
+        recommended: true,
+      },
+      {
+        label: "Print (300 DPI)",
+        pixels: "413 × 531 px",
+        bestFor: "Physical print at studio",
+      },
+      {
+        label: "High quality",
+        pixels: "827 × 1063 px",
+        bestFor: "Archive/professional",
+      },
+    ],
+    pixelDimensionsNote:
+      "Our photo resizer automatically sets 630×810 pixels for Passport Seva digital upload.",
+    rejectionReasonsTitle: "Common Rejection Reasons (2026)",
+    rejectionReasons: [
+      "Wrong format — still using old 2×2 inch square (most common!)",
+      "Face too small — must be 80–85% of frame now (not 70%)",
+      "Background not pure white (off-white, grey, shadows rejected by AI)",
+      "File size wrong — must be 10KB–250KB exactly",
+      "Glasses with any reflection or glare",
+      "Photo older than 3 months",
+      "Hair covering forehead (affects face height measurement)",
+      "Smiling, non-neutral expression",
+      "Digital filters, beauty effects, AI retouching (detected and rejected by PSP 2.0)",
+    ],
     uploadErrors: [
-      "Photo not square — Indian passport requires 35×35mm (350×350 px)",
-      "Background not plain white — most common rejection reason",
-      "File exceeds 50 KB on passport seva portal upload",
-      "Face occupies less than 80% of frame or ears not visible",
+      "Still using old 51×51mm square format — rejected since September 2025",
+      "Digital upload not exactly 630×810 pixels",
+      "File size outside 10KB–250KB range",
+      "Background not pure white — AI detects off-white and grey tones",
     ],
     resizeSteps: [
-      "Take a passport-style photo against a plain white wall",
-      "Open Photo Resizer and select Passport (India) preset",
-      "Upload your photo with white background selected",
-      "Resize to 350×350 pixels under 50 KB",
-      "Download and use for passport seva online application",
+      "Take a recent photo (within 3 months) against a pure white wall, no glasses",
+      "Open WorkUtilities Photo Resizer and select Passport (India) preset",
+      "Upload your photo — 630×810 px and 250 KB limit auto-fill",
+      "Ensure white background and face fills 80–85% of frame",
+      "Download JPEG and upload to passportindia.gov.in Passport Seva portal",
     ],
     ctaPreset: "passport",
     ctaLabel: "Resize Passport Photo Free",
+    enhancedCtaLabel: "Resize Your Passport Photo — Free & Instant",
+    ctaBullets: [
+      "Auto-sets 35×45mm (630×810 px)",
+      "Compresses to 10–250KB",
+      "Runs in your browser — photo never uploaded",
+    ],
     faqs: [
       {
-        question: "What is Indian passport photo size in mm?",
+        question: "What is the passport photo size in India for 2026?",
         answer:
-          "Indian passport photo size is 35mm × 35mm (3.5cm × 3.5cm), which equals 350×350 pixels at standard DPI.",
+          "35×45mm portrait rectangle (NOT the old 2×2 inch square). Digital upload to Passport Seva requires exactly 630×810 pixels, JPEG under 250KB.",
       },
       {
-        question: "What is the passport photo size in KB for online application?",
+        question: "Did India change passport photo rules?",
         answer:
-          "The passport seva portal typically accepts photos up to 50 KB in JPG format with a plain white background.",
+          "Yes — from September 1, 2025, India adopted ICAO standards. The old 2×2 inch square format is rejected. New format is 35×45mm portrait with 80–85% face coverage. Passport Seva Program 2.0 (February 2026) added AI-based photo checking.",
+      },
+      {
+        question: "Why is my passport photo getting rejected on Passport Seva?",
+        answer:
+          "Most common reasons: wrong dimensions (still using old square format), face coverage under 80%, background not pure white (AI detects off-white), file size outside 10KB–250KB range, or any glare from glasses.",
+      },
+      {
+        question: "What is the difference between Passport and OCI Card photo size?",
+        answer:
+          "Passport Seva requires 35×45mm (630×810px portrait). OCI Card still requires 51×51mm square format. A photo prepared for one will be rejected for the other.",
+      },
+      {
+        question: "Can I wear glasses in an Indian passport photo?",
+        answer:
+          "Not recommended since September 2025. Any glare, reflection, or shadow from glasses triggers automatic rejection in Passport Seva's AI checking system. Remove glasses for the safest result.",
       },
       {
         question: "Is white background mandatory for Indian passport photo?",
         answer:
-          "Yes, a plain white background is mandatory for Indian passport photos. Off-white, grey, or patterned backgrounds are rejected.",
-      },
-      {
-        question: "Can I wear glasses in passport photo?",
-        answer:
-          "Glasses are generally allowed if there is no glare, but tinted glasses and sunglasses are not permitted.",
+          "Yes — pure white only. Off-white, cream, grey, or patterned backgrounds are rejected by Passport Seva 2.0's AI photo checking system.",
       },
       {
         question: "How to make passport size photo online free?",
         answer:
-          "Upload your photo to WorkUtilities Photo Resizer, select the Passport preset, and download a 350×350 px photo under 50 KB.",
+          "Upload your photo to WorkUtilities Photo Resizer, select the Passport (India) preset, and download a 630×810 px JPEG between 10KB and 250KB.",
       },
     ],
     relatedGuideIds: [

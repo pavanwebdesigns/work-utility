@@ -353,14 +353,17 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "passport-size-photo-dimensions-india",
-    title: "Passport Size Photo — Exact Dimensions & Guidelines for India",
+    title: "India Passport Photo Rule Change 2026 — What You Need to Know",
     excerpt:
-      "Indian passport photo requirements are specific. Wrong background, wrong size, or wrong expression can get your application rejected. Get it right the first time.",
+      "India changed passport photo rules from September 2025. Old 2×2 inch square rejected. ICAO standards, e-passport biometrics, and PSP 2.0 AI checking explained.",
     category: "Photo",
-    readTime: "6 min read",
+    readTime: "7 min read",
     author: "Ravi Kumar",
     lastUpdated: "June 2026",
-    cta: { toolName: "Photo Resizer", toolHref: "/tools/photo-resizer" },
+    cta: {
+      toolName: "Photo Resizer",
+      toolHref: "/tools/photo-resizer?preset=passport",
+    },
   },
   {
     slug: "how-to-compress-pdf-under-1mb",
@@ -1291,11 +1294,11 @@ export const blogSeoMetadata: Record<
       "convert pdf to word free, pdf to word online india, pdf to docx converter free",
   },
   "passport-size-photo-dimensions-india": {
-    title: "Passport Size Photo Dimensions India 2026 | WorkUtilities",
+    title: "India Passport Photo Rule Change 2026 — What You Need to Know",
     description:
-      "Official Indian passport photo size is 51mm × 51mm. Complete guide with dimensions for all Indian documents — Aadhaar, PAN, Visa, Driving License.",
+      "India changed passport photo rules from September 2025. Old 2×2 inch format rejected. New 35×45mm ICAO standard explained. Passport Seva 2.0 AI checking what it means for applicants.",
     keywords:
-      "passport size photo dimensions india, indian passport photo size, passport photo requirements 2026",
+      "india passport photo rule change 2025, passport seva 2.0 photo rejection, icao passport photo india, why passport photo rejected",
   },
   "how-to-compress-pdf-under-1mb": {
     title: "How to Compress PDF Under 1MB Free (2026) | WorkUtilities",

@@ -3,384 +3,227 @@ import Link from "next/link";
 export default function PassportSizePhotoDimensionsIndiaContent() {
   return (
     <article className="prose-custom">
+      <div className="not-prose mb-8 rounded-xl border border-tool-pdf/30 bg-tool-pdf/5 p-5">
+        <p className="text-sm text-content-secondary">
+          <strong className="text-content-primary">Quick reference?</strong> See
+          our{" "}
+          <Link
+            href="/passport-photo-size-india"
+            className="font-medium text-tool-photo hover:underline"
+          >
+            Passport Photo Size India guide with instant resize tool →
+          </Link>
+        </p>
+      </div>
+
       <p>
-        Last year, a colleague of mine was applying for a new passport.
-        Straightforward process — except she had to visit the photo studio three
-        times.
+        On September 1, 2025, India changed its passport photo rules for the
+        first time in over a decade. If you are still using a 2×2 inch square
+        photo from an old studio print, Passport Seva will reject it — often
+        instantly, with no chance to correct it on the spot.
       </p>
 
       <p>
-        The first time, the studio gave her a photo with a slight blue tint in
-        the background. The second time, her ears were not fully visible. The
-        third time, the photo was finally accepted.
+        This article explains <strong>why</strong> the rules changed, what
+        Passport Seva Program 2.0 means for applicants, and how to avoid the
+        rejection traps that catch thousands of people every month. For exact
+        pixel dimensions and a one-click resize tool, see our{" "}
+        <Link href="/passport-photo-size-india">
+          Passport Photo Size India page
+        </Link>
+        .
       </p>
-
-      <p>
-        Three visits, three sets of prints, and a week of back-and-forth — all
-        because of specifications that, while publicly available, are scattered
-        across multiple government websites and not easy to find in one place.
-      </p>
-
-      <p>This guide puts everything in one place.</p>
 
       <hr />
 
-      <h2>Official Indian Passport Photo Specifications (2026)</h2>
+      <h2>Why India Changed Passport Photo Rules in 2025</h2>
 
       <p>
-        The Ministry of External Affairs has specific requirements for passport
-        photos. Here are the current specifications:
+        Three forces drove the September 2025 update:
+      </p>
+
+      <h3>1. ICAO international standards</h3>
+
+      <p>
+        India aligned with ICAO (International Civil Aviation Organization)
+        Document 9303 — the global standard for machine-readable travel
+        documents. ICAO specifies 35×45mm portrait photos with strict face
+        coverage, not the American-style 2×2 inch square India had used for
+        years.
+      </p>
+
+      <p>
+        The old square format was incompatible with e-passport chip encoding and
+        automated border control systems used at international airports.
+      </p>
+
+      <h3>2. E-passport rollout</h3>
+
+      <p>
+        India is issuing biometric e-passports with embedded chips that store
+        facial data. Chip encoding requires consistent photo geometry — square
+        crops produce unreliable biometric templates. The 35×45mm portrait
+        format with 80–85% face coverage produces higher-quality facial
+        embeddings for chip storage and verification.
+      </p>
+
+      <h3>3. Biometric accuracy at scale</h3>
+
+      <p>
+        Passport Seva processes millions of applications annually. Tighter face
+        coverage rules (increased from 70–80% to 80–85%) reduce false matches
+        in facial recognition systems used at airports and consulates.
+      </p>
+
+      <hr />
+
+      <h2>What Passport Seva Program 2.0 Changed (February 2026)</h2>
+
+      <p>
+        In February 2026, the Ministry of External Affairs launched Passport
+        Seva Program 2.0 with AI-based photo validation at upload time. This is
+        a fundamental shift from the old process:
       </p>
 
       <table>
         <thead>
           <tr>
-            <th>Requirement</th>
-            <th>Specification</th>
+            <th>Old process</th>
+            <th>PSP 2.0 (2026)</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>
-              <strong>Dimensions</strong>
-            </td>
-            <td>51mm × 51mm (2 inches × 2 inches)</td>
+            <td>Human operator checks photo at PSK</td>
+            <td>AI checks photo instantly on upload</td>
           </tr>
           <tr>
-            <td>
-              <strong>Pixel size</strong>
-            </td>
-            <td>354 × 354 pixels (at 72 DPI)</td>
+            <td>Some flexibility on background shade</td>
+            <td>Zero tolerance — off-white rejected</td>
           </tr>
           <tr>
-            <td>
-              <strong>Background</strong>
-            </td>
-            <td>Plain white only</td>
+            <td>Glasses allowed if no obvious glare</td>
+            <td>Any reflection triggers automatic rejection</td>
           </tr>
           <tr>
-            <td>
-              <strong>Face coverage</strong>
-            </td>
-            <td>70–80% of the frame</td>
+            <td>Correction possible at appointment</td>
+            <td>Instant rejection — must re-upload before proceeding</td>
           </tr>
           <tr>
-            <td>
-              <strong>Head position</strong>
-            </td>
-            <td>Looking straight ahead, centered</td>
-          </tr>
-          <tr>
-            <td>
-              <strong>Expression</strong>
-            </td>
-            <td>Neutral, mouth closed</td>
-          </tr>
-          <tr>
-            <td>
-              <strong>Eyes</strong>
-            </td>
-            <td>Open, clearly visible, not red-eye</td>
-          </tr>
-          <tr>
-            <td>
-              <strong>Glasses</strong>
-            </td>
-            <td>Not recommended (may be rejected)</td>
-          </tr>
-          <tr>
-            <td>
-              <strong>File format</strong>
-            </td>
-            <td>JPEG for digital submissions</td>
-          </tr>
-          <tr>
-            <td>
-              <strong>File size</strong>
-            </td>
-            <td>Less than 1MB for online upload</td>
+            <td>Photo age loosely enforced</td>
+            <td>Must be within 3 months</td>
           </tr>
         </tbody>
       </table>
 
       <p>
-        These requirements apply to Indian passport applications — both new
-        applications and renewals — through the Passport Seva portal.
+        The AI system also detects beauty filters, skin smoothing, and AI
+        retouching — common on smartphone photos — and rejects them as
+        non-compliant.
       </p>
 
       <hr />
 
-      <h2>How Indian Passport Photo Size Compares to Other Documents</h2>
+      <h2>Why the Old 2×2 Inch Format No Longer Works</h2>
 
       <p>
-        One of the most common sources of confusion is that different Indian
-        documents use different photo sizes. Here is a complete reference:
-      </p>
-
-      <table>
-        <thead>
-          <tr>
-            <th>Document</th>
-            <th>Size</th>
-            <th>Format</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Passport</td>
-            <td>51mm × 51mm</td>
-            <td>Square</td>
-          </tr>
-          <tr>
-            <td>Visa (most countries)</td>
-            <td>51mm × 51mm</td>
-            <td>Square</td>
-          </tr>
-          <tr>
-            <td>Aadhaar Card</td>
-            <td>35mm × 35mm</td>
-            <td>Square</td>
-          </tr>
-          <tr>
-            <td>PAN Card</td>
-            <td>35mm × 35mm</td>
-            <td>Square</td>
-          </tr>
-          <tr>
-            <td>Driving License</td>
-            <td>25mm × 32mm</td>
-            <td>Rectangular</td>
-          </tr>
-          <tr>
-            <td>Voter ID</td>
-            <td>35mm × 45mm</td>
-            <td>Rectangular</td>
-          </tr>
-          <tr>
-            <td>US Visa</td>
-            <td>51mm × 51mm</td>
-            <td>Square</td>
-          </tr>
-          <tr>
-            <td>UK Visa</td>
-            <td>35mm × 45mm</td>
-            <td>Rectangular</td>
-          </tr>
-          <tr>
-            <td>Schengen Visa</td>
-            <td>35mm × 45mm</td>
-            <td>Rectangular</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <p>
-        Note that the Indian passport and US visa share the same dimensions, but
-        other countries — UK, EU — use a different size. Always check the
-        specific requirements of the country you are applying to.
-      </p>
-
-      <hr />
-
-      <h2>How to Get a Passport-Size Photo Right</h2>
-
-      <h3>Option 1: Visit a photo studio</h3>
-
-      <p>
-        Any good photo studio will know passport specifications. The key is to
-        specifically ask for &quot;Indian passport size&quot; — not just
-        &quot;passport size,&quot; which is an ambiguous term that studios
-        interpret differently.
-      </p>
-
-      <p>Ask them to provide:</p>
-
-      <ul>
-        <li>4–6 prints on matte paper</li>
-        <li>Digital copy on a USB or WhatsApp (for online applications)</li>
-        <li>White background specifically</li>
-      </ul>
-
-      <p>
-        Typical cost: ₹50–150 for a set of 4 prints depending on the city.
-      </p>
-
-      <h3>Option 2: Take and resize at home</h3>
-
-      <p>
-        If you already have a good photo on your phone, you can resize it
-        yourself using{" "}
-        <Link href="/tools/photo-resizer">WorkUtilities Photo Resizer</Link>:
-      </p>
-
-      <p>
-        <strong>Step 1:</strong> Take a clear photo in good natural light against
-        a white wall
-      </p>
-
-      <p>
-        <strong>Step 2:</strong> Open WorkUtilities Photo Resizer
-      </p>
-
-      <p>
-        <strong>Step 3:</strong> Upload your photo
-      </p>
-
-      <p>
-        <strong>Step 4:</strong> Select &quot;Passport (India)&quot; from the
-        presets
-      </p>
-
-      <p>
-        <strong>Step 5:</strong> Set background to &quot;White&quot;
-      </p>
-
-      <p>
-        <strong>Step 6:</strong> Download and take it to a print shop for physical
-        copies
-      </p>
-
-      <hr />
-
-      <h2>Common Reasons for Passport Photo Rejection</h2>
-
-      <p>
-        The Passport Seva portal and passport offices reject photos for these
-        reasons:
-      </p>
-
-      <p>
-        <strong>Background issues:</strong>
+        For decades, Indian passport photos were 51×51mm (2×2 inches) — the same
+        as US visa photos. Photo studios across India still default to this
+        size. But since September 2025:
       </p>
 
       <ul>
-        <li>Colored background (grey, blue, cream)</li>
-        <li>Shadows falling on the face or background</li>
-        <li>Textured or patterned background</li>
-      </ul>
-
-      <p>
-        <strong>Face issues:</strong>
-      </p>
-
-      <ul>
-        <li>Eyes not fully open or looking sideways</li>
-        <li>Glasses (reflective glare or thick frames)</li>
-        <li>Hair covering the forehead or face</li>
         <li>
-          Accessories like hats, headbands, or heavy jewelry (religious head
-          coverings are allowed)
+          Passport Seva digital upload requires <strong>630×810 pixels</strong>{" "}
+          (35×45mm portrait) — not 600×600 square
         </li>
-        <li>Heavy makeup or filters that alter facial features</li>
-      </ul>
-
-      <p>
-        <strong>Technical issues:</strong>
-      </p>
-
-      <ul>
-        <li>Photo is blurry or pixelated</li>
-        <li>Low contrast — face and background blend together</li>
-        <li>Red-eye effect</li>
-        <li>Photo is too dark or too bright</li>
-      </ul>
-
-      <p>
-        <strong>Size and composition issues:</strong>
-      </p>
-
-      <ul>
-        <li>Face does not occupy 70–80% of the frame</li>
-        <li>Head is tilted</li>
-        <li>Photo is not square</li>
-      </ul>
-
-      <hr />
-
-      <h2>Tips for Taking a Perfect Passport Photo at Home</h2>
-
-      <p>
-        <strong>Lighting is everything.</strong> Stand facing a window — natural,
-        indirect light is ideal. Avoid overhead lights that create shadows under
-        your nose and chin.
-      </p>
-
-      <p>
-        <strong>Plain white background.</strong> A white wall works.
-        Alternatively, hang a white bedsheet and make sure it is smooth with no
-        folds or shadows.
-      </p>
-
-      <p>
-        <strong>Camera position.</strong> Hold the camera at eye level. Avoid
-        shooting from below (makes chin appear larger) or above (makes forehead
-        appear larger).
-      </p>
-
-      <p>
-        <strong>Distance from background.</strong> Stand at least 1 meter away
-        from the background to avoid casting a shadow on it.
-      </p>
-
-      <p>
-        <strong>Camera settings.</strong> Use the rear camera on your phone, not
-        the selfie camera — it produces better quality. Turn off beauty mode and
-        filters.
-      </p>
-
-      <p>
-        <strong>Ask someone else to take the photo.</strong> Selfies are harder to
-        frame correctly for passport requirements.
-      </p>
-
-      <hr />
-
-      <h2>Uploading Passport Photos Online (Passport Seva Portal)</h2>
-
-      <p>
-        For online passport applications through passportindia.gov.in, the
-        digital photo requirements are:
-      </p>
-
-      <ul>
-        <li>Format: JPEG</li>
-        <li>Size: Less than 1MB</li>
-        <li>Dimensions: At least 200 × 200 pixels, ideally 354 × 354 pixels</li>
-        <li>Background: White</li>
-        <li>Taken recently (within the last 6 months)</li>
-      </ul>
-
-      <p>
-        The portal has a photo validation tool that checks dimensions and file
-        size before submission.
-      </p>
-
-      <hr />
-
-      <h2>Passport Photos for Children and Infants</h2>
-
-      <p>Child passport photos have a few different rules:</p>
-
-      <ul>
         <li>
-          For infants, parents are allowed to support the child&apos;s head if it
-          is not visible in the photo
+          Physical prints at PSK must also be 35×45mm portrait
         </li>
-        <li>The child must have their eyes open and visible</li>
         <li>
-          The child must be alone in the frame — no parent visible in the
-          background
-        </li>
-        <li>The same white background rule applies</li>
-        <li>
-          Expression can be natural — infants are not expected to have a neutral
-          expression
+          Square photos are rejected at upload with no explanation beyond
+          &quot;photo does not meet requirements&quot;
         </li>
       </ul>
 
       <p>
-        Getting a good infant passport photo requires patience. Take multiple
-        shots and choose the clearest one.
+        This is now the <strong>single most common rejection reason</strong> on
+        Passport Seva — applicants using photos prepared for US visas or old
+        studio prints.
+      </p>
+
+      <hr />
+
+      <h2>Passport vs OCI vs e-Visa: Three Different Formats</h2>
+
+      <p>
+        A major source of confusion: India uses three different photo formats
+        for different documents. A photo prepared for one will be rejected for
+        another:
+      </p>
+
+      <ul>
+        <li>
+          <strong>Passport Seva:</strong> 35×45mm portrait, 630×810 px — new
+          ICAO standard
+        </li>
+        <li>
+          <strong>OCI Card:</strong> 51×51mm square, 600×600 px — still uses the
+          old format
+        </li>
+        <li>
+          <strong>e-Visa:</strong> 35×45mm but different pixel range (350×350
+          to 1000×1000 px)
+        </li>
+      </ul>
+
+      <p>
+        See our{" "}
+        <Link href="/passport-photo-size-india">
+          Passport Photo Size India guide
+        </Link>{" "}
+        for the full comparison table and resize tool.
+      </p>
+
+      <hr />
+
+      <h2>Why Glasses Are Now Effectively Banned</h2>
+
+      <p>
+        The old rules said glasses were allowed if there was no glare. PSP
+        2.0&apos;s AI detects even subtle reflections on lenses — something
+        human operators often overlooked. The result: any photo with glasses has
+        a high rejection rate.
+      </p>
+
+      <p>
+        UIDAI and Passport Seva now both recommend removing glasses entirely.
+        If you need vision correction, wear contact lenses for the photo or
+        remove glasses and rely on autofocus.
+      </p>
+
+      <hr />
+
+      <h2>How to Prepare a Compliant Photo in 2026</h2>
+
+      <p>
+        <strong>Step 1:</strong> Take a new photo within the last 3 months
+        against a pure white wall. No glasses, neutral expression, face filling
+        80–85% of frame.
+      </p>
+
+      <p>
+        <strong>Step 2:</strong> Use the{" "}
+        <Link href="/tools/photo-resizer?preset=passport">
+          WorkUtilities Photo Resizer
+        </Link>{" "}
+        with the Passport (India) preset — sets 630×810 pixels and compresses
+        to 10–250KB.
+      </p>
+
+      <p>
+        <strong>Step 3:</strong> Upload to passportindia.gov.in and verify the
+        AI check passes before proceeding with your application.
       </p>
 
       <hr />
@@ -388,46 +231,35 @@ export default function PassportSizePhotoDimensionsIndiaContent() {
       <h2>Frequently Asked Questions</h2>
 
       <p>
-        <strong>Q: Can I wear glasses in my Indian passport photo?</strong>
+        <strong>Q: When exactly did the rules change?</strong>
         <br />
-        It is strongly recommended not to. While the rules do not strictly
-        prohibit glasses, photos with glasses are frequently rejected due to glare
-        or reflections. Remove glasses for the safest result.
+        September 1, 2025 for photo dimensions. AI checking via Passport Seva
+        Program 2.0 launched in February 2026.
       </p>
 
       <p>
-        <strong>Q: How many passport photos do I need for an application?</strong>
+        <strong>Q: Can I still use my old passport photo for renewal?</strong>
         <br />
-        For physical applications at a Passport Seva Kendra, you typically need 2
-        recent photos. Online applications only require a digital upload.
+        Only if it meets the new 35×45mm format and was taken within 3 months.
+        Old square-format photos must be retaken regardless of age.
       </p>
 
       <p>
-        <strong>Q: Can I use the same photo for Indian passport and US visa?</strong>
+        <strong>Q: Will my photo studio know the new rules?</strong>
         <br />
-        Yes — both require 51mm × 51mm. However, the photo must be recent (taken
-        within 6 months) for both applications.
+        Many studios still print 2×2 inch by default. Explicitly ask for
+        &quot;35×45mm Indian passport size, ICAO format&quot; or resize
+        digitally yourself.
       </p>
 
       <p>
-        <strong>
-          Q: My photo was taken recently but my appearance has changed. Do I need
-          a new photo?
-        </strong>
+        <strong>Q: Where can I find exact pixel dimensions?</strong>
         <br />
-        Yes. The photo must accurately represent your current appearance. If you
-        have significantly changed your hair, grown or shaved a beard, or had any
-        facial change, take a new photo.
-      </p>
-
-      <p>
-        <strong>
-          Q: What is the difference between matte and glossy finish for passport
-          photos?
-        </strong>
-        <br />
-        Indian passport offices accept both. Matte is generally preferred as it
-        does not produce glare when scanned.
+        Our{" "}
+        <Link href="/passport-photo-size-india">
+          Passport Photo Size India page
+        </Link>{" "}
+        has the full spec table, rejection checklist, and free resize tool.
       </p>
 
       <hr />
@@ -435,34 +267,21 @@ export default function PassportSizePhotoDimensionsIndiaContent() {
       <h2>Conclusion</h2>
 
       <p>
-        Getting a passport photo right the first time saves you time, money, and
-        frustration. The key requirements to remember:{" "}
-        <strong>
-          51mm × 51mm, white background, neutral expression, face covering 70–80%
-          of the frame.
-        </strong>
+        India&apos;s passport photo rules changed because of ICAO alignment,
+        e-passport biometrics, and automated AI checking. The old 2×2 inch
+        square is gone for Passport Seva — permanently.
       </p>
 
       <p>
-        If you need to resize an existing photo to the correct dimensions,{" "}
-        <Link href="/tools/photo-resizer">WorkUtilities Photo Resizer</Link>{" "}
-        handles it in seconds — free, no signup, completely private.
-      </p>
-
-      <p>
-        For a complete reference of all Indian document photo sizes, visit the{" "}
-        <Link href="/tools/photo-resizer">Photo Resizer tool page</Link> which
-        includes a full size reference table.
-      </p>
-
-      <hr />
-
-      <p>
-        <em>
-          Applying for a visa? Check the specific photo requirements for your
-          destination country — they may differ from Indian passport
-          specifications.
-        </em>
+        For exact dimensions and one-click resizing, use our{" "}
+        <Link href="/passport-photo-size-india">
+          Passport Photo Size India guide
+        </Link>{" "}
+        or the{" "}
+        <Link href="/tools/photo-resizer?preset=passport">
+          Photo Resizer tool
+        </Link>{" "}
+        — free, instant, and private in your browser.
       </p>
     </article>
   );
