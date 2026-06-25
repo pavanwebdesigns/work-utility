@@ -34,7 +34,7 @@ export const TOOL_PAGE_DESCRIPTIONS: Record<string, string> = {
   "hourly-to-salary": "Convert hourly wage to annual, monthly, or weekly salary free online. Calculate your yearly income instantly.",
   "hra-calculator": "Calculate HRA exemption for income tax free online. Find exempt and taxable HRA as per Indian tax rules.",
   "html-entity": "Encode and decode HTML entities free online. Convert special characters to HTML-safe entities instantly.",
-  "image-compress": "Compress JPG, PNG images online free. Reduce image file size without quality loss. Browser-only, no upload needed.",
+  "image-compress": "Compress JPG, PNG, and WebP images online free. Reduce file size up to 80% without visible quality loss. No signup, nothing uploaded to a server.",
   "image-converter": "Convert images between JPG, PNG, and WebP formats free online. Fast, private, browser-only image format converter.",
   "image-to-pdf": "Convert and combine JPG, PNG images into a single PDF online free. No signup, instant download, browser-only.",
   "income-tax-calculator": "Compare income tax under old and new regime for FY 2025-26. Free calculator with slab breakdown, rebates, and estimated take-home pay for salaried employees.",

@@ -2,16 +2,17 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Image Compress — Reduce Image Size Free | WorkUtilities",
+    absolute:
+      "Image Compressor Online Free — Reduce File Size, Keep Quality",
   },
   description:
-    "Compress JPG, PNG images online free. Reduce image file size without quality loss. Browser-only, no upload needed.",
+    "Compress JPG, PNG, and WebP images online free. Reduce file size up to 80% without visible quality loss. No signup, nothing uploaded to a server.",
   keywords:
-    "compress image online free, reduce image size, jpg compressor, png optimizer",
+    "image compressor online free, compress jpg png webp, reduce image file size, image compress without quality loss",
   openGraph: {
-    title: "Image Compress — Free Online Image Compressor",
+    title: "Image Compressor Online Free — Reduce File Size, Keep Quality",
     description:
-      "Compress images instantly. Free, private, browser-only.",
+      "Compress JPG, PNG, and WebP images online free. Reduce file size up to 80% without visible quality loss. No signup, nothing uploaded to a server.",
     url: "https://workutilities.com/tools/image-compress",
     siteName: "WorkUtilities",
     type: "website",
