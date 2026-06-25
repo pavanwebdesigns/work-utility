@@ -35,7 +35,7 @@ export const TOOL_PAGE_DESCRIPTIONS: Record<string, string> = {
   "hra-calculator": "Calculate HRA exemption for income tax free online. Find exempt and taxable HRA as per Indian tax rules.",
   "html-entity": "Encode and decode HTML entities free online. Convert special characters to HTML-safe entities instantly.",
   "image-compress": "Compress JPG, PNG, and WebP images online free. Reduce file size up to 80% without visible quality loss. No signup, nothing uploaded to a server.",
-  "image-converter": "Convert images between JPG, PNG, and WebP formats free online. Fast, private, browser-only image format converter.",
+  "image-converter": "Convert images between JPG, PNG, and WebP free online. Adjust quality, see file size reduction, and download instantly. No signup, nothing uploaded.",
   "image-to-pdf": "Convert and combine JPG, PNG images into a single PDF online free. No signup, instant download, browser-only.",
   "income-tax-calculator": "Compare income tax under old and new regime for FY 2025-26. Free calculator with slab breakdown, rebates, and estimated take-home pay for salaried employees.",
   "inflation-calculator": "Calculate the value of money over time adjusted for inflation free online. See purchasing power changes instantly.",

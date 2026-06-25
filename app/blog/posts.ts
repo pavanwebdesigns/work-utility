@@ -229,11 +229,11 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "how-to-convert-image-formats-online",
-    title: "How to Convert Image Formats Online — JPG, PNG, WebP Explained",
+    title: "How to Convert Image Formats Online — JPG, PNG, WebP Guide 2026",
     excerpt:
-      "Convert images between JPG, PNG, and WebP free online. Understand which format to use for photos, graphics, and web performance. No signup.",
+      "Complete guide to JPG, PNG, and WebP conversion. When to use each format, quality settings, transparency handling, and a free browser-based converter.",
     category: "Images",
-    readTime: "6 min read",
+    readTime: "8 min read",
     author: "Alex Morgan",
     lastUpdated: "June 2026",
     cta: { toolName: "Image Converter", toolHref: "/tools/image-converter" },
@@ -1721,11 +1721,11 @@ export const blogSeoMetadata: Record<
       "PDF to JPG converter, convert PDF to image free online, PDF page to JPG, extract PDF pages as images, PDF to JPEG browser",
   },
   "how-to-convert-image-formats-online": {
-    title: "Image Converter Online Free — JPG, PNG, WebP",
+    title: "How to Convert Image Formats Online — JPG, PNG, WebP Guide 2026",
     description:
-      "Convert images between JPG, PNG, and WebP free online. Understand which format to use for photos, graphics, and web performance. No signup.",
+      "Complete guide to converting images between JPG, PNG, and WebP. When to use each format, quality settings explained, transparency handling, and a free browser-based converter. No signup.",
     keywords:
-      "image converter online, convert JPG PNG WebP free, image format converter, PNG to JPG online, WebP converter",
+      "convert image formats online, jpg png webp guide, image format converter 2026, png to jpg transparency",
   },
   "how-to-convert-webp-to-jpg": {
     title: "WebP to JPG Converter Online Free — No Signup",

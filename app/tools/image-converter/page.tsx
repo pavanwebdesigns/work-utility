@@ -22,6 +22,7 @@ import { FavoriteButton } from "@/components/FavoriteButton";
 import { useImageCropGate } from "@/hooks/useImageCropGate";
 import {
   convertImage,
+  calcSizeChangePercent,
   detectImageFormat,
   formatFileSize,
   getOutputExtension,
@@ -89,6 +90,7 @@ export default function ImageConverterPage() {
   const [file, setFile] = useState<File | null>(null);
   const [convertedBlob, setConvertedBlob] = useState<Blob | null>(null);
   const [targetFormat, setTargetFormat] = useState<ImageFormat>("png");
+  const [quality, setQuality] = useState(85);
   const [isProcessing, setIsProcessing] = useState(false);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [convertedPreviewUrl, setConvertedPreviewUrl] = useState<string | null>(
@@ -212,7 +214,7 @@ export default function ImageConverterPage() {
     resetResult();
 
     try {
-      const blob = await convertImage(file, targetFormat);
+      const blob = await convertImage(file, targetFormat, quality / 100);
       setConvertedBlob(blob);
       setOutputSize(blob.size);
       setConvertedPreviewUrl(URL.createObjectURL(blob));
@@ -237,6 +239,21 @@ export default function ImageConverterPage() {
 
   const selectedHint =
     formatOptions.find((option) => option.id === targetFormat)?.hint ?? "";
+
+  const showQualitySlider =
+    targetFormat === "jpeg" || targetFormat === "webp";
+
+  const showTransparencyWarning =
+    targetFormat === "jpeg" &&
+    (currentFormat === "png" || currentFormat === "webp");
+
+  const sizeChangePercent = calcSizeChangePercent(originalSize, outputSize);
+  const sizeChangeLabel =
+    sizeChangePercent > 0
+      ? `${sizeChangePercent}% smaller`
+      : sizeChangePercent < 0
+        ? `${Math.abs(sizeChangePercent)}% larger`
+        : "same size";
 
   return (
     <div className="flex min-h-screen w-full max-w-full flex-col overflow-x-hidden bg-surface-base">
@@ -409,6 +426,53 @@ export default function ImageConverterPage() {
                     <p className="mt-2 text-xs text-content-muted">{selectedHint}</p>
                   </div>
 
+                  {showTransparencyWarning && (
+                    <div className="rounded-xl border border-amber-500/30 bg-amber-500/5 px-4 py-3 text-sm leading-relaxed text-content-secondary">
+                      <p>
+                        JPG doesn&apos;t support transparency — transparent areas
+                        will be filled with a white background.
+                      </p>
+                    </div>
+                  )}
+
+                  {showQualitySlider && (
+                    <div>
+                      <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
+                        <p className="text-sm font-medium text-content-primary">
+                          Output quality
+                        </p>
+                        <p className="text-xs text-content-secondary">
+                          Quality: {quality}
+                          {quality === 85
+                            ? " — Recommended (visually identical to 100, ~40% smaller file)"
+                            : ""}
+                        </p>
+                      </div>
+                      <input
+                        type="range"
+                        min={1}
+                        max={100}
+                        value={quality}
+                        onChange={(e) => {
+                          setQuality(Number(e.target.value));
+                          resetResult();
+                        }}
+                        className="w-full accent-tool-image"
+                        aria-label="Output quality"
+                      />
+                      <div className="mt-1 flex justify-between text-xs text-content-muted">
+                        <span>Smaller file</span>
+                        <span>Higher quality</span>
+                      </div>
+                      {quality < 70 && (
+                        <p className="mt-2 text-xs text-amber-400">
+                          ⚠️ Below 70% quality — compression artifacts may be
+                          visible
+                        </p>
+                      )}
+                    </div>
+                  )}
+
                   <button
                     type="button"
                     onClick={handleConvert}
@@ -454,20 +518,29 @@ export default function ImageConverterPage() {
                     </div>
                   </div>
 
-                  <div className="rounded-xl border border-surface-border bg-surface-card p-5">
-                    <div className="flex flex-col items-center justify-center gap-2 text-center sm:flex-row">
-                      <span className="rounded bg-tool-image/10 px-2 py-0.5 text-xs font-semibold text-tool-image">
-                        {currentFormat ? formatLabel(currentFormat) : "—"} →{" "}
-                        {formatLabel(targetFormat)}
-                      </span>
-                      <span className="text-content-secondary">
+                  <div className="rounded-xl border border-tool-convert/30 bg-tool-convert/5 p-5 text-center">
+                    <p className="text-sm font-medium text-tool-convert">
+                      Original:{" "}
+                      <span className="text-content-primary">
                         {formatFileSize(originalSize)}
                       </span>
-                      <span className="text-content-muted">→</span>
-                      <span className="font-bold text-content-primary">
+                      {" → "}
+                      Converted:{" "}
+                      <span className="text-content-primary">
                         {formatFileSize(outputSize)}
                       </span>
-                    </div>
+                      {sizeChangePercent !== 0 && (
+                        <span className="text-tool-convert">
+                          {" "}
+                          ({sizeChangeLabel})
+                        </span>
+                      )}
+                    </p>
+                    <p className="mt-2 text-xs text-content-secondary">
+                      {currentFormat ? formatLabel(currentFormat) : "—"} →{" "}
+                      {formatLabel(targetFormat)}
+                      {showQualitySlider && ` · Quality ${quality}%`}
+                    </p>
                   </div>
 
                   <button
@@ -487,6 +560,53 @@ export default function ImageConverterPage() {
                   </button>
                 </div>
               )}
+            </div>
+
+            <div className="mt-10 overflow-x-auto rounded-xl border border-surface-border">
+              <table className="w-full min-w-[320px] text-sm">
+                <thead>
+                  <tr className="border-b border-surface-border bg-surface-card">
+                    <th className="px-4 py-3 text-left font-medium text-content-primary">
+                      Format
+                    </th>
+                    <th className="px-4 py-3 text-left font-medium text-content-primary">
+                      Best for
+                    </th>
+                    <th className="px-4 py-3 text-left font-medium text-content-primary">
+                      Transparency
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b border-surface-border">
+                    <td className="px-4 py-3 font-medium text-content-primary">
+                      JPG
+                    </td>
+                    <td className="px-4 py-3 text-content-secondary">
+                      Photos, natural images
+                    </td>
+                    <td className="px-4 py-3 text-content-secondary">❌ No</td>
+                  </tr>
+                  <tr className="border-b border-surface-border">
+                    <td className="px-4 py-3 font-medium text-content-primary">
+                      PNG
+                    </td>
+                    <td className="px-4 py-3 text-content-secondary">
+                      Logos, screenshots, text
+                    </td>
+                    <td className="px-4 py-3 text-content-secondary">✅ Yes</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 font-medium text-content-primary">
+                      WebP
+                    </td>
+                    <td className="px-4 py-3 text-content-secondary">
+                      Web use (smallest size)
+                    </td>
+                    <td className="px-4 py-3 text-content-secondary">✅ Yes</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
 
