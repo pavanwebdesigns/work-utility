@@ -972,9 +972,9 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
     ],
     faqs: [
       {
-        question: "How to calculate EMI for home loan?",
+        question: "How do I calculate EMI for a home loan in India?",
         answer:
-          "Enter the loan principal, annual interest rate, and tenure in years. The calculator applies the standard EMI formula: EMI = P × r × (1+r)^n / ((1+r)^n − 1), where r is the monthly rate and n is the number of months.",
+          "Enter your home loan amount (e.g. ₹50 lakhs), annual interest rate (e.g. 8.5%), and tenure in years (e.g. 20 years) — the calculator instantly shows your monthly EMI, total interest payable, and full payment breakdown using the standard formula: EMI = P×r×(1+r)^n / ((1+r)^n−1).",
       },
       {
         question: "What is the EMI for 20 lakh loan?",
@@ -1602,9 +1602,9 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
     ],
     faqs: [
       {
-        question: "How to convert km to miles?",
+        question: "How do I convert km to miles or kg to lbs?",
         answer:
-          "Multiply kilometres by 0.621371. Example: 10 km = 6.21 miles. Our converter gives instant results both ways.",
+          "Select the category (Length or Weight), choose your input unit (km or kg), enter the value, and the converter instantly shows all equivalent values — including miles, feet, inches for length, or lbs, grams, ounces for weight.",
       },
       {
         question: "How many square feet in one square meter?",
