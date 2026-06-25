@@ -7,14 +7,14 @@ const guide = getPhotoSizeGuide("aadhaar")!;
 export const metadata: Metadata = {
   title: {
     absolute:
-      "Aadhaar Card Photo Size — Dimensions, KB Limit & Resize Free",
+      "Aadhaar Photo Size — 413×531 Pixels, 50KB Limit & Free Resizer",
   },
   description:
-    "Aadhaar card photo size is 35x45mm, 413x531 pixels, max 50KB. Learn exact requirements and resize your photo free online.",
+    "Aadhaar photo size: 3.5×4.5 cm, 413×531 pixels at 300 DPI, max 50KB JPEG. Pixel table, rejection checklist, and free instant resize tool.",
   openGraph: {
-    title: "Aadhaar Card Photo Size — Dimensions, KB Limit & Resize Free",
+    title: "Aadhaar Photo Size — 413×531 Pixels, 50KB Limit & Free Resizer",
     description:
-      "Aadhaar card photo size is 35x45mm, 413x531 pixels, max 50KB. Learn exact requirements and resize your photo free online.",
+      "Aadhaar photo size: 3.5×4.5 cm, 413×531 pixels at 300 DPI, max 50KB JPEG. Pixel table, rejection checklist, and free instant resize tool.",
     url: "https://workutilities.com/aadhaar-photo-size",
     siteName: "WorkUtilities",
     type: "website",

@@ -273,14 +273,17 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "aadhaar-card-photo-size",
-    title: "Aadhaar Card Photo Size: The Complete Guide (2026)",
+    title: "Aadhaar Card Photo Requirements — Why Photos Get Rejected",
     excerpt:
-      "Getting your Aadhaar photo size wrong means a wasted trip to the enrollment center. Here are the exact dimensions, tips, and a free tool to resize in seconds.",
+      "Understand why UIDAI rejects Aadhaar photos and how to fix it. File size limits, orientation mistakes, background rules, and hidden rejection reasons explained.",
     category: "Photo",
-    readTime: "5 min read",
+    readTime: "6 min read",
     author: "Ravi Kumar",
     lastUpdated: "June 2026",
-    cta: { toolName: "Photo Resizer", toolHref: "/tools/photo-resizer" },
+    cta: {
+      toolName: "Photo Resizer",
+      toolHref: "/tools/photo-resizer?preset=aadhaar",
+    },
   },
   {
     slug: "how-to-compress-pdf-online-free",
@@ -1239,11 +1242,11 @@ export const blogSeoMetadata: Record<
   { title: string; description: string; keywords: string }
 > = {
   "aadhaar-card-photo-size": {
-    title: "Aadhaar Card Photo Size: Complete Guide 2026 | WorkUtilities",
+    title: "Aadhaar Card Photo Requirements — Why Photos Get Rejected",
     description:
-      "Official Aadhaar card photo size is 35mm × 35mm (213×213 pixels). Learn exact requirements, common mistakes, and how to resize your photo free online.",
+      "Complete guide to Aadhaar photo requirements 2026. Understand why UIDAI rejects photos and how to prepare a compliant image. Size, format, and common mistakes.",
     keywords:
-      "aadhaar card photo size, aadhaar photo dimensions, aadhaar photo resize online, uidai photo requirements",
+      "aadhaar card photo requirements, aadhaar photo rejected reason, uidai photo rejection, aadhaar photo upload failed",
   },
   "how-to-compress-pdf-online-free": {
     title: "How to Compress PDF Online Free in 2026 | WorkUtilities",

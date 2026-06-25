@@ -3,36 +3,40 @@ import Link from "next/link";
 export default function AadhaarCardPhotoSizeContent() {
   return (
     <article className="prose-custom">
+      <div className="not-prose mb-8 rounded-xl border border-tool-photo/30 bg-tool-photo/5 p-5">
+        <p className="text-sm text-content-secondary">
+          <strong className="text-content-primary">Quick reference?</strong> See
+          our{" "}
+          <Link
+            href="/aadhaar-photo-size"
+            className="font-medium text-tool-photo hover:underline"
+          >
+            Aadhaar Photo Size guide with instant resize tool →
+          </Link>
+        </p>
+      </div>
+
       <p>
-        I still remember the frustration. It was a Tuesday morning, and I had
-        taken half a day off from work specifically to visit the Aadhaar
-        enrollment center near Ameerpet. I had everything ready — documents,
-        address proof, even an extra photocopy just in case. But when I handed
-        over my photo, the operator looked at it and shook his head.
+        You took the photo, checked the background, and uploaded it to
+        myAadhaar — only to see &quot;Photo rejected&quot; with no clear
+        explanation. This happens to thousands of applicants every day. UIDAI
+        enforces strict technical requirements, and many rejections have nothing
+        to do with how you look in the photo.
       </p>
 
-      <p>&quot;Sir, yeh size nahi chalega.&quot;</p>
-
       <p>
-        The photo I had printed was slightly too large. Not by much — maybe a
-        centimeter off — but that was enough to send me back home. Wasted half a
-        day, wasted the print cost, and most importantly, wasted the effort.
-      </p>
-
-      <p>
-        That experience is exactly why I built the Photo Resizer tool on
-        WorkUtilities. Nobody should have to go through that kind of hassle just
-        because they didn&apos;t know the exact pixel dimensions.
+        This guide explains <strong>why</strong> Aadhaar photos get rejected,
+        what UIDAI actually checks, and how to prepare a compliant image. For
+        exact pixel dimensions and a one-click resize tool, see our{" "}
+        <Link href="/aadhaar-photo-size">Aadhaar Photo Size page</Link>.
       </p>
 
       <hr />
 
-      <h2>What Is the Correct Aadhaar Card Photo Size?</h2>
+      <h2>Official UIDAI Photo Requirements (2026)</h2>
 
       <p>
-        Let&apos;s get straight to the point. For Aadhaar card enrollment and
-        update, UIDAI (Unique Identification Authority of India) specifies the
-        following photo requirements:
+        Before understanding rejections, know what the portal expects:
       </p>
 
       <table>
@@ -45,272 +49,211 @@ export default function AadhaarCardPhotoSizeContent() {
         <tbody>
           <tr>
             <td>
-              <strong>Dimensions</strong>
+              <strong>Physical size</strong>
             </td>
-            <td>35mm × 35mm</td>
+            <td>35mm × 45mm (3.5cm × 4.5cm) — portrait orientation</td>
           </tr>
           <tr>
             <td>
-              <strong>Pixel size</strong>
+              <strong>Pixel size (recommended)</strong>
             </td>
-            <td>213 × 213 pixels (at 72 DPI)</td>
+            <td>413 × 531 pixels at 300 DPI</td>
           </tr>
           <tr>
             <td>
               <strong>File format</strong>
             </td>
-            <td>JPEG</td>
+            <td>JPEG only</td>
+          </tr>
+          <tr>
+            <td>
+              <strong>Maximum file size</strong>
+            </td>
+            <td>50 KB (strict — byte-level validation)</td>
           </tr>
           <tr>
             <td>
               <strong>Background</strong>
             </td>
-            <td>White or light grey</td>
-          </tr>
-          <tr>
-            <td>
-              <strong>File size</strong>
-            </td>
-            <td>Less than 1MB</td>
+            <td>Plain white or very light grey</td>
           </tr>
           <tr>
             <td>
               <strong>Face coverage</strong>
             </td>
-            <td>70–80% of the frame</td>
+            <td>80–85% of the frame, neutral expression</td>
           </tr>
         </tbody>
       </table>
 
-      <p>
-        These are the official UIDAI requirements as of 2026. While some centers
-        are flexible, it is always safer to get the exact dimensions right.
-      </p>
-
       <hr />
 
-      <h2>Why Do So Many People Get It Wrong?</h2>
+      <h2>Why Photos Get Rejected — The Real Reasons</h2>
 
       <p>
-        Most photo studios in India print passport-size photos by default — which
-        are 35mm × 45mm. Notice the height difference: passport photos are
-        taller. This is fine for passport applications but <strong>not for Aadhaar</strong>.
+        Most rejections fall into two categories: <strong>technical failures</strong>{" "}
+        the portal detects automatically, and <strong>quality issues</strong> a
+        human operator or biometric system flags.
       </p>
 
-      <p>When people submit passport-size photos for Aadhaar, one of two things happens:</p>
+      <h3>Technical rejections (most common)</h3>
 
       <ol>
         <li>
-          The operator crops it at the center, cutting off part of your chin or
-          forehead
+          <strong>File size over 50KB</strong> — The single most common reason.
+          Even 51KB fails. Portals validate exact byte count, not approximate
+          size.
         </li>
-        <li>The application gets sent back, wasting your time</li>
+        <li>
+          <strong>Wrong orientation</strong> — Aadhaar requires portrait
+          (3.5×4.5 cm). Uploading a landscape image gets rejected instantly.
+        </li>
+        <li>
+          <strong>Wrong dimensions</strong> — Photos must be 413×531 pixels at
+          300 DPI. Studio prints at wrong DPI produce incorrect pixel counts.
+        </li>
+        <li>
+          <strong>Wrong format</strong> — PNG, HEIC, or WebP uploads are
+          rejected. Only JPEG is accepted.
+        </li>
       </ol>
 
-      <p>
-        The confusion is understandable. Both sizes are called &quot;passport-size
-        photos&quot; colloquially in India, but they are technically different.
-      </p>
-
-      <hr />
-
-      <h2>Aadhaar Photo vs Other Indian Document Photos</h2>
-
-      <p>
-        Here is a quick comparison of photo sizes for common Indian government
-        documents:
-      </p>
-
-      <table>
-        <thead>
-          <tr>
-            <th>Document</th>
-            <th>Width</th>
-            <th>Height</th>
-            <th>Notes</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Aadhaar Card</td>
-            <td>35mm</td>
-            <td>35mm</td>
-            <td>Square format</td>
-          </tr>
-          <tr>
-            <td>PAN Card</td>
-            <td>35mm</td>
-            <td>35mm</td>
-            <td>Same as Aadhaar</td>
-          </tr>
-          <tr>
-            <td>Passport (India)</td>
-            <td>51mm</td>
-            <td>51mm</td>
-            <td>2×2 inch</td>
-          </tr>
-          <tr>
-            <td>Visa Application</td>
-            <td>51mm</td>
-            <td>51mm</td>
-            <td>2×2 inch</td>
-          </tr>
-          <tr>
-            <td>Driving License</td>
-            <td>25mm</td>
-            <td>32mm</td>
-            <td>Rectangular</td>
-          </tr>
-          <tr>
-            <td>Voter ID</td>
-            <td>35mm</td>
-            <td>45mm</td>
-            <td>Standard passport size</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <p>
-        Notice that Aadhaar and PAN card use a <strong>square format</strong> —
-        this catches people off guard the most.
-      </p>
-
-      <hr />
-
-      <h2>How to Resize Your Photo for Aadhaar at Home (Free)</h2>
-
-      <p>
-        You do not need to visit a photo studio for this. Here is how to do it
-        yourself in under a minute:
-      </p>
-
-      <p>
-        <strong>Step 1:</strong> Go to{" "}
-        <Link href="/tools/photo-resizer">WorkUtilities Photo Resizer</Link>
-      </p>
-
-      <p>
-        <strong>Step 2:</strong> Upload your photo (JPG, PNG, or WebP — up to
-        10MB)
-      </p>
-
-      <p>
-        <strong>Step 3:</strong> Select &quot;Aadhaar Card&quot; from the preset
-        sizes
-      </p>
-
-      <p>
-        <strong>Step 4:</strong> Choose &quot;White&quot; as the background color
-      </p>
-
-      <p>
-        <strong>Step 5:</strong> Click &quot;Resize Photo&quot; and download
-      </p>
-
-      <p>
-        Your photo will be exactly 213 × 213 pixels — the correct digital size
-        for Aadhaar.
-      </p>
-
-      <p>
-        <strong>Important:</strong> The tool runs entirely in your browser. Your
-        photo is never uploaded to any server. It stays on your device throughout
-        the entire process.
-      </p>
-
-      <hr />
-
-      <h2>Tips for Taking the Perfect Aadhaar Photo</h2>
-
-      <p>
-        Getting the size right is only half the battle. Here are a few more tips
-        to make sure your photo is accepted:
-      </p>
-
-      <p>
-        <strong>Lighting:</strong> Natural light works best. Stand near a window
-        facing the light source. Avoid harsh shadows on your face or behind you.
-      </p>
-
-      <p>
-        <strong>Background:</strong> Use a plain white wall or hang a white
-        bedsheet. Avoid patterned backgrounds — they can cause rejection.
-      </p>
-
-      <p>
-        <strong>Expression:</strong> Keep a neutral expression with mouth closed.
-        Looking straight at the camera is mandatory.
-      </p>
-
-      <p>
-        <strong>Glasses:</strong> UIDAI now recommends submitting photos without
-        glasses to avoid glare issues during biometric verification.
-      </p>
-
-      <p>
-        <strong>Attire:</strong> Avoid white clothing as it blends into the white
-        background. Any other solid color works fine.
-      </p>
-
-      <hr />
-
-      <h2>Common Mistakes to Avoid</h2>
-
-      <p>
-        After helping hundreds of users resize their photos correctly, here are
-        the mistakes I see most often:
-      </p>
-
-      <p>
-        <strong>Mistake 1: Using a mobile screenshot instead of the original photo</strong>
-        <br />
-        Screenshots reduce quality. Always use the original camera file.
-      </p>
-
-      <p>
-        <strong>Mistake 2: Printing at the wrong DPI</strong>
-        <br />
-        If you are printing at home, make sure your printer is set to at least
-        300 DPI. Digital submissions (online Aadhaar updates) only need 72 DPI.
-      </p>
-
-      <p>
-        <strong>Mistake 3: Submitting a photo with a colored background</strong>
-        <br />
-        Some studios use blue or grey backgrounds. UIDAI specifically requires
-        white or light grey. When in doubt, use the background color option in
-        the Photo Resizer to set it to white.
-      </p>
-
-      <p>
-        <strong>Mistake 4: Over-editing the photo</strong>
-        <br />
-        Heavy filters, skin smoothing, or brightness adjustments can make the
-        photo look altered. UIDAI uses facial recognition, so the photo needs to
-        match your actual appearance.
-      </p>
-
-      <hr />
-
-      <h2>Updating Your Aadhaar Photo Online</h2>
-
-      <p>
-        If you want to update your existing Aadhaar photo without visiting a
-        center, UIDAI&apos;s myAadhaar portal allows face authentication-based
-        updates. Here is what you need:
-      </p>
+      <h3>Quality and compliance rejections</h3>
 
       <ol>
-        <li>Visit myaadhaar.uidai.gov.in</li>
-        <li>Log in with your Aadhaar number and OTP</li>
-        <li>Navigate to &quot;Update Aadhaar Online&quot;</li>
-        <li>Upload a photo that meets the size and quality requirements</li>
-        <li>Complete face authentication using your device camera</li>
+        <li>
+          <strong>Coloured or patterned background</strong> — Blue studio
+          backgrounds, walls with patterns, or shadows behind the head.
+        </li>
+        <li>
+          <strong>Glasses glare or tinted lenses</strong> — UIDAI recommends
+          photos without glasses to avoid biometric matching issues.
+        </li>
+        <li>
+          <strong>Non-neutral expression</strong> — Smiling, mouth open, or
+          head tilted.
+        </li>
+        <li>
+          <strong>Hair covering forehead or eyes</strong> — Face must be fully
+          visible for biometric verification.
+        </li>
+        <li>
+          <strong>Photo older than 6 months</strong> — Must reflect current
+          appearance.
+        </li>
+        <li>
+          <strong>Filters or beauty effects</strong> — Skin smoothing, heavy
+          makeup, or Instagram filters alter facial features and fail biometric
+          checks.
+        </li>
       </ol>
 
+      <hr />
+
+      <h2>Hidden Rejection Reasons You Might Miss</h2>
+
       <p>
-        Note that the online update option may not be available in all states at
-        all times. Check the UIDAI portal for current availability.
+        These catch applicants who think their photo looks fine:
+      </p>
+
+      <ul>
+        <li>
+          <strong>1KB over the limit</strong> — A 51KB file fails the same as a
+          500KB file. Always compress to under 50KB, not &quot;around&quot; 50KB.
+        </li>
+        <li>
+          <strong>Slight background tint</strong> — Off-white walls photographed
+          in warm light can appear yellowish. UIDAI expects near-pure white.
+        </li>
+        <li>
+          <strong>Screenshot instead of original</strong> — Taking a screenshot
+          of your photo reduces quality and may change file format.
+        </li>
+        <li>
+          <strong>Over-compression artifacts</strong> — Compressing too
+          aggressively creates blocky JPEG artifacts that fail quality checks.
+        </li>
+        <li>
+          <strong>Wrong document dimensions</strong> — Using a PAN card or
+          passport photo without resizing to Aadhaar specs.
+        </li>
+      </ul>
+
+      <hr />
+
+      <h2>Why UIDAI Enforces a 50KB Limit</h2>
+
+      <p>
+        UIDAI manages over 1.3 billion Aadhaar records. At 50KB per photo, the
+        entire photo database stays around 65TB — large but manageable. At 1MB
+        per photo, storage would exceed 1,300TB.
+      </p>
+
+      <p>
+        The limit is not arbitrary. It balances sufficient image quality for
+        biometric face-matching with practical infrastructure costs. A
+        well-compressed 413×531 JPEG at 50KB retains enough detail for
+        verification systems.
+      </p>
+
+      <hr />
+
+      <h2>Aadhaar vs PAN Card: The Orientation Trap</h2>
+
+      <p>
+        One of the most common mistakes is confusing Aadhaar and PAN Card photo
+        dimensions:
+      </p>
+
+      <ul>
+        <li>
+          <strong>Aadhaar:</strong> 3.5 cm width × 4.5 cm height (portrait —
+          taller than wide)
+        </li>
+        <li>
+          <strong>PAN Card:</strong> 4.5 cm width × 3.5 cm height (landscape —
+          wider than tall)
+        </li>
+      </ul>
+
+      <p>
+        The dimensions are literally reversed. Applicants who reuse a PAN photo
+        for Aadhaar (or vice versa) without checking orientation get rejected.
+        Always verify width and height before uploading.
+      </p>
+
+      <p>
+        See our{" "}
+        <Link href="/aadhaar-photo-size">Aadhaar Photo Size guide</Link> for a
+        full pixel dimension table and instant resize tool.
+      </p>
+
+      <hr />
+
+      <h2>How to Prepare a Compliant Photo</h2>
+
+      <p>
+        <strong>Step 1:</strong> Take a front-facing photo against a plain white
+        wall in natural light. Neutral expression, mouth closed, eyes open.
+      </p>
+
+      <p>
+        <strong>Step 2:</strong> Use the{" "}
+        <Link href="/tools/photo-resizer?preset=aadhaar">
+          WorkUtilities Photo Resizer
+        </Link>{" "}
+        with the Aadhaar preset — it sets 413×531 pixels and compresses to
+        under 50KB automatically.
+      </p>
+
+      <p>
+        <strong>Step 3:</strong> Open the downloaded file and verify it looks
+        clear before uploading to myaadhaar.uidai.gov.in.
+      </p>
+
+      <p>
+        The tool runs entirely in your browser. Your photo is never uploaded to
+        any server.
       </p>
 
       <hr />
@@ -318,42 +261,41 @@ export default function AadhaarCardPhotoSizeContent() {
       <h2>Frequently Asked Questions</h2>
 
       <p>
-        <strong>Q: Can I use the same photo for Aadhaar and PAN card?</strong>
+        <strong>Q: Why was my photo rejected when it looked correct?</strong>
         <br />
-        Yes. Both require 35mm × 35mm (square format), so the same photo works
-        for both documents.
+        Most likely file size (even 1KB over 50KB), wrong orientation, or a
+        slight background colour tint. Portals do automated byte-level checks
+        before any human review.
       </p>
 
       <p>
-        <strong>Q: What if my photo is rejected at the Aadhaar center?</strong>
+        <strong>Q: Can I fix a rejected photo without retaking it?</strong>
         <br />
-        Most centers will let you take a photo on the spot using their webcam.
-        However, having your own photo ready speeds up the process significantly.
+        If the issue is size or dimensions, yes — resize with our tool. If the
+        issue is background colour, expression, or hair covering your face, you
+        need a new photo.
       </p>
 
       <p>
-        <strong>Q: Is it safe to resize photos online?</strong>
+        <strong>Q: Does UIDAI accept photos from mobile phones?</strong>
         <br />
-        It depends on the tool. WorkUtilities processes everything in your
-        browser — your photo never leaves your device. Be cautious with tools
-        that require you to upload to a server, as your data could be stored or
-        misused.
+        Yes, as long as the final JPEG meets 413×531 pixels and is under 50KB
+        with a plain background.
       </p>
 
       <p>
-        <strong>Q: Can I resize a low-quality photo and expect good results?</strong>
+        <strong>Q: How strict is the 50KB limit?</strong>
         <br />
-        Resizing improves the dimensions but not the quality. If the original
-        photo is blurry or poorly lit, the resized version will be too. Always
-        start with a clear, well-lit photo.
+        Extremely strict. 50,001 bytes fails. Always target 45–49KB to leave a
+        safety margin.
       </p>
 
       <p>
-        <strong>Q: Does the digital photo size matter for printed copies?</strong>
+        <strong>Q: Where can I find exact pixel dimensions?</strong>
         <br />
-        For physical prints, the studio handles the DPI conversion. Just give
-        them the millimeter dimensions — 35mm × 35mm — and they will handle the
-        rest. The pixel dimensions matter only for digital submissions.
+        Our{" "}
+        <Link href="/aadhaar-photo-size">Aadhaar Photo Size page</Link> has a
+        full DPI table (200, 300, 600) and a free resize tool.
       </p>
 
       <hr />
@@ -361,24 +303,18 @@ export default function AadhaarCardPhotoSizeContent() {
       <h2>Conclusion</h2>
 
       <p>
-        Getting your Aadhaar photo size right is a small thing that can save you
-        a lot of frustration. The key numbers to remember:{" "}
-        <strong>35mm × 35mm</strong>, square format, white background.
+        Aadhaar photo rejections are almost always preventable. The top causes —
+        file size over 50KB, wrong orientation, and coloured backgrounds — are
+        technical checks you can fix before uploading.
       </p>
 
       <p>
-        If you need to resize your photo quickly without visiting a studio, the{" "}
-        <Link href="/tools/photo-resizer">WorkUtilities Photo Resizer</Link>{" "}
-        handles it in seconds — no signup, no upload, completely free.
-      </p>
-
-      <hr />
-
-      <p>
-        <em>
-          Found this helpful? Share it with someone who is applying for Aadhaar
-          for the first time.
-        </em>
+        For exact dimensions and one-click resizing, use our{" "}
+        <Link href="/aadhaar-photo-size">Aadhaar Photo Size guide</Link> or the{" "}
+        <Link href="/tools/photo-resizer?preset=aadhaar">
+          Photo Resizer tool
+        </Link>{" "}
+        — free, instant, and private in your browser.
       </p>
     </article>
   );

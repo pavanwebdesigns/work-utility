@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { AlertTriangle, ArrowRight, Check } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import {
@@ -25,6 +25,8 @@ export function PhotoSizeGuidePage({ guide }: { guide: PhotoSizeGuide }) {
     .map((id) => PHOTO_SIZE_GUIDE_ROUTES[id])
     .filter(Boolean);
 
+  const ctaLabel = guide.enhancedCtaLabel ?? guide.ctaLabel;
+
   return (
     <div className="flex min-h-screen w-full max-w-full flex-col overflow-x-hidden bg-surface-base">
       <script
@@ -42,11 +44,37 @@ export function PhotoSizeGuidePage({ guide }: { guide: PhotoSizeGuide }) {
             ← Home
           </Link>
 
-          <h1 className="mt-8 text-2xl font-bold text-content-primary sm:text-3xl">
-            {guide.h1}
-          </h1>
+          <div className="mt-8 flex flex-wrap items-center gap-3">
+            <h1 className="text-2xl font-bold text-content-primary sm:text-3xl">
+              {guide.h1}
+            </h1>
+            {guide.lastVerified && (
+              <span className="rounded-full border border-tool-convert/30 bg-tool-convert/10 px-3 py-1 text-xs font-medium text-tool-convert">
+                Last verified: {guide.lastVerified}
+              </span>
+            )}
+          </div>
 
-          <div className="mt-8 rounded-xl border border-surface-border bg-surface-card p-5 sm:p-6">
+          {guide.quickSpecs && (
+            <div className="mt-6 rounded-xl border border-tool-photo/30 bg-tool-photo/5 p-5 sm:p-6">
+              <h2 className="text-sm font-semibold uppercase tracking-widest text-content-muted">
+                Quick Spec Summary
+              </h2>
+              <ul className="mt-4 space-y-2.5">
+                {guide.quickSpecs.map((spec) => (
+                  <li
+                    key={spec}
+                    className="flex items-start gap-2.5 text-sm text-content-primary"
+                  >
+                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-tool-convert" />
+                    {spec}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          <div className="mt-6 rounded-xl border border-surface-border bg-surface-card p-5 sm:p-6">
             <h2 className="text-sm font-semibold uppercase tracking-widest text-content-muted">
               Quick Reference
             </h2>
@@ -75,7 +103,15 @@ export function PhotoSizeGuidePage({ guide }: { guide: PhotoSizeGuide }) {
                   {guide.format}
                 </dd>
               </div>
-              <div className="sm:col-span-2">
+              {guide.faceCoverage && (
+                <div>
+                  <dt className="text-xs text-content-muted">Face Coverage</dt>
+                  <dd className="mt-0.5 font-medium text-content-primary">
+                    {guide.faceCoverage}
+                  </dd>
+                </div>
+              )}
+              <div className={guide.faceCoverage ? "" : "sm:col-span-2"}>
                 <dt className="text-xs text-content-muted">Background</dt>
                 <dd className="mt-0.5 font-medium text-content-primary">
                   {guide.background}
@@ -83,6 +119,113 @@ export function PhotoSizeGuidePage({ guide }: { guide: PhotoSizeGuide }) {
               </div>
             </dl>
           </div>
+
+          {guide.pixelDimensions && guide.pixelDimensions.length > 0 && (
+            <section className="mt-10">
+              <h2 className="text-lg font-semibold text-content-primary">
+                Pixel Dimensions at Different DPI
+              </h2>
+              <div className="mt-4 overflow-x-auto rounded-xl border border-surface-border">
+                <table className="w-full min-w-[320px] text-sm">
+                  <thead>
+                    <tr className="border-b border-surface-border bg-surface-card">
+                      <th className="px-4 py-3 text-left font-medium text-content-primary">
+                        DPI
+                      </th>
+                      <th className="px-4 py-3 text-left font-medium text-content-primary">
+                        Width × Height
+                      </th>
+                      <th className="px-4 py-3 text-left font-medium text-content-primary">
+                        Best for
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {guide.pixelDimensions.map((row) => (
+                      <tr
+                        key={row.dpi}
+                        className="border-b border-surface-border last:border-0"
+                      >
+                        <td className="px-4 py-3 text-content-secondary">
+                          {row.dpi} DPI
+                        </td>
+                        <td className="px-4 py-3 font-medium text-content-primary">
+                          {row.pixels}
+                        </td>
+                        <td className="px-4 py-3 text-content-secondary">
+                          {row.bestFor}
+                          {row.recommended && (
+                            <span className="ml-1 text-tool-convert">✅</span>
+                          )}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              {guide.pixelDimensionsNote && (
+                <p className="mt-3 text-sm leading-relaxed text-content-secondary">
+                  {guide.pixelDimensionsNote}
+                </p>
+              )}
+            </section>
+          )}
+
+          {guide.orientationWarning && (
+            <div className="mt-10 rounded-xl border border-amber-500/30 bg-amber-500/5 p-5 sm:p-6">
+              <div className="flex items-start gap-3">
+                <AlertTriangle className="mt-0.5 h-5 w-5 shrink-0 text-amber-400" />
+                <div>
+                  <p className="font-semibold text-amber-400">
+                    {guide.orientationWarning.title}
+                  </p>
+                  <ul className="mt-3 space-y-2 text-sm text-content-secondary">
+                    {guide.orientationWarning.items.map((item) => (
+                      <li key={item.label}>
+                        <span className="font-medium text-content-primary">
+                          {item.label}:
+                        </span>{" "}
+                        {item.dimensions} ({item.note})
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="mt-3 text-sm leading-relaxed text-content-secondary">
+                    {guide.orientationWarning.footer}
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {guide.whyKbLimit && (
+            <section className="mt-10">
+              <h2 className="text-lg font-semibold text-content-primary">
+                Why the 50KB File Size Limit?
+              </h2>
+              <p className="mt-4 text-sm leading-relaxed text-content-secondary">
+                {guide.whyKbLimit}
+              </p>
+            </section>
+          )}
+
+          {guide.rejectionReasons && guide.rejectionReasons.length > 0 && (
+            <section className="mt-10">
+              <h2 className="text-lg font-semibold text-content-primary">
+                Common Rejection Reasons
+              </h2>
+              <ul className="mt-4 space-y-2.5">
+                {guide.rejectionReasons.map((reason) => (
+                  <li
+                    key={reason}
+                    className="flex gap-3 text-sm leading-relaxed text-content-secondary"
+                  >
+                    <span className="shrink-0 text-tool-pdf">❌</span>
+                    {reason}
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
 
           <section className="mt-10">
             <h2 className="text-lg font-semibold text-content-primary">
@@ -119,18 +262,28 @@ export function PhotoSizeGuidePage({ guide }: { guide: PhotoSizeGuide }) {
             </ol>
           </section>
 
-          <div className="mt-10 rounded-xl border border-tool-photo/30 bg-tool-photo/5 p-6 text-center">
+          <div className="mt-10 rounded-xl border border-tool-photo/30 bg-tool-photo/5 p-6 text-center sm:p-8">
             <p className="text-sm text-content-secondary">
               Resize your photo to the exact dimensions and file size — free,
               instant, and private in your browser.
             </p>
             <Link
               href={`/tools/photo-resizer?preset=${guide.ctaPreset}`}
-              className="mt-4 inline-flex items-center gap-2 rounded-xl bg-tool-photo px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#D97706]"
+              className="mt-5 inline-flex items-center gap-2 rounded-xl bg-tool-photo px-8 py-4 text-base font-semibold text-white transition-colors hover:bg-[#D97706]"
             >
-              {guide.ctaLabel}
-              <ArrowRight className="h-4 w-4" />
+              {ctaLabel}
+              <ArrowRight className="h-5 w-5" />
             </Link>
+            {guide.ctaBullets && (
+              <p className="mt-4 text-sm text-content-secondary">
+                {guide.ctaBullets.map((bullet, index) => (
+                  <span key={bullet}>
+                    {index > 0 && " · "}
+                    <span className="text-tool-convert">✅</span> {bullet}
+                  </span>
+                ))}
+              </p>
+            )}
           </div>
 
           <section className="mt-12">

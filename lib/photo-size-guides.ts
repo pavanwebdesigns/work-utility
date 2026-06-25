@@ -3,6 +3,19 @@ export interface PhotoSizeGuideFaq {
   answer: string;
 }
 
+export interface PixelDimensionRow {
+  dpi: number;
+  pixels: string;
+  bestFor: string;
+  recommended?: boolean;
+}
+
+export interface OrientationWarning {
+  title: string;
+  items: { label: string; dimensions: string; note: string }[];
+  footer: string;
+}
+
 export interface PhotoSizeGuide {
   id: string;
   h1: string;
@@ -17,6 +30,16 @@ export interface PhotoSizeGuide {
   ctaLabel: string;
   faqs: PhotoSizeGuideFaq[];
   relatedGuideIds: string[];
+  lastVerified?: string;
+  quickSpecs?: string[];
+  faceCoverage?: string;
+  pixelDimensions?: PixelDimensionRow[];
+  pixelDimensionsNote?: string;
+  orientationWarning?: OrientationWarning;
+  whyKbLimit?: string;
+  rejectionReasons?: string[];
+  ctaBullets?: string[];
+  enhancedCtaLabel?: string;
 }
 
 export const PHOTO_SIZE_GUIDES: Record<string, PhotoSizeGuide> = {
@@ -27,12 +50,62 @@ export const PHOTO_SIZE_GUIDES: Record<string, PhotoSizeGuide> = {
     physicalSize: "35mm × 45mm (3.5cm × 4.5cm)",
     maxKb: "50 KB",
     format: "JPG / JPEG",
-    background: "Plain white or light-coloured background",
+    background: "Plain white or light grey",
+    faceCoverage: "80–85% of frame",
+    lastVerified: "June 2026",
+    quickSpecs: [
+      "Size: 3.5 × 4.5 cm (portrait)",
+      "File size: Under 50KB (JPEG only)",
+      "Background: Plain white or light grey",
+      "Face coverage: 80–85% of frame",
+    ],
+    pixelDimensions: [
+      { dpi: 200, pixels: "276 × 354 px", bestFor: "Minimum acceptable" },
+      {
+        dpi: 300,
+        pixels: "413 × 531 px",
+        bestFor: "Recommended",
+        recommended: true,
+      },
+      { dpi: 600, pixels: "827 × 1063 px", bestFor: "Professional print" },
+    ],
+    pixelDimensionsNote:
+      "Our photo resizer automatically sets 413×531 pixels — the UIDAI recommended resolution at 300 DPI.",
+    orientationWarning: {
+      title: "Common mistake: Aadhaar and PAN Card dimensions are reversed!",
+      items: [
+        {
+          label: "Aadhaar",
+          dimensions: "3.5 cm width × 4.5 cm height",
+          note: "Portrait — taller than wide",
+        },
+        {
+          label: "PAN Card",
+          dimensions: "4.5 cm width × 3.5 cm height",
+          note: "Landscape — wider than tall",
+        },
+      ],
+      footer:
+        "Many applicants mix these up and get rejected. Double-check orientation before uploading.",
+    },
+    whyKbLimit:
+      "UIDAI processes over 1.3 billion Aadhaar records. At 50KB per photo, the entire database stays manageable (~65TB). A photo at 1MB would require 1,300TB of storage. The 50KB limit maintains sufficient quality for biometric face-matching while keeping infrastructure practical.",
+    rejectionReasons: [
+      "Wrong file size (over 50KB) — most common rejection",
+      "Wrong orientation (landscape instead of portrait)",
+      "Colored background (must be white or very light grey)",
+      "Wearing glasses with tinted lenses or glare",
+      "Smiling or non-neutral expression",
+      "Hair covering forehead or eyes",
+      "Photo older than 6 months",
+      "Low resolution or blurry image",
+      "Heavy makeup, filters, or beauty effects applied",
+    ],
     uploadErrors: [
       "Photo file size exceeds 50 KB — compress before uploading to UIDAI portal",
-      "Wrong dimensions — photo must be exactly 413×531 pixels at 72 DPI",
-      "Face too small or not centred — full face should occupy 80% of the frame",
-      "Shadows, glasses glare, or busy background causing rejection",
+      "Wrong dimensions — photo must be 413×531 pixels (300 DPI equivalent)",
+      "Wrong orientation — portrait 3.5×4.5 cm, not landscape",
+      "Face too small or not centred — full face should occupy 80–85% of the frame",
     ],
     resizeSteps: [
       "Take or select a recent passport-style photo with a plain background",
@@ -43,26 +116,42 @@ export const PHOTO_SIZE_GUIDES: Record<string, PhotoSizeGuide> = {
     ],
     ctaPreset: "aadhaar",
     ctaLabel: "Resize Aadhaar Photo Free",
+    enhancedCtaLabel: "Resize Photo for Aadhaar — Free & Instant",
+    ctaBullets: [
+      "Auto-sets 3.5×4.5 cm",
+      "Compresses to under 50KB",
+      "Runs in your browser — photo never uploaded",
+    ],
     faqs: [
       {
-        question: "What is the Aadhaar card photo size in pixels?",
+        question: "What is the exact Aadhaar photo size in pixels?",
         answer:
-          "The Aadhaar card photo size is 413×531 pixels at 72 DPI, which equals 35mm × 45mm in physical dimensions.",
+          "At 300 DPI (recommended): 413×531 pixels. At 200 DPI (minimum): 276×354 pixels. Our photo resizer automatically sets the correct dimensions.",
       },
       {
-        question: "What is the maximum file size for Aadhaar photo upload?",
+        question: "Why does UIDAI require photos under 50KB?",
         answer:
-          "The maximum file size for Aadhaar photo upload on the UIDAI portal is 50 KB in JPG format.",
+          "UIDAI manages over 1.3 billion Aadhaar records. A strict 50KB file size limit keeps the photo database manageable while maintaining enough quality for biometric face-matching during verification.",
+      },
+      {
+        question: "What's the difference between Aadhaar and PAN Card photo size?",
+        answer:
+          "The dimensions are reversed — Aadhaar is 3.5×4.5 cm (portrait, taller than wide) while PAN Card is 4.5×3.5 cm (landscape, wider than tall). This is one of the most common reasons for application rejection.",
+      },
+      {
+        question: "Can I use the same photo for Aadhaar and Passport?",
+        answer:
+          "Indian Passport requires 35×45 mm (same proportions) with similar white background requirements. A good passport photo often works for Aadhaar too, but verify the file size is under 50KB for Aadhaar upload specifically.",
+      },
+      {
+        question: "Why was my Aadhaar photo rejected even though it looked correct?",
+        answer:
+          "Common hidden reasons: file size even 1KB over limit (portals do byte-level validation), slight color tint in background, hair partially covering forehead, or photo older than 6 months. Use our resizer to auto-compress to exactly under 50KB.",
       },
       {
         question: "Can I use a mobile photo for Aadhaar update?",
         answer:
           "Yes, you can use a mobile photo as long as it meets the 413×531 pixel dimension and 50 KB size requirements with a plain background.",
-      },
-      {
-        question: "What background colour is required for Aadhaar photo?",
-        answer:
-          "A plain white or light-coloured background is required. Avoid patterned walls, shadows, or dark backgrounds.",
       },
       {
         question: "How do I reduce Aadhaar photo size below 50 KB?",
