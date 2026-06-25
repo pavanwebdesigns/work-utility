@@ -842,9 +842,9 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
     ],
     faqs: [
       {
-        question: "How to calculate exact age in years months days?",
+        question: "How to calculate age for government job applications in India?",
         answer:
-          "Enter your date of birth and optionally a reference date — the calculator shows precise years, months, and days.",
+          "Enter your date of birth, then set the 'Calculate age as of' date to the exam cutoff date mentioned in the notification (e.g. 01/01/2026). The calculator gives your exact age in years, months, and days — the format required by UPSC, SSC, Railway, and state PSC applications.",
       },
       {
         question: "How to calculate age for government forms India?",

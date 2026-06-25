@@ -12,6 +12,14 @@ import { DinoGame } from "@/components/DinoGame";
 import { FavoriteButton } from "@/components/FavoriteButton";
 import { calculateAge, parseDateInput } from "@/lib/age-calculator";
 
+function todayInputValue(): string {
+  return new Date().toISOString().split("T")[0];
+}
+
+function formatCount(value: number): string {
+  return value.toLocaleString("en-IN");
+}
+
 const howItWorksSteps = [
   {
     step: "01",
@@ -35,6 +43,7 @@ const howItWorksSteps = [
 
 export default function AgeCalculatorPage() {
   const [dateOfBirth, setDateOfBirth] = useState("");
+  const [asOfDate, setAsOfDate] = useState("");
 
   const { result, error } = useMemo(() => {
     if (!dateOfBirth) {
@@ -46,13 +55,33 @@ export default function AgeCalculatorPage() {
       return { result: null, error: "Please enter a valid date of birth." };
     }
 
+    if (asOfDate) {
+      const reference = parseDateInput(asOfDate);
+      if (!reference) {
+        return { result: null, error: "Please enter a valid 'as of' date." };
+      }
+      const age = calculateAge(dob, reference);
+      if (!age) {
+        return {
+          result: null,
+          error: "Date of birth cannot be after the selected date.",
+        };
+      }
+      return { result: age, error: null };
+    }
+
     const age = calculateAge(dob);
     if (!age) {
-      return { result: null, error: "Date of birth cannot be in the future." };
+      return {
+        result: null,
+        error: "Date of birth cannot be after the selected date.",
+      };
     }
 
     return { result: age, error: null };
-  }, [dateOfBirth]);
+  }, [dateOfBirth, asOfDate]);
+
+  const dobMax = asOfDate || todayInputValue();
 
   const ageCards = result
     ? [
@@ -65,8 +94,20 @@ export default function AgeCalculatorPage() {
   const birthdayMessage = result
     ? result.isBirthdayToday
       ? "Happy birthday! 🎂"
-      : `${result.nextBirthdayDays} day${result.nextBirthdayDays === 1 ? "" : "s"} until your next birthday`
+      : `Your next birthday is in ${formatCount(result.nextBirthdayDays)} day${result.nextBirthdayDays === 1 ? "" : "s"} (on ${result.nextBirthdayDate})`
     : null;
+
+  const expandedStats = result
+    ? [
+        { label: "Total months", value: `${formatCount(result.totalMonths)} months` },
+        { label: "Total weeks", value: `${formatCount(result.totalWeeks)} weeks` },
+        { label: "Total days", value: `${formatCount(result.totalDays)} days` },
+        {
+          label: "Total hours (approx.)",
+          value: `${formatCount(result.totalHours)} hours`,
+        },
+      ]
+    : [];
 
   return (
     <div className="flex min-h-screen w-full max-w-full flex-col overflow-x-hidden bg-surface-base">
@@ -90,30 +131,52 @@ export default function AgeCalculatorPage() {
               Age Calculator — Find Your Exact Age Instantly
             </h1>
             <p className="mx-auto mt-3 max-w-md text-content-secondary">
-              Enter your date of birth to get your exact age in years, months,
-              and days.
+              Enter your date of birth and optional cutoff date to get exact age
+              in years, months, days, and more.
             </p>
             <div className="mt-4 flex justify-center">
               <FavoriteButton slug="age-calculator" />
             </div>
           </div>
 
-          <div className="mx-auto mt-10 max-w-md">
-            <label
-              htmlFor="dob-input"
-              className="mb-2 block text-sm font-medium text-content-primary"
-            >
-              Date of Birth
-            </label>
-            <input
-              id="dob-input"
-              type="date"
-              value={dateOfBirth}
-              max={new Date().toISOString().split("T")[0]}
-              onChange={(event) => setDateOfBirth(event.target.value)}
-              aria-label="Date of birth"
-              className="w-full cursor-pointer rounded-xl border border-surface-border bg-surface-card px-4 py-3 text-sm text-content-primary outline-none transition-colors focus:border-brand-blue [color-scheme:dark]"
-            />
+          <div className="mx-auto mt-10 max-w-md space-y-5">
+            <div>
+              <label
+                htmlFor="dob-input"
+                className="mb-2 block text-sm font-medium text-content-primary"
+              >
+                Date of Birth
+              </label>
+              <input
+                id="dob-input"
+                type="date"
+                value={dateOfBirth}
+                max={dobMax}
+                onChange={(event) => setDateOfBirth(event.target.value)}
+                aria-label="Date of birth"
+                className="w-full cursor-pointer rounded-xl border border-surface-border bg-surface-card px-4 py-3 text-sm text-content-primary outline-none transition-colors focus:border-brand-blue [color-scheme:dark]"
+              />
+            </div>
+
+            <div>
+              <label
+                htmlFor="as-of-input"
+                className="mb-2 block text-sm font-medium text-content-primary"
+              >
+                Calculate age as of
+              </label>
+              <input
+                id="as-of-input"
+                type="date"
+                value={asOfDate}
+                onChange={(event) => setAsOfDate(event.target.value)}
+                aria-label="Calculate age as of date"
+                className="w-full cursor-pointer rounded-xl border border-surface-border bg-surface-card px-4 py-3 text-sm text-content-primary outline-none transition-colors focus:border-brand-blue [color-scheme:dark]"
+              />
+              <p className="mt-2 text-xs text-content-muted">
+                Age on date (for govt exam cutoff, leave blank for today)
+              </p>
+            </div>
           </div>
 
           {error && (
@@ -139,10 +202,24 @@ export default function AgeCalculatorPage() {
               </div>
 
               <div className="rounded-xl border border-surface-border bg-surface-card px-5 py-4">
-                <p className="flex items-center justify-center gap-2 text-sm font-medium text-content-primary">
+                <p className="flex items-center justify-center gap-2 text-center text-sm font-medium text-content-primary">
                   <span aria-hidden="true">🎂</span>
                   {birthdayMessage}
                 </p>
+              </div>
+
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                {expandedStats.map((stat) => (
+                  <div
+                    key={stat.label}
+                    className="rounded-xl border border-surface-border bg-surface-card px-4 py-3"
+                  >
+                    <p className="text-xs text-content-muted">{stat.label}</p>
+                    <p className="mt-1 text-sm font-semibold text-content-primary">
+                      {stat.value}
+                    </p>
+                  </div>
+                ))}
               </div>
 
               <p className="text-center text-sm text-content-secondary">

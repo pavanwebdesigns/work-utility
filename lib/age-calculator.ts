@@ -2,7 +2,12 @@ export type AgeResult = {
   years: number;
   months: number;
   days: number;
+  totalMonths: number;
+  totalWeeks: number;
+  totalDays: number;
+  totalHours: number;
   nextBirthdayDays: number;
+  nextBirthdayDate: string;
   birthDayOfWeek: string;
   isBirthdayToday: boolean;
 };
@@ -74,13 +79,31 @@ export function calculateAge(
         (nextBirthday.getTime() - today.getTime()) / (1000 * 60 * 60 * 24)
       );
 
+  const totalDays = Math.floor(
+    (today.getTime() - dob.getTime()) / (1000 * 60 * 60 * 24)
+  );
+  const totalWeeks = Math.floor(totalDays / 7);
+  const totalMonths = years * 12 + months;
+  const totalHours = totalDays * 24;
+
+  const nextBirthdayDate = nextBirthday.toLocaleDateString("en-IN", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+
   const birthDayOfWeek = dob.toLocaleDateString("en-IN", { weekday: "long" });
 
   return {
     years,
     months,
     days,
+    totalMonths,
+    totalWeeks,
+    totalDays,
+    totalHours,
     nextBirthdayDays,
+    nextBirthdayDate,
     birthDayOfWeek,
     isBirthdayToday,
   };

@@ -2,16 +2,16 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Age Calculator Free — Exact Age from Date of Birth",
+    absolute: "Age Calculator — Exact Age in Years, Months & Days",
   },
   description:
-    "Calculate your exact age in years, months, and days from your date of birth. Free age calculator for government forms, exams, and eligibility checks in India.",
+    "Calculate exact age from date of birth instantly. Get age in years, months, days, hours, and check govt exam cutoff eligibility. Free, no signup.",
   keywords:
-    "age calculator online free, calculate age from dob, exact age in years months days india",
+    "age calculator online free, calculate age from dob, exact age in years months days india, government exam age cutoff",
   openGraph: {
-    title: "Age Calculator Free — Exact Age from Date of Birth",
+    title: "Age Calculator — Exact Age in Years, Months & Days",
     description:
-      "Calculate exact age in years, months, and days instantly. Free and private.",
+      "Calculate exact age from date of birth instantly. Get age in years, months, days, hours, and check govt exam cutoff eligibility. Free, no signup.",
     url: "https://workutilities.com/tools/age-calculator",
     siteName: "WorkUtilities",
     type: "website",

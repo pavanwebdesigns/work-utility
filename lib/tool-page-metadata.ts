@@ -1,6 +1,6 @@
 /** Meta descriptions from tool layout.tsx — used for SoftwareApplication JSON-LD */
 export const TOOL_PAGE_DESCRIPTIONS: Record<string, string> = {
-  "age-calculator": "Calculate your exact age in years, months, and days from your date of birth. Free age calculator for government forms, exams, and eligibility checks in India.",
+  "age-calculator": "Calculate exact age from date of birth instantly. Get age in years, months, days, hours, and check govt exam cutoff eligibility. Free, no signup.",
   "aspect-ratio": "Calculate image aspect ratios and resize dimensions free online. Find width or height for any aspect ratio instantly.",
   "audio-recorder": "Free online audio recorder. Record from your microphone in the browser, play back, and download instantly. No app download or signup required.",
   "base64": "Encode and decode Base64 text or files free online. Fast, private, browser-only Base64 converter.",

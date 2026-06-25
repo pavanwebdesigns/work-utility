@@ -477,11 +477,11 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "home-loan-emi-guide-india",
-    title: "Home Loan EMI Calculator Guide — How Much Can You Actually Afford in India?",
+    title: "Home Loan EMI Guide India 2026 — Calculate & Plan Your EMI",
     excerpt:
-      "Before taking a home loan in India, calculate how much EMI you can afford. Real examples with SBI, HDFC home loan rates 2025.",
+      "Complete home loan EMI guide for India 2026. Bank rates, FOIR affordability rule, tenure comparison, prepayment impact, and free EMI calculator.",
     category: "Finance",
-    readTime: "6 min read",
+    readTime: "8 min read",
     author: "Priya Sharma",
     lastUpdated: "June 2026",
     cta: { toolName: "EMI Calculator", toolHref: "/tools/emi-calculator" },
@@ -1371,11 +1371,11 @@ export const blogSeoMetadata: Record<
       "save income tax india, tax deductions salaried employees, 80c 80d hra exemption, income tax planning india",
   },
   "home-loan-emi-guide-india": {
-    title: "Home Loan EMI Guide India 2025 — How Much Can You Afford? | WorkUtilities",
+    title: "Home Loan EMI Guide India 2026 — Calculate & Plan Your EMI",
     description:
-      "Before taking a home loan in India, calculate how much EMI you can afford. Real examples with SBI, HDFC home loan rates 2025.",
+      "Complete home loan EMI guide for India 2026. Calculate EMI, understand amortisation, compare tenures, and plan prepayment. Free EMI calculator included.",
     keywords:
-      "home loan emi calculator india, sbi hdfc home loan emi, how much emi can i afford, home loan guide india",
+      "home loan emi guide india 2026, home loan interest rates sbi hdfc, how much emi can i afford, home loan tenure comparison",
   },
   "gst-for-freelancers-india": {
     title: "GST for Freelancers India 2025 — When to Register | WorkUtilities",
