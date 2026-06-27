@@ -111,6 +111,10 @@ import CurrencyConverterGuideContent from "../content/currency-converter-guide";
 import CryptoPriceTrackerGuideContent from "../content/crypto-price-tracker-guide";
 import DnsLookupToolGuideContent from "../content/dns-lookup-tool-guide";
 import IpAddressLookupGuideContent from "../content/ip-address-lookup-guide";
+import FdCalculatorGuideIndiaContent from "../content/fd-calculator-guide-india";
+import HraExemptionCalculatorGuideContent from "../content/hra-exemption-calculator-guide";
+import DiscountCalculatorGuideContent from "../content/discount-calculator-guide";
+import RandomNumberGeneratorGuideContent from "../content/random-number-generator-guide";
 
 const contentBySlug: Record<string, () => JSX.Element> = {
   "complete-pdf-tools-guide-india": CompletePdfToolsGuideIndiaContent,
@@ -246,6 +250,10 @@ const contentBySlug: Record<string, () => JSX.Element> = {
   "crypto-price-tracker-guide": CryptoPriceTrackerGuideContent,
   "dns-lookup-tool-guide": DnsLookupToolGuideContent,
   "ip-address-lookup-guide": IpAddressLookupGuideContent,
+  "fd-calculator-guide-india": FdCalculatorGuideIndiaContent,
+  "hra-exemption-calculator-guide": HraExemptionCalculatorGuideContent,
+  "discount-calculator-guide": DiscountCalculatorGuideContent,
+  "random-number-generator-guide": RandomNumberGeneratorGuideContent,
 };
 
 export function generateStaticParams() {

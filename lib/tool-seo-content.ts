@@ -1449,6 +1449,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
           "Yes, but banks charge a penalty (typically 0.5–1% on the rate) and may pay lower interest for the actual period held. Partial withdrawal rules vary by bank.",
       },
     ],
+    blogGuide: {
+      href: "/blog/fd-calculator-guide-india",
+      title: "FD calculator India — fixed deposit returns guide",
+    },
   },
   "sip-calculator": {
     aboutTitle: "About SIP Calculator",
@@ -2519,6 +2523,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
       { question: "How to generate a UUID?", answer: "Switch to UUID mode and click Generate UUID. A version 4 UUID is created instantly." },
       { question: "Are random numbers truly random?", answer: "Numbers are generated using JavaScript Math.random() in your browser — suitable for games and testing, not cryptographic security." },
     ],
+    blogGuide: {
+      href: "/blog/random-number-generator-guide",
+      title: "Random number generator online free — any range",
+    },
   },
   "tip-calculator": {
     aboutTitle: "About Tip Calculator",
@@ -2569,6 +2577,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
       { question: "What quick discount presets are available?", answer: "5%, 10%, 20%, 25%, 30%, 50%, and 70% — click any preset to apply instantly." },
       { question: "Is the discount calculator free?", answer: "Yes. WorkUtilities Discount Calculator is free with no limits." },
     ],
+    blogGuide: {
+      href: "/blog/discount-calculator-guide",
+      title: "Discount calculator online free — sale price and savings",
+    },
   },
   "binary-converter": {
     aboutTitle: "About Binary Converter",
@@ -2781,6 +2793,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
       { question: "Can I claim HRA if I live with parents?", answer: "Yes, if you pay rent to parents and have proper rent receipts. The rent must be genuine and documented." },
       { question: "Is HRA calculator free?", answer: "Yes. WorkUtilities HRA Calculator is free with no signup." },
     ],
+    blogGuide: {
+      href: "/blog/hra-exemption-calculator-guide",
+      title: "HRA exemption calculator — how to claim HRA in India",
+    },
   },
   "character-counter": {
     aboutTitle: "About Character Counter",

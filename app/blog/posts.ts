@@ -1234,6 +1234,50 @@ export const blogPosts: BlogPost[] = [
     lastUpdated: "June 2026",
     cta: { toolName: "IP Address Lookup", toolHref: "/tools/ip-lookup" },
   },
+  {
+    slug: "fd-calculator-guide-india",
+    title: "FD Calculator India — Fixed Deposit Returns Guide",
+    excerpt:
+      "Calculate fixed deposit maturity amount and interest earned free online. Understand FD rates, TDS, cumulative vs non-cumulative FD, and FD vs SIP for Indian investors.",
+    category: "Finance",
+    readTime: "7 min read",
+    author: "Priya Sharma",
+    lastUpdated: "June 2026",
+    cta: { toolName: "FD Calculator", toolHref: "/tools/fd-calculator" },
+  },
+  {
+    slug: "hra-exemption-calculator-guide",
+    title: "HRA Exemption Calculator — How to Claim HRA in India",
+    excerpt:
+      "Calculate your HRA tax exemption under Section 10(13A) free online. Metro vs non-metro rules, worked examples, old regime requirement, and rent receipt documentation.",
+    category: "Finance",
+    readTime: "7 min read",
+    author: "Priya Sharma",
+    lastUpdated: "June 2026",
+    cta: { toolName: "HRA Calculator", toolHref: "/tools/hra-calculator" },
+  },
+  {
+    slug: "discount-calculator-guide",
+    title: "Discount Calculator Online Free — Sale Price & Savings",
+    excerpt:
+      "Calculate discounted price and total savings instantly. Percentage off, reverse price lookup, stacked discounts, and GST interaction explained for Indian shoppers.",
+    category: "Finance",
+    readTime: "6 min read",
+    author: "Alex Morgan",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Discount Calculator", toolHref: "/tools/discount-calculator" },
+  },
+  {
+    slug: "random-number-generator-guide",
+    title: "Random Number Generator Online Free — Any Range",
+    excerpt:
+      "Generate random numbers between any range online free. Single or multiple numbers, no-repeats option, dice rolls, and fair giveaway picks. No signup.",
+    category: "Productivity",
+    readTime: "6 min read",
+    author: "Alex Morgan",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Random Number Generator", toolHref: "/tools/random-number" },
+  },
 ];
 
 export const blogPostBySlug = Object.fromEntries(
@@ -1999,6 +2043,34 @@ export const blogSeoMetadata: Record<
       "Look up any IP address location, ISP, and timezone online free. See your own IP or check any IP address instantly. No signup needed.",
     keywords:
       "IP address lookup, IP geolocation, find my IP, IP location checker",
+  },
+  "fd-calculator-guide-india": {
+    title: "FD Calculator India — Fixed Deposit Returns Guide",
+    description:
+      "Calculate FD maturity and interest earned free online. Understand FD rates, TDS, and compounding. Free fixed deposit calculator for Indian banks. No signup.",
+    keywords:
+      "FD calculator India, fixed deposit calculator, FD maturity calculator, FD interest rate India, TDS on FD",
+  },
+  "hra-exemption-calculator-guide": {
+    title: "HRA Exemption Calculator — How to Claim HRA in India",
+    description:
+      "Calculate your HRA tax exemption under Section 10(13A) free online. Understand metro vs non-metro rules and how to claim HRA in your ITR. No signup.",
+    keywords:
+      "HRA exemption calculator, HRA tax exemption India, Section 10(13A), HRA metro cities, claim HRA old regime",
+  },
+  "discount-calculator-guide": {
+    title: "Discount Calculator Online Free — Sale Price & Savings",
+    description:
+      "Calculate discounted price and total savings instantly. Works for percentage off, sale prices, and multi-item discounts. Free discount calculator. No signup.",
+    keywords:
+      "discount calculator, sale price calculator, percentage off calculator, stacked discount calculator, shopping discount India",
+  },
+  "random-number-generator-guide": {
+    title: "Random Number Generator Online Free — Any Range",
+    description:
+      "Generate random numbers in any range free online. Single or multiple picks, no-repeats option. Perfect for giveaways, games, and decisions. No signup.",
+    keywords:
+      "random number generator, random number picker online, giveaway winner picker, dice roller online, random integer generator",
   },
 };
 
