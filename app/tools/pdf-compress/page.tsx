@@ -3,7 +3,6 @@
 import { useCallback, useRef, useState } from "react";
 import Link from "next/link";
 import {
-  ChevronDown,
   Download,
   FileDown,
   Loader2,
@@ -15,7 +14,7 @@ import {
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { RelatedTools } from "@/components/RelatedTools";
-import { SoftwareApplicationJsonLd } from "@/components/SoftwareApplicationJsonLd";
+import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { ToolFeedback } from "@/components/ToolFeedback";
 import { DinoGame } from "@/components/DinoGame";
 import { FavoriteButton } from "@/components/FavoriteButton";
@@ -34,80 +33,6 @@ const PRESETS = {
 } as const;
 
 type PresetKey = keyof typeof PRESETS;
-
-const whenToUseItems = [
-  {
-    title: "Email attachment too large",
-    description:
-      "Gmail allows up to 25MB, but many corporate mail servers cap attachments at 10MB or less.",
-  },
-  {
-    title: "College or university portal limits",
-    description:
-      "Admission and assignment portals often reject PDFs above 1MB or 2MB.",
-  },
-  {
-    title: "Government portal rejections",
-    description:
-      "UPSC, SSC, and state PSC portals frequently block oversized PDF uploads.",
-  },
-  {
-    title: "WhatsApp PDF sharing",
-    description:
-      "Compress before sharing to stay well under WhatsApp’s 100MB document limit.",
-  },
-  {
-    title: "Job portal uploads",
-    description:
-      "Naukri, LinkedIn, and Internshala work best with lightweight resume PDFs.",
-  },
-];
-
-const pdfCompressFaqs = [
-  {
-    question: "How do I compress a PDF file size?",
-    answer:
-      "Upload your PDF to our free tool, choose compression level, and download the compressed file instantly. No signup required.",
-  },
-  {
-    question: "Will compressing a PDF reduce its quality?",
-    answer:
-      "Text quality is preserved. Images may compress slightly but remain readable for most documents.",
-  },
-  {
-    question: "Is there a file size limit for PDF compression?",
-    answer:
-      "No strict limit. Works best for PDFs under 100MB for fastest processing.",
-  },
-  {
-    question: "Is my PDF safe when I compress it online?",
-    answer:
-      "Yes. Our tool works entirely in your browser. Your file is never uploaded to any server.",
-  },
-  {
-    question: "How to compress PDF under 1MB for email?",
-    answer:
-      "Move the compression slider toward 10–25% for smaller files. Most scanned PDFs compress well under 1MB at higher reduction levels.",
-  },
-  {
-    question: "How to compress PDF for government portals in India?",
-    answer:
-      "Use the Portal Upload preset (15%) or slide toward max reduction. Most government portals accept PDFs under 1MB or 2MB.",
-  },
-];
-
-const faqJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: pdfCompressFaqs.map((faq) => ({
-    "@type": "Question",
-    name: faq.question,
-    acceptedAnswer: {
-      "@type": "Answer",
-      text: faq.answer,
-    },
-  })),
-};
 
 const howItWorksSteps = [
   {
@@ -136,7 +61,6 @@ function isPdfFile(file: File) {
 
 export default function PdfCompressPage() {
   const inputRef = useRef<HTMLInputElement>(null);
-  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
   const [file, setFile] = useState<File | null>(null);
   const [preset, setPreset] = useState<PresetKey>("medium");
   const [isProcessing, setIsProcessing] = useState(false);
@@ -442,111 +366,8 @@ export default function PdfCompressPage() {
           </div>
 
           <RelatedTools currentSlug="pdf-compress" />
-          <SoftwareApplicationJsonLd slug="pdf-compress" />
           <ToolFeedback toolName="PDF Compress" />
-
-          <div className="mt-12 border-t border-surface-border pt-12">
-            <section>
-              <h2 className="text-lg font-semibold text-content-primary sm:text-xl">
-                About PDF Compress Tool
-              </h2>
-              <div className="mt-4 space-y-4 text-sm leading-relaxed text-content-secondary sm:text-base">
-                <p>
-                  Our free PDF Compress tool reduces file size while keeping
-                  documents readable and professional. Whether you need a
-                  lighter attachment for email or a PDF that meets a strict
-                  upload limit, you can shrink your file in seconds without
-                  installing software.
-                </p>
-                <p>
-                  Everything runs entirely in your browser — your PDF is never
-                  uploaded to a server. Compression happens on your device using
-                  client-side processing, which means your files stay 100%
-                  private. No account, no waiting in a queue, and no risk of
-                  sensitive documents being stored on third-party servers.
-                </p>
-                <p>
-                  This tool is built for everyday Indian users: students
-                  submitting assignments, employees emailing reports, job
-                  seekers sending resumes, and anyone filling government forms
-                  with tight size limits. It works especially well for NSDL and
-                  UTI PAN applications, college admission portals, UPSC and SSC
-                  form uploads, and email attachments that must stay under 1MB
-                  or 2MB. Because your files never leave your browser, you can
-                  safely compress confidential documents at home, at work, or on
-                  the go.
-                </p>
-              </div>
-            </section>
-
-            <section className="mt-12">
-              <h2 className="text-lg font-semibold text-content-primary sm:text-xl">
-                When Should You Compress a PDF?
-              </h2>
-              <div className="mt-4 grid gap-3 sm:grid-cols-2">
-                {whenToUseItems.map((item) => (
-                  <div
-                    key={item.title}
-                    className="rounded-xl border border-surface-border bg-surface-card p-4 sm:p-5"
-                  >
-                    <h3 className="font-medium text-content-primary">
-                      {item.title}
-                    </h3>
-                    <p className="mt-2 text-sm leading-relaxed text-content-secondary">
-                      {item.description}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </section>
-
-            <section className="mt-12">
-              <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-              />
-              <h2 className="text-lg font-semibold text-content-primary sm:text-xl">
-                Frequently Asked Questions
-              </h2>
-              <div className="mt-4 space-y-3">
-                {pdfCompressFaqs.map((faq, index) => {
-                  const isOpen = openFaqIndex === index;
-
-                  return (
-                    <div
-                      key={faq.question}
-                      className="overflow-hidden rounded-xl border border-surface-border bg-surface-card"
-                    >
-                      <button
-                        type="button"
-                        onClick={() =>
-                          setOpenFaqIndex(isOpen ? null : index)
-                        }
-                        aria-expanded={isOpen}
-                        className="flex w-full items-center justify-between gap-4 px-4 py-4 text-left sm:px-5"
-                      >
-                        <span className="font-medium text-content-primary">
-                          {faq.question}
-                        </span>
-                        <ChevronDown
-                          className={`h-5 w-5 shrink-0 text-content-muted transition-transform ${
-                            isOpen ? "rotate-180" : ""
-                          }`}
-                        />
-                      </button>
-                      {isOpen && (
-                        <div className="border-t border-surface-border px-4 pb-4 pt-3 sm:px-5">
-                          <p className="text-sm leading-relaxed text-content-secondary">
-                            {faq.answer}
-                          </p>
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
-              </div>
-            </section>
-          </div>
+          <ToolSeoContent slug="pdf-compress" />
 
           <DinoGame />
         </div>

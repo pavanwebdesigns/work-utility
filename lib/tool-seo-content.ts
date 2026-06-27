@@ -1,4 +1,5 @@
 export type ToolSeoSlug =
+  | "pdf-compress"
   | "image-compress"
   | "image-converter"
   | "photo-resizer"
@@ -108,6 +109,78 @@ type ToolSeoEntry = {
 };
 
 const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
+  "pdf-compress": {
+    aboutTitle: "About PDF Compress Tool",
+    aboutParagraphs: [
+      "Our free PDF Compress tool reduces file size while keeping documents readable and professional. Whether you need a lighter attachment for email or a PDF that meets a strict upload limit, you can shrink your file in seconds without installing software.",
+      "Everything runs entirely in your browser — your PDF is never uploaded to a server. Compression happens on your device using client-side processing, which means your files stay 100% private. No account, no waiting in a queue, and no risk of sensitive documents being stored on third-party servers.",
+      "This tool is built for everyday Indian users: students submitting assignments, employees emailing reports, job seekers sending resumes, and anyone filling government forms with tight size limits. It works especially well for NSDL and UTI PAN applications, college admission portals, UPSC and SSC form uploads, and email attachments that must stay under 1MB or 2MB.",
+    ],
+    whenToUseTitle: "When Should You Compress a PDF?",
+    useCases: [
+      {
+        title: "Email attachment too large",
+        description:
+          "Gmail allows up to 25MB, but many corporate mail servers cap attachments at 10MB or less.",
+      },
+      {
+        title: "College or university portal limits",
+        description:
+          "Admission and assignment portals often reject PDFs above 1MB or 2MB.",
+      },
+      {
+        title: "Government portal rejections",
+        description:
+          "UPSC, SSC, and state PSC portals frequently block oversized PDF uploads.",
+      },
+      {
+        title: "WhatsApp PDF sharing",
+        description:
+          "Compress before sharing to stay well under WhatsApp's 100MB document limit.",
+      },
+      {
+        title: "Job portal uploads",
+        description:
+          "Naukri, LinkedIn, and Internshala work best with lightweight resume PDFs.",
+      },
+    ],
+    faqs: [
+      {
+        question: "How do I compress a PDF file size?",
+        answer:
+          "Upload your PDF to our free tool, choose compression level, and download the compressed file instantly. No signup required.",
+      },
+      {
+        question: "Will compressing a PDF reduce its quality?",
+        answer:
+          "Text quality is preserved. Images may compress slightly but remain readable for most documents.",
+      },
+      {
+        question: "Is there a file size limit for PDF compression?",
+        answer:
+          "No strict limit. Works best for PDFs under 100MB for fastest processing.",
+      },
+      {
+        question: "Is my PDF safe when I compress it online?",
+        answer:
+          "Yes. Our tool works entirely in your browser. Your file is never uploaded to any server.",
+      },
+      {
+        question: "How to compress PDF under 1MB for email?",
+        answer:
+          "Move the compression slider toward 10–25% for smaller files. Most scanned PDFs compress well under 1MB at higher reduction levels.",
+      },
+      {
+        question: "How to compress PDF for government portals in India?",
+        answer:
+          "Use the Portal Upload preset (15%) or slide toward max reduction. Most government portals accept PDFs under 1MB or 2MB.",
+      },
+    ],
+    blogGuide: {
+      href: "/blog/how-to-compress-pdf-online-free",
+      title: "How to compress PDF online free — without losing quality",
+    },
+  },
   "image-compress": {
     aboutTitle: "About Image Compress Tool",
     aboutParagraphs: [
@@ -170,6 +243,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
           "Check the portal’s KB or MB limit, then compress until the file fits. Most Indian government forms accept JPG under 50KB–200KB — our tool helps you hit those targets quickly.",
       },
     ],
+    blogGuide: {
+      href: "/blog/reduce-image-size-without-losing-quality",
+      title: "How to reduce image size without losing quality — 5 methods that work",
+    },
   },
   "photo-resizer": {
     aboutTitle: "About Photo Resizer Tool",
@@ -233,6 +310,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
           "Take a well-lit photo against a plain wall, upload it here, crop with the passport preset, and download — no studio visit required.",
       },
     ],
+    blogGuide: {
+      href: "/blog/aadhaar-card-photo-size",
+      title: "Aadhaar card photo requirements — why photos get rejected",
+    },
   },
   "pdf-to-word": {
     aboutTitle: "About PDF to Word Tool",
@@ -296,6 +377,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
           "Yes. Processing happens entirely in your browser. Your document is never uploaded to our servers.",
       },
     ],
+    blogGuide: {
+      href: "/blog/convert-pdf-to-word-free",
+      title: "How to convert PDF to Word free — without losing formatting",
+    },
   },
   "word-to-pdf": {
     aboutTitle: "About Word to PDF Tool",
@@ -359,6 +444,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
           "Large documents work best under typical browser memory limits. Very heavy files with many images may take longer but usually convert fine.",
       },
     ],
+    blogGuide: {
+      href: "/blog/how-to-convert-word-to-pdf-free",
+      title: "How to convert Word to PDF free online — no software needed",
+    },
   },
   "image-to-pdf": {
     aboutTitle: "About Image to PDF Tool",
@@ -422,6 +511,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
           "Photograph or upload your Aadhaar scan, convert to PDF, and verify the file size meets the portal limit before submitting.",
       },
     ],
+    blogGuide: {
+      href: "/blog/how-to-combine-images-into-pdf-india",
+      title: "How to combine multiple images into one PDF — free online guide India",
+    },
   },
   "bg-remove": {
     aboutTitle: "About Background Remover Tool",
@@ -485,6 +578,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
           "Upload product shots, remove the background, and download white-background PNGs ready for Meesho, Amazon, or your own store.",
       },
     ],
+    blogGuide: {
+      href: "/blog/how-to-remove-background-from-photo-free",
+      title: "How to remove background from a photo free",
+    },
   },
   "pdf-merge": {
     aboutTitle: "About PDF Merge Tool",
@@ -548,6 +645,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
           "Open this page in your mobile browser, select PDFs from your files, merge, and save the result.",
       },
     ],
+    blogGuide: {
+      href: "/blog/how-to-merge-pdf-files-free",
+      title: "How to merge PDF files free online — combine multiple PDFs in seconds",
+    },
   },
   "pdf-split": {
     aboutTitle: "About PDF Split Tool",
@@ -611,6 +712,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
           "Very large PDFs may take longer in the browser but generally work. Stay under typical file limits for fastest performance.",
       },
     ],
+    blogGuide: {
+      href: "/blog/how-to-split-pdf-pages-online-free-2026",
+      title: "How to split PDF pages online free",
+    },
   },
   "pdf-unlock": {
     aboutTitle: "About Remove PDF Password Tool",
@@ -674,6 +779,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
           "This tool requires the correct password. If forgotten, contact the document sender or bank — we cannot recover lost passwords.",
       },
     ],
+    blogGuide: {
+      href: "/blog/how-to-unlock-password-protected-pdf",
+      title: "How to open a password protected PDF free — unlock PDF online",
+    },
   },
   "qr-code-generator": {
     aboutTitle: "About QR Code Generator Tool",
@@ -737,6 +846,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
           "Static QR codes do not expire. They work as long as the linked URL, UPI ID, or phone number remains valid.",
       },
     ],
+    blogGuide: {
+      href: "/blog/qr-code-for-small-business-india",
+      title: "How to create QR code for your business in India — free guide",
+    },
   },
   "word-counter": {
     aboutTitle: "About Word Counter Tool",
@@ -867,6 +980,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
           "Our calculator shows days remaining until your upcoming birthday from today’s date.",
       },
     ],
+    blogGuide: {
+      href: "/blog/age-calculator-for-government-forms-india",
+      title: "Age calculator for government forms India — exact age in years months days",
+    },
   },
   "image-converter": {
     aboutTitle: "About Image Converter Tool",
@@ -997,6 +1114,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
           "Banks charge late fees and report delays to credit bureaus, which can hurt your CIBIL score. Repeated misses may lead to recovery action. Contact your lender immediately if you expect a delay.",
       },
     ],
+    blogGuide: {
+      href: "/blog/home-loan-emi-guide-india",
+      title: "Home loan EMI guide India — calculate and plan your EMI",
+    },
   },
   "gst-calculator": {
     aboutTitle: "About GST Calculator",
@@ -1060,6 +1181,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
           "No. Salary is not a supply of goods or services under GST law. GST applies to business transactions, not employee wages.",
       },
     ],
+    blogGuide: {
+      href: "/blog/gst-for-freelancers-india",
+      title: "GST for freelancers in India — when to register and how to calculate",
+    },
   },
   "salary-hike-calculator": {
     aboutTitle: "About Salary Hike Calculator",
@@ -1123,6 +1248,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
           "Recent trends show 8–12% average increments for IT services, with product companies and high-demand skills offering higher hikes. Top performers often exceed 15–20%.",
       },
     ],
+    blogGuide: {
+      href: "/blog/salary-hike-negotiation-guide-india",
+      title: "How to negotiate salary hike in India — appraisal season guide",
+    },
   },
   "cgpa-to-percentage": {
     aboutTitle: "About CGPA to Percentage",
@@ -1186,6 +1315,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
           "Many modern companies accept CGPA, but government jobs, older forms, and some MNC portals still require percentage. Convert when the form field does not allow CGPA entry.",
       },
     ],
+    blogGuide: {
+      href: "/blog/cgpa-to-percentage-for-job-applications",
+      title: "CGPA to percentage conversion for job applications",
+    },
   },
   "ctc-calculator": {
     aboutTitle: "About CTC Calculator",
@@ -1249,6 +1382,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
           "Start with gross monthly salary, subtract employee PF (12% of basic), professional tax, and TDS/income tax. Our CTC Calculator estimates this breakdown from your annual CTC input.",
       },
     ],
+    blogGuide: {
+      href: "/blog/how-to-calculate-in-hand-salary-from-ctc",
+      title: "How to calculate in-hand salary from CTC — a real guide for Indian employees",
+    },
   },
   "fd-calculator": {
     aboutTitle: "About FD Calculator",
@@ -1375,6 +1512,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
           "There is no single best plan — it depends on goals and risk. Broad index funds and diversified flexi-cap funds are popular for long-term investors. Consult a SEBI-registered advisor for personalised advice.",
       },
     ],
+    blogGuide: {
+      href: "/blog/how-to-start-sip-india-beginners-guide",
+      title: "How to start a SIP in India — beginner's guide for salaried employees",
+    },
   },
   "notice-period-calculator": {
     aboutTitle: "About Notice Period Calculator",
@@ -1438,6 +1579,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
           "Yes, if you serve it properly and receive a relieving letter. Absconding or termination may affect how future employers count the tenure.",
       },
     ],
+    blogGuide: {
+      href: "/blog/notice-period-buyout-india-guide",
+      title: "What is notice period buyout? How to calculate and negotiate in India",
+    },
   },
   "percentage-calculator": {
     aboutTitle: "About Percentage Calculator",
@@ -1501,6 +1646,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
           "Divide the part by the whole and multiply by 100. Example: 30 is 60% of 50 because 30/50 × 100 = 60%.",
       },
     ],
+    blogGuide: {
+      href: "/blog/how-to-calculate-percentage-of-marks-india",
+      title: "How to calculate percentage of marks — guide for Indian students",
+    },
   },
   "password-generator": {
     aboutTitle: "About Password Generator",
@@ -1564,6 +1713,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
           "Yes with client-side generators like WorkUtilities — passwords are created in your browser and never transmitted. Avoid generators that send passwords to a server.",
       },
     ],
+    blogGuide: {
+      href: "/blog/how-to-create-strong-password-guide",
+      title: "How to create a strong password — cybersecurity guide for Indians",
+    },
   },
   "unit-converter": {
     aboutTitle: "About Unit Converter",
@@ -1627,6 +1780,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
           "Multiply kg by 2.20462. Example: 70 kg = 154.32 lbs. Use our weight converter for precise results.",
       },
     ],
+    blogGuide: {
+      href: "/blog/unit-conversion-guide-indian-students",
+      title: "Unit conversion guide for Indian students — length, weight, temperature and more",
+    },
   },
   "income-tax-calculator": {
     aboutTitle: "About Income Tax Calculator",
@@ -1690,6 +1847,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
           "Add salary, bonus, and allowances, subtract standard deduction and exemptions, apply slab rates, add 4% cess, and subtract rebate u/s 87A. Our calculator automates this for both regimes.",
       },
     ],
+    blogGuide: {
+      href: "/blog/old-vs-new-tax-regime-india-2025",
+      title: "Old regime vs new tax regime 2025-26 — which one saves more money?",
+    },
   },
   "signature-maker": {
     aboutTitle: "About Signature Maker",
@@ -1753,6 +1914,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
           "Digital signatures use encryption and certificate authority verification (DSC). Electronic signatures include typed names, drawn signatures, and image uploads — simpler but with varying legal weight.",
       },
     ],
+    blogGuide: {
+      href: "/blog/how-to-create-digital-signature-india",
+      title: "How to create a digital signature free online — India guide",
+    },
   },
   "rent-receipt-generator": {
     aboutTitle: "About Rent Receipt Generator",
@@ -1816,6 +1981,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
           "Fill the form, select months, and click Download PDF. Our tool generates a print-ready PDF instantly in your browser.",
       },
     ],
+    blogGuide: {
+      href: "/blog/rent-receipt-for-hra-exemption-india",
+      title: "How to generate rent receipt for HRA exemption — India tax guide",
+    },
   },
   "pdf-to-jpg": {
     aboutTitle: "About PDF to JPG Tool",
@@ -1946,6 +2115,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
           "Yes. Open this page in Chrome or any modern mobile browser and convert HEIC files from your gallery or files app.",
       },
     ],
+    blogGuide: {
+      href: "/blog/how-to-convert-heic-to-jpg-on-windows",
+      title: "How to convert HEIC to JPG on Windows — free",
+    },
   },
   "webp-to-jpg": {
     aboutTitle: "About WebP to JPG Converter",
@@ -2847,6 +3020,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
       { question: "What retirement age is used?", answer: "Default is 58 years, which you can change based on your plans." },
       { question: "Is EPF calculator free?", answer: "Yes. WorkUtilities EPF Calculator is free with no signup." },
     ],
+    blogGuide: {
+      href: "/blog/epf-calculator-guide-india",
+      title: "EPF calculator guide — PF maturity calculator India",
+    },
   },
   "gratuity-calculator": {
     aboutTitle: "About Gratuity Calculator",
@@ -2870,6 +3047,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
       { question: "Is partial year counted?", answer: "Service over 6 months in the last year is rounded up to a full year." },
       { question: "Is gratuity calculator free?", answer: "Yes. WorkUtilities Gratuity Calculator is free with no signup." },
     ],
+    blogGuide: {
+      href: "/blog/gratuity-calculation-formula-india",
+      title: "Gratuity calculation formula India — free calculator",
+    },
   },
   "lta-calculator": {
     aboutTitle: "About LTA Calculator",
@@ -2894,6 +3075,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
       { question: "Is LTA available every year?", answer: "LTA exemption is limited to 2 trips per 4-year block, not every year." },
       { question: "Is LTA calculator free?", answer: "Yes. WorkUtilities LTA Calculator is free with no signup." },
     ],
+    blogGuide: {
+      href: "/blog/lta-exemption-rules-india",
+      title: "LTA exemption rules India — how to claim leave travel allowance",
+    },
   },
   "hourly-to-salary": {
     aboutTitle: "About Hourly to Salary Calculator",
@@ -2917,6 +3102,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
       { question: "Does it support INR and USD?", answer: "Yes. Use the currency toggle in the header for your preferred symbol." },
       { question: "Is hourly to salary calculator free?", answer: "Yes. WorkUtilities calculator is free with no signup." },
     ],
+    blogGuide: {
+      href: "/blog/hourly-to-salary-calculator-guide",
+      title: "Hourly to salary calculator — convert wage to annual pay",
+    },
   },
   "keyword-density": {
     aboutTitle: "About Keyword Density Checker",
@@ -3021,6 +3210,10 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
       { question: "What is purchasing power loss?", answer: "The percentage of value eroded by inflation over the selected period." },
       { question: "Is inflation calculator free?", answer: "Yes. WorkUtilities Inflation Calculator is free with no signup." },
     ],
+    blogGuide: {
+      href: "/blog/inflation-calculator-money-value-guide",
+      title: "Inflation calculator — what will your money be worth later?",
+    },
   },
   "pdf-rotate": {
     aboutTitle: "About PDF Rotate Tool",
