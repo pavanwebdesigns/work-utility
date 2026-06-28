@@ -57,6 +57,9 @@ export default function CompleteSalaryTaxGuideIndiaContent() {
         <ul className="space-y-2 text-sm text-brand-blue">
           <li><a href="#ctc">Understanding your CTC and in-hand salary</a></li>
           <li><a href="#tax-regime">Old vs New tax regime — which is better</a></li>
+          <li><a href="#labour-code">New Labour Code 2026 salary impact</a></li>
+          <li><a href="#freelancer-tax">Freelancer tax — Section 44ADA</a></li>
+          <li><a href="#ppf">PPF tax-free savings</a></li>
           <li><a href="#save-tax">How to save income tax legally</a></li>
           <li><a href="#sip-fd">SIP vs FD — where to invest</a></li>
           <li><a href="#emi">Home loan EMI planning</a></li>
@@ -91,11 +94,59 @@ export default function CompleteSalaryTaxGuideIndiaContent() {
       <h2 id="tax-regime">Old vs New Tax Regime — Which Is Better</h2>
       <p>
         The 2025–26 budget made the new regime default for most employees. Compare
-        both with the{" "}
-        <Link href="/tools/income-tax-calculator">Income Tax Calculator</Link>.
-        Full comparison:{" "}
+        both side by side with the{" "}
+        <Link href="/tools/tax-regime-comparison">
+          Old vs New Tax Regime Comparison
+        </Link>{" "}
+        or use the{" "}
+        <Link href="/tools/income-tax-calculator">Income Tax Calculator</Link>{" "}
+        for single-regime detail. Full comparison:{" "}
+        <Link href="/blog/old-vs-new-tax-regime-comparison-2026">
+          Old vs New tax regime 2026
+        </Link>{" "}
+        and{" "}
         <Link href="/blog/old-vs-new-tax-regime-india-2025">
           Old vs New tax regime 2025
+        </Link>
+        .
+      </p>
+
+      <h2 id="labour-code">New Labour Code 2026 — Salary Restructuring</h2>
+      <p>
+        The 50% basic salary rule under the New Labour Code affects take-home,
+        PF, and gratuity for most employees. Preview your impact with the{" "}
+        <Link href="/tools/labour-code-calculator">
+          Labour Code Salary Calculator
+        </Link>
+        . Guide:{" "}
+        <Link href="/blog/new-labour-code-2026-salary-guide">
+          New Labour Code 2026 salary impact
+        </Link>
+        .
+      </p>
+
+      <h2 id="freelancer-tax">Freelancer Tax — Section 44ADA</h2>
+      <p>
+        Freelancers in specified professions can use presumptive taxation under
+        Section 44ADA — pay tax on 50% of gross receipts without maintaining
+        books. Calculate with the{" "}
+        <Link href="/tools/freelancer-tax-calculator">
+          44ADA Freelancer Tax Calculator
+        </Link>
+        . Guide:{" "}
+        <Link href="/blog/section-44ada-freelancer-tax-guide">
+          Section 44ADA tax guide for freelancers
+        </Link>
+        .
+      </p>
+
+      <h2 id="ppf">PPF — Tax-Free Long-Term Savings</h2>
+      <p>
+        Public Provident Fund offers EEE tax status with 7.1% returns and a
+        15-year lock-in. Project maturity with the{" "}
+        <Link href="/tools/ppf-calculator">PPF Calculator</Link>. Guide:{" "}
+        <Link href="/blog/ppf-calculator-guide-india">
+          PPF calculator guide for India
         </Link>
         .
       </p>

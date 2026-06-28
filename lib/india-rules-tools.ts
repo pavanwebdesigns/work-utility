@@ -7,6 +7,10 @@ export const INDIA_RULES_TOOL_SLUGS = [
   "lta-calculator",
   "gst-calculator",
   "loan-eligibility",
+  "labour-code-calculator",
+  "freelancer-tax-calculator",
+  "tax-regime-comparison",
+  "ppf-calculator",
 ] as const;
 
 export type IndiaRulesToolSlug = (typeof INDIA_RULES_TOOL_SLUGS)[number];
@@ -23,6 +27,14 @@ export const INDIA_RULES_BADGE_LABELS: Record<IndiaRulesToolSlug, string> = {
   "lta-calculator": "Based on Indian LTA exemption rules — FY2025-26",
   "gst-calculator": "Based on Indian GST rules — FY2025-26",
   "loan-eligibility": "Based on Indian banking guidelines",
+  "labour-code-calculator":
+    "Based on Indian tax/labour law — Code on Wages 2019, FY 2026-27",
+  "freelancer-tax-calculator":
+    "Based on Indian tax/labour law — Section 44ADA, FY 2026-27",
+  "tax-regime-comparison":
+    "Based on Indian tax/labour law — Income Tax FY 2026-27",
+  "ppf-calculator":
+    "Based on Indian tax/labour law — PPF rules, FY 2026-27",
 };
 
 export const INDIA_RULES_CURRENCY = {

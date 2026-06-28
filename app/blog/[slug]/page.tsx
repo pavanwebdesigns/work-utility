@@ -115,6 +115,10 @@ import FdCalculatorGuideIndiaContent from "../content/fd-calculator-guide-india"
 import HraExemptionCalculatorGuideContent from "../content/hra-exemption-calculator-guide";
 import DiscountCalculatorGuideContent from "../content/discount-calculator-guide";
 import RandomNumberGeneratorGuideContent from "../content/random-number-generator-guide";
+import NewLabourCode2026SalaryGuideContent from "../content/new-labour-code-2026-salary-guide";
+import Section44AdaFreelancerTaxGuideContent from "../content/section-44ada-freelancer-tax-guide";
+import OldVsNewTaxRegimeComparison2026Content from "../content/old-vs-new-tax-regime-comparison-2026";
+import PpfCalculatorGuideIndiaContent from "../content/ppf-calculator-guide-india";
 
 const contentBySlug: Record<string, () => JSX.Element> = {
   "complete-pdf-tools-guide-india": CompletePdfToolsGuideIndiaContent,
@@ -254,6 +258,10 @@ const contentBySlug: Record<string, () => JSX.Element> = {
   "hra-exemption-calculator-guide": HraExemptionCalculatorGuideContent,
   "discount-calculator-guide": DiscountCalculatorGuideContent,
   "random-number-generator-guide": RandomNumberGeneratorGuideContent,
+  "new-labour-code-2026-salary-guide": NewLabourCode2026SalaryGuideContent,
+  "section-44ada-freelancer-tax-guide": Section44AdaFreelancerTaxGuideContent,
+  "old-vs-new-tax-regime-comparison-2026": OldVsNewTaxRegimeComparison2026Content,
+  "ppf-calculator-guide-india": PpfCalculatorGuideIndiaContent,
 };
 
 export function generateStaticParams() {

@@ -1278,6 +1278,50 @@ export const blogPosts: BlogPost[] = [
     lastUpdated: "June 2026",
     cta: { toolName: "Random Number Generator", toolHref: "/tools/random-number" },
   },
+  {
+    slug: "new-labour-code-2026-salary-guide",
+    title: "New Labour Code 2026 Salary Impact — What Changes?",
+    excerpt:
+      "How India's New Labour Code 2026 affects your take-home salary, PF, and gratuity. The 50% basic salary rule explained with real numbers. Free calculator.",
+    category: "Finance",
+    readTime: "8 min read",
+    author: "Priya Sharma",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Labour Code Calculator", toolHref: "/tools/labour-code-calculator" },
+  },
+  {
+    slug: "section-44ada-freelancer-tax-guide",
+    title: "Section 44ADA Tax Guide for Freelancers India 2026",
+    excerpt:
+      "Complete guide to Section 44ADA presumptive taxation for Indian freelancers. ₹75L limit, 50% rule, eligible professions, advance tax, and free calculator.",
+    category: "Finance",
+    readTime: "8 min read",
+    author: "Priya Sharma",
+    lastUpdated: "June 2026",
+    cta: { toolName: "44ADA Tax Calculator", toolHref: "/tools/freelancer-tax-calculator" },
+  },
+  {
+    slug: "old-vs-new-tax-regime-comparison-2026",
+    title: "Old vs New Tax Regime India 2026 — Which Is Better?",
+    excerpt:
+      "Compare old vs new tax regime for FY 2026-27. Side-by-side tax calculation with HRA, 80C, 80D. Find out which regime saves you more money. Free tool.",
+    category: "Finance",
+    readTime: "8 min read",
+    author: "Priya Sharma",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Tax Regime Comparison", toolHref: "/tools/tax-regime-comparison" },
+  },
+  {
+    slug: "ppf-calculator-guide-india",
+    title: "PPF Calculator India 2026 — Returns, Interest & Maturity",
+    excerpt:
+      "Calculate PPF maturity amount, interest, and year-by-year returns at 7.1% rate. Understand 80C benefits, partial withdrawal, loan rules. Free PPF calculator.",
+    category: "Finance",
+    readTime: "8 min read",
+    author: "Priya Sharma",
+    lastUpdated: "June 2026",
+    cta: { toolName: "PPF Calculator", toolHref: "/tools/ppf-calculator" },
+  },
 ];
 
 export const blogPostBySlug = Object.fromEntries(
@@ -2071,6 +2115,34 @@ export const blogSeoMetadata: Record<
       "Generate random numbers in any range free online. Single or multiple picks, no-repeats option. Perfect for giveaways, games, and decisions. No signup.",
     keywords:
       "random number generator, random number picker online, giveaway winner picker, dice roller online, random integer generator",
+  },
+  "new-labour-code-2026-salary-guide": {
+    title: "New Labour Code 2026 Salary Impact — What Changes?",
+    description:
+      "How India's New Labour Code 2026 affects your take-home salary, PF, and gratuity. The 50% basic salary rule explained with real numbers. Free calculator.",
+    keywords:
+      "new labour code salary impact India 2026, labour code 2026, 50 percent basic salary rule, take home salary impact",
+  },
+  "section-44ada-freelancer-tax-guide": {
+    title: "Section 44ADA Tax Guide for Freelancers India 2026",
+    description:
+      "Complete guide to Section 44ADA presumptive taxation for Indian freelancers. ₹75L limit, 50% rule, eligible professions, advance tax, and free calculator.",
+    keywords:
+      "section 44ADA tax calculator India, 44ADA freelancer tax, presumptive taxation India, ITR-4 Sugam",
+  },
+  "old-vs-new-tax-regime-comparison-2026": {
+    title: "Old vs New Tax Regime India 2026 — Which Is Better?",
+    description:
+      "Compare old vs new tax regime for FY 2026-27. Side-by-side tax calculation with HRA, 80C, 80D. Find out which regime saves you more money. Free tool.",
+    keywords:
+      "old vs new tax regime comparison 2026, old vs new tax regime India, which tax regime is better 2026",
+  },
+  "ppf-calculator-guide-india": {
+    title: "PPF Calculator India 2026 — Returns, Interest & Maturity",
+    description:
+      "Calculate PPF maturity amount, interest, and year-by-year returns at 7.1% rate. Understand 80C benefits, partial withdrawal, loan rules. Free PPF calculator.",
+    keywords:
+      "PPF calculator India 2026, PPF maturity calculator, PPF interest rate 2026, public provident fund calculator",
   },
 };
 

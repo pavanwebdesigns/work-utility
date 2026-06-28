@@ -97,7 +97,11 @@ export type ToolSeoSlug =
   | "currency-converter"
   | "crypto-tracker"
   | "dns-lookup"
-  | "ip-lookup";
+  | "ip-lookup"
+  | "labour-code-calculator"
+  | "freelancer-tax-calculator"
+  | "tax-regime-comparison"
+  | "ppf-calculator";
 
 type ToolSeoEntry = {
   aboutTitle: string;
@@ -3974,6 +3978,114 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
       { question: "Is IP address lookup free?", answer: "Yes. WorkUtilities IP Address Lookup is free with no signup." },
     ],
     blogGuide: { href: "/blog/ip-address-lookup-guide", title: "IP address lookup guide — geolocation explained" },
+  },
+  "labour-code-calculator": {
+    aboutTitle: "About New Labour Code 2026 Salary Calculator",
+    aboutParagraphs: [
+      "Our free New Labour Code 2026 Salary Calculator shows how the 50% basic salary rule affects your monthly take-home, PF contributions, and gratuity accrual — side by side with your current salary structure.",
+      "Enter your annual CTC, current basic percentage, city type, and PF preference. Results update instantly as you type — no signup, no data stored.",
+      "Based on Code on Wages 2019 provisions (notified November 2025, enforcement from April 2026). Total CTC stays the same — only the distribution between cash and long-term benefits changes.",
+    ],
+    whenToUseTitle: "When Should You Use the Labour Code Salary Calculator?",
+    useCases: [
+      { title: "Salary restructuring preview", description: "See how a higher basic affects your payslip before HR implements changes." },
+      { title: "PF impact", description: "Estimate increased PF corpus from higher basic wages under the new code." },
+      { title: "Take-home planning", description: "Understand monthly cash reduction vs long-term retirement savings trade-off." },
+      { title: "Gratuity projection", description: "See how gratuity accrual increases with higher basic salary." },
+      { title: "HR discussions", description: "Prepare informed questions for your payroll team with exact numbers." },
+    ],
+    faqs: [
+      { question: "Will my take-home salary reduce under the New Labour Code?", answer: "For most employees whose basic salary is currently below 50% of CTC, take-home pay will decrease slightly while PF and gratuity savings increase. Total CTC remains unchanged — only the distribution between monthly cash and long-term benefits shifts." },
+      { question: "Does the 50% basic rule apply to everyone?", answer: "Yes, for all employees covered under the Code on Wages once it is implemented. However, employees whose current basic is already at or above 50% of CTC will see minimal or no change." },
+      { question: "When does the New Labour Code come into effect?", answer: "The Code on Wages was officially notified on 21 November 2025, with enforcement rolling out from April 2026. Implementation timelines vary by state as labour is a concurrent subject under the Constitution." },
+      { question: "How does the New Labour Code affect PF contributions?", answer: "PF is calculated as 12% of basic wages. Since the new code mandates a higher basic (at least 50% of CTC), PF contributions — from both employee and employer — increase, building a larger retirement corpus." },
+      { question: "Is this labour code calculator free?", answer: "Yes. WorkUtilities New Labour Code Salary Calculator is free with no signup and runs entirely in your browser." },
+    ],
+    blogGuide: {
+      href: "/blog/new-labour-code-2026-salary-guide",
+      title: "New Labour Code 2026 salary impact — 50% basic rule explained",
+    },
+  },
+  "freelancer-tax-calculator": {
+    aboutTitle: "About Section 44ADA Freelancer Tax Calculator",
+    aboutParagraphs: [
+      "Our free Section 44ADA Freelancer Tax Calculator estimates presumptive tax for specified professions in India — IT, medical, legal, architecture, CA, interior design, and film professionals.",
+      "Check eligibility (₹50L or ₹75L limit based on digital receipts), compare 44ADA vs regular books, and see effective tax rate under new or old regime instantly.",
+      "No signup, no upsell — privacy-first calculation for freelancers planning ITR-4 filing and advance tax.",
+    ],
+    whenToUseTitle: "When Should You Use the 44ADA Tax Calculator?",
+    useCases: [
+      { title: "Freelancer tax planning", description: "Estimate tax on presumptive income before filing season." },
+      { title: "Eligibility check", description: "Verify if your receipts and profession qualify for Section 44ADA." },
+      { title: "44ADA vs books", description: "Compare presumptive taxation with actual expense method." },
+      { title: "Regime selection", description: "See whether old or new regime gives lower tax under 44ADA." },
+      { title: "Advance tax reminder", description: "Plan 100% advance tax payment by 15 March under 44ADA." },
+    ],
+    faqs: [
+      { question: "What is the Section 44ADA limit for FY 2026-27?", answer: "₹75 lakhs if 95% or more of your gross receipts are through digital/banking channels. ₹50 lakhs if cash receipts exceed 5% of total receipts. If your gross receipts exceed the applicable limit, 44ADA is not available and regular taxation with books and audit applies." },
+      { question: "Can I claim 80C deductions under Section 44ADA?", answer: "Yes — deductions under Chapter VI-A (80C, 80D, 80G, etc.) are available under the old tax regime even when opting for 44ADA. Under the new tax regime, most deductions are not claimable. Choose your regime based on which gives you lower tax." },
+      { question: "Do I need to maintain books of accounts under Section 44ADA?", answer: "No — if you declare 50% or more of gross receipts as taxable income and stay within the ₹75L limit, you are exempt from maintaining books and getting a tax audit under Section 44ADA." },
+      { question: "What professions are eligible for Section 44ADA?", answer: "Specified professions under Section 44AA(1): legal practice, medical practitioners, engineers, architects, accountants (CA, CMA, CS), technical consultants, interior decorators, film artists (actors, directors, producers), and IT professionals. General consultancy and trading are not eligible." },
+      { question: "Is the 44ADA tax calculator free?", answer: "Yes. WorkUtilities Section 44ADA Freelancer Tax Calculator is free with no signup." },
+    ],
+    blogGuide: {
+      href: "/blog/section-44ada-freelancer-tax-guide",
+      title: "Section 44ADA tax guide for freelancers India 2026",
+    },
+  },
+  "tax-regime-comparison": {
+    aboutTitle: "About Old vs New Tax Regime Comparison",
+    aboutParagraphs: [
+      "Our free Old vs New Tax Regime Comparison tool calculates tax under both regimes side by side — enter your salary once and see HRA, 80C, 80D, and standard deduction impact instantly.",
+      "Unlike single-regime calculators, this tool gives a clear verdict on which regime saves you more money for FY 2026-27.",
+      "Results update in real time as you type. No signup, no ads — privacy-first tax comparison for salaried employees in India.",
+    ],
+    whenToUseTitle: "When Should You Use Tax Regime Comparison?",
+    useCases: [
+      { title: "Regime selection", description: "Decide old vs new regime before submitting Form 12BB to HR." },
+      { title: "HRA impact", description: "See how HRA exemption affects old regime tax vs zero under new regime." },
+      { title: "80C planning", description: "Understand whether your ₹1.5L 80C investments justify staying on old regime." },
+      { title: "Break-even analysis", description: "Find at what income level new regime starts winning for your profile." },
+      { title: "ITR filing prep", description: "Confirm optimal regime before filing your return." },
+    ],
+    faqs: [
+      { question: "Should I choose old or new tax regime in 2026?", answer: "It depends on your deductions. If you have significant 80C investments (PPF, ELSS, LIC), HRA in a metro city, or home loan interest, the old regime often saves more. If you have fewer deductions or income up to ₹12 lakh, the new regime's zero-tax rebate makes it advantageous." },
+      { question: "What is the standard deduction in new regime for FY 2026-27?", answer: "₹75,000 for salaried employees under the new tax regime for FY 2026-27, increased from ₹50,000. The old regime continues with ₹50,000 standard deduction." },
+      { question: "Is HRA tax exemption available in new regime?", answer: "No — HRA exemption under Section 10(13A) is only available under the old tax regime. Under the new regime, you cannot claim HRA exemption regardless of actual rent paid." },
+      { question: "What income level is better off with new regime?", answer: "For income up to ₹12 lakh, the new regime's Section 87A rebate makes tax liability zero — making it clearly better. Above ₹12 lakh, comparison depends on your specific deductions. Use the side-by-side calculator to find your exact breakeven point." },
+      { question: "Is tax regime comparison free?", answer: "Yes. WorkUtilities Old vs New Tax Regime Comparison is free with no signup." },
+    ],
+    blogGuide: {
+      href: "/blog/old-vs-new-tax-regime-comparison-2026",
+      title: "Old vs new tax regime comparison India 2026",
+    },
+  },
+  "ppf-calculator": {
+    aboutTitle: "About PPF Calculator",
+    aboutParagraphs: [
+      "Our free PPF Calculator projects maturity value, total interest earned, and a year-by-year balance table for Public Provident Fund accounts in India.",
+      "Includes partial withdrawal eligibility (from year 7), loan against PPF rules (years 3–6), and 5-year extension block simulation for tenures beyond 15 years.",
+      "Uses current 7.1% rate (Q2 FY 2026-27) — editable for future rate changes. No signup, runs entirely in your browser.",
+    ],
+    whenToUseTitle: "When Should You Use the PPF Calculator?",
+    useCases: [
+      { title: "Retirement planning", description: "Project PPF corpus at 15, 20, or 30 years with annual investments." },
+      { title: "80C planning", description: "See tax saved on PPF investments under old regime (EEE status)." },
+      { title: "Withdrawal planning", description: "Check when partial withdrawal becomes eligible and maximum amount." },
+      { title: "Loan planning", description: "Understand loan against PPF eligibility window and limits." },
+      { title: "Extension planning", description: "Model 5-year extension blocks after initial 15-year lock-in." },
+    ],
+    faqs: [
+      { question: "What is the current PPF interest rate in 2026?", answer: "The PPF interest rate for Q2 FY 2026-27 (July–September 2026) is 7.1% per annum, compounded annually. The rate is set by the government each quarter and has remained unchanged since April 2020." },
+      { question: "Can I invest more than ₹1.5 lakh in PPF per year?", answer: "No — the maximum annual investment in PPF is ₹1,50,000. Any amount above this is returned without interest. The minimum annual investment to keep the account active is ₹500." },
+      { question: "When can I withdraw money from PPF before maturity?", answer: "Partial withdrawals are allowed from the 7th financial year onwards (i.e. from the year after completing 6 full years). You can withdraw up to 50% of the balance at the end of the 4th year (or the year immediately preceding the withdrawal, whichever is lower). Only one partial withdrawal is permitted per financial year." },
+      { question: "Is PPF better than FD for tax saving?", answer: "PPF offers Exempt-Exempt-Exempt (EEE) tax status — principal invested is 80C deductible, interest is tax-free, and maturity amount is tax-free. FD interest is fully taxable at your income slab rate. For long-term tax-efficient savings, PPF generally outperforms FD especially for higher tax bracket investors, though PPF has a 15-year lock-in." },
+      { question: "Is the PPF calculator free?", answer: "Yes. WorkUtilities PPF Calculator is free with no signup." },
+    ],
+    blogGuide: {
+      href: "/blog/ppf-calculator-guide-india",
+      title: "PPF calculator India — returns, interest & maturity guide",
+    },
   },
 };
 
