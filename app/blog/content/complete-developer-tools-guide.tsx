@@ -271,6 +271,20 @@ export default function CompleteDeveloperToolsGuideContent() {
         <Link href="/tools/robots-txt-generator">robots.txt Generator</Link>.
       </p>
 
+      <h2 id="box-shadow">Box Shadow CSS Generator</h2>
+      <p>
+        Stack multi-layer <code>box-shadow</code> values for realistic card depth —
+        Apple-style presets, inset shadows, and colored glows. Use{" "}
+        <Link href="/tools/box-shadow-generator">Box Shadow CSS Generator</Link> —
+        guide:{" "}
+        <Link href="/blog/box-shadow-css-generator-guide">
+          Box shadow CSS generator guide
+        </Link>
+        . Related:{" "}
+        <Link href="/tools/glassmorphism-generator">Glassmorphism Generator</Link>,{" "}
+        <Link href="/tools/css-gradient">CSS Gradient Generator</Link>.
+      </p>
+
       <hr />
 
       <h2 id="faq">Frequently Asked Questions</h2>

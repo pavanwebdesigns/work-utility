@@ -125,6 +125,14 @@ export default function W2Vs1099TaxComparisonGuideContent() {
       <hr />
 
       <p>
+        W-2 employees should also model retirement savings with the{" "}
+        <Link href="/tools/401k-calculator">401k Calculator</Link> — guide:{" "}
+        <Link href="/blog/401k-calculator-guide-usa">401k calculator guide</Link>.
+      </p>
+
+      <hr />
+
+      <p>
         <Link href="/tools/w2-vs-1099-calculator">Calculate Your 1099 Break-Even Rate Free →</Link>
       </p>
     </article>

@@ -158,6 +158,14 @@ export default function USPaycheckCalculatorGuideContent() {
         .
       </p>
       <hr />
+      <h2>401k Retirement Planning</h2>
+      <p>
+        Maximize employer match and project your retirement balance with the{" "}
+        <Link href="/tools/401k-calculator">401k Calculator 2026</Link> — 2026 IRS
+        limits auto-applied. Guide:{" "}
+        <Link href="/blog/401k-calculator-guide-usa">401k calculator guide</Link>.
+      </p>
+      <hr />
       <h2>Frequently Asked Questions</h2>
       <script
         type="application/ld+json"

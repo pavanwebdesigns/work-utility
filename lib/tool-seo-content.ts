@@ -108,7 +108,11 @@ export type ToolSeoSlug =
   | "capital-gains-calculator"
   | "rd-calculator"
   | "glassmorphism-generator"
-  | "htaccess-generator";
+  | "htaccess-generator"
+  | "nps-calculator"
+  | "401k-calculator"
+  | "leave-encashment-calculator"
+  | "box-shadow-generator";
 
 type ToolSeoEntry = {
   aboutTitle: string;
@@ -4281,6 +4285,114 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
     blogGuide: {
       href: "/blog/htaccess-generator-guide",
       title: ".htaccess file guide 2026 — redirects, caching & security",
+    },
+  },
+  "nps-calculator": {
+    aboutTitle: "About NPS Calculator India",
+    aboutParagraphs: [
+      "Our free NPS Calculator projects National Pension System corpus at retirement, lump sum withdrawal, monthly pension, and Section 80CCD tax savings.",
+      "Adjust monthly contribution, age, expected return, annuity percentage, and annuity rate. Year-by-year growth table with old vs new regime tax callout.",
+      "No signup, runs entirely in your browser — your financial data stays private.",
+    ],
+    whenToUseTitle: "When Should You Use the NPS Calculator?",
+    useCases: [
+      { title: "Retirement planning", description: "Project NPS corpus at age 60 with market-linked return assumptions." },
+      { title: "Pension estimation", description: "See monthly pension based on annuity corpus and ASP rate." },
+      { title: "Tax savings", description: "Estimate 80CCD(1) and 80CCD(1B) deductions under old regime." },
+      { title: "Annuity vs lump sum", description: "Compare 40% to 100% annuity allocation impact." },
+      { title: "NPS vs PPF", description: "Model NPS alongside PPF and EPF for holistic retirement planning." },
+    ],
+    faqs: [
+      { question: "What is the minimum monthly contribution to NPS?", answer: "The minimum contribution to NPS Tier 1 is ₹500 per month, or ₹1,000 per year. There is no maximum limit on contributions, though tax deductions under Section 80CCD are capped at 10% of salary under 80CCD(1) and an additional ₹50,000 under 80CCD(1B)." },
+      { question: "Can I withdraw the full NPS corpus at retirement?", answer: "No — at least 40% of the NPS corpus must be used to purchase an annuity from a PFRDA-approved Annuity Service Provider (ASP) to receive a regular monthly pension. You can withdraw the remaining 60% as a tax-free lump sum at retirement." },
+      { question: "Is NPS better than PPF?", answer: "Both serve different purposes. NPS is market-linked with potentially higher returns (10-12% historically) and offers additional ₹50,000 deduction under 80CCD(1B), but has a mandatory annuity component and limited liquidity. PPF offers guaranteed 7.1% returns, complete EEE tax status, and more flexibility for partial withdrawals. For retirement planning, combining both is often recommended." },
+      { question: "Is NPS available under the new tax regime?", answer: "Under the new tax regime, only your employer's NPS contribution under Section 80CCD(2) is deductible (up to 10% of salary for private employees). Self-contributions under 80CCD(1) and the extra ₹50,000 under 80CCD(1B) are not available under the new regime." },
+      { question: "Is this calculator free?", answer: "Yes. WorkUtilities NPS Calculator is free with no signup." },
+    ],
+    blogGuide: {
+      href: "/blog/nps-calculator-guide-india",
+      title: "NPS calculator India — retirement corpus & pension guide",
+    },
+  },
+  "401k-calculator": {
+    aboutTitle: "About 401k Calculator",
+    aboutParagraphs: [
+      "Our free 401k Calculator projects retirement balance with 2026 IRS contribution limits auto-applied by age — including SECURE 2.0 super catch-up for ages 60-63.",
+      "Shows employer match impact, tax savings, year-by-year balance table, and estimated monthly retirement income using the 4% rule.",
+      "No signup, runs entirely in your browser. Privacy-first — your salary data never leaves your device.",
+    ],
+    whenToUseTitle: "When Should You Use the 401k Calculator?",
+    useCases: [
+      { title: "Retirement projection", description: "See projected 401k balance at your target retirement age." },
+      { title: "Employer match", description: "Quantify free money from employer matching contributions." },
+      { title: "Contribution planning", description: "Check if you're on track to max out 2026 IRS limits." },
+      { title: "Catch-up contributions", description: "See higher limits for ages 50+ and 60-63 super catch-up." },
+      { title: "Tax savings", description: "Estimate federal tax reduction from traditional 401k contributions." },
+    ],
+    faqs: [
+      { question: "What is the 401k contribution limit for 2026?", answer: "For 2026, employees under 50 can contribute up to $24,500. Workers aged 50-59 and 64+ can contribute $32,500 (including a $8,000 catch-up). Workers aged 60-63 can contribute up to $35,750 under the SECURE 2.0 Act's super catch-up provision. Employer matching contributions are separate and bring the combined limit to $72,000." },
+      { question: "How much should I contribute to my 401k?", answer: "At minimum, contribute enough to capture your full employer match — if your employer matches 50% of contributions up to 6% of salary, you should contribute at least 6%. Beyond that, financial advisors commonly recommend 10-15% of gross salary including the employer match. If you can, maxing out your contribution limit gives the most tax advantage." },
+      { question: "What is the employer 401k match and why does it matter?", answer: "An employer match is money your company adds to your 401k — essentially free money. A common structure is \"50% of your contributions up to 6% of salary,\" meaning if you contribute 6%, your employer adds another 3%. Not capturing the full match is equivalent to leaving part of your compensation on the table." },
+      { question: "What is the SECURE 2.0 super catch-up contribution?", answer: "Under the SECURE 2.0 Act, workers aged 60-63 can make \"super catch-up\" contributions of an additional $11,250 beyond the base limit in 2026, for a total of $35,750. This window was specifically created for workers who are behind on retirement savings and have a few peak earning years before retirement." },
+      { question: "Is this calculator free?", answer: "Yes. WorkUtilities 401k Calculator is free with no signup." },
+    ],
+    blogGuide: {
+      href: "/blog/401k-calculator-guide-usa",
+      title: "401k calculator 2026 — retirement savings guide",
+    },
+  },
+  "leave-encashment-calculator": {
+    aboutTitle: "About Leave Encashment Calculator India",
+    aboutParagraphs: [
+      "Our free Leave Encashment Calculator computes encashment amount for private and government sector formulas, with tax exemption under Budget 2023's ₹25 lakh limit.",
+      "Choose during-service (fully taxable) vs retirement/resignation (partially exempt). See exemption breakdown and net after-tax amount.",
+      "No signup, runs entirely in your browser — ideal for IT employees planning resignation.",
+    ],
+    whenToUseTitle: "When Should You Use the Leave Encashment Calculator?",
+    useCases: [
+      { title: "Resignation planning", description: "Estimate leave encashment before putting in notice." },
+      { title: "Tax planning", description: "See if encashment falls within ₹25L exemption at retirement." },
+      { title: "HR negotiation", description: "Verify company calculation against standard formulas." },
+      { title: "Full and final", description: "Understand tax on F&F settlement components." },
+      { title: "Government vs private", description: "Compare ÷26 vs ÷300 day basis formulas." },
+    ],
+    faqs: [
+      { question: "Is leave encashment taxable in India?", answer: "Leave encashment during service is fully taxable as income. Leave encashment at retirement or resignation is partially exempt — the exemption is the minimum of the actual amount received, 10 months' salary, cash equivalent of leave, or ₹25 lakhs (the limit was raised from ₹3 lakhs to ₹25 lakhs in Budget 2023)." },
+      { question: "How is leave encashment calculated for private sector employees?", answer: "For private sector employees, leave encashment is typically calculated as: (Monthly Basic Salary ÷ 26 working days) × Number of leave days to be encashed. Some companies use 30 days per month; check your employment agreement or company HR policy." },
+      { question: "What is the ₹25 lakh leave encashment exemption?", answer: "Budget 2023 raised the tax exemption limit for leave encashment at retirement or resignation from ₹3 lakhs to ₹25 lakhs for non-government employees. This exemption applies to the minimum of actual encashment received, 10 months' average salary, or ₹25 lakhs — whichever is lowest." },
+      { question: "Are casual leaves and sick leaves encashable?", answer: "Generally, only Earned Leave (EL) or Privilege Leave (PL) is eligible for encashment. Casual Leave (CL) and Sick Leave (SL) typically lapse unused and cannot be encashed, though specific rules depend on your employer's leave policy and applicable state labour laws." },
+      { question: "Is this calculator free?", answer: "Yes. WorkUtilities Leave Encashment Calculator is free with no signup." },
+    ],
+    blogGuide: {
+      href: "/blog/leave-encashment-calculator-guide-india",
+      title: "Leave encashment India — rules, tax exemption & calculation",
+    },
+  },
+  "box-shadow-generator": {
+    aboutTitle: "About Box Shadow CSS Generator",
+    aboutParagraphs: [
+      "Our free Box Shadow CSS Generator creates multi-layer shadows with up to 4 layers, live preview, and CSS + Tailwind output.",
+      "Six presets including Apple-style 3-layer shadows and colored glow effects. Preview on white, grey, dark, and gradient backgrounds.",
+      "No signup, runs entirely in your browser. Natural companion to our Glassmorphism Generator.",
+    ],
+    whenToUseTitle: "When Should You Use the Box Shadow Generator?",
+    useCases: [
+      { title: "Card elevation", description: "Add realistic depth to cards and modals." },
+      { title: "Multi-layer shadows", description: "Stack shadows like Apple and Google design systems." },
+      { title: "Inset effects", description: "Create pressed button and input field depth." },
+      { title: "Colored glows", description: "Generate accent glow effects for dark mode UIs." },
+      { title: "Tailwind projects", description: "Export arbitrary Tailwind box-shadow values." },
+    ],
+    faqs: [
+      { question: "What is a CSS box-shadow?", answer: "CSS box-shadow adds shadow effects to an element. It takes up to 6 values: horizontal offset, vertical offset, blur radius, spread radius, color, and an optional \"inset\" keyword for inner shadows. Multiple comma-separated shadows can be stacked for more realistic, layered effects." },
+      { question: "How do I create an inset shadow in CSS?", answer: 'Add the "inset" keyword before the other values: box-shadow: inset 0 2px 4px rgba(0,0,0,0.2). Inset shadows appear inside the element instead of outside, useful for creating pressed button states or depth effects on input fields.' },
+      { question: "How do multi-layer shadows work?", answer: "Multiple box-shadow values separated by commas stack on top of each other. This technique creates more realistic shadows by simulating how light in the real world produces soft, diffused shadows. Apple's design system, for example, uses 3-4 shadow layers at different blur intensities." },
+      { question: "What is the difference between box-shadow and filter:drop-shadow?", answer: "box-shadow only applies to the element's rectangular box — it doesn't follow the element's border-radius or transparent cutouts. filter:drop-shadow follows the element's actual shape, including transparency. However, box-shadow is generally more performant and better supported. Use filter:drop-shadow for non-rectangular elements like PNG icons." },
+      { question: "Is this generator free?", answer: "Yes. WorkUtilities Box Shadow CSS Generator is free with no signup." },
+    ],
+    blogGuide: {
+      href: "/blog/box-shadow-css-generator-guide",
+      title: "CSS box shadow generator — multi-layer shadow guide",
     },
   },
 };

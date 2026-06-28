@@ -1399,6 +1399,50 @@ export const blogPosts: BlogPost[] = [
     lastUpdated: "June 2026",
     cta: { toolName: ".htaccess Generator", toolHref: "/tools/htaccess-generator" },
   },
+  {
+    slug: "nps-calculator-guide-india",
+    title: "NPS Calculator India — How to Plan Your NPS Retirement",
+    excerpt:
+      "Complete NPS guide: calculate retirement corpus, monthly pension, and tax savings under Section 80CCD. Compare NPS with PPF and EPF. Free NPS calculator.",
+    category: "Finance",
+    readTime: "9 min read",
+    author: "Priya Sharma",
+    lastUpdated: "June 2026",
+    cta: { toolName: "NPS Calculator", toolHref: "/tools/nps-calculator" },
+  },
+  {
+    slug: "401k-calculator-guide-usa",
+    title: "401k Calculator 2026 — How Much Will You Have at Retirement?",
+    excerpt:
+      "Calculate your 401k balance at retirement with 2026 IRS contribution limits. Understand employer match, catch-up contributions, and the power of starting early.",
+    category: "Finance",
+    readTime: "8 min read",
+    author: "Alex Morgan",
+    lastUpdated: "June 2026",
+    cta: { toolName: "401k Calculator", toolHref: "/tools/401k-calculator" },
+  },
+  {
+    slug: "leave-encashment-calculator-guide-india",
+    title: "Leave Encashment India 2026 — Rules, Tax Exemption & Calculation",
+    excerpt:
+      "Understand leave encashment rules in India. ₹25 lakh tax exemption at retirement (Budget 2023). Calculate EL, CL, SL encashment and tax impact. Free calculator.",
+    category: "Finance",
+    readTime: "7 min read",
+    author: "Priya Sharma",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Leave Encashment Calculator", toolHref: "/tools/leave-encashment-calculator" },
+  },
+  {
+    slug: "box-shadow-css-generator-guide",
+    title: "CSS Box Shadow Generator 2026 — Multi-Layer Shadow Guide",
+    excerpt:
+      "Create CSS box shadows with live preview. Multi-layer shadows, colored glows, inset shadows explained. Copy CSS or Tailwind. Free visual generator.",
+    category: "Developer Tools",
+    readTime: "7 min read",
+    author: "Alex Morgan",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Box Shadow CSS Generator", toolHref: "/tools/box-shadow-generator" },
+  },
 ];
 
 export const blogPostBySlug = Object.fromEntries(
@@ -2269,6 +2313,34 @@ export const blogSeoMetadata: Record<
       "Learn how to create an .htaccess file for Apache servers. HTTPS redirects, browser caching, GZIP, custom error pages, and security rules explained.",
     keywords:
       "htaccess generator, htaccess redirect HTTPS, apache htaccess file, htaccess caching gzip",
+  },
+  "nps-calculator-guide-india": {
+    title: "NPS Calculator India — How to Plan Your NPS Retirement",
+    description:
+      "Complete NPS guide: calculate retirement corpus, monthly pension, and tax savings under Section 80CCD. Compare NPS with PPF and EPF. Free NPS calculator.",
+    keywords:
+      "NPS calculator India, national pension system calculator, NPS corpus calculator, NPS pension 2026",
+  },
+  "401k-calculator-guide-usa": {
+    title: "401k Calculator 2026 — How Much Will You Have at Retirement?",
+    description:
+      "Calculate your 401k balance at retirement with 2026 IRS contribution limits. Understand employer match, catch-up contributions, and the power of starting early.",
+    keywords:
+      "401k calculator 2026, retirement savings calculator, 401k contribution limit 2026, employer match calculator",
+  },
+  "leave-encashment-calculator-guide-india": {
+    title: "Leave Encashment India 2026 — Rules, Tax Exemption & Calculation",
+    description:
+      "Understand leave encashment rules in India. ₹25 lakh tax exemption at retirement (Budget 2023). Calculate EL encashment and tax impact. Free calculator.",
+    keywords:
+      "leave encashment calculator India, leave encashment tax exemption, EL encashment calculator, 25 lakh exemption",
+  },
+  "box-shadow-css-generator-guide": {
+    title: "CSS Box Shadow Generator 2026 — Multi-Layer Shadow Guide",
+    description:
+      "Create CSS box shadows with live preview. Multi-layer shadows, colored glows, inset shadows explained. Copy CSS or Tailwind. Free visual generator.",
+    keywords:
+      "box shadow CSS generator, CSS box-shadow tool, multi-layer shadow generator, Tailwind shadow",
   },
 };
 

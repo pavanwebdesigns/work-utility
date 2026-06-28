@@ -177,6 +177,31 @@ export default function CompleteSalaryTaxGuideIndiaContent() {
         .
       </p>
 
+      <h2 id="nps">NPS — Market-Linked Retirement</h2>
+      <p>
+        National Pension System offers market-linked returns with Section 80CCD
+        tax benefits and mandatory annuity at retirement. Project corpus and pension
+        with the <Link href="/tools/nps-calculator">NPS Calculator</Link>. Guide:{" "}
+        <Link href="/blog/nps-calculator-guide-india">NPS calculator guide</Link>.
+        Compare with <Link href="/tools/ppf-calculator">PPF</Link> and{" "}
+        <Link href="/tools/epf-calculator">EPF</Link>.
+      </p>
+
+      <h2 id="leave-encashment">Leave Encashment at Resignation</h2>
+      <p>
+        Unused earned leave can be encashed at exit — fully taxable during service,
+        partially exempt at retirement (up to ₹25 lakhs since Budget 2023).
+        Calculate with the{" "}
+        <Link href="/tools/leave-encashment-calculator">
+          Leave Encashment Calculator
+        </Link>
+        . Guide:{" "}
+        <Link href="/blog/leave-encashment-calculator-guide-india">
+          Leave encashment guide
+        </Link>
+        .
+      </p>
+
       <h2 id="save-tax">How to Save Income Tax Legally</h2>
       <p>
         Section 80C (₹1.5 lakh), 80D health insurance, HRA exemption, and home

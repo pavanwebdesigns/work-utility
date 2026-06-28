@@ -126,6 +126,10 @@ import CapitalGainsTaxCalculatorIndiaGuideContent from "../content/capital-gains
 import RdCalculatorGuideIndiaContent from "../content/rd-calculator-guide-india";
 import GlassmorphismCssGeneratorGuideContent from "../content/glassmorphism-css-generator-guide";
 import HtaccessGeneratorGuideContent from "../content/htaccess-generator-guide";
+import NpsCalculatorGuideIndiaContent from "../content/nps-calculator-guide-india";
+import FourOhOneKCalculatorGuideUsaContent from "../content/401k-calculator-guide-usa";
+import LeaveEncashmentCalculatorGuideIndiaContent from "../content/leave-encashment-calculator-guide-india";
+import BoxShadowCssGeneratorGuideContent from "../content/box-shadow-css-generator-guide";
 
 const contentBySlug: Record<string, () => JSX.Element> = {
   "complete-pdf-tools-guide-india": CompletePdfToolsGuideIndiaContent,
@@ -276,6 +280,10 @@ const contentBySlug: Record<string, () => JSX.Element> = {
   "rd-calculator-guide-india": RdCalculatorGuideIndiaContent,
   "glassmorphism-css-generator-guide": GlassmorphismCssGeneratorGuideContent,
   "htaccess-generator-guide": HtaccessGeneratorGuideContent,
+  "nps-calculator-guide-india": NpsCalculatorGuideIndiaContent,
+  "401k-calculator-guide-usa": FourOhOneKCalculatorGuideUsaContent,
+  "leave-encashment-calculator-guide-india": LeaveEncashmentCalculatorGuideIndiaContent,
+  "box-shadow-css-generator-guide": BoxShadowCssGeneratorGuideContent,
 };
 
 export function generateStaticParams() {

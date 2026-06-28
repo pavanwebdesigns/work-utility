@@ -13,6 +13,8 @@ export const INDIA_RULES_TOOL_SLUGS = [
   "ppf-calculator",
   "capital-gains-calculator",
   "rd-calculator",
+  "nps-calculator",
+  "leave-encashment-calculator",
 ] as const;
 
 export type IndiaRulesToolSlug = (typeof INDIA_RULES_TOOL_SLUGS)[number];
@@ -41,6 +43,10 @@ export const INDIA_RULES_BADGE_LABELS: Record<IndiaRulesToolSlug, string> = {
     "Based on Budget 2024 capital gains tax rates — FY 2025-26 & FY 2026-27",
   "rd-calculator":
     "Based on Indian banking RD rules — quarterly compounding, TDS thresholds",
+  "nps-calculator":
+    "Based on PFRDA NPS guidelines — FY 2026-27, 80CCD tax benefits",
+  "leave-encashment-calculator":
+    "Based on Indian Income Tax rules — Budget 2023 ₹25L exemption",
 };
 
 export const INDIA_RULES_CURRENCY = {
