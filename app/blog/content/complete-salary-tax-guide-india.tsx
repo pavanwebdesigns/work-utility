@@ -222,6 +222,20 @@ export default function CompleteSalaryTaxGuideIndiaContent() {
         <Link href="/tools/freelancer-tax-calculator">Freelancer Tax Calculator</Link>.
       </p>
 
+      <h2 id="professional-tax">Professional Tax — State-wise Deduction</h2>
+      <p>
+        Professional Tax is a state-level salary deduction in 18 Indian states,
+        capped at ₹2,500/year. Calculate with the{" "}
+        <Link href="/tools/professional-tax-calculator">
+          Professional Tax Calculator
+        </Link>
+        . Guide:{" "}
+        <Link href="/blog/professional-tax-calculator-guide-india">
+          Professional tax guide India
+        </Link>
+        . Related: <Link href="/tools/ctc-calculator">CTC Calculator</Link>.
+      </p>
+
       <h2 id="leave-encashment">Leave Encashment at Resignation</h2>
       <p>
         Unused earned leave can be encashed at exit — fully taxable during service,

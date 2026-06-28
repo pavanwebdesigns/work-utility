@@ -1487,6 +1487,50 @@ export const blogPosts: BlogPost[] = [
     lastUpdated: "June 2026",
     cta: { toolName: "Color Palette Generator", toolHref: "/tools/color-palette-generator" },
   },
+  {
+    slug: "professional-tax-calculator-guide-india",
+    title: "Professional Tax India 2026 — State-wise Slabs & Calculator",
+    excerpt:
+      "Professional tax slabs for all 18 Indian states for FY 2026-27. Maharashtra, Karnataka, Telangana, West Bengal rates with women's exemption and deduction rules.",
+    category: "Finance",
+    readTime: "9 min read",
+    author: "Priya Sharma",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Professional Tax Calculator", toolHref: "/tools/professional-tax-calculator" },
+  },
+  {
+    slug: "pay-stub-generator-guide-usa",
+    title: "Pay Stub Generator 2026 — Free US Paycheck Stub Creator",
+    excerpt:
+      "Create free US pay stubs online. Download as PDF instantly. Explains gross pay, deductions (FICA, federal tax), and net pay. For freelancers and small businesses.",
+    category: "Finance",
+    readTime: "8 min read",
+    author: "Alex Morgan",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Pay Stub Generator", toolHref: "/tools/pay-stub-generator" },
+  },
+  {
+    slug: "markdown-table-generator-guide",
+    title: "Markdown Table Generator — How to Create Tables in Markdown",
+    excerpt:
+      "Create Markdown tables easily with a visual editor. Learn Markdown table syntax, alignment, and how to convert CSV data to Markdown format. Free tool.",
+    category: "Developer Tools",
+    readTime: "7 min read",
+    author: "Alex Morgan",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Markdown Table Generator", toolHref: "/tools/markdown-table" },
+  },
+  {
+    slug: "http-status-codes-guide",
+    title: "HTTP Status Codes Guide 2026 — All Codes Explained",
+    excerpt:
+      "Every HTTP status code explained: 200 OK, 301 redirect, 404 not found, 401 vs 403, 429 rate limit, 502 bad gateway, 503 unavailable. With developer context.",
+    category: "Developer Tools",
+    readTime: "9 min read",
+    author: "Alex Morgan",
+    lastUpdated: "June 2026",
+    cta: { toolName: "HTTP Status Codes Reference", toolHref: "/tools/http-status-codes" },
+  },
 ];
 
 export const blogPostBySlug = Object.fromEntries(
@@ -2413,6 +2457,34 @@ export const blogSeoMetadata: Record<
       "Generate a complete Tailwind 50-950 color palette from your brand hex color. CSS variables, Tailwind config, and WCAG contrast check. Free developer tool.",
     keywords:
       "color palette generator Tailwind, Tailwind color scale generator, hex to Tailwind palette",
+  },
+  "professional-tax-calculator-guide-india": {
+    title: "Professional Tax India 2026 — State-wise Slabs & Calculator",
+    description:
+      "Professional tax slabs for all 18 Indian states for FY 2026-27. Maharashtra, Karnataka, Telangana, West Bengal rates with women's exemption and deduction rules.",
+    keywords:
+      "professional tax calculator India, PT slabs Maharashtra, professional tax Karnataka 2026",
+  },
+  "pay-stub-generator-guide-usa": {
+    title: "Pay Stub Generator 2026 — Free US Paycheck Stub Creator",
+    description:
+      "Create free US pay stubs online. Download as PDF instantly. Explains gross pay, deductions (FICA, federal tax), and net pay. For freelancers and small businesses.",
+    keywords:
+      "pay stub generator free online, paycheck stub creator, US pay stub maker 2026",
+  },
+  "markdown-table-generator-guide": {
+    title: "Markdown Table Generator — How to Create Tables in Markdown",
+    description:
+      "Create Markdown tables easily with a visual editor. Learn Markdown table syntax, alignment, and how to convert CSV data to Markdown format. Free tool.",
+    keywords:
+      "markdown table generator, CSV to markdown table, markdown table syntax",
+  },
+  "http-status-codes-guide": {
+    title: "HTTP Status Codes Guide 2026 — All Codes Explained",
+    description:
+      "Every HTTP status code explained: 200 OK, 301 redirect, 404 not found, 401 vs 403, 429 rate limit, 502 bad gateway, 503 unavailable. With developer context.",
+    keywords:
+      "HTTP status codes, 401 vs 403, 404 not found, 429 rate limit, 502 bad gateway",
   },
 };
 

@@ -166,6 +166,18 @@ export default function USPaycheckCalculatorGuideContent() {
         <Link href="/blog/401k-calculator-guide-usa">401k calculator guide</Link>.
       </p>
       <hr />
+      <h2>Pay Stub Generator — Create Reference Stubs</h2>
+      <p>
+        Need a pay stub for income documentation? Generate a reference earnings
+        statement with our free{" "}
+        <Link href="/tools/pay-stub-generator">Pay Stub Generator</Link> — runs
+        entirely in your browser with FICA auto-calculated. Guide:{" "}
+        <Link href="/blog/pay-stub-generator-guide-usa">
+          Pay stub generator guide
+        </Link>
+        .
+      </p>
+      <hr />
       <h2>Frequently Asked Questions</h2>
       <script
         type="application/ld+json"

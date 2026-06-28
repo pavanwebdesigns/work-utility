@@ -18,6 +18,7 @@ export const INDIA_RULES_TOOL_SLUGS = [
   "cagr-calculator",
   "ssy-calculator",
   "advance-tax-calculator",
+  "professional-tax-calculator",
 ] as const;
 
 export type IndiaRulesToolSlug = (typeof INDIA_RULES_TOOL_SLUGS)[number];
@@ -56,6 +57,8 @@ export const INDIA_RULES_BADGE_LABELS: Record<IndiaRulesToolSlug, string> = {
     "Based on Indian tax/labour law — SSY rules, Q1 FY2026-27 at 8.2%",
   "advance-tax-calculator":
     "Based on Indian Income Tax rules — Advance tax FY 2026-27",
+  "professional-tax-calculator":
+    "Based on Indian state Professional Tax slabs — FY 2026-27",
 };
 
 export const INDIA_RULES_CURRENCY = {

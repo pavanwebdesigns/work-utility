@@ -134,6 +134,10 @@ import CagrCalculatorGuideIndiaContent from "../content/cagr-calculator-guide-in
 import SukanyaSamriddhiYojanaCalculatorGuideContent from "../content/sukanya-samriddhi-yojana-calculator-guide";
 import AdvanceTaxCalculatorGuideIndiaContent from "../content/advance-tax-calculator-guide-india";
 import ColorPaletteGeneratorGuideContent from "../content/color-palette-generator-guide";
+import ProfessionalTaxCalculatorGuideIndiaContent from "../content/professional-tax-calculator-guide-india";
+import PayStubGeneratorGuideUsaContent from "../content/pay-stub-generator-guide-usa";
+import MarkdownTableGeneratorGuideContent from "../content/markdown-table-generator-guide";
+import HttpStatusCodesGuideContent from "../content/http-status-codes-guide";
 
 const contentBySlug: Record<string, () => JSX.Element> = {
   "complete-pdf-tools-guide-india": CompletePdfToolsGuideIndiaContent,
@@ -292,6 +296,10 @@ const contentBySlug: Record<string, () => JSX.Element> = {
   "sukanya-samriddhi-yojana-calculator-guide": SukanyaSamriddhiYojanaCalculatorGuideContent,
   "advance-tax-calculator-guide-india": AdvanceTaxCalculatorGuideIndiaContent,
   "color-palette-generator-guide": ColorPaletteGeneratorGuideContent,
+  "professional-tax-calculator-guide-india": ProfessionalTaxCalculatorGuideIndiaContent,
+  "pay-stub-generator-guide-usa": PayStubGeneratorGuideUsaContent,
+  "markdown-table-generator-guide": MarkdownTableGeneratorGuideContent,
+  "http-status-codes-guide": HttpStatusCodesGuideContent,
 };
 
 export function generateStaticParams() {

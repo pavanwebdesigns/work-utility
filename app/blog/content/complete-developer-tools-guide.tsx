@@ -300,6 +300,29 @@ export default function CompleteDeveloperToolsGuideContent() {
         <Link href="/tools/box-shadow-generator">Box Shadow Generator</Link>.
       </p>
 
+      <h2 id="markdown-table">Markdown Table Generator</h2>
+      <p>
+        Build Markdown tables with a visual grid editor or paste CSV data from Excel.
+        Use <Link href="/tools/markdown-table">Markdown Table Generator</Link> —
+        guide:{" "}
+        <Link href="/blog/markdown-table-generator-guide">
+          Markdown table generator guide
+        </Link>
+        . Related:{" "}
+        <Link href="/tools/json-formatter">JSON Formatter</Link>,{" "}
+        <Link href="/tools/markdown-to-html">Markdown to HTML</Link>.
+      </p>
+
+      <h2 id="http-status">HTTP Status Codes Reference</h2>
+      <p>
+        Searchable quick-reference for HTTP 1xx–5xx with practical developer context —
+        401 vs 403, redirects, rate limiting. Use{" "}
+        <Link href="/tools/http-status-codes">HTTP Status Codes Reference</Link> —
+        guide:{" "}
+        <Link href="/blog/http-status-codes-guide">HTTP status codes guide</Link>.
+        Related: <Link href="/tools/dns-lookup">DNS Lookup</Link>.
+      </p>
+
       <hr />
 
       <h2 id="faq">Frequently Asked Questions</h2>
