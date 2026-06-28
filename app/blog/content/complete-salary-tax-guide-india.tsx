@@ -187,6 +187,41 @@ export default function CompleteSalaryTaxGuideIndiaContent() {
         <Link href="/tools/epf-calculator">EPF</Link>.
       </p>
 
+      <h2 id="cagr">CAGR — Compare Investment Returns</h2>
+      <p>
+        CAGR annualises investment returns for fair comparison across different time
+        periods. Calculate with the{" "}
+        <Link href="/tools/cagr-calculator">CAGR Calculator</Link>. Guide:{" "}
+        <Link href="/blog/cagr-calculator-guide-india">CAGR calculator guide</Link>.
+        Related: <Link href="/tools/sip-calculator">SIP Calculator</Link>,{" "}
+        <Link href="/tools/compound-interest">Compound Interest Calculator</Link>.
+      </p>
+
+      <h2 id="ssy">SSY — Girl Child Savings</h2>
+      <p>
+        Sukanya Samriddhi Yojana offers 8.2% interest with EEE tax status for girl
+        children below 10. Project maturity with the{" "}
+        <Link href="/tools/ssy-calculator">SSY Calculator</Link>. Guide:{" "}
+        <Link href="/blog/sukanya-samriddhi-yojana-calculator-guide">
+          SSY calculator guide
+        </Link>
+        . Compare with <Link href="/tools/ppf-calculator">PPF Calculator</Link>.
+      </p>
+
+      <h2 id="advance-tax">Advance Tax — Quarterly Instalments</h2>
+      <p>
+        If net tax exceeds ₹10,000 after TDS, pay advance tax in four instalments
+        (June, September, December, March). Calculate with the{" "}
+        <Link href="/tools/advance-tax-calculator">Advance Tax Calculator</Link>.
+        Guide:{" "}
+        <Link href="/blog/advance-tax-calculator-guide-india">
+          Advance tax guide FY 2026-27
+        </Link>
+        . Related:{" "}
+        <Link href="/tools/income-tax-calculator">Income Tax Calculator</Link>,{" "}
+        <Link href="/tools/freelancer-tax-calculator">Freelancer Tax Calculator</Link>.
+      </p>
+
       <h2 id="leave-encashment">Leave Encashment at Resignation</h2>
       <p>
         Unused earned leave can be encashed at exit — fully taxable during service,

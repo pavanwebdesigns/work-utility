@@ -112,7 +112,11 @@ export type ToolSeoSlug =
   | "nps-calculator"
   | "401k-calculator"
   | "leave-encashment-calculator"
-  | "box-shadow-generator";
+  | "box-shadow-generator"
+  | "cagr-calculator"
+  | "ssy-calculator"
+  | "advance-tax-calculator"
+  | "color-palette-generator";
 
 type ToolSeoEntry = {
   aboutTitle: string;
@@ -4393,6 +4397,114 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
     blogGuide: {
       href: "/blog/box-shadow-css-generator-guide",
       title: "CSS box shadow generator — multi-layer shadow guide",
+    },
+  },
+  "cagr-calculator": {
+    aboutTitle: "About CAGR Calculator India",
+    aboutParagraphs: [
+      "Our free CAGR Calculator computes Compound Annual Growth Rate in three modes — find CAGR from initial and final values, project future value from expected CAGR, or calculate the required CAGR to reach a target.",
+      "Shows absolute return vs CAGR comparison, real CAGR after 6% inflation, Rule of 72 doubling time, and India investment benchmarks (FD, PPF, Nifty 50).",
+      "No signup, runs entirely in your browser — your financial data stays private.",
+    ],
+    whenToUseTitle: "When Should You Use the CAGR Calculator?",
+    useCases: [
+      { title: "Mutual fund returns", description: "Annualise lump-sum mutual fund returns over any period." },
+      { title: "Stock portfolio", description: "Compare stock CAGR against Nifty 50 benchmark." },
+      { title: "Goal planning", description: "Find required CAGR to reach a financial target." },
+      { title: "FD vs equity", description: "See if your returns beat fixed deposit benchmarks." },
+      { title: "Inflation-adjusted", description: "Check real purchasing-power growth after inflation." },
+    ],
+    faqs: [
+      { question: "What is a good CAGR in India?", answer: "For equity mutual funds and stocks, a CAGR of 12-15% or above over 5+ years is generally considered good, as it matches or beats the Nifty 50's historical long-term average. For fixed income instruments, 7-8% CAGR (PPF/FD range) is typical. Always compare against the relevant benchmark — a 10% CAGR large-cap fund underperforms if the benchmark delivered 14%." },
+      { question: "What is the difference between CAGR and absolute return?", answer: "Absolute return tells you total gain percentage ignoring time — if you invest ₹1 lakh and get ₹2 lakhs back, that's 100% absolute return whether it took 2 years or 10 years. CAGR tells you the annualised rate — 100% in 2 years = 41.4% CAGR (excellent), while 100% in 10 years = 7.2% CAGR (similar to a bank FD). Always use CAGR when comparing investments of different durations." },
+      { question: "Can I use CAGR for SIP investments?", answer: "No — CAGR is designed for single lump-sum investments with a fixed start and end value. For SIPs (systematic investments with multiple cash flows), use XIRR (Extended Internal Rate of Return) which accounts for different investment dates and amounts. Most mutual fund platforms show XIRR for SIP portfolios." },
+      { question: "What is the Rule of 72?", answer: "The Rule of 72 is a shortcut to estimate how many years it takes for an investment to double: divide 72 by the annual growth rate. At 12% CAGR, money doubles in 6 years. At 8% CAGR, it takes 9 years. At 6% (inflation rate), prices double in 12 years — which is why investments should earn more than inflation." },
+      { question: "Is this calculator free?", answer: "Yes. WorkUtilities CAGR Calculator is free with no signup." },
+    ],
+    blogGuide: {
+      href: "/blog/cagr-calculator-guide-india",
+      title: "CAGR calculator India — compound annual growth rate guide",
+    },
+  },
+  "ssy-calculator": {
+    aboutTitle: "About SSY Calculator",
+    aboutParagraphs: [
+      "Our free SSY Calculator projects Sukanya Samriddhi Yojana maturity with year-by-year balance, interest credited annually, and partial withdrawal at the girl's 18th birthday.",
+      "Shows total deposited, interest earned, maturity at 21 years, EEE tax benefits, and editable interest rate for future quarterly revisions.",
+      "No signup, runs entirely in your browser — your financial data stays private.",
+    ],
+    whenToUseTitle: "When Should You Use the SSY Calculator?",
+    useCases: [
+      { title: "Girl child savings", description: "Plan education and marriage corpus with government-backed returns." },
+      { title: "SSY vs PPF", description: "Compare 8.2% SSY rate against 7.1% PPF for daughter's savings." },
+      { title: "Partial withdrawal", description: "Estimate 50% withdrawal available at age 18 for higher studies." },
+      { title: "Tax planning", description: "Understand EEE status and 80C deduction up to ₹1.5 lakh." },
+      { title: "Rate changes", description: "Adjust interest rate when government revises quarterly." },
+    ],
+    faqs: [
+      { question: "What is the current SSY interest rate in 2026?", answer: "The Sukanya Samriddhi Yojana interest rate for Q1 FY2026-27 (April–June 2026) is 8.2% per annum, compounded annually. The rate is reviewed each quarter by the government and has remained at 8.2% since January 2024." },
+      { question: "How long do I need to deposit in SSY?", answer: "Deposits are required for 15 years from the date of account opening. After 15 years, no new deposits are made but the existing balance continues to earn interest until maturity at 21 years from account opening (or until the girl's marriage after age 18, whichever is earlier)." },
+      { question: "When can I withdraw from SSY?", answer: "Partial withdrawal of up to 50% of the balance at the end of the previous financial year is allowed after the girl turns 18, for educational purposes. Full withdrawal and account closure occurs at 21 years from account opening, or on the girl's marriage (subject to conditions) after she turns 18." },
+      { question: "Is SSY better than PPF for girl child savings?", answer: "SSY currently offers a higher interest rate (8.2%) than PPF (7.1%), and both offer EEE tax status. SSY is specifically for girl children with a 21-year lock-in, while PPF has a 15-year lock-in and can be extended. If you're saving specifically for a daughter's education and marriage corpus, SSY is generally better due to the higher rate and purpose-alignment." },
+      { question: "Is this calculator free?", answer: "Yes. WorkUtilities SSY Calculator is free with no signup." },
+    ],
+    blogGuide: {
+      href: "/blog/sukanya-samriddhi-yojana-calculator-guide",
+      title: "SSY calculator — Sukanya Samriddhi Yojana guide",
+    },
+  },
+  "advance-tax-calculator": {
+    aboutTitle: "About Advance Tax Calculator India",
+    aboutParagraphs: [
+      "Our free Advance Tax Calculator computes estimated tax liability and the four-instalment schedule for FY 2026-27 — June 15 (15%), September 15 (45%), December 15 (75%), and March 15 (100%).",
+      "Handles salaried employees with additional income, business/freelancers, and Section 44ADA single-payment rule. Shows eligibility check and Section 234B/234C penalty warning.",
+      "No signup, runs entirely in your browser — your income data stays private.",
+    ],
+    whenToUseTitle: "When Should You Use the Advance Tax Calculator?",
+    useCases: [
+      { title: "Rental income", description: "Salaried employees with rental or capital gains income." },
+      { title: "Freelancer tax", description: "Self-employed individuals estimating quarterly payments." },
+      { title: "44ADA compliance", description: "Check single March payment rule for presumptive taxpayers." },
+      { title: "Due date planning", description: "Know exact amounts for each quarterly instalment." },
+      { title: "Penalty avoidance", description: "Understand 234B and 234C interest for missed payments." },
+    ],
+    faqs: [
+      { question: "Who needs to pay advance tax in India?", answer: "Anyone whose estimated net tax liability for the year exceeds ₹10,000 after accounting for TDS must pay advance tax. This applies to salaried employees with additional income (rental, capital gains, interest), self-employed individuals, freelancers, and business owners. Senior citizens (60+) with no business income are exempt from advance tax." },
+      { question: "What are the advance tax due dates for FY 2026-27?", answer: "Advance tax for FY 2026-27 must be paid in four instalments: 15% by June 15, 2026; 45% by September 15, 2026; 75% by December 15, 2026; and 100% by March 15, 2027. Each instalment percentage is of the total estimated tax for the year." },
+      { question: "What is the penalty for not paying advance tax?", answer: "Missing advance tax payments attracts interest under Section 234B (1% per month on unpaid tax from April 1 of the assessment year until payment) and Section 234C (1% per month per quarter for each quarterly shortfall). These are automatically calculated in your ITR." },
+      { question: "Do freelancers under Section 44ADA need to pay quarterly advance tax?", answer: "No — taxpayers opting for presumptive taxation under Section 44ADA need to pay their entire advance tax in a single instalment by March 15 of the financial year. There are no quarterly instalment requirements under 44ADA." },
+      { question: "Is this calculator free?", answer: "Yes. WorkUtilities Advance Tax Calculator is free with no signup." },
+    ],
+    blogGuide: {
+      href: "/blog/advance-tax-calculator-guide-india",
+      title: "Advance tax India FY 2026-27 — due dates & penalties",
+    },
+  },
+  "color-palette-generator": {
+    aboutTitle: "About Color Palette Generator",
+    aboutParagraphs: [
+      "Our free Color Palette Generator creates a complete Tailwind CSS 50-950 color scale from any hex input using HSL-based tint and shade generation.",
+      "Copy tailwind.config.js or CSS custom properties output. Each shade includes WCAG AA contrast badge showing whether white or black text passes.",
+      "No signup, runs entirely in your browser. Designed for developers who need brand colors that work across Tailwind utility classes.",
+    ],
+    whenToUseTitle: "When Should You Use the Color Palette Generator?",
+    useCases: [
+      { title: "Brand colors", description: "Convert a single brand hex into a full design token scale." },
+      { title: "Tailwind projects", description: "Generate theme.extend.colors for custom palettes." },
+      { title: "CSS variables", description: "Export --color-brand-* variables for any CSS project." },
+      { title: "Accessibility", description: "Check which shades work for text on light/dark backgrounds." },
+      { title: "Design systems", description: "Create consistent hover, border, and background shades." },
+    ],
+    faqs: [
+      { question: "What is a Tailwind color scale?", answer: "Tailwind CSS uses a numeric scale from 50 (lightest) to 950 (darkest) for colors — 11 shades total. This systematic approach ensures visual consistency: shade 50 works for backgrounds, 200-300 for borders, 500 for primary actions, 700-800 for text on light backgrounds, and 900-950 for dark mode backgrounds." },
+      { question: "How do I add a custom color palette to Tailwind?", answer: "Add your custom colors in tailwind.config.js under theme.extend.colors: { yourColorName: { 50: '#hex', 100: '#hex', ..., 950: '#hex' } }. This makes classes like bg-yourColorName-100 or text-yourColorName-700 available throughout your project." },
+      { question: "What is WCAG contrast ratio and why does it matter?", answer: "WCAG (Web Content Accessibility Guidelines) contrast ratio measures the difference in lightness between text and background. A ratio of 4.5:1 or higher (AA compliance) is required for normal text, 3:1 for large text. This ensures readability for users with visual impairments and is increasingly required for legal compliance." },
+      { question: "Can I use this palette in non-Tailwind projects?", answer: "Yes — the CSS variables output (--color-brand-50 etc.) works in any CSS project. Define the variables in :root and use them as var(--color-brand-500) anywhere in your CSS or inline styles." },
+      { question: "Is this generator free?", answer: "Yes. WorkUtilities Color Palette Generator is free with no signup." },
+    ],
+    blogGuide: {
+      href: "/blog/color-palette-generator-guide",
+      title: "Color palette generator for Tailwind CSS — hex to full scale",
     },
   },
 };

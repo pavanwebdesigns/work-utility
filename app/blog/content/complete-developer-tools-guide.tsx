@@ -285,6 +285,21 @@ export default function CompleteDeveloperToolsGuideContent() {
         <Link href="/tools/css-gradient">CSS Gradient Generator</Link>.
       </p>
 
+      <h2 id="color-palette">Color Palette Generator</h2>
+      <p>
+        Turn a single brand hex into a full Tailwind 50–950 color scale with WCAG
+        contrast badges. Use{" "}
+        <Link href="/tools/color-palette-generator">Color Palette Generator</Link> —
+        guide:{" "}
+        <Link href="/blog/color-palette-generator-guide">
+          Color palette generator guide
+        </Link>
+        . Related:{" "}
+        <Link href="/tools/glassmorphism-generator">Glassmorphism Generator</Link>,{" "}
+        <Link href="/tools/css-gradient">CSS Gradient Generator</Link>,{" "}
+        <Link href="/tools/box-shadow-generator">Box Shadow Generator</Link>.
+      </p>
+
       <hr />
 
       <h2 id="faq">Frequently Asked Questions</h2>

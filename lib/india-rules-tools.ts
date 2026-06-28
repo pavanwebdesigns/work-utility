@@ -15,6 +15,9 @@ export const INDIA_RULES_TOOL_SLUGS = [
   "rd-calculator",
   "nps-calculator",
   "leave-encashment-calculator",
+  "cagr-calculator",
+  "ssy-calculator",
+  "advance-tax-calculator",
 ] as const;
 
 export type IndiaRulesToolSlug = (typeof INDIA_RULES_TOOL_SLUGS)[number];
@@ -47,6 +50,12 @@ export const INDIA_RULES_BADGE_LABELS: Record<IndiaRulesToolSlug, string> = {
     "Based on PFRDA NPS guidelines — FY 2026-27, 80CCD tax benefits",
   "leave-encashment-calculator":
     "Based on Indian Income Tax rules — Budget 2023 ₹25L exemption",
+  "cagr-calculator":
+    "Based on Indian investment return benchmarks — FY 2026-27",
+  "ssy-calculator":
+    "Based on Indian tax/labour law — SSY rules, Q1 FY2026-27 at 8.2%",
+  "advance-tax-calculator":
+    "Based on Indian Income Tax rules — Advance tax FY 2026-27",
 };
 
 export const INDIA_RULES_CURRENCY = {

@@ -1443,6 +1443,50 @@ export const blogPosts: BlogPost[] = [
     lastUpdated: "June 2026",
     cta: { toolName: "Box Shadow CSS Generator", toolHref: "/tools/box-shadow-generator" },
   },
+  {
+    slug: "cagr-calculator-guide-india",
+    title: "CAGR Calculator India — What Is CAGR & How to Use It",
+    excerpt:
+      "CAGR (Compound Annual Growth Rate) explained simply. Calculate mutual fund returns, compare investments, understand Rule of 72. With real CAGR (inflation-adjusted) concept.",
+    category: "Finance",
+    readTime: "8 min read",
+    author: "Priya Sharma",
+    lastUpdated: "June 2026",
+    cta: { toolName: "CAGR Calculator", toolHref: "/tools/cagr-calculator" },
+  },
+  {
+    slug: "sukanya-samriddhi-yojana-calculator-guide",
+    title: "SSY Calculator 2026 — Sukanya Samriddhi Yojana Returns Guide",
+    excerpt:
+      "Calculate SSY maturity amount at 8.2% interest. Understand deposit rules, partial withdrawal at 18, maturity at 21, and EEE tax benefits. Free SSY calculator.",
+    category: "Finance",
+    readTime: "9 min read",
+    author: "Priya Sharma",
+    lastUpdated: "June 2026",
+    cta: { toolName: "SSY Calculator", toolHref: "/tools/ssy-calculator" },
+  },
+  {
+    slug: "advance-tax-calculator-guide-india",
+    title: "Advance Tax India FY 2026-27 — Due Dates, Calculation & Penalties",
+    excerpt:
+      "Everything about advance tax for FY 2026-27. Who must pay, 4 instalment schedule (June/Sep/Dec/March), Section 234B/234C penalties, and 44ADA single-payment rule.",
+    category: "Finance",
+    readTime: "9 min read",
+    author: "Priya Sharma",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Advance Tax Calculator", toolHref: "/tools/advance-tax-calculator" },
+  },
+  {
+    slug: "color-palette-generator-guide",
+    title: "Color Palette Generator for Tailwind CSS — Hex to Full Scale",
+    excerpt:
+      "Generate a complete Tailwind 50-950 color palette from your brand hex color. CSS variables, Tailwind config, and WCAG contrast check. Free developer tool.",
+    category: "Developer Tools",
+    readTime: "7 min read",
+    author: "Alex Morgan",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Color Palette Generator", toolHref: "/tools/color-palette-generator" },
+  },
 ];
 
 export const blogPostBySlug = Object.fromEntries(
@@ -2341,6 +2385,34 @@ export const blogSeoMetadata: Record<
       "Create CSS box shadows with live preview. Multi-layer shadows, colored glows, inset shadows explained. Copy CSS or Tailwind. Free visual generator.",
     keywords:
       "box shadow CSS generator, CSS box-shadow tool, multi-layer shadow generator, Tailwind shadow",
+  },
+  "cagr-calculator-guide-india": {
+    title: "CAGR Calculator India 2026 — What Is CAGR & How to Use It",
+    description:
+      "CAGR (Compound Annual Growth Rate) explained simply. Calculate mutual fund returns, compare investments, understand Rule of 72. With real CAGR (inflation-adjusted) concept.",
+    keywords:
+      "CAGR calculator India, compound annual growth rate, mutual fund CAGR, Rule of 72",
+  },
+  "sukanya-samriddhi-yojana-calculator-guide": {
+    title: "SSY Calculator 2026 — Sukanya Samriddhi Yojana Returns Guide",
+    description:
+      "Calculate SSY maturity amount at 8.2% interest. Understand deposit rules, partial withdrawal at 18, maturity at 21, and EEE tax benefits. Free SSY calculator.",
+    keywords:
+      "SSY calculator, Sukanya Samriddhi Yojana calculator, SSY maturity calculator 2026",
+  },
+  "advance-tax-calculator-guide-india": {
+    title: "Advance Tax India FY 2026-27 — Due Dates, Calculation & Penalties",
+    description:
+      "Everything about advance tax for FY 2026-27. Who must pay, 4 instalment schedule (June/Sep/Dec/March), Section 234B/234C penalties, and 44ADA single-payment rule.",
+    keywords:
+      "advance tax calculator India 2026, advance tax due dates FY 2026-27, Section 234B 234C",
+  },
+  "color-palette-generator-guide": {
+    title: "Color Palette Generator for Tailwind CSS — Hex to Full Scale",
+    description:
+      "Generate a complete Tailwind 50-950 color palette from your brand hex color. CSS variables, Tailwind config, and WCAG contrast check. Free developer tool.",
+    keywords:
+      "color palette generator Tailwind, Tailwind color scale generator, hex to Tailwind palette",
   },
 };
 

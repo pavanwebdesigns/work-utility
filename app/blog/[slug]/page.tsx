@@ -130,6 +130,10 @@ import NpsCalculatorGuideIndiaContent from "../content/nps-calculator-guide-indi
 import FourOhOneKCalculatorGuideUsaContent from "../content/401k-calculator-guide-usa";
 import LeaveEncashmentCalculatorGuideIndiaContent from "../content/leave-encashment-calculator-guide-india";
 import BoxShadowCssGeneratorGuideContent from "../content/box-shadow-css-generator-guide";
+import CagrCalculatorGuideIndiaContent from "../content/cagr-calculator-guide-india";
+import SukanyaSamriddhiYojanaCalculatorGuideContent from "../content/sukanya-samriddhi-yojana-calculator-guide";
+import AdvanceTaxCalculatorGuideIndiaContent from "../content/advance-tax-calculator-guide-india";
+import ColorPaletteGeneratorGuideContent from "../content/color-palette-generator-guide";
 
 const contentBySlug: Record<string, () => JSX.Element> = {
   "complete-pdf-tools-guide-india": CompletePdfToolsGuideIndiaContent,
@@ -284,6 +288,10 @@ const contentBySlug: Record<string, () => JSX.Element> = {
   "401k-calculator-guide-usa": FourOhOneKCalculatorGuideUsaContent,
   "leave-encashment-calculator-guide-india": LeaveEncashmentCalculatorGuideIndiaContent,
   "box-shadow-css-generator-guide": BoxShadowCssGeneratorGuideContent,
+  "cagr-calculator-guide-india": CagrCalculatorGuideIndiaContent,
+  "sukanya-samriddhi-yojana-calculator-guide": SukanyaSamriddhiYojanaCalculatorGuideContent,
+  "advance-tax-calculator-guide-india": AdvanceTaxCalculatorGuideIndiaContent,
+  "color-palette-generator-guide": ColorPaletteGeneratorGuideContent,
 };
 
 export function generateStaticParams() {
