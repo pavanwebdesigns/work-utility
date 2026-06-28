@@ -151,6 +151,32 @@ export default function CompleteSalaryTaxGuideIndiaContent() {
         .
       </p>
 
+      <h2 id="capital-gains">Capital Gains Tax — STCG & LTCG</h2>
+      <p>
+        Selling shares, property, or gold triggers capital gains tax — STCG or
+        LTCG depending on holding period. Budget 2024 raised equity STCG to 20%
+        and LTCG to 12.5% with a ₹1.25 lakh exemption. Estimate tax with the{" "}
+        <Link href="/tools/capital-gains-calculator">
+          Capital Gains Tax Calculator
+        </Link>
+        . Guide:{" "}
+        <Link href="/blog/capital-gains-tax-calculator-india-guide">
+          Capital gains tax calculator India guide
+        </Link>
+        .
+      </p>
+
+      <h2 id="rd">Recurring Deposits — Monthly Savings</h2>
+      <p>
+        RD accounts enforce disciplined monthly saving with guaranteed returns
+        and quarterly compounding. Calculate maturity with the{" "}
+        <Link href="/tools/rd-calculator">RD Calculator</Link>. Guide:{" "}
+        <Link href="/blog/rd-calculator-guide-india">
+          RD calculator guide for India
+        </Link>
+        .
+      </p>
+
       <h2 id="save-tax">How to Save Income Tax Legally</h2>
       <p>
         Section 80C (₹1.5 lakh), 80D health insurance, HRA exemption, and home

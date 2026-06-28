@@ -104,7 +104,11 @@ export type ToolSeoSlug =
   | "ppf-calculator"
   | "w2-vs-1099-calculator"
   | "self-employment-tax"
-  | "robots-txt-generator";
+  | "robots-txt-generator"
+  | "capital-gains-calculator"
+  | "rd-calculator"
+  | "glassmorphism-generator"
+  | "htaccess-generator";
 
 type ToolSeoEntry = {
   aboutTitle: string;
@@ -4169,6 +4173,114 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
     blogGuide: {
       href: "/blog/robots-txt-generator-guide",
       title: "robots.txt generator guide — syntax & validation",
+    },
+  },
+  "capital-gains-calculator": {
+    aboutTitle: "About Capital Gains Tax Calculator India",
+    aboutParagraphs: [
+      "Our free Capital Gains Tax Calculator handles all major asset types in one interface — listed equity, equity MFs, property, gold, debt MFs, and unlisted shares.",
+      "Auto-classifies STCG vs LTCG based on purchase and sale dates. Shows property indexation choice for acquisitions before July 23, 2024 (Budget 2024 rules).",
+      "Uses FY 2026-27 rates unchanged from Budget 2024. No signup, runs entirely in your browser — your financial data stays private.",
+    ],
+    whenToUseTitle: "When Should You Use the Capital Gains Calculator?",
+    useCases: [
+      { title: "Equity sale planning", description: "Estimate STCG (20%) or LTCG (12.5% after ₹1.25L exemption) before selling shares." },
+      { title: "Property sale", description: "Compare 12.5% without indexation vs 20% with indexation for pre-July 2024 acquisitions." },
+      { title: "Debt MF redemption", description: "Understand slab-rate taxation on debt funds purchased after April 2023." },
+      { title: "Gold jewellery sale", description: "Calculate LTCG at 12.5% or STCG at your income slab rate." },
+      { title: "Tax planning", description: "See effective tax rate and net profit after tax before executing a sale." },
+    ],
+    faqs: [
+      { question: "What is the LTCG tax rate on equity shares in India for 2026?", answer: "Long-term capital gains on listed equity shares and equity mutual funds held for more than 12 months are taxed at 12.5% on gains exceeding ₹1.25 lakh per financial year under Section 112A. This rate was set in Budget 2024 and remains unchanged for FY 2026-27." },
+      { question: "What changed in capital gains tax after Budget 2024?", answer: "Budget 2024 made significant changes: STCG on equity rose from 15% to 20%, LTCG on equity rose from 10% to 12.5%, the annual exemption increased from ₹1 lakh to ₹1.25 lakh, and the indexation benefit was removed for most assets. These rates are unchanged for FY 2026-27." },
+      { question: "How are short-term capital gains on property taxed in India?", answer: "STCG on property sold within 24 months is added to your total income and taxed at your applicable income tax slab rate (up to 30% plus cess). There is no special flat rate for property STCG, unlike equity shares." },
+      { question: "Can I still use indexation for property sold in 2026?", answer: "Yes, but only for immovable property acquired before July 23, 2024. For such property, you can choose between paying 20% with indexation or 12.5% without — whichever results in lower tax. Property acquired on or after July 23, 2024 can only be taxed at 12.5% without indexation." },
+      { question: "Is this calculator free?", answer: "Yes. WorkUtilities Capital Gains Tax Calculator is free with no signup." },
+    ],
+    blogGuide: {
+      href: "/blog/capital-gains-tax-calculator-india-guide",
+      title: "Capital gains tax India 2026 — STCG, LTCG rates & calculator guide",
+    },
+  },
+  "rd-calculator": {
+    aboutTitle: "About RD Calculator India",
+    aboutParagraphs: [
+      "Our free RD Calculator projects recurring deposit maturity value using the standard quarterly compounding formula used by most Indian banks.",
+      "Shows total deposited, interest earned, quarter-by-quarter breakdown, TDS notes, and RD vs FD comparison for the same total investment.",
+      "Adjust monthly deposit (₹500–₹1 lakh), rate, and tenure (3 months to 10 years). No signup, runs entirely in your browser.",
+    ],
+    whenToUseTitle: "When Should You Use the RD Calculator?",
+    useCases: [
+      { title: "Monthly savings planning", description: "Project RD maturity before opening an account at your bank." },
+      { title: "RD vs FD decision", description: "Compare lump-sum FD returns vs spread RD deposits for the same total amount." },
+      { title: "Interest estimation", description: "See exact interest earned with quarterly compounding breakdown." },
+      { title: "TDS planning", description: "Understand when bank TDS applies and Form 15G/15H requirements." },
+      { title: "Tenure comparison", description: "Slide tenure from 3 months to 10 years to find optimal maturity." },
+    ],
+    faqs: [
+      { question: "How is RD interest calculated in India?", answer: "RD interest in India is calculated using quarterly compounding. The bank applies interest at one-quarter of the annual rate every three months on the running balance. The standard formula used is M = R × [(1+i)^n − 1] / [1 − (1+i)^(-1/3)], where R is monthly deposit, i is quarterly interest rate, and n is number of quarters." },
+      { question: "Is RD interest taxable in India?", answer: 'Yes — RD interest is fully taxable as "Income from Other Sources" at your applicable slab rate. Banks deduct 10% TDS if your total interest (across all deposits at that bank) exceeds ₹40,000 per year (₹50,000 for senior citizens). Submit Form 15G or 15H to avoid TDS if your total income is below the taxable limit.' },
+      { question: "Which is better — RD or FD?", answer: "If you have a lump sum available, FD typically gives slightly higher returns since the full amount earns interest from day one. If you want to save regularly from monthly income, RD is ideal — it enforces discipline and earns better returns than a regular savings account. For long-term wealth creation with market-linked returns, SIP in equity mutual funds historically outperforms both." },
+      { question: "What is the minimum deposit in an RD?", answer: "Most Indian banks allow RD deposits starting from ₹100-₹500 per month, with no maximum limit. The minimum tenure is typically 6 months, and some banks offer RD tenures up to 10 years." },
+      { question: "Is this calculator free?", answer: "Yes. WorkUtilities RD Calculator is free with no signup." },
+    ],
+    blogGuide: {
+      href: "/blog/rd-calculator-guide-india",
+      title: "RD calculator India — how recurring deposits work",
+    },
+  },
+  "glassmorphism-generator": {
+    aboutTitle: "About Glassmorphism CSS Generator",
+    aboutParagraphs: [
+      "Our free Glassmorphism CSS Generator creates frosted glass UI effects with live preview and three export formats — pure CSS, Tailwind classes, and CSS variables.",
+      "Adjust blur, transparency, saturation, color tint, border radius, border, and shadow. Six presets plus gradient, photo, and dark preview backgrounds.",
+      "Firefox @supports fallback included automatically. No signup, runs entirely in your browser.",
+    ],
+    whenToUseTitle: "When Should You Use the Glassmorphism Generator?",
+    useCases: [
+      { title: "UI card design", description: "Create frosted glass cards for dashboards and landing pages." },
+      { title: "Modal overlays", description: "Generate semi-transparent modal backgrounds with blur." },
+      { title: "Navigation bars", description: "Build Apple-style translucent nav bars with backdrop-filter." },
+      { title: "Tailwind projects", description: "Export Tailwind utility classes with arbitrary value syntax." },
+      { title: "Design tokens", description: "Export CSS variables for consistent glass styling across a design system." },
+    ],
+    faqs: [
+      { question: "What CSS property creates the glassmorphism effect?", answer: "The glassmorphism effect is primarily created by backdrop-filter: blur() combined with a semi-transparent background (rgba). The blur applies to everything behind the element, creating a frosted glass appearance. You also need a subtle border and box-shadow to give the element definition." },
+      { question: "Does glassmorphism work in Firefox?", answer: "As of 2026, Firefox has limited backdrop-filter support — it's disabled by default and requires users to enable a flag in about:config. Always implement a fallback using @supports: if backdrop-filter isn't supported, show a higher-opacity background so text remains readable without the blur effect." },
+      { question: "How do I add glassmorphism in Tailwind CSS?", answer: "Use Tailwind's backdrop utilities: backdrop-blur-md for blur, bg-white/20 for 20% opacity background, and rounded-2xl for border radius. Some custom blur values may require arbitrary syntax like [backdrop-filter:blur(16px)]. The pure CSS approach gives you more precise control." },
+      { question: "Is glassmorphism bad for performance?", answer: "backdrop-filter is GPU-intensive because each glass element requires a separate blur calculation on the GPU. Using 3-5 glass elements on a page is generally fine. Using 10+ glass elements, or animating the blur value, can cause performance issues especially on mobile. Use sparingly on key UI elements only." },
+      { question: "Is this generator free?", answer: "Yes. WorkUtilities Glassmorphism CSS Generator is free with no signup." },
+    ],
+    blogGuide: {
+      href: "/blog/glassmorphism-css-generator-guide",
+      title: "Glassmorphism CSS generator 2026 — frosted glass UI guide",
+    },
+  },
+  "htaccess-generator": {
+    aboutTitle: "About .htaccess Generator",
+    aboutParagraphs: [
+      "Our free .htaccess Generator builds Apache configuration rules with toggles for HTTPS redirect, www handling, custom error pages, browser caching, GZIP, IP blocking, and file protection.",
+      "Live preview updates as you toggle rules. Copy to clipboard or download as .htaccess instantly. Inline help explains what each rule does.",
+      "No signup, runs entirely in your browser. Note: .htaccess only works on Apache — not Nginx.",
+    ],
+    whenToUseTitle: "When Should You Use the .htaccess Generator?",
+    useCases: [
+      { title: "HTTPS migration", description: "Force all HTTP traffic to HTTPS with a permanent 301 redirect." },
+      { title: "WWW canonicalization", description: "Choose force www, remove www, or no change." },
+      { title: "Performance tuning", description: "Enable browser caching and GZIP compression for static assets." },
+      { title: "Custom error pages", description: "Route 404, 403, and 500 errors to branded pages." },
+      { title: "Basic security", description: "Block IPs, disable directory listing, protect .env files." },
+    ],
+    faqs: [
+      { question: "What is an .htaccess file?", answer: "An .htaccess file is a directory-level configuration file used on Apache web servers. It lets you configure URL redirects, browser caching, GZIP compression, custom error pages, and access controls for a specific directory, without needing to modify the main server configuration." },
+      { question: "Does .htaccess work on Nginx?", answer: "No — .htaccess is specific to Apache servers. Nginx uses server-block configuration files instead. If your hosting uses Nginx (common on modern cloud hosting), .htaccess rules will be ignored. Check with your host which web server they use." },
+      { question: "How do I redirect HTTP to HTTPS using .htaccess?", answer: 'Add these lines to your .htaccess file: "RewriteEngine On / RewriteCond %{HTTPS} off / RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]". This permanently redirects all HTTP requests to HTTPS using a 301 redirect.' },
+      { question: "Will incorrect .htaccess rules break my site?", answer: "Yes — a syntax error in .htaccess can cause a 500 Internal Server Error for your entire site or directory. Always back up your existing .htaccess before making changes, and test changes on a staging environment first. Most errors come from incorrect RewriteRule syntax or unclosed tags." },
+      { question: "Is this generator free?", answer: "Yes. WorkUtilities .htaccess Generator is free with no signup." },
+    ],
+    blogGuide: {
+      href: "/blog/htaccess-generator-guide",
+      title: ".htaccess file guide 2026 — redirects, caching & security",
     },
   },
 };

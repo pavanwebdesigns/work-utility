@@ -11,6 +11,8 @@ export const INDIA_RULES_TOOL_SLUGS = [
   "freelancer-tax-calculator",
   "tax-regime-comparison",
   "ppf-calculator",
+  "capital-gains-calculator",
+  "rd-calculator",
 ] as const;
 
 export type IndiaRulesToolSlug = (typeof INDIA_RULES_TOOL_SLUGS)[number];
@@ -35,6 +37,10 @@ export const INDIA_RULES_BADGE_LABELS: Record<IndiaRulesToolSlug, string> = {
     "Based on Indian tax/labour law — Income Tax FY 2026-27",
   "ppf-calculator":
     "Based on Indian tax/labour law — PPF rules, FY 2026-27",
+  "capital-gains-calculator":
+    "Based on Budget 2024 capital gains tax rates — FY 2025-26 & FY 2026-27",
+  "rd-calculator":
+    "Based on Indian banking RD rules — quarterly compounding, TDS thresholds",
 };
 
 export const INDIA_RULES_CURRENCY = {

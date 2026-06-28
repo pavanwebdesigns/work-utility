@@ -243,6 +243,34 @@ export default function CompleteDeveloperToolsGuideContent() {
         <Link href="/tools/cron-generator">Cron Generator</Link>.
       </p>
 
+      <h2 id="glassmorphism">Glassmorphism CSS Generator</h2>
+      <p>
+        Create frosted glass UI effects with <code>backdrop-filter</code> — export
+        pure CSS, Tailwind classes, or CSS variables with Firefox fallback. Use{" "}
+        <Link href="/tools/glassmorphism-generator">
+          Glassmorphism CSS Generator
+        </Link>{" "}
+        — guide:{" "}
+        <Link href="/blog/glassmorphism-css-generator-guide">
+          Glassmorphism CSS generator guide
+        </Link>
+        . Related:{" "}
+        <Link href="/tools/css-gradient">CSS Gradient Generator</Link>.
+      </p>
+
+      <h2 id="htaccess">.htaccess Generator</h2>
+      <p>
+        Configure Apache redirects, caching, GZIP, error pages, and security rules
+        with a directory-level <code>.htaccess</code> file. Use{" "}
+        <Link href="/tools/htaccess-generator">.htaccess Generator</Link> —
+        guide:{" "}
+        <Link href="/blog/htaccess-generator-guide">
+          .htaccess generator guide
+        </Link>
+        . Related:{" "}
+        <Link href="/tools/robots-txt-generator">robots.txt Generator</Link>.
+      </p>
+
       <hr />
 
       <h2 id="faq">Frequently Asked Questions</h2>

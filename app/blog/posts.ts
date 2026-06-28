@@ -1355,6 +1355,50 @@ export const blogPosts: BlogPost[] = [
     lastUpdated: "June 2026",
     cta: { toolName: "robots.txt Generator", toolHref: "/tools/robots-txt-generator" },
   },
+  {
+    slug: "capital-gains-tax-calculator-india-guide",
+    title: "Capital Gains Tax India 2026 — STCG, LTCG Rates & Calculator",
+    excerpt:
+      "Complete guide to STCG and LTCG tax rates in India for FY 2026-27. Equity, property, gold, debt fund taxation explained with Budget 2024 changes. Free calculator.",
+    category: "Finance",
+    readTime: "9 min read",
+    author: "Priya Sharma",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Capital Gains Tax Calculator", toolHref: "/tools/capital-gains-calculator" },
+  },
+  {
+    slug: "rd-calculator-guide-india",
+    title: "RD Calculator India — How Recurring Deposits Work 2026",
+    excerpt:
+      "Calculate RD maturity and interest online free. Understand TDS, quarterly compounding, and how RD compares to FD and SIP. Free recurring deposit calculator.",
+    category: "Finance",
+    readTime: "7 min read",
+    author: "Priya Sharma",
+    lastUpdated: "June 2026",
+    cta: { toolName: "RD Calculator", toolHref: "/tools/rd-calculator" },
+  },
+  {
+    slug: "glassmorphism-css-generator-guide",
+    title: "Glassmorphism CSS Generator 2026 — Frosted Glass UI Guide",
+    excerpt:
+      "Create frosted glass UI effects with CSS backdrop-filter. Learn glassmorphism CSS with live examples, Tailwind classes, Firefox fallback, and performance tips.",
+    category: "Developer Tools",
+    readTime: "7 min read",
+    author: "Alex Morgan",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Glassmorphism CSS Generator", toolHref: "/tools/glassmorphism-generator" },
+  },
+  {
+    slug: "htaccess-generator-guide",
+    title: ".htaccess File Guide 2026 — Redirects, Caching & Security",
+    excerpt:
+      "Learn how to create an .htaccess file for Apache servers. HTTPS redirects, browser caching, GZIP, custom error pages, and security rules explained.",
+    category: "Developer Tools",
+    readTime: "7 min read",
+    author: "Alex Morgan",
+    lastUpdated: "June 2026",
+    cta: { toolName: ".htaccess Generator", toolHref: "/tools/htaccess-generator" },
+  },
 ];
 
 export const blogPostBySlug = Object.fromEntries(
@@ -2197,6 +2241,34 @@ export const blogSeoMetadata: Record<
       "Learn how to create a robots.txt file for your website. User-agent rules, allow/disallow syntax, sitemap declaration, and common mistakes. Free generator tool.",
     keywords:
       "robots.txt generator, robots txt syntax, block GPTBot robots.txt, create robots.txt file",
+  },
+  "capital-gains-tax-calculator-india-guide": {
+    title: "Capital Gains Tax India 2026 — STCG, LTCG Rates & Calculator",
+    description:
+      "Complete guide to STCG and LTCG tax rates in India for FY 2026-27. Equity, property, gold, debt fund taxation explained with Budget 2024 changes. Free calculator.",
+    keywords:
+      "capital gains tax calculator India 2026, STCG LTCG rates India, equity LTCG tax 2026, property capital gains India",
+  },
+  "rd-calculator-guide-india": {
+    title: "RD Calculator India — How Recurring Deposits Work 2026",
+    description:
+      "Calculate RD maturity and interest online free. Understand TDS, quarterly compounding, and how RD compares to FD and SIP. Free recurring deposit calculator.",
+    keywords:
+      "RD calculator India, recurring deposit calculator, RD maturity calculator, RD vs FD",
+  },
+  "glassmorphism-css-generator-guide": {
+    title: "Glassmorphism CSS Generator 2026 — Frosted Glass UI Guide",
+    description:
+      "Create frosted glass UI effects with CSS backdrop-filter. Learn glassmorphism CSS with live examples, Tailwind classes, Firefox fallback, and performance tips.",
+    keywords:
+      "glassmorphism CSS generator, frosted glass CSS, backdrop-filter generator, Tailwind glassmorphism",
+  },
+  "htaccess-generator-guide": {
+    title: ".htaccess File Guide 2026 — Redirects, Caching & Security",
+    description:
+      "Learn how to create an .htaccess file for Apache servers. HTTPS redirects, browser caching, GZIP, custom error pages, and security rules explained.",
+    keywords:
+      "htaccess generator, htaccess redirect HTTPS, apache htaccess file, htaccess caching gzip",
   },
 };
 

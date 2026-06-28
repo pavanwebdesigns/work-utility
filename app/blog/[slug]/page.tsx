@@ -122,6 +122,10 @@ import PpfCalculatorGuideIndiaContent from "../content/ppf-calculator-guide-indi
 import W2Vs1099TaxComparisonGuideContent from "../content/w2-vs-1099-tax-comparison-guide";
 import SelfEmploymentTaxCalculatorGuideUsaContent from "../content/self-employment-tax-calculator-guide-usa";
 import RobotsTxtGeneratorGuideContent from "../content/robots-txt-generator-guide";
+import CapitalGainsTaxCalculatorIndiaGuideContent from "../content/capital-gains-tax-calculator-india-guide";
+import RdCalculatorGuideIndiaContent from "../content/rd-calculator-guide-india";
+import GlassmorphismCssGeneratorGuideContent from "../content/glassmorphism-css-generator-guide";
+import HtaccessGeneratorGuideContent from "../content/htaccess-generator-guide";
 
 const contentBySlug: Record<string, () => JSX.Element> = {
   "complete-pdf-tools-guide-india": CompletePdfToolsGuideIndiaContent,
@@ -268,6 +272,10 @@ const contentBySlug: Record<string, () => JSX.Element> = {
   "w2-vs-1099-tax-comparison-guide": W2Vs1099TaxComparisonGuideContent,
   "self-employment-tax-calculator-guide-usa": SelfEmploymentTaxCalculatorGuideUsaContent,
   "robots-txt-generator-guide": RobotsTxtGeneratorGuideContent,
+  "capital-gains-tax-calculator-india-guide": CapitalGainsTaxCalculatorIndiaGuideContent,
+  "rd-calculator-guide-india": RdCalculatorGuideIndiaContent,
+  "glassmorphism-css-generator-guide": GlassmorphismCssGeneratorGuideContent,
+  "htaccess-generator-guide": HtaccessGeneratorGuideContent,
 };
 
 export function generateStaticParams() {
