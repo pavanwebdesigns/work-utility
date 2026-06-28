@@ -1312,7 +1312,7 @@ export const blogPosts: BlogPost[] = [
     cta: { toolName: "Tax Regime Comparison", toolHref: "/tools/tax-regime-comparison" },
   },
   {
-    slug: "ppf-calculator-guide-india",
+    slug: "ppf-calculator",
     title: "PPF Calculator India 2026 — Returns, Interest & Maturity",
     excerpt:
       "Calculate PPF maturity amount, interest, and year-by-year returns at 7.1% rate. Understand 80C benefits, partial withdrawal, loan rules. Free PPF calculator.",
@@ -1321,6 +1321,39 @@ export const blogPosts: BlogPost[] = [
     author: "Priya Sharma",
     lastUpdated: "June 2026",
     cta: { toolName: "PPF Calculator", toolHref: "/tools/ppf-calculator" },
+  },
+  {
+    slug: "w2-vs-1099-tax-comparison-guide",
+    title: "W-2 vs 1099 Taxes 2026 — What's the Real Difference?",
+    excerpt:
+      "W-2 employees split FICA taxes with employers. 1099 contractors pay full 15.3% SE tax. See the complete comparison with 2026 tax rates and real numbers.",
+    category: "Finance",
+    readTime: "8 min read",
+    author: "Alex Morgan",
+    lastUpdated: "June 2026",
+    cta: { toolName: "W-2 vs 1099 Calculator", toolHref: "/tools/w2-vs-1099-calculator" },
+  },
+  {
+    slug: "self-employment-tax-calculator-guide-usa",
+    title: "Self-Employment Tax 2026 — How to Calculate & Pay Quarterly",
+    excerpt:
+      "Self-employment tax is 15.3% on 92.35% of net earnings. Calculate your SE tax, income tax, quarterly payments, and the SE tax deduction with 2026 IRS rules.",
+    category: "Finance",
+    readTime: "8 min read",
+    author: "Alex Morgan",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Self-Employment Tax Calculator", toolHref: "/tools/self-employment-tax" },
+  },
+  {
+    slug: "robots-txt-generator-guide",
+    title: "robots.txt Generator Guide — How to Write & Validate",
+    excerpt:
+      "Learn how to create a robots.txt file for your website. User-agent rules, allow/disallow syntax, sitemap declaration, and common mistakes. Free generator tool.",
+    category: "Developer Tools",
+    readTime: "7 min read",
+    author: "Alex Morgan",
+    lastUpdated: "June 2026",
+    cta: { toolName: "robots.txt Generator", toolHref: "/tools/robots-txt-generator" },
   },
 ];
 
@@ -2143,6 +2176,27 @@ export const blogSeoMetadata: Record<
       "Calculate PPF maturity amount, interest, and year-by-year returns at 7.1% rate. Understand 80C benefits, partial withdrawal, loan rules. Free PPF calculator.",
     keywords:
       "PPF calculator India 2026, PPF maturity calculator, PPF interest rate 2026, public provident fund calculator",
+  },
+  "w2-vs-1099-tax-comparison-guide": {
+    title: "W-2 vs 1099 Taxes 2026 — What's the Real Difference?",
+    description:
+      "W-2 employees split FICA taxes with employers. 1099 contractors pay full 15.3% SE tax. See the complete comparison with 2026 tax rates and real numbers.",
+    keywords:
+      "w2 vs 1099 tax calculator, 1099 vs w2 taxes, contractor tax comparison, self employment vs w2",
+  },
+  "self-employment-tax-calculator-guide-usa": {
+    title: "Self-Employment Tax 2026 — How to Calculate & Pay Quarterly",
+    description:
+      "Self-employment tax is 15.3% on 92.35% of net earnings. Calculate your SE tax, income tax, quarterly payments, and the SE tax deduction with 2026 IRS rules.",
+    keywords:
+      "self employment tax calculator 2026, 1099 tax calculator, SE tax quarterly payments, freelancer tax USA",
+  },
+  "robots-txt-generator-guide": {
+    title: "robots.txt Generator Guide — How to Write & Validate",
+    description:
+      "Learn how to create a robots.txt file for your website. User-agent rules, allow/disallow syntax, sitemap declaration, and common mistakes. Free generator tool.",
+    keywords:
+      "robots.txt generator, robots txt syntax, block GPTBot robots.txt, create robots.txt file",
   },
 };
 

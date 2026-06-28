@@ -119,6 +119,9 @@ import NewLabourCode2026SalaryGuideContent from "../content/new-labour-code-2026
 import Section44AdaFreelancerTaxGuideContent from "../content/section-44ada-freelancer-tax-guide";
 import OldVsNewTaxRegimeComparison2026Content from "../content/old-vs-new-tax-regime-comparison-2026";
 import PpfCalculatorGuideIndiaContent from "../content/ppf-calculator-guide-india";
+import W2Vs1099TaxComparisonGuideContent from "../content/w2-vs-1099-tax-comparison-guide";
+import SelfEmploymentTaxCalculatorGuideUsaContent from "../content/self-employment-tax-calculator-guide-usa";
+import RobotsTxtGeneratorGuideContent from "../content/robots-txt-generator-guide";
 
 const contentBySlug: Record<string, () => JSX.Element> = {
   "complete-pdf-tools-guide-india": CompletePdfToolsGuideIndiaContent,
@@ -262,6 +265,9 @@ const contentBySlug: Record<string, () => JSX.Element> = {
   "section-44ada-freelancer-tax-guide": Section44AdaFreelancerTaxGuideContent,
   "old-vs-new-tax-regime-comparison-2026": OldVsNewTaxRegimeComparison2026Content,
   "ppf-calculator-guide-india": PpfCalculatorGuideIndiaContent,
+  "w2-vs-1099-tax-comparison-guide": W2Vs1099TaxComparisonGuideContent,
+  "self-employment-tax-calculator-guide-usa": SelfEmploymentTaxCalculatorGuideUsaContent,
+  "robots-txt-generator-guide": RobotsTxtGeneratorGuideContent,
 };
 
 export function generateStaticParams() {

@@ -101,7 +101,10 @@ export type ToolSeoSlug =
   | "labour-code-calculator"
   | "freelancer-tax-calculator"
   | "tax-regime-comparison"
-  | "ppf-calculator";
+  | "ppf-calculator"
+  | "w2-vs-1099-calculator"
+  | "self-employment-tax"
+  | "robots-txt-generator";
 
 type ToolSeoEntry = {
   aboutTitle: string;
@@ -4085,6 +4088,87 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
     blogGuide: {
       href: "/blog/ppf-calculator-guide-india",
       title: "PPF calculator India — returns, interest & maturity guide",
+    },
+  },
+  "w2-vs-1099-calculator": {
+    aboutTitle: "About W-2 vs 1099 Tax Calculator",
+    aboutParagraphs: [
+      "Our free W-2 vs 1099 Tax Calculator shows the minimum 1099 rate needed to match your W-2 take-home pay — after self-employment tax, lost benefits, and business expenses.",
+      "Enter your W-2 salary, employer health insurance, 401(k) match, and PTO days. See side-by-side W-2 breakdown and step-by-step 1099 equivalence calculation.",
+      "Federal-only estimates using 2026 IRS brackets and FICA rules. No signup, runs entirely in your browser.",
+    ],
+    whenToUseTitle: "When Should You Use the W-2 vs 1099 Calculator?",
+    useCases: [
+      { title: "Contract rate negotiation", description: "Know your break-even 1099 rate before accepting a contract offer." },
+      { title: "Freelance transition", description: "Compare leaving a salaried job for independent contracting." },
+      { title: "Side gig planning", description: "Understand the tax gap between W-2 and 1099 income." },
+      { title: "Benefits valuation", description: "See the cash value of employer health, 401(k), and PTO." },
+      { title: "Hourly rate conversion", description: "Convert minimum 1099 annual rate to an hourly bill rate." },
+    ],
+    faqs: [
+      { question: "How much more should a 1099 contractor charge than a W-2 salary?", answer: "As a general rule, a 1099 contractor needs to earn 25-40% more than an equivalent W-2 salary to end up with the same take-home pay, after self-employment tax, lost benefits, and business expenses." },
+      { question: "Does a 1099 worker pay more tax than a W-2 employee?", answer: "Yes — 1099 contractors pay self-employment tax at 15.3% on 92.35% of net income, roughly double the 7.65% W-2 employees pay. However, 1099 workers can deduct business expenses, 50% of SE tax, and potentially 20% via QBI." },
+      { question: "What is the QBI deduction?", answer: "Section 199A allows eligible self-employed individuals to deduct up to 20% of qualified business income from taxable income. Most freelancers qualify, with phase-outs at higher income levels." },
+      { question: "How do 1099 workers pay taxes?", answer: "Through quarterly estimated tax payments — due April 15, June 17, September 16, and January 15. Required if you expect to owe more than $1,000 in federal taxes." },
+      { question: "Is this calculator free?", answer: "Yes. WorkUtilities W-2 vs 1099 Calculator is free with no signup." },
+    ],
+    blogGuide: {
+      href: "/blog/w2-vs-1099-tax-comparison-guide",
+      title: "W-2 vs 1099 tax comparison guide — 2026 rates explained",
+    },
+  },
+  "self-employment-tax": {
+    aboutTitle: "About Self-Employment Tax Calculator",
+    aboutParagraphs: [
+      "Our free Self-Employment Tax Calculator computes SE tax, federal income tax, total tax burden, and quarterly payment amounts with 2026 IRS due dates.",
+      "See step-by-step calculation: 92.35% SE tax base, Social Security cap, Medicare, SE tax deduction, standard deduction, and optional QBI.",
+      "Includes quarterly payment schedule for April, June, September, and January deadlines. No signup required.",
+    ],
+    whenToUseTitle: "When Should You Use the SE Tax Calculator?",
+    useCases: [
+      { title: "Freelancer tax planning", description: "Estimate total tax before filing season." },
+      { title: "Quarterly payments", description: "Calculate how much to pay each quarter to avoid penalties." },
+      { title: "Side income", description: "Combine W-2 wages with freelance income for accurate SE tax." },
+      { title: "SE tax deduction", description: "See how deducting 50% of SE tax reduces income tax." },
+      { title: "Effective rate", description: "Know your true tax rate on net self-employment income." },
+    ],
+    faqs: [
+      { question: "What is the self-employment tax rate for 2026?", answer: "15.3% — 12.4% Social Security plus 2.9% Medicare on 92.35% of net SE income. Social Security applies only to the first $184,500 of combined wages and SE income." },
+      { question: "Can I deduct self-employment tax?", answer: "Yes — deduct 50% of SE tax as an above-the-line deduction on Form 1040, reducing AGI." },
+      { question: "When are quarterly payments due in 2026?", answer: "April 15 (Q1), June 17 (Q2), September 16 (Q3), and January 15, 2027 (Q4)." },
+      { question: "What is the $400 SE tax threshold?", answer: "Net SE earnings below $400/year are exempt from self-employment tax." },
+      { question: "Is this calculator free?", answer: "Yes. WorkUtilities Self-Employment Tax Calculator is free with no signup." },
+    ],
+    blogGuide: {
+      href: "/blog/self-employment-tax-calculator-guide-usa",
+      title: "Self-employment tax guide USA — calculate & pay quarterly",
+    },
+  },
+  "robots-txt-generator": {
+    aboutTitle: "About robots.txt Generator",
+    aboutParagraphs: [
+      "Our free robots.txt Generator builds a valid robots.txt file with user-agent rules, allow/disallow paths, crawl-delay, and sitemap URL — with live preview.",
+      "One-click presets for WordPress, Next.js/Vercel, allow-all, block-all, and AI crawler blocking (GPTBot, CCBot).",
+      "Copy to clipboard or download as robots.txt instantly. No signup, runs entirely in your browser.",
+    ],
+    whenToUseTitle: "When Should You Use robots.txt Generator?",
+    useCases: [
+      { title: "New website launch", description: "Create a robots.txt before going live." },
+      { title: "Block admin areas", description: "Prevent crawlers from indexing /admin/ or /wp-admin/." },
+      { title: "Block AI crawlers", description: "Add GPTBot, CCBot, and Meta AI blocking rules." },
+      { title: "Next.js / Vercel", description: "Apply standard _next and /api/ disallow patterns." },
+      { title: "Sitemap declaration", description: "Add your sitemap.xml URL for search engines." },
+    ],
+    faqs: [
+      { question: "What is a robots.txt file?", answer: "A text file at your domain root that tells crawlers which pages to crawl, following the Robots Exclusion Protocol." },
+      { question: "Does robots.txt block pages from search results?", answer: "No — it prevents crawling but not indexing if other sites link to the page. Use noindex for that." },
+      { question: "How do I block GPTBot?", answer: "Add User-agent: GPTBot and Disallow: / to your robots.txt. Reputable AI companies honor this." },
+      { question: "Can I allow some pages while blocking others?", answer: "Yes — Allow rules override Disallow when both match. More specific rules take precedence." },
+      { question: "Is this generator free?", answer: "Yes. WorkUtilities robots.txt Generator is free with no signup." },
+    ],
+    blogGuide: {
+      href: "/blog/robots-txt-generator-guide",
+      title: "robots.txt generator guide — syntax & validation",
     },
   },
 };

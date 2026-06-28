@@ -143,6 +143,21 @@ export default function USPaycheckCalculatorGuideContent() {
         monthly PITI payments and amortization.
       </p>
       <hr />
+      <h2>W-2 vs 1099 — Contractor Tax Comparison</h2>
+      <p>
+        Considering freelance or contract work? W-2 employees split FICA with employers;
+        1099 contractors pay the full 15.3% self-employment tax plus cover their own
+        benefits. Find your break-even 1099 rate with the{" "}
+        <Link href="/tools/w2-vs-1099-calculator">W-2 vs 1099 Calculator</Link> and
+        estimate quarterly payments with the{" "}
+        <Link href="/tools/self-employment-tax">Self-Employment Tax Calculator</Link>.
+        Guide:{" "}
+        <Link href="/blog/w2-vs-1099-tax-comparison-guide">
+          W-2 vs 1099 tax comparison
+        </Link>
+        .
+      </p>
+      <hr />
       <h2>Frequently Asked Questions</h2>
       <script
         type="application/ld+json"

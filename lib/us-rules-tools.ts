@@ -1,6 +1,8 @@
 export const US_RULES_TOOL_SLUGS = [
   "paycheck-calculator",
   "mortgage-calculator",
+  "w2-vs-1099-calculator",
+  "self-employment-tax",
 ] as const;
 
 export type USRulesToolSlug = (typeof US_RULES_TOOL_SLUGS)[number];
@@ -10,6 +12,8 @@ export const US_RULES_BADGE_LABELS: Record<USRulesToolSlug, string> = {
     "Based on 2026 US Federal tax rules (IRS Rev. Proc. 2025-32)",
   "mortgage-calculator":
     "Calculations based on standard US mortgage conventions",
+  "w2-vs-1099-calculator": "Based on IRS 2026 guidelines",
+  "self-employment-tax": "Based on IRS 2026 guidelines",
 };
 
 export const US_RULES_CURRENCY = {

@@ -228,6 +228,21 @@ export default function CompleteDeveloperToolsGuideContent() {
         .
       </p>
 
+      <h2 id="robots">robots.txt Generator</h2>
+      <p>
+        Control which URLs search engines and bots crawl with a{" "}
+        <code>robots.txt</code> file at your site root. Block admin paths, declare
+        your sitemap, or opt out of AI training crawlers (GPTBot, CCBot). Use{" "}
+        <Link href="/tools/robots-txt-generator">robots.txt Generator</Link> —
+        guide:{" "}
+        <Link href="/blog/robots-txt-generator-guide">
+          robots.txt generator guide
+        </Link>
+        . Related:{" "}
+        <Link href="/tools/dns-lookup">DNS Lookup</Link>,{" "}
+        <Link href="/tools/cron-generator">Cron Generator</Link>.
+      </p>
+
       <hr />
 
       <h2 id="faq">Frequently Asked Questions</h2>
