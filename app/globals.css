@@ -81,6 +81,26 @@ h2 {
   }
 }
 
+/* ── Hero background layer ── */
+.hero-bg-layer {
+  min-height: 420px;
+}
+
+.hero-bg-mask {
+  mask-image: radial-gradient(
+    ellipse 75% 65% at 50% 45%,
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0.4) 45%,
+    transparent 72%
+  );
+  -webkit-mask-image: radial-gradient(
+    ellipse 75% 65% at 50% 45%,
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0.4) 45%,
+    transparent 72%
+  );
+}
+
 /* ── Hero orbit (Design A) ── */
 .hero-orbit {
   position: absolute;
@@ -88,23 +108,15 @@ h2 {
   pointer-events: none;
 }
 
-.hero-orbit-decor {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
 .hero-center-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
+  position: relative;
   z-index: 10;
   width: 100%;
   max-width: 56rem;
+  margin: 0 auto;
   padding: 0 1rem;
   text-align: center;
   pointer-events: auto;
-  transform: translate(-50%, -50%);
 }
 
 .hero-badge {
@@ -135,7 +147,7 @@ h2 {
   left: 50%;
   border-radius: 50%;
   transform: translate(-50%, -50%);
-  border: 1px solid rgba(79, 142, 247, 0.1);
+  border: 1px solid rgba(79, 142, 247, 0.06);
 }
 
 .orbit-inner-track {
@@ -233,50 +245,45 @@ h2 {
 
 .oi-i1 {
   animation: orbit-inner-cw 22s linear infinite 0s;
-  color: rgba(251, 146, 60, 0.85);
+  color: rgba(251, 146, 60, 0.65);
 }
 .oi-i2 {
   animation: orbit-inner-cw 22s linear infinite -5.5s;
-  color: rgba(79, 142, 247, 0.9);
+  color: rgba(79, 142, 247, 0.7);
 }
 .oi-i3 {
   animation: orbit-inner-cw 22s linear infinite -11s;
-  color: rgba(52, 211, 153, 0.85);
+  color: rgba(52, 211, 153, 0.65);
 }
 .oi-i4 {
   animation: orbit-inner-cw 22s linear infinite -16.5s;
-  color: rgba(167, 139, 250, 0.9);
+  color: rgba(167, 139, 250, 0.7);
 }
 
 .oi-o1 {
   animation: orbit-outer-ccw 36s linear infinite 0s;
-  color: rgba(52, 211, 153, 0.75);
+  color: rgba(52, 211, 153, 0.55);
 }
 .oi-o2 {
   animation: orbit-outer-ccw 36s linear infinite -9s;
-  color: rgba(251, 191, 36, 0.8);
+  color: rgba(251, 191, 36, 0.6);
 }
 .oi-o3 {
   animation: orbit-outer-ccw 36s linear infinite -18s;
-  color: rgba(244, 114, 182, 0.8);
+  color: rgba(244, 114, 182, 0.6);
 }
 .oi-o4 {
   animation: orbit-outer-ccw 36s linear infinite -27s;
-  color: rgba(79, 142, 247, 0.75);
+  color: rgba(79, 142, 247, 0.55);
 }
 
 /* ── Hero waterfall (Design B) ── */
 .hero-waterfall {
   position: absolute;
   inset: 0;
-  pointer-events: none;
-}
-
-.hero-waterfall-cols {
-  position: absolute;
-  inset: 0;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  pointer-events: none;
 }
 
 .wf-col {
@@ -365,13 +372,11 @@ h2 {
 }
 
 .wf-panel {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  z-index: 20;
-  width: calc(100% - 2rem);
+  position: relative;
+  z-index: 10;
+  width: 100%;
   max-width: 42rem;
-  transform: translate(-50%, -50%);
+  margin: 0 auto;
   background: rgba(6, 9, 26, 0.88);
   border: 1px solid rgba(79, 142, 247, 0.18);
   border-radius: 20px;
@@ -429,7 +434,7 @@ h2 {
     width: 20px;
     height: 20px;
   }
-  .hero-waterfall-cols {
+  .hero-waterfall {
     grid-template-columns: repeat(2, 1fr);
   }
   .wf-col-3,

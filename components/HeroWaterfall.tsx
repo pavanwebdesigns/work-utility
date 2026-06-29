@@ -30,7 +30,6 @@ import {
   TrendingUp,
   type LucideIcon,
 } from "lucide-react";
-import { HeroCenterContent } from "@/components/HeroCenterContent";
 
 type WaterfallTool = {
   icon: string;
@@ -150,13 +149,10 @@ function WaterfallColumn({
 export default function HeroWaterfall() {
   return (
     <div className="hero-waterfall">
-      <div className="hero-waterfall-cols" aria-hidden="true">
-        <WaterfallColumn tools={PDF_TOOLS} className="wf-col-1" />
-        <WaterfallColumn tools={IMAGE_TOOLS} className="wf-col-2" />
-        <WaterfallColumn tools={FINANCE_TOOLS} className="wf-col-3" />
-        <WaterfallColumn tools={DEV_TOOLS} className="wf-col-4" />
-      </div>
-      <HeroCenterContent glass />
+      <WaterfallColumn tools={PDF_TOOLS} className="wf-col-1" />
+      <WaterfallColumn tools={IMAGE_TOOLS} className="wf-col-2" />
+      <WaterfallColumn tools={FINANCE_TOOLS} className="wf-col-3" />
+      <WaterfallColumn tools={DEV_TOOLS} className="wf-col-4" />
     </div>
   );
 }

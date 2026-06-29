@@ -9,7 +9,6 @@ import {
   Table,
   type LucideIcon,
 } from "lucide-react";
-import { HeroCenterContent } from "@/components/HeroCenterContent";
 
 const INNER_ICONS = [
   { Icon: FileText, label: "PDF", className: "oi-i1" },
@@ -45,24 +44,20 @@ function OrbitIcon({
 export default function HeroOrbit() {
   return (
     <div className="hero-orbit">
-      <div className="hero-orbit-decor" aria-hidden="true">
-        <div className="orbit-track orbit-inner-track" />
-        <div className="orbit-track orbit-outer-track" />
+      <div className="orbit-track orbit-inner-track" />
+      <div className="orbit-track orbit-outer-track" />
 
-        <div className="orbit-pivot">
-          {INNER_ICONS.map((item) => (
-            <OrbitIcon key={item.className} {...item} />
-          ))}
-        </div>
-
-        <div className="orbit-pivot">
-          {OUTER_ICONS.map((item) => (
-            <OrbitIcon key={item.className} {...item} />
-          ))}
-        </div>
+      <div className="orbit-pivot">
+        {INNER_ICONS.map((item) => (
+          <OrbitIcon key={item.className} {...item} />
+        ))}
       </div>
 
-      <HeroCenterContent glass={false} />
+      <div className="orbit-pivot">
+        {OUTER_ICONS.map((item) => (
+          <OrbitIcon key={item.className} {...item} />
+        ))}
+      </div>
     </div>
   );
 }

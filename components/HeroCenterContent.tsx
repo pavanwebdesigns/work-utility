@@ -36,7 +36,7 @@ export function HeroCenterContent({ glass = false }: { glass?: boolean }) {
           Browse all tools →
         </Link>
       </div>
-      <div className="mt-6 flex flex-wrap justify-center gap-2">
+      <div className="mt-6 flex flex-wrap justify-center gap-2 pb-2">
         <span className="mr-1 text-xs text-content-muted">Popular:</span>
         {[
           { label: "Compress PDF", href: "/tools/pdf-compress" },

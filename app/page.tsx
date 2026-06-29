@@ -3,7 +3,7 @@ import { Package, Shield, Zap } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { HomePageTools } from "@/components/HomePageTools";
-import HeroAnimation from "@/components/HeroAnimation";
+import HeroSection from "@/components/HeroSection";
 import {
   getBlogPostsForListing,
   getCategoryBadgeClass,
@@ -95,10 +95,7 @@ export default function HomePage() {
       <Header />
 
       <main id="main-content" className="flex-1 min-w-0 overflow-x-hidden">
-        <section className="relative min-h-[520px] overflow-hidden bg-surface-base px-4 pb-[60px] pt-12 sm:px-10">
-          <HeroAnimation />
-          <div className="pointer-events-none absolute inset-x-4 bottom-16 z-10 mx-auto max-w-3xl hero-gradient-line sm:inset-x-10" />
-        </section>
+        <HeroSection />
 
         <WhyWorkUtilities />
 
