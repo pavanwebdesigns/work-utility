@@ -162,8 +162,14 @@ export default function USPaycheckCalculatorGuideContent() {
       <p>
         Maximize employer match and project your retirement balance with the{" "}
         <Link href="/tools/401k-calculator">401k Calculator 2026</Link> — 2026 IRS
-        limits auto-applied. Guide:{" "}
-        <Link href="/blog/401k-calculator-guide-usa">401k calculator guide</Link>.
+        limits auto-applied. Compare Traditional vs Roth with the{" "}
+        <Link href="/tools/401k-vs-roth-ira">401k vs Roth IRA Calculator</Link>.
+        Guides:{" "}
+        <Link href="/blog/401k-calculator-guide-usa">401k calculator guide</Link>,{" "}
+        <Link href="/blog/401k-vs-roth-ira-guide-usa">
+          401k vs Roth IRA guide
+        </Link>
+        .
       </p>
       <hr />
       <h2>Pay Stub Generator — Create Reference Stubs</h2>

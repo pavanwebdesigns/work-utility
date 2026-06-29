@@ -233,7 +233,39 @@ export default function CompleteSalaryTaxGuideIndiaContent() {
         <Link href="/blog/professional-tax-calculator-guide-india">
           Professional tax guide India
         </Link>
-        . Related: <Link href="/tools/ctc-calculator">CTC Calculator</Link>.
+        . Related: <Link href="/tools/ctc-calculator">CTC Calculator</Link>,{" "}
+        <Link href="/tools/esi-calculator">ESI Calculator</Link>.
+      </p>
+
+      <h2 id="bonus">Statutory Bonus — Payment of Bonus Act</h2>
+      <p>
+        Employees earning ≤ ₹21,000/month are eligible for statutory bonus (8.33%
+        minimum, 20% maximum on ₹7,000 wage ceiling). Calculate with the{" "}
+        <Link href="/tools/bonus-calculator">Bonus Calculator India</Link>.
+        Guide:{" "}
+        <Link href="/blog/bonus-calculator-guide-india">
+          Bonus calculator guide
+        </Link>
+        .
+      </p>
+
+      <h2 id="esi">ESI — Employee State Insurance</h2>
+      <p>
+        ESI applies to gross wages ≤ ₹21,000/month — employee 0.75%, employer
+        3.25%. Calculate contributions with the{" "}
+        <Link href="/tools/esi-calculator">ESI Calculator</Link>. Guide:{" "}
+        <Link href="/blog/esi-calculator-guide-india">ESI calculator guide</Link>
+        . Related: <Link href="/tools/epf-calculator">EPF Calculator</Link>.
+      </p>
+
+      <h2 id="swp">SWP — Systematic Withdrawal Plan</h2>
+      <p>
+        SWP provides regular income from mutual fund corpus in retirement. See how
+        long your corpus lasts or how much you need with the{" "}
+        <Link href="/tools/swp-calculator">SWP Calculator</Link>. Guide:{" "}
+        <Link href="/blog/swp-calculator-guide-india">SWP calculator guide</Link>
+        . Related: <Link href="/tools/sip-calculator">SIP Calculator</Link>,{" "}
+        <Link href="/tools/fd-calculator">FD Calculator</Link>.
       </p>
 
       <h2 id="leave-encashment">Leave Encashment at Resignation</h2>

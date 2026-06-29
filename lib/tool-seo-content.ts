@@ -120,7 +120,11 @@ export type ToolSeoSlug =
   | "professional-tax-calculator"
   | "pay-stub-generator"
   | "markdown-table"
-  | "http-status-codes";
+  | "http-status-codes"
+  | "401k-vs-roth-ira"
+  | "bonus-calculator"
+  | "esi-calculator"
+  | "swp-calculator";
 
 type ToolSeoEntry = {
   aboutTitle: string;
@@ -4617,6 +4621,114 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
     blogGuide: {
       href: "/blog/http-status-codes-guide",
       title: "HTTP status codes guide — all codes explained",
+    },
+  },
+  "401k-vs-roth-ira": {
+    aboutTitle: "About 401k vs Roth IRA Calculator",
+    aboutParagraphs: [
+      "Our free 401k vs Roth IRA Calculator compares Traditional 401k, Roth 401k, and Roth IRA side by side — showing tax savings today, future balance, withdrawal taxes, and net retirement money.",
+      "Dynamic verdict box tells you whether Roth or Traditional wins based on your current vs retirement tax bracket. Highlights Roth 401k no-RMD benefit since SECURE 2.0 (2024).",
+      "No signup, runs entirely in your browser — your financial data stays private.",
+    ],
+    whenToUseTitle: "When Should You Use the 401k vs Roth IRA Calculator?",
+    useCases: [
+      { title: "Tax bracket planning", description: "Decide whether to pay taxes now or defer to retirement." },
+      { title: "Roth 401k vs Traditional", description: "Compare employer plan options with same contribution limits." },
+      { title: "Roth IRA eligibility", description: "See Roth IRA limits and income phase-out thresholds." },
+      { title: "RMD planning", description: "Understand Traditional 401k RMDs vs Roth no-RMD advantage." },
+      { title: "Tax diversification", description: "Model splitting contributions between account types." },
+    ],
+    faqs: [
+      { question: "Should I choose a Traditional 401k or Roth 401k?", answer: "If you expect to be in a higher tax bracket in retirement than you are now, Roth is better (pay taxes now at the lower rate). If you expect to be in a lower bracket in retirement, Traditional is better (defer taxes until the lower rate). If you're unsure, splitting contributions between both provides tax diversification." },
+      { question: "What is the 401k contribution limit for 2026?", answer: "The 2026 limit is $24,500 for employees under 50 (up from $23,500 in 2025). Workers aged 50-59 and 64+ can contribute $32,500. Workers aged 60-63 can contribute $35,750 under SECURE 2.0's super catch-up provision." },
+      { question: "Does Roth 401k have Required Minimum Distributions?", answer: "No — as of 2024, Roth 401(k) plans are no longer subject to Required Minimum Distributions (RMDs) during the account holder's lifetime. This change, made under the SECURE 2.0 Act, eliminated a key disadvantage the Roth 401(k) previously had versus the Roth IRA, which has never had RMDs." },
+      { question: "What is the Roth IRA income limit for 2026?", answer: "For 2026, Roth IRA contributions phase out between $150,000-$168,000 for single filers, and $236,000-$252,000 for married filing jointly. Above these limits, you cannot contribute directly to a Roth IRA but may be able to use the Backdoor Roth strategy." },
+      { question: "Is this calculator free?", answer: "Yes. WorkUtilities 401k vs Roth IRA Calculator is free with no signup." },
+    ],
+    blogGuide: {
+      href: "/blog/401k-vs-roth-ira-guide-usa",
+      title: "401k vs Roth IRA 2026 — which retirement account wins",
+    },
+  },
+  "bonus-calculator": {
+    aboutTitle: "About Bonus Calculator India",
+    aboutParagraphs: [
+      "Our free Bonus Calculator computes statutory bonus under the Payment of Bonus Act, 1965 — with eligibility check, ₹7,000 wage ceiling, and minimum 8.33% / maximum 20% rates shown simultaneously.",
+      "Prorates bonus for part-year employees and distinguishes statutory bonus from ex-gratia payments for salaries above ₹21,000/month.",
+      "No signup, runs entirely in your browser — your salary data stays private.",
+    ],
+    whenToUseTitle: "When Should You Use the Bonus Calculator?",
+    useCases: [
+      { title: "Statutory bonus check", description: "Verify if you're eligible under Payment of Bonus Act." },
+      { title: "Wage ceiling", description: "Understand why bonus is calculated on ₹7,000 max." },
+      { title: "Min vs max bonus", description: "See 8.33% minimum and 20% maximum simultaneously." },
+      { title: "Part-year employment", description: "Prorate bonus for months worked in the year." },
+      { title: "Ex-gratia bonus", description: "Know when employer bonus is discretionary, not statutory." },
+    ],
+    faqs: [
+      { question: "Who is eligible for statutory bonus in India?", answer: "Employees drawing a monthly salary of ₹21,000 or less who have worked for at least 30 working days in the financial year are eligible for statutory bonus under the Payment of Bonus Act, 1965. This applies to establishments with 20 or more employees." },
+      { question: "How is bonus calculated under the Payment of Bonus Act?", answer: "Bonus is calculated on the lower of your actual salary or ₹7,000 per month (the wage ceiling). Minimum bonus is 8.33% of this amount for the year (approximately ₹7,000 annually at ₹7,000/month ceiling). Maximum bonus is 20% (₹16,800 annually at ₹7,000/month). The actual percentage depends on your company's allocable surplus." },
+      { question: "Why is the bonus calculated on ₹7,000 even if my salary is higher?", answer: "The Payment of Bonus Act sets a wage ceiling of ₹7,000/month for bonus calculation purposes. This ceiling was set in the 2015 amendment and has not been revised since. It means employees earning more than ₹7,000 have their bonus calculated as if their salary were ₹7,000, regardless of their actual pay." },
+      { question: "Is bonus taxable in India?", answer: "Yes — bonus received from your employer is fully taxable as salary income under the Income Tax Act. It is added to your total income for the year and taxed at your applicable slab rate. TDS may be deducted by your employer on the bonus amount." },
+      { question: "Is this calculator free?", answer: "Yes. WorkUtilities Bonus Calculator is free with no signup." },
+    ],
+    blogGuide: {
+      href: "/blog/bonus-calculator-guide-india",
+      title: "Bonus calculator India — Payment of Bonus Act explained",
+    },
+  },
+  "esi-calculator": {
+    aboutTitle: "About ESI Calculator India",
+    aboutParagraphs: [
+      "Our free ESI Calculator computes Employee State Insurance contributions — employee 0.75% and employer 3.25% of gross wages — with eligibility check for the ₹21,000 wage ceiling.",
+      "Shows monthly and annual contributions, estimated net take-home impact, and explains ESI medical and social security benefits.",
+      "No signup, runs entirely in your browser — your salary data stays private.",
+    ],
+    whenToUseTitle: "When Should You Use the ESI Calculator?",
+    useCases: [
+      { title: "ESI eligibility", description: "Check if your wages fall under the ₹21,000 ceiling." },
+      { title: "Contribution split", description: "See employee vs employer ESI amounts." },
+      { title: "Net salary impact", description: "Estimate take-home after ESI, PT, and EPF." },
+      { title: "Disabled employees", description: "Extended ₹25,000 ceiling for disabled workers." },
+      { title: "Employer cost", description: "Understand total ESI cost to employer." },
+    ],
+    faqs: [
+      { question: "What is the ESI contribution rate in India for 2026?", answer: "The ESI contribution rates for FY 2026-27 are 0.75% of gross wages by the employee and 3.25% by the employer, totaling 4%. These rates were reduced from 1.75% (employee) and 4.75% (employer) in 2019 and have remained unchanged since." },
+      { question: "What is the ESI wage ceiling for FY 2026-27?", answer: "Employees earning gross wages up to ₹21,000 per month (₹25,000 for employees with disability) are covered under ESI. Employers of establishments with 10 or more employees in most sectors must register for ESI." },
+      { question: "Is ESI deducted from Basic or Gross salary?", answer: "ESI is calculated on gross wages — which includes basic salary, dearness allowance (DA), HRA, and most monthly allowances. One-time payments like bonuses and overtime wages above a threshold may or may not be included depending on the ESIC guidelines applicable." },
+      { question: "What happens to my ESI if my salary exceeds ₹21,000 mid-year?", answer: "If your salary crosses the ₹21,000 ceiling mid-contribution period (April-September or October-March), ESI contributions continue until the end of that contribution period. From the next contribution period onwards, you are no longer covered if your salary remains above the ceiling." },
+      { question: "Is this calculator free?", answer: "Yes. WorkUtilities ESI Calculator is free with no signup." },
+    ],
+    blogGuide: {
+      href: "/blog/esi-calculator-guide-india",
+      title: "ESI calculator India — ESIC contribution rates & benefits",
+    },
+  },
+  "swp-calculator": {
+    aboutTitle: "About SWP Calculator India",
+    aboutParagraphs: [
+      "Our free SWP Calculator has two modes — how long your corpus lasts with monthly withdrawals, or how much corpus you need for a target monthly income over a set period.",
+      "Shows year-by-year depletion table, SVG corpus chart, FD comparison insight, and capital gains tax notes for equity vs debt fund withdrawals.",
+      "No signup, runs entirely in your browser — your financial data stays private.",
+    ],
+    whenToUseTitle: "When Should You Use the SWP Calculator?",
+    useCases: [
+      { title: "Retirement income", description: "Plan monthly withdrawals from mutual fund corpus." },
+      { title: "Corpus needed", description: "Find how much to invest for ₹25,000/month income." },
+      { title: "SWP vs FD", description: "Compare systematic withdrawal vs fixed deposit interest." },
+      { title: "Self-sustaining corpus", description: "Check if returns exceed withdrawals indefinitely." },
+      { title: "Early retirement", description: "Model corpus depletion over 20+ year horizon." },
+    ],
+    faqs: [
+      { question: "How does SWP work in mutual funds?", answer: "In a Systematic Withdrawal Plan (SWP), you withdraw a fixed amount from your mutual fund corpus every month. The remaining corpus continues to be invested and earns returns. If the returns are higher than your withdrawals, the corpus can grow indefinitely. If withdrawals exceed returns, the corpus gradually depletes." },
+      { question: "How much corpus do I need for SWP of ₹25,000 per month?", answer: "At an 8% annual return expectation over 20 years, you would need approximately ₹30 lakhs in corpus to sustain ₹25,000/month withdrawals. If you want the corpus to last indefinitely (self-sustaining), you need corpus × 8%/12 ≥ ₹25,000, meaning a corpus of at least ₹37.5 lakhs." },
+      { question: "Is SWP from mutual funds taxable?", answer: "Yes — each SWP withdrawal that results in gains is subject to capital gains tax. For equity mutual funds held over 12 months: 12.5% LTCG on gains above ₹1.25 lakh annually. For equity held under 12 months: 20% STCG. For debt mutual funds: gains taxed at your income slab rate regardless of holding period." },
+      { question: "SWP or FD interest — which is better for retirement income?", answer: "FD interest preserves the principal (never depletes) but returns are fixed at 7-7.5% and fully taxable. SWP from equity mutual funds can potentially generate higher returns (8-12% historically) but the corpus depletes over time unless returns exceed withdrawals. SWP from balanced or hybrid funds offers a middle ground of growth potential with lower volatility." },
+      { question: "Is this calculator free?", answer: "Yes. WorkUtilities SWP Calculator is free with no signup." },
+    ],
+    blogGuide: {
+      href: "/blog/swp-calculator-guide-india",
+      title: "SWP calculator India — systematic withdrawal plan guide",
     },
   },
 };

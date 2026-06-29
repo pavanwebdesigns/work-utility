@@ -1531,6 +1531,50 @@ export const blogPosts: BlogPost[] = [
     lastUpdated: "June 2026",
     cta: { toolName: "HTTP Status Codes Reference", toolHref: "/tools/http-status-codes" },
   },
+  {
+    slug: "401k-vs-roth-ira-guide-usa",
+    title: "401k vs Roth IRA 2026 — Which Retirement Account Wins?",
+    excerpt:
+      "Traditional 401k vs Roth 401k vs Roth IRA explained for 2026. Tax bracket math, 2026 contribution limits, Roth 401k RMD elimination, and when each wins. Free calculator.",
+    category: "Finance",
+    readTime: "10 min read",
+    author: "Alex Morgan",
+    lastUpdated: "June 2026",
+    cta: { toolName: "401k vs Roth IRA Calculator", toolHref: "/tools/401k-vs-roth-ira" },
+  },
+  {
+    slug: "bonus-calculator-guide-india",
+    title: "Bonus Calculator India 2026 — Payment of Bonus Act Explained",
+    excerpt:
+      "How is salary bonus calculated in India? Payment of Bonus Act 1965 rules, ₹21,000 eligibility limit, ₹7,000 wage ceiling, 8.33% minimum, 20% maximum. Free calculator.",
+    category: "Finance",
+    readTime: "9 min read",
+    author: "Priya Sharma",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Bonus Calculator", toolHref: "/tools/bonus-calculator" },
+  },
+  {
+    slug: "esi-calculator-guide-india",
+    title: "ESI Calculator India 2026 — ESIC Contribution Rates & Benefits",
+    excerpt:
+      "Calculate Employee State Insurance (ESI) contributions for FY 2026-27. ₹21,000 wage ceiling, 0.75% employee + 3.25% employer rates, ESI benefits explained. Free.",
+    category: "Finance",
+    readTime: "9 min read",
+    author: "Priya Sharma",
+    lastUpdated: "June 2026",
+    cta: { toolName: "ESI Calculator", toolHref: "/tools/esi-calculator" },
+  },
+  {
+    slug: "swp-calculator-guide-india",
+    title: "SWP Calculator India 2026 — Systematic Withdrawal Plan Guide",
+    excerpt:
+      "How does SWP work? Calculate corpus needed for ₹25,000/month retirement income. Compare SWP vs FD interest. LTCG tax on SWP explained. Free calculator.",
+    category: "Finance",
+    readTime: "10 min read",
+    author: "Priya Sharma",
+    lastUpdated: "June 2026",
+    cta: { toolName: "SWP Calculator", toolHref: "/tools/swp-calculator" },
+  },
 ];
 
 export const blogPostBySlug = Object.fromEntries(
@@ -2485,6 +2529,34 @@ export const blogSeoMetadata: Record<
       "Every HTTP status code explained: 200 OK, 301 redirect, 404 not found, 401 vs 403, 429 rate limit, 502 bad gateway, 503 unavailable. With developer context.",
     keywords:
       "HTTP status codes, 401 vs 403, 404 not found, 429 rate limit, 502 bad gateway",
+  },
+  "401k-vs-roth-ira-guide-usa": {
+    title: "401k vs Roth IRA 2026 — Which Retirement Account Wins?",
+    description:
+      "Traditional 401k vs Roth 401k vs Roth IRA explained for 2026. Tax bracket math, 2026 contribution limits, Roth 401k RMD elimination, and when each wins. Free calculator.",
+    keywords:
+      "401k vs Roth IRA 2026, Traditional vs Roth 401k, Roth IRA income limit 2026",
+  },
+  "bonus-calculator-guide-india": {
+    title: "Bonus Calculator India 2026 — Payment of Bonus Act Explained",
+    description:
+      "How is salary bonus calculated in India? Payment of Bonus Act 1965 rules, ₹21,000 eligibility limit, ₹7,000 wage ceiling, 8.33% minimum, 20% maximum. Free calculator.",
+    keywords:
+      "bonus calculator India, Payment of Bonus Act, statutory bonus 8.33%",
+  },
+  "esi-calculator-guide-india": {
+    title: "ESI Calculator India 2026 — ESIC Contribution Rates & Benefits",
+    description:
+      "Calculate Employee State Insurance (ESI) contributions for FY 2026-27. ₹21,000 wage ceiling, 0.75% employee + 3.25% employer rates, ESI benefits explained. Free.",
+    keywords:
+      "ESI calculator India, ESIC contribution calculator 2026, employee state insurance",
+  },
+  "swp-calculator-guide-india": {
+    title: "SWP Calculator India 2026 — Systematic Withdrawal Plan Guide",
+    description:
+      "How does SWP work? Calculate corpus needed for ₹25,000/month retirement income. Compare SWP vs FD interest. LTCG tax on SWP explained. Free calculator.",
+    keywords:
+      "SWP calculator India, systematic withdrawal plan calculator, retirement corpus calculator",
   },
 };
 

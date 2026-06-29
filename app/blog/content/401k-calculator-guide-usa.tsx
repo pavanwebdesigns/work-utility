@@ -71,7 +71,14 @@ export default function FourOhOneKCalculatorGuideUsaContent() {
         <strong>Traditional 401k</strong> contributions reduce taxable income now;
         withdrawals in retirement are taxed. <strong>Roth 401k</strong> uses
         after-tax dollars but withdrawals are tax-free. Roth makes sense if you
-        expect higher tax rates in retirement.
+        expect higher tax rates in retirement. Compare all three scenarios with
+        our{" "}
+        <Link href="/tools/401k-vs-roth-ira">401k vs Roth IRA Calculator</Link>{" "}
+        and read the{" "}
+        <Link href="/blog/401k-vs-roth-ira-guide-usa">
+          401k vs Roth IRA guide
+        </Link>
+        .
       </p>
 
       <hr />

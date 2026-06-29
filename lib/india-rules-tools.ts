@@ -19,6 +19,9 @@ export const INDIA_RULES_TOOL_SLUGS = [
   "ssy-calculator",
   "advance-tax-calculator",
   "professional-tax-calculator",
+  "bonus-calculator",
+  "esi-calculator",
+  "swp-calculator",
 ] as const;
 
 export type IndiaRulesToolSlug = (typeof INDIA_RULES_TOOL_SLUGS)[number];
@@ -59,6 +62,12 @@ export const INDIA_RULES_BADGE_LABELS: Record<IndiaRulesToolSlug, string> = {
     "Based on Indian Income Tax rules — Advance tax FY 2026-27",
   "professional-tax-calculator":
     "Based on Indian state Professional Tax slabs — FY 2026-27",
+  "bonus-calculator":
+    "Based on Payment of Bonus Act, 1965 (amended 2015)",
+  "esi-calculator":
+    "Based on ESIC guidelines — FY 2026-27 contribution rates",
+  "swp-calculator":
+    "Based on Indian mutual fund SWP conventions — illustrative returns",
 };
 
 export const INDIA_RULES_CURRENCY = {

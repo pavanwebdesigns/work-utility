@@ -138,6 +138,10 @@ import ProfessionalTaxCalculatorGuideIndiaContent from "../content/professional-
 import PayStubGeneratorGuideUsaContent from "../content/pay-stub-generator-guide-usa";
 import MarkdownTableGeneratorGuideContent from "../content/markdown-table-generator-guide";
 import HttpStatusCodesGuideContent from "../content/http-status-codes-guide";
+import FourOhOneKVsRothIraGuideUsaContent from "../content/401k-vs-roth-ira-guide-usa";
+import BonusCalculatorGuideIndiaContent from "../content/bonus-calculator-guide-india";
+import EsiCalculatorGuideIndiaContent from "../content/esi-calculator-guide-india";
+import SwpCalculatorGuideIndiaContent from "../content/swp-calculator-guide-india";
 
 const contentBySlug: Record<string, () => JSX.Element> = {
   "complete-pdf-tools-guide-india": CompletePdfToolsGuideIndiaContent,
@@ -300,6 +304,10 @@ const contentBySlug: Record<string, () => JSX.Element> = {
   "pay-stub-generator-guide-usa": PayStubGeneratorGuideUsaContent,
   "markdown-table-generator-guide": MarkdownTableGeneratorGuideContent,
   "http-status-codes-guide": HttpStatusCodesGuideContent,
+  "401k-vs-roth-ira-guide-usa": FourOhOneKVsRothIraGuideUsaContent,
+  "bonus-calculator-guide-india": BonusCalculatorGuideIndiaContent,
+  "esi-calculator-guide-india": EsiCalculatorGuideIndiaContent,
+  "swp-calculator-guide-india": SwpCalculatorGuideIndiaContent,
 };
 
 export function generateStaticParams() {
