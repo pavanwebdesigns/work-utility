@@ -84,7 +84,9 @@ export default function CompleteDeveloperToolsGuideContent() {
         <Link href="/blog/how-to-format-json-online-free">
           How to format and validate JSON online free
         </Link>
-        .
+        . For schema compliance, use the{" "}
+        <Link href="/tools/json-schema-validator">JSON Schema Validator</Link> — guide:{" "}
+        <Link href="/blog/json-schema-validator-guide">JSON Schema validator guide</Link>.
       </p>
 
       <h2 id="base64">Base64 Encoder</h2>

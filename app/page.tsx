@@ -119,6 +119,14 @@ export default function HomePage() {
               <TrustBadge>⚡ Browser-only</TrustBadge>
               <TrustBadge>✅ Always Free</TrustBadge>
             </div>
+            <div className="mt-6">
+              <Link
+                href="/tools"
+                className="inline-flex items-center justify-center rounded-xl bg-brand-blue px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-blue/90"
+              >
+                Try all tools free →
+              </Link>
+            </div>
             <div className="mt-6 flex flex-wrap justify-center gap-2">
               <span className="mr-1 text-xs text-content-muted">Popular:</span>
               {[

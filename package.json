@@ -16,6 +16,8 @@
     "@next/third-parties": "^16.2.9",
     "@types/zxcvbn": "^4.4.5",
     "@vercel/analytics": "^2.0.1",
+    "ajv": "^8.20.0",
+    "ajv-formats": "^3.0.1",
     "browser-image-compression": "^2.0.2",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",

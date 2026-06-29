@@ -124,7 +124,11 @@ export type ToolSeoSlug =
   | "401k-vs-roth-ira"
   | "bonus-calculator"
   | "esi-calculator"
-  | "swp-calculator";
+  | "swp-calculator"
+  | "dividend-yield-calculator"
+  | "gst-threshold-checker"
+  | "hsa-calculator"
+  | "json-schema-validator";
 
 type ToolSeoEntry = {
   aboutTitle: string;
@@ -4730,6 +4734,102 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
       href: "/blog/swp-calculator-guide-india",
       title: "SWP calculator India — systematic withdrawal plan guide",
     },
+  },
+  "dividend-yield-calculator": {
+    aboutTitle: "About Dividend Yield Calculator India",
+    aboutParagraphs: [
+      "Our free Dividend Yield Calculator shows current yield and yield on cost for Indian stocks — with portfolio mode for up to 5 holdings.",
+      "Calculates annual dividend income, monthly income estimate, 10% TDS above ₹5,000 threshold, and compares returns with a 7% FD benchmark.",
+      "No signup, runs entirely in your browser — your financial data stays private.",
+    ],
+    whenToUseTitle: "When Should You Use the Dividend Yield Calculator?",
+    useCases: [
+      { title: "Stock screening", description: "Compare dividend yield across PSU and blue-chip stocks." },
+      { title: "Yield on cost", description: "See your personal yield based on purchase price." },
+      { title: "Portfolio income", description: "Total annual dividend from multiple holdings." },
+      { title: "TDS planning", description: "Check if 10% TDS applies above ₹5,000." },
+      { title: "FD comparison", description: "Compare dividend income vs fixed deposit returns." },
+    ],
+    faqs: [
+      { question: "How is dividend yield calculated?", answer: "Dividend Yield = (Annual Dividend Per Share ÷ Current Market Price) × 100. For example, if a stock pays ₹20 annual dividend and trades at ₹400, the yield is 5%. Yield on Cost uses your purchase price instead — if you bought at ₹200, your personal yield on cost is 10%." },
+      { question: "Is dividend income taxable in India?", answer: "Yes — dividend income is fully taxable as Income from Other Sources at your applicable income tax slab rate. Companies deduct 10% TDS if the total dividend paid to you from a single company exceeds ₹5,000 in a financial year. NRIs face 20% TDS." },
+      { question: "What is a good dividend yield for Indian stocks?", answer: "A yield of 2-4% is considered healthy for Indian blue-chip stocks. PSU companies often offer 5-8%. Above 8% may be a warning sign — a very high yield can mean the stock price has fallen due to business problems." },
+      { question: "What is the difference between dividend yield and dividend payout ratio?", answer: "Dividend yield compares the dividend to the stock price — useful for investors evaluating income return. Dividend payout ratio compares dividends to the company's earnings — useful for assessing sustainability." },
+      { question: "Is this calculator free?", answer: "Yes. WorkUtilities Dividend Yield Calculator is free with no signup." },
+    ],
+    blogGuide: { href: "/blog/dividend-yield-calculator-guide-india", title: "Dividend yield calculator India guide" },
+  },
+  "gst-threshold-checker": {
+    aboutTitle: "About GST Threshold Checker",
+    aboutParagraphs: [
+      "Our free GST Threshold Checker answers the most common freelancer question: do I need GST registration?",
+      "Handles services vs goods thresholds, special category states (₹10L), inter-state mandatory registration, and export turnover rules for FY 2026-27.",
+      "No signup, runs entirely in your browser.",
+    ],
+    whenToUseTitle: "When Should You Use the GST Threshold Checker?",
+    useCases: [
+      { title: "Freelancer income", description: "Check if you've crossed ₹20 lakh in services." },
+      { title: "Inter-state clients", description: "Mandatory registration regardless of turnover." },
+      { title: "IT exports", description: "Zero-rated exports with registration rules." },
+      { title: "NE states", description: "₹10 lakh threshold for special category states." },
+      { title: "Voluntary registration", description: "Decide if voluntary GST makes sense." },
+    ],
+    faqs: [
+      { question: "What is the GST registration threshold for freelancers in India?", answer: "For service providers in regular states, GST registration is mandatory when annual aggregate turnover exceeds ₹20 lakhs. For special category states, the threshold is ₹10 lakhs." },
+      { question: "Do IT freelancers who export services need GST registration?", answer: "If aggregate turnover exceeds ₹20 lakhs, yes. Exports are zero-rated — no GST charged to foreign clients, but registration is needed for LUT." },
+      { question: "Is GST mandatory for inter-state supply regardless of turnover?", answer: "Yes — any inter-state taxable supply requires GST registration regardless of annual turnover." },
+      { question: "Can I register for GST voluntarily below ₹20 lakhs?", answer: "Yes — voluntary registration allows Input Tax Credit and proper GST invoices for B2B clients." },
+      { question: "Is this tool free?", answer: "Yes. WorkUtilities GST Threshold Checker is free with no signup." },
+    ],
+    blogGuide: { href: "/blog/freelancer-gst-registration-guide-india", title: "GST registration for freelancers India" },
+  },
+  "hsa-calculator": {
+    aboutTitle: "About HSA Calculator 2026",
+    aboutParagraphs: [
+      "Our free HSA Calculator computes 2026 IRS contribution limits, federal and state tax savings, effective cost, and projected HSA balance at retirement.",
+      "Shows the triple tax advantage clearly — tax-free contributions, growth, and qualified medical withdrawals.",
+      "No signup, runs entirely in your browser — your financial data stays private.",
+    ],
+    whenToUseTitle: "When Should You Use the HSA Calculator?",
+    useCases: [
+      { title: "Max contributions", description: "See remaining room under 2026 IRS limits." },
+      { title: "Tax savings", description: "Calculate federal + state tax benefit." },
+      { title: "Retirement projection", description: "Project HSA growth until age 65." },
+      { title: "Catch-up at 55+", description: "Additional $1,000 catch-up contribution." },
+      { title: "HDHP planning", description: "Understand HSA vs FSA trade-offs." },
+    ],
+    faqs: [
+      { question: "What is the HSA contribution limit for 2026?", answer: "For 2026, you can contribute up to $4,300 for self-only HDHP coverage or $8,550 for family coverage. Age 55+ adds $1,000 catch-up." },
+      { question: "Do I need an HDHP to open an HSA?", answer: "Yes — you must be enrolled in a qualifying High Deductible Health Plan. 2026 minimum deductible: $1,650 individual / $3,300 family." },
+      { question: "What is the HSA triple tax advantage?", answer: "Tax-deductible contributions, tax-free growth, and tax-free withdrawals for qualified medical expenses. After 65, withdrawals for any purpose are taxed like a traditional IRA." },
+      { question: "What happens if I no longer have an HDHP?", answer: "Existing balance remains yours and grows tax-free. You cannot make new contributions until you re-enroll in a qualifying HDHP." },
+      { question: "Is this calculator free?", answer: "Yes. WorkUtilities HSA Calculator is free with no signup." },
+    ],
+    blogGuide: { href: "/blog/hsa-calculator-guide-usa", title: "HSA calculator 2026 guide" },
+  },
+  "json-schema-validator": {
+    aboutTitle: "About JSON Schema Validator",
+    aboutParagraphs: [
+      "Our free JSON Schema Validator checks JSON data against a schema in real-time with human-readable error messages.",
+      "Supports Draft 7 and Draft 2020-12, example schemas, format validation, and copyable error paths.",
+      "Runs entirely in your browser using Ajv — your JSON never leaves your device.",
+    ],
+    whenToUseTitle: "When Should You Use the JSON Schema Validator?",
+    useCases: [
+      { title: "API development", description: "Validate request/response bodies against OpenAPI schemas." },
+      { title: "Config files", description: "Ensure required fields are present." },
+      { title: "Debugging", description: "Find which field fails type or format checks." },
+      { title: "Schema design", description: "Test schemas before deploying to production." },
+      { title: "Learning", description: "Understand JSON Schema keywords with examples." },
+    ],
+    faqs: [
+      { question: "What is JSON Schema used for?", answer: "JSON Schema describes and validates the structure of JSON data — used in REST APIs, configuration files, and OpenAPI documentation." },
+      { question: "What is the difference between Draft 7 and Draft 2020-12?", answer: "Draft 7 is most widely used and compatible with OpenAPI 3.0. Draft 2020-12 adds $dynamicRef for complex recursive schemas." },
+      { question: "Why does valid JSON fail schema validation?", answer: "Syntax-valid JSON can fail if types don't match, required fields are missing, or values are outside allowed ranges." },
+      { question: "How do I mark a field as required?", answer: "Use the required array at the same level as properties: { properties: {...}, required: [\"name\"] }." },
+      { question: "Is this validator free?", answer: "Yes. WorkUtilities JSON Schema Validator is free with no signup." },
+    ],
+    blogGuide: { href: "/blog/json-schema-validator-guide", title: "JSON Schema validator guide" },
   },
 };
 

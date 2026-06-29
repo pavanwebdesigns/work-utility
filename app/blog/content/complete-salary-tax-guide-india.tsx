@@ -268,6 +268,33 @@ export default function CompleteSalaryTaxGuideIndiaContent() {
         <Link href="/tools/fd-calculator">FD Calculator</Link>.
       </p>
 
+      <h2 id="dividend-yield">Dividend Yield &amp; Income from Stocks</h2>
+      <p>
+        Dividend investors track current yield and yield on cost to measure income
+        returns from Indian stocks. Calculate annual dividend income, TDS above
+        ₹5,000, and compare with FD returns using the{" "}
+        <Link href="/tools/dividend-yield-calculator">Dividend Yield Calculator</Link>.
+        Guide:{" "}
+        <Link href="/blog/dividend-yield-calculator-guide-india">
+          Dividend yield calculator guide
+        </Link>
+        .
+      </p>
+
+      <h2 id="gst-threshold">GST Registration for Freelancers</h2>
+      <p>
+        IT freelancers and contractors must check if they&apos;ve crossed the ₹20
+        lakh services threshold — or if inter-state supply makes registration
+        mandatory regardless. Use the{" "}
+        <Link href="/tools/gst-threshold-checker">GST Threshold Checker</Link>.
+        Guide:{" "}
+        <Link href="/blog/freelancer-gst-registration-guide-india">
+          Freelancer GST registration guide
+        </Link>
+        . Related:{" "}
+        <Link href="/tools/freelancer-tax-calculator">Freelancer Tax Calculator</Link>.
+      </p>
+
       <h2 id="leave-encashment">Leave Encashment at Resignation</h2>
       <p>
         Unused earned leave can be encashed at exit — fully taxable during service,

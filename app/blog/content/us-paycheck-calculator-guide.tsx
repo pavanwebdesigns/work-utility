@@ -172,6 +172,15 @@ export default function USPaycheckCalculatorGuideContent() {
         .
       </p>
       <hr />
+      <h2>HSA — Health Savings Account</h2>
+      <p>
+        HSAs offer a triple tax advantage — deductible contributions, tax-free
+        growth, and tax-free withdrawals for medical expenses. Calculate 2026
+        limits, tax savings, and retirement balance with the{" "}
+        <Link href="/tools/hsa-calculator">HSA Calculator 2026</Link>. Guide:{" "}
+        <Link href="/blog/hsa-calculator-guide-usa">HSA calculator guide</Link>.
+      </p>
+      <hr />
       <h2>Pay Stub Generator — Create Reference Stubs</h2>
       <p>
         Need a pay stub for income documentation? Generate a reference earnings

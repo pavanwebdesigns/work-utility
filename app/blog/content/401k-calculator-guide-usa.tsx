@@ -128,6 +128,8 @@ export default function FourOhOneKCalculatorGuideUsaContent() {
       <ul>
         <li><Link href="/tools/w2-vs-1099-calculator">W-2 vs 1099 Calculator</Link></li>
         <li><Link href="/tools/self-employment-tax">Self-Employment Tax Calculator</Link></li>
+        <li><Link href="/tools/hsa-calculator">HSA Calculator 2026</Link></li>
+        <li><Link href="/blog/hsa-calculator-guide-usa">HSA calculator guide</Link></li>
         <li><Link href="/blog/w2-vs-1099-tax-comparison-guide">W-2 vs 1099 tax comparison</Link></li>
       </ul>
 

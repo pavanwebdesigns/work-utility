@@ -142,6 +142,10 @@ import FourOhOneKVsRothIraGuideUsaContent from "../content/401k-vs-roth-ira-guid
 import BonusCalculatorGuideIndiaContent from "../content/bonus-calculator-guide-india";
 import EsiCalculatorGuideIndiaContent from "../content/esi-calculator-guide-india";
 import SwpCalculatorGuideIndiaContent from "../content/swp-calculator-guide-india";
+import DividendYieldCalculatorGuideIndiaContent from "../content/dividend-yield-calculator-guide-india";
+import FreelancerGstRegistrationGuideIndiaContent from "../content/freelancer-gst-registration-guide-india";
+import HsaCalculatorGuideUsaContent from "../content/hsa-calculator-guide-usa";
+import JsonSchemaValidatorGuideContent from "../content/json-schema-validator-guide";
 
 const contentBySlug: Record<string, () => JSX.Element> = {
   "complete-pdf-tools-guide-india": CompletePdfToolsGuideIndiaContent,
@@ -308,6 +312,10 @@ const contentBySlug: Record<string, () => JSX.Element> = {
   "bonus-calculator-guide-india": BonusCalculatorGuideIndiaContent,
   "esi-calculator-guide-india": EsiCalculatorGuideIndiaContent,
   "swp-calculator-guide-india": SwpCalculatorGuideIndiaContent,
+  "dividend-yield-calculator-guide-india": DividendYieldCalculatorGuideIndiaContent,
+  "freelancer-gst-registration-guide-india": FreelancerGstRegistrationGuideIndiaContent,
+  "hsa-calculator-guide-usa": HsaCalculatorGuideUsaContent,
+  "json-schema-validator-guide": JsonSchemaValidatorGuideContent,
 };
 
 export function generateStaticParams() {

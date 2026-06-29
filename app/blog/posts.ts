@@ -1575,6 +1575,50 @@ export const blogPosts: BlogPost[] = [
     lastUpdated: "June 2026",
     cta: { toolName: "SWP Calculator", toolHref: "/tools/swp-calculator" },
   },
+  {
+    slug: "dividend-yield-calculator-guide-india",
+    title: "Dividend Yield Calculator India 2026 — How to Calculate Stock Returns",
+    excerpt:
+      "What is dividend yield? Calculate current yield, yield on cost, TDS impact, and compare dividend income vs FD returns. India stock market guide. Free calculator.",
+    category: "Finance",
+    readTime: "10 min read",
+    author: "Priya Sharma",
+    lastUpdated: "June 2026",
+    cta: { toolName: "Dividend Yield Calculator", toolHref: "/tools/dividend-yield-calculator" },
+  },
+  {
+    slug: "freelancer-gst-registration-guide-india",
+    title: "GST Registration for Freelancers India 2026 — Do You Need It?",
+    excerpt:
+      "When do Indian freelancers need GST registration? ₹20L threshold for services, ₹10L for NE states, mandatory for inter-state supply. Complete guide with free threshold checker.",
+    category: "Finance",
+    readTime: "11 min read",
+    author: "Priya Sharma",
+    lastUpdated: "June 2026",
+    cta: { toolName: "GST Threshold Checker", toolHref: "/tools/gst-threshold-checker" },
+  },
+  {
+    slug: "hsa-calculator-guide-usa",
+    title: "HSA Calculator 2026 — Limits, Tax Savings & Growth Guide",
+    excerpt:
+      "2026 HSA contribution limits: $4,300 individual, $8,550 family. Calculate your triple tax savings, HDHP requirements, and 20-year HSA growth projection. Free tool.",
+    category: "Finance",
+    readTime: "10 min read",
+    author: "James Mitchell",
+    lastUpdated: "June 2026",
+    cta: { toolName: "HSA Calculator", toolHref: "/tools/hsa-calculator" },
+  },
+  {
+    slug: "json-schema-validator-guide",
+    title: "JSON Schema Validator — How to Validate JSON in 2026",
+    excerpt:
+      "Validate JSON data against a JSON Schema. Understand Draft 7 vs 2020-12, required fields, type checking, and format validation. Free browser-based JSON Schema validator.",
+    category: "Developer Tools",
+    readTime: "9 min read",
+    author: "James Mitchell",
+    lastUpdated: "June 2026",
+    cta: { toolName: "JSON Schema Validator", toolHref: "/tools/json-schema-validator" },
+  },
 ];
 
 export const blogPostBySlug = Object.fromEntries(
@@ -2557,6 +2601,34 @@ export const blogSeoMetadata: Record<
       "How does SWP work? Calculate corpus needed for ₹25,000/month retirement income. Compare SWP vs FD interest. LTCG tax on SWP explained. Free calculator.",
     keywords:
       "SWP calculator India, systematic withdrawal plan calculator, retirement corpus calculator",
+  },
+  "dividend-yield-calculator-guide-india": {
+    title: "Dividend Yield Calculator India 2026 — How to Calculate Stock Returns",
+    description:
+      "What is dividend yield? Calculate current yield, yield on cost, TDS impact, and compare dividend income vs FD returns. India stock market guide. Free calculator.",
+    keywords:
+      "dividend yield calculator India, yield on cost calculator, dividend income TDS India",
+  },
+  "freelancer-gst-registration-guide-india": {
+    title: "GST Registration for Freelancers India 2026 — Do You Need It?",
+    description:
+      "When do Indian freelancers need GST registration? ₹20L threshold for services, ₹10L for NE states, mandatory for inter-state supply. Complete guide with free threshold checker.",
+    keywords:
+      "GST registration threshold freelancer India, GST registration for freelancers, GST 20 lakh limit",
+  },
+  "hsa-calculator-guide-usa": {
+    title: "HSA Calculator 2026 — Limits, Tax Savings & Growth Guide",
+    description:
+      "2026 HSA contribution limits: $4,300 individual, $8,550 family. Calculate your triple tax savings, HDHP requirements, and 20-year HSA growth projection. Free tool.",
+    keywords:
+      "HSA calculator 2026, health savings account calculator, HSA contribution limits 2026",
+  },
+  "json-schema-validator-guide": {
+    title: "JSON Schema Validator — How to Validate JSON in 2026",
+    description:
+      "Validate JSON data against a JSON Schema. Understand Draft 7 vs 2020-12, required fields, type checking, and format validation. Free browser-based JSON Schema validator.",
+    keywords:
+      "JSON Schema validator online, validate JSON against schema, JSON Schema Draft 7",
   },
 };
 

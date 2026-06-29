@@ -22,6 +22,8 @@ export const INDIA_RULES_TOOL_SLUGS = [
   "bonus-calculator",
   "esi-calculator",
   "swp-calculator",
+  "dividend-yield-calculator",
+  "gst-threshold-checker",
 ] as const;
 
 export type IndiaRulesToolSlug = (typeof INDIA_RULES_TOOL_SLUGS)[number];
@@ -68,6 +70,10 @@ export const INDIA_RULES_BADGE_LABELS: Record<IndiaRulesToolSlug, string> = {
     "Based on ESIC guidelines — FY 2026-27 contribution rates",
   "swp-calculator":
     "Based on Indian mutual fund SWP conventions — illustrative returns",
+  "dividend-yield-calculator":
+    "Based on Indian dividend tax rules — TDS @ 10% above ₹5,000/company",
+  "gst-threshold-checker":
+    "Based on GST registration thresholds — FY 2026-27",
 };
 
 export const INDIA_RULES_CURRENCY = {
