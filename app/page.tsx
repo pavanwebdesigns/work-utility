@@ -3,30 +3,12 @@ import { Package, Shield, Zap } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { HomePageTools } from "@/components/HomePageTools";
+import HeroAnimation from "@/components/HeroAnimation";
 import {
   getBlogPostsForListing,
   getCategoryBadgeClass,
 } from "@/app/blog/posts";
 import { ALL_TOOLS } from "@/lib/tools-data";
-
-const PARTICLES = Array.from({ length: 8 }, (_, i) => ({
-  id: i,
-  left: `${(i * 37 + 11) % 100}%`,
-  top: `${(i * 53 + 7) % 100}%`,
-  size: (i % 3) + 2,
-  duration: 15 + (i % 10),
-  delay: -(i * 1.5),
-  opacity: 0.1 + (i % 3) * 0.08,
-}));
-
-function TrustBadge({ children }: { children: React.ReactNode }) {
-  return (
-    <span className="inline-flex items-center gap-2 rounded-full border border-surface-border bg-surface-card px-4 py-1.5 text-xs text-content-secondary">
-      <span className="text-[8px] text-emerald-400">●</span>
-      {children}
-    </span>
-  );
-}
 
 function WhyWorkUtilities() {
   const reasons = [
@@ -113,62 +95,9 @@ export default function HomePage() {
       <Header />
 
       <main id="main-content" className="flex-1 min-w-0 overflow-x-hidden">
-        <section className="relative bg-surface-base px-4 pb-[60px] pt-12 text-center sm:px-10">
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-0 overflow-hidden"
-          >
-            {PARTICLES.map((particle) => (
-              <div
-                key={particle.id}
-                className="wu-particle pointer-events-none absolute rounded-full"
-                style={{
-                  left: particle.left,
-                  top: particle.top,
-                  width: particle.size,
-                  height: particle.size,
-                  backgroundColor: `rgba(79, 142, 247, ${particle.opacity})`,
-                  animation: `wu-float ${particle.duration}s ease-in-out ${particle.delay}s infinite`,
-                  willChange: "transform",
-                }}
-              />
-            ))}
-          </div>
-          <div className="relative mx-auto max-w-4xl">
-            <h1 className="wu-gradient-text text-balance text-3xl md:text-5xl">
-              Free tools that
-              <br />
-              just work.
-            </h1>
-            <p className="mx-auto mt-5 max-w-2xl text-base text-content-secondary sm:text-lg">
-              One site for all your tools — instead of bookmarking 20 different
-              websites. Everything free, everything in your browser.
-            </p>
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
-              <TrustBadge>🔒 100% Private</TrustBadge>
-              <TrustBadge>⚡ Browser-only</TrustBadge>
-              <TrustBadge>✅ Always Free</TrustBadge>
-            </div>
-            <div className="mt-6 flex flex-wrap justify-center gap-2">
-              <span className="mr-1 text-xs text-content-muted">Popular:</span>
-              {[
-                { label: "Compress PDF", href: "/tools/pdf-compress" },
-                { label: "Aadhaar Photo Resize", href: "/tools/photo-resizer" },
-                { label: "Image Compress", href: "/tools/image-compress" },
-                { label: "PDF to Word", href: "/tools/pdf-to-word" },
-                { label: "Word to PDF", href: "/tools/word-to-pdf" },
-              ].map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="cursor-pointer rounded-full border border-surface-border bg-surface-card px-3 py-1.5 text-xs text-content-secondary transition-all hover:border-brand-blue hover:text-brand-blue"
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </div>
-          </div>
-          <div className="mx-auto mt-16 max-w-3xl hero-gradient-line" />
+        <section className="relative min-h-[520px] overflow-hidden bg-surface-base px-4 pb-[60px] pt-12 sm:px-10">
+          <HeroAnimation />
+          <div className="pointer-events-none absolute inset-x-4 bottom-16 z-10 mx-auto max-w-3xl hero-gradient-line sm:inset-x-10" />
         </section>
 
         <WhyWorkUtilities />
