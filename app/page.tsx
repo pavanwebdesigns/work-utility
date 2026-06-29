@@ -3,12 +3,20 @@ import { Package, Shield, Zap } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { HomePageTools } from "@/components/HomePageTools";
-import HeroSection from "@/components/HeroSection";
 import {
   getBlogPostsForListing,
   getCategoryBadgeClass,
 } from "@/app/blog/posts";
 import { ALL_TOOLS } from "@/lib/tools-data";
+
+function TrustBadge({ children }: { children: React.ReactNode }) {
+  return (
+    <span className="inline-flex items-center gap-2 rounded-full border border-surface-border bg-surface-card px-4 py-1.5 text-xs text-content-secondary">
+      <span className="text-[8px] text-emerald-400">●</span>
+      {children}
+    </span>
+  );
+}
 
 function WhyWorkUtilities() {
   const reasons = [
@@ -95,7 +103,43 @@ export default function HomePage() {
       <Header />
 
       <main id="main-content" className="flex-1 min-w-0 overflow-x-hidden">
-        <HeroSection />
+        <section className="relative bg-surface-base px-4 pb-[60px] pt-12 text-center sm:px-10">
+          <div className="relative mx-auto max-w-4xl">
+            <h1 className="wu-gradient-text text-balance text-3xl md:text-5xl">
+              Free tools that
+              <br />
+              just work.
+            </h1>
+            <p className="mx-auto mt-5 max-w-2xl text-base text-content-secondary sm:text-lg">
+              One site for all your tools — instead of bookmarking 20 different
+              websites. Everything free, everything in your browser.
+            </p>
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
+              <TrustBadge>🔒 100% Private</TrustBadge>
+              <TrustBadge>⚡ Browser-only</TrustBadge>
+              <TrustBadge>✅ Always Free</TrustBadge>
+            </div>
+            <div className="mt-6 flex flex-wrap justify-center gap-2">
+              <span className="mr-1 text-xs text-content-muted">Popular:</span>
+              {[
+                { label: "Compress PDF", href: "/tools/pdf-compress" },
+                { label: "Aadhaar Photo Resize", href: "/tools/photo-resizer" },
+                { label: "Image Compress", href: "/tools/image-compress" },
+                { label: "PDF to Word", href: "/tools/pdf-to-word" },
+                { label: "Word to PDF", href: "/tools/word-to-pdf" },
+              ].map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="cursor-pointer rounded-full border border-surface-border bg-surface-card px-3 py-1.5 text-xs text-content-secondary transition-all hover:border-brand-blue hover:text-brand-blue"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+          <div className="mx-auto mt-16 max-w-3xl hero-gradient-line" />
+        </section>
 
         <WhyWorkUtilities />
 
