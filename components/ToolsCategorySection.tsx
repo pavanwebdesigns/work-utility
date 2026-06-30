@@ -1,6 +1,7 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { ToolCard } from "@/components/ToolCard";
 import { ToolsSearchBar } from "@/components/ToolsSearchBar";
 import { TOOL_CATEGORY_ICONS } from "@/components/ToolCategoryIcons";
@@ -14,10 +15,29 @@ import {
 } from "@/lib/tool-categories";
 
 export function ToolsCategorySection() {
-  const [activeCategory, setActiveCategory] = useState<ToolPageCategoryId>("all");
+  const searchParams = useSearchParams();
+  const categoryParam = searchParams.get("category");
+
+  const initialCategory: ToolPageCategoryId =
+    categoryParam &&
+    TOOL_PAGE_CATEGORY_TABS.some((tab) => tab.id === categoryParam)
+      ? (categoryParam as ToolPageCategoryId)
+      : "all";
+
+  const [activeCategory, setActiveCategory] =
+    useState<ToolPageCategoryId>(initialCategory);
   const [searchQuery, setSearchQuery] = useState("");
   const tools = useMemo(() => buildToolListing(), []);
   const counts = useMemo(() => getToolCountByCategory(), []);
+
+  useEffect(() => {
+    if (
+      categoryParam &&
+      TOOL_PAGE_CATEGORY_TABS.some((tab) => tab.id === categoryParam)
+    ) {
+      setActiveCategory(categoryParam as ToolPageCategoryId);
+    }
+  }, [categoryParam]);
 
   const isSearching = searchQuery.trim().length > 0;
 

@@ -5,12 +5,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ArrowRight, ChevronDown, Menu, Search, Star, X } from "lucide-react";
-import { MegaMenuDesktop, MegaMenuMobile } from "@/components/MegaMenu";
+import { MegaMenu } from "@/components/MegaMenu";
+import { MobileToolsMenu } from "@/components/MobileToolsMenu";
 import PWAInstallButton from "@/components/PWAInstallButton";
 import { ToolsSearch } from "@/components/ToolsSearch";
 import { useCurrency, type Region } from "@/lib/currency-context";
 import { useFavorites } from "@/lib/favorites-context";
 import { useFavoritesDrawer } from "@/lib/favorites-drawer-context";
+import { getMenuCategoryForSlug } from "@/lib/menu-categories";
+import { setStoredMenuCategory } from "@/lib/mega-menu-utils";
 
 function RegionSelector({ className = "" }: { className?: string }) {
   const { region, setRegion } = useCurrency();
@@ -76,7 +79,7 @@ export function Header() {
   const handleMouseLeave = () => {
     timeoutRef.current = setTimeout(() => {
       setIsMenuOpen(false);
-    }, 150);
+    }, 200);
   };
 
   const closeMenus = () => {
@@ -87,6 +90,13 @@ export function Header() {
 
   useEffect(() => {
     closeMenus();
+  }, [pathname]);
+
+  useEffect(() => {
+    if (!pathname.startsWith("/tools/")) return;
+    const slug = pathname.replace(/^\/tools\//, "").split("/")[0];
+    const category = getMenuCategoryForSlug(slug);
+    if (category) setStoredMenuCategory(category);
   }, [pathname]);
 
   useEffect(() => {
@@ -206,13 +216,14 @@ export function Header() {
                   onMouseLeave={handleMouseLeave}
                   className="fixed left-0 right-0 top-16 z-50 max-w-[100vw] overflow-x-hidden px-4 pt-2 sm:px-6 lg:px-8 xl:px-10"
                 >
-                  <div className="mx-auto w-full max-w-[900px]">
-                    <MegaMenuDesktop
+                  <div className="mx-auto w-full max-w-5xl translate-y-0 opacity-100 transition duration-200 ease-out">
+                    <MegaMenu
                       onNavigate={() => setIsMenuOpen(false)}
                       onOpenFavorites={() => {
                         setIsMenuOpen(false);
                         openDrawer();
                       }}
+                      onRequestClose={() => setIsMenuOpen(false)}
                     />
                   </div>
                 </div>
@@ -296,14 +307,8 @@ export function Header() {
             </button>
           </div>
 
-          <div className="p-4">
-            <MegaMenuMobile
-              onNavigate={closeMenus}
-              onOpenFavorites={() => {
-                closeMenus();
-                openDrawer();
-              }}
-            />
+          <div className="flex min-h-0 flex-1 flex-col overflow-y-auto p-4">
+            <MobileToolsMenu onNavigate={closeMenus} />
 
             <div className="mt-4 space-y-2 border-t border-surface-border pt-4">
               <RegionSelector className="w-full justify-center" />

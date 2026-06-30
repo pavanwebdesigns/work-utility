@@ -1,5 +1,6 @@
 "use client";
 
+import { Suspense } from "react";
 import Link from "next/link";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -26,7 +27,9 @@ export function ToolsPageClient() {
 
         <section className="bg-surface-base px-4 py-12 sm:px-10">
           <div className="mx-auto max-w-6xl">
-            <ToolsCategorySection />
+            <Suspense fallback={null}>
+              <ToolsCategorySection />
+            </Suspense>
           </div>
         </section>
 
