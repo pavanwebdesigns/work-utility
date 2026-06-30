@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Wrench } from "lucide-react";
 import { SoonBadge } from "@/components/SoonBadge";
 import { getCategoryToolsUrl, setStoredMenuCategory } from "@/lib/mega-menu-utils";
 import type { MegaMenuCategory } from "@/lib/tools-data";
@@ -28,7 +28,7 @@ export function MegaMenuToolGrid({ category, onNavigate }: MegaMenuToolGridProps
         <ul role="list" className="m-0 grid list-none grid-cols-2 gap-0.5 p-0 xl:grid-cols-3">
           {category.tools.map((item) => {
             const { tool, displayName, comingSoon } = item;
-            const Icon = TOOL_ICONS[tool.icon];
+            const Icon = TOOL_ICONS[tool.icon] ?? Wrench;
 
             return (
               <li key={tool.slug} role="none">

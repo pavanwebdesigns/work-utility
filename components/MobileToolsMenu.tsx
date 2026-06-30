@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { ArrowRight, ChevronDown, Wrench } from "lucide-react";
 import { MegaMenuSearchBar } from "@/components/MegaMenuSearch";
 import { MegaMenuSearchResults } from "@/components/MegaMenuSearchResults";
 import { TOOL_CATEGORY_ICONS } from "@/components/ToolCategoryIcons";
@@ -33,7 +33,7 @@ function MobileToolLink({
   onNavigate?: () => void;
 }) {
   const { tool, displayName, comingSoon } = item;
-  const Icon = TOOL_ICONS[tool.icon];
+  const Icon = TOOL_ICONS[tool.icon] ?? Wrench;
 
   return (
     <li role="none">
