@@ -1,8 +1,9 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { blogPostBySlug, blogPosts, getCategoryBadgeClass } from "../posts";
+import { blogPostBySlug, blogPosts, blogSeoMetadata, getCategoryBadgeClass } from "../posts";
 import AadhaarCardPhotoSizeContent from "../content/aadhaar-card-photo-size";
 import HowToCompressPdfOnlineFreeContent from "../content/how-to-compress-pdf-online-free";
 import BestFreePdfToolsOnline2026Content from "../content/best-free-pdf-tools-online-2026";
@@ -325,6 +326,27 @@ export function generateStaticParams() {
 type Props = {
   params: { slug: string };
 };
+
+export function generateMetadata({ params }: Props): Metadata {
+  const seo = blogSeoMetadata[params.slug];
+
+  if (!seo) {
+    return {
+      title: "Guide Not Found | WorkUtilities",
+    };
+  }
+
+  return {
+    title: {
+      absolute: seo.title,
+    },
+    description: seo.description,
+    keywords: seo.keywords,
+    alternates: {
+      canonical: `https://workutilities.com/blog/${params.slug}`,
+    },
+  };
+}
 
 export default function BlogPostPage({ params }: Props) {
   const post = blogPostBySlug[params.slug];

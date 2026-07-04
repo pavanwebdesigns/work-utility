@@ -6,9 +6,6 @@ export const metadata: Metadata = {
   },
   description:
     "Free guides on PDF compression, image resizing, photo size requirements for Indian documents, and more.",
-  alternates: {
-    canonical: "https://workutilities.com/blog",
-  },
 };
 
 export default function BlogLayout({
