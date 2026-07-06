@@ -101,13 +101,9 @@ export default function AboutPage() {
                 Our Technical Philosophy: Privacy-First Architecture
               </h2>
               <p className="mt-2 leading-relaxed text-content-secondary">
-                Every single tool on this site runs entirely in your browser
-                using client-side JavaScript. Nothing you upload is ever sent to
-                an external server, stored, or seen by anyone — which also
-                means there&apos;s absolutely no risk of data leaks or misuse.
-                This privacy-first approach isn&apos;t just a marketing line;
-                it&apos;s a deliberate technical and architectural decision
-                embedded in how every utility here is built.
+                Most tools run entirely in your browser using client-side
+                JavaScript. A small number of PDF tools use secure server-side
+                processing — this is clearly noted on each tool page.
               </p>
             </section>
 
@@ -118,7 +114,7 @@ export default function AboutPage() {
               <p className="mt-2 leading-relaxed text-content-secondary">
                 Free, enterprise-grade, browser-based tools optimized for Indian
                 workers, tech professionals, students, and global users. No
-                signup, no corporate paywalls, and no server uploads.
+                signup and no corporate paywalls.
               </p>
             </section>
 

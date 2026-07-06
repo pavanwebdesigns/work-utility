@@ -7,7 +7,6 @@ const LAST_UPDATED = "July 2026";
 
 const GOOGLE_ANALYTICS_OPT_OUT_URL = "https://tools.google.com/dlpage/gaoptout";
 const GOOGLE_PRIVACY_URL = "https://policies.google.com/privacy";
-const GOOGLE_ADS_SETTINGS_URL = "https://adssettings.google.com";
 const VERCEL_PRIVACY_URL = "https://vercel.com/legal/privacy-policy";
 
 export const metadata: Metadata = {
@@ -63,6 +62,12 @@ export default function PrivacyPage() {
                 We do not operate a user account system and we do not ask you to
                 submit a profile, email address, or payment details to use our
                 free tools.
+              </p>
+              <p className="mt-2 leading-relaxed text-content-secondary">
+                WorkUtilities uses Google Analytics (G-N85BQ3XV27) and Vercel
+                Analytics for anonymous usage statistics. These services may
+                process IP addresses and device information per their
+                respective privacy policies.
               </p>
               <p className="mt-2 leading-relaxed text-content-secondary">
                 We do not intentionally collect the content of files you process
@@ -207,35 +212,12 @@ export default function PrivacyPage() {
 
             <section>
               <h2 className="text-lg font-semibold text-content-primary">
-                5. Advertising &amp; Future Monetization
+                5. Advertising
               </h2>
               <p className="mt-2 leading-relaxed text-content-secondary">
-                WorkUtilities does <em>not</em> currently show third-party
-                display advertising (including Google AdSense) on this website.
-                No advertising cookies are in use at this time.
-              </p>
-              <p className="mt-2 leading-relaxed text-content-secondary">
-                We may introduce third-party advertising services in the future
-                to help keep the site free — for example, Google AdSense or
-                similar programs. If we enable advertising, those partners may
-                use cookies or similar identifiers to serve, measure, and
-                personalize ads where permitted by law.
-              </p>
-              <p className="mt-2 leading-relaxed text-content-secondary">
-                If advertising is enabled, we will update this Privacy Policy
-                and our Terms to describe the services used, the types of data
-                involved, and how you can manage personalized advertising —
-                including through{" "}
-                <a
-                  href={GOOGLE_ADS_SETTINGS_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-brand-blue transition-colors hover:underline"
-                >
-                  Google Ads Settings
-                </a>{" "}
-                where applicable. We may also implement a cookie consent
-                mechanism where required.
+                WorkUtilities may introduce Google AdSense or similar
+                advertising services in the future. This policy will be updated
+                before ads are enabled.
               </p>
             </section>
 

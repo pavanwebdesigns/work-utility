@@ -18,6 +18,7 @@ import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { ToolFeedback } from "@/components/ToolFeedback";
 import { DinoGame } from "@/components/DinoGame";
 import { FavoriteButton } from "@/components/FavoriteButton";
+import { ServerPdfProcessingNotice } from "@/components/ServerPdfProcessingNotice";
 import {
   calcSavingsPercent,
   compressPDF,
@@ -142,6 +143,7 @@ export default function PdfCompressPage() {
                 Reduce your PDF file size while maintaining quality. Fast
                 compression powered by our secure PDF service.
               </p>
+              <ServerPdfProcessingNotice />
             <div className="mt-4 flex justify-center">
               <FavoriteButton slug="pdf-compress" />
             </div>

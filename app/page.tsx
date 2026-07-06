@@ -22,9 +22,9 @@ function WhyWorkUtilities() {
   const reasons = [
     {
       icon: Shield,
-      title: "Nothing leaves your browser",
+      title: "Most tools process data locally",
       description:
-        "Every tool runs client-side — no uploads, no server, no risk of your files being stored or leaked.",
+        "Most tools process data locally. Some tools (PDF Compress, PDF to Word, PDF to JPG, PDF Unlock) use secure server processing.",
     },
     {
       icon: Package,
@@ -73,7 +73,7 @@ function WhyWorkUtilities() {
 function StatsBar() {
   const stats = [
     { value: `${ALL_TOOLS.length}+ Tools`, label: "Available now" },
-    { value: "Instant", label: "No upload needed — runs in your browser" },
+    { value: "Instant", label: "Most tools need no upload — runs in your browser" },
     { value: "Free Forever", label: "No hidden fees" },
   ];
 
@@ -112,11 +112,10 @@ export default function HomePage() {
             </h1>
             <p className="mx-auto mt-5 max-w-2xl text-base text-content-secondary sm:text-lg">
               One site for all your tools — instead of bookmarking 20 different
-              websites. Everything free, everything in your browser.
+              websites. Everything free, most tools run in your browser.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
-              <TrustBadge>🔒 100% Private</TrustBadge>
-              <TrustBadge>⚡ Browser-only</TrustBadge>
+              <TrustBadge>🔒 Most tools run privately in your browser</TrustBadge>
               <TrustBadge>✅ Always Free</TrustBadge>
             </div>
             <div className="mt-6">

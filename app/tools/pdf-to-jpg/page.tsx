@@ -18,6 +18,7 @@ import { ToolFeedback } from "@/components/ToolFeedback";
 import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
 import { FavoriteButton } from "@/components/FavoriteButton";
+import { ServerPdfProcessingNotice } from "@/components/ServerPdfProcessingNotice";
 import { convertToJPG, formatFileSize } from "@/lib/pdf-api";
 
 const MAX_FILE_SIZE = 50 * 1024 * 1024;
@@ -121,6 +122,7 @@ export default function PdfToJpgPage() {
                 Convert PDF pages to high-quality JPG images. Download as a ZIP
                 file.
               </p>
+              <ServerPdfProcessingNotice />
             <div className="mt-4 flex justify-center">
               <FavoriteButton slug="pdf-to-jpg" />
             </div>

@@ -5,8 +5,6 @@ import { Footer } from "@/components/Footer";
 
 const LAST_UPDATED = "July 2026";
 
-const GOOGLE_ADS_SETTINGS_URL = "https://adssettings.google.com";
-
 export const metadata: Metadata = {
   title: {
     absolute: "Terms & Conditions — WorkUtilities",
@@ -29,18 +27,17 @@ const sections = [
   },
   {
     title: "File Processing & Privacy",
-    body: "Most WorkUtilities tools process files and inputs locally in your browser. Some tools — including certain PDF conversions and network-based lookups — send data you provide to a server or third-party API to return results. WorkUtilities does not require an account.",
+    body: "Most WorkUtilities tools process files and inputs locally in your browser. A small number of PDF tools (PDF Compress, PDF to Word, PDF to JPG, PDF Unlock) use secure server-side processing — this is clearly noted on each tool page. Some network-based tools send queries to external APIs. WorkUtilities does not require an account.",
     privacyLink: true,
   },
   {
     title: "Analytics & Cookies",
-    body: "WorkUtilities uses analytics services (including Google Analytics and Vercel Web Analytics) to understand site usage. The site also uses first-party cookies and browser storage for preferences such as currency selection. WorkUtilities does not currently use advertising cookies.",
+    body: "WorkUtilities uses Google Analytics (G-N85BQ3XV27) and Vercel Analytics for anonymous usage statistics. These services may process IP addresses and device information per their respective privacy policies. The site also uses first-party cookies and browser storage for preferences such as currency selection.",
     privacyLink: true,
   },
   {
-    title: "Advertising & Future Monetization",
-    body: "WorkUtilities does not currently display third-party advertising. We may introduce advertising services (such as Google AdSense) in the future to help keep the site free. If advertising is enabled, we will update these Terms and our Privacy Policy to describe the services used and how you can manage ad personalization — including through Google's advertising settings at",
-    link: { href: GOOGLE_ADS_SETTINGS_URL, label: "Google Ads Settings" },
+    title: "Advertising",
+    body: "WorkUtilities may introduce Google AdSense or similar advertising services in the future. Our Terms and Privacy Policy will be updated before ads are enabled.",
     privacyLink: true,
   },
   {
@@ -96,20 +93,6 @@ export default function TermsPage() {
                 </h2>
                 <p className="mt-2 leading-relaxed text-content-secondary">
                   {section.body}
-                  {"link" in section && section.link && (
-                    <>
-                      {" "}
-                      <a
-                        href={section.link.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-brand-blue transition-colors hover:underline"
-                      >
-                        {section.link.label}
-                      </a>
-                      .
-                    </>
-                  )}
                   {"email" in section && section.email && (
                     <>
                       {" "}
