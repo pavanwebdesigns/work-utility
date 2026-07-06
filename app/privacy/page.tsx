@@ -3,15 +3,23 @@ import Link from "next/link";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 
+const LAST_UPDATED = "July 2026";
+
+const GOOGLE_ANALYTICS_OPT_OUT_URL = "https://tools.google.com/dlpage/gaoptout";
+const GOOGLE_PRIVACY_URL = "https://policies.google.com/privacy";
+const GOOGLE_ADS_SETTINGS_URL = "https://adssettings.google.com";
+const VERCEL_PRIVACY_URL = "https://vercel.com/legal/privacy-policy";
+
 export const metadata: Metadata = {
   title: {
     absolute: "Privacy Policy — WorkUtilities",
   },
   description:
-    "WorkUtilities privacy policy — browser-only file processing, no uploads, minimal data collection.",
+    "How WorkUtilities handles your data — browser-based tools, analytics, cookies, local storage, and future advertising disclosures.",
+  alternates: {
+    canonical: "https://workutilities.com/privacy",
+  },
 };
-
-const GOOGLE_ADS_SETTINGS_URL = "https://adssettings.google.com";
 
 export default function PrivacyPage() {
   return (
@@ -28,7 +36,9 @@ export default function PrivacyPage() {
           <h1 className="mt-8 text-2xl font-bold text-content-primary sm:text-3xl">
             Privacy Policy
           </h1>
-          <p className="mt-2 text-sm text-content-muted">Last updated: June 2026</p>
+          <p className="mt-2 text-sm text-content-muted">
+            Last updated: {LAST_UPDATED}
+          </p>
 
           <p className="mt-8 leading-relaxed text-content-secondary">
             At WorkUtilities (accessible from{" "}
@@ -38,143 +48,235 @@ export default function PrivacyPage() {
             >
               https://workutilities.com
             </a>
-            ), the privacy of our visitors is one of our core priorities. This
-            Privacy Policy document outlines the types of information we process
-            and how we ensure maximum data protection.
+            ), we aim to be transparent about what data our website and tools
+            process. This Privacy Policy describes our practices as of the date
+            above.
           </p>
 
           <div className="mt-8 space-y-8">
             <section>
               <h2 className="text-lg font-semibold text-content-primary">
-                1. Information We Collect &amp; Privacy-First Architecture
+                1. Account-Free Tools &amp; What We Collect Directly
               </h2>
               <p className="mt-2 leading-relaxed text-content-secondary">
-                WorkUtilities operates on a strict no-data-collection policy.
+                WorkUtilities does not require registration or account creation.
+                We do not operate a user account system and we do not ask you to
+                submit a profile, email address, or payment details to use our
+                free tools.
+              </p>
+              <p className="mt-2 leading-relaxed text-content-secondary">
+                We do not intentionally collect the content of files you process
+                through our own application code, except where a specific tool
+                sends data to a server as described in Section 2.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-lg font-semibold text-content-primary">
+                2. How Our Tools Process Data
+              </h2>
+              <p className="mt-2 leading-relaxed text-content-secondary">
+                Most WorkUtilities tools run entirely in your web browser using
+                client-side JavaScript. For those tools, files and inputs you
+                provide are processed locally on your device and are not
+                uploaded to WorkUtilities servers through our tool code.
+              </p>
+              <p className="mt-2 leading-relaxed text-content-secondary">
+                Some tools are exceptions and may transmit data over the
+                internet:
               </p>
               <ul className="mt-3 list-disc space-y-2 pl-5 leading-relaxed text-content-secondary">
-                <li>We do not collect, store, or share any personal data.</li>
                 <li>
-                  No user registration, signup, or account creation is required
-                  to use our services.
+                  <strong className="text-content-primary">
+                    Server-assisted PDF tools:
+                  </strong>{" "}
+                  Certain PDF features (such as PDF compression, PDF to Word, PDF
+                  to JPG, and PDF unlock) send the file you select to a
+                  configured processing service so the conversion can be
+                  completed. Only use these tools if you are comfortable
+                  sending that file for processing.
                 </li>
                 <li>
                   <strong className="text-content-primary">
-                    Zero Server Uploads:
+                    Network lookup and rate tools:
                   </strong>{" "}
-                  All file processing (including PDF compression, image
-                  resizing, merging, and format conversions) happens entirely
-                  client-side within your web browser using local JavaScript.
-                  Your files never leave your device and are never transmitted
-                  to our servers.
+                  Tools such as DNS lookup, IP lookup, currency converter, and
+                  crypto price tracker send the query you enter (for example, a
+                  domain name, IP address, or currency pair) to third-party or
+                  WorkUtilities-operated APIs to return results.
                 </li>
               </ul>
-            </section>
-
-            <section>
-              <h2 className="text-lg font-semibold text-content-primary">
-                2. Cookies and Web Beacons
-              </h2>
-              <p className="mt-2 leading-relaxed text-content-secondary">
-                Like any other website, WorkUtilities uses &quot;cookies&quot;.
-                These cookies are used to store minimal configuration data and
-                optimize the user experience by customizing our web page content
-                based on visitors&apos; browser type and/or other information.
+              <p className="mt-3 leading-relaxed text-content-secondary">
+                Tool pages describe their processing approach where relevant. If
+                you need maximum privacy for sensitive documents, prefer tools
+                that state they run fully in your browser.
               </p>
             </section>
 
             <section>
               <h2 className="text-lg font-semibold text-content-primary">
-                3. Google AdSense and Third-Party Advertising
+                3. Cookies, Local Storage &amp; Similar Technologies
               </h2>
               <p className="mt-2 leading-relaxed text-content-secondary">
-                We use Google AdSense as our primary third-party advertising
-                vendor to serve advertisements on our site. To comply with
-                Google&apos;s publisher policies, you must be aware of the
-                following tracking mechanisms:
+                WorkUtilities uses first-party cookies and browser storage for
+                basic site functionality, such as remembering your currency
+                preference (INR/USD), saved favorite tools, and similar UI
+                settings. These are stored in cookies and/or{" "}
+                <code className="text-content-primary">localStorage</code> in
+                your browser.
+              </p>
+              <p className="mt-2 leading-relaxed text-content-secondary">
+                Third-party analytics services used on this site may also set
+                cookies or use similar technologies, as described in Section 4.
+              </p>
+              <p className="mt-2 leading-relaxed text-content-secondary">
+                <strong className="text-content-primary">
+                  Advertising cookies:
+                </strong>{" "}
+                WorkUtilities does <em>not</em> currently display third-party
+                advertising or use advertising cookies. See Section 5 for our
+                approach to future monetization.
+              </p>
+              <p className="mt-2 leading-relaxed text-content-secondary">
+                You can clear or block cookies and local storage through your
+                browser settings. Blocking cookies may affect currency
+                preferences and other convenience features.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-lg font-semibold text-content-primary">
+                4. Analytics
+              </h2>
+              <p className="mt-2 leading-relaxed text-content-secondary">
+                We use analytics services to understand how visitors use
+                WorkUtilities — for example, which pages are viewed and general
+                traffic patterns. As of {LAST_UPDATED}, these include:
               </p>
               <ul className="mt-3 list-disc space-y-2 pl-5 leading-relaxed text-content-secondary">
                 <li>
                   <strong className="text-content-primary">
-                    Third-Party Cookies:
+                    Google Analytics
                   </strong>{" "}
-                  Google, as a third-party vendor, uses cookies to serve ads on
-                  WorkUtilities based on your visit to this site and other sites
-                  on the Internet.
-                </li>
-                <li>
-                  <strong className="text-content-primary">
-                    Google&apos;s DART Cookie:
-                  </strong>{" "}
-                  Google&apos;s use of advertising cookies enables it and its
-                  partners to serve ads to our users based on their visit to our
-                  site and/or other sites on the Internet.
-                </li>
-                <li>
-                  <strong className="text-content-primary">Opting Out:</strong>{" "}
-                  Users may choose to opt-out of personalized advertising and
-                  the use of the DART cookie by visiting the official Google
-                  Ads and Content Network Privacy Policy at the following URL:{" "}
+                  — provided by Google. Google Analytics may use cookies and
+                  collect information such as pages visited, approximate
+                  location, browser type, device information, and IP address,
+                  according to{" "}
                   <a
-                    href={GOOGLE_ADS_SETTINGS_URL}
+                    href={GOOGLE_PRIVACY_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-brand-blue transition-colors hover:underline"
                   >
-                    Google Ads Settings
+                    Google&apos;s Privacy Policy
+                  </a>
+                  . You can opt out of Google Analytics using the{" "}
+                  <a
+                    href={GOOGLE_ANALYTICS_OPT_OUT_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-brand-blue transition-colors hover:underline"
+                  >
+                    Google Analytics Opt-out Browser Add-on
+                  </a>
+                  .
+                </li>
+                <li>
+                  <strong className="text-content-primary">
+                    Vercel Web Analytics
+                  </strong>{" "}
+                  — provided by Vercel, our hosting platform. Vercel states that
+                  its Web Analytics product is designed to be privacy-friendly
+                  and does not use third-party cookies for tracking. See{" "}
+                  <a
+                    href={VERCEL_PRIVACY_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-brand-blue transition-colors hover:underline"
+                  >
+                    Vercel&apos;s Privacy Policy
                   </a>
                   .
                 </li>
               </ul>
-              <p className="mt-4 leading-relaxed text-content-secondary">
-                We have no access to or control over these cookies that are used
-                by third-party advertisers. You can choose to disable cookies
-                through your individual browser options.
+              <p className="mt-3 leading-relaxed text-content-secondary">
+                We use analytics to improve the site. We do not sell your
+                personal information.
               </p>
             </section>
 
             <section>
               <h2 className="text-lg font-semibold text-content-primary">
-                4. Analytics and Traffic Monitoring
+                5. Advertising &amp; Future Monetization
               </h2>
               <p className="mt-2 leading-relaxed text-content-secondary">
-                We use minimal, privacy-friendly analytics utilities to monitor
-                general web traffic and usage patterns (such as page views and
-                tool execution frequency). This data is completely aggregated
-                and anonymized. No Personally Identifiable Information (PII) or
-                IP addresses are linked to these analytics tracking events.
+                WorkUtilities does <em>not</em> currently show third-party
+                display advertising (including Google AdSense) on this website.
+                No advertising cookies are in use at this time.
+              </p>
+              <p className="mt-2 leading-relaxed text-content-secondary">
+                We may introduce third-party advertising services in the future
+                to help keep the site free — for example, Google AdSense or
+                similar programs. If we enable advertising, those partners may
+                use cookies or similar identifiers to serve, measure, and
+                personalize ads where permitted by law.
+              </p>
+              <p className="mt-2 leading-relaxed text-content-secondary">
+                If advertising is enabled, we will update this Privacy Policy
+                and our Terms to describe the services used, the types of data
+                involved, and how you can manage personalized advertising —
+                including through{" "}
+                <a
+                  href={GOOGLE_ADS_SETTINGS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-brand-blue transition-colors hover:underline"
+                >
+                  Google Ads Settings
+                </a>{" "}
+                where applicable. We may also implement a cookie consent
+                mechanism where required.
               </p>
             </section>
 
             <section>
               <h2 className="text-lg font-semibold text-content-primary">
-                5. Third-Party Links
+                6. Third-Party Links
               </h2>
               <p className="mt-2 leading-relaxed text-content-secondary">
-                Our website may contain links to other websites (such as
-                external resources or our tools documentation). If you click on
-                a third-party link, you will be directed to that site. Note that
-                these external sites are not operated by us; therefore, we
-                strongly advise you to review the Privacy Policy of these
-                websites.
+                Our website may link to external sites (documentation, partner
+                resources, or references). Those sites are not operated by
+                WorkUtilities. We encourage you to review the privacy policies
+                of any third-party site you visit.
               </p>
             </section>
 
             <section>
               <h2 className="text-lg font-semibold text-content-primary">
-                6. Contact Us
+                7. Changes to This Policy
               </h2>
               <p className="mt-2 leading-relaxed text-content-secondary">
-                If you have additional questions or require more information
-                about our Privacy Policy, do not hesitate to contact us.
+                We may update this Privacy Policy from time to time. The
+                &quot;Last updated&quot; date at the top of this page will
+                reflect the most recent revision. Continued use of WorkUtilities
+                after changes are posted constitutes your acknowledgment of the
+                updated policy.
               </p>
+            </section>
+
+            <section>
+              <h2 className="text-lg font-semibold text-content-primary">
+                8. Contact Us
+              </h2>
               <p className="mt-2 leading-relaxed text-content-secondary">
-                Email:{" "}
+                Questions about this Privacy Policy? Contact us at{" "}
                 <a
                   href="mailto:workutilities.tools@outlook.com"
                   className="text-brand-blue transition-colors hover:underline"
                 >
                   workutilities.tools@outlook.com
                 </a>
+                .
               </p>
             </section>
           </div>

@@ -1,11 +1,27 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 
+const LAST_UPDATED = "July 2026";
+
+const GOOGLE_ADS_SETTINGS_URL = "https://adssettings.google.com";
+
+export const metadata: Metadata = {
+  title: {
+    absolute: "Terms & Conditions — WorkUtilities",
+  },
+  description:
+    "Terms and conditions for using WorkUtilities free online tools, including data handling, analytics, and future advertising.",
+  alternates: {
+    canonical: "https://workutilities.com/terms",
+  },
+};
+
 const sections = [
   {
     title: "Acceptance of Terms",
-    body: "By using WorkUtilities, you agree to these terms. If you do not agree, please do not use the site.",
+    body: "By using WorkUtilities, you agree to these Terms & Conditions and our Privacy Policy. If you do not agree, please do not use the site.",
   },
   {
     title: "Use of Tools",
@@ -13,7 +29,19 @@ const sections = [
   },
   {
     title: "File Processing & Privacy",
-    body: "All file processing happens entirely in your browser. WorkUtilities does not upload, store, or access your files in any way. We have no access to the content of files you process using our tools.",
+    body: "Most WorkUtilities tools process files and inputs locally in your browser. Some tools — including certain PDF conversions and network-based lookups — send data you provide to a server or third-party API to return results. WorkUtilities does not require an account.",
+    privacyLink: true,
+  },
+  {
+    title: "Analytics & Cookies",
+    body: "WorkUtilities uses analytics services (including Google Analytics and Vercel Web Analytics) to understand site usage. The site also uses first-party cookies and browser storage for preferences such as currency selection. WorkUtilities does not currently use advertising cookies.",
+    privacyLink: true,
+  },
+  {
+    title: "Advertising & Future Monetization",
+    body: "WorkUtilities does not currently display third-party advertising. We may introduce advertising services (such as Google AdSense) in the future to help keep the site free. If advertising is enabled, we will update these Terms and our Privacy Policy to describe the services used and how you can manage ad personalization — including through Google's advertising settings at",
+    link: { href: GOOGLE_ADS_SETTINGS_URL, label: "Google Ads Settings" },
+    privacyLink: true,
   },
   {
     title: "Intellectual Property",
@@ -21,19 +49,15 @@ const sections = [
   },
   {
     title: "Disclaimer of Warranties",
-    body: 'Our tools are provided "as is" without any warranty. We do not guarantee that the tools will always work perfectly or be available at all times. Use at your own risk.',
+    body: 'Our tools are provided "as is" without any warranty. We do not guarantee that the tools will always work perfectly or be available at all times. Calculators and converters provide estimates for informational purposes only — not professional, legal, tax, or financial advice. Use at your own risk.',
   },
   {
     title: "Limitation of Liability",
     body: "WorkUtilities shall not be held liable for any damages arising from the use or inability to use our tools, including but not limited to data loss or file corruption.",
   },
   {
-    title: "Advertising",
-    body: "WorkUtilities uses Google AdSense to display advertisements. These ads help keep the service free. Ad content is controlled by Google and may be personalized based on your browsing history.",
-  },
-  {
     title: "Changes to Terms",
-    body: "We reserve the right to update these terms at any time. Continued use of the site after changes constitutes acceptance of the new terms.",
+    body: `We reserve the right to update these terms at any time. The "Last updated" date on this page reflects the most recent revision. Continued use of the site after changes constitutes acceptance of the new terms.`,
   },
   {
     title: "Governing Law",
@@ -44,7 +68,7 @@ const sections = [
     body: "For questions about these terms, contact us at:",
     email: "workutilities.tools@outlook.com",
   },
-];
+] as const;
 
 export default function TermsPage() {
   return (
@@ -59,10 +83,10 @@ export default function TermsPage() {
             ← Home
           </Link>
           <h1 className="mt-8 text-2xl font-bold text-content-primary sm:text-3xl">
-            Terms & Conditions
+            Terms &amp; Conditions
           </h1>
           <p className="mt-2 text-sm text-content-muted">
-            Last updated: June 2026
+            Last updated: {LAST_UPDATED}
           </p>
           <div className="mt-8 space-y-8">
             {sections.map((section) => (
@@ -72,6 +96,20 @@ export default function TermsPage() {
                 </h2>
                 <p className="mt-2 leading-relaxed text-content-secondary">
                   {section.body}
+                  {"link" in section && section.link && (
+                    <>
+                      {" "}
+                      <a
+                        href={section.link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-brand-blue transition-colors hover:underline"
+                      >
+                        {section.link.label}
+                      </a>
+                      .
+                    </>
+                  )}
                   {"email" in section && section.email && (
                     <>
                       {" "}
@@ -83,10 +121,33 @@ export default function TermsPage() {
                       </a>
                     </>
                   )}
+                  {"privacyLink" in section && section.privacyLink && (
+                    <>
+                      {" "}
+                      See our{" "}
+                      <Link
+                        href="/privacy"
+                        className="text-brand-blue transition-colors hover:underline"
+                      >
+                        Privacy Policy
+                      </Link>
+                      .
+                    </>
+                  )}
                 </p>
               </section>
             ))}
           </div>
+
+          <p className="mt-10 text-sm text-content-secondary">
+            Also read our{" "}
+            <Link
+              href="/privacy"
+              className="text-brand-blue transition-colors hover:underline"
+            >
+              Privacy Policy →
+            </Link>
+          </p>
         </div>
       </main>
       <Footer />
