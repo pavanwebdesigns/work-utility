@@ -21,7 +21,12 @@ export default function ResizePhotoForGovernmentFormsIndiaContent() {
 
       <h2>Photo Requirements for Common Indian Government Documents</h2>
 
-      <h3>Aadhaar Card Update</h3>
+      <h3>Aadhaar Card (enrollment center visit)</h3>
+      <p>
+        UIDAI does not accept online photo uploads. Photo updates require an
+        in-person visit. These specs apply to printed photos some centers ask you
+        to bring:
+      </p>
       <ul>
         <li>Dimensions: 413 x 531 pixels</li>
         <li>File size: maximum 50KB</li>

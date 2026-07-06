@@ -71,6 +71,12 @@ export function PhotoSizeGuidePage({ guide }: { guide: PhotoSizeGuide }) {
             )}
           </div>
 
+          {guide.introNote && (
+            <p className="mt-4 text-sm leading-relaxed text-content-secondary">
+              {guide.introNote}
+            </p>
+          )}
+
           {guide.quickSpecs && (
             <div className="mt-6 rounded-xl border border-tool-photo/30 bg-tool-photo/5 p-5 sm:p-6">
               <h2 className="text-sm font-semibold uppercase tracking-widest text-content-muted">
@@ -333,7 +339,7 @@ export function PhotoSizeGuidePage({ guide }: { guide: PhotoSizeGuide }) {
 
           <section className="mt-10">
             <h2 className="text-lg font-semibold text-content-primary">
-              Common Upload Errors
+              {guide.uploadErrorsTitle ?? "Common Upload Errors"}
             </h2>
             <ul className="mt-4 space-y-3">
               {guide.uploadErrors.map((item) => (

@@ -4,7 +4,7 @@ const faqs = [
   {
     question: "What is the photo size for Aadhaar card?",
     answer:
-      "Aadhaar photo size is 413×531 pixels, maximum 50KB, JPG format. Face should cover 70–80% of the frame with a light background.",
+      "Aadhaar photo size is 413×531 pixels, maximum 50KB, JPG format, for printed photos at enrollment centers. Photo updates require an in-person visit — online updates cover demographic details only.",
   },
   {
     question: "What is the photo size for passport in India?",
@@ -79,7 +79,10 @@ export default function CompleteGovernmentFormsGuideIndiaContent() {
 
       <h2 id="aadhaar">Aadhaar Card Photo Requirements</h2>
       <p>
-        UIDAI requires 413×531 pixels, max 50KB JPG. Guide:{" "}
+        UIDAI requires 413×531 pixels, max 50KB JPG for printed photos some
+        enrollment centers request. Photo and biometric updates require an
+        in-person visit — online updates cover demographic details (address,
+        name, DOB) only. Guide:{" "}
         <Link href="/blog/aadhaar-photo-size-guide">Aadhaar photo size guide</Link>.
         Detailed specs:{" "}
         <Link href="/aadhaar-photo-size">Aadhaar Photo Size</Link> landing page.

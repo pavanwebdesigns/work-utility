@@ -284,14 +284,14 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
     aboutParagraphs: [
       "Our free Photo Resizer lets you crop and resize images to exact pixel dimensions and file sizes required by online forms. Set width and height in pixels or centimetres, choose presets for common Indian documents, and download a ready-to-upload photo in seconds.",
       "Everything happens client-side in your browser — your photo is never sent to a server. That means Aadhaar scans, PAN photos, passport pictures, and job application headshots stay completely private on your device.",
-      "Designed for everyday Indian use cases: Aadhaar enrolment and updates, NSDL/UTI PAN applications, passport and visa photos, college admission forms, and profile pictures on Naukri or government exam portals. Built-in presets match common requirements so you do not have to guess dimensions or hunt for Photoshop alternatives on mobile.",
+      "Designed for everyday Indian use cases: Aadhaar enrollment printed photos, NSDL/UTI PAN applications, passport and visa photos, college admission forms, and profile pictures on Naukri or government exam portals. Built-in presets match common requirements so you do not have to guess dimensions or hunt for Photoshop alternatives on mobile.",
     ],
     whenToUseTitle: "When Should You Use Photo Resizer?",
     useCases: [
       {
-        title: "Aadhaar upload",
+        title: "Aadhaar enrollment photo",
         description:
-          "Resize to the exact dimensions and KB limit UIDAI portals expect for photo updates.",
+          "Resize to 413×531 px and under 50 KB for printed photos to bring to Aadhaar enrollment centers. UIDAI does not accept online photo uploads.",
       },
       {
         title: "PAN card application",
@@ -316,9 +316,9 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
     ],
     faqs: [
       {
-        question: "How to resize photo for Aadhaar card online?",
+        question: "How to resize photo for Aadhaar card?",
         answer:
-          "Upload your photo, select the Aadhaar preset or enter required dimensions, crop to fit, and download. Compress if the portal has a KB limit.",
+          "Upload your photo, select the Aadhaar preset, crop to fit, and download. Compress to under 50 KB, then print to bring to your Aadhaar enrollment center. Photo updates require an in-person visit — UIDAI does not accept online photo uploads.",
       },
       {
         question: "What is the photo size for PAN card application?",
@@ -596,7 +596,7 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
       {
         question: "Can I remove background from Aadhaar photo?",
         answer:
-          "You can process any photo, but follow UIDAI guidelines — do not alter official Aadhaar documents unless the portal allows edited photos.",
+          "You can process any photo, but Aadhaar photo and biometric updates require an in-person visit to an enrollment center. Use resized photos only for printed copies some centers request.",
       },
       {
         question: "Is background remover safe to use online?",

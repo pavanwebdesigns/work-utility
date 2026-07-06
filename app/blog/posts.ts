@@ -611,7 +611,7 @@ export const blogPosts: BlogPost[] = [
     slug: "compress-image-under-100kb-india",
     title: "How to Compress Image Under 100KB — For Government Portals & Forms India",
     excerpt:
-      "Compress image to under 100KB for UPSC, SSC, Aadhaar, PAN, and other Indian government portal uploads. Free online tool.",
+      "Compress image to under 100KB for UPSC, SSC, PAN, and other Indian government portal uploads. Free online tool.",
     category: "Images",
     readTime: "6 min read",
     author: "Pavan Kumar",
@@ -644,7 +644,7 @@ export const blogPosts: BlogPost[] = [
     slug: "aadhaar-photo-size-guide",
     title: "Aadhaar Card Photo Size — Exact Requirements & How to Resize Free",
     excerpt:
-      "Aadhaar card photo size is 413×531 pixels, max 50KB. Complete guide to resize your photo for Aadhaar update portal free.",
+      "Aadhaar card photo size is 413×531 pixels, max 50KB. Guide to resize a printed photo for Aadhaar enrollment center visits.",
     category: "Photo",
     readTime: "6 min read",
     author: "Pavan Kumar",
@@ -1634,7 +1634,7 @@ export const blogSeoMetadata: Record<
     description:
       "Complete guide to Aadhaar photo requirements 2026. Understand why UIDAI rejects photos and how to prepare a compliant image. Size, format, and common mistakes.",
     keywords:
-      "aadhaar card photo requirements, aadhaar photo rejected reason, uidai photo rejection, aadhaar photo upload failed",
+      "aadhaar card photo requirements, aadhaar photo rejected reason, uidai photo rejection, aadhaar enrollment photo size",
   },
   "how-to-compress-pdf-online-free": {
     title: "How to Compress PDF Online Free in 2026 | WorkUtilities",
@@ -1842,7 +1842,7 @@ export const blogSeoMetadata: Record<
   "compress-image-under-100kb-india": {
     title: "Compress Image Under 100KB for Government Portals India | WorkUtilities",
     description:
-      "Compress image to under 100KB for UPSC, SSC, Aadhaar, PAN, and other Indian government portal uploads. Free online tool.",
+      "Compress image to under 100KB for UPSC, SSC, PAN, and other Indian government portal uploads. Free online tool.",
     keywords:
       "compress image under 100kb india, ssc photo 50kb, government portal image size, reduce image kb limit",
   },
@@ -1863,9 +1863,9 @@ export const blogSeoMetadata: Record<
   "aadhaar-photo-size-guide": {
     title: "Aadhaar Card Photo Size Guide — 413×531 Pixels, 50KB | WorkUtilities",
     description:
-      "Aadhaar card photo size is 413×531 pixels, max 50KB. Complete guide to resize your photo for Aadhaar update portal free.",
+      "Aadhaar card photo size is 413×531 pixels, max 50KB. Guide to resize a printed photo for Aadhaar enrollment center visits.",
     keywords:
-      "aadhaar photo size 413x531, aadhaar photo 50kb, uidai photo requirements, resize aadhaar photo online",
+      "aadhaar photo size 413x531, aadhaar photo 50kb, uidai photo requirements, aadhaar enrollment photo resize",
   },
   "qr-code-for-small-business-india": {
     title: "Create QR Code for Business India 2026 — Free Guide | WorkUtilities",

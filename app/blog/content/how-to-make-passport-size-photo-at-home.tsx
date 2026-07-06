@@ -124,7 +124,8 @@ export default function HowToMakePassportSizePhotoAtHomeContent() {
       <ul>
         <li>College admission forms — usually yes</li>
         <li>Internship and job applications — yes for most companies</li>
-        <li>PAN card and Aadhaar update — yes, with correct dimensions</li>
+        <li>PAN card application — yes, with correct dimensions</li>
+        <li>Aadhaar enrollment — prepare a printed photo to specs; biometric capture is on-site (no online photo upload)</li>
         <li>Passport application — yes, but follow Ministry of External Affairs specs strictly</li>
         <li>Visa applications — varies by country; some require studio stamp</li>
       </ul>

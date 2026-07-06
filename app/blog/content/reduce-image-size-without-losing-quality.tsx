@@ -349,7 +349,7 @@ export default function ReduceImageSizeWithoutLosingQualityContent() {
             <td>JPG</td>
           </tr>
           <tr>
-            <td>Aadhaar upload</td>
+            <td>Aadhaar (printed photo for enrollment)</td>
             <td>Under 50KB</td>
             <td>JPG</td>
           </tr>

@@ -23,9 +23,11 @@ export default function CompressImageUnder100kbIndiaContent() {
       <h2>Why Indian Government Portals Have Strict Size Limits</h2>
 
       <p>
-        UPSC, SSC, state PSC, Aadhaar, PAN — all cap photo and document uploads
-        at 50KB to 300KB. A phone camera photo is 2–5MB by default. That gap is
-        why millions of Indians fail uploads every exam season.
+        UPSC, SSC, state PSC, PAN — and other government portals cap photo and
+        document uploads at 50KB to 300KB. Aadhaar photo specs apply to printed
+        photos for enrollment visits (UIDAI does not accept online photo uploads).
+        A phone camera photo is 2–5MB by default. That gap is why millions of
+        Indians fail uploads every exam season.
       </p>
 
       <hr />
@@ -93,7 +95,7 @@ export default function CompressImageUnder100kbIndiaContent() {
             <td>300KB</td>
           </tr>
           <tr>
-            <td>Aadhaar update</td>
+            <td>Aadhaar (printed photo for enrollment)</td>
             <td>50KB</td>
             <td>—</td>
           </tr>

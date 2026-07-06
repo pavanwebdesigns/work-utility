@@ -57,6 +57,8 @@ export interface PhotoSizeGuide {
   ctaBullets?: string[];
   enhancedCtaLabel?: string;
   alertBanner?: { title: string; body: string };
+  introNote?: string;
+  uploadErrorsTitle?: string;
   formatComparison?: {
     title: string;
     intro: string;
@@ -79,6 +81,12 @@ export const PHOTO_SIZE_GUIDES: Record<string, PhotoSizeGuide> = {
     background: "Plain white or light grey",
     faceCoverage: "80–85% of frame",
     lastVerified: "June 2026",
+    alertBanner: {
+      title: "Note: Printed photo specs for enrollment centers",
+      body: "These specifications are for the printed photo to bring to enrollment centers. UIDAI does not accept online photo uploads — biometric updates require an in-person visit. Always verify current requirements at uidai.gov.in before your visit.",
+    },
+    introNote:
+      "Aadhaar photo updates require an in-person visit to an Aadhaar enrollment center. UIDAI captures biometrics (photo, fingerprints, iris) on-site. Online updates are available for demographic details (address, name, DOB) only — not for photos.",
     quickSpecs: [
       "Size: 3.5 × 4.5 cm (portrait)",
       "File size: Under 50KB (JPEG only)",
@@ -112,7 +120,7 @@ export const PHOTO_SIZE_GUIDES: Record<string, PhotoSizeGuide> = {
         },
       ],
       footer:
-        "Many applicants mix these up and get rejected. Double-check orientation before uploading.",
+        "Many applicants mix these up. Double-check orientation before your enrollment visit.",
     },
     whyKbLimit:
       "UIDAI processes over 1.3 billion Aadhaar records. At 50KB per photo, the entire database stays manageable (~65TB). A photo at 1MB would require 1,300TB of storage. The 50KB limit maintains sufficient quality for biometric face-matching while keeping infrastructure practical.",
@@ -127,8 +135,9 @@ export const PHOTO_SIZE_GUIDES: Record<string, PhotoSizeGuide> = {
       "Low resolution or blurry image",
       "Heavy makeup, filters, or beauty effects applied",
     ],
+    uploadErrorsTitle: "Common Photo Specification Errors",
     uploadErrors: [
-      "Photo file size exceeds 50 KB — compress before uploading to UIDAI portal",
+      "Photo file size exceeds 50 KB — compress before printing if your center requires a digital file",
       "Wrong dimensions — photo must be 413×531 pixels (300 DPI equivalent)",
       "Wrong orientation — portrait 3.5×4.5 cm, not landscape",
       "Face too small or not centred — full face should occupy 80–85% of the frame",
@@ -138,7 +147,7 @@ export const PHOTO_SIZE_GUIDES: Record<string, PhotoSizeGuide> = {
       "Open the WorkUtilities Photo Resizer and select the Aadhaar Card preset",
       "Upload your photo — width, height, and 50 KB limit auto-fill",
       "Choose a white background and click Resize Photo",
-      "Download the resized JPG and upload to myaadhaar.uidai.gov.in",
+      "Download the resized JPG and print it to bring to your Aadhaar enrollment center (if required)",
     ],
     ctaPreset: "aadhaar",
     ctaLabel: "Resize Aadhaar Photo Free",
@@ -155,6 +164,11 @@ export const PHOTO_SIZE_GUIDES: Record<string, PhotoSizeGuide> = {
           "At 300 DPI (recommended): 413×531 pixels. At 200 DPI (minimum): 276×354 pixels. Our photo resizer automatically sets the correct dimensions.",
       },
       {
+        question: "Can I update my Aadhaar photo online?",
+        answer:
+          "No. UIDAI does not allow online photo or biometric updates. Photo, fingerprint, and iris updates require an in-person visit to an Aadhaar enrollment center. Online updates are limited to demographic details such as address, name, and date of birth.",
+      },
+      {
         question: "Why does UIDAI require photos under 50KB?",
         answer:
           "UIDAI manages over 1.3 billion Aadhaar records. A strict 50KB file size limit keeps the photo database manageable while maintaining enough quality for biometric face-matching during verification.",
@@ -167,17 +181,17 @@ export const PHOTO_SIZE_GUIDES: Record<string, PhotoSizeGuide> = {
       {
         question: "Can I use the same photo for Aadhaar and Passport?",
         answer:
-          "Both use 35×45mm portrait proportions, but digital specs differ: Passport Seva requires 630×810 px (10–250KB) while Aadhaar requires 413×531 px (under 50KB). Resize separately for each portal.",
+          "Both use 35×45mm portrait proportions, but digital specs differ: Passport Seva requires 630×810 px (10–250KB) while Aadhaar printed photos use 413×531 px (under 50KB). Resize separately for each document.",
       },
       {
-        question: "Why was my Aadhaar photo rejected even though it looked correct?",
+        question: "Why might my Aadhaar photo be rejected at enrollment?",
         answer:
-          "Common hidden reasons: file size even 1KB over limit (portals do byte-level validation), slight color tint in background, hair partially covering forehead, or photo older than 6 months. Use our resizer to auto-compress to exactly under 50KB.",
+          "Common reasons: file size even 1KB over the 50KB limit, wrong orientation, coloured background, hair covering forehead, or photo older than 6 months. Some centers ask you to bring a printed photo meeting these specs — use our resizer to prepare one before your visit.",
       },
       {
-        question: "Can I use a mobile photo for Aadhaar update?",
+        question: "Can I use a mobile photo for Aadhaar enrollment?",
         answer:
-          "Yes, you can use a mobile photo as long as it meets the 413×531 pixel dimension and 50 KB size requirements with a plain background.",
+          "Yes, you can start with a mobile photo as long as you resize it to 413×531 pixels, compress to under 50 KB, and use a plain background before printing. UIDAI captures biometrics on-site at the enrollment center.",
       },
       {
         question: "How do I reduce Aadhaar photo size below 50 KB?",
