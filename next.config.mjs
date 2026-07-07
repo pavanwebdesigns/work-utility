@@ -9,7 +9,7 @@ const contentSecurityPolicy = [
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: blob: https:",
   "font-src 'self' data:",
-  "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://vitals.vercel-insights.com https://*.railway.app https://api.frankfurter.app https://api.coingecko.com https://cloudflare-dns.com https://ip-api.com",
+  "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://vitals.vercel-insights.com https://*.railway.app https://api.frankfurter.app https://api.coingecko.com https://cloudflare-dns.com https://ip-api.com https://api.ipify.org",
   "frame-src 'none'",
   "object-src 'none'",
   "base-uri 'self'",
@@ -60,7 +60,7 @@ const nextConfig = {
           },
           {
             key: "Permissions-Policy",
-            value: "camera=(), microphone=(), geolocation=()",
+            value: "camera=(), microphone=(self), geolocation=()",
           },
           {
             key: "Content-Security-Policy",
