@@ -118,7 +118,7 @@ export const TOOL_PAGE_DESCRIPTIONS: Record<string, string> = {
   "uuid-generator": "Generate random UUID v4 identifiers online free. Create one or hundreds at once, with or without hyphens. No signup, runs in your browser.",
   "webp-to-jpg": "Convert WebP images to JPG or PNG free online. Fast, private, browser-only WebP converter. No signup needed.",
   "word-counter": "Free online word counter. Count words, characters, sentences, reading time, and keyword density instantly. Perfect for essays, social media, and SEO. No signup.",
-  "word-to-pdf": "Convert Word documents to PDF online free. Fast DOCX to PDF conversion. No signup needed, browser-only processing.",
+  "word-to-pdf": "Convert Word documents to PDF online free. Preserves fonts, tables, images, and layout via secure server processing.",
   "xml-formatter": "Format, beautify and validate XML data free online. Fix XML errors and view structured data instantly.",
   "loan-eligibility": "Check your home, personal or car loan eligibility free online. Based on Indian FOIR guidelines — see max eligible amount and EMI. No signup required.",
   "ppf-calculator": "Calculate PPF maturity amount, interest earned, and year-by-year balance free online. Includes partial withdrawal rules, loan eligibility, and 5-year extension blocks for India.",

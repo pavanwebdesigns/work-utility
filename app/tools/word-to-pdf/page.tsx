@@ -18,6 +18,7 @@ import { ToolFeedback } from "@/components/ToolFeedback";
 import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
 import { FavoriteButton } from "@/components/FavoriteButton";
+import { ServerPdfProcessingNotice } from "@/components/ServerPdfProcessingNotice";
 import { convertWordToPdf, formatFileSize } from "@/lib/word-to-pdf";
 
 const MAX_FILE_SIZE = 20 * 1024 * 1024;
@@ -33,7 +34,7 @@ const howItWorksSteps = [
     step: "02",
     icon: RefreshCw,
     title: "Convert",
-    description: "Text is extracted and formatted as PDF",
+    description: "LibreOffice renders your document as PDF",
   },
   {
     step: "03",
@@ -176,9 +177,10 @@ export default function WordToPdfPage() {
                 Word to PDF
               </h1>
               <p className="mx-auto mt-3 max-w-md text-content-secondary">
-                Convert Word documents to PDF instantly. Text and formatting
-                preserved. Runs in your browser.
+                Convert Word documents to PDF with full formatting preserved —
+                fonts, tables, images, and layout.
               </p>
+              <ServerPdfProcessingNotice />
             <div className="mt-4 flex justify-center">
               <FavoriteButton slug="word-to-pdf" />
             </div>

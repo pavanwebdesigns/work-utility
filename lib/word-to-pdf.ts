@@ -1,37 +1,37 @@
+function getPdfApiBaseUrl(): string {
+  const baseUrl = process.env.NEXT_PUBLIC_PDF_API_URL;
+  if (!baseUrl) {
+    throw new Error("Conversion service is not configured");
+  }
+  return baseUrl.replace(/\/$/, "");
+}
+
 export async function convertWordToPdf(file: File): Promise<Blob> {
-  const mammoth = await import("mammoth");
-  const arrayBuffer = await file.arrayBuffer();
+  const formData = new FormData();
+  formData.append("file", file);
 
-  const result = await mammoth.extractRawText({ arrayBuffer });
-  const text = result.value;
-  const lines = text.split("\n").filter((line) => line.trim());
-
-  const { jsPDF } = await import("jspdf");
-  const doc = new jsPDF({ unit: "mm", format: "a4" });
-
-  const pageWidth = doc.internal.pageSize.getWidth();
-  const margin = 20;
-  const maxWidth = pageWidth - margin * 2;
-  let y = 20;
-
-  doc.setFontSize(11);
-  doc.setFont("helvetica", "normal");
-
-  for (const line of lines) {
-    const splitLines = doc.splitTextToSize(line.trim(), maxWidth);
-    for (const splitLine of splitLines) {
-      if (y > 270) {
-        doc.addPage();
-        y = 20;
-      }
-      doc.text(splitLine, margin, y);
-      y += 7;
+  const response = await fetch(
+    `${getPdfApiBaseUrl()}/api/convert/word-to-pdf`,
+    {
+      method: "POST",
+      body: formData,
     }
-    y += 2;
+  );
+
+  if (!response.ok) {
+    let message = "Conversion failed";
+    try {
+      const error = await response.json();
+      if (typeof error.detail === "string") {
+        message = error.detail;
+      }
+    } catch {
+      // ignore JSON parse errors
+    }
+    throw new Error(message);
   }
 
-  const pdfBytes = doc.output("arraybuffer");
-  return new Blob([new Uint8Array(pdfBytes)], { type: "application/pdf" });
+  return response.blob();
 }
 
 export function formatFileSize(bytes: number): string {

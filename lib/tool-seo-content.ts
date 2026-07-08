@@ -416,8 +416,8 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
   "word-to-pdf": {
     aboutTitle: "About Word to PDF Tool",
     aboutParagraphs: [
-      "Our free Word to PDF converter turns DOC and DOCX files into polished PDF documents that look the same on every device. Share reports, applications, and assignments without worrying about broken fonts or shifted layouts.",
-      "Conversion is client-side — your Word file stays on your device and is never uploaded to a server. That makes it safe for resumes, offer letters, and confidential business documents.",
+      "Our free Word to PDF converter turns DOC and DOCX files into polished PDF documents that preserve fonts, tables, images, and layout. Share reports, applications, and assignments without worrying about broken formatting.",
+      "Conversion uses LibreOffice on our secure processing server. Your Word file is uploaded for conversion and deleted immediately after processing — never stored.",
       "Perfect for Indian professionals sending job applications, students submitting college assignments, and anyone uploading documents to government portals that only accept PDF. PDF preserves formatting when reviewers open files on mobile, Windows, or Mac — a must for Naukri uploads, email attachments, and official submissions.",
     ],
     whenToUseTitle: "When Should You Use Word to PDF?",
