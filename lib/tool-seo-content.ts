@@ -818,9 +818,9 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
   "qr-code-generator": {
     aboutTitle: "About QR Code Generator Tool",
     aboutParagraphs: [
-      "Our free QR Code Generator creates scannable QR codes for URLs, text, WiFi, contact cards, UPI payments, and WhatsApp links. Customize colours and size, then download as PNG for print or digital use.",
+      "Our free QR Code Generator creates scannable QR codes for URLs, text, WiFi, contact cards, email, and phone links. Customize dot styles, corner shapes, colours, gradients, and logos with a live preview, then download as PNG, SVG, or JPEG.",
       "Generation runs in your browser — no data is sent to external servers. Your business links, payment details, and contact information stay private while you design codes locally.",
-      "Perfect for Indian shop owners adding UPI payment QR codes at counters, restaurants printing table menu codes, freelancers sharing WhatsApp contact links on business cards, and small businesses creating marketing QR codes for flyers and packaging. Download high-quality PNG files ready for print shops or social media.",
+      "Perfect for Indian shop owners adding UPI payment QR codes at counters, restaurants printing table menu codes, freelancers sharing contact links on business cards, and small businesses creating marketing QR codes for flyers and packaging. Download high-quality PNG or SVG files ready for print shops or social media.",
     ],
     whenToUseTitle: "When Should You Use QR Code Generator?",
     useCases: [
@@ -875,6 +875,26 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
         question: "Do QR codes expire?",
         answer:
           "Static QR codes do not expire. They work as long as the linked URL, UPI ID, or phone number remains valid.",
+      },
+      {
+        question: "Can I add my logo to the QR code?",
+        answer:
+          "Yes. Upload an image in the logo section and it appears centered on the QR. Use error correction level H so scanners can still read the code when part of it is covered by your logo.",
+      },
+      {
+        question: "What is error correction level in QR codes?",
+        answer:
+          "Error correction (L, M, Q, H) adds redundant data so the code still scans if damaged or partially covered. L recovers ~7%, M ~15%, Q ~25%, and H ~30%. Choose H when adding a logo or printing for outdoor use.",
+      },
+      {
+        question: "Which dot style gives the best scan reliability?",
+        answer:
+          "Square and rounded dots usually scan most reliably across phone cameras. Dots and classy styles look modern but keep high contrast (dark QR on a light background) and test on a few devices before printing.",
+      },
+      {
+        question: "Can I download the QR code as SVG for printing?",
+        answer:
+          "Yes. Use Download SVG for a vector file that scales cleanly for flex boards, business cards, and large print without pixelation. PNG and JPEG are also available for digital sharing.",
       },
     ],
     blogGuide: {

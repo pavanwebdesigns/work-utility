@@ -93,7 +93,7 @@ export const TOOL_PAGE_DESCRIPTIONS: Record<string, string> = {
   "photo-resizer": "Resize photos to exact Aadhaar card, PAN card, and passport size online free. Perfect dimensions for Indian government documents.",
   "pomodoro-timer": "Free Pomodoro timer online. 25-minute focus sessions with short and long breaks. Boost productivity instantly.",
   "ppt-to-pdf": "Convert PowerPoint presentations to PDF free online. No signup, browser-only PPT to PDF conversion.",
-  "qr-code-generator": "Generate QR codes for URLs, WhatsApp, WiFi, vCards, and SMS. Download as PNG or SVG with no watermark. Free online QR code generator — no signup needed.",
+  "qr-code-generator": "Generate customizable QR codes with logos, colors, and shapes. Download PNG, SVG, or JPEG — free online, no signup.",
   "random-number": "Generate random numbers, lists, and unique IDs free online. Customizable range and count. Instant results.",
   "rd-calculator": "Calculate recurring deposit maturity, interest earned, and TDS impact. Free RD calculator for Indian banks with RD vs FD comparison. No signup.",
   "regex-tester": "Test and debug regular expressions free online. Real-time match highlighting with explanation.",

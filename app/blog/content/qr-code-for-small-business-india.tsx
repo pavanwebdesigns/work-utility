@@ -82,6 +82,56 @@ export default function QrCodeForSmallBusinessIndiaContent() {
 
       <hr />
 
+      <h2>How to Customize Your QR Code Design</h2>
+
+      <p>
+        A plain black-and-white QR works, but a branded design helps your counter
+        code match your shop look. Use the{" "}
+        <Link href="/tools/qr-code-generator">WorkUtilities QR Code Generator</Link>{" "}
+        to preview every change live before you print.
+      </p>
+
+      <h3>Dot styles — when to use each</h3>
+      <ul>
+        <li>
+          <strong>Square</strong> — classic look, highest scan reliability on older
+          phones
+        </li>
+        <li>
+          <strong>Dots / Rounded</strong> — modern appearance for menus and
+          Instagram stickers; still scans well with good contrast
+        </li>
+        <li>
+          <strong>Extra Rounded / Classy</strong> — stylish for business cards and
+          packaging; always test on a few devices before bulk printing
+        </li>
+      </ul>
+
+      <h3>Error correction and logos</h3>
+      <p>
+        Error correction levels L, M, Q, and H add redundant data so scanners can
+        read damaged or partially covered codes. If you add a logo in the center,
+        switch to <strong>H (High)</strong> — that recovers about 30% of the code
+        and keeps UPI and WhatsApp scans reliable even with your brand mark on top.
+      </p>
+
+      <h3>Color contrast for reliable scanning</h3>
+      <p>
+        Keep a <strong>dark QR on a light background</strong> (black or deep navy
+        on white/cream). Light codes on dark backgrounds or low-contrast brand
+        colors often fail in Indian shop lighting. Gradients are fine if both
+        ends stay dark enough against the background.
+      </p>
+
+      <p>
+        Design your code in the{" "}
+        <Link href="/tools/qr-code-generator">free QR Code Generator</Link>,
+        download PNG for WhatsApp sharing or SVG for flex boards, then laminate
+        for the counter.
+      </p>
+
+      <hr />
+
       <h2>Track QR Code Scans</h2>
 
       <p>
