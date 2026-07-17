@@ -169,10 +169,15 @@ export default function QrCodeGeneratorPage() {
   const [ecManuallySet, setEcManuallySet] = useState(false);
   const [ready, setReady] = useState(false);
 
-  const payload = useMemo(
-    () => buildQrPayload(activeTab, inputs) || DEFAULT_CONTENT,
-    [activeTab, inputs]
-  );
+  const payload = useMemo(() => {
+    const built = buildQrPayload(activeTab, inputs);
+    if (built) return built;
+    // Demo default only for the URL tab — other tabs stay empty until filled
+    if (activeTab === "url") return DEFAULT_CONTENT;
+    return "";
+  }, [activeTab, inputs]);
+
+  const canRenderQr = payload.length > 0;
 
   const updateInput = <K extends keyof QrInputs>(
     key: K,
@@ -244,6 +249,16 @@ export default function QrCodeGeneratorPage() {
   useEffect(() => {
     if (!ready || !qrRef.current) return;
 
+    if (!canRenderQr) {
+      if (previewRef.current) previewRef.current.innerHTML = "";
+      return;
+    }
+
+    // Re-append if preview was cleared while waiting for required fields
+    if (previewRef.current && previewRef.current.childElementCount === 0) {
+      qrRef.current.append(previewRef.current);
+    }
+
     const dotsOptions: Record<string, unknown> = {
       type: bodyShape,
       color: fgColor,
@@ -286,6 +301,7 @@ export default function QrCodeGeneratorPage() {
     });
   }, [
     ready,
+    canRenderQr,
     payload,
     bodyShape,
     eyeFrame,
@@ -601,7 +617,7 @@ export default function QrCodeGeneratorPage() {
                           onChange={(e) =>
                             updateInput("vcardFirstName", e.target.value)
                           }
-                          placeholder="Pavan"
+                          placeholder="John"
                           required
                           className={inputClassName}
                         />
@@ -620,7 +636,7 @@ export default function QrCodeGeneratorPage() {
                           onChange={(e) =>
                             updateInput("vcardLastName", e.target.value)
                           }
-                          placeholder="Kumar"
+                          placeholder="Doe"
                           className={inputClassName}
                         />
                       </div>
@@ -638,7 +654,7 @@ export default function QrCodeGeneratorPage() {
                           onChange={(e) =>
                             updateInput("vcardOrg", e.target.value)
                           }
-                          placeholder="WebmobileZ"
+                          placeholder="Acme Corp"
                           className={inputClassName}
                         />
                       </div>
@@ -656,7 +672,7 @@ export default function QrCodeGeneratorPage() {
                           onChange={(e) =>
                             updateInput("vcardTitle", e.target.value)
                           }
-                          placeholder="Founder"
+                          placeholder="Software Engineer"
                           className={inputClassName}
                         />
                       </div>
@@ -674,7 +690,7 @@ export default function QrCodeGeneratorPage() {
                           onChange={(e) =>
                             updateInput("vcardPhoneWork", e.target.value)
                           }
-                          placeholder="+91 80 1234 5678"
+                          placeholder="+91 98765 43210"
                           className={inputClassName}
                         />
                       </div>
@@ -692,7 +708,7 @@ export default function QrCodeGeneratorPage() {
                           onChange={(e) =>
                             updateInput("vcardPhoneMobile", e.target.value)
                           }
-                          placeholder="+91 97033 36209"
+                          placeholder="+91 90000 00000"
                           className={inputClassName}
                         />
                       </div>
@@ -710,7 +726,7 @@ export default function QrCodeGeneratorPage() {
                           onChange={(e) =>
                             updateInput("vcardPhonePrivate", e.target.value)
                           }
-                          placeholder="+91 98765 43210"
+                          placeholder="+91 90000 00000"
                           className={inputClassName}
                         />
                       </div>
@@ -728,7 +744,7 @@ export default function QrCodeGeneratorPage() {
                           onChange={(e) =>
                             updateInput("vcardEmail", e.target.value)
                           }
-                          placeholder="pavan@email.com"
+                          placeholder="john@example.com"
                           className={inputClassName}
                         />
                       </div>
@@ -746,7 +762,7 @@ export default function QrCodeGeneratorPage() {
                           onChange={(e) =>
                             updateInput("vcardWebsite", e.target.value)
                           }
-                          placeholder="https://workutilities.com"
+                          placeholder="https://example.com"
                           className={inputClassName}
                         />
                       </div>
@@ -782,7 +798,7 @@ export default function QrCodeGeneratorPage() {
                           onChange={(e) =>
                             updateInput("vcardCity", e.target.value)
                           }
-                          placeholder="Bengaluru"
+                          placeholder="Hyderabad"
                           className={inputClassName}
                         />
                       </div>
@@ -800,7 +816,7 @@ export default function QrCodeGeneratorPage() {
                           onChange={(e) =>
                             updateInput("vcardState", e.target.value)
                           }
-                          placeholder="Karnataka"
+                          placeholder="Telangana"
                           className={inputClassName}
                         />
                       </div>
@@ -818,7 +834,7 @@ export default function QrCodeGeneratorPage() {
                           onChange={(e) =>
                             updateInput("vcardZip", e.target.value)
                           }
-                          placeholder="560001"
+                          placeholder="500001"
                           className={inputClassName}
                         />
                       </div>
@@ -1312,9 +1328,18 @@ export default function QrCodeGeneratorPage() {
                 <div className="flex min-h-[220px] items-center justify-center">
                   <div
                     ref={previewRef}
-                    className="[&_canvas]:max-w-full [&_canvas]:h-auto"
+                    className={`[&_canvas]:max-w-full [&_canvas]:h-auto ${
+                      canRenderQr ? "" : "hidden"
+                    }`}
                     aria-label="QR code preview"
                   />
+                  {!canRenderQr && (
+                    <p className="px-4 text-center text-sm text-content-muted">
+                      {activeTab === "vcard"
+                        ? "Enter First Name to generate your vCard QR"
+                        : "Fill in the required fields to generate a QR code"}
+                    </p>
+                  )}
                 </div>
                 <p className="mt-3 text-center text-xs text-content-muted">
                   Scan to test →
@@ -1323,7 +1348,8 @@ export default function QrCodeGeneratorPage() {
                   <button
                     type="button"
                     onClick={() => handleDownload("png")}
-                    className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl bg-brand-blue px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-blue/90"
+                    disabled={!canRenderQr}
+                    className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl bg-brand-blue px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-blue/90 disabled:cursor-not-allowed disabled:opacity-50"
                   >
                     <Download className="h-4 w-4" />
                     Download PNG
@@ -1331,14 +1357,16 @@ export default function QrCodeGeneratorPage() {
                   <button
                     type="button"
                     onClick={() => handleDownload("svg")}
-                    className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl border border-surface-border bg-surface-card px-4 py-3 text-sm font-medium text-content-primary transition-colors hover:border-brand-blue/40"
+                    disabled={!canRenderQr}
+                    className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl border border-surface-border bg-surface-card px-4 py-3 text-sm font-medium text-content-primary transition-colors hover:border-brand-blue/40 disabled:cursor-not-allowed disabled:opacity-50"
                   >
                     Download SVG
                   </button>
                   <button
                     type="button"
                     onClick={() => handleDownload("jpeg")}
-                    className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl border border-surface-border bg-surface-card px-4 py-3 text-sm font-medium text-content-primary transition-colors hover:border-brand-blue/40"
+                    disabled={!canRenderQr}
+                    className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl border border-surface-border bg-surface-card px-4 py-3 text-sm font-medium text-content-primary transition-colors hover:border-brand-blue/40 disabled:cursor-not-allowed disabled:opacity-50"
                   >
                     Download JPEG
                   </button>
