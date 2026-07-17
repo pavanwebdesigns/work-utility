@@ -4,10 +4,11 @@ export type QrTab =
   | "email"
   | "phone"
   | "sms"
-  | "whatsapp"
   | "wifi"
   | "vcard"
   | "location"
+  | "event"
+  | "whatsapp"
   | "facebook"
   | "twitter"
   | "youtube";
@@ -30,12 +31,32 @@ export type QrInputs = {
   wifiPassword: string;
   wifiEncryption: WifiEncryption;
   wifiHidden: boolean;
+  vcardFirstName: string;
+  vcardLastName: string;
+  vcardOrg: string;
+  vcardTitle: string;
+  vcardPhoneWork: string;
+  vcardPhoneMobile: string;
+  vcardPhonePrivate: string;
+  vcardEmail: string;
+  vcardWebsite: string;
+  vcardStreet: string;
+  vcardCity: string;
+  vcardState: string;
+  vcardZip: string;
+  vcardCountry: string;
+  /** @deprecated kept for older callers — prefer vcardFirstName */
   vcardName: string;
   vcardPhone: string;
-  vcardEmail: string;
   vcardCompany: string;
   latitude: string;
   longitude: string;
+  mapsLink: string;
+  eventName: string;
+  eventStart: string;
+  eventEnd: string;
+  eventLocation: string;
+  eventDescription: string;
   facebookUrl: string;
   twitterUrl: string;
   youtubeUrl: string;
@@ -56,12 +77,31 @@ export const DEFAULT_QR_INPUTS: QrInputs = {
   wifiPassword: "",
   wifiEncryption: "WPA",
   wifiHidden: false,
+  vcardFirstName: "",
+  vcardLastName: "",
+  vcardOrg: "",
+  vcardTitle: "",
+  vcardPhoneWork: "",
+  vcardPhoneMobile: "",
+  vcardPhonePrivate: "",
+  vcardEmail: "",
+  vcardWebsite: "",
+  vcardStreet: "",
+  vcardCity: "",
+  vcardState: "",
+  vcardZip: "",
+  vcardCountry: "",
   vcardName: "",
   vcardPhone: "",
-  vcardEmail: "",
   vcardCompany: "",
   latitude: "",
   longitude: "",
+  mapsLink: "",
+  eventName: "",
+  eventStart: "",
+  eventEnd: "",
+  eventLocation: "",
+  eventDescription: "",
   facebookUrl: "",
   twitterUrl: "",
   youtubeUrl: "",
@@ -99,7 +139,136 @@ function escapeWifi(value: string): string {
 }
 
 function escapeVcard(value: string): string {
-  return value.replace(/\n/g, "\\n");
+  return value.replace(/\\/g, "\\\\").replace(/\n/g, "\\n").replace(/;/g, "\\;");
+}
+
+function escapeIcal(value: string): string {
+  return value
+    .replace(/\\/g, "\\\\")
+    .replace(/;/g, "\\;")
+    .replace(/,/g, "\\,")
+    .replace(/\n/g, "\\n");
+}
+
+/** Convert datetime-local value (YYYY-MM-DDTHH:mm) to iCal YYYYMMDDTHHmmss */
+export function formatIcalDateTime(value: string): string {
+  const trimmed = value.trim();
+  if (!trimmed) return "";
+  const digits = trimmed.replace(/[-:T]/g, "");
+  if (digits.length >= 12) return `${digits.slice(0, 12)}00`.slice(0, 15);
+  if (digits.length === 8) return `${digits}T000000`;
+  return digits;
+}
+
+/**
+ * Extract lat/lng from common Google Maps URL patterns.
+ * Supports ?q=lat,lng, /@lat,lng,z, and query=lat,lng.
+ */
+export function extractLatLngFromMapsUrl(
+  raw: string
+): { lat: string; lng: string } | null {
+  const value = raw.trim();
+  if (!value) return null;
+
+  const patterns = [
+    /[?&]q=(-?\d+\.?\d*),\s*(-?\d+\.?\d*)/i,
+    /[?&]query=(-?\d+\.?\d*),\s*(-?\d+\.?\d*)/i,
+    /@(-?\d+\.?\d*),\s*(-?\d+\.?\d*)(?:,|\s|$)/,
+    /!3d(-?\d+\.?\d*)!4d(-?\d+\.?\d*)/,
+    /^(-?\d+\.?\d*)\s*,\s*(-?\d+\.?\d*)$/,
+  ];
+
+  for (const pattern of patterns) {
+    const match = value.match(pattern);
+    if (match) {
+      const lat = Number(match[1]);
+      const lng = Number(match[2]);
+      if (
+        Number.isFinite(lat) &&
+        Number.isFinite(lng) &&
+        lat >= -90 &&
+        lat <= 90 &&
+        lng >= -180 &&
+        lng <= 180
+      ) {
+        return { lat: String(lat), lng: String(lng) };
+      }
+    }
+  }
+
+  return null;
+}
+
+export function buildVcardPayload(inputs: QrInputs): string {
+  const firstName = inputs.vcardFirstName.trim();
+  if (!firstName) return "";
+
+  const lastName = inputs.vcardLastName.trim();
+  const org = inputs.vcardOrg.trim() || inputs.vcardCompany.trim();
+  const title = inputs.vcardTitle.trim();
+  const phoneWork = inputs.vcardPhoneWork.trim();
+  const phoneMobile =
+    inputs.vcardPhoneMobile.trim() || inputs.vcardPhone.trim();
+  const phonePrivate = inputs.vcardPhonePrivate.trim();
+  const email = inputs.vcardEmail.trim();
+  const website = inputs.vcardWebsite.trim();
+  const street = inputs.vcardStreet.trim();
+  const city = inputs.vcardCity.trim();
+  const state = inputs.vcardState.trim();
+  const zip = inputs.vcardZip.trim();
+  const country = inputs.vcardCountry.trim();
+
+  const fn = [firstName, lastName].filter(Boolean).join(" ");
+  const lines = [
+    "BEGIN:VCARD",
+    "VERSION:3.0",
+    `N:${escapeVcard(lastName)};${escapeVcard(firstName)};;;`,
+    `FN:${escapeVcard(fn)}`,
+  ];
+
+  if (org) lines.push(`ORG:${escapeVcard(org)}`);
+  if (title) lines.push(`TITLE:${escapeVcard(title)}`);
+  if (phoneWork) {
+    lines.push(`TEL;TYPE=WORK,VOICE:${escapeVcard(phoneWork)}`);
+  }
+  if (phoneMobile) {
+    lines.push(`TEL;TYPE=CELL,VOICE:${escapeVcard(phoneMobile)}`);
+  }
+  if (phonePrivate) {
+    lines.push(`TEL;TYPE=HOME,VOICE:${escapeVcard(phonePrivate)}`);
+  }
+  if (email) lines.push(`EMAIL;TYPE=INTERNET:${escapeVcard(email)}`);
+  if (website) lines.push(`URL:${escapeVcard(normalizeUrl(website))}`);
+
+  if (street || city || state || zip || country) {
+    lines.push(
+      `ADR;TYPE=WORK:;;${escapeVcard(street)};${escapeVcard(city)};${escapeVcard(state)};${escapeVcard(zip)};${escapeVcard(country)}`
+    );
+  }
+
+  lines.push("END:VCARD");
+  return lines.join("\n");
+}
+
+export function buildEventPayload(inputs: QrInputs): string {
+  const name = inputs.eventName.trim();
+  const start = formatIcalDateTime(inputs.eventStart);
+  if (!name || !start) return "";
+
+  const end = formatIcalDateTime(inputs.eventEnd) || start;
+  const location = inputs.eventLocation.trim();
+  const description = inputs.eventDescription.trim();
+
+  const lines = [
+    "BEGIN:VEVENT",
+    `SUMMARY:${escapeIcal(name)}`,
+    `DTSTART:${start}`,
+    `DTEND:${end}`,
+  ];
+  if (location) lines.push(`LOCATION:${escapeIcal(location)}`);
+  if (description) lines.push(`DESCRIPTION:${escapeIcal(description)}`);
+  lines.push("END:VEVENT");
+  return lines.join("\n");
 }
 
 export function buildQrPayload(tab: QrTab, inputs: QrInputs): string {
@@ -115,10 +284,8 @@ export function buildQrPayload(tab: QrTab, inputs: QrInputs): string {
     case "sms": {
       const phone = normalizePhone(inputs.smsPhone);
       if (!phone) return "";
-      const message = inputs.smsMessage.trim();
-      return message
-        ? `SMSTO:${phone.replace(/^\+/, "")}:${message}`
-        : `SMSTO:${phone.replace(/^\+/, "")}:`;
+      const message = inputs.smsMessage.trim().slice(0, 160);
+      return `SMSTO:${phone}:${message}`;
     }
     case "email": {
       const email = inputs.email.trim();
@@ -150,32 +317,17 @@ export function buildQrPayload(tab: QrTab, inputs: QrInputs): string {
       const hidden = inputs.wifiHidden ? "true" : "false";
       return `WIFI:T:${encryption};S:${escapeWifi(ssid)};P:${password};H:${hidden};;`;
     }
-    case "vcard": {
-      const name = inputs.vcardName.trim();
-      if (!name) return "";
-      const lines = [
-        "BEGIN:VCARD",
-        "VERSION:3.0",
-        `FN:${escapeVcard(name)}`,
-      ];
-      if (inputs.vcardPhone.trim()) {
-        lines.push(`TEL:${escapeVcard(inputs.vcardPhone.trim())}`);
-      }
-      if (inputs.vcardEmail.trim()) {
-        lines.push(`EMAIL:${escapeVcard(inputs.vcardEmail.trim())}`);
-      }
-      if (inputs.vcardCompany.trim()) {
-        lines.push(`ORG:${escapeVcard(inputs.vcardCompany.trim())}`);
-      }
-      lines.push("END:VCARD");
-      return lines.join("\n");
-    }
+    case "vcard":
+      return buildVcardPayload(inputs);
     case "location": {
-      const lat = inputs.latitude.trim();
-      const lng = inputs.longitude.trim();
+      const fromLink = extractLatLngFromMapsUrl(inputs.mapsLink);
+      const lat = inputs.latitude.trim() || fromLink?.lat || "";
+      const lng = inputs.longitude.trim() || fromLink?.lng || "";
       if (!lat || !lng) return "";
       return `geo:${lat},${lng}`;
     }
+    case "event":
+      return buildEventPayload(inputs);
     case "facebook":
       return inputs.facebookUrl.trim()
         ? normalizeUrl(inputs.facebookUrl)

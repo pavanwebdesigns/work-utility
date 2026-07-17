@@ -896,6 +896,22 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
         answer:
           "Yes. Use Download SVG for a vector file that scales cleanly for flex boards, business cards, and large print without pixelation. PNG and JPEG are also available for digital sharing.",
       },
+      {
+        question:
+          "How do I create a vCard QR code that saves contact name correctly?",
+        answer:
+          "Use the vCard tab and fill First Name (required) plus Last Name. The QR encodes both N: and FN: fields so iPhone and Android contact apps detect and save the name correctly when scanned.",
+      },
+      {
+        question: "Can I create a QR code for a calendar event?",
+        answer:
+          "Yes. Open the Event tab, enter the event name, start/end date-time, location, and description. Scanning the QR prompts most phones to add the event to Calendar.",
+      },
+      {
+        question: "How do I make a QR code for my location?",
+        answer:
+          "Use the Location tab and enter latitude/longitude, or paste a Google Maps link — coordinates are extracted automatically. Scanning opens Maps at that pin.",
+      },
     ],
     blogGuide: {
       href: "/blog/qr-code-for-small-business-india",

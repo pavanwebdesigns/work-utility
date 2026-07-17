@@ -20,6 +20,7 @@ import { FavoriteButton } from "@/components/FavoriteButton";
 import {
   buildQrPayload,
   DEFAULT_QR_INPUTS,
+  extractLatLngFromMapsUrl,
   type ErrorCorrectionLevel,
   type QrInputs,
   type QrTab,
@@ -49,8 +50,11 @@ const tabs: { id: QrTab; label: string }[] = [
   { id: "text", label: "Text" },
   { id: "email", label: "Email" },
   { id: "phone", label: "Phone" },
+  { id: "sms", label: "SMS" },
   { id: "wifi", label: "WiFi" },
   { id: "vcard", label: "vCard" },
+  { id: "location", label: "Location" },
+  { id: "event", label: "Event" },
 ];
 
 const bodyShapes: { id: DotStyle; label: string; icon: string }[] = [
@@ -80,7 +84,7 @@ const howItWorksSteps = [
     step: "01",
     icon: Link2,
     title: "Choose Type",
-    description: "Pick URL, WiFi, vCard, Email, Phone, or Text",
+    description: "Pick URL, SMS, WiFi, vCard, Location, Event, and more",
   },
   {
     step: "02",
@@ -476,6 +480,51 @@ export default function QrCodeGeneratorPage() {
                     </div>
                   )}
 
+                  {activeTab === "sms" && (
+                    <>
+                      <div>
+                        <label htmlFor="qr-sms-phone" className={labelClassName}>
+                          Phone Number
+                        </label>
+                        <input
+                          id="qr-sms-phone"
+                          type="tel"
+                          value={inputs.smsPhone}
+                          onChange={(e) =>
+                            updateInput("smsPhone", e.target.value)
+                          }
+                          placeholder="+91 98765 43210"
+                          className={inputClassName}
+                        />
+                      </div>
+                      <div>
+                        <label
+                          htmlFor="qr-sms-message"
+                          className={labelClassName}
+                        >
+                          Message
+                        </label>
+                        <textarea
+                          id="qr-sms-message"
+                          value={inputs.smsMessage}
+                          onChange={(e) =>
+                            updateInput(
+                              "smsMessage",
+                              e.target.value.slice(0, 160)
+                            )
+                          }
+                          rows={3}
+                          maxLength={160}
+                          placeholder="Your SMS message..."
+                          className={`${inputClassName} resize-y`}
+                        />
+                        <p className="mt-1 text-right text-xs text-content-muted">
+                          {inputs.smsMessage.length}/160
+                        </p>
+                      </div>
+                    </>
+                  )}
+
                   {activeTab === "wifi" && (
                     <>
                       <div>
@@ -537,35 +586,131 @@ export default function QrCodeGeneratorPage() {
                   )}
 
                   {activeTab === "vcard" && (
-                    <>
+                    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                       <div>
-                        <label htmlFor="qr-vcard-name" className={labelClassName}>
-                          Name
+                        <label
+                          htmlFor="qr-vcard-first"
+                          className={labelClassName}
+                        >
+                          First Name *
                         </label>
                         <input
-                          id="qr-vcard-name"
+                          id="qr-vcard-first"
                           type="text"
-                          value={inputs.vcardName}
+                          value={inputs.vcardFirstName}
                           onChange={(e) =>
-                            updateInput("vcardName", e.target.value)
+                            updateInput("vcardFirstName", e.target.value)
                           }
+                          placeholder="Pavan"
+                          required
                           className={inputClassName}
                         />
                       </div>
                       <div>
                         <label
-                          htmlFor="qr-vcard-phone"
+                          htmlFor="qr-vcard-last"
                           className={labelClassName}
                         >
-                          Phone
+                          Last Name
                         </label>
                         <input
-                          id="qr-vcard-phone"
-                          type="tel"
-                          value={inputs.vcardPhone}
+                          id="qr-vcard-last"
+                          type="text"
+                          value={inputs.vcardLastName}
                           onChange={(e) =>
-                            updateInput("vcardPhone", e.target.value)
+                            updateInput("vcardLastName", e.target.value)
                           }
+                          placeholder="Kumar"
+                          className={inputClassName}
+                        />
+                      </div>
+                      <div>
+                        <label
+                          htmlFor="qr-vcard-org"
+                          className={labelClassName}
+                        >
+                          Organization
+                        </label>
+                        <input
+                          id="qr-vcard-org"
+                          type="text"
+                          value={inputs.vcardOrg}
+                          onChange={(e) =>
+                            updateInput("vcardOrg", e.target.value)
+                          }
+                          placeholder="WebmobileZ"
+                          className={inputClassName}
+                        />
+                      </div>
+                      <div>
+                        <label
+                          htmlFor="qr-vcard-title"
+                          className={labelClassName}
+                        >
+                          Position / Job Title
+                        </label>
+                        <input
+                          id="qr-vcard-title"
+                          type="text"
+                          value={inputs.vcardTitle}
+                          onChange={(e) =>
+                            updateInput("vcardTitle", e.target.value)
+                          }
+                          placeholder="Founder"
+                          className={inputClassName}
+                        />
+                      </div>
+                      <div>
+                        <label
+                          htmlFor="qr-vcard-phone-work"
+                          className={labelClassName}
+                        >
+                          Phone (Work)
+                        </label>
+                        <input
+                          id="qr-vcard-phone-work"
+                          type="tel"
+                          value={inputs.vcardPhoneWork}
+                          onChange={(e) =>
+                            updateInput("vcardPhoneWork", e.target.value)
+                          }
+                          placeholder="+91 80 1234 5678"
+                          className={inputClassName}
+                        />
+                      </div>
+                      <div>
+                        <label
+                          htmlFor="qr-vcard-phone-mobile"
+                          className={labelClassName}
+                        >
+                          Phone (Mobile)
+                        </label>
+                        <input
+                          id="qr-vcard-phone-mobile"
+                          type="tel"
+                          value={inputs.vcardPhoneMobile}
+                          onChange={(e) =>
+                            updateInput("vcardPhoneMobile", e.target.value)
+                          }
+                          placeholder="+91 97033 36209"
+                          className={inputClassName}
+                        />
+                      </div>
+                      <div>
+                        <label
+                          htmlFor="qr-vcard-phone-private"
+                          className={labelClassName}
+                        >
+                          Phone (Private)
+                        </label>
+                        <input
+                          id="qr-vcard-phone-private"
+                          type="tel"
+                          value={inputs.vcardPhonePrivate}
+                          onChange={(e) =>
+                            updateInput("vcardPhonePrivate", e.target.value)
+                          }
+                          placeholder="+91 98765 43210"
                           className={inputClassName}
                         />
                       </div>
@@ -583,24 +728,275 @@ export default function QrCodeGeneratorPage() {
                           onChange={(e) =>
                             updateInput("vcardEmail", e.target.value)
                           }
+                          placeholder="pavan@email.com"
                           className={inputClassName}
                         />
                       </div>
                       <div>
                         <label
-                          htmlFor="qr-vcard-org"
+                          htmlFor="qr-vcard-website"
                           className={labelClassName}
                         >
-                          Organization
+                          Website
                         </label>
                         <input
-                          id="qr-vcard-org"
-                          type="text"
-                          value={inputs.vcardCompany}
+                          id="qr-vcard-website"
+                          type="url"
+                          value={inputs.vcardWebsite}
                           onChange={(e) =>
-                            updateInput("vcardCompany", e.target.value)
+                            updateInput("vcardWebsite", e.target.value)
                           }
+                          placeholder="https://workutilities.com"
                           className={inputClassName}
+                        />
+                      </div>
+                      <div>
+                        <label
+                          htmlFor="qr-vcard-street"
+                          className={labelClassName}
+                        >
+                          Street Address
+                        </label>
+                        <input
+                          id="qr-vcard-street"
+                          type="text"
+                          value={inputs.vcardStreet}
+                          onChange={(e) =>
+                            updateInput("vcardStreet", e.target.value)
+                          }
+                          placeholder="123 MG Road"
+                          className={inputClassName}
+                        />
+                      </div>
+                      <div>
+                        <label
+                          htmlFor="qr-vcard-city"
+                          className={labelClassName}
+                        >
+                          City
+                        </label>
+                        <input
+                          id="qr-vcard-city"
+                          type="text"
+                          value={inputs.vcardCity}
+                          onChange={(e) =>
+                            updateInput("vcardCity", e.target.value)
+                          }
+                          placeholder="Bengaluru"
+                          className={inputClassName}
+                        />
+                      </div>
+                      <div>
+                        <label
+                          htmlFor="qr-vcard-state"
+                          className={labelClassName}
+                        >
+                          State
+                        </label>
+                        <input
+                          id="qr-vcard-state"
+                          type="text"
+                          value={inputs.vcardState}
+                          onChange={(e) =>
+                            updateInput("vcardState", e.target.value)
+                          }
+                          placeholder="Karnataka"
+                          className={inputClassName}
+                        />
+                      </div>
+                      <div>
+                        <label
+                          htmlFor="qr-vcard-zip"
+                          className={labelClassName}
+                        >
+                          Zipcode
+                        </label>
+                        <input
+                          id="qr-vcard-zip"
+                          type="text"
+                          value={inputs.vcardZip}
+                          onChange={(e) =>
+                            updateInput("vcardZip", e.target.value)
+                          }
+                          placeholder="560001"
+                          className={inputClassName}
+                        />
+                      </div>
+                      <div>
+                        <label
+                          htmlFor="qr-vcard-country"
+                          className={labelClassName}
+                        >
+                          Country
+                        </label>
+                        <input
+                          id="qr-vcard-country"
+                          type="text"
+                          value={inputs.vcardCountry}
+                          onChange={(e) =>
+                            updateInput("vcardCountry", e.target.value)
+                          }
+                          placeholder="India"
+                          className={inputClassName}
+                        />
+                      </div>
+                    </div>
+                  )}
+
+                  {activeTab === "location" && (
+                    <>
+                      <div className="grid gap-4 sm:grid-cols-2">
+                        <div>
+                          <label htmlFor="qr-lat" className={labelClassName}>
+                            Latitude
+                          </label>
+                          <input
+                            id="qr-lat"
+                            type="number"
+                            step="0.000001"
+                            value={inputs.latitude}
+                            onChange={(e) =>
+                              updateInput("latitude", e.target.value)
+                            }
+                            placeholder="12.971599"
+                            className={inputClassName}
+                          />
+                        </div>
+                        <div>
+                          <label htmlFor="qr-lng" className={labelClassName}>
+                            Longitude
+                          </label>
+                          <input
+                            id="qr-lng"
+                            type="number"
+                            step="0.000001"
+                            value={inputs.longitude}
+                            onChange={(e) =>
+                              updateInput("longitude", e.target.value)
+                            }
+                            placeholder="77.594566"
+                            className={inputClassName}
+                          />
+                        </div>
+                      </div>
+                      <div>
+                        <label htmlFor="qr-maps-link" className={labelClassName}>
+                          Or paste Google Maps link
+                        </label>
+                        <input
+                          id="qr-maps-link"
+                          type="url"
+                          value={inputs.mapsLink}
+                          onChange={(e) => {
+                            const value = e.target.value;
+                            updateInput("mapsLink", value);
+                            const coords = extractLatLngFromMapsUrl(value);
+                            if (coords) {
+                              setInputs((current) => ({
+                                ...current,
+                                mapsLink: value,
+                                latitude: coords.lat,
+                                longitude: coords.lng,
+                              }));
+                            }
+                          }}
+                          placeholder="https://maps.google.com/?q=12.97,77.59"
+                          className={inputClassName}
+                        />
+                        <p className="mt-1 text-xs text-content-muted">
+                          Lat/lng auto-fill from maps.google.com/?q= or /@ links
+                        </p>
+                      </div>
+                    </>
+                  )}
+
+                  {activeTab === "event" && (
+                    <>
+                      <div>
+                        <label htmlFor="qr-event-name" className={labelClassName}>
+                          Event Name
+                        </label>
+                        <input
+                          id="qr-event-name"
+                          type="text"
+                          value={inputs.eventName}
+                          onChange={(e) =>
+                            updateInput("eventName", e.target.value)
+                          }
+                          placeholder="Product launch meetup"
+                          className={inputClassName}
+                        />
+                      </div>
+                      <div className="grid gap-4 sm:grid-cols-2">
+                        <div>
+                          <label
+                            htmlFor="qr-event-start"
+                            className={labelClassName}
+                          >
+                            Start Date &amp; Time
+                          </label>
+                          <input
+                            id="qr-event-start"
+                            type="datetime-local"
+                            value={inputs.eventStart}
+                            onChange={(e) =>
+                              updateInput("eventStart", e.target.value)
+                            }
+                            className={inputClassName}
+                          />
+                        </div>
+                        <div>
+                          <label
+                            htmlFor="qr-event-end"
+                            className={labelClassName}
+                          >
+                            End Date &amp; Time
+                          </label>
+                          <input
+                            id="qr-event-end"
+                            type="datetime-local"
+                            value={inputs.eventEnd}
+                            onChange={(e) =>
+                              updateInput("eventEnd", e.target.value)
+                            }
+                            className={inputClassName}
+                          />
+                        </div>
+                      </div>
+                      <div>
+                        <label
+                          htmlFor="qr-event-location"
+                          className={labelClassName}
+                        >
+                          Location
+                        </label>
+                        <input
+                          id="qr-event-location"
+                          type="text"
+                          value={inputs.eventLocation}
+                          onChange={(e) =>
+                            updateInput("eventLocation", e.target.value)
+                          }
+                          placeholder="Bengaluru, India"
+                          className={inputClassName}
+                        />
+                      </div>
+                      <div>
+                        <label
+                          htmlFor="qr-event-description"
+                          className={labelClassName}
+                        >
+                          Description
+                        </label>
+                        <textarea
+                          id="qr-event-description"
+                          value={inputs.eventDescription}
+                          onChange={(e) =>
+                            updateInput("eventDescription", e.target.value)
+                          }
+                          rows={3}
+                          placeholder="Agenda, RSVP notes..."
+                          className={`${inputClassName} resize-y`}
                         />
                       </div>
                     </>
