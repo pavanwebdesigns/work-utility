@@ -7,7 +7,7 @@ import {
   getMarkdownStats,
 } from "@/lib/markdown-to-html";
 
-const DEFAULT_MARKDOWN = `# Welcome to Markdown to HTML
+const DEFAULT_MARKDOWN = `## Welcome to Markdown to HTML
 
 Convert your **Markdown** text to HTML instantly.
 
