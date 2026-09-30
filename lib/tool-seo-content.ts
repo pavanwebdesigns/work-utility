@@ -94,6 +94,7 @@ export type ToolSeoSlug =
   | "timestamp-converter"
   | "json-to-csv"
   | "word-to-jpg"
+  | "word-compress"
   | "currency-converter"
   | "crypto-tracker"
   | "dns-lookup"
@@ -3921,6 +3922,59 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
       { question: "Is JSON to CSV converter free?", answer: "Yes. WorkUtilities JSON to CSV Converter is free with no signup." },
     ],
     blogGuide: { href: "/blog/how-to-convert-json-to-csv-online-free", title: "How to convert JSON to CSV online free" },
+  },
+  "word-compress": {
+    aboutTitle: "About Compress Word Document",
+    aboutParagraphs: [
+      "Word files get large because photos and screenshots are stored inside the .docx at full size. The text itself is usually only a few kilobytes. Shrinking those images is what makes the document small enough to email or upload.",
+      "This tool opens the file in your browser, compresses the images, and rebuilds the Word document. Your file is never uploaded. Text, headings, and layout stay in the document. Pictures may look slightly softer at the Strong setting.",
+    ],
+    whenToUseTitle: "When Should You Compress a Word File?",
+    useCases: [
+      {
+        title: "Email attachment limit",
+        description: "Many mail servers reject large .docx attachments. Compress the images before you send the file.",
+      },
+      {
+        title: "Job portal upload",
+        description: "Resume portals often cap document size. A photo in the header is usually what pushes the file over the limit.",
+      },
+      {
+        title: "College or government upload",
+        description: "Admission forms and application portals commonly reject Word files above 1 MB or 2 MB.",
+      },
+      {
+        title: "WhatsApp sharing",
+        description: "A smaller .docx sends faster and is easier to open on a phone.",
+      },
+    ],
+    faqs: [
+      {
+        question: "Will it reduce quality?",
+        answer:
+          "Text is unchanged. Photos and screenshots are resized and recompressed, so pictures can look slightly softer. Light keeps more detail. Strong makes the smallest file.",
+      },
+      {
+        question: "Why is my Word file so large?",
+        answer:
+          "Almost all of the size is images in the document — photos, screenshots, and logos pasted at full resolution. The words themselves take very little space.",
+      },
+      {
+        question: "Is my document uploaded?",
+        answer:
+          "No. Compression runs in your browser. Your Word file is never uploaded to a server.",
+      },
+      {
+        question: "Can I compress .doc?",
+        answer:
+          "Old .doc files are not supported. Open the file in Word or Google Docs and save it as .docx, or convert it with the Word to PDF tool.",
+      },
+      {
+        question: "How do I get it under 1 MB?",
+        answer:
+          "Choose Strong. If it is still too large, turn on Remove embedded fonts and compress again. A document packed with large screenshots may need a few pictures removed in Word before it can fit under 1 MB.",
+      },
+    ],
   },
   "word-to-jpg": {
     aboutTitle: "About Word to JPG Converter",

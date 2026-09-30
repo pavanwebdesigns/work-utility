@@ -80,7 +80,7 @@ Add a line whenever we decide something. Newest first.
 - [x] A6 privacy truth · [x] A7 internal links (with U1) · [ ] A8 sitemap + audit script · [ ] A9 merges · [ ] A10 prune + market field · [ ] C quick wins · [ ] D small bugs
 - Checkpoint 1 merge after A5
 
-**Phase 1B:** `PHASE-1B-UX-SPEC.md` — U1 ToolShell done (all 130 tool pages). Then theme, photo resizer, calculators, file tools, homepage.
+**Phase 1B:** `PHASE-1B-UX-SPEC.md` — U1 ToolShell done (all 131 tool pages, including word-compress). Then theme, photo resizer, calculators, file tools, homepage.
 
 **Phase 2 (planned):**
 - Exam Photo & Signature Hub: SSC/IBPS/RRB/UPSC/NEET + TSPSC/APPSC/TS-AP Police/DSC presets, signature 10–20 KB, name/date on photo, A4 print sheet.

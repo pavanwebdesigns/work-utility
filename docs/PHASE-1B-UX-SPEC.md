@@ -169,6 +169,10 @@
 
 ### U8. Performance & polish checklist (every migrated page)
 
+- **Big win, do first:** `components/ToolSeoContent.tsx` is a client component that imports the whole `lib/tool-seo-content.ts` map (~340 KB of text for all 130 tools). The build puts it in a shared chunk (`static/chunks/4999-*.js`, ~334 KB raw) that **every tool page downloads**, even though each page needs only its own entry.
+  - Fix: make `ToolSeoContent` a **server component** that receives only its slug's content. With A5's `<details>` FAQ it no longer needs client state.
+  - Verify: that chunk disappears from the tool pages' `app-build-manifest.json` entries, and First Load JS drops by roughly 80–100 KB gzipped.
+
 - `next/dynamic` for heavy libs: recharts, pdfjs, pdf-lib, onnxruntime / background-removal, xlsx, docx, qr-code-styling, html2canvas. Load them on user action, not on page load.
 - Images: `next/image`, and no layout shift (reserve space for previews).
 - Focus rings visible, all controls keyboard-reachable, `aria-live="polite"` on result areas.

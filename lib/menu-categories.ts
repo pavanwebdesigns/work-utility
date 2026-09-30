@@ -56,6 +56,7 @@ export const SLUG_TO_MENU_CATEGORY: Record<string, MenuCategoryId> = {
   "photo-resizer": "image",
   "image-to-pdf": "image",
   "word-to-pdf": "document",
+  "word-compress": "document",
   "excel-to-pdf": "document",
   "ppt-to-pdf": "document",
   "emi-calculator": "finance",

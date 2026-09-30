@@ -6,10 +6,10 @@ _Generated 30 Sep 2026 from `lib/tools-data.ts` + Google Search Console (Jun 28 
 - **processing:** browser = file never leaves device; server = uploaded to `pdf-service` (Railway), deleted after
 - **impr/clicks/pos:** Google Search Console, last 3 months
 
-**Total: 130 tools** · server-processed: 5 · planned noindex: 27
+**Total: 131 tools** · server-processed: 5 · planned noindex: 27
 
 
-## PDF & Documents (13)
+## PDF & Documents (14)
 
 | Tool | Market | Processing | Impr | Clicks | Pos | Status |
 |---|---|---|---|---|---|---|
@@ -20,6 +20,7 @@ _Generated 30 Sep 2026 from `lib/tools-data.ts` + Google Search Console (Jun 28 
 | [`ppt-to-pdf`](https://workutilities.com/tools/ppt-to-pdf) | global | browser | 6 | 0 | 83 | index |
 | [`pdf-watermark`](https://workutilities.com/tools/pdf-watermark) | global | browser | 5 | 0 | 78 | index |
 | [`word-to-pdf`](https://workutilities.com/tools/word-to-pdf) | global | server | 5 | 0 | 13 | index |
+| [`word-compress`](https://workutilities.com/tools/word-compress) | global | browser | – | – | – | index |
 | [`pdf-compress`](https://workutilities.com/tools/pdf-compress) | global | server | 3 | 0 | 36 | index |
 | [`pdf-rotate`](https://workutilities.com/tools/pdf-rotate) | global | browser | 3 | 0 | 71 | index |
 | [`pdf-page-numbers`](https://workutilities.com/tools/pdf-page-numbers) | global | browser | 1 | 0 | 58 | index |

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { TOOL_ICONS } from "@/lib/tools-data";
+import { ALL_TOOLS, TOOL_ICONS } from "@/lib/tools-data";
 import {
   getRelatedToolsCategoryLabel,
   getSameCategoryRelatedTools,
@@ -10,15 +10,23 @@ type RelatedToolsProps = {
   /** Horizontal cards on small screens. */
   layout?: "grid" | "scroll";
   guide?: { href: string; title: string } | null;
+  /** When set, show these tools instead of the same-category neighbors. */
+  slugs?: readonly string[];
 };
 
 export function RelatedTools({
   currentSlug,
   layout = "grid",
   guide = null,
+  slugs,
 }: RelatedToolsProps) {
-  const relatedTools = getSameCategoryRelatedTools(currentSlug, 4);
-  const categoryLabel = getRelatedToolsCategoryLabel(currentSlug);
+  const relatedTools = slugs
+    ? slugs.flatMap((slug) => {
+        const tool = ALL_TOOLS.find((entry) => entry.slug === slug);
+        return tool ? [tool] : [];
+      })
+    : getSameCategoryRelatedTools(currentSlug, 4);
+  const categoryLabel = slugs ? null : getRelatedToolsCategoryLabel(currentSlug);
 
   if (relatedTools.length === 0 && !guide) {
     return null;
