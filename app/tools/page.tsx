@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { buildOpenGraph } from "@/lib/seo";
 import { ToolCard } from "@/components/ToolCard";
-import { ToolsPageClient } from "./ToolsPageClient";
+import { ToolsPageClient } from "@/components/ToolsPageClient";
 import { ALL_TOOLS } from "@/lib/tools-data";
 import {
   MENU_CATEGORY_META,
