@@ -76,7 +76,12 @@ function CategorySection({
   if (tools.length === 0) return null;
 
   return (
-    <section className="mb-10" data-tool-section data-section-id={id}>
+    <section
+      id={id}
+      className="mb-10 scroll-mt-20"
+      data-tool-section
+      data-section-id={id}
+    >
       <h2 className="mb-4 text-left text-[11px] font-semibold tracking-[2px] text-content-muted">
         {label}
       </h2>

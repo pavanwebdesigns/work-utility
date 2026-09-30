@@ -61,7 +61,7 @@ Add a line whenever we decide something. Newest first.
 | Date | Decision | Why |
 |---|---|---|
 | 2026-09-30 | Five PDF tools (`pdf-compress`, `pdf-to-word`, `pdf-to-jpg`, `pdf-unlock`, `word-to-pdf`) are `processing: "server"`; their copy must not say the file stays in the browser | Files go to Railway and are deleted after conversion |
-| 2026-09-30 | Site targets **India + USA**. US tools stay indexed; add `market: IN/US/global` per tool | Owner decision |
+| 2026-09-30 | Tool pages use shared `ToolShell` (breadcrumb, title row, privacy chip). First batch is 20 tools in slug order, skipping pages whose title block didn't match. | 130 pages copied the same shell; U1 replaces the A7 breadcrumb |
 | 2026-09-30 | UX: tool must be above the fold on mobile; light theme default; shared `ToolShell` for all tools | Upload box was 1.5 screens down on mobile; 130 pages copy the layout by hand |
 | 2026-09-30 | Noindex (not delete) 27 low-value dev/misc tools and their guides; tools stay usable | 0–30 impressions in 3 months; thin pages drag down site quality |
 | 2026-09-30 | Merge 11 duplicate blog posts into their best page with 301 redirects | Posts were competing for the same topics; Google dropped 5 of them |
@@ -76,10 +76,10 @@ Add a line whenever we decide something. Newest first.
 
 **Phase 1 (in progress):** `PHASE-1-SEO-SPEC.md`
 - [x] A1 canonical/OG · [x] A1b missing OG · [x] A2 /tools server list · [x] A3/A3b photo resizer SSR static · [x] A4 currency · [x] A5 FAQ HTML
-- [x] A6 privacy truth · [ ] A7 internal links (with U1) · [ ] A8 sitemap + audit script · [ ] A9 merges · [ ] A10 prune + market field · [ ] C quick wins · [ ] D small bugs
+- [x] A6 privacy truth · [ ] A7 internal links (with U1) — header `/tools` link, blog links, and ToolShell breadcrumb are in; tool pages migrate in batches · [ ] A8 sitemap + audit script · [ ] A9 merges · [ ] A10 prune + market field · [ ] C quick wins · [ ] D small bugs
 - Checkpoint 1 merge after A5
 
-**Phase 1B:** `PHASE-1B-UX-SPEC.md` (ToolShell, theme, photo resizer redesign, calculators, file tools, homepage)
+**Phase 1B:** `PHASE-1B-UX-SPEC.md` — U1 ToolShell started (first 20 tool pages). Then theme, photo resizer, calculators, file tools, homepage.
 
 **Phase 2 (planned):**
 - Exam Photo & Signature Hub: SSC/IBPS/RRB/UPSC/NEET + TSPSC/APPSC/TS-AP Police/DSC presets, signature 10–20 KB, name/date on photo, A4 print sheet.

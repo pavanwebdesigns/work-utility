@@ -7,13 +7,20 @@ import {
 
 type RelatedToolsProps = {
   currentSlug: string;
+  /** Horizontal cards on small screens. */
+  layout?: "grid" | "scroll";
+  guide?: { href: string; title: string } | null;
 };
 
-export function RelatedTools({ currentSlug }: RelatedToolsProps) {
+export function RelatedTools({
+  currentSlug,
+  layout = "grid",
+  guide = null,
+}: RelatedToolsProps) {
   const relatedTools = getSameCategoryRelatedTools(currentSlug, 4);
   const categoryLabel = getRelatedToolsCategoryLabel(currentSlug);
 
-  if (relatedTools.length === 0) {
+  if (relatedTools.length === 0 && !guide) {
     return null;
   }
 
@@ -32,7 +39,20 @@ export function RelatedTools({ currentSlug }: RelatedToolsProps) {
           </p>
         )}
       </div>
-      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+      {guide && (
+        <p className="mb-4 text-sm text-content-secondary">
+          <Link href={guide.href} className="text-brand-blue hover:underline">
+            {guide.title}
+          </Link>
+        </p>
+      )}
+      <div
+        className={
+          layout === "scroll"
+            ? "flex gap-3 overflow-x-auto pb-1 sm:grid sm:grid-cols-2 sm:overflow-visible"
+            : "grid grid-cols-1 gap-3 sm:grid-cols-2"
+        }
+      >
         {relatedTools.map((tool) => {
           const Icon = TOOL_ICONS[tool.icon];
 
@@ -40,7 +60,9 @@ export function RelatedTools({ currentSlug }: RelatedToolsProps) {
             <Link
               key={tool.slug}
               href={tool.href}
-              className="flex items-center gap-3 rounded-xl border border-surface-border bg-surface-card p-4 transition-all hover:border-brand-blue/40 hover:bg-surface-elevated"
+              className={`flex items-center gap-3 rounded-xl border border-surface-border bg-surface-card p-4 transition-all hover:border-brand-blue/40 hover:bg-surface-elevated ${
+                layout === "scroll" ? "w-[260px] shrink-0 sm:w-auto" : ""
+              }`}
             >
               <div
                 className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg ${tool.bgClass}`}
