@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { buildOpenGraph } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: {
@@ -6,15 +7,12 @@ export const metadata: Metadata = {
   },
   description:
     "Convert Markdown to HTML free online. Live preview, syntax highlighting, copy HTML instantly.",
-  keywords:
-    "markdown to html converter free, md to html online, markdown preview",
-  openGraph: {
+  openGraph: buildOpenGraph({
     title: "Markdown to HTML Converter — Free Online",
     description: "Convert Markdown to HTML with live preview.",
     url: "https://workutilities.com/tools/markdown-to-html",
-    siteName: "WorkUtilities",
     type: "website",
-  },
+  }),
   alternates: {
     canonical: "https://workutilities.com/tools/markdown-to-html",
   },

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { buildOpenGraph } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: {
@@ -6,16 +7,13 @@ export const metadata: Metadata = {
   },
   description:
     "Calculate compound interest growth free online. See how your investment grows with monthly or yearly compounding.",
-  keywords:
-    "compound interest calculator free, compound interest formula calculator, investment growth calculator",
-  openGraph: {
+  openGraph: buildOpenGraph({
     title: "Compound Interest Calculator — Free Online",
     description:
       "Calculate compound interest growth free online. See how your investment grows with monthly or yearly compounding.",
     url: "https://workutilities.com/tools/compound-interest",
-    siteName: "WorkUtilities",
     type: "website",
-  },
+  }),
   alternates: {
     canonical: "https://workutilities.com/tools/compound-interest",
   },

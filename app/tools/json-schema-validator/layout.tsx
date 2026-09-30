@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { buildOpenGraph } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: {
@@ -6,16 +7,13 @@ export const metadata: Metadata = {
   },
   description:
     "Validate JSON data against a JSON Schema in real-time. Supports Draft 7 and Draft 2020-12. Human-readable error messages with path. Free, browser-based.",
-  keywords:
-    "JSON Schema validator online, validate JSON against schema, Ajv validator",
-  openGraph: {
+  openGraph: buildOpenGraph({
     title: "JSON Schema Validator Online Free — Draft 7 & 2020",
     description:
       "Validate JSON data against JSON Schema with human-readable errors.",
     url: "https://workutilities.com/tools/json-schema-validator",
-    siteName: "WorkUtilities",
     type: "website",
-  },
+  }),
   alternates: {
     canonical: "https://workutilities.com/tools/json-schema-validator",
   },

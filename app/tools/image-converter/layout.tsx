@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { buildOpenGraph } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: {
@@ -6,16 +7,13 @@ export const metadata: Metadata = {
   },
   description:
     "Convert images between JPG, PNG, and WebP free online. Adjust quality, see file size reduction, and download instantly. No signup, nothing uploaded.",
-  keywords:
-    "image converter online free, jpg to png, png to jpg, webp converter, convert image format browser",
-  openGraph: {
+  openGraph: buildOpenGraph({
     title: "Image Converter Online Free — JPG, PNG, WebP Converter",
     description:
       "Convert images between JPG, PNG, and WebP free online. Adjust quality, see file size reduction, and download instantly. No signup, nothing uploaded.",
     url: "https://workutilities.com/tools/image-converter",
-    siteName: "WorkUtilities",
     type: "website",
-  },
+  }),
   alternates: {
     canonical: "https://workutilities.com/tools/image-converter",
   },

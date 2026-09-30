@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { buildOpenGraph } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: {
@@ -6,15 +7,12 @@ export const metadata: Metadata = {
   },
   description:
     "Generate random numbers, lists, and unique IDs free online. Customizable range and count. Instant results.",
-  keywords:
-    "random number generator free, random number online, generate random list, random integer generator",
-  openGraph: {
+  openGraph: buildOpenGraph({
     title: "Random Number Generator — Free Online",
     description: "Generate random numbers, lists, UUIDs, and dice rolls.",
     url: "https://workutilities.com/tools/random-number",
-    siteName: "WorkUtilities",
     type: "website",
-  },
+  }),
   alternates: { canonical: "https://workutilities.com/tools/random-number" },
 };
 

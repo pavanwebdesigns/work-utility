@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { buildOpenGraph } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: {
@@ -6,16 +7,13 @@ export const metadata: Metadata = {
   },
   description:
     "Calculate your new salary after an appraisal hike or find the hike percentage from your target pay. Free salary hike calculator for employees in India.",
-  keywords:
-    "salary hike calculator, appraisal salary calculator, new salary after hike india",
-  openGraph: {
+  openGraph: buildOpenGraph({
     title: "Salary Hike Calculator Free — New Pay After Appraisal",
     description:
       "Know your new salary and monthly increase after a hike instantly.",
     url: "https://workutilities.com/tools/salary-hike-calculator",
-    siteName: "WorkUtilities",
     type: "website",
-  },
+  }),
   alternates: {
     canonical: "https://workutilities.com/tools/salary-hike-calculator",
   },

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { buildOpenGraph } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: {
@@ -6,16 +7,13 @@ export const metadata: Metadata = {
   },
   description:
     "Convert Word documents to PDF online free. Fast DOCX to PDF conversion. No signup needed, browser-only processing.",
-  keywords:
-    "word to pdf converter free, docx to pdf online, convert word to pdf",
-  openGraph: {
+  openGraph: buildOpenGraph({
     title: "Word to PDF Converter — Free Online",
     description:
       "Convert Word documents to PDF instantly. Free and browser-only.",
     url: "https://workutilities.com/tools/word-to-pdf",
-    siteName: "WorkUtilities",
     type: "website",
-  },
+  }),
   alternates: {
     canonical: "https://workutilities.com/tools/word-to-pdf",
   },

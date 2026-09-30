@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { buildOpenGraph } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: {
@@ -6,16 +7,13 @@ export const metadata: Metadata = {
   },
   description:
     "Remove image backgrounds free online. AI-powered, 100% in-browser — no uploads, no server, no account needed.",
-  keywords:
-    "remove background from image free, background remover online india, remove bg free",
-  openGraph: {
+  openGraph: buildOpenGraph({
     title: "Remove Background from Image Free Online",
     description:
       "AI background removal in your browser. Free, unlimited, private — nothing uploaded.",
     url: "https://workutilities.com/tools/bg-remove",
-    siteName: "WorkUtilities",
     type: "website",
-  },
+  }),
   alternates: {
     canonical: "https://workutilities.com/tools/bg-remove",
   },

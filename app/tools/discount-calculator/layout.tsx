@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { buildOpenGraph } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: {
@@ -6,16 +7,13 @@ export const metadata: Metadata = {
   },
   description:
     "Calculate discount amount and final price free online. Find percentage off and savings instantly.",
-  keywords:
-    "discount calculator free, sale price calculator, percentage off calculator, final price calculator",
-  openGraph: {
+  openGraph: buildOpenGraph({
     title: "Discount Calculator — Find Sale Price Free",
     description:
       "Calculate discount amount and final price free online.",
     url: "https://workutilities.com/tools/discount-calculator",
-    siteName: "WorkUtilities",
     type: "website",
-  },
+  }),
   alternates: {
     canonical: "https://workutilities.com/tools/discount-calculator",
   },

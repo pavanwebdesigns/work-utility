@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { buildOpenGraph } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: {
@@ -6,16 +7,13 @@ export const metadata: Metadata = {
   },
   description:
     "Count characters, words, sentences and paragraphs free online. Real-time counting with no signup required.",
-  keywords:
-    "character counter online free, count characters, text character count tool",
-  openGraph: {
+  openGraph: buildOpenGraph({
     title: "Character Counter — Free Online Tool",
     description:
       "Count characters, words, sentences and paragraphs free online. Real-time counting with no signup required.",
     url: "https://workutilities.com/tools/character-counter",
-    siteName: "WorkUtilities",
     type: "website",
-  },
+  }),
   alternates: {
     canonical: "https://workutilities.com/tools/character-counter",
   },

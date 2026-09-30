@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { buildOpenGraph } from "@/lib/seo";
 import Link from "next/link";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -23,12 +24,22 @@ const PORTFOLIO_URL = "https://iampavan.com";
 const externalLinkClass =
   "font-medium text-brand-blue transition-colors hover:underline";
 
+const ABOUT_TITLE = "About — WorkUtilities";
+const ABOUT_DESCRIPTION =
+  "Learn about WorkUtilities — free, private, browser-based tools for everyday work.";
+
 export const metadata: Metadata = {
   title: {
-    absolute: "About — WorkUtilities",
+    absolute: ABOUT_TITLE,
   },
-  description:
-    "Learn about WorkUtilities — free, private, browser-based tools for everyday work.",
+  description: ABOUT_DESCRIPTION,
+  alternates: { canonical: "https://workutilities.com/about" },
+  openGraph: buildOpenGraph({
+    title: ABOUT_TITLE,
+    description: ABOUT_DESCRIPTION,
+    url: "https://workutilities.com/about",
+    type: "website",
+  }),
 };
 
 export default function AboutPage() {

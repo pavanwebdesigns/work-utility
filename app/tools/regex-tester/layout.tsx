@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { buildOpenGraph } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: {
@@ -6,16 +7,13 @@ export const metadata: Metadata = {
   },
   description:
     "Test and debug regular expressions free online. Real-time match highlighting with explanation.",
-  keywords:
-    "regex tester online free, regular expression tester, regex debugger online",
-  openGraph: {
+  openGraph: buildOpenGraph({
     title: "Regex Tester — Free Online Regular Expression Tool",
     description:
       "Test and debug regular expressions free online. Real-time match highlighting with explanation.",
     url: "https://workutilities.com/tools/regex-tester",
-    siteName: "WorkUtilities",
     type: "website",
-  },
+  }),
   alternates: {
     canonical: "https://workutilities.com/tools/regex-tester",
   },

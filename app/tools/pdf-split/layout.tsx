@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { buildOpenGraph } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: {
@@ -6,16 +7,13 @@ export const metadata: Metadata = {
   },
   description:
     "Split PDF files online free. Extract specific pages or split into individual pages. Browser-only, no server upload.",
-  keywords:
-    "split pdf online free, extract pages from pdf, pdf page extractor india",
-  openGraph: {
+  openGraph: buildOpenGraph({
     title: "PDF Split — Extract Pages from PDF Free",
     description:
       "Split PDF pages online. Free, private, browser-only.",
     url: "https://workutilities.com/tools/pdf-split",
-    siteName: "WorkUtilities",
     type: "website",
-  },
+  }),
   alternates: {
     canonical: "https://workutilities.com/tools/pdf-split",
   },

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { buildOpenGraph } from "@/lib/seo";
 import Link from "next/link";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -9,15 +10,24 @@ const GOOGLE_ANALYTICS_OPT_OUT_URL = "https://tools.google.com/dlpage/gaoptout";
 const GOOGLE_PRIVACY_URL = "https://policies.google.com/privacy";
 const VERCEL_PRIVACY_URL = "https://vercel.com/legal/privacy-policy";
 
+const PRIVACY_TITLE = "Privacy Policy — WorkUtilities";
+const PRIVACY_DESCRIPTION =
+  "How WorkUtilities handles your data — browser-based tools, analytics, cookies, local storage, and future advertising disclosures.";
+
 export const metadata: Metadata = {
   title: {
-    absolute: "Privacy Policy — WorkUtilities",
+    absolute: PRIVACY_TITLE,
   },
-  description:
-    "How WorkUtilities handles your data — browser-based tools, analytics, cookies, local storage, and future advertising disclosures.",
+  description: PRIVACY_DESCRIPTION,
   alternates: {
     canonical: "https://workutilities.com/privacy",
   },
+  openGraph: buildOpenGraph({
+    title: PRIVACY_TITLE,
+    description: PRIVACY_DESCRIPTION,
+    url: "https://workutilities.com/privacy",
+    type: "website",
+  }),
 };
 
 export default function PrivacyPage() {

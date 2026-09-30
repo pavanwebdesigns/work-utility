@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { buildOpenGraph } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: {
@@ -6,15 +7,12 @@ export const metadata: Metadata = {
   },
   description:
     "Pick colors and get HEX, RGB, HSL values free online. Color palette generator and converter tool.",
-  keywords:
-    "color picker online free, hex to rgb converter, color code picker, rgb to hex",
-  openGraph: {
+  openGraph: buildOpenGraph({
     title: "Color Picker — HEX RGB HSL Free Online",
     description: "Pick colors and convert between HEX, RGB, and HSL.",
     url: "https://workutilities.com/tools/color-picker",
-    siteName: "WorkUtilities",
     type: "website",
-  },
+  }),
   alternates: { canonical: "https://workutilities.com/tools/color-picker" },
 };
 
