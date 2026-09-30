@@ -8,6 +8,7 @@ import {
   formatFileSize,
   getPhotoPreset,
   PHOTO_SIZES,
+  resolvePresetFromUrlParam,
   resizePhoto,
   type PhotoPreset,
 } from "@/lib/photo-resize";
@@ -30,13 +31,8 @@ function isAcceptedImage(file: File) {
   );
 }
 
-export function PhotoResizerClient({
-  initialPresetId,
-}: {
-  initialPresetId: string;
-}) {
-  const startingPreset =
-    getPhotoPreset(initialPresetId) ?? getPhotoPreset("passport");
+export function PhotoResizerClient() {
+  const startingPreset = getPhotoPreset("passport");
   const inputRef = useRef<HTMLInputElement>(null);
   const [file, setFile] = useState<File | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
@@ -100,6 +96,16 @@ export function PhotoResizerClient({
       return null;
     });
     setError(null);
+  }, []);
+
+  useEffect(() => {
+    const presetParam = new URLSearchParams(window.location.search).get(
+      "preset",
+    );
+    const preset = resolvePresetFromUrlParam(presetParam);
+    if (preset) {
+      applyPreset(preset);
+    }
   }, []);
 
   useEffect(() => {

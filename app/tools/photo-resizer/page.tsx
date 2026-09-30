@@ -7,7 +7,6 @@ import { ToolFeedback } from "@/components/ToolFeedback";
 import { ToolSeoContent } from "@/components/ToolSeoContent";
 import { DinoGame } from "@/components/DinoGame";
 import { FavoriteButton } from "@/components/FavoriteButton";
-import { resolvePresetFromUrlParam } from "@/lib/photo-resize";
 import { PhotoResizerClient } from "./PhotoResizerClient";
 
 const howItWorksSteps = [
@@ -31,19 +30,7 @@ const howItWorksSteps = [
   },
 ];
 
-type PhotoResizerPageProps = {
-  searchParams: { preset?: string | string[] };
-};
-
-export default function PhotoResizerPage({
-  searchParams,
-}: PhotoResizerPageProps) {
-  const presetParam = Array.isArray(searchParams.preset)
-    ? searchParams.preset[0]
-    : searchParams.preset;
-  const preset = resolvePresetFromUrlParam(presetParam);
-  const initialPresetId = preset?.id ?? "passport";
-
+export default function PhotoResizerPage() {
   return (
     <div className="flex min-h-screen w-full max-w-full flex-col overflow-x-hidden bg-surface-base">
       <Header />
@@ -79,10 +66,7 @@ export default function PhotoResizerPage({
               </div>
             </div>
 
-            <PhotoResizerClient
-              key={initialPresetId}
-              initialPresetId={initialPresetId}
-            />
+            <PhotoResizerClient />
           </div>
 
           <div className="mt-16">
