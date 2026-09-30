@@ -3,7 +3,7 @@ import ToolClient from "./ToolClient";
 
 export default function Page() {
   return (
-    <ToolShell slug="401k-calculator" subtitle={"Project your 401k balance at retirement with 2026 IRS limits, employer match impact, and year-by-year growth table."}>
+    <ToolShell slug="401k-calculator" h1={"401k Calculator 2026 — Retirement Savings Projector"} subtitle={"Project your 401k balance at retirement with 2026 IRS limits, employer match impact, and year-by-year growth table."}>
       <ToolClient />
     </ToolShell>
   );

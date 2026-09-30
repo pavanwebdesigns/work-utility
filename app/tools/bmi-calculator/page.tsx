@@ -3,7 +3,7 @@ import ToolClient from "./ToolClient";
 
 export default function Page() {
   return (
-    <ToolShell slug="bmi-calculator" subtitle={"Calculate your Body Mass Index with metric or imperial units. Instant category results."}>
+    <ToolShell slug="bmi-calculator" h1={"BMI Calculator — Body Mass Index"} subtitle={"Calculate your Body Mass Index with metric or imperial units. Instant category results."}>
       <ToolClient />
     </ToolShell>
   );

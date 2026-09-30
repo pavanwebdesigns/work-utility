@@ -18,6 +18,8 @@ const SITE = "https://workutilities.com";
 type ToolShellProps = {
   slug: string;
   subtitle: string;
+  /** Visible H1. Defaults to the registry name; pass the page's keyword heading. */
+  h1?: string;
   children: ReactNode;
   /** Desktop right column. See U7. */
   aside?: ReactNode;
@@ -28,6 +30,7 @@ type ToolShellProps = {
 export function ToolShell({
   slug,
   subtitle,
+  h1,
   children,
   aside,
   result,
@@ -110,7 +113,7 @@ export function ToolShell({
             </div>
             <div className="min-w-0 flex-1">
               <h1 className="text-xl font-bold leading-tight text-content-primary sm:text-2xl">
-                {tool.name}
+                {h1 ?? tool.name}
               </h1>
               <p className="mt-1 text-sm leading-snug text-content-secondary">
                 {subtitle}
@@ -134,7 +137,11 @@ export function ToolShell({
                 : "mt-6"
             }
           >
-            <div className={aside ? "min-w-0 lg:col-span-7" : "min-w-0"}>
+            <div
+              className={
+                aside ? "min-w-0 lg:col-span-7" : "mx-auto min-w-0 max-w-3xl"
+              }
+            >
               {children}
               {result}
             </div>

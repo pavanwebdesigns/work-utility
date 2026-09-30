@@ -60,7 +60,7 @@ Add a line whenever we decide something. Newest first.
 
 | Date | Decision | Why |
 |---|---|---|
-| 2026-09-30 | Five PDF tools (`pdf-compress`, `pdf-to-word`, `pdf-to-jpg`, `pdf-unlock`, `word-to-pdf`) are `processing: "server"`; their copy must not say the file stays in the browser | Files go to Railway and are deleted after conversion |
+| 2026-09-30 | ToolShell H1 keeps each page's original keyword heading (`h1` prop). With no aside, the tool column is `max-w-3xl`. | Registry names dropped search keywords; inputs were stretching across 1440px |
 | 2026-09-30 | Tool pages use shared `ToolShell` (breadcrumb, title row, privacy chip). First batch is 20 tools in slug order, skipping pages whose title block didn't match. | 130 pages copied the same shell; U1 replaces the A7 breadcrumb |
 | 2026-09-30 | UX: tool must be above the fold on mobile; light theme default; shared `ToolShell` for all tools | Upload box was 1.5 screens down on mobile; 130 pages copy the layout by hand |
 | 2026-09-30 | Noindex (not delete) 27 low-value dev/misc tools and their guides; tools stay usable | 0–30 impressions in 3 months; thin pages drag down site quality |

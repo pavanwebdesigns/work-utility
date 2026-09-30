@@ -3,7 +3,7 @@ import ToolClient from "./ToolClient";
 
 export default function Page() {
   return (
-    <ToolShell slug="binary-converter" subtitle={"Convert between binary, decimal, hexadecimal, and octal number systems instantly."}>
+    <ToolShell slug="binary-converter" h1={"Binary Converter — Decimal Hex Octal Free"} subtitle={"Convert between binary, decimal, hexadecimal, and octal number systems instantly."}>
       <ToolClient />
     </ToolShell>
   );
