@@ -196,15 +196,20 @@ export function Header() {
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
             >
+              <Link
+                href="/tools"
+                className="text-sm text-content-secondary transition-colors hover:text-content-primary"
+              >
+                Tools
+              </Link>
               <button
                 type="button"
-                className="flex cursor-pointer items-center gap-1 text-sm text-content-secondary transition-colors hover:text-content-primary"
+                className="flex cursor-pointer items-center rounded-md p-1 text-content-secondary transition-colors hover:text-content-primary"
                 aria-expanded={isMenuOpen}
                 aria-haspopup="true"
                 aria-label="Browse tools"
                 onClick={() => setIsMenuOpen((open) => !open)}
               >
-                Tools
                 <ChevronDown
                   className={`h-4 w-4 transition-transform ${isMenuOpen ? "rotate-180" : ""}`}
                 />
@@ -255,6 +260,12 @@ export function Header() {
           </nav>
 
           <div className="flex items-center gap-1 md:hidden">
+            <Link
+              href="/tools"
+              className="px-2 text-sm font-medium text-content-primary"
+            >
+              Tools
+            </Link>
             <FavoritesButton />
             <button
               type="button"

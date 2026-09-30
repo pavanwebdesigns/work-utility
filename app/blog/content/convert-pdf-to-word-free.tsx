@@ -113,8 +113,8 @@ export default function ConvertPdfToWordFreeContent() {
       </p>
 
       <p>
-        The conversion happens entirely in your browser. Your PDF is never sent
-        to any server.
+        Your PDF is processed on our secure server over HTTPS and deleted
+        immediately after conversion.
       </p>
 
       <hr />
@@ -196,7 +196,7 @@ export default function ConvertPdfToWordFreeContent() {
           <tr>
             <td>WorkUtilities</td>
             <td>Free</td>
-            <td>High (browser-only)</td>
+            <td>Deleted after conversion</td>
             <td>Good</td>
             <td>Fast</td>
           </tr>

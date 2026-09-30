@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { buildOpenGraph } from "@/lib/seo";
 import { ToolCard } from "@/components/ToolCard";
-import { ToolsPageClient } from "./ToolsPageClient";
+import { ToolsPageClient } from "@/components/ToolsPageClient";
 import { ALL_TOOLS } from "@/lib/tools-data";
 import {
   MENU_CATEGORY_META,
@@ -76,7 +76,12 @@ function CategorySection({
   if (tools.length === 0) return null;
 
   return (
-    <section className="mb-10" data-tool-section data-section-id={id}>
+    <section
+      id={id}
+      className="mb-10 scroll-mt-20"
+      data-tool-section
+      data-section-id={id}
+    >
       <h2 className="mb-4 text-left text-[11px] font-semibold tracking-[2px] text-content-muted">
         {label}
       </h2>

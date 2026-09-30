@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { blogPostBySlug, blogPosts, blogSeoMetadata, getCategoryBadgeClass } from "../posts";
+import { getToolProcessing } from "@/lib/tools-data";
 import AadhaarCardPhotoSizeContent from "../content/aadhaar-card-photo-size";
 import HowToCompressPdfOnlineFreeContent from "../content/how-to-compress-pdf-online-free";
 import BestFreePdfToolsOnline2026Content from "../content/best-free-pdf-tools-online-2026";
@@ -391,6 +392,8 @@ export default function BlogPostPage({ params }: Props) {
     notFound();
   }
 
+  const serverProcessed = getToolProcessing(post.cta.toolHref) === "server";
+
   return (
     <div className="flex min-h-screen w-full max-w-full flex-col overflow-x-hidden bg-surface-base">
       <Header />
@@ -426,10 +429,13 @@ export default function BlogPostPage({ params }: Props) {
               Ready to try it yourself?
             </p>
             <h3 className="mb-2 text-lg font-semibold text-content-primary">
-              {post.cta.toolName} — Free & Private
+              {post.cta.toolName}
+              {serverProcessed ? " — Free" : " — Free & Private"}
             </h3>
             <p className="mb-4 text-sm text-content-secondary">
-              No signup. No upload to server. Runs in your browser.
+              {serverProcessed
+                ? "Processed on our secure server over HTTPS and deleted immediately after conversion. No signup."
+                : "No signup. No upload to server. Runs in your browser."}
             </p>
             <Link
               href={post.cta.toolHref}

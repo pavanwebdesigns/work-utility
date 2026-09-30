@@ -6,11 +6,11 @@ export const metadata: Metadata = {
     absolute: "PDF to JPG — Convert PDF Pages to Images Free | WorkUtilities",
   },
   description:
-    "Convert PDF pages to JPG images free online. Extract each page as a high-quality image. No signup, browser-only.",
+    "Convert PDF pages to JPG images free online. Extract each page as a high-quality image. Processed on our secure server over HTTPS and deleted immediately. No signup.",
   openGraph: buildOpenGraph({
     title: "PDF to JPG — Convert PDF Pages to Images Free",
     description:
-      "Convert each PDF page to JPG. Free, private, browser-only.",
+      "Convert each PDF page to JPG. Processed securely and deleted after conversion.",
     url: "https://workutilities.com/tools/pdf-to-jpg",
     type: "website",
   }),

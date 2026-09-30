@@ -6,11 +6,11 @@ export const metadata: Metadata = {
     absolute: "Word to PDF Converter — Free Online | WorkUtilities",
   },
   description:
-    "Convert Word documents to PDF online free. Fast DOCX to PDF conversion. No signup needed, browser-only processing.",
+    "Convert Word documents to PDF online free. Fast DOCX to PDF conversion. Processed on our secure server over HTTPS and deleted immediately. No signup.",
   openGraph: buildOpenGraph({
     title: "Word to PDF Converter — Free Online",
     description:
-      "Convert Word documents to PDF instantly. Free and browser-only.",
+      "Convert Word documents to PDF instantly. Processed securely and deleted after conversion.",
     url: "https://workutilities.com/tools/word-to-pdf",
     type: "website",
   }),

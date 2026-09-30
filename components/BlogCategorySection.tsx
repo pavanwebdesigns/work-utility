@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { BlogPostCard } from "@/components/BlogPostCard";
 import { BLOG_CATEGORY_ICONS } from "@/components/BlogCategoryIcons";
 import {
@@ -9,6 +9,7 @@ import {
   BLOG_POSTS_PAGE_SIZE,
   filterBlogPostsByPageCategory,
   getBlogCountByPageCategory,
+  getBlogPageCategory,
   type BlogPageCategoryId,
 } from "@/lib/blog-categories";
 import type { BlogPost } from "@/app/blog/posts";
@@ -17,23 +18,115 @@ type BlogCategorySectionProps = {
   posts: BlogPost[];
 };
 
+function groupPosts(posts: BlogPost[]) {
+  const groups = new Map<string, BlogPost[]>();
+  for (const post of posts) {
+    const category = getBlogPageCategory(post) ?? "other";
+    const list = groups.get(category) ?? [];
+    list.push(post);
+    groups.set(category, list);
+  }
+
+  const tabOrder: string[] = BLOG_PAGE_CATEGORY_TABS.map((tab) => tab.id).filter(
+    (id) => id !== "all",
+  );
+  const ordered = [
+    ...tabOrder.filter((id) => groups.has(id)),
+    ...Array.from(groups.keys()).filter((id) => !tabOrder.includes(id as BlogPageCategoryId)),
+  ];
+
+  return ordered.map((id) => ({
+    id,
+    label:
+      id === "other"
+        ? "OTHER"
+        : BLOG_PAGE_SECTION_LABELS[id as BlogPageCategoryId],
+    posts: groups.get(id) ?? [],
+  }));
+}
+
+function PostGrid({ posts }: { posts: BlogPost[] }) {
+  if (posts.length === 0) return null;
+
+  return (
+    <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+      {posts.map((post) => (
+        <BlogPostCard key={post.slug} post={post} />
+      ))}
+    </div>
+  );
+}
+
+/** Every post link is in the HTML. Extras are hidden with CSS until "Load more". */
+function BlogPostList({ posts }: { posts: BlogPost[] }) {
+  const groups = groupPosts(posts);
+  const flat = groups.flatMap((group) => group.posts);
+  const visibleSlugs = new Set(flat.slice(0, BLOG_POSTS_PAGE_SIZE).map((post) => post.slug));
+  const hasMore = flat.length > BLOG_POSTS_PAGE_SIZE;
+
+  const renderGroup = (postsInGroup: BlogPost[], hidden: boolean) => {
+    const matching = postsInGroup.filter((post) =>
+      hidden ? !visibleSlugs.has(post.slug) : visibleSlugs.has(post.slug),
+    );
+    return <PostGrid posts={matching} />;
+  };
+
+  return (
+    <>
+      <div className="space-y-10">
+        {groups.map((group) => {
+          const shown = group.posts.filter((post) => visibleSlugs.has(post.slug));
+          if (shown.length === 0) return null;
+          return (
+            <section key={group.id}>
+              <h2 className="mb-4 text-left text-[11px] font-semibold tracking-[2px] text-content-muted">
+                {group.label}
+              </h2>
+              {renderGroup(group.posts, false)}
+            </section>
+          );
+        })}
+      </div>
+
+      {hasMore && (
+        <>
+          <input id="blog-load-more" type="checkbox" className="peer sr-only" />
+          <div className="mt-10 hidden space-y-10 peer-checked:block">
+            {groups.map((group) => {
+              const extra = group.posts.filter((post) => !visibleSlugs.has(post.slug));
+              if (extra.length === 0) return null;
+              return (
+                <section key={`${group.id}-more`}>
+                  <h2 className="mb-4 text-left text-[11px] font-semibold tracking-[2px] text-content-muted">
+                    {group.label}
+                  </h2>
+                  <PostGrid posts={extra} />
+                </section>
+              );
+            })}
+          </div>
+          <div className="mt-8 text-center peer-checked:hidden">
+            <label
+              htmlFor="blog-load-more"
+              className="inline-block cursor-pointer rounded-xl border border-surface-border bg-surface-card px-6 py-3 text-sm font-medium text-content-primary transition-colors hover:border-brand-blue hover:text-brand-blue"
+            >
+              Load More
+            </label>
+          </div>
+        </>
+      )}
+    </>
+  );
+}
+
 export function BlogCategorySection({ posts }: BlogCategorySectionProps) {
-  const [activeCategory, setActiveCategory] =
-    useState<BlogPageCategoryId>("all");
-  const [visibleCount, setVisibleCount] = useState(BLOG_POSTS_PAGE_SIZE);
+  const [activeCategory, setActiveCategory] = useState<BlogPageCategoryId>("all");
   const counts = useMemo(() => getBlogCountByPageCategory(posts), [posts]);
 
   const filteredPosts = useMemo(
     () => filterBlogPostsByPageCategory(posts, activeCategory),
     [posts, activeCategory],
   );
-
-  const visiblePosts = filteredPosts.slice(0, visibleCount);
-  const hasMore = visibleCount < filteredPosts.length;
-
-  useEffect(() => {
-    setVisibleCount(BLOG_POSTS_PAGE_SIZE);
-  }, [activeCategory]);
 
   return (
     <section className="mt-12 border-t border-surface-border pt-10">
@@ -81,27 +174,7 @@ export function BlogCategorySection({ posts }: BlogCategorySectionProps) {
           No guides in this category yet.
         </p>
       ) : (
-        <>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-            {visiblePosts.map((post) => (
-              <BlogPostCard key={post.slug} post={post} />
-            ))}
-          </div>
-
-          {hasMore && (
-            <div className="mt-8 text-center">
-              <button
-                type="button"
-                onClick={() =>
-                  setVisibleCount((count) => count + BLOG_POSTS_PAGE_SIZE)
-                }
-                className="cursor-pointer rounded-xl border border-surface-border bg-surface-card px-6 py-3 text-sm font-medium text-content-primary transition-colors hover:border-brand-blue hover:text-brand-blue"
-              >
-                Load More
-              </button>
-            </div>
-          )}
-        </>
+        <BlogPostList key={activeCategory} posts={filteredPosts} />
       )}
     </section>
   );

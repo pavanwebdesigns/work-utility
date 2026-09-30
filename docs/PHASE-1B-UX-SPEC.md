@@ -48,7 +48,7 @@
 7. `ToolSeoContent`, then `ToolFeedback`.
 8. Footer.
 
-**Props:** `slug` (reads name, category, icon, processing from `lib/tools-data.ts`), `subtitle`, `children`, `aside?` (desktop right column, see U7), `result?`.
+**Props:** `slug` (reads name, category, icon, processing from `lib/tools-data.ts`), `subtitle`, `h1?` (the page's original keyword H1; default is `tool.name` — every migrated page must pass its original H1), `children`, `aside?` (desktop right column, see U7), `result?`. With no `aside`, the breadcrumb, title row, and tool share `mx-auto max-w-3xl`. With an `aside`, the frame stays `max-w-6xl`.
 
 **Migration:** move all 130 tool pages to `ToolShell`. This is mechanical, so do it in batches of ~20 with a commit per batch. Each page keeps only its own tool UI. Delete the unused `components/ToolLayout.tsx`.
 

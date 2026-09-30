@@ -45,7 +45,7 @@ export default function HowToConvertWordToPdfFreeContent() {
 
       <p>
         You don&apos;t need Word 365, LibreOffice, or Google Docs export tricks.
-        Upload your .doc or .docx file to a browser-based converter. Download PDF.
+        Upload your .doc or .docx file to an online converter. Download PDF.
         Done.
       </p>
 
@@ -64,13 +64,16 @@ export default function HowToConvertWordToPdfFreeContent() {
           <Link href="/tools/word-to-pdf">WorkUtilities Word to PDF</Link>
         </li>
         <li>Upload your .doc or .docx file</li>
-        <li>Click Convert — processing happens in your browser</li>
+        <li>
+          Click Convert — the file is processed on our secure server over HTTPS
+          and deleted immediately after conversion
+        </li>
         <li>Download the PDF instantly</li>
       </ol>
 
       <p>
-        No signup. No file stored on servers. Your resume stays private on your
-        device during conversion.
+        No signup. Processed on our secure server over HTTPS and deleted
+        immediately after conversion.
       </p>
 
       <hr />

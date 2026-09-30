@@ -103,9 +103,12 @@ export function getMenuCategoryForSlug(slug: string): MenuCategoryId | undefined
 
 export type ToolFilterCategory = "pdf" | "images" | "convert";
 
+export type ToolProcessing = "browser" | "server";
+
 export const ALL_TOOLS = [
   {
     slug: "pdf-compress",
+    processing: "server" as const,
     name: "PDF Compress",
     description: "Reduce PDF file size instantly",
     href: "/tools/pdf-compress",
@@ -118,6 +121,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "pdf-merge",
+    processing: "browser" as const,
     name: "PDF Merge",
     description: "Combine multiple PDFs into one",
     href: "/tools/pdf-merge",
@@ -130,6 +134,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "pdf-split",
+    processing: "browser" as const,
     name: "PDF Split",
     description: "Extract pages from a PDF",
     href: "/tools/pdf-split",
@@ -142,6 +147,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "pdf-unlock",
+    processing: "server" as const,
     name: "Remove PDF Password",
     description: "Remove password from protected PDF",
     href: "/tools/pdf-unlock",
@@ -154,6 +160,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "pdf-rotate",
+    processing: "browser" as const,
     name: "PDF Rotate",
     description: "Rotate PDF pages to fix sideways scans",
     href: "/tools/pdf-rotate",
@@ -166,6 +173,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "pdf-page-numbers",
+    processing: "browser" as const,
     name: "PDF Page Numbers",
     description: "Add page numbers to any PDF",
     href: "/tools/pdf-page-numbers",
@@ -178,6 +186,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "pdf-watermark",
+    processing: "browser" as const,
     name: "PDF Watermark",
     description: "Add text or image watermarks to PDFs",
     href: "/tools/pdf-watermark",
@@ -190,6 +199,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "pdf-to-jpg",
+    processing: "server" as const,
     name: "PDF to JPG",
     description: "Convert PDF pages to JPG images",
     href: "/tools/pdf-to-jpg",
@@ -202,6 +212,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "pdf-to-word",
+    processing: "server" as const,
     name: "PDF to Word",
     description: "Convert PDF to editable Word document",
     href: "/tools/pdf-to-word",
@@ -214,6 +225,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "word-to-pdf",
+    processing: "server" as const,
     name: "Word to PDF",
     description: "Convert Word document to PDF",
     href: "/tools/word-to-pdf",
@@ -226,6 +238,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "word-compress",
+    processing: "browser" as const,
     name: "Compress Word Document",
     description: "Reduce DOCX file size by compressing images",
     href: "/tools/word-compress",
@@ -238,6 +251,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "excel-to-pdf",
+    processing: "browser" as const,
     name: "Excel to PDF",
     description: "Convert Excel spreadsheets to PDF",
     href: "/tools/excel-to-pdf",
@@ -250,6 +264,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "ppt-to-pdf",
+    processing: "browser" as const,
     name: "PPT to PDF",
     description: "Convert PowerPoint presentations to PDF",
     href: "/tools/ppt-to-pdf",
@@ -262,6 +277,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "image-compress",
+    processing: "browser" as const,
     name: "Image Compress",
     description: "Compress images without quality loss",
     href: "/tools/image-compress",
@@ -274,6 +290,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "image-converter",
+    processing: "browser" as const,
     name: "Image Converter",
     description: "Convert images between JPG, PNG, WebP",
     href: "/tools/image-converter",
@@ -286,6 +303,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "heic-to-jpg",
+    processing: "browser" as const,
     name: "HEIC to JPG",
     description: "Convert iPhone HEIC photos to JPG free",
     href: "/tools/heic-to-jpg",
@@ -298,6 +316,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "webp-to-jpg",
+    processing: "browser" as const,
     name: "WebP to JPG",
     description: "Convert WebP images to JPG or PNG",
     href: "/tools/webp-to-jpg",
@@ -310,6 +329,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "bg-remove",
+    processing: "browser" as const,
     name: "Background Remover",
     description: "Remove background from any image",
     href: "/tools/bg-remove",
@@ -322,6 +342,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "photo-resizer",
+    processing: "browser" as const,
     name: "Photo Resizer",
     description: "Resize to Aadhaar, PAN, Passport size",
     href: "/tools/photo-resizer",
@@ -334,6 +355,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "image-to-pdf",
+    processing: "browser" as const,
     name: "Image to PDF",
     description: "Combine images into a single PDF",
     href: "/tools/image-to-pdf",
@@ -346,6 +368,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "word-counter",
+    processing: "browser" as const,
     name: "Word Counter",
     description: "Count words, characters, and reading time",
     href: "/tools/word-counter",
@@ -358,6 +381,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "age-calculator",
+    processing: "browser" as const,
     name: "Age Calculator",
     description: "Calculate exact age from date of birth",
     href: "/tools/age-calculator",
@@ -370,6 +394,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "qr-code-generator",
+    processing: "browser" as const,
     name: "QR Code Generator",
     description: "Create QR codes for URL, WiFi, VCard, WhatsApp, and more",
     href: "/tools/qr-code-generator",
@@ -382,6 +407,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "emi-calculator",
+    processing: "browser" as const,
     name: "EMI Calculator",
     description: "Calculate home, car, and personal loan EMI",
     href: "/tools/emi-calculator",
@@ -394,6 +420,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "gst-calculator",
+    processing: "browser" as const,
     name: "GST Calculator",
     description: "Add or remove GST with CGST and SGST split",
     href: "/tools/gst-calculator",
@@ -406,6 +433,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "salary-hike-calculator",
+    processing: "browser" as const,
     name: "Salary Hike Calculator",
     description: "Calculate new salary after appraisal hike",
     href: "/tools/salary-hike-calculator",
@@ -418,6 +446,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "cgpa-to-percentage",
+    processing: "browser" as const,
     name: "CGPA to Percentage",
     description: "Convert CGPA to percentage for VTU, CBSE, and more",
     href: "/tools/cgpa-to-percentage",
@@ -430,6 +459,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "ctc-calculator",
+    processing: "browser" as const,
     name: "CTC to In-Hand Salary",
     description: "Estimate monthly take-home pay from annual CTC",
     href: "/tools/ctc-calculator",
@@ -442,6 +472,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "fd-calculator",
+    processing: "browser" as const,
     name: "FD Calculator",
     description: "Calculate fixed deposit maturity and interest",
     href: "/tools/fd-calculator",
@@ -454,6 +485,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "freelancer-tax-calculator",
+    processing: "browser" as const,
     name: "Section 44ADA Freelancer Tax Calculator",
     description: "Calculate presumptive tax for Indian freelancers",
     href: "/tools/freelancer-tax-calculator",
@@ -466,6 +498,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "sip-calculator",
+    processing: "browser" as const,
     name: "SIP Calculator",
     description: "Calculate mutual fund SIP returns and maturity",
     href: "/tools/sip-calculator",
@@ -478,6 +511,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "notice-period-calculator",
+    processing: "browser" as const,
     name: "Notice Period Calculator",
     description: "Find your last working day and buyout amount",
     href: "/tools/notice-period-calculator",
@@ -490,6 +524,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "percentage-calculator",
+    processing: "browser" as const,
     name: "Percentage Calculator",
     description: "Calculate % of number, change, and more",
     href: "/tools/percentage-calculator",
@@ -502,6 +537,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "password-generator",
+    processing: "browser" as const,
     name: "Password Generator",
     description: "Create strong random passwords instantly",
     href: "/tools/password-generator",
@@ -514,6 +550,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "unit-converter",
+    processing: "browser" as const,
     name: "Unit Converter",
     description: "Convert length, weight, temperature, and more",
     href: "/tools/unit-converter",
@@ -526,6 +563,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "income-tax-calculator",
+    processing: "browser" as const,
     name: "Income Tax Calculator",
     description: "Compare old vs new regime tax for FY 2025-26",
     href: "/tools/income-tax-calculator",
@@ -538,6 +576,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "tax-regime-comparison",
+    processing: "browser" as const,
     name: "Old vs New Tax Regime Comparison",
     description: "Side-by-side old vs new regime tax with verdict",
     href: "/tools/tax-regime-comparison",
@@ -550,6 +589,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "signature-maker",
+    processing: "browser" as const,
     name: "Signature Maker",
     description: "Draw, type, or upload digital signatures",
     href: "/tools/signature-maker",
@@ -562,6 +602,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "json-formatter",
+    processing: "browser" as const,
     name: "JSON Formatter",
     description: "Format, validate and beautify JSON data",
     href: "/tools/json-formatter",
@@ -574,6 +615,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "favicon-generator",
+    processing: "browser" as const,
     name: "Favicon Generator",
     description: "Create favicon.ico and PNG icons from any image",
     href: "/tools/favicon-generator",
@@ -586,6 +628,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "color-picker",
+    processing: "browser" as const,
     name: "Color Picker",
     description: "Pick colors and get HEX, RGB, HSL values",
     href: "/tools/color-picker",
@@ -598,6 +641,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "markdown-to-html",
+    processing: "browser" as const,
     name: "Markdown to HTML",
     description: "Convert Markdown text to HTML instantly",
     href: "/tools/markdown-to-html",
@@ -610,6 +654,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "base64",
+    processing: "browser" as const,
     name: "Base64 Encoder",
     description: "Encode and decode Base64 text or files",
     href: "/tools/base64",
@@ -622,6 +667,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "url-encoder",
+    processing: "browser" as const,
     name: "URL Encoder",
     description: "Encode and decode URLs instantly",
     href: "/tools/url-encoder",
@@ -634,6 +680,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "text-case-converter",
+    processing: "browser" as const,
     name: "Text Case Converter",
     description: "Convert text to uppercase, lowercase, title case",
     href: "/tools/text-case-converter",
@@ -646,6 +693,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "lorem-ipsum",
+    processing: "browser" as const,
     name: "Lorem Ipsum Generator",
     description: "Generate placeholder lorem ipsum text",
     href: "/tools/lorem-ipsum",
@@ -658,6 +706,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "aspect-ratio",
+    processing: "browser" as const,
     name: "Aspect Ratio Calculator",
     description: "Calculate and convert image aspect ratios",
     href: "/tools/aspect-ratio",
@@ -670,6 +719,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "random-number",
+    processing: "browser" as const,
     name: "Random Number Generator",
     description: "Generate random numbers, passwords, and lists",
     href: "/tools/random-number",
@@ -682,6 +732,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "tip-calculator",
+    processing: "browser" as const,
     name: "Tip Calculator",
     description: "Calculate tip and split bills instantly",
     href: "/tools/tip-calculator",
@@ -694,6 +745,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "discount-calculator",
+    processing: "browser" as const,
     name: "Discount Calculator",
     description: "Calculate discounts and final prices",
     href: "/tools/discount-calculator",
@@ -706,6 +758,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "binary-converter",
+    processing: "browser" as const,
     name: "Binary Converter",
     description: "Convert binary, decimal, hex and octal",
     href: "/tools/binary-converter",
@@ -718,6 +771,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "hash-generator",
+    processing: "browser" as const,
     name: "Hash Generator",
     description: "Generate MD5, SHA-1, SHA-256 hashes",
     href: "/tools/hash-generator",
@@ -730,6 +784,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "number-to-words",
+    processing: "browser" as const,
     name: "Number to Words",
     description: "Convert numbers to words in English",
     href: "/tools/number-to-words",
@@ -742,6 +797,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "pomodoro-timer",
+    processing: "browser" as const,
     name: "Pomodoro Timer",
     description: "Focus timer with work and break intervals",
     href: "/tools/pomodoro-timer",
@@ -754,6 +810,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "stopwatch",
+    processing: "browser" as const,
     name: "Stopwatch",
     description: "Precise stopwatch with lap timer",
     href: "/tools/stopwatch",
@@ -766,6 +823,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "csv-to-json",
+    processing: "browser" as const,
     name: "CSV to JSON",
     description: "Convert CSV data to JSON format instantly",
     href: "/tools/csv-to-json",
@@ -778,6 +836,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "text-diff",
+    processing: "browser" as const,
     name: "Text Diff Checker",
     description: "Compare two texts and find differences",
     href: "/tools/text-diff",
@@ -790,6 +849,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "hra-calculator",
+    processing: "browser" as const,
     name: "HRA Calculator",
     description: "Calculate HRA exemption for income tax",
     href: "/tools/hra-calculator",
@@ -802,6 +862,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "character-counter",
+    processing: "browser" as const,
     name: "Character Counter",
     description: "Count characters, words, and sentences",
     href: "/tools/character-counter",
@@ -814,6 +875,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "bmi-calculator",
+    processing: "browser" as const,
     name: "BMI Calculator",
     description: "Calculate your Body Mass Index",
     href: "/tools/bmi-calculator",
@@ -826,6 +888,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "calorie-deficit-calculator",
+    processing: "browser" as const,
     name: "Calorie Deficit Calculator",
     description: "Calculate BMR, TDEE, and daily calorie target",
     href: "/tools/calorie-deficit-calculator",
@@ -838,6 +901,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "compound-interest",
+    processing: "browser" as const,
     name: "Compound Interest Calculator",
     description: "Calculate compound interest growth",
     href: "/tools/compound-interest",
@@ -850,6 +914,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "timezone-converter",
+    processing: "browser" as const,
     name: "Time Zone Converter",
     description: "Convert time between time zones",
     href: "/tools/timezone-converter",
@@ -862,6 +927,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "regex-tester",
+    processing: "browser" as const,
     name: "Regex Tester",
     description: "Test and debug regular expressions",
     href: "/tools/regex-tester",
@@ -874,6 +940,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "html-entity",
+    processing: "browser" as const,
     name: "HTML Entity Encoder/Decoder",
     description: "Encode and decode HTML entities",
     href: "/tools/html-entity",
@@ -886,6 +953,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "color-contrast",
+    processing: "browser" as const,
     name: "Color Contrast Checker",
     description: "Check WCAG color contrast ratios",
     href: "/tools/color-contrast",
@@ -898,6 +966,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "jwt-decoder",
+    processing: "browser" as const,
     name: "JWT Decoder",
     description: "Decode and inspect JSON Web Tokens",
     href: "/tools/jwt-decoder",
@@ -910,6 +979,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "epf-calculator",
+    processing: "browser" as const,
     name: "EPF Calculator",
     description: "Calculate Employee Provident Fund maturity",
     href: "/tools/epf-calculator",
@@ -922,6 +992,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "ppf-calculator",
+    processing: "browser" as const,
     name: "PPF Calculator",
     description: "Calculate PPF maturity, interest, and year-by-year returns",
     href: "/tools/ppf-calculator",
@@ -934,6 +1005,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "gratuity-calculator",
+    processing: "browser" as const,
     name: "Gratuity Calculator",
     description: "Calculate gratuity amount on retirement",
     href: "/tools/gratuity-calculator",
@@ -946,6 +1018,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "lta-calculator",
+    processing: "browser" as const,
     name: "LTA Calculator",
     description: "Calculate Leave Travel Allowance exemption",
     href: "/tools/lta-calculator",
@@ -958,6 +1031,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "hourly-to-salary",
+    processing: "browser" as const,
     name: "Hourly to Salary Calculator",
     description: "Convert hourly wage to annual salary",
     href: "/tools/hourly-to-salary",
@@ -970,6 +1044,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "keyword-density",
+    processing: "browser" as const,
     name: "Keyword Density Checker",
     description: "Analyze keyword frequency in your content",
     href: "/tools/keyword-density",
@@ -982,6 +1057,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "morse-code",
+    processing: "browser" as const,
     name: "Morse Code Converter",
     description: "Convert text to Morse code and back",
     href: "/tools/morse-code",
@@ -994,6 +1070,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "xml-formatter",
+    processing: "browser" as const,
     name: "XML Formatter",
     description: "Format, validate and beautify XML data",
     href: "/tools/xml-formatter",
@@ -1006,6 +1083,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "inflation-calculator",
+    processing: "browser" as const,
     name: "Inflation Calculator",
     description: "Calculate value of money over time",
     href: "/tools/inflation-calculator",
@@ -1018,6 +1096,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "sql-formatter",
+    processing: "browser" as const,
     name: "SQL Formatter",
     description: "Beautify and format SQL queries",
     href: "/tools/sql-formatter",
@@ -1030,6 +1109,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "svg-to-png",
+    processing: "browser" as const,
     name: "SVG to PNG",
     description: "Convert SVG to PNG at any resolution",
     href: "/tools/svg-to-png",
@@ -1042,6 +1122,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "color-palette-extractor",
+    processing: "browser" as const,
     name: "Color Palette Extractor",
     description: "Extract dominant colors from any image",
     href: "/tools/color-palette-extractor",
@@ -1054,6 +1135,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "text-to-speech",
+    processing: "browser" as const,
     name: "Text to Speech",
     description: "Listen to text with browser voices",
     href: "/tools/text-to-speech",
@@ -1066,6 +1148,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "device-info",
+    processing: "browser" as const,
     name: "Device & Browser Info",
     description: "Check browser, OS, and screen details",
     href: "/tools/device-info",
@@ -1078,6 +1161,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "uuid-generator",
+    processing: "browser" as const,
     name: "UUID Generator",
     description: "Generate random UUID v4 identifiers",
     href: "/tools/uuid-generator",
@@ -1090,6 +1174,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "gpa-calculator",
+    processing: "browser" as const,
     name: "GPA Calculator",
     description: "Calculate weighted GPA on 4.0 scale",
     href: "/tools/gpa-calculator",
@@ -1102,6 +1187,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "days-between-dates",
+    processing: "browser" as const,
     name: "Days Between Dates",
     description: "Count days between two dates",
     href: "/tools/days-between-dates",
@@ -1114,6 +1200,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "roman-numeral-converter",
+    processing: "browser" as const,
     name: "Roman Numeral Converter",
     description: "Convert numbers to Roman numerals",
     href: "/tools/roman-numeral-converter",
@@ -1126,6 +1213,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "leap-year-checker",
+    processing: "browser" as const,
     name: "Leap Year Checker",
     description: "Check if any year is a leap year",
     href: "/tools/leap-year-checker",
@@ -1138,6 +1226,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "paycheck-calculator",
+    processing: "browser" as const,
     name: "Paycheck Calculator",
     description: "Estimate US take-home pay after tax & FICA",
     href: "/tools/paycheck-calculator",
@@ -1150,6 +1239,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "mortgage-calculator",
+    processing: "browser" as const,
     name: "Mortgage Calculator",
     description: "Monthly payment, PMI & amortization schedule",
     href: "/tools/mortgage-calculator",
@@ -1162,6 +1252,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "w2-vs-1099-calculator",
+    processing: "browser" as const,
     name: "W-2 vs 1099 Tax Calculator",
     description: "Find the 1099 rate to match W-2 take-home pay",
     href: "/tools/w2-vs-1099-calculator",
@@ -1174,6 +1265,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "self-employment-tax",
+    processing: "browser" as const,
     name: "Self-Employment Tax Calculator",
     description: "Calculate 1099 SE tax and quarterly payments",
     href: "/tools/self-employment-tax",
@@ -1186,6 +1278,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "box-breathing",
+    processing: "browser" as const,
     name: "Box Breathing Timer",
     description: "Guided 4-4-4-4 breathing exercise",
     href: "/tools/box-breathing",
@@ -1198,6 +1291,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "cron-generator",
+    processing: "browser" as const,
     name: "Cron Expression Generator",
     description: "Build and explain cron schedules visually",
     href: "/tools/cron-generator",
@@ -1210,6 +1304,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "subnet-calculator",
+    processing: "browser" as const,
     name: "Subnet Calculator",
     description: "CIDR, IP range, and subnet mask tool",
     href: "/tools/subnet-calculator",
@@ -1222,6 +1317,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "svg-previewer",
+    processing: "browser" as const,
     name: "SVG Code Previewer",
     description: "Live preview SVG code in browser",
     href: "/tools/svg-previewer",
@@ -1234,6 +1330,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "audio-recorder",
+    processing: "browser" as const,
     name: "Audio Recorder",
     description: "Record from microphone in browser",
     href: "/tools/audio-recorder",
@@ -1246,6 +1343,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "loan-eligibility",
+    processing: "browser" as const,
     name: "Loan Eligibility Calculator",
     description: "Check max loan amount using FOIR guidelines",
     href: "/tools/loan-eligibility",
@@ -1258,6 +1356,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "labour-code-calculator",
+    processing: "browser" as const,
     name: "New Labour Code 2026 Salary Calculator",
     description: "Compare take-home before and after 50% basic rule",
     href: "/tools/labour-code-calculator",
@@ -1270,6 +1369,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "css-gradient",
+    processing: "browser" as const,
     name: "CSS Gradient Generator",
     description: "Build linear, radial, and conic CSS gradients",
     href: "/tools/css-gradient",
@@ -1282,6 +1382,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "timestamp-converter",
+    processing: "browser" as const,
     name: "Unix Timestamp Converter",
     description: "Convert epoch timestamps to dates and back",
     href: "/tools/timestamp-converter",
@@ -1294,6 +1395,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "json-to-csv",
+    processing: "browser" as const,
     name: "JSON to CSV Converter",
     description: "Convert JSON arrays to spreadsheet CSV",
     href: "/tools/json-to-csv",
@@ -1306,6 +1408,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "word-to-jpg",
+    processing: "browser" as const,
     name: "Word to JPG Converter",
     description: "Convert DOCX documents to JPG images",
     href: "/tools/word-to-jpg",
@@ -1318,6 +1421,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "currency-converter",
+    processing: "browser" as const,
     name: "Currency Converter",
     description: "Convert currencies with live ECB exchange rates",
     href: "/tools/currency-converter",
@@ -1330,6 +1434,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "crypto-tracker",
+    processing: "browser" as const,
     name: "Crypto Price Tracker",
     description: "Track live Bitcoin and top crypto prices",
     href: "/tools/crypto-tracker",
@@ -1342,6 +1447,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "dns-lookup",
+    processing: "browser" as const,
     name: "DNS Lookup Tool",
     description: "Check A, MX, TXT, and other DNS records",
     href: "/tools/dns-lookup",
@@ -1354,6 +1460,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "robots-txt-generator",
+    processing: "browser" as const,
     name: "robots.txt Generator",
     description: "Build and download robots.txt with live preview",
     href: "/tools/robots-txt-generator",
@@ -1366,6 +1473,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "capital-gains-calculator",
+    processing: "browser" as const,
     name: "Capital Gains Tax Calculator",
     description: "Calculate STCG and LTCG tax on shares, property, and gold in India",
     href: "/tools/capital-gains-calculator",
@@ -1378,6 +1486,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "rd-calculator",
+    processing: "browser" as const,
     name: "RD Calculator",
     description: "Calculate recurring deposit maturity and interest with RD vs FD comparison",
     href: "/tools/rd-calculator",
@@ -1390,6 +1499,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "glassmorphism-generator",
+    processing: "browser" as const,
     name: "Glassmorphism CSS Generator",
     description: "Generate frosted glass CSS, Tailwind classes, or CSS variables",
     href: "/tools/glassmorphism-generator",
@@ -1402,6 +1512,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "htaccess-generator",
+    processing: "browser" as const,
     name: ".htaccess Generator",
     description: "Build Apache .htaccess rules with live preview and download",
     href: "/tools/htaccess-generator",
@@ -1414,6 +1525,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "nps-calculator",
+    processing: "browser" as const,
     name: "NPS Calculator",
     description: "Calculate NPS corpus, monthly pension, and 80CCD tax savings",
     href: "/tools/nps-calculator",
@@ -1426,6 +1538,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "401k-calculator",
+    processing: "browser" as const,
     name: "401k Calculator",
     description: "Project 401k balance at retirement with 2026 IRS limits and employer match",
     href: "/tools/401k-calculator",
@@ -1438,6 +1551,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "leave-encashment-calculator",
+    processing: "browser" as const,
     name: "Leave Encashment Calculator",
     description: "Calculate leave encashment and ₹25 lakh tax exemption at retirement",
     href: "/tools/leave-encashment-calculator",
@@ -1450,6 +1564,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "box-shadow-generator",
+    processing: "browser" as const,
     name: "Box Shadow CSS Generator",
     description: "Generate multi-layer CSS box shadows with CSS and Tailwind output",
     href: "/tools/box-shadow-generator",
@@ -1462,6 +1577,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "cagr-calculator",
+    processing: "browser" as const,
     name: "CAGR Calculator",
     description: "Calculate CAGR, future value, or required growth rate with Rule of 72",
     href: "/tools/cagr-calculator",
@@ -1474,6 +1590,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "ssy-calculator",
+    processing: "browser" as const,
     name: "SSY Calculator",
     description: "Calculate Sukanya Samriddhi Yojana maturity and partial withdrawal",
     href: "/tools/ssy-calculator",
@@ -1486,6 +1603,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "advance-tax-calculator",
+    processing: "browser" as const,
     name: "Advance Tax Calculator",
     description: "Calculate advance tax installments and due dates for FY 2026-27",
     href: "/tools/advance-tax-calculator",
@@ -1498,6 +1616,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "color-palette-generator",
+    processing: "browser" as const,
     name: "Color Palette Generator",
     description: "Generate Tailwind 50-950 color scale from any hex with WCAG contrast",
     href: "/tools/color-palette-generator",
@@ -1510,6 +1629,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "professional-tax-calculator",
+    processing: "browser" as const,
     name: "Professional Tax Calculator",
     description: "Calculate state-wise professional tax for all 18 Indian PT states",
     href: "/tools/professional-tax-calculator",
@@ -1522,6 +1642,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "pay-stub-generator",
+    processing: "browser" as const,
     name: "Pay Stub Generator",
     description: "Generate US pay stubs free in browser — print or save as PDF",
     href: "/tools/pay-stub-generator",
@@ -1534,6 +1655,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "markdown-table",
+    processing: "browser" as const,
     name: "Markdown Table Generator",
     description: "Create Markdown tables with visual editor or CSV paste import",
     href: "/tools/markdown-table",
@@ -1546,6 +1668,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "http-status-codes",
+    processing: "browser" as const,
     name: "HTTP Status Codes Reference",
     description: "Searchable HTTP status code guide with practical developer context",
     href: "/tools/http-status-codes",
@@ -1558,6 +1681,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "401k-vs-roth-ira",
+    processing: "browser" as const,
     name: "401k vs Roth IRA Calculator",
     description:
       "Compare Traditional 401k, Roth 401k, and Roth IRA side by side with tax bracket verdict",
@@ -1571,6 +1695,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "bonus-calculator",
+    processing: "browser" as const,
     name: "Bonus Calculator India",
     description:
       "Calculate statutory bonus under Payment of Bonus Act — eligibility, wage ceiling, 8.33–20%",
@@ -1584,6 +1709,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "esi-calculator",
+    processing: "browser" as const,
     name: "ESI Calculator India",
     description:
       "Calculate ESI contributions — employee 0.75% and employer 3.25% with eligibility check",
@@ -1597,6 +1723,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "swp-calculator",
+    processing: "browser" as const,
     name: "SWP Calculator",
     description:
       "Calculate how long your corpus lasts with SWP or corpus needed for monthly income",
@@ -1610,6 +1737,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "dividend-yield-calculator",
+    processing: "browser" as const,
     name: "Dividend Yield Calculator",
     description:
       "Calculate dividend yield, yield on cost, and annual income from Indian stocks with TDS and FD comparison",
@@ -1623,6 +1751,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "gst-threshold-checker",
+    processing: "browser" as const,
     name: "GST Threshold Checker",
     description:
       "Check if GST registration is mandatory for freelancers — ₹20L threshold, inter-state, export rules",
@@ -1636,6 +1765,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "hsa-calculator",
+    processing: "browser" as const,
     name: "HSA Calculator",
     description:
       "Calculate 2026 HSA contribution limits, tax savings, and projected retirement balance",
@@ -1649,6 +1779,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "json-schema-validator",
+    processing: "browser" as const,
     name: "JSON Schema Validator",
     description:
       "Validate JSON data against JSON Schema — Draft 7 and 2020-12 with human-readable errors",
@@ -1662,6 +1793,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "ip-lookup",
+    processing: "browser" as const,
     name: "IP Address Lookup",
     description: "Find IP location, ISP, and timezone",
     href: "/tools/ip-lookup",
@@ -1674,6 +1806,7 @@ export const ALL_TOOLS = [
   },
   {
     slug: "rent-receipt-generator",
+    processing: "browser" as const,
     name: "Rent Receipt Generator",
     description: "Create and download rent receipt PDFs",
     href: "/tools/rent-receipt-generator",
@@ -2044,6 +2177,11 @@ export const TOOL_UI_META: Record<
 
 export function getToolBySlug(slug: string) {
   return ALL_TOOLS.find((tool) => tool.slug === slug);
+}
+
+export function getToolProcessing(hrefOrSlug: string): ToolProcessing {
+  const slug = hrefOrSlug.replace(/^\/tools\//, "").split(/[/?#]/)[0];
+  return getToolBySlug(slug)?.processing ?? "browser";
 }
 
 /** Optional display name overrides for the header mega menu */

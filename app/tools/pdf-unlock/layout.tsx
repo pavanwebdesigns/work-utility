@@ -6,11 +6,11 @@ export const metadata: Metadata = {
     absolute: "Remove PDF Password Free Online | WorkUtilities",
   },
   description:
-    "Remove password from protected PDF files free online. Unlock PDF instantly in your browser. No signup required.",
+    "Remove password from protected PDF files free online. Unlock a PDF when you know the password. Processed on our secure server over HTTPS and deleted immediately. No signup.",
   openGraph: buildOpenGraph({
     title: "Remove PDF Password Free Online",
     description:
-      "Unlock password-protected PDFs in your browser. Free and private.",
+      "Unlock password-protected PDFs. Processed securely and deleted after conversion.",
     url: "https://workutilities.com/tools/pdf-unlock",
     type: "website",
   }),
