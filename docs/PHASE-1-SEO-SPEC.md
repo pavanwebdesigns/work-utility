@@ -207,18 +207,23 @@ Add `indexable: boolean` (default `true`) to tools in `lib/tools-data.ts` and to
 
 This is reversible: flip the flag later if a page earns it.
 
-**Rule used:** not India-core AND fewer than ~30 impressions in 3 months (most have 0).
+**Rule used:** not a core India/US tool AND fewer than ~30 impressions in 3 months (most have 0).
 
-**Tools (35) → `indexable: false`**
-- **US finance (8), ⚠ Decision D1:** `401k-calculator`, `401k-vs-roth-ira`, `hsa-calculator`, `w2-vs-1099-calculator`, `self-employment-tax`, `paycheck-calculator`, `mortgage-calculator`, `pay-stub-generator`. They got 0 clicks from US traffic and dilute the site's India focus. *Alternative:* keep them indexed but move them to a `/us/` section later. Pavan to choose.
+**Tools (27 noindex + 8 US kept)**
+- **US finance (8): DECIDED, keep indexed.** Pavan confirmed the site targets **both India and the US**. `401k-calculator`, `401k-vs-roth-ira`, `hsa-calculator`, `w2-vs-1099-calculator`, `self-employment-tax`, `paycheck-calculator`, `mortgage-calculator`, `pay-stub-generator` stay `indexable: true` and get the same quality work as the India tools. Their US guides stay indexed too.
+- **Market field (new):** add `market: "IN" | "US" | "global"` to every tool in `lib/tools-data.ts`.
+  - `IN` tools render ₹ (with the switch).
+  - `US` tools render $ only.
+  - `global` tools (compound-interest, tip, discount, inflation, percentage, unit/currency converters…) render the visitor's currency after hydration. Server HTML stays neutral or INR as today.
+  - `/tools` and the homepage get two finance groups: **"Salary & Tax — India"** and **"Paycheck & Tax — USA"**. Each page's copy talks to one market only.
 - **Dev/misc (27):** `glassmorphism-generator`, `box-shadow-generator`, `htaccess-generator`, `robots-txt-generator`, `http-status-codes`, `html-entity`, `morse-code`, `lorem-ipsum`, `binary-converter`, `subnet-calculator`, `ip-lookup`, `dns-lookup`, `crypto-tracker`, `svg-previewer`, `markdown-table`, `json-schema-validator`, `keyword-density`, `roman-numeral-converter`, `random-number`, `stopwatch`, `box-breathing`, `audio-recorder`, `calorie-deficit-calculator`, `bmi-calculator`, `color-palette-generator`, `color-contrast`, `aspect-ratio`
 
-**Posts → `indexable: false`** (their tool is pruned, or the topic is off-audience):
-`401k-calculator-guide-usa`, `401k-vs-roth-ira-guide-usa`, `hsa-calculator-guide-usa`, `w2-vs-1099-tax-comparison-guide`, `self-employment-tax-calculator-guide-usa`, `us-paycheck-calculator-guide`, `mortgage-calculator-guide`, `pay-stub-generator-guide-usa`, `glassmorphism-css-generator-guide`, `box-shadow-css-generator-guide`, `htaccess-generator-guide`, `robots-txt-generator-guide`, `http-status-codes-guide`, `markdown-table-generator-guide`, `json-schema-validator-guide`, `dns-lookup-tool-guide`, `ip-address-lookup-guide`, `crypto-price-tracker-guide`, `svg-code-previewer-guide`, `roman-numeral-converter-guide`, `random-number-generator-guide`, `online-stopwatch-guide`, `box-breathing-technique-guide`, `free-online-audio-recorder-guide`, `calorie-deficit-calculator-guide`, `bmi-calculator-guide`, `color-palette-generator-guide`, `subnet-calculator-guide`
+**Posts → `indexable: false`** (their tool is pruned):
+`glassmorphism-css-generator-guide`, `box-shadow-css-generator-guide`, `htaccess-generator-guide`, `robots-txt-generator-guide`, `http-status-codes-guide`, `markdown-table-generator-guide`, `json-schema-validator-guide`, `dns-lookup-tool-guide`, `ip-address-lookup-guide`, `crypto-price-tracker-guide`, `svg-code-previewer-guide`, `roman-numeral-converter-guide`, `random-number-generator-guide`, `online-stopwatch-guide`, `box-breathing-technique-guide`, `free-online-audio-recorder-guide`, `calorie-deficit-calculator-guide`, `bmi-calculator-guide`, `color-palette-generator-guide`, `subnet-calculator-guide`
 
 **Keep indexed even though they're dev tools** (they have real impressions): `password-generator`, `uuid-generator`, `timestamp-converter`, `cron-generator`, `css-gradient`, `favicon-generator`, `json-formatter`, `text-to-speech`, `character-counter`, `number-to-words`, `word-to-jpg`, `leap-year-checker` (its guide is at position 16.8).
 
-**Homepage:** remove Paycheck and Mortgage from "Popular". Replace them with Photo Resizer, CTC Calculator, CGPA to Percentage and Word Counter.
+**Homepage:** split "Popular" into an India row (Photo Resizer, CTC, CGPA→%, EMI) and a USA row (Paycheck, Mortgage, 401k, W-2 vs 1099). Optionally show the visitor's market row first after hydration, using the currency cookie.
 
 **Done when:** `curl -s localhost:3000/tools/glassmorphism-generator | grep -o 'noindex, follow'` matches, the sitemap no longer contains it, and the tool still works.
 
