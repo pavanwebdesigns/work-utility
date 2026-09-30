@@ -60,6 +60,7 @@ Add a line whenever we decide something. Newest first.
 
 | Date | Decision | Why |
 |---|---|---|
+| 2026-09-30 | With no aside, breadcrumb, title, and tool share `mx-auto max-w-3xl`. The favorite star stays on the chips row. | Title and tool were different widths on desktop; the star wrapped onto its own line at 375px |
 | 2026-09-30 | ToolShell H1 keeps each page's original keyword heading (`h1` prop). With no aside, the tool column is `max-w-3xl`. | Registry names dropped search keywords; inputs were stretching across 1440px |
 | 2026-09-30 | Tool pages use shared `ToolShell` (breadcrumb, title row, privacy chip). First batch is 20 tools in slug order, skipping pages whose title block didn't match. | 130 pages copied the same shell; U1 replaces the A7 breadcrumb |
 | 2026-09-30 | UX: tool must be above the fold on mobile; light theme default; shared `ToolShell` for all tools | Upload box was 1.5 screens down on mobile; 130 pages copy the layout by hand |
@@ -79,7 +80,7 @@ Add a line whenever we decide something. Newest first.
 - [x] A6 privacy truth · [ ] A7 internal links (with U1) — header `/tools` link, blog links, and ToolShell breadcrumb are in; tool pages migrate in batches · [ ] A8 sitemap + audit script · [ ] A9 merges · [ ] A10 prune + market field · [ ] C quick wins · [ ] D small bugs
 - Checkpoint 1 merge after A5
 
-**Phase 1B:** `PHASE-1B-UX-SPEC.md` — U1 ToolShell started (first 20 tool pages). Then theme, photo resizer, calculators, file tools, homepage.
+**Phase 1B:** `PHASE-1B-UX-SPEC.md` — U1 ToolShell batches 1–2 (47 pages, through hash-generator, plus bg-remove and color-palette-extractor). Then theme, photo resizer, calculators, file tools, homepage.
 
 **Phase 2 (planned):**
 - Exam Photo & Signature Hub: SSC/IBPS/RRB/UPSC/NEET + TSPSC/APPSC/TS-AP Police/DSC presets, signature 10–20 KB, name/date on photo, A4 print sheet.

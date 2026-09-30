@@ -72,7 +72,11 @@ export function ToolShell({
     <div className="flex min-h-screen w-full max-w-full flex-col overflow-x-hidden bg-surface-base">
       <Header />
       <main id="main-content" className="min-w-0 flex-1 overflow-x-hidden">
-        <div className="mx-auto max-w-6xl px-4 pb-16 pt-4 sm:px-6">
+        <div
+          className={`mx-auto px-4 pb-16 pt-4 sm:px-6 ${
+            aside ? "max-w-6xl" : "max-w-3xl"
+          }`}
+        >
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
@@ -118,16 +122,18 @@ export function ToolShell({
               <p className="mt-1 text-sm leading-snug text-content-secondary">
                 {subtitle}
               </p>
-              <div className="mt-2 flex flex-wrap items-center gap-2">
-                <span className="rounded-full border border-surface-border bg-surface-card px-2.5 py-1 text-xs text-content-secondary">
-                  {privacy}
-                </span>
-                <span className="rounded-full border border-surface-border bg-surface-card px-2.5 py-1 text-xs text-content-secondary">
-                  Free · No signup
-                </span>
-                <FavoriteButton slug={slug} variant="icon" />
-              </div>
             </div>
+          </div>
+          <div className="mt-2 flex flex-nowrap items-center gap-1.5">
+            <span className="min-w-0 truncate rounded-full border border-surface-border bg-surface-card px-2 py-1 text-[11px] leading-4 text-content-secondary sm:px-2.5 sm:text-xs">
+              {privacy}
+            </span>
+            <span className="shrink-0 rounded-full border border-surface-border bg-surface-card px-2 py-1 text-[11px] leading-4 text-content-secondary sm:px-2.5 sm:text-xs">
+              Free · No signup
+            </span>
+            <span className="shrink-0">
+              <FavoriteButton slug={slug} variant="icon" />
+            </span>
           </div>
 
           <div
@@ -137,11 +143,7 @@ export function ToolShell({
                 : "mt-6"
             }
           >
-            <div
-              className={
-                aside ? "min-w-0 lg:col-span-7" : "mx-auto min-w-0 max-w-3xl"
-              }
-            >
+            <div className={aside ? "min-w-0 lg:col-span-7" : "min-w-0"}>
               {children}
               {result}
             </div>

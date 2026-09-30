@@ -1,0 +1,451 @@
+"use client";
+
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  type CSSProperties,
+} from "react";
+import { Download, Info, Loader2, Sparkles, Upload, UploadCloud, X } from "lucide-react";
+import { downloadBlob } from "@/lib/pdf-api";
+import {
+  formatFileSize,
+  getBgRemoveDownloadName,
+  hasBgRemoveModelLoaded,
+  markBgRemoveModelLoaded,
+  removeBgInBrowser,
+  validateBgRemoveFile,
+} from "@/lib/bg-remove";
+import { removeSolidBackground } from "@/lib/bg-remove-solid";
+
+type BgRemoveMode = "ai" | "solid";
+
+const DEFAULT_SOLID_TOLERANCE = 35;
+
+const howItWorksSteps = [
+  {
+    step: "01",
+    icon: Upload,
+    title: "Upload",
+    description: "Select your JPG, PNG, or WebP image (max 10MB)",
+  },
+  {
+    step: "02",
+    icon: Sparkles,
+    title: "Process",
+    description: "AI removes the background in your browser",
+  },
+  {
+    step: "03",
+    icon: Download,
+    title: "Download",
+    description: "Get a transparent PNG instantly",
+  },
+];
+
+const checkerboardStyle: CSSProperties = {
+  backgroundColor: "#1a2235",
+  backgroundImage:
+    "linear-gradient(45deg, #2a3348 25%, transparent 25%), linear-gradient(-45deg, #2a3348 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #2a3348 75%), linear-gradient(-45deg, transparent 75%, #2a3348 75%)",
+  backgroundSize: "16px 16px",
+  backgroundPosition: "0 0, 0 8px, 8px -8px, -8px 0px",
+};
+
+export default function BgRemovePage() {
+  const inputRef = useRef<HTMLInputElement>(null);
+  const [file, setFile] = useState<File | null>(null);
+  const [originalPreviewUrl, setOriginalPreviewUrl] = useState<string | null>(
+    null
+  );
+  const [resultBlob, setResultBlob] = useState<Blob | null>(null);
+  const [resultPreviewUrl, setResultPreviewUrl] = useState<string | null>(null);
+  const [isProcessing, setIsProcessing] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const [statusText, setStatusText] = useState("Removing background...");
+  const [error, setError] = useState<string | null>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [showFirstRunBanner, setShowFirstRunBanner] = useState(false);
+  const [mode, setMode] = useState<BgRemoveMode>("ai");
+  const [tolerance, setTolerance] = useState(DEFAULT_SOLID_TOLERANCE);
+
+  useEffect(() => {
+    setShowFirstRunBanner(mode === "ai" && !hasBgRemoveModelLoaded());
+  }, [mode]);
+
+  useEffect(() => {
+    return () => {
+      if (originalPreviewUrl) URL.revokeObjectURL(originalPreviewUrl);
+      if (resultPreviewUrl) URL.revokeObjectURL(resultPreviewUrl);
+    };
+  }, [originalPreviewUrl, resultPreviewUrl]);
+
+  const resetResult = useCallback(() => {
+    setResultBlob(null);
+    setResultPreviewUrl((current) => {
+      if (current) URL.revokeObjectURL(current);
+      return null;
+    });
+    setProgress(0);
+    setStatusText("Removing background...");
+    setError(null);
+  }, []);
+
+  const processFile = useCallback(
+    (selected: File, activeMode: BgRemoveMode, activeTolerance: number) => {
+      const validationError = validateBgRemoveFile(selected);
+      if (validationError) {
+        setError(validationError);
+        return;
+      }
+
+      setError(null);
+      resetResult();
+      setFile(selected);
+      setOriginalPreviewUrl((current) => {
+        if (current) URL.revokeObjectURL(current);
+        return URL.createObjectURL(selected);
+      });
+
+      setIsProcessing(true);
+      setProgress(0);
+      setStatusText(
+        activeMode === "ai"
+          ? "Removing background..."
+          : "Removing solid background..."
+      );
+
+      const task =
+        activeMode === "ai"
+          ? removeBgInBrowser(selected, {
+              onStatus: setStatusText,
+              onProgress: setProgress,
+            }).then((blob) => {
+              markBgRemoveModelLoaded();
+              setShowFirstRunBanner(false);
+              return blob;
+            })
+          : removeSolidBackground(selected, activeTolerance).then((blob) => {
+              setProgress(100);
+              return blob;
+            });
+
+      void task
+        .then((blob) => {
+          setResultBlob(blob);
+          setResultPreviewUrl(URL.createObjectURL(blob));
+          setProgress(100);
+        })
+        .catch((err) => {
+          setError(
+            err instanceof Error
+              ? err.message
+              : "Background removal failed. Please try a different image."
+          );
+        })
+        .finally(() => {
+          setIsProcessing(false);
+        });
+    },
+    [resetResult]
+  );
+
+  const handleRemove = useCallback(
+    (selected: File) => {
+      processFile(selected, mode, tolerance);
+    },
+    [mode, tolerance, processFile]
+  );
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const selected = event.target.files?.[0];
+    if (selected) handleRemove(selected);
+    event.target.value = "";
+  };
+
+  const handleDragOver = (event: React.DragEvent) => {
+    event.preventDefault();
+    setIsDragging(true);
+  };
+
+  const handleDragLeave = () => setIsDragging(false);
+
+  const handleDrop = (event: React.DragEvent) => {
+    event.preventDefault();
+    setIsDragging(false);
+    const dropped = event.dataTransfer.files?.[0];
+    if (dropped) handleRemove(dropped);
+  };
+
+  const handleRemoveFile = () => {
+    setFile(null);
+    resetResult();
+    setOriginalPreviewUrl((current) => {
+      if (current) URL.revokeObjectURL(current);
+      return null;
+    });
+    if (inputRef.current) inputRef.current.value = "";
+  };
+
+  const handleDownload = () => {
+    if (!resultBlob || !file) return;
+    downloadBlob(resultBlob, getBgRemoveDownloadName(file.name));
+  };
+
+  const handleModeChange = (nextMode: BgRemoveMode) => {
+    setMode(nextMode);
+    if (file) processFile(file, nextMode, tolerance);
+  };
+
+  const handleToleranceChange = (value: number) => {
+    setTolerance(value);
+    if (file && mode === "solid") processFile(file, "solid", value);
+  };
+
+  return (
+    <>
+<div className="mx-auto max-w-2xl">
+            
+
+            <div className="mt-8 space-y-4">
+              {showFirstRunBanner && mode === "ai" && (
+                <div className="flex gap-3 rounded-xl border border-brand-blue/30 bg-brand-blue/10 p-4 text-sm text-content-secondary">
+                  <Info className="mt-0.5 h-4 w-4 shrink-0 text-brand-blue" />
+                  <p>
+                    First use downloads the AI model (~40MB). Subsequent uses
+                    are instant.
+                  </p>
+                </div>
+              )}
+
+              <div className="flex flex-col items-center gap-3">
+                <div
+                  className="inline-flex rounded-xl border border-surface-border bg-surface-card p-1"
+                  role="group"
+                  aria-label="Background removal mode"
+                >
+                  <button
+                    type="button"
+                    onClick={() => handleModeChange("ai")}
+                    className={`rounded-lg px-3 py-2 text-xs font-medium transition-colors sm:px-4 sm:text-sm ${
+                      mode === "ai"
+                        ? "bg-tool-image text-white"
+                        : "text-content-secondary hover:text-content-primary"
+                    }`}
+                  >
+                    📸 AI (Photos)
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => handleModeChange("solid")}
+                    className={`rounded-lg px-3 py-2 text-xs font-medium transition-colors sm:px-4 sm:text-sm ${
+                      mode === "solid"
+                        ? "bg-tool-image text-white"
+                        : "text-content-secondary hover:text-content-primary"
+                    }`}
+                  >
+                    🎨 Solid BG (Logos)
+                  </button>
+                </div>
+
+                {mode === "solid" && (
+                  <div className="w-full max-w-sm rounded-xl border border-surface-border bg-surface-card px-4 py-3">
+                    <label
+                      htmlFor="solid-tolerance"
+                      className="mb-2 flex items-center justify-between text-sm text-content-primary"
+                    >
+                      <span>Sensitivity</span>
+                      <span className="text-content-secondary">{tolerance}</span>
+                    </label>
+                    <input
+                      id="solid-tolerance"
+                      type="range"
+                      min={1}
+                      max={60}
+                      value={tolerance}
+                      onChange={(event) =>
+                        handleToleranceChange(Number(event.target.value))
+                      }
+                      className="w-full accent-tool-image"
+                    />
+                    <p className="mt-1 text-center text-xs text-content-muted">
+                      1–60 · higher removes more similar colors
+                    </p>
+                  </div>
+                )}
+              </div>
+
+              {!file && (
+                <div
+                  onDragOver={handleDragOver}
+                  onDragLeave={handleDragLeave}
+                  onDrop={handleDrop}
+                  className={`rounded-xl border-2 border-dashed p-10 text-center transition-colors ${
+                    isDragging
+                      ? "border-tool-image bg-tool-image/10"
+                      : "border-surface-border bg-surface-card"
+                  }`}
+                >
+                  <UploadCloud className="mx-auto h-10 w-10 text-tool-image" />
+                  <p className="mt-4 font-medium text-content-primary">
+                    Drop an image here or click to upload
+                  </p>
+                  <p className="mt-2 text-sm text-content-secondary">
+                    JPG, PNG, or WebP — max 10MB
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => inputRef.current?.click()}
+                    className="mt-6 rounded-xl bg-tool-image px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#7C3AED]"
+                  >
+                    Choose Image
+                  </button>
+                  <input
+                    ref={inputRef}
+                    type="file"
+                    accept="image/jpeg,image/png,image/webp,.jpg,.jpeg,.png,.webp"
+                    onChange={handleInputChange}
+                    className="hidden"
+                  />
+                </div>
+              )}
+
+              {file && (
+                <div className="rounded-xl border border-surface-border bg-surface-card p-4">
+                  <div className="flex items-center justify-between gap-3">
+                    <div className="min-w-0">
+                      <p className="truncate font-medium text-content-primary">
+                        {file.name}
+                      </p>
+                      <p className="text-xs text-content-secondary">
+                        {formatFileSize(file.size)}
+                      </p>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={handleRemoveFile}
+                      disabled={isProcessing}
+                      aria-label="Remove file"
+                      className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-tool-image transition-colors hover:bg-tool-image/10 disabled:opacity-50"
+                    >
+                      <X className="h-4 w-4" />
+                    </button>
+                  </div>
+                </div>
+              )}
+
+              {isProcessing && mode === "ai" && (
+                <div className="space-y-3 rounded-xl border border-surface-border bg-surface-card p-6">
+                  <div className="flex items-center justify-center gap-3">
+                    <Loader2 className="h-5 w-5 animate-spin text-tool-image" />
+                    <span className="font-medium text-content-primary">
+                      {statusText}
+                    </span>
+                  </div>
+                  <div className="h-2 overflow-hidden rounded-full bg-surface-elevated">
+                    <div
+                      className="h-full rounded-full bg-tool-image transition-all duration-300"
+                      style={{ width: `${Math.max(progress, 4)}%` }}
+                    />
+                  </div>
+                  <p className="text-center text-xs text-content-muted">
+                    {progress}% complete
+                  </p>
+                </div>
+              )}
+
+              {isProcessing && mode === "solid" && (
+                <div className="flex items-center justify-center gap-3 rounded-xl border border-surface-border bg-surface-card p-6">
+                  <Loader2 className="h-5 w-5 animate-spin text-tool-image" />
+                  <span className="font-medium text-content-primary">
+                    {statusText}
+                  </span>
+                </div>
+              )}
+
+              {error && (
+                <p className="text-center text-sm text-red-400">{error}</p>
+              )}
+
+              {file && originalPreviewUrl && resultPreviewUrl && !isProcessing && (
+                <div className="space-y-4">
+                  <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                    <div>
+                      <p className="mb-2 text-sm font-medium text-content-primary">
+                        Before
+                      </p>
+                      <div className="flex justify-center rounded-xl border border-surface-border bg-surface-elevated p-4">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={originalPreviewUrl}
+                          alt="Original"
+                          className="max-h-64 w-full object-contain"
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <p className="mb-2 text-sm font-medium text-content-primary">
+                        After
+                      </p>
+                      <div
+                        className="flex justify-center rounded-xl border border-surface-border p-4"
+                        style={checkerboardStyle}
+                      >
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={resultPreviewUrl}
+                          alt="Background removed"
+                          className="max-h-64 w-full object-contain"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={handleDownload}
+                    className="flex w-full items-center justify-center gap-2 rounded-xl border-l-4 border-l-purple-400 bg-tool-image px-4 py-4 text-base font-semibold text-white shadow-lg shadow-tool-image/20 transition-colors hover:bg-[#7C3AED]"
+                  >
+                    <Download className="h-5 w-5" />
+                    Download {getBgRemoveDownloadName(file.name)}
+                  </button>
+                </div>
+              )}
+
+              <p className="text-center text-xs text-content-muted">
+                🔒 Your image is processed entirely in your browser — nothing
+                is uploaded to any server
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-16">
+            <h2 className="mb-6 text-center text-lg font-semibold text-content-primary">
+              How It Works
+            </h2>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+              {howItWorksSteps.map((step) => (
+                <div
+                  key={step.title}
+                  className="rounded-xl border border-surface-border bg-surface-card p-5"
+                >
+                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-tool-image/10">
+                    <step.icon className="h-5 w-5 text-tool-image" />
+                  </div>
+                  <p className="text-2xl font-bold text-content-muted/40">
+                    {step.step}
+                  </p>
+                  <p className="mt-1 font-semibold text-content-primary">
+                    {step.title}
+                  </p>
+                  <p className="mt-1 text-sm text-content-secondary">
+                    {step.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+    </>
+  );
+}
+

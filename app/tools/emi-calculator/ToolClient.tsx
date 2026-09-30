@@ -1,0 +1,199 @@
+"use client";
+
+import { useMemo, useState } from "react";
+import { Calculator, Download, IndianRupee, PieChart } from "lucide-react";
+import {
+  Cell,
+  Pie,
+  PieChart as RechartsPieChart,
+  ResponsiveContainer,
+  Tooltip,
+} from "recharts";
+import {
+  CalculatorField,
+  CalculatorInput,
+  ResultCard,
+  ToggleButtonGroup,
+} from "@/components/calculator/CalculatorUi";
+import { calculateEmi, tenureToMonths } from "@/lib/emi-calculator";
+import { formatCurrency, parseNumberInput } from "@/lib/format-inr";
+import { useCurrency } from "@/lib/currency-context";
+
+const PIE_COLORS = ["#3B82F6", "#F59E0B"];
+
+export default function EmiCalculatorPage() {
+  const { symbol, currency } = useCurrency();
+  const fmt = (value: number, decimals = 0) =>
+    formatCurrency(value, currency, decimals);
+  const [loanAmount, setLoanAmount] = useState("2500000");
+  const [interestRate, setInterestRate] = useState("8.5");
+  const [tenure, setTenure] = useState("20");
+  const [tenureUnit, setTenureUnit] = useState<"years" | "months">("years");
+
+  const result = useMemo(() => {
+    const principal = parseNumberInput(loanAmount);
+    const rate = parseNumberInput(interestRate);
+    const tenureValue = parseNumberInput(tenure);
+    const months = tenureToMonths(tenureValue, tenureUnit);
+    return calculateEmi(principal, rate, months);
+  }, [interestRate, loanAmount, tenure, tenureUnit]);
+
+  const pieData = result
+    ? [
+        { name: "Principal", value: Math.round(result.principal) },
+        { name: "Interest", value: Math.round(result.totalInterest) },
+      ]
+    : [];
+
+  return (
+    <>
+<div className="mx-auto mt-10 max-w-xl space-y-5">
+            <CalculatorField label={`Loan Amount (${symbol})`} htmlFor="loan-amount">
+              <CalculatorInput
+                id="loan-amount"
+                value={loanAmount}
+                onChange={setLoanAmount}
+                placeholder="25,00,000"
+              />
+            </CalculatorField>
+
+            <CalculatorField label="Interest Rate (% per annum)" htmlFor="interest-rate">
+              <CalculatorInput
+                id="interest-rate"
+                value={interestRate}
+                onChange={setInterestRate}
+                placeholder="8.5"
+              />
+            </CalculatorField>
+
+            <CalculatorField label="Loan Tenure" htmlFor="loan-tenure">
+              <div className="space-y-3">
+                <CalculatorInput
+                  id="loan-tenure"
+                  value={tenure}
+                  onChange={setTenure}
+                  placeholder={tenureUnit === "years" ? "20" : "240"}
+                />
+                <ToggleButtonGroup
+                  value={tenureUnit}
+                  onChange={setTenureUnit}
+                  ariaLabel="Loan tenure unit"
+                  options={[
+                    { value: "years", label: "Years" },
+                    { value: "months", label: "Months" },
+                  ]}
+                />
+              </div>
+            </CalculatorField>
+          </div>
+
+          {result && (
+            <div className="mx-auto mt-10 max-w-3xl space-y-6">
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+                <ResultCard
+                  label="Monthly EMI"
+                  value={fmt(result.emi, 0)}
+                  highlight
+                />
+                <ResultCard
+                  label="Total Interest Payable"
+                  value={fmt(result.totalInterest, 0)}
+                />
+                <ResultCard
+                  label="Total Amount Payable"
+                  value={fmt(result.totalAmount, 0)}
+                />
+              </div>
+
+              <div className="rounded-xl border border-surface-border bg-surface-card p-5">
+                <div className="mb-4 flex items-center gap-2">
+                  <PieChart className="h-5 w-5 text-brand-blue" />
+                  <h2 className="font-semibold text-content-primary">
+                    Amortization Summary
+                  </h2>
+                </div>
+                <div className="grid gap-6 md:grid-cols-2">
+                  <div className="h-56">
+                    <ResponsiveContainer width="100%" height="100%">
+                      <RechartsPieChart>
+                        <Pie
+                          data={pieData}
+                          dataKey="value"
+                          nameKey="name"
+                          cx="50%"
+                          cy="50%"
+                          innerRadius={55}
+                          outerRadius={85}
+                          paddingAngle={2}
+                        >
+                          {pieData.map((entry, index) => (
+                            <Cell
+                              key={entry.name}
+                              fill={PIE_COLORS[index % PIE_COLORS.length]}
+                            />
+                          ))}
+                        </Pie>
+                        <Tooltip
+                          formatter={(value) => fmt(Number(value), 0)}
+                          contentStyle={{
+                            backgroundColor: "#111827",
+                            border: "1px solid #1F2937",
+                            borderRadius: "0.75rem",
+                          }}
+                        />
+                      </RechartsPieChart>
+                    </ResponsiveContainer>
+                  </div>
+                  <div className="flex flex-col justify-center space-y-3">
+                    <div className="flex items-center justify-between gap-4">
+                      <span className="text-sm text-content-secondary">Principal</span>
+                      <span className="font-semibold text-content-primary">
+                        {fmt(result.principal, 0)}
+                      </span>
+                    </div>
+                    <div className="flex items-center justify-between gap-4">
+                      <span className="text-sm text-content-secondary">Interest</span>
+                      <span className="font-semibold text-content-primary">
+                        {fmt(result.totalInterest, 0)}
+                      </span>
+                    </div>
+                    <div className="flex items-center justify-between gap-4 border-t border-surface-border pt-3">
+                      <span className="text-sm text-content-secondary">Total Payable</span>
+                      <span className="font-semibold text-brand-blue">
+                        {fmt(result.totalAmount, 0)}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          <div className="mt-16">
+            <h2 className="mb-6 text-center text-lg font-semibold text-content-primary">
+              How It Works
+            </h2>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+              {[
+                { step: "01", icon: IndianRupee, title: "Enter Loan Details", description: "Add amount, rate, and tenure" },
+                { step: "02", icon: Calculator, title: "Instant EMI", description: "See monthly EMI in real time" },
+                { step: "03", icon: Download, title: "Plan Repayment", description: "Review principal vs interest split" },
+              ].map((step) => (
+                <div
+                  key={step.title}
+                  className="rounded-xl border border-surface-border bg-surface-card p-5"
+                >
+                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-brand-blue/10">
+                    <step.icon className="h-5 w-5 text-brand-blue" />
+                  </div>
+                  <p className="text-2xl font-bold text-content-muted/40">{step.step}</p>
+                  <p className="mt-1 font-semibold text-content-primary">{step.title}</p>
+                  <p className="mt-1 text-sm text-content-secondary">{step.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+    </>
+  );
+}
+
