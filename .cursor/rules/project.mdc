@@ -1,0 +1,15 @@
+---
+description: WorkUtilities project rules — always read the docs folder first
+alwaysApply: true
+---
+
+# WorkUtilities — rules for Cursor
+
+1. Before any task, read `docs/README.md` (project overview, code map, decisions log, roadmap). For task work, read the spec it points to (`docs/PHASE-1-SEO-SPEC.md`, `docs/PHASE-1B-UX-SPEC.md`).
+2. Work one spec task at a time. After each task: `npm run build`, run the task's "Done when" checks, commit as `Phase<N> <TaskID>: <title>`, push to the current work branch (never `main`), then stop and wait for the owner.
+3. Never push or merge to `main`. Never edit or commit `.env*` files.
+4. The site serves **India and USA**. Respect each tool's `market` (IN = ₹, US = $, global = visitor currency). Never mix both markets' copy on one page.
+5. Never claim "runs in your browser / never uploaded" for server-processed tools (`processing: "server"` in `lib/tools-data.ts`).
+6. Don't invent facts such as official photo sizes, tax slabs or exam rules. Leave a clear `TODO(verify)` for the owner.
+7. After finishing a task, update `docs/README.md`: tick it in "Status & roadmap", and add a row to the "Decisions log" if you made or implemented a decision. When tools are added or removed, update `docs/TOOLS-INVENTORY.md`.
+8. If the spec doesn't match the code, stop and ask. Don't guess.

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { buildOpenGraph } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: {
@@ -6,15 +7,12 @@ export const metadata: Metadata = {
   },
   description:
     "Calculate HRA exemption for income tax free online. Find exempt and taxable HRA as per Indian tax rules.",
-  keywords:
-    "hra calculator online free, hra exemption calculator, house rent allowance tax exemption india",
-  openGraph: {
+  openGraph: buildOpenGraph({
     title: "HRA Calculator — Tax Exemption Free Online",
     description: "Calculate exempt and taxable HRA as per Indian tax rules.",
     url: "https://workutilities.com/tools/hra-calculator",
-    siteName: "WorkUtilities",
     type: "website",
-  },
+  }),
   alternates: { canonical: "https://workutilities.com/tools/hra-calculator" },
 };
 

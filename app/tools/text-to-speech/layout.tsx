@@ -1,17 +1,16 @@
 import type { Metadata } from "next";
+import { buildOpenGraph } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: { absolute: "Text to Speech Online Free — Convert Text to Audio" },
   description:
     "Free text to speech converter. Type or paste text and listen instantly with natural voices. No signup, works directly in your browser.",
-  keywords: "text to speech online free, tts converter, read text aloud online",
-  openGraph: {
+  openGraph: buildOpenGraph({
     title: "Text to Speech Online Free — Convert Text to Audio",
     description: "Listen to your text with your browser's built-in voices. Free, no signup.",
     url: "https://workutilities.com/tools/text-to-speech",
-    siteName: "WorkUtilities",
     type: "website",
-  },
+  }),
   alternates: { canonical: "https://workutilities.com/tools/text-to-speech" },
 };
 

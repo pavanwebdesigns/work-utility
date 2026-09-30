@@ -45,22 +45,32 @@ function readCookie(name: string): string | null {
   return match ? decodeURIComponent(match[1]) : null;
 }
 
+function isCurrency(value: string | null): value is Currency {
+  return value === "INR" || value === "USD";
+}
+
 function setCookie(name: string, value: string) {
   document.cookie = `${name}=${encodeURIComponent(value)};path=/;max-age=${60 * 60 * 24 * 365};samesite=lax`;
 }
 
 export function CurrencyProvider({ children }: { children: ReactNode }) {
-  const [currency, setCurrencyState] = useState<Currency>("USD");
+  const [currency, setCurrencyState] = useState<Currency>("INR");
 
   useEffect(() => {
-    const saved = localStorage.getItem(STORAGE_KEY) as Currency | null;
-    if (saved === "INR" || saved === "USD") {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (isCurrency(saved)) {
       setCurrencyState(saved);
       return;
     }
 
-    const cookieDefault = readCookie(DEFAULT_COOKIE) as Currency | null;
-    if (cookieDefault === "INR" || cookieDefault === "USD") {
+    const override = readCookie(OVERRIDE_COOKIE);
+    if (isCurrency(override)) {
+      setCurrencyState(override);
+      return;
+    }
+
+    const cookieDefault = readCookie(DEFAULT_COOKIE);
+    if (isCurrency(cookieDefault)) {
       setCurrencyState(cookieDefault);
     }
   }, []);
@@ -69,7 +79,7 @@ export function CurrencyProvider({ children }: { children: ReactNode }) {
     const next = regionToCurrency(region);
     setCurrencyState(next);
     localStorage.setItem(STORAGE_KEY, next);
-    setCookie(OVERRIDE_COOKIE, "1");
+    setCookie(OVERRIDE_COOKIE, next);
   };
 
   const region = currencyToRegion(currency);

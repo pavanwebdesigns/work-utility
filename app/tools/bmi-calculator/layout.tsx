@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { buildOpenGraph } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: {
@@ -6,16 +7,13 @@ export const metadata: Metadata = {
   },
   description:
     "Calculate your BMI free online. Supports metric and imperial units. Get instant BMI category results.",
-  keywords:
-    "bmi calculator free, body mass index calculator, calculate bmi online",
-  openGraph: {
+  openGraph: buildOpenGraph({
     title: "BMI Calculator — Free Body Mass Index Calculator",
     description:
       "Calculate your BMI free online. Supports metric and imperial units. Get instant BMI category results.",
     url: "https://workutilities.com/tools/bmi-calculator",
-    siteName: "WorkUtilities",
     type: "website",
-  },
+  }),
   alternates: {
     canonical: "https://workutilities.com/tools/bmi-calculator",
   },

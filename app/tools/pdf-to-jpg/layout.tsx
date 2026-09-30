@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { buildOpenGraph } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: {
@@ -6,16 +7,13 @@ export const metadata: Metadata = {
   },
   description:
     "Convert PDF pages to JPG images free online. Extract each page as a high-quality image. No signup, browser-only.",
-  keywords:
-    "pdf to jpg converter free, pdf to image online, convert pdf pages to images india",
-  openGraph: {
+  openGraph: buildOpenGraph({
     title: "PDF to JPG — Convert PDF Pages to Images Free",
     description:
       "Convert each PDF page to JPG. Free, private, browser-only.",
     url: "https://workutilities.com/tools/pdf-to-jpg",
-    siteName: "WorkUtilities",
     type: "website",
-  },
+  }),
   alternates: {
     canonical: "https://workutilities.com/tools/pdf-to-jpg",
   },

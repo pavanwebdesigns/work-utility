@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { buildOpenGraph } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: {
@@ -6,16 +7,13 @@ export const metadata: Metadata = {
   },
   description:
     "Convert between binary, decimal, hexadecimal and octal number systems free online. Instant conversion.",
-  keywords:
-    "binary converter online free, decimal to binary, hex to binary, octal converter",
-  openGraph: {
+  openGraph: buildOpenGraph({
     title: "Binary Converter — Decimal Hex Octal Free",
     description:
       "Convert between binary, decimal, hexadecimal and octal number systems.",
     url: "https://workutilities.com/tools/binary-converter",
-    siteName: "WorkUtilities",
     type: "website",
-  },
+  }),
   alternates: { canonical: "https://workutilities.com/tools/binary-converter" },
 };
 

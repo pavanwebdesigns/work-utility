@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { buildOpenGraph } from "@/lib/seo";
 import { PhotoSizeGuidePage } from "@/components/PhotoSizeGuidePage";
 import { getPhotoSizeGuide } from "@/lib/photo-size-guides";
 
@@ -11,14 +12,13 @@ export const metadata: Metadata = {
   },
   description:
     "Driving licence photo size for Sarathi portal upload. 35x45mm, max 200KB. Resize free online.",
-  openGraph: {
+  openGraph: buildOpenGraph({
     title: "Driving Licence Photo Size — RTO Sarathi Upload Requirements India",
     description:
       "Driving licence photo size for Sarathi portal upload. 35x45mm, max 200KB. Resize free online.",
     url: "https://workutilities.com/driving-licence-photo-size",
-    siteName: "WorkUtilities",
     type: "website",
-  },
+  }),
   alternates: {
     canonical: "https://workutilities.com/driving-licence-photo-size",
   },

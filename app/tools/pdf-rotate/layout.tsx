@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { buildOpenGraph } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: {
@@ -6,16 +7,13 @@ export const metadata: Metadata = {
   },
   description:
     "Rotate PDF pages online free — fix sideways or upside-down scanned pages. Rotate individual pages or the whole document. No signup, no uploads.",
-  keywords:
-    "rotate pdf online, rotate pdf pages free, fix sideways pdf scan, rotate pdf 90 degrees",
-  openGraph: {
+  openGraph: buildOpenGraph({
     title: "Rotate PDF Pages Online Free — Fix Sideways Scans",
     description:
       "Rotate individual PDF pages or the whole document by 90°, 180°, or 270°. Free, private, browser-only.",
     url: "https://workutilities.com/tools/pdf-rotate",
-    siteName: "WorkUtilities",
     type: "website",
-  },
+  }),
   alternates: {
     canonical: "https://workutilities.com/tools/pdf-rotate",
   },

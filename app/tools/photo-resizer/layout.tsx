@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { buildOpenGraph } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: {
@@ -6,16 +7,13 @@ export const metadata: Metadata = {
   },
   description:
     "Resize photos to exact Aadhaar card, PAN card, and passport size online free. Perfect dimensions for Indian government documents.",
-  keywords:
-    "photo resize aadhaar size, pan card photo size, passport size photo online, photo resizer india",
-  openGraph: {
+  openGraph: buildOpenGraph({
     title: "Photo Resizer — Aadhaar, PAN, Passport Size",
     description:
       "Resize photos for Indian government documents. Free and browser-only.",
     url: "https://workutilities.com/tools/photo-resizer",
-    siteName: "WorkUtilities",
     type: "website",
-  },
+  }),
   alternates: {
     canonical: "https://workutilities.com/tools/photo-resizer",
   },

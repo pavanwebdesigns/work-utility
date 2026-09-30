@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { buildOpenGraph } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: {
@@ -6,16 +7,13 @@ export const metadata: Metadata = {
   },
   description:
     "See how much you need to earn as a 1099 contractor to match your W-2 take-home pay. Compare self-employment taxes, benefits, and net income. Free, no signup.",
-  keywords:
-    "w2 vs 1099 tax calculator, 1099 break even rate, contractor equivalent salary, self employment tax vs w2",
-  openGraph: {
+  openGraph: buildOpenGraph({
     title: "W-2 vs 1099 Tax Calculator 2026 — Find Your Break-Even Rate",
     description:
       "Calculate the minimum 1099 rate needed to match W-2 take-home pay after SE tax, benefits, and business expenses.",
     url: "https://workutilities.com/tools/w2-vs-1099-calculator",
-    siteName: "WorkUtilities",
     type: "website",
-  },
+  }),
   alternates: {
     canonical: "https://workutilities.com/tools/w2-vs-1099-calculator",
   },

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { buildOpenGraph } from "@/lib/seo";
 import { PhotoSizeGuidePage } from "@/components/PhotoSizeGuidePage";
 import { getPhotoSizeGuide } from "@/lib/photo-size-guides";
 
@@ -10,14 +11,13 @@ export const metadata: Metadata = {
   },
   description:
     "Visa photo size requirements for US, UK, Schengen and other countries. 50x50mm standard. Resize free online.",
-  openGraph: {
+  openGraph: buildOpenGraph({
     title: "Visa Photo Size Requirements India — US, UK, Schengen 2025",
     description:
       "Visa photo size requirements for US, UK, Schengen and other countries. 50x50mm standard. Resize free online.",
     url: "https://workutilities.com/visa-photo-size",
-    siteName: "WorkUtilities",
     type: "website",
-  },
+  }),
   alternates: {
     canonical: "https://workutilities.com/visa-photo-size",
   },

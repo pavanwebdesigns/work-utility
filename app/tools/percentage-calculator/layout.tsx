@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { buildOpenGraph } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: {
@@ -6,16 +7,13 @@ export const metadata: Metadata = {
   },
   description:
     "Calculate percentage of a number, percentage change between values, and add or subtract a percentage instantly. Free online percentage calculator for students.",
-  keywords:
-    "percentage calculator online free, calculate percentage of number, percent change calculator",
-  openGraph: {
+  openGraph: buildOpenGraph({
     title: "Percentage Calculator Free — % of Number Online",
     description:
       "Calculate percentages, percentage change, and add or subtract % instantly.",
     url: "https://workutilities.com/tools/percentage-calculator",
-    siteName: "WorkUtilities",
     type: "website",
-  },
+  }),
   alternates: {
     canonical: "https://workutilities.com/tools/percentage-calculator",
   },

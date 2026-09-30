@@ -1,19 +1,29 @@
 import type { Metadata } from "next";
+import { buildOpenGraph } from "@/lib/seo";
 import Link from "next/link";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 
 const LAST_UPDATED = "July 2026";
 
+const TERMS_TITLE = "Terms & Conditions — WorkUtilities";
+const TERMS_DESCRIPTION =
+  "Terms and conditions for using WorkUtilities free online tools, including data handling, analytics, and future advertising.";
+
 export const metadata: Metadata = {
   title: {
-    absolute: "Terms & Conditions — WorkUtilities",
+    absolute: TERMS_TITLE,
   },
-  description:
-    "Terms and conditions for using WorkUtilities free online tools, including data handling, analytics, and future advertising.",
+  description: TERMS_DESCRIPTION,
   alternates: {
     canonical: "https://workutilities.com/terms",
   },
+  openGraph: buildOpenGraph({
+    title: TERMS_TITLE,
+    description: TERMS_DESCRIPTION,
+    url: "https://workutilities.com/terms",
+    type: "website",
+  }),
 };
 
 const sections = [

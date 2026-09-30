@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { buildOpenGraph } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: {
@@ -6,16 +7,13 @@ export const metadata: Metadata = {
   },
   description:
     "Calculate fixed deposit maturity amount, interest earned, and effective annual rate with quarterly or yearly compounding. Free FD calculator for India.",
-  keywords:
-    "fd calculator online, fixed deposit calculator india, fd maturity calculator, fd interest calculator",
-  openGraph: {
+  openGraph: buildOpenGraph({
     title: "FD Calculator India Free — Fixed Deposit Returns",
     description:
       "Calculate FD maturity amount and interest with compounding frequency options.",
     url: "https://workutilities.com/tools/fd-calculator",
-    siteName: "WorkUtilities",
     type: "website",
-  },
+  }),
   alternates: {
     canonical: "https://workutilities.com/tools/fd-calculator",
   },

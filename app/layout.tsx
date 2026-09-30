@@ -14,12 +14,7 @@ export const metadata: Metadata = {
   },
   description:
     "Free online PDF, image and document tools. Compress PDF, resize photos, convert files. Fast, free and private — everything runs in your browser.",
-  keywords:
-    "free online tools, pdf tools, image tools, document converter, compress pdf, photo resizer india",
   metadataBase: new URL("https://workutilities.com"),
-  alternates: {
-    canonical: "/",
-  },
   icons: {
     icon: [
       { url: "/favicon.ico?v=2", sizes: "16x16" },
@@ -38,7 +33,18 @@ export const metadata: Metadata = {
   openGraph: {
     siteName: "WorkUtilities",
     type: "website",
-    url: "https://workutilities.com",
+    images: [
+      {
+        url: "/og-default.png",
+        width: 1200,
+        height: 630,
+        alt: "WorkUtilities — Free tools for Indian students, jobs & documents",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/og-default.png"],
   },
   robots: {
     index: true,

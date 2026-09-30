@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { buildOpenGraph } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: {
@@ -6,16 +7,13 @@ export const metadata: Metadata = {
   },
   description:
     "Remove password from protected PDF files free online. Unlock PDF instantly in your browser. No signup required.",
-  keywords:
-    "remove pdf password online free, unlock pdf, pdf password remover india",
-  openGraph: {
+  openGraph: buildOpenGraph({
     title: "Remove PDF Password Free Online",
     description:
       "Unlock password-protected PDFs in your browser. Free and private.",
     url: "https://workutilities.com/tools/pdf-unlock",
-    siteName: "WorkUtilities",
     type: "website",
-  },
+  }),
   alternates: {
     canonical: "https://workutilities.com/tools/pdf-unlock",
   },

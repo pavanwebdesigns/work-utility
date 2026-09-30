@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { buildOpenGraph } from "@/lib/seo";
 import { notFound } from "next/navigation";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -327,6 +328,29 @@ type Props = {
   params: { slug: string };
 };
 
+const MONTHS: Record<string, string> = {
+  january: "01",
+  february: "02",
+  march: "03",
+  april: "04",
+  may: "05",
+  june: "06",
+  july: "07",
+  august: "08",
+  september: "09",
+  october: "10",
+  november: "11",
+  december: "12",
+};
+
+function lastUpdatedToIso(value: string): string | undefined {
+  const match = value.trim().match(/^([A-Za-z]+)\s+(\d{4})$/);
+  if (!match) return undefined;
+  const month = MONTHS[match[1].toLowerCase()];
+  if (!month) return undefined;
+  return `${match[2]}-${month}-01T00:00:00.000Z`;
+}
+
 export function generateMetadata({ params }: Props): Metadata {
   const seo = blogSeoMetadata[params.slug];
 
@@ -336,6 +360,9 @@ export function generateMetadata({ params }: Props): Metadata {
     };
   }
 
+  const url = `https://workutilities.com/blog/${params.slug}`;
+  const updated = lastUpdatedToIso(blogPostBySlug[params.slug]?.lastUpdated ?? "");
+
   return {
     title: {
       absolute: seo.title,
@@ -343,8 +370,16 @@ export function generateMetadata({ params }: Props): Metadata {
     description: seo.description,
     keywords: seo.keywords,
     alternates: {
-      canonical: `https://workutilities.com/blog/${params.slug}`,
+      canonical: url,
     },
+    openGraph: buildOpenGraph({
+      type: "article",
+      url,
+      title: seo.title,
+      description: seo.description,
+      ...(updated ? { publishedTime: updated, modifiedTime: updated } : {}),
+      authors: ["Pavan Kumar"],
+    }),
   };
 }
 

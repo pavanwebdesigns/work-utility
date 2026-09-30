@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { buildOpenGraph } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: {
@@ -6,16 +7,13 @@ export const metadata: Metadata = {
   },
   description:
     "Convert units instantly — length, weight, temperature, area, speed, volume and more. Free online unit converter with 50+ unit types. No signup, instant results.",
-  keywords:
-    "unit converter online free, length converter, weight converter, temperature converter india",
-  openGraph: {
+  openGraph: buildOpenGraph({
     title: "Unit Converter Online Free — Length, Weight, Temp",
     description:
       "Convert units instantly — length, weight, temperature, area, speed, volume and more. Free online unit converter with 50+ unit types. No signup, instant results.",
     url: "https://workutilities.com/tools/unit-converter",
-    siteName: "WorkUtilities",
     type: "website",
-  },
+  }),
   alternates: {
     canonical: "https://workutilities.com/tools/unit-converter",
   },

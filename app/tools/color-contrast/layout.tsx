@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { buildOpenGraph } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: {
@@ -6,16 +7,13 @@ export const metadata: Metadata = {
   },
   description:
     "Check color contrast ratios for WCAG accessibility compliance free online. Test foreground and background colors.",
-  keywords:
-    "color contrast checker free, wcag contrast checker, accessibility color contrast tool",
-  openGraph: {
+  openGraph: buildOpenGraph({
     title: "Color Contrast Checker — WCAG Free Online",
     description:
       "Check color contrast ratios for WCAG accessibility compliance free online. Test foreground and background colors.",
     url: "https://workutilities.com/tools/color-contrast",
-    siteName: "WorkUtilities",
     type: "website",
-  },
+  }),
   alternates: {
     canonical: "https://workutilities.com/tools/color-contrast",
   },

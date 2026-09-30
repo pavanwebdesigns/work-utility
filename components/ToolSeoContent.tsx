@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { memo } from "react";
 import Link from "next/link";
 import { ChevronDown } from "lucide-react";
 import {
@@ -13,9 +13,10 @@ type ToolSeoContentProps = {
   slug: ToolSeoSlug;
 };
 
-export function ToolSeoContent({ slug }: ToolSeoContentProps) {
+export const ToolSeoContent = memo(function ToolSeoContent({
+  slug,
+}: ToolSeoContentProps) {
   const content = getToolSeoContent(slug);
-  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
 
   const faqJsonLd = {
     "@context": "https://schema.org",
@@ -83,41 +84,27 @@ export function ToolSeoContent({ slug }: ToolSeoContentProps) {
           Frequently Asked Questions
         </h2>
         <div className="mt-4 space-y-3">
-          {content.faqs.map((faq, index) => {
-            const isOpen = openFaqIndex === index;
-
-            return (
-              <div
-                key={faq.question}
-                className="overflow-hidden rounded-xl border border-surface-border bg-surface-card"
-              >
-                <button
-                  type="button"
-                  onClick={() => setOpenFaqIndex(isOpen ? null : index)}
-                  aria-expanded={isOpen}
-                  className="flex w-full items-center justify-between gap-4 px-4 py-4 text-left sm:px-5"
-                >
-                  <span className="font-medium text-content-primary">
-                    {faq.question}
-                  </span>
-                  <ChevronDown
-                    className={`h-5 w-5 shrink-0 text-content-muted transition-transform ${
-                      isOpen ? "rotate-180" : ""
-                    }`}
-                  />
-                </button>
-                {isOpen && (
-                  <div className="border-t border-surface-border px-4 pb-4 pt-3 sm:px-5">
-                    <p className="text-sm leading-relaxed text-content-secondary">
-                      {faq.answer}
-                    </p>
-                  </div>
-                )}
+          {content.faqs.map((faq, index) => (
+            <details
+              key={faq.question}
+              open={index === 0 ? true : undefined}
+              className="group overflow-hidden rounded-xl border border-surface-border bg-surface-card"
+            >
+              <summary className="flex w-full cursor-pointer list-none items-center justify-between gap-4 px-4 py-4 text-left marker:content-none sm:px-5 [&::-webkit-details-marker]:hidden">
+                <span className="font-medium text-content-primary">
+                  {faq.question}
+                </span>
+                <ChevronDown className="h-5 w-5 shrink-0 text-content-muted transition-transform group-open:rotate-180" />
+              </summary>
+              <div className="border-t border-surface-border px-4 pb-4 pt-3 sm:px-5">
+                <p className="text-sm leading-relaxed text-content-secondary">
+                  {faq.answer}
+                </p>
               </div>
-            );
-          })}
+            </details>
+          ))}
         </div>
       </section>
     </div>
   );
-}
+});

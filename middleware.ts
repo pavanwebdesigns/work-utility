@@ -29,6 +29,15 @@ export function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    "/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp|ico)$).*)",
+    "/tools/emi-calculator",
+    "/tools/sip-calculator",
+    "/tools/fd-calculator",
+    "/tools/salary-hike-calculator",
+    "/tools/inflation-calculator",
+    "/tools/compound-interest",
+    "/tools/tip-calculator",
+    "/tools/discount-calculator",
+    "/tools/number-to-words",
+    "/tools/hourly-to-salary",
   ],
 };
