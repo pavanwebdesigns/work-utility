@@ -1,0 +1,163 @@
+"use client";
+
+import { useMemo, useState } from "react";
+import { Landmark, PiggyBank, Shield } from "lucide-react";
+import { IndiaRulesBadge } from "@/components/IndiaRulesBadge";
+import { CopyValueButton } from "@/components/CopyValueButton";
+import {
+  CalculatorField,
+  CalculatorInput,
+  ResultCard,
+  ToggleButtonGroup,
+} from "@/components/calculator/CalculatorUi";
+import {
+  PPF_DEFAULT_RATE,
+  calculatePpf,
+  type PpfFrequency,
+} from "@/lib/ppf-calculator";
+import {
+  formatCurrency,
+  formatIndianCompact,
+  parseNumberInput,
+} from "@/lib/format-inr";
+import { useIndiaRulesCurrency } from "@/lib/use-india-rules-currency";
+
+export default function PpfCalculatorPage() {
+  const { currency } = useIndiaRulesCurrency();
+  const fmt = (v: number) => formatCurrency(v, currency, 0);
+
+  const [annualInvestment, setAnnualInvestment] = useState("150000");
+  const [frequency, setFrequency] = useState<PpfFrequency>("yearly");
+  const [interestRate, setInterestRate] = useState(String(PPF_DEFAULT_RATE));
+  const [tenureYears, setTenureYears] = useState(15);
+
+  const result = useMemo(
+    () =>
+      calculatePpf(
+        parseNumberInput(annualInvestment),
+        tenureYears,
+        parseNumberInput(interestRate),
+      ),
+    [annualInvestment, interestRate, tenureYears],
+  );
+
+  return (
+    <>
+<IndiaRulesBadge toolSlug="ppf-calculator" />
+
+          <div className="mx-auto mt-6 max-w-xl rounded-xl border border-tool-convert/30 bg-tool-convert/5 px-4 py-3 text-center text-sm text-content-secondary">
+            🏆 PPF is Exempt-Exempt-Exempt (EEE): 80C deductible, interest tax-free, maturity tax-free (80C under old regime).
+          </div>
+
+          <div className="mx-auto mt-8 max-w-xl space-y-5">
+            <CalculatorField label={`Annual Investment (₹500 – ₹1,50,000) — ${parseNumberInput(annualInvestment).toLocaleString("en-IN")}`} htmlFor="investment">
+              <input
+                id="investment"
+                type="range"
+                min={500}
+                max={150000}
+                step={500}
+                value={Math.min(150000, Math.max(500, parseNumberInput(annualInvestment) || 150000))}
+                onChange={(e) => setAnnualInvestment(e.target.value)}
+                className="w-full accent-brand-blue"
+              />
+            </CalculatorField>
+
+            <CalculatorField label="Investment Frequency" htmlFor="freq">
+              <ToggleButtonGroup
+                value={frequency}
+                onChange={setFrequency}
+                ariaLabel="Investment frequency"
+                options={[
+                  { value: "yearly" as const, label: "Yearly" },
+                  { value: "monthly" as const, label: "Monthly (same total/year)" },
+                ]}
+              />
+            </CalculatorField>
+
+            <CalculatorField label="Interest Rate (% p.a.)" htmlFor="rate">
+              <CalculatorInput id="rate" value={interestRate} onChange={setInterestRate} placeholder="7.1" />
+            </CalculatorField>
+
+            <CalculatorField label={`Tenure — ${tenureYears} years`} htmlFor="tenure">
+              <input
+                id="tenure"
+                type="range"
+                min={15}
+                max={50}
+                value={tenureYears}
+                onChange={(e) => setTenureYears(Number(e.target.value))}
+                className="w-full accent-brand-blue"
+              />
+            </CalculatorField>
+          </div>
+
+          {result && (
+            <div className="mx-auto mt-10 max-w-3xl space-y-6">
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                <ResultCard label="Total Invested" value={fmt(result.totalInvested)} />
+                <ResultCard label="Interest Earned" value={fmt(result.totalInterest)} />
+                <ResultCard label="Maturity Value" value={fmt(result.maturityValue)} highlight />
+                <ResultCard label="≈ Tax saved (30% slab)" value={fmt(result.estimatedTaxSaved)} />
+              </div>
+              <p className="text-center text-sm text-content-muted">
+                Maturity: {formatIndianCompact(result.maturityValue)}
+                <CopyValueButton value={fmt(result.maturityValue)} label="Copy" className="ml-2" />
+              </p>
+
+              <div className="max-h-80 overflow-auto rounded-2xl border border-surface-border">
+                <table className="min-w-full text-sm">
+                  <thead className="sticky top-0 bg-surface-elevated">
+                    <tr>
+                      <th className="px-4 py-2 text-left">Year</th>
+                      <th className="px-4 py-2 text-right">Investment</th>
+                      <th className="px-4 py-2 text-right">Interest</th>
+                      <th className="px-4 py-2 text-right">Balance</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {result.yearRows.map((row) => (
+                      <tr key={row.year} className="border-t border-surface-border">
+                        <td className="px-4 py-2">{row.year}</td>
+                        <td className="px-4 py-2 text-right">{fmt(row.investment)}</td>
+                        <td className="px-4 py-2 text-right">{fmt(row.interest)}</td>
+                        <td className="px-4 py-2 text-right font-medium">{fmt(row.balance)}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+
+              <div className="space-y-3 text-sm text-content-secondary">
+                <p>
+                  <strong>Partial withdrawal:</strong> From Year {result.partialWithdrawalEligibleFromYear} ({result.partialWithdrawalEligibleFy}), withdraw up to 50% of balance at end of Year 4 — once per financial year.
+                </p>
+                <p>
+                  <strong>Loan against PPF:</strong> Between Year {result.loanEligibleFromYear} and Year {result.loanEligibleUntilYear} ({result.loanEligibleFromFy} to {result.loanEligibleUntilFy}), borrow up to 25% of balance at end of Year 2.
+                </p>
+                {result.extensionBlocks > 0 && (
+                  <p>
+                    <strong>Extensions:</strong> You are extending PPF in {result.extensionBlocks} block(s) of 5 years after the initial 15-year period.
+                  </p>
+                )}
+              </div>
+            </div>
+          )}
+
+          <div className="mt-16 grid grid-cols-1 gap-4 sm:grid-cols-3">
+            {[
+              { icon: PiggyBank, title: "Year-by-year", desc: "Full balance table each year" },
+              { icon: Shield, title: "EEE status", desc: "Tax-free interest and maturity" },
+              { icon: Landmark, title: "Govt backed", desc: "7.1% Q2 FY2026-27 rate" },
+            ].map((item) => (
+              <div key={item.title} className="rounded-xl border border-surface-border bg-surface-card p-5">
+                <item.icon className="h-5 w-5 text-tool-photo" />
+                <p className="mt-2 font-semibold text-content-primary">{item.title}</p>
+                <p className="mt-1 text-sm text-content-secondary">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+    </>
+  );
+}
+
