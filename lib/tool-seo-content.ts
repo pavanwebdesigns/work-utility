@@ -144,7 +144,7 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
     aboutTitle: "About PDF Compress Tool",
     aboutParagraphs: [
       "Our free PDF Compress tool reduces file size while keeping documents readable and professional. Whether you need a lighter attachment for email or a PDF that meets a strict upload limit, you can shrink your file in seconds without installing software.",
-      "Everything runs entirely in your browser — your PDF is never uploaded to a server. Compression happens on your device using client-side processing, which means your files stay 100% private. No account, no waiting in a queue, and no risk of sensitive documents being stored on third-party servers.",
+      "Your PDF is processed on our secure server over HTTPS and deleted immediately after conversion. No signup, and the file is not kept after processing.",
       "This tool is built for everyday Indian users: students submitting assignments, employees emailing reports, job seekers sending resumes, and anyone filling government forms with tight size limits. It works especially well for NSDL and UTI PAN applications, college admission portals, UPSC and SSC form uploads, and email attachments that must stay under 1MB or 2MB.",
     ],
     whenToUseTitle: "When Should You Compress a PDF?",
@@ -194,7 +194,7 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
       {
         question: "Is my PDF safe when I compress it online?",
         answer:
-          "Yes. Our tool works entirely in your browser. Your file is never uploaded to any server.",
+          "Yes. Your file is processed on our secure server over HTTPS and deleted immediately after conversion. It is not stored.",
       },
       {
         question: "How to compress PDF under 1MB for email?",
@@ -350,7 +350,7 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
     aboutTitle: "About PDF to Word Tool",
     aboutParagraphs: [
       "Our free PDF to Word converter turns PDF documents into editable Word files you can open in Microsoft Word, Google Docs, or LibreOffice. Extract text, update content, and reformat documents without retyping everything from scratch.",
-      "Conversion runs in your browser using client-side processing. Your PDF is not uploaded to external servers, keeping resumes, contracts, and confidential reports private on your device.",
+      "Your PDF is processed on our secure server over HTTPS and deleted immediately after conversion. No signup. Resumes, contracts, and reports are not kept after the Word file is ready.",
       "Ideal for students editing scanned notes, employees updating old reports, job seekers refreshing resumes, and anyone who received a PDF form they need to modify. Common in India for updating government forms, editing office documents shared as PDFs, and converting scanned certificates or mark sheets into editable text.",
     ],
     whenToUseTitle: "When Should You Use PDF to Word?",
@@ -405,7 +405,7 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
       {
         question: "Is my PDF safe during conversion?",
         answer:
-          "Yes. Processing happens entirely in your browser. Your document is never uploaded to our servers.",
+          "Yes. Your document is processed on our secure server over HTTPS and deleted immediately after conversion. It is not stored.",
       },
     ],
     blogGuide: {
@@ -472,7 +472,7 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
       {
         question: "Is there a file size limit for Word to PDF?",
         answer:
-          "Large documents work best under typical browser memory limits. Very heavy files with many images may take longer but usually convert fine.",
+          "Very large files may take longer to convert on our server. Typical resumes and reports convert quickly.",
       },
     ],
     blogGuide: {
@@ -752,7 +752,7 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
     aboutTitle: "About Remove PDF Password Tool",
     aboutParagraphs: [
       "Our free Remove PDF Password tool unlocks password-protected PDF files when you know the correct password. Open bank statements, salary slips, and archived documents, then save an unprotected copy for printing or further editing.",
-      "Unlocking happens entirely in your browser — your PDF and password are never sent to a server. Financial documents and personal records stay private on your device during the process.",
+      "Your PDF and password are processed on our secure server over HTTPS and deleted immediately after conversion. No signup. Bank statements and salary slips are not kept after the unlocked file is ready.",
       "Commonly used in India to open password-protected bank statement PDFs from HDFC, SBI, and other banks, unlock salary slip PDFs from employers, remove print restrictions from old documents, and access archived files you have the password for. You must know the correct password — this tool cannot crack unknown passwords.",
     ],
     whenToUseTitle: "When Should You Use Remove PDF Password?",
@@ -802,7 +802,7 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
       {
         question: "Is it safe to remove PDF password online?",
         answer:
-          "Yes with WorkUtilities — processing is client-side only. Your file and password never leave your browser.",
+          "Yes. Your file and password are processed on our secure server over HTTPS and deleted immediately after conversion. They are not stored.",
       },
       {
         question: "What if I forgot my PDF password?",
@@ -2061,7 +2061,7 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
     aboutTitle: "About PDF to JPG Tool",
     aboutParagraphs: [
       "Our free PDF to JPG tool converts PDF pages into high-quality JPG images you can share, upload, or edit. Extract individual pages from certificates, mark sheets, and documents without needing desktop software.",
-      "Conversion happens entirely in your browser — your PDF is never uploaded to a server. Sensitive documents like bank statements, exam certificates, and work reports stay private on your device throughout the process.",
+      "Your PDF is processed on our secure server over HTTPS and deleted immediately after conversion. No signup. Bank statements, exam certificates, and work reports are not kept after the images are ready.",
       "Ideal for Indian users who need to share a single certificate page on WhatsApp, upload a PDF page as an image to a portal that rejects PDFs, or extract visual content from scanned documents. Students, job seekers, and professionals use it daily to turn PDF pages into lightweight JPG files for quick sharing and mobile-friendly uploads.",
     ],
     whenToUseTitle: "When Should You Use PDF to JPG?",
@@ -2116,7 +2116,7 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
       {
         question: "Is PDF to JPG conversion safe online?",
         answer:
-          "Yes with WorkUtilities — processing is client-side only. Your PDF never leaves your browser.",
+          "Yes. Your PDF is processed on our secure server over HTTPS and deleted immediately after conversion. It is not stored.",
       },
     ],
     blogGuide: {

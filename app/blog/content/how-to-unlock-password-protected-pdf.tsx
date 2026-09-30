@@ -78,9 +78,10 @@ export default function HowToUnlockPasswordProtectedPdfContent() {
       <h2>Is It Safe to Unlock PDFs Online?</h2>
 
       <p>
-        With WorkUtilities, your PDF is processed entirely in your browser. The
-        file never reaches any server. This is especially important for bank
-        statements and salary slips which contain sensitive financial
+        With WorkUtilities, your PDF is processed on our secure server over
+        HTTPS and deleted immediately after conversion. The password is used
+        only for that conversion and is not stored. This matters for bank
+        statements and salary slips, which contain sensitive financial
         information.
       </p>
 

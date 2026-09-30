@@ -14,7 +14,7 @@ const faqs = [
   {
     question: "Is my PDF uploaded to a server during conversion?",
     answer:
-      "No — the conversion runs entirely in your browser using client-side JavaScript. Your file is never uploaded or sent anywhere.",
+      "Your file is processed on our secure server over HTTPS and deleted immediately after conversion. It is not stored.",
   },
   {
     question: "Can I convert a password-protected PDF to JPG?",
@@ -40,8 +40,9 @@ export default function HowToConvertPdfToJpgOnlineFreeContent() {
         Sometimes you need a document page as an image, not a PDF — for sharing
         on platforms that reject PDFs, inserting into a presentation, or quick
         visual preview. Our free{" "}
-        <Link href="/tools/pdf-to-jpg">PDF to JPG Converter</Link> runs entirely
-        in your browser with nothing uploaded to a server.
+        <Link href="/tools/pdf-to-jpg">PDF to JPG Converter</Link> processes
+        your file on our secure server over HTTPS and deletes it immediately
+        after conversion.
       </p>
 
       <hr />
@@ -80,11 +81,11 @@ export default function HowToConvertPdfToJpgOnlineFreeContent() {
 
       <hr />
 
-      <h2>Privacy: Browser-Only Conversion</h2>
+      <h2>Privacy: Deleted After Conversion</h2>
       <p>
-        Conversion happens entirely in your browser — your PDF is never uploaded
-        to a server. That matters for documents containing personal,
-        financial, or confidential content.
+        Your PDF is processed on our secure server over HTTPS and deleted
+        immediately after conversion. That matters for documents containing
+        personal, financial, or confidential content.
       </p>
 
       <hr />

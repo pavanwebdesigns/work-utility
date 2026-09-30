@@ -49,7 +49,8 @@ export default function HowToCompressPdfUnder1mbContent() {
       </ol>
 
       <p>
-        No signup. No email required. Your file never leaves your browser.
+        No signup. No email required. Your file is processed on our secure
+        server over HTTPS and deleted immediately after conversion.
       </p>
 
       <hr />

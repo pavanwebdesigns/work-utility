@@ -6,11 +6,11 @@ export const metadata: Metadata = {
     absolute: "PDF Compress — Reduce PDF File Size Free | WorkUtilities",
   },
   description:
-    "Compress PDF files online for free. Reduce PDF size without losing quality. No upload, no signup — runs entirely in your browser.",
+    "Compress PDF files online for free. Reduce PDF size without losing quality. Processed on our secure server over HTTPS and deleted immediately. No signup.",
   openGraph: buildOpenGraph({
     title: "PDF Compress — Free Online PDF Compressor",
     description:
-      "Reduce PDF file size instantly. Free, private, browser-only.",
+      "Reduce PDF file size instantly. Processed securely and deleted after conversion.",
     url: "https://workutilities.com/tools/pdf-compress",
     type: "website",
   }),

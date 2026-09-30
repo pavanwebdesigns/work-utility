@@ -220,7 +220,7 @@ export const blogPosts: BlogPost[] = [
     slug: "how-to-convert-pdf-to-jpg-online-free",
     title: "How to Convert PDF to JPG Online Free",
     excerpt:
-      "Convert PDF pages to JPG images free online. Each page becomes a separate image, ready to download. No signup, nothing uploaded to a server.",
+      "Convert PDF pages to JPG images free online. Each page becomes a separate image, ready to download. Processed on our secure server over HTTPS and deleted immediately. No signup.",
     category: "PDF",
     readTime: "5 min read",
     author: "Pavan Kumar",
@@ -402,7 +402,7 @@ export const blogPosts: BlogPost[] = [
     slug: "how-to-unlock-password-protected-pdf",
     title: "How to Open a Password Protected PDF Free — Unlock PDF Online (2026)",
     excerpt:
-      "Open bank statements, salary slips, and locked PDFs free online. Remove PDF password in your browser — no software needed.",
+      "Open bank statements, salary slips, and locked PDFs free online. Remove a PDF password when you know it — no software needed.",
     category: "PDF",
     readTime: "5 min read",
     author: "Pavan Kumar",
@@ -1674,7 +1674,7 @@ export const blogSeoMetadata: Record<
   "convert-pdf-to-word-free": {
     title: "Convert PDF to Word Free Online 2026 | WorkUtilities",
     description:
-      "Convert PDF to editable Word document free online. No signup, no upload to server. Works in your browser.",
+      "Convert PDF to editable Word document free online. Processed on our secure server over HTTPS and deleted immediately after conversion. No signup.",
     keywords:
       "convert pdf to word free, pdf to word online india, pdf to docx converter free",
   },
@@ -2101,7 +2101,7 @@ export const blogSeoMetadata: Record<
   "how-to-convert-pdf-to-jpg-online-free": {
     title: "PDF to JPG Converter Online Free — No Signup",
     description:
-      "Convert PDF pages to JPG images free online. Each page becomes a separate image, ready to download. No signup, nothing uploaded to a server.",
+      "Convert PDF pages to JPG images free online. Each page becomes a separate image, ready to download. Processed on our secure server over HTTPS and deleted immediately. No signup.",
     keywords:
       "PDF to JPG converter, convert PDF to image free online, PDF page to JPG, extract PDF pages as images, PDF to JPEG browser",
   },
