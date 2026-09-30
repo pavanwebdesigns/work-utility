@@ -1312,7 +1312,7 @@ export const blogPosts: BlogPost[] = [
     cta: { toolName: "Tax Regime Comparison", toolHref: "/tools/tax-regime-comparison" },
   },
   {
-    slug: "ppf-calculator",
+    slug: "ppf-calculator-guide-india",
     title: "PPF Calculator India 2026 — Returns, Interest & Maturity",
     excerpt:
       "Calculate PPF maturity amount, interest, and year-by-year returns at 7.1% rate. Understand 80C benefits, partial withdrawal, loan rules. Free PPF calculator.",

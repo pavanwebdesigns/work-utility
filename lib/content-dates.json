@@ -1,0 +1,721 @@
+{
+  "posts": {
+    "401k-calculator-guide-usa": {
+      "publishedAt": "2026-06-27T21:52:19-04:00",
+      "updatedAt": "2026-06-29T07:13:54-04:00"
+    },
+    "401k-vs-roth-ira-guide-usa": {
+      "publishedAt": "2026-06-29T00:14:30-04:00",
+      "updatedAt": "2026-06-29T00:14:30-04:00"
+    },
+    "aadhaar-card-photo-size": {
+      "publishedAt": "2026-06-08T17:56:33-04:00",
+      "updatedAt": "2026-07-06T05:16:53-04:00"
+    },
+    "aadhaar-photo-size-guide": {
+      "publishedAt": "2026-06-13T15:12:55-04:00",
+      "updatedAt": "2026-07-06T05:16:53-04:00"
+    },
+    "advance-tax-calculator-guide-india": {
+      "publishedAt": "2026-06-28T06:34:33-04:00",
+      "updatedAt": "2026-06-28T06:34:33-04:00"
+    },
+    "age-calculator-for-government-forms-india": {
+      "publishedAt": "2026-06-13T15:58:20-04:00",
+      "updatedAt": "2026-06-13T15:58:20-04:00"
+    },
+    "base64-encode-decode-guide": {
+      "publishedAt": "2026-06-16T16:40:42-04:00",
+      "updatedAt": "2026-06-16T16:40:42-04:00"
+    },
+    "best-free-calculators-for-students-2026": {
+      "publishedAt": "2026-06-15T15:42:43-04:00",
+      "updatedAt": "2026-06-15T15:42:43-04:00"
+    },
+    "best-free-pdf-tools-online-2026": {
+      "publishedAt": "2026-06-15T15:42:43-04:00",
+      "updatedAt": "2026-06-15T15:42:43-04:00"
+    },
+    "best-free-tools-for-indian-students": {
+      "publishedAt": "2026-06-13T15:58:20-04:00",
+      "updatedAt": "2026-06-13T15:58:20-04:00"
+    },
+    "bmi-calculator-guide": {
+      "publishedAt": "2026-06-17T06:43:13-04:00",
+      "updatedAt": "2026-06-17T06:43:13-04:00"
+    },
+    "bonus-calculator-guide-india": {
+      "publishedAt": "2026-06-29T00:14:30-04:00",
+      "updatedAt": "2026-06-29T00:14:30-04:00"
+    },
+    "box-breathing-technique-guide": {
+      "publishedAt": "2026-06-18T21:55:05-04:00",
+      "updatedAt": "2026-06-18T21:55:05-04:00"
+    },
+    "box-shadow-css-generator-guide": {
+      "publishedAt": "2026-06-27T21:52:19-04:00",
+      "updatedAt": "2026-06-27T21:52:19-04:00"
+    },
+    "cagr-calculator-guide-india": {
+      "publishedAt": "2026-06-28T06:34:33-04:00",
+      "updatedAt": "2026-06-28T06:34:33-04:00"
+    },
+    "calorie-deficit-calculator-guide": {
+      "publishedAt": "2026-06-17T20:24:36-04:00",
+      "updatedAt": "2026-06-17T20:24:36-04:00"
+    },
+    "capital-gains-tax-calculator-india-guide": {
+      "publishedAt": "2026-06-27T21:31:19-04:00",
+      "updatedAt": "2026-06-27T21:31:19-04:00"
+    },
+    "cgpa-to-percentage-for-job-applications": {
+      "publishedAt": "2026-06-13T15:12:55-04:00",
+      "updatedAt": "2026-06-13T15:12:55-04:00"
+    },
+    "check-device-browser-info-online": {
+      "publishedAt": "2026-06-17T20:24:36-04:00",
+      "updatedAt": "2026-06-17T20:24:36-04:00"
+    },
+    "color-palette-generator-guide": {
+      "publishedAt": "2026-06-28T06:34:33-04:00",
+      "updatedAt": "2026-06-28T06:34:33-04:00"
+    },
+    "complete-developer-tools-guide": {
+      "publishedAt": "2026-06-16T16:40:42-04:00",
+      "updatedAt": "2026-06-29T07:13:54-04:00"
+    },
+    "complete-government-forms-guide-india": {
+      "publishedAt": "2026-06-13T20:39:12-04:00",
+      "updatedAt": "2026-07-06T05:16:53-04:00"
+    },
+    "complete-image-tools-guide-india": {
+      "publishedAt": "2026-06-13T20:39:12-04:00",
+      "updatedAt": "2026-06-13T20:39:12-04:00"
+    },
+    "complete-pdf-tools-guide-india": {
+      "publishedAt": "2026-06-13T20:39:12-04:00",
+      "updatedAt": "2026-06-13T20:39:12-04:00"
+    },
+    "complete-salary-tax-guide-india": {
+      "publishedAt": "2026-06-13T20:39:12-04:00",
+      "updatedAt": "2026-06-29T07:13:54-04:00"
+    },
+    "complete-student-tools-guide-india": {
+      "publishedAt": "2026-06-13T20:39:12-04:00",
+      "updatedAt": "2026-06-13T20:39:12-04:00"
+    },
+    "compound-interest-calculator-guide": {
+      "publishedAt": "2026-06-17T06:43:13-04:00",
+      "updatedAt": "2026-06-17T06:43:13-04:00"
+    },
+    "compress-image-under-100kb-india": {
+      "publishedAt": "2026-06-13T15:12:55-04:00",
+      "updatedAt": "2026-07-06T05:16:53-04:00"
+    },
+    "convert-pdf-to-word-free": {
+      "publishedAt": "2026-06-08T17:56:33-04:00",
+      "updatedAt": "2026-09-30T20:23:02+05:30"
+    },
+    "cron-expression-generator-guide": {
+      "publishedAt": "2026-06-18T21:55:05-04:00",
+      "updatedAt": "2026-06-18T21:55:05-04:00"
+    },
+    "crypto-price-tracker-guide": {
+      "publishedAt": "2026-06-18T22:48:44-04:00",
+      "updatedAt": "2026-06-18T22:48:44-04:00"
+    },
+    "css-gradient-generator-guide": {
+      "publishedAt": "2026-06-18T21:55:05-04:00",
+      "updatedAt": "2026-06-18T21:55:05-04:00"
+    },
+    "currency-converter-guide": {
+      "publishedAt": "2026-06-18T22:48:44-04:00",
+      "updatedAt": "2026-06-18T22:48:44-04:00"
+    },
+    "days-between-dates-calculator-guide": {
+      "publishedAt": "2026-06-17T20:24:36-04:00",
+      "updatedAt": "2026-06-17T20:24:36-04:00"
+    },
+    "design-tools-for-developers-guide": {
+      "publishedAt": "2026-06-17T06:43:13-04:00",
+      "updatedAt": "2026-06-17T06:43:13-04:00"
+    },
+    "developer-data-encoding-tools-guide": {
+      "publishedAt": "2026-06-17T06:43:13-04:00",
+      "updatedAt": "2026-06-17T06:43:13-04:00"
+    },
+    "discount-calculator-guide": {
+      "publishedAt": "2026-06-27T19:44:11-04:00",
+      "updatedAt": "2026-06-27T19:44:11-04:00"
+    },
+    "dividend-yield-calculator-guide-india": {
+      "publishedAt": "2026-06-29T07:13:54-04:00",
+      "updatedAt": "2026-06-29T07:13:54-04:00"
+    },
+    "dns-lookup-tool-guide": {
+      "publishedAt": "2026-06-18T22:48:44-04:00",
+      "updatedAt": "2026-06-18T22:48:44-04:00"
+    },
+    "epf-calculator-guide-india": {
+      "publishedAt": "2026-06-16T16:40:42-04:00",
+      "updatedAt": "2026-06-16T16:40:42-04:00"
+    },
+    "esi-calculator-guide-india": {
+      "publishedAt": "2026-06-29T00:14:30-04:00",
+      "updatedAt": "2026-06-29T00:14:30-04:00"
+    },
+    "fd-calculator-guide-india": {
+      "publishedAt": "2026-06-27T19:44:11-04:00",
+      "updatedAt": "2026-06-27T19:44:11-04:00"
+    },
+    "fd-vs-sip-india-comparison": {
+      "publishedAt": "2026-06-13T15:02:02-04:00",
+      "updatedAt": "2026-06-13T15:02:02-04:00"
+    },
+    "free-online-audio-recorder-guide": {
+      "publishedAt": "2026-06-18T21:55:05-04:00",
+      "updatedAt": "2026-06-18T21:55:05-04:00"
+    },
+    "free-text-to-speech-online-guide": {
+      "publishedAt": "2026-06-17T20:24:36-04:00",
+      "updatedAt": "2026-06-17T20:24:36-04:00"
+    },
+    "freelancer-gst-registration-guide-india": {
+      "publishedAt": "2026-06-29T07:13:54-04:00",
+      "updatedAt": "2026-06-29T07:13:54-04:00"
+    },
+    "glassmorphism-css-generator-guide": {
+      "publishedAt": "2026-06-27T21:31:19-04:00",
+      "updatedAt": "2026-06-27T21:31:19-04:00"
+    },
+    "gpa-calculator-guide": {
+      "publishedAt": "2026-06-17T20:24:36-04:00",
+      "updatedAt": "2026-06-17T20:24:36-04:00"
+    },
+    "gratuity-calculation-formula-india": {
+      "publishedAt": "2026-06-16T16:40:42-04:00",
+      "updatedAt": "2026-06-16T16:40:42-04:00"
+    },
+    "gst-for-freelancers-india": {
+      "publishedAt": "2026-06-13T15:02:02-04:00",
+      "updatedAt": "2026-06-13T15:02:02-04:00"
+    },
+    "home-loan-emi-guide-india": {
+      "publishedAt": "2026-06-13T15:02:02-04:00",
+      "updatedAt": "2026-06-25T17:40:17-04:00"
+    },
+    "hourly-to-salary-calculator-guide": {
+      "publishedAt": "2026-06-16T16:40:42-04:00",
+      "updatedAt": "2026-06-16T16:40:42-04:00"
+    },
+    "how-to-add-page-numbers-to-pdf-free": {
+      "publishedAt": "2026-06-17T20:24:36-04:00",
+      "updatedAt": "2026-06-17T20:24:36-04:00"
+    },
+    "how-to-add-watermark-to-pdf-free": {
+      "publishedAt": "2026-06-17T20:24:36-04:00",
+      "updatedAt": "2026-06-17T20:24:36-04:00"
+    },
+    "how-to-calculate-in-hand-salary-from-ctc": {
+      "publishedAt": "2026-06-13T15:02:02-04:00",
+      "updatedAt": "2026-06-13T15:02:02-04:00"
+    },
+    "how-to-calculate-percentage-of-marks-india": {
+      "publishedAt": "2026-06-13T15:58:20-04:00",
+      "updatedAt": "2026-06-13T15:58:20-04:00"
+    },
+    "how-to-combine-images-into-pdf-india": {
+      "publishedAt": "2026-06-13T15:58:20-04:00",
+      "updatedAt": "2026-06-13T15:58:20-04:00"
+    },
+    "how-to-compress-pdf-online-free": {
+      "publishedAt": "2026-06-08T17:56:33-04:00",
+      "updatedAt": "2026-06-08T17:56:33-04:00"
+    },
+    "how-to-compress-pdf-under-1mb": {
+      "publishedAt": "2026-06-12T10:22:48-04:00",
+      "updatedAt": "2026-09-30T20:23:02+05:30"
+    },
+    "how-to-convert-excel-to-pdf-free": {
+      "publishedAt": "2026-06-17T06:43:13-04:00",
+      "updatedAt": "2026-06-17T06:43:13-04:00"
+    },
+    "how-to-convert-heic-to-jpg-on-windows": {
+      "publishedAt": "2026-06-15T15:42:43-04:00",
+      "updatedAt": "2026-06-15T15:42:43-04:00"
+    },
+    "how-to-convert-image-formats-online": {
+      "publishedAt": "2026-06-17T06:43:13-04:00",
+      "updatedAt": "2026-06-25T16:34:14-04:00"
+    },
+    "how-to-convert-json-to-csv-online-free": {
+      "publishedAt": "2026-06-18T21:55:05-04:00",
+      "updatedAt": "2026-06-18T21:55:05-04:00"
+    },
+    "how-to-convert-pdf-to-jpg-online-free": {
+      "publishedAt": "2026-06-17T06:43:13-04:00",
+      "updatedAt": "2026-09-30T20:23:02+05:30"
+    },
+    "how-to-convert-ppt-to-pdf-free": {
+      "publishedAt": "2026-06-17T06:43:13-04:00",
+      "updatedAt": "2026-06-17T06:43:13-04:00"
+    },
+    "how-to-convert-svg-to-png-online": {
+      "publishedAt": "2026-06-17T20:24:36-04:00",
+      "updatedAt": "2026-06-17T20:24:36-04:00"
+    },
+    "how-to-convert-webp-to-jpg": {
+      "publishedAt": "2026-06-17T06:43:13-04:00",
+      "updatedAt": "2026-06-17T06:43:13-04:00"
+    },
+    "how-to-convert-word-to-jpg-online-free": {
+      "publishedAt": "2026-06-18T21:55:05-04:00",
+      "updatedAt": "2026-06-18T21:55:05-04:00"
+    },
+    "how-to-convert-word-to-pdf-free": {
+      "publishedAt": "2026-06-13T15:12:55-04:00",
+      "updatedAt": "2026-09-30T20:23:02+05:30"
+    },
+    "how-to-create-digital-signature-india": {
+      "publishedAt": "2026-06-13T15:12:55-04:00",
+      "updatedAt": "2026-06-13T15:12:55-04:00"
+    },
+    "how-to-create-favicon-online-free": {
+      "publishedAt": "2026-06-17T20:24:36-04:00",
+      "updatedAt": "2026-06-17T20:24:36-04:00"
+    },
+    "how-to-create-strong-password-guide": {
+      "publishedAt": "2026-06-13T15:12:55-04:00",
+      "updatedAt": "2026-06-22T18:12:10-04:00"
+    },
+    "how-to-decode-jwt-token-online": {
+      "publishedAt": "2026-06-16T16:40:42-04:00",
+      "updatedAt": "2026-06-21T02:38:56-04:00"
+    },
+    "how-to-extract-color-palette-from-image": {
+      "publishedAt": "2026-06-17T20:24:36-04:00",
+      "updatedAt": "2026-06-17T20:24:36-04:00"
+    },
+    "how-to-format-json-online-free": {
+      "publishedAt": "2026-06-16T16:40:42-04:00",
+      "updatedAt": "2026-06-16T16:40:42-04:00"
+    },
+    "how-to-format-sql-online-free": {
+      "publishedAt": "2026-06-17T20:24:36-04:00",
+      "updatedAt": "2026-06-17T20:24:36-04:00"
+    },
+    "how-to-make-passport-size-photo-at-home": {
+      "publishedAt": "2026-06-13T15:58:20-04:00",
+      "updatedAt": "2026-07-06T05:16:53-04:00"
+    },
+    "how-to-merge-pdf-files-free": {
+      "publishedAt": "2026-06-12T10:22:48-04:00",
+      "updatedAt": "2026-06-12T10:22:48-04:00"
+    },
+    "how-to-merge-pdf-on-mobile-india": {
+      "publishedAt": "2026-06-13T15:12:55-04:00",
+      "updatedAt": "2026-06-13T15:12:55-04:00"
+    },
+    "how-to-read-salary-slip-india": {
+      "publishedAt": "2026-06-13T15:02:02-04:00",
+      "updatedAt": "2026-06-13T15:02:02-04:00"
+    },
+    "how-to-remove-background-from-photo-free": {
+      "publishedAt": "2026-06-12T10:22:48-04:00",
+      "updatedAt": "2026-06-15T15:42:43-04:00"
+    },
+    "how-to-resize-photo-for-government-exams": {
+      "publishedAt": "2026-06-13T15:58:20-04:00",
+      "updatedAt": "2026-06-13T15:58:20-04:00"
+    },
+    "how-to-rotate-pdf-pages-online-free": {
+      "publishedAt": "2026-06-17T20:24:36-04:00",
+      "updatedAt": "2026-06-17T20:24:36-04:00"
+    },
+    "how-to-save-income-tax-india-legally": {
+      "publishedAt": "2026-06-13T15:02:02-04:00",
+      "updatedAt": "2026-06-13T15:02:02-04:00"
+    },
+    "how-to-split-pdf-extract-pages-india": {
+      "publishedAt": "2026-06-13T15:58:20-04:00",
+      "updatedAt": "2026-06-13T15:58:20-04:00"
+    },
+    "how-to-split-pdf-pages-online-free-2026": {
+      "publishedAt": "2026-06-15T15:42:43-04:00",
+      "updatedAt": "2026-06-15T15:42:43-04:00"
+    },
+    "how-to-start-sip-india-beginners-guide": {
+      "publishedAt": "2026-06-13T15:02:02-04:00",
+      "updatedAt": "2026-06-13T15:02:02-04:00"
+    },
+    "how-to-test-regex-online": {
+      "publishedAt": "2026-06-16T16:40:42-04:00",
+      "updatedAt": "2026-06-16T16:40:42-04:00"
+    },
+    "how-to-unlock-password-protected-pdf": {
+      "publishedAt": "2026-06-12T10:22:48-04:00",
+      "updatedAt": "2026-09-30T20:23:02+05:30"
+    },
+    "hra-exemption-calculator-guide": {
+      "publishedAt": "2026-06-27T19:44:11-04:00",
+      "updatedAt": "2026-06-27T19:44:11-04:00"
+    },
+    "hsa-calculator-guide-usa": {
+      "publishedAt": "2026-06-29T07:13:54-04:00",
+      "updatedAt": "2026-06-29T07:13:54-04:00"
+    },
+    "htaccess-generator-guide": {
+      "publishedAt": "2026-06-27T21:31:19-04:00",
+      "updatedAt": "2026-06-27T21:31:19-04:00"
+    },
+    "http-status-codes-guide": {
+      "publishedAt": "2026-06-28T06:48:34-04:00",
+      "updatedAt": "2026-06-28T06:48:34-04:00"
+    },
+    "inflation-calculator-money-value-guide": {
+      "publishedAt": "2026-06-16T16:40:42-04:00",
+      "updatedAt": "2026-06-16T16:40:42-04:00"
+    },
+    "ip-address-lookup-guide": {
+      "publishedAt": "2026-06-18T22:48:44-04:00",
+      "updatedAt": "2026-06-18T22:48:44-04:00"
+    },
+    "json-schema-validator-guide": {
+      "publishedAt": "2026-06-29T07:13:54-04:00",
+      "updatedAt": "2026-06-29T07:13:54-04:00"
+    },
+    "leap-year-checker-guide": {
+      "publishedAt": "2026-06-17T20:24:36-04:00",
+      "updatedAt": "2026-06-17T20:24:36-04:00"
+    },
+    "leave-encashment-calculator-guide-india": {
+      "publishedAt": "2026-06-27T21:52:19-04:00",
+      "updatedAt": "2026-06-27T21:52:19-04:00"
+    },
+    "loan-eligibility-calculator-guide": {
+      "publishedAt": "2026-06-18T21:55:05-04:00",
+      "updatedAt": "2026-06-18T21:55:05-04:00"
+    },
+    "lta-exemption-rules-india": {
+      "publishedAt": "2026-06-16T16:40:42-04:00",
+      "updatedAt": "2026-06-17T06:43:13-04:00"
+    },
+    "markdown-table-generator-guide": {
+      "publishedAt": "2026-06-28T06:48:34-04:00",
+      "updatedAt": "2026-06-28T06:48:34-04:00"
+    },
+    "md5-sha256-hash-generator-guide": {
+      "publishedAt": "2026-06-16T16:40:42-04:00",
+      "updatedAt": "2026-06-16T16:40:42-04:00"
+    },
+    "mortgage-calculator-guide": {
+      "publishedAt": "2026-06-17T21:51:07-04:00",
+      "updatedAt": "2026-06-17T21:51:07-04:00"
+    },
+    "new-labour-code-2026-salary-guide": {
+      "publishedAt": "2026-06-27T20:41:27-04:00",
+      "updatedAt": "2026-06-27T20:41:27-04:00"
+    },
+    "notice-period-buyout-india-guide": {
+      "publishedAt": "2026-06-13T15:02:02-04:00",
+      "updatedAt": "2026-06-13T15:02:02-04:00"
+    },
+    "nps-calculator-guide-india": {
+      "publishedAt": "2026-06-27T21:52:19-04:00",
+      "updatedAt": "2026-06-27T21:52:19-04:00"
+    },
+    "old-vs-new-tax-regime-comparison-2026": {
+      "publishedAt": "2026-06-27T20:41:27-04:00",
+      "updatedAt": "2026-06-27T20:41:27-04:00"
+    },
+    "old-vs-new-tax-regime-india-2025": {
+      "publishedAt": "2026-06-13T15:02:02-04:00",
+      "updatedAt": "2026-06-13T15:02:02-04:00"
+    },
+    "online-stopwatch-guide": {
+      "publishedAt": "2026-06-16T16:40:42-04:00",
+      "updatedAt": "2026-06-16T16:40:42-04:00"
+    },
+    "passphrase-generator-guide": {
+      "publishedAt": "2026-06-22T18:12:10-04:00",
+      "updatedAt": "2026-06-22T18:12:10-04:00"
+    },
+    "passport-photo-size-requirements-india-guide": {
+      "publishedAt": "2026-06-13T15:12:55-04:00",
+      "updatedAt": "2026-06-13T15:12:55-04:00"
+    },
+    "passport-size-photo-dimensions-india": {
+      "publishedAt": "2026-06-08T17:56:33-04:00",
+      "updatedAt": "2026-06-25T15:51:05-04:00"
+    },
+    "pay-stub-generator-guide-usa": {
+      "publishedAt": "2026-06-28T06:48:34-04:00",
+      "updatedAt": "2026-06-28T06:48:34-04:00"
+    },
+    "pomodoro-technique-timer-guide": {
+      "publishedAt": "2026-06-16T16:40:42-04:00",
+      "updatedAt": "2026-06-16T16:40:42-04:00"
+    },
+    "ppf-calculator-guide-india": {
+      "publishedAt": "2026-06-27T20:41:27-04:00",
+      "updatedAt": "2026-06-27T20:41:27-04:00"
+    },
+    "professional-tax-calculator-guide-india": {
+      "publishedAt": "2026-06-28T06:48:34-04:00",
+      "updatedAt": "2026-06-28T06:48:34-04:00"
+    },
+    "qr-code-for-college-events-india": {
+      "publishedAt": "2026-06-13T15:58:20-04:00",
+      "updatedAt": "2026-06-13T15:58:20-04:00"
+    },
+    "qr-code-for-small-business-india": {
+      "publishedAt": "2026-06-13T15:12:55-04:00",
+      "updatedAt": "2026-07-17T12:14:58-04:00"
+    },
+    "random-number-generator-guide": {
+      "publishedAt": "2026-06-27T19:44:11-04:00",
+      "updatedAt": "2026-06-27T19:44:11-04:00"
+    },
+    "rd-calculator-guide-india": {
+      "publishedAt": "2026-06-27T21:31:19-04:00",
+      "updatedAt": "2026-06-27T21:31:19-04:00"
+    },
+    "reduce-image-size-without-losing-quality": {
+      "publishedAt": "2026-06-08T17:56:33-04:00",
+      "updatedAt": "2026-07-06T05:16:53-04:00"
+    },
+    "rent-receipt-for-hra-exemption-india": {
+      "publishedAt": "2026-06-13T15:12:55-04:00",
+      "updatedAt": "2026-06-13T15:12:55-04:00"
+    },
+    "resize-photo-for-government-forms-india": {
+      "publishedAt": "2026-06-12T10:22:48-04:00",
+      "updatedAt": "2026-07-06T05:16:53-04:00"
+    },
+    "robots-txt-generator-guide": {
+      "publishedAt": "2026-06-27T21:00:21-04:00",
+      "updatedAt": "2026-06-27T21:00:21-04:00"
+    },
+    "roman-numeral-converter-guide": {
+      "publishedAt": "2026-06-17T20:24:36-04:00",
+      "updatedAt": "2026-06-17T20:24:36-04:00"
+    },
+    "salary-hike-negotiation-guide-india": {
+      "publishedAt": "2026-06-13T15:02:02-04:00",
+      "updatedAt": "2026-06-13T15:02:02-04:00"
+    },
+    "section-44ada-freelancer-tax-guide": {
+      "publishedAt": "2026-06-27T20:41:27-04:00",
+      "updatedAt": "2026-06-27T20:41:27-04:00"
+    },
+    "self-employment-tax-calculator-guide-usa": {
+      "publishedAt": "2026-06-27T21:00:21-04:00",
+      "updatedAt": "2026-06-27T21:00:21-04:00"
+    },
+    "subnet-calculator-guide": {
+      "publishedAt": "2026-06-18T21:55:05-04:00",
+      "updatedAt": "2026-06-18T21:55:05-04:00"
+    },
+    "sukanya-samriddhi-yojana-calculator-guide": {
+      "publishedAt": "2026-06-28T06:34:33-04:00",
+      "updatedAt": "2026-06-28T06:34:33-04:00"
+    },
+    "svg-code-previewer-guide": {
+      "publishedAt": "2026-06-18T21:55:05-04:00",
+      "updatedAt": "2026-06-18T21:55:05-04:00"
+    },
+    "swp-calculator-guide-india": {
+      "publishedAt": "2026-06-29T00:14:30-04:00",
+      "updatedAt": "2026-06-29T00:14:30-04:00"
+    },
+    "time-zone-converter-guide": {
+      "publishedAt": "2026-06-16T16:40:42-04:00",
+      "updatedAt": "2026-06-16T16:40:42-04:00"
+    },
+    "tip-calculator-guide": {
+      "publishedAt": "2026-06-17T06:43:13-04:00",
+      "updatedAt": "2026-06-17T06:43:13-04:00"
+    },
+    "unit-conversion-guide-indian-students": {
+      "publishedAt": "2026-06-13T15:58:20-04:00",
+      "updatedAt": "2026-06-13T15:58:20-04:00"
+    },
+    "unix-timestamp-converter-guide": {
+      "publishedAt": "2026-06-18T21:55:05-04:00",
+      "updatedAt": "2026-06-18T21:55:05-04:00"
+    },
+    "us-paycheck-calculator-guide": {
+      "publishedAt": "2026-06-17T21:51:07-04:00",
+      "updatedAt": "2026-06-29T07:13:54-04:00"
+    },
+    "useful-text-utility-tools-guide": {
+      "publishedAt": "2026-06-17T06:43:13-04:00",
+      "updatedAt": "2026-06-17T06:43:13-04:00"
+    },
+    "uuid-generator-guide": {
+      "publishedAt": "2026-06-17T20:24:36-04:00",
+      "updatedAt": "2026-06-17T20:24:36-04:00"
+    },
+    "w2-vs-1099-tax-comparison-guide": {
+      "publishedAt": "2026-06-27T21:00:21-04:00",
+      "updatedAt": "2026-06-27T21:52:19-04:00"
+    },
+    "word-count-for-upsc-essay-writing": {
+      "publishedAt": "2026-06-13T15:58:20-04:00",
+      "updatedAt": "2026-06-19T10:49:46-04:00"
+    },
+    "word-counter-online-guide": {
+      "publishedAt": "2026-06-19T10:49:46-04:00",
+      "updatedAt": "2026-06-19T10:49:46-04:00"
+    },
+    "writing-seo-tools-for-content-creators": {
+      "publishedAt": "2026-06-17T06:43:13-04:00",
+      "updatedAt": "2026-06-17T06:43:13-04:00"
+    }
+  },
+  "lastmod": {
+    "/": "2026-09-30T19:13:34+05:30",
+    "/aadhaar-photo-size": "2026-09-30T19:13:34+05:30",
+    "/about": "2026-09-30T19:13:34+05:30",
+    "/blog": "2026-09-30T20:23:02+05:30",
+    "/contact": "2026-09-30T19:13:34+05:30",
+    "/driving-licence-photo-size": "2026-09-30T19:13:34+05:30",
+    "/pan-card-photo-size": "2026-09-30T19:13:34+05:30",
+    "/passport-photo-size-india": "2026-09-30T19:13:34+05:30",
+    "/privacy": "2026-09-30T19:13:34+05:30",
+    "/terms": "2026-09-30T19:13:34+05:30",
+    "/tools": "2026-09-30T22:45:31+05:30",
+    "/tools/401k-calculator": "2026-09-30T22:21:42+05:30",
+    "/tools/401k-vs-roth-ira": "2026-09-30T22:21:42+05:30",
+    "/tools/advance-tax-calculator": "2026-09-30T22:21:42+05:30",
+    "/tools/age-calculator": "2026-09-30T22:21:42+05:30",
+    "/tools/aspect-ratio": "2026-09-30T22:21:42+05:30",
+    "/tools/audio-recorder": "2026-09-30T22:21:42+05:30",
+    "/tools/base64": "2026-09-30T22:21:42+05:30",
+    "/tools/bg-remove": "2026-09-30T22:31:49+05:30",
+    "/tools/binary-converter": "2026-09-30T22:21:42+05:30",
+    "/tools/bmi-calculator": "2026-09-30T22:21:42+05:30",
+    "/tools/bonus-calculator": "2026-09-30T22:21:42+05:30",
+    "/tools/box-breathing": "2026-09-30T22:21:42+05:30",
+    "/tools/box-shadow-generator": "2026-09-30T22:21:42+05:30",
+    "/tools/cagr-calculator": "2026-09-30T22:21:42+05:30",
+    "/tools/calorie-deficit-calculator": "2026-09-30T22:21:42+05:30",
+    "/tools/capital-gains-calculator": "2026-09-30T22:21:42+05:30",
+    "/tools/cgpa-to-percentage": "2026-09-30T22:21:42+05:30",
+    "/tools/character-counter": "2026-09-30T22:21:42+05:30",
+    "/tools/color-contrast": "2026-09-30T22:21:42+05:30",
+    "/tools/color-palette-extractor": "2026-09-30T22:31:49+05:30",
+    "/tools/color-palette-generator": "2026-09-30T22:21:42+05:30",
+    "/tools/color-picker": "2026-09-30T22:21:42+05:30",
+    "/tools/compound-interest": "2026-09-30T22:31:49+05:30",
+    "/tools/cron-generator": "2026-09-30T22:31:49+05:30",
+    "/tools/crypto-tracker": "2026-09-30T22:31:49+05:30",
+    "/tools/css-gradient": "2026-09-30T22:31:49+05:30",
+    "/tools/csv-to-json": "2026-09-30T22:31:49+05:30",
+    "/tools/ctc-calculator": "2026-09-30T22:31:49+05:30",
+    "/tools/currency-converter": "2026-09-30T22:31:49+05:30",
+    "/tools/days-between-dates": "2026-09-30T22:31:49+05:30",
+    "/tools/device-info": "2026-09-30T22:31:49+05:30",
+    "/tools/discount-calculator": "2026-09-30T22:31:49+05:30",
+    "/tools/dividend-yield-calculator": "2026-09-30T22:31:49+05:30",
+    "/tools/dns-lookup": "2026-09-30T22:31:49+05:30",
+    "/tools/emi-calculator": "2026-09-30T22:31:49+05:30",
+    "/tools/epf-calculator": "2026-09-30T22:31:49+05:30",
+    "/tools/esi-calculator": "2026-09-30T22:31:49+05:30",
+    "/tools/excel-to-pdf": "2026-09-30T22:31:49+05:30",
+    "/tools/favicon-generator": "2026-09-30T22:31:49+05:30",
+    "/tools/fd-calculator": "2026-09-30T22:31:49+05:30",
+    "/tools/freelancer-tax-calculator": "2026-09-30T22:31:49+05:30",
+    "/tools/glassmorphism-generator": "2026-09-30T22:31:49+05:30",
+    "/tools/gpa-calculator": "2026-09-30T22:31:49+05:30",
+    "/tools/gratuity-calculator": "2026-09-30T22:31:49+05:30",
+    "/tools/gst-calculator": "2026-09-30T22:31:49+05:30",
+    "/tools/gst-threshold-checker": "2026-09-30T22:31:49+05:30",
+    "/tools/hash-generator": "2026-09-30T22:31:49+05:30",
+    "/tools/heic-to-jpg": "2026-09-30T22:39:17+05:30",
+    "/tools/hourly-to-salary": "2026-09-30T22:39:17+05:30",
+    "/tools/hra-calculator": "2026-09-30T22:39:17+05:30",
+    "/tools/hsa-calculator": "2026-09-30T22:39:17+05:30",
+    "/tools/htaccess-generator": "2026-09-30T22:39:17+05:30",
+    "/tools/html-entity": "2026-09-30T22:39:17+05:30",
+    "/tools/http-status-codes": "2026-09-30T22:39:17+05:30",
+    "/tools/image-compress": "2026-09-30T22:39:17+05:30",
+    "/tools/image-converter": "2026-09-30T22:39:17+05:30",
+    "/tools/image-to-pdf": "2026-09-30T22:39:17+05:30",
+    "/tools/income-tax-calculator": "2026-09-30T22:39:17+05:30",
+    "/tools/inflation-calculator": "2026-09-30T22:39:17+05:30",
+    "/tools/ip-lookup": "2026-09-30T22:39:17+05:30",
+    "/tools/json-formatter": "2026-09-30T22:39:17+05:30",
+    "/tools/json-schema-validator": "2026-09-30T22:39:17+05:30",
+    "/tools/json-to-csv": "2026-09-30T22:39:17+05:30",
+    "/tools/jwt-decoder": "2026-09-30T22:39:17+05:30",
+    "/tools/keyword-density": "2026-09-30T22:39:17+05:30",
+    "/tools/labour-code-calculator": "2026-09-30T22:39:17+05:30",
+    "/tools/leap-year-checker": "2026-09-30T22:39:17+05:30",
+    "/tools/leave-encashment-calculator": "2026-09-30T22:39:17+05:30",
+    "/tools/loan-eligibility": "2026-09-30T22:39:17+05:30",
+    "/tools/lorem-ipsum": "2026-09-30T22:39:17+05:30",
+    "/tools/lta-calculator": "2026-09-30T22:39:17+05:30",
+    "/tools/markdown-table": "2026-09-30T22:39:17+05:30",
+    "/tools/markdown-to-html": "2026-09-30T22:49:45+05:30",
+    "/tools/morse-code": "2026-09-30T22:39:17+05:30",
+    "/tools/mortgage-calculator": "2026-09-30T22:39:17+05:30",
+    "/tools/notice-period-calculator": "2026-09-30T22:39:17+05:30",
+    "/tools/nps-calculator": "2026-09-30T22:39:17+05:30",
+    "/tools/number-to-words": "2026-09-30T22:42:14+05:30",
+    "/tools/password-generator": "2026-09-30T22:42:14+05:30",
+    "/tools/pay-stub-generator": "2026-09-30T22:42:14+05:30",
+    "/tools/paycheck-calculator": "2026-09-30T22:42:14+05:30",
+    "/tools/pdf-compress": "2026-09-30T22:42:14+05:30",
+    "/tools/pdf-merge": "2026-09-30T22:42:14+05:30",
+    "/tools/pdf-page-numbers": "2026-09-30T22:42:14+05:30",
+    "/tools/pdf-rotate": "2026-09-30T22:42:14+05:30",
+    "/tools/pdf-split": "2026-09-30T22:42:14+05:30",
+    "/tools/pdf-to-jpg": "2026-09-30T22:42:14+05:30",
+    "/tools/pdf-to-word": "2026-09-30T22:42:14+05:30",
+    "/tools/pdf-unlock": "2026-09-30T22:42:14+05:30",
+    "/tools/pdf-watermark": "2026-09-30T22:42:14+05:30",
+    "/tools/percentage-calculator": "2026-09-30T22:42:14+05:30",
+    "/tools/photo-resizer": "2026-09-30T22:42:14+05:30",
+    "/tools/pomodoro-timer": "2026-09-30T22:42:14+05:30",
+    "/tools/ppf-calculator": "2026-09-30T22:42:14+05:30",
+    "/tools/ppt-to-pdf": "2026-09-30T22:42:14+05:30",
+    "/tools/professional-tax-calculator": "2026-09-30T22:42:14+05:30",
+    "/tools/qr-code-generator": "2026-09-30T22:42:14+05:30",
+    "/tools/random-number": "2026-09-30T22:42:14+05:30",
+    "/tools/rd-calculator": "2026-09-30T22:42:14+05:30",
+    "/tools/regex-tester": "2026-09-30T22:42:14+05:30",
+    "/tools/rent-receipt-generator": "2026-09-30T22:42:14+05:30",
+    "/tools/robots-txt-generator": "2026-09-30T22:42:14+05:30",
+    "/tools/roman-numeral-converter": "2026-09-30T22:42:14+05:30",
+    "/tools/salary-hike-calculator": "2026-09-30T22:42:14+05:30",
+    "/tools/self-employment-tax": "2026-09-30T22:42:14+05:30",
+    "/tools/signature-maker": "2026-09-30T22:42:14+05:30",
+    "/tools/sip-calculator": "2026-09-30T22:42:14+05:30",
+    "/tools/sql-formatter": "2026-09-30T22:45:31+05:30",
+    "/tools/ssy-calculator": "2026-09-30T22:45:31+05:30",
+    "/tools/stopwatch": "2026-09-30T22:45:31+05:30",
+    "/tools/subnet-calculator": "2026-09-30T22:45:31+05:30",
+    "/tools/svg-previewer": "2026-09-30T22:45:31+05:30",
+    "/tools/svg-to-png": "2026-09-30T22:45:31+05:30",
+    "/tools/swp-calculator": "2026-09-30T22:45:31+05:30",
+    "/tools/tax-regime-comparison": "2026-09-30T22:45:31+05:30",
+    "/tools/text-case-converter": "2026-09-30T22:45:31+05:30",
+    "/tools/text-diff": "2026-09-30T22:45:31+05:30",
+    "/tools/text-to-speech": "2026-09-30T22:45:31+05:30",
+    "/tools/timestamp-converter": "2026-09-30T22:45:31+05:30",
+    "/tools/timezone-converter": "2026-09-30T22:45:31+05:30",
+    "/tools/tip-calculator": "2026-09-30T22:45:31+05:30",
+    "/tools/unit-converter": "2026-09-30T22:45:31+05:30",
+    "/tools/url-encoder": "2026-09-30T22:45:31+05:30",
+    "/tools/uuid-generator": "2026-09-30T22:45:31+05:30",
+    "/tools/w2-vs-1099-calculator": "2026-09-30T22:45:31+05:30",
+    "/tools/webp-to-jpg": "2026-09-30T22:45:31+05:30",
+    "/tools/word-compress": "2026-09-30T23:04:20+05:30",
+    "/tools/word-counter": "2026-09-30T22:45:31+05:30",
+    "/tools/word-to-jpg": "2026-09-30T22:45:31+05:30",
+    "/tools/word-to-pdf": "2026-09-30T22:45:31+05:30",
+    "/tools/xml-formatter": "2026-09-30T22:45:31+05:30",
+    "/visa-photo-size": "2026-09-30T19:13:34+05:30"
+  }
+}

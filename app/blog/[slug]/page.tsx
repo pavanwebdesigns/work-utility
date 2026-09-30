@@ -6,6 +6,11 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { blogPostBySlug, blogPosts, blogSeoMetadata, getCategoryBadgeClass } from "../posts";
 import { getToolProcessing } from "@/lib/tools-data";
+import {
+  formatContentDate,
+  getPostDates,
+  sameContentDay,
+} from "@/lib/content-dates";
 import AadhaarCardPhotoSizeContent from "../content/aadhaar-card-photo-size";
 import HowToCompressPdfOnlineFreeContent from "../content/how-to-compress-pdf-online-free";
 import BestFreePdfToolsOnline2026Content from "../content/best-free-pdf-tools-online-2026";
@@ -329,29 +334,6 @@ type Props = {
   params: { slug: string };
 };
 
-const MONTHS: Record<string, string> = {
-  january: "01",
-  february: "02",
-  march: "03",
-  april: "04",
-  may: "05",
-  june: "06",
-  july: "07",
-  august: "08",
-  september: "09",
-  october: "10",
-  november: "11",
-  december: "12",
-};
-
-function lastUpdatedToIso(value: string): string | undefined {
-  const match = value.trim().match(/^([A-Za-z]+)\s+(\d{4})$/);
-  if (!match) return undefined;
-  const month = MONTHS[match[1].toLowerCase()];
-  if (!month) return undefined;
-  return `${match[2]}-${month}-01T00:00:00.000Z`;
-}
-
 export function generateMetadata({ params }: Props): Metadata {
   const seo = blogSeoMetadata[params.slug];
 
@@ -362,7 +344,7 @@ export function generateMetadata({ params }: Props): Metadata {
   }
 
   const url = `https://workutilities.com/blog/${params.slug}`;
-  const updated = lastUpdatedToIso(blogPostBySlug[params.slug]?.lastUpdated ?? "");
+  const dates = getPostDates(params.slug);
 
   return {
     title: {
@@ -378,7 +360,8 @@ export function generateMetadata({ params }: Props): Metadata {
       url,
       title: seo.title,
       description: seo.description,
-      ...(updated ? { publishedTime: updated, modifiedTime: updated } : {}),
+      publishedTime: dates.publishedAt,
+      modifiedTime: dates.updatedAt,
       authors: ["Pavan Kumar"],
     }),
   };
@@ -393,12 +376,30 @@ export default function BlogPostPage({ params }: Props) {
   }
 
   const serverProcessed = getToolProcessing(post.cta.toolHref) === "server";
+  const dates = getPostDates(params.slug);
+  const url = `https://workutilities.com/blog/${params.slug}`;
+  const articleLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    datePublished: dates.publishedAt,
+    dateModified: dates.updatedAt,
+    author: {
+      "@type": "Person",
+      name: post.author,
+    },
+    mainEntityOfPage: url,
+  };
 
   return (
     <div className="flex min-h-screen w-full max-w-full flex-col overflow-x-hidden bg-surface-base">
       <Header />
       <main className="flex-1">
         <div className="mx-auto max-w-3xl px-6 py-12">
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }}
+          />
           <Link
             href="/blog"
             className="inline-flex items-center gap-1 text-sm text-content-secondary transition-colors hover:text-content-primary"
@@ -417,7 +418,11 @@ export default function BlogPostPage({ params }: Props) {
           </h1>
 
           <p className="text-sm text-content-muted">
-            {post.author} · {post.readTime} · Last updated {post.lastUpdated}
+            {post.author} · {post.readTime} · Published{" "}
+            {formatContentDate(dates.publishedAt)}
+            {sameContentDay(dates.publishedAt, dates.updatedAt)
+              ? ""
+              : ` · Updated ${formatContentDate(dates.updatedAt)}`}
           </p>
 
           <hr className="my-8 border-surface-border" />

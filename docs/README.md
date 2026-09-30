@@ -45,7 +45,7 @@ This folder is the **single source of truth** for the project: what the site is,
 | `lib/photo-resize.ts` | Photo presets (sizes/KB) + resize logic |
 | `lib/currency-context.tsx` + `middleware.ts` | INR/USD handling (server HTML = INR, client switches by choice/geo) |
 | `lib/seo.ts` | `buildOpenGraph()`, used by every page's metadata |
-| `app/sitemap.ts`, `app/robots.ts` | Sitemap + robots |
+| `app/sitemap.ts`, `app/robots.ts` | Sitemap + robots. `lastmod` comes from `lib/content-dates.json` |
 | `components/` | Header, Footer, MegaMenu, RelatedTools, ToolSeoContent, calculator UI, etc. |
 
 ## 4. Git workflow
@@ -60,6 +60,7 @@ Add a line whenever we decide something. Newest first.
 
 | Date | Decision | Why |
 |---|---|---|
+| 2026-09-30 | Blog dates and sitemap `lastmod` are generated from git into `lib/content-dates.json`. ToolShell uses `RELATED_TOOLS` when that slug has a list. | A shared build date made every URL look unchanged. Compress Word already had a curated related list. |
 | 2026-09-30 | All 130 tool pages use `ToolShell`. `ToolLayout` stays deleted. DinoGame is off tool pages. | The shell was copied by hand; the breadcrumb and privacy chip now come from one component |
 | 2026-09-30 | ToolShell H1 keeps each page's original keyword heading (`h1` prop). With no aside, the tool column is `max-w-3xl`. | Registry names dropped search keywords; inputs were stretching across 1440px |
 | 2026-09-30 | Tool pages use shared `ToolShell` (breadcrumb, title row, privacy chip). First batch is 20 tools in slug order, skipping pages whose title block didn't match. | 130 pages copied the same shell; U1 replaces the A7 breadcrumb |
@@ -77,7 +78,7 @@ Add a line whenever we decide something. Newest first.
 
 **Phase 1 (in progress):** `PHASE-1-SEO-SPEC.md`
 - [x] A1 canonical/OG · [x] A1b missing OG · [x] A2 /tools server list · [x] A3/A3b photo resizer SSR static · [x] A4 currency · [x] A5 FAQ HTML
-- [x] A6 privacy truth · [x] A7 internal links (with U1) · [ ] A8 sitemap + audit script · [ ] A9 merges · [ ] A10 prune + market field · [ ] C quick wins · [ ] D small bugs
+- [x] A6 privacy truth · [x] A7 internal links (with U1) · [x] A8 sitemap + audit script (first run: 115 title/description/word errors, no canonical or h1 errors) · [ ] A9 merges · [ ] A10 prune + market field · [ ] C quick wins · [ ] D small bugs
 - Checkpoint 1 merge after A5
 
 **Phase 1B:** `PHASE-1B-UX-SPEC.md` — U1 ToolShell done (all 131 tool pages, including word-compress). Then theme, photo resizer, calculators, file tools, homepage.
