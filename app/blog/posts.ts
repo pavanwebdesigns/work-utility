@@ -377,7 +377,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "how-to-start-sip-india-beginners-guide",
-    title: "How to Start a SIP in India — Beginner's Guide for Salaried Employees (2025)",
+    title: "How to Start a SIP in India — Beginner's Guide for Salaried Employees (2026)",
     excerpt:
       "Complete guide to starting SIP in India. How much to invest, which funds to choose, and how to calculate returns. Free SIP calculator included.",
     category: "Finance",
@@ -1604,7 +1604,7 @@ export const blogSeoMetadata: Record<
       "in hand salary from ctc, ctc to take home salary india, pf deduction calculator, salary breakdown india",
   },
   "how-to-start-sip-india-beginners-guide": {
-    title: "Start SIP in India — Beginner Guide 2025 | WorkUtilities",
+    title: "Start SIP in India — Beginner Guide 2026 | WorkUtilities",
     description:
       "Complete guide to starting SIP in India. How much to invest, which funds to choose, and how to calculate returns. Free SIP calculator included.",
     keywords:
@@ -2122,7 +2122,7 @@ export const blogSeoMetadata: Record<
       "roman numeral converter guide, roman numerals explained, number to roman numeral",
   },
   "leap-year-checker-guide": {
-    title: "Leap Year Checker Guide — Full Rule Examples | WorkUtilities",
+    title: "Leap Year Rule Explained with Examples | WorkUtilities",
     description:
       "Check if any year is a leap year free online. Learn the divisible-by-4/100/400 rule, why 1900 wasn't a leap year, and why we need leap years at all.",
     keywords:
