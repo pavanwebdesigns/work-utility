@@ -62,6 +62,7 @@ Add a line whenever we decide something. Newest first.
 
 | Date | Decision | Why |
 |---|---|---|
+| 2026-11-21 | Photo resizer supports min–max KB (quality then scale; warn, never pad). Exam presets live in `lib/exam-presets.ts` with source + verified date; unverified IBPS behind a flag. Server privacy chip says deleted-as-soon-as-done. | Part D.1–D.3 / exam hub start — official GATE 2027 specs, no invented IBPS until PDF-checked. |
 | 2026-11-21 | Core Cut shipped on `core-cut`: index only ~78 core URLs; duplicates 301/308; real lastmod via ignore-list; thin-page audit reports only (no filler). A9/A10 replaced. | Recover from site-level quality demotion (271→46 indexed) by shrinking the indexed footprint. |
 | 2026-11-21 | `content-dates.json` skips refactor-only SHAs listed in `scripts/content-dates-ignore.txt` (ToolShell batches, A1/A1b, CoreCut Step1/2, merges). | Robots-helper and ToolShell commits had stamped every tool lastmod as "today". |
 | 2026-11-21 | Indexed core is defined in one file, `lib/index-policy.ts` (45 tools, 21 posts, 12 pages). Everything else stays live but will be noindex. | Indexed pages fell 271→46; scaled content matches Google's demotion pattern. Replaces Phase 1 A9/A10. |

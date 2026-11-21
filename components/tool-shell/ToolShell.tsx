@@ -51,7 +51,7 @@ export function ToolShell({
   const Icon = TOOL_ICONS[tool.icon];
   const privacy =
     getToolProcessing(slug) === "server"
-      ? "Processed on our server, deleted after"
+      ? "Processed on our server and deleted as soon as it's done — nothing is stored."
       : "Runs in your browser";
   const guide = getToolGuideLink(slug);
 
