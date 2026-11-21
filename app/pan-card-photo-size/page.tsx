@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildOpenGraph, withRobots } from "@/lib/seo";
 import { PhotoSizeGuidePage } from "@/components/PhotoSizeGuidePage";
 import { getPhotoSizeGuide } from "@/lib/photo-size-guides";
 
 const guide = getPhotoSizeGuide("pan")!;
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withRobots("https://workutilities.com/pan-card-photo-size", {
   title: {
     absolute: "PAN Card Photo Size — NSDL & UTI Requirements 2025",
   },
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://workutilities.com/pan-card-photo-size",
   },
-};
+});
 
 export default function PanCardPhotoSizePage() {
   return <PhotoSizeGuidePage guide={guide} />;

@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildOpenGraph, withRobots } from "@/lib/seo";
 import { PhotoSizeGuidePage } from "@/components/PhotoSizeGuidePage";
 import { getPhotoSizeGuide } from "@/lib/photo-size-guides";
 
 const guide = getPhotoSizeGuide("visa")!;
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withRobots("https://workutilities.com/visa-photo-size", {
   title: {
     absolute: "Visa Photo Size Requirements India — US, UK, Schengen 2025",
   },
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://workutilities.com/visa-photo-size",
   },
-};
+});
 
 export default function VisaPhotoSizePage() {
   return <PhotoSizeGuidePage guide={guide} />;

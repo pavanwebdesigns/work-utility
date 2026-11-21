@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildOpenGraph, withRobots } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withRobots("https://workutilities.com/tools/ppf-calculator", {
   title: {
     absolute: "PPF Calculator India 2026 — Maturity, Interest & Returns Free",
   },
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://workutilities.com/tools/ppf-calculator",
   },
-};
+});
 
 export default function PpfCalculatorLayout({
   children,

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildOpenGraph, withRobots } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withRobots("https://workutilities.com/tools/color-palette-generator", {
   title: {
     absolute: "Color Palette Generator — Tailwind Scale from Any Hex",
   },
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://workutilities.com/tools/color-palette-generator",
   },
-};
+});
 
 export default function ColorPaletteGeneratorLayout({
   children,

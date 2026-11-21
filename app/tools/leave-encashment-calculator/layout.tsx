@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildOpenGraph, withRobots } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withRobots("https://workutilities.com/tools/leave-encashment-calculator", {
   title: {
     absolute: "Leave Encashment Calculator India — Tax Exemption 2026",
   },
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://workutilities.com/tools/leave-encashment-calculator",
   },
-};
+});
 
 export default function LeaveEncashmentCalculatorLayout({
   children,

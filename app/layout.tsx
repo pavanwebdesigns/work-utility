@@ -5,6 +5,7 @@ import { Analytics } from "@vercel/analytics/react";
 import PWAInstallBanner from "@/components/PWAInstallBanner";
 import PWAUpdateBanner from "@/components/PWAUpdateBanner";
 import { Providers } from "@/app/providers";
+import { robotsFor } from "@/lib/seo";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -46,10 +47,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     images: ["/og-default.png"],
   },
-  robots: {
-    index: true,
-    follow: true,
-  },
+  // Default for the site shell; public pages override via withRobots/robotsFor.
+  robots: robotsFor("/"),
 };
 
 export const viewport: Viewport = {

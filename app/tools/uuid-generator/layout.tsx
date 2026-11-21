@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildOpenGraph, withRobots } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withRobots("https://workutilities.com/tools/uuid-generator", {
   title: { absolute: "UUID Generator Online Free — v4 UUIDs Instantly" },
   description:
     "Generate random UUID v4 identifiers online free. Create one or hundreds at once, with or without hyphens. No signup, runs in your browser.",
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     type: "website",
   }),
   alternates: { canonical: "https://workutilities.com/tools/uuid-generator" },
-};
+});
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;

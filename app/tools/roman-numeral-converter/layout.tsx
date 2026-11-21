@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildOpenGraph, withRobots } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withRobots("https://workutilities.com/tools/roman-numeral-converter", {
   title: { absolute: "Roman Numeral Converter — Number to Roman & Back" },
   description:
     "Convert numbers to Roman numerals or Roman numerals to numbers free online. Instant, accurate conversion both directions. No signup needed.",
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     type: "website",
   }),
   alternates: { canonical: "https://workutilities.com/tools/roman-numeral-converter" },
-};
+});
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;

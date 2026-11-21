@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildOpenGraph, withRobots } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withRobots("https://workutilities.com/tools/box-shadow-generator", {
   title: {
     absolute: "Box Shadow CSS Generator Online Free — Multi-Layer",
   },
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://workutilities.com/tools/box-shadow-generator",
   },
-};
+});
 
 export default function BoxShadowGeneratorLayout({
   children,

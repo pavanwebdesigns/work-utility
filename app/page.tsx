@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildOpenGraph, withRobots } from "@/lib/seo";
 import Link from "next/link";
 import { Package, Shield, Zap } from "lucide-react";
 import { Header } from "@/components/Header";
@@ -15,7 +15,7 @@ const HOME_TITLE = "WorkUtilities — Free Online Tools for Everyday Work";
 const HOME_DESCRIPTION =
   "Free online PDF, image and document tools. Compress PDF, resize photos, convert files. Fast, free and private — everything runs in your browser.";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withRobots("https://workutilities.com", {
   title: { absolute: HOME_TITLE },
   description: HOME_DESCRIPTION,
   alternates: { canonical: "https://workutilities.com" },
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     url: "https://workutilities.com",
     type: "website",
   }),
-};
+});
 
 function TrustBadge({ children }: { children: React.ReactNode }) {
   return (

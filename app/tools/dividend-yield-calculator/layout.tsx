@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildOpenGraph, withRobots } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withRobots("https://workutilities.com/tools/dividend-yield-calculator", {
   title: {
     absolute: "Dividend Yield Calculator India — Stocks & Portfolio",
   },
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://workutilities.com/tools/dividend-yield-calculator",
   },
-};
+});
 
 export default function DividendYieldCalculatorLayout({
   children,

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildOpenGraph, withRobots } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withRobots("https://workutilities.com/tools/json-schema-validator", {
   title: {
     absolute: "JSON Schema Validator Online Free — Draft 7 & 2020",
   },
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://workutilities.com/tools/json-schema-validator",
   },
-};
+});
 
 export default function JsonSchemaValidatorLayout({
   children,

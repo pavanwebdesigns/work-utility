@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildOpenGraph, withRobots } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withRobots("https://workutilities.com/tools/color-palette-extractor", {
   title: { absolute: "Color Palette Extractor Online Free — From Any Image" },
   description:
     "Extract a color palette from any image free online. Get HEX and RGB codes for dominant colors. Great for design, branding, and CSS. No signup.",
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     type: "website",
   }),
   alternates: { canonical: "https://workutilities.com/tools/color-palette-extractor" },
-};
+});
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;

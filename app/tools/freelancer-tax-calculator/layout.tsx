@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildOpenGraph, withRobots } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withRobots("https://workutilities.com/tools/freelancer-tax-calculator", {
   title: {
     absolute: "Section 44ADA Tax Calculator India — Freelancer Presumptive Tax",
   },
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://workutilities.com/tools/freelancer-tax-calculator",
   },
-};
+});
 
 export default function FreelancerTaxCalculatorLayout({
   children,

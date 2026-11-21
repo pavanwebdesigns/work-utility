@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildOpenGraph, withRobots } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withRobots("https://workutilities.com/tools/401k-vs-roth-ira", {
   title: {
     absolute: "401k vs Roth IRA Calculator 2026 — Which Is Better?",
   },
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://workutilities.com/tools/401k-vs-roth-ira",
   },
-};
+});
 
 export default function FourOhOneKVsRothIraLayout({
   children,

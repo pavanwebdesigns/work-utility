@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildOpenGraph, withRobots } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withRobots("https://workutilities.com/tools/lorem-ipsum", {
   title: { absolute: "Lorem Ipsum Generator — Free Online | WorkUtilities" },
   description:
     "Generate lorem ipsum placeholder text free online. Choose paragraphs, sentences, or words. Copy instantly.",
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     type: "website",
   }),
   alternates: { canonical: "https://workutilities.com/tools/lorem-ipsum" },
-};
+});
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;

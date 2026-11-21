@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildOpenGraph, withRobots } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withRobots("https://workutilities.com/tools/xml-formatter", {
   title: { absolute: "XML Formatter & Validator — Free Online | WorkUtilities" },
   description:
     "Format, beautify and validate XML data free online. Fix XML errors and view structured data instantly.",
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
       "Format, beautify and validate XML data free online. Fix XML errors and view structured data instantly.",
     url: "https://workutilities.com/tools/xml-formatter",
   }),
-};
+});
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;

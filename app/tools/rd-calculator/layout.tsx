@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildOpenGraph, withRobots } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withRobots("https://workutilities.com/tools/rd-calculator", {
   title: {
     absolute: "RD Calculator India — Recurring Deposit Returns Free",
   },
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://workutilities.com/tools/rd-calculator",
   },
-};
+});
 
 export default function RdCalculatorLayout({
   children,

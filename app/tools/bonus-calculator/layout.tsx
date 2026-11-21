@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildOpenGraph, withRobots } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withRobots("https://workutilities.com/tools/bonus-calculator", {
   title: {
     absolute: "Bonus Calculator India — Payment of Bonus Act 2026",
   },
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://workutilities.com/tools/bonus-calculator",
   },
-};
+});
 
 export default function BonusCalculatorLayout({
   children,

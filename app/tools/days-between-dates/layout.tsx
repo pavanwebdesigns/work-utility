@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildOpenGraph, withRobots } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withRobots("https://workutilities.com/tools/days-between-dates", {
   title: { absolute: "Days Between Dates Calculator — Free Date Difference Tool" },
   description:
     "Calculate the exact number of days between two dates free online. Count days until an event or days since a past date. No signup needed.",
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     type: "website",
   }),
   alternates: { canonical: "https://workutilities.com/tools/days-between-dates" },
-};
+});
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildOpenGraph, withRobots } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withRobots("https://workutilities.com/tools/keyword-density", {
   title: { absolute: "Keyword Density Checker — Free SEO Tool | WorkUtilities" },
   description:
     "Check keyword density and frequency in your content free online. Optimize your text for SEO instantly.",
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
       "Check keyword density and frequency in your content free online. Optimize your text for SEO instantly.",
     url: "https://workutilities.com/tools/keyword-density",
   }),
-};
+});
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;

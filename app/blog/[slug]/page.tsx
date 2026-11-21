@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildOpenGraph, robotsFor, withRobots } from "@/lib/seo";
 import { notFound } from "next/navigation";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -340,13 +340,14 @@ export function generateMetadata({ params }: Props): Metadata {
   if (!seo) {
     return {
       title: "Guide Not Found | WorkUtilities",
+      robots: robotsFor(`/blog/${params.slug}`),
     };
   }
 
   const url = `https://workutilities.com/blog/${params.slug}`;
   const dates = getPostDates(params.slug);
 
-  return {
+  return withRobots(url, {
     title: {
       absolute: seo.title,
     },
@@ -364,7 +365,7 @@ export function generateMetadata({ params }: Props): Metadata {
       modifiedTime: dates.updatedAt,
       authors: ["Pavan Kumar"],
     }),
-  };
+  });
 }
 
 export default function BlogPostPage({ params }: Props) {

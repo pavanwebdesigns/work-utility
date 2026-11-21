@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildOpenGraph, withRobots } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withRobots("https://workutilities.com/tools/morse-code", {
   title: { absolute: "Morse Code Converter — Free Online Translator | WorkUtilities" },
   description:
     "Convert text to Morse code and back free online. Learn Morse code with instant translation.",
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
       "Convert text to Morse code and back free online. Learn Morse code with instant translation.",
     url: "https://workutilities.com/tools/morse-code",
   }),
-};
+});
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;

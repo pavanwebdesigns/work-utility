@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildOpenGraph, withRobots } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withRobots("https://workutilities.com/tools/image-compress", {
   title: {
     absolute:
       "Image Compressor Online Free — Reduce File Size, Keep Quality",
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://workutilities.com/tools/image-compress",
   },
-};
+});
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;

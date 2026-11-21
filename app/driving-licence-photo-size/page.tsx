@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildOpenGraph, withRobots } from "@/lib/seo";
 import { PhotoSizeGuidePage } from "@/components/PhotoSizeGuidePage";
 import { getPhotoSizeGuide } from "@/lib/photo-size-guides";
 
 const guide = getPhotoSizeGuide("driving-licence")!;
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withRobots("https://workutilities.com/driving-licence-photo-size", {
   title: {
     absolute:
       "Driving Licence Photo Size — RTO Sarathi Upload Requirements India",
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://workutilities.com/driving-licence-photo-size",
   },
-};
+});
 
 export default function DrivingLicencePhotoSizePage() {
   return <PhotoSizeGuidePage guide={guide} />;

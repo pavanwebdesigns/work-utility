@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildOpenGraph, withRobots } from "@/lib/seo";
 import { ToolCard } from "@/components/ToolCard";
 import { ToolsPageClient } from "@/components/ToolsPageClient";
 import { ALL_TOOLS } from "@/lib/tools-data";
@@ -17,7 +17,7 @@ import {
 const TOOLS_TITLE = "All Free Online Tools — PDF, Image, Finance & More";
 const TOOLS_DESCRIPTION = `Browse ${ALL_TOOLS.length} free online tools for PDF, images, documents, finance, students, and everyday utilities. No signup required.`;
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withRobots("https://workutilities.com/tools", {
   title: TOOLS_TITLE,
   description: TOOLS_DESCRIPTION,
   alternates: { canonical: "https://workutilities.com/tools" },
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     url: "https://workutilities.com/tools",
     type: "website",
   }),
-};
+});
 
 function isIndexableTool(slug: string) {
   const tool = ALL_TOOLS.find((item) => item.slug === slug) as

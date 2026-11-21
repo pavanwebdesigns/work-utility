@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildOpenGraph, withRobots } from "@/lib/seo";
 import { PhotoSizeGuidePage } from "@/components/PhotoSizeGuidePage";
 import { getPhotoSizeGuide } from "@/lib/photo-size-guides";
 
 const guide = getPhotoSizeGuide("passport")!;
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withRobots("https://workutilities.com/passport-photo-size-india", {
   title: {
     absolute:
       "Passport Photo Size India 2026 — 35×45mm, 630×810 Pixels & Free Resizer",
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://workutilities.com/passport-photo-size-india",
   },
-};
+});
 
 export default function PassportPhotoSizePage() {
   return <PhotoSizeGuidePage guide={guide} />;
