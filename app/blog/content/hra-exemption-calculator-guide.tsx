@@ -105,7 +105,7 @@ export default function HraExemptionCalculatorGuideContent() {
         you cannot claim HRA there. You must explicitly opt into the old regime
         with your employer (typically via Form 12BB at the start of the financial
         year) to claim HRA. Compare regimes in our{" "}
-        <Link href="/blog/old-vs-new-tax-regime-india-2025">
+        <Link href="/blog/old-vs-new-tax-regime-comparison-2026">
           old vs new tax regime guide
         </Link>
         .

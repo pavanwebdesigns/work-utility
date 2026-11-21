@@ -132,7 +132,7 @@ export default function Section44AdaFreelancerTaxGuideContent() {
           Old vs New Tax Regime Comparison
         </Link>{" "}
         and read{" "}
-        <Link href="/blog/old-vs-new-tax-regime-india-2025">
+        <Link href="/blog/old-vs-new-tax-regime-comparison-2026">
           Old vs New tax regime India 2025
         </Link>
         .

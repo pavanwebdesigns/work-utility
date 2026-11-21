@@ -188,7 +188,7 @@ export default function HowToConvertImageFormatsOnlineContent() {
         </li>
         <li>
           Smaller file sizes for faster page loading — see our{" "}
-          <Link href="/blog/reduce-image-size-without-losing-quality">
+          <Link href="/blog/compress-image-under-100kb-india">
             image compression guide
           </Link>
         </li>
@@ -240,7 +240,7 @@ export default function HowToConvertImageFormatsOnlineContent() {
       <h2>Related Reading</h2>
       <ul>
         <li>
-          <Link href="/blog/reduce-image-size-without-losing-quality">
+          <Link href="/blog/compress-image-under-100kb-india">
             Reduce Image Size Without Losing Quality
           </Link>
         </li>

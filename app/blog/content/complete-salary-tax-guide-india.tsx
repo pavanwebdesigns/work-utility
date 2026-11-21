@@ -105,7 +105,7 @@ export default function CompleteSalaryTaxGuideIndiaContent() {
           Old vs New tax regime 2026
         </Link>{" "}
         and{" "}
-        <Link href="/blog/old-vs-new-tax-regime-india-2025">
+        <Link href="/blog/old-vs-new-tax-regime-comparison-2026">
           Old vs New tax regime 2025
         </Link>
         .

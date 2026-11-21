@@ -12,20 +12,14 @@ import {
   sameContentDay,
 } from "@/lib/content-dates";
 import AadhaarCardPhotoSizeContent from "../content/aadhaar-card-photo-size";
-import HowToCompressPdfOnlineFreeContent from "../content/how-to-compress-pdf-online-free";
 import BestFreePdfToolsOnline2026Content from "../content/best-free-pdf-tools-online-2026";
-import HowToSplitPdfPagesOnlineFree2026Content from "../content/how-to-split-pdf-pages-online-free-2026";
-import ReduceImageSizeWithoutLosingQualityContent from "../content/reduce-image-size-without-losing-quality";
 import HowToConvertHeicToJpgOnWindowsContent from "../content/how-to-convert-heic-to-jpg-on-windows";
 import ConvertPdfToWordFreeContent from "../content/convert-pdf-to-word-free";
-import PassportSizePhotoDimensionsIndiaContent from "../content/passport-size-photo-dimensions-india";
 import HowToCompressPdfUnder1mbContent from "../content/how-to-compress-pdf-under-1mb";
 import HowToMergePdfFilesFreeContent from "../content/how-to-merge-pdf-files-free";
 import HowToRemoveBackgroundFromPhotoFreeContent from "../content/how-to-remove-background-from-photo-free";
 import HowToUnlockPasswordProtectedPdfContent from "../content/how-to-unlock-password-protected-pdf";
-import ResizePhotoForGovernmentFormsIndiaContent from "../content/resize-photo-for-government-forms-india";
 import HowToCalculateInHandSalaryFromCtcContent from "../content/how-to-calculate-in-hand-salary-from-ctc";
-import OldVsNewTaxRegimeIndia2025Content from "../content/old-vs-new-tax-regime-india-2025";
 import HowToStartSipIndiaBeginnersGuideContent from "../content/how-to-start-sip-india-beginners-guide";
 import NoticePeriodBuyoutIndiaGuideContent from "../content/notice-period-buyout-india-guide";
 import HowToSaveIncomeTaxIndiaLegallyContent from "../content/how-to-save-income-tax-india-legally";
@@ -37,9 +31,7 @@ import SalaryHikeNegotiationGuideIndiaContent from "../content/salary-hike-negot
 import HowToMergePdfOnMobileIndiaContent from "../content/how-to-merge-pdf-on-mobile-india";
 import HowToConvertWordToPdfFreeContent from "../content/how-to-convert-word-to-pdf-free";
 import CompressImageUnder100kbIndiaContent from "../content/compress-image-under-100kb-india";
-import PassportPhotoSizeRequirementsIndiaGuideContent from "../content/passport-photo-size-requirements-india-guide";
 import HowToCreateDigitalSignatureIndiaContent from "../content/how-to-create-digital-signature-india";
-import AadhaarPhotoSizeGuideContent from "../content/aadhaar-photo-size-guide";
 import QrCodeForSmallBusinessIndiaContent from "../content/qr-code-for-small-business-india";
 import RentReceiptForHraExemptionIndiaContent from "../content/rent-receipt-for-hra-exemption-india";
 import CgpaToPercentageForJobApplicationsContent from "../content/cgpa-to-percentage-for-job-applications";
@@ -179,28 +171,18 @@ const contentBySlug: Record<string, () => JSX.Element> = {
   "how-to-convert-excel-to-pdf-free": HowToConvertExcelToPdfFreeContent,
   "how-to-convert-ppt-to-pdf-free": HowToConvertPptToPdfFreeContent,
   "aadhaar-card-photo-size": AadhaarCardPhotoSizeContent,
-  "how-to-compress-pdf-online-free": HowToCompressPdfOnlineFreeContent,
   "best-free-pdf-tools-online-2026": BestFreePdfToolsOnline2026Content,
-  "how-to-split-pdf-pages-online-free-2026":
-    HowToSplitPdfPagesOnlineFree2026Content,
-  "reduce-image-size-without-losing-quality":
-    ReduceImageSizeWithoutLosingQualityContent,
   "how-to-convert-heic-to-jpg-on-windows":
     HowToConvertHeicToJpgOnWindowsContent,
   "convert-pdf-to-word-free": ConvertPdfToWordFreeContent,
-  "passport-size-photo-dimensions-india":
-    PassportSizePhotoDimensionsIndiaContent,
   "how-to-compress-pdf-under-1mb": HowToCompressPdfUnder1mbContent,
   "how-to-merge-pdf-files-free": HowToMergePdfFilesFreeContent,
   "how-to-remove-background-from-photo-free":
     HowToRemoveBackgroundFromPhotoFreeContent,
   "how-to-unlock-password-protected-pdf":
     HowToUnlockPasswordProtectedPdfContent,
-  "resize-photo-for-government-forms-india":
-    ResizePhotoForGovernmentFormsIndiaContent,
   "how-to-calculate-in-hand-salary-from-ctc":
     HowToCalculateInHandSalaryFromCtcContent,
-  "old-vs-new-tax-regime-india-2025": OldVsNewTaxRegimeIndia2025Content,
   "how-to-start-sip-india-beginners-guide":
     HowToStartSipIndiaBeginnersGuideContent,
   "notice-period-buyout-india-guide": NoticePeriodBuyoutIndiaGuideContent,
@@ -214,11 +196,8 @@ const contentBySlug: Record<string, () => JSX.Element> = {
   "how-to-merge-pdf-on-mobile-india": HowToMergePdfOnMobileIndiaContent,
   "how-to-convert-word-to-pdf-free": HowToConvertWordToPdfFreeContent,
   "compress-image-under-100kb-india": CompressImageUnder100kbIndiaContent,
-  "passport-photo-size-requirements-india-guide":
-    PassportPhotoSizeRequirementsIndiaGuideContent,
   "how-to-create-digital-signature-india":
     HowToCreateDigitalSignatureIndiaContent,
-  "aadhaar-photo-size-guide": AadhaarPhotoSizeGuideContent,
   "qr-code-for-small-business-india": QrCodeForSmallBusinessIndiaContent,
   "rent-receipt-for-hra-exemption-india":
     RentReceiptForHraExemptionIndiaContent,

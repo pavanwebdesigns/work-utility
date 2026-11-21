@@ -286,17 +286,6 @@ export const blogPosts: BlogPost[] = [
     },
   },
   {
-    slug: "how-to-compress-pdf-online-free",
-    title: "How to Compress PDF Online Free — Without Losing Quality",
-    excerpt:
-      "When your PDF is too large for email or a government portal, here is the fastest way to reduce file size without ruining the document.",
-    category: "PDF",
-    readTime: "6 min read",
-    author: "Pavan Kumar",
-    lastUpdated: "June 2026",
-    cta: { toolName: "PDF Compress", toolHref: "/tools/pdf-compress" },
-  },
-  {
     slug: "best-free-pdf-tools-online-2026",
     title: "Best Free PDF Tools Online 2026 — No Downloads, No Signup",
     excerpt:
@@ -306,28 +295,6 @@ export const blogPosts: BlogPost[] = [
     author: "Pavan Kumar",
     lastUpdated: "June 2026",
     cta: { toolName: "PDF Compress", toolHref: "/tools/pdf-compress" },
-  },
-  {
-    slug: "how-to-split-pdf-pages-online-free-2026",
-    title: "How to Split PDF Pages Online Free (2026)",
-    excerpt:
-      "Extract specific pages or split a PDF into individual files free online. Page range syntax, ZIP download, no signup required.",
-    category: "PDF",
-    readTime: "4 min read",
-    author: "Pavan Kumar",
-    lastUpdated: "June 2026",
-    cta: { toolName: "PDF Split", toolHref: "/tools/pdf-split" },
-  },
-  {
-    slug: "reduce-image-size-without-losing-quality",
-    title: "How to Reduce Image Size Without Losing Quality — 5 Methods That Work",
-    excerpt:
-      "5 proven ways to shrink image files without visible quality loss. JPG vs PNG, target file sizes, social media limits, and a free browser-based compressor.",
-    category: "Images",
-    readTime: "8 min read",
-    author: "Pavan Kumar",
-    lastUpdated: "June 2026",
-    cta: { toolName: "Image Compress", toolHref: "/tools/image-compress" },
   },
   {
     slug: "how-to-convert-heic-to-jpg-on-windows",
@@ -350,20 +317,6 @@ export const blogPosts: BlogPost[] = [
     author: "Pavan Kumar",
     lastUpdated: "June 2026",
     cta: { toolName: "PDF to Word", toolHref: "/tools/pdf-to-word" },
-  },
-  {
-    slug: "passport-size-photo-dimensions-india",
-    title: "India Passport Photo Rule Change 2026 — What You Need to Know",
-    excerpt:
-      "India changed passport photo rules from September 2025. Old 2×2 inch square rejected. ICAO standards, e-passport biometrics, and PSP 2.0 AI checking explained.",
-    category: "Photo",
-    readTime: "7 min read",
-    author: "Pavan Kumar",
-    lastUpdated: "June 2026",
-    cta: {
-      toolName: "Photo Resizer",
-      toolHref: "/tools/photo-resizer?preset=passport",
-    },
   },
   {
     slug: "how-to-compress-pdf-under-1mb",
@@ -410,17 +363,6 @@ export const blogPosts: BlogPost[] = [
     cta: { toolName: "Remove PDF Password", toolHref: "/tools/pdf-unlock" },
   },
   {
-    slug: "resize-photo-for-government-forms-india",
-    title: "How to Resize Photo for Government Forms in India — Aadhaar, PAN, Passport (2026)",
-    excerpt:
-      "Complete guide to photo size for Aadhaar, PAN, passport, driving licence, and government exams. Dimensions, KB limits, and free resize tool.",
-    category: "Photo",
-    readTime: "6 min read",
-    author: "Pavan Kumar",
-    lastUpdated: "June 2026",
-    cta: { toolName: "Photo Resizer", toolHref: "/tools/photo-resizer" },
-  },
-  {
     slug: "how-to-calculate-in-hand-salary-from-ctc",
     title: "How to Calculate In-Hand Salary from CTC — A Real Guide for Indian Employees",
     excerpt:
@@ -430,17 +372,6 @@ export const blogPosts: BlogPost[] = [
     author: "Pavan Kumar",
     lastUpdated: "June 2026",
     cta: { toolName: "CTC Calculator", toolHref: "/tools/ctc-calculator" },
-  },
-  {
-    slug: "old-vs-new-tax-regime-india-2025",
-    title: "Old Regime vs New Tax Regime 2025-26 — Which One Actually Saves More Money?",
-    excerpt:
-      "Confused between old and new tax regime? Real examples showing which regime saves more tax for different salary levels in India 2025-26.",
-    category: "Finance",
-    readTime: "6 min read",
-    author: "Pavan Kumar",
-    lastUpdated: "June 2026",
-    cta: { toolName: "Income Tax Calculator", toolHref: "/tools/income-tax-calculator" },
   },
   {
     slug: "how-to-start-sip-india-beginners-guide",
@@ -619,17 +550,6 @@ export const blogPosts: BlogPost[] = [
     cta: { toolName: "Image Compress", toolHref: "/tools/image-compress" },
   },
   {
-    slug: "passport-photo-size-requirements-india-guide",
-    title: "Passport Photo Size Requirements India — Complete Guide 2026",
-    excerpt:
-      "Complete guide to Indian passport photo size, dimensions, background, and common rejection reasons. Resize free online.",
-    category: "Photo",
-    readTime: "6 min read",
-    author: "Pavan Kumar",
-    lastUpdated: "June 2026",
-    cta: { toolName: "Photo Resizer", toolHref: "/tools/photo-resizer?preset=passport" },
-  },
-  {
     slug: "how-to-create-digital-signature-india",
     title: "How to Create a Digital Signature Free Online — India Guide 2026",
     excerpt:
@@ -639,17 +559,6 @@ export const blogPosts: BlogPost[] = [
     author: "Pavan Kumar",
     lastUpdated: "June 2026",
     cta: { toolName: "Signature Maker", toolHref: "/tools/signature-maker" },
-  },
-  {
-    slug: "aadhaar-photo-size-guide",
-    title: "Aadhaar Card Photo Size — Exact Requirements & How to Resize Free",
-    excerpt:
-      "Aadhaar card photo size is 413×531 pixels, max 50KB. Guide to resize a printed photo for Aadhaar enrollment center visits.",
-    category: "Photo",
-    readTime: "6 min read",
-    author: "Pavan Kumar",
-    lastUpdated: "June 2026",
-    cta: { toolName: "Photo Resizer", toolHref: "/tools/photo-resizer?preset=aadhaar" },
   },
   {
     slug: "qr-code-for-small-business-india",
@@ -1636,33 +1545,12 @@ export const blogSeoMetadata: Record<
     keywords:
       "aadhaar card photo requirements, aadhaar photo rejected reason, uidai photo rejection, aadhaar enrollment photo size",
   },
-  "how-to-compress-pdf-online-free": {
-    title: "How to Compress PDF Online Free in 2026 | WorkUtilities",
-    description:
-      "Compress PDF files online free without losing quality. Reduce PDF size for email, WhatsApp, or government portals. No signup, runs in browser.",
-    keywords:
-      "compress pdf online free, reduce pdf size, pdf compressor india, pdf too large for email",
-  },
   "best-free-pdf-tools-online-2026": {
     title: "Best Free PDF Tools Online 2026 — No Download | WorkUtilities",
     description:
       "Best free online PDF tools in 2026 — compress, merge, split, convert to Word, unlock passwords. No signup, browser-based, private.",
     keywords:
       "best free pdf tools online, pdf merge split compress free, online pdf tools no signup, browser pdf converter 2026",
-  },
-  "how-to-split-pdf-pages-online-free-2026": {
-    title: "How to Split PDF Pages Online Free 2026 | WorkUtilities",
-    description:
-      "Split PDF files and extract specific pages free online. Page range syntax, ZIP download, browser-based — no signup required.",
-    keywords:
-      "split pdf pages online free, extract pages from pdf, pdf split page range, split pdf into individual pages",
-  },
-  "reduce-image-size-without-losing-quality": {
-    title: "How to Reduce Image Size Without Losing Quality — 5 Methods That Work",
-    description:
-      "Learn 5 proven ways to reduce image file size without losing quality. JPG vs PNG compression, target file sizes, social media limits, and a free browser-based tool. No signup.",
-    keywords:
-      "reduce image size without losing quality, compress image online free, jpg vs png compression, image file size for website",
   },
   "how-to-convert-heic-to-jpg-on-windows": {
     title: "How to Convert HEIC to JPG on Windows Free 2026 | WorkUtilities",
@@ -1677,13 +1565,6 @@ export const blogSeoMetadata: Record<
       "Convert PDF to editable Word document free online. Processed on our secure server over HTTPS and deleted immediately after conversion. No signup.",
     keywords:
       "convert pdf to word free, pdf to word online india, pdf to docx converter free",
-  },
-  "passport-size-photo-dimensions-india": {
-    title: "India Passport Photo Rule Change 2026 — What You Need to Know",
-    description:
-      "India changed passport photo rules from September 2025. Old 2×2 inch format rejected. New 35×45mm ICAO standard explained. Passport Seva 2.0 AI checking what it means for applicants.",
-    keywords:
-      "india passport photo rule change 2025, passport seva 2.0 photo rejection, icao passport photo india, why passport photo rejected",
   },
   "how-to-compress-pdf-under-1mb": {
     title: "How to Compress PDF Under 1MB Free (2026) | WorkUtilities",
@@ -1713,26 +1594,12 @@ export const blogSeoMetadata: Record<
     keywords:
       "unlock password protected pdf, open bank statement pdf india, remove pdf password free online",
   },
-  "resize-photo-for-government-forms-india": {
-    title: "Resize Photo for Government Forms India 2026 | WorkUtilities",
-    description:
-      "Complete guide to photo size requirements for Indian government forms. Aadhaar, PAN card, passport, driving licence photo dimensions and KB limits. Free resize tool.",
-    keywords:
-      "resize photo for government forms india, aadhaar photo size pixels, pan card photo kb limit, passport photo resize online",
-  },
   "how-to-calculate-in-hand-salary-from-ctc": {
     title: "How to Calculate In-Hand Salary from CTC — Real Guide 2026 | WorkUtilities",
     description:
       "Learn how to calculate your actual in-hand salary from CTC. Understand PF, professional tax, and HRA deductions with real examples for Indian employees.",
     keywords:
       "in hand salary from ctc, ctc to take home salary india, pf deduction calculator, salary breakdown india",
-  },
-  "old-vs-new-tax-regime-india-2025": {
-    title: "Old vs New Tax Regime 2025-26 India — Which Saves More? | WorkUtilities",
-    description:
-      "Confused between old and new tax regime? Real examples showing which regime saves more tax for different salary levels in India 2025-26.",
-    keywords:
-      "old vs new tax regime 2025, new tax regime india 2025-26, income tax regime comparison, tax savings india",
   },
   "how-to-start-sip-india-beginners-guide": {
     title: "How to Start SIP in India — Beginner Guide 2025 | WorkUtilities",
@@ -1846,26 +1713,12 @@ export const blogSeoMetadata: Record<
     keywords:
       "compress image under 100kb india, ssc photo 50kb, government portal image size, reduce image kb limit",
   },
-  "passport-photo-size-requirements-india-guide": {
-    title: "Passport Photo Size Requirements India 2026 | WorkUtilities",
-    description:
-      "Complete guide to Indian passport photo size, dimensions, background, and common rejection reasons. Resize free online.",
-    keywords:
-      "passport photo size india 2026, passport photo requirements mea, indian passport photo dimensions, passport photo resize",
-  },
   "how-to-create-digital-signature-india": {
     title: "Create Digital Signature Free Online India 2026 | WorkUtilities",
     description:
       "Create a digital signature free online in India. For PDFs, documents, and forms. No software download needed.",
     keywords:
       "digital signature india free, create signature online, electronic signature pdf india, sign document online",
-  },
-  "aadhaar-photo-size-guide": {
-    title: "Aadhaar Card Photo Size Guide — 413×531 Pixels, 50KB | WorkUtilities",
-    description:
-      "Aadhaar card photo size is 413×531 pixels, max 50KB. Guide to resize a printed photo for Aadhaar enrollment center visits.",
-    keywords:
-      "aadhaar photo size 413x531, aadhaar photo 50kb, uidai photo requirements, aadhaar enrollment photo resize",
   },
   "qr-code-for-small-business-india": {
     title: "Create QR Code for Business India 2026 — Free Guide | WorkUtilities",

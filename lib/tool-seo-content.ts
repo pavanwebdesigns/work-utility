@@ -209,8 +209,8 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
       },
     ],
     blogGuide: {
-      href: "/blog/how-to-compress-pdf-online-free",
-      title: "How to compress PDF online free — without losing quality",
+      href: "/blog/how-to-compress-pdf-under-1mb",
+      title: "How to compress PDF under 1MB — free guide for India portals",
     },
   },
   "image-compress": {
@@ -276,8 +276,8 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
       },
     ],
     blogGuide: {
-      href: "/blog/reduce-image-size-without-losing-quality",
-      title: "How to reduce image size without losing quality — 5 methods that work",
+      href: "/blog/compress-image-under-100kb-india",
+      title: "How to compress an image under 100KB for India portals",
     },
   },
   "photo-resizer": {
@@ -745,8 +745,8 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
       },
     ],
     blogGuide: {
-      href: "/blog/how-to-split-pdf-pages-online-free-2026",
-      title: "How to split PDF pages online free",
+      href: "/blog/how-to-split-pdf-extract-pages-india",
+      title: "How to split a PDF and extract pages — India guide",
     },
   },
   "pdf-unlock": {
@@ -1920,8 +1920,8 @@ const TOOL_SEO_CONTENT: Record<ToolSeoSlug, ToolSeoEntry> = {
       },
     ],
     blogGuide: {
-      href: "/blog/old-vs-new-tax-regime-india-2025",
-      title: "Old regime vs new tax regime 2025-26 — which one saves more money?",
+      href: "/blog/old-vs-new-tax-regime-comparison-2026",
+      title: "Old vs new tax regime India 2026 — which saves more?",
     },
   },
   "signature-maker": {
