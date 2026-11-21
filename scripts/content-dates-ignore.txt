@@ -1,0 +1,24 @@
+# Refactor-only commits — skipped when computing publishedAt / updatedAt / lastmod.
+# Full or short SHAs; one per line. Content commits (A6, Step 3 merges, etc.) stay counted.
+
+# ToolShell migration
+f979e21
+abd2a8a
+6bc0ad2
+bf0215c
+e205d68
+dd29df0
+
+# Phase 1 A1 / A1b (canonical + missing OG only)
+65b14e8
+58f4070
+
+# CoreCut registry + noindex robots helper (touched every layout)
+817f648
+c596ede
+
+# Merge commits (no unique content of their own)
+fd54898
+3eeefd0
+4acb521
+c9d22f8

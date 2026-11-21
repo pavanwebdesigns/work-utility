@@ -1,6 +1,12 @@
 /**
- * Audits every URL in the local sitemap.
+ * Audits every URL in the local sitemap (core / indexable pages only after Step 4).
  * Start the production server first: npm run build && npm start
+ *
+ * Thin-page guard (Step 5):
+ *   - tools: ≥ 400 visible words
+ *   - blog posts: ≥ 800 visible words
+ *   - exactly one <h1>
+ *   - unique title and unique description
  */
 const ORIGIN = process.env.SEO_AUDIT_ORIGIN ?? "http://localhost:3000";
 const SITE = "https://workutilities.com";
@@ -41,6 +47,12 @@ function robotsDirective(html) {
   return values.join(", ");
 }
 
+function minWordsFor(pathname) {
+  if (pathname.startsWith("/blog/") && pathname !== "/blog/") return 800;
+  if (pathname.startsWith("/tools/") && pathname !== "/tools/") return 400;
+  return 300;
+}
+
 async function mapPool(items, limit, worker) {
   const results = new Array(items.length);
   let next = 0;
@@ -68,6 +80,7 @@ if (urls.length === 0) {
 }
 
 const titles = new Map();
+const descriptions = new Map();
 const errors = [];
 
 await mapPool(urls, 8, async (url) => {
@@ -126,8 +139,9 @@ await mapPool(urls, 8, async (url) => {
   }
 
   const words = visibleText(html);
-  if (words.length < 300) {
-    errors.push(`${url}: ${words.length} visible words`);
+  const minWords = minWordsFor(pathname);
+  if (words.length < minWords) {
+    errors.push(`${url}: ${words.length} visible words (need ≥ ${minWords})`);
   }
 
   const title = attr(html, /<title>([^<]*)<\/title>/i) ?? "";
@@ -151,11 +165,21 @@ await mapPool(urls, 8, async (url) => {
     seen.push(url);
     titles.set(title, seen);
   }
+  if (description) {
+    const seen = descriptions.get(description) ?? [];
+    seen.push(url);
+    descriptions.set(description, seen);
+  }
 });
 
 for (const [title, pages] of titles) {
   if (pages.length < 2) continue;
   errors.push(`duplicate title "${title}": ${pages.join(", ")}`);
+}
+
+for (const [description, pages] of descriptions) {
+  if (pages.length < 2) continue;
+  errors.push(`duplicate description "${description}": ${pages.join(", ")}`);
 }
 
 const buckets = new Map();
@@ -175,17 +199,8 @@ if (buckets.size > 0) {
   for (const [key, count] of [...buckets.entries()].sort((a, b) => b[1] - a[1])) {
     console.log(`  ${count}  ${key}`);
   }
-  console.log("Examples:");
-  const shown = new Map();
+  console.log("Failures:");
   for (const error of errors) {
-    const rule = error.includes(": ") ? error.slice(error.indexOf(": ") + 2) : error;
-    const key = rule
-      .replace(/\d+/g, "N")
-      .replace(/https?:\/\/\S+/g, "URL")
-      .replace(/"[^"]+"/g, '"…"');
-    const count = shown.get(key) ?? 0;
-    if (count >= 3) continue;
-    shown.set(key, count + 1);
     console.log(`  ${error}`);
   }
 }

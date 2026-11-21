@@ -2,11 +2,14 @@
  * Writes lib/content-dates.json from git history.
  * Run locally and commit the JSON. Vercel's clone may not have history.
  *
+ * Skips SHAs listed in scripts/content-dates-ignore.txt (refactor-only commits
+ * such as ToolShell migrations or robots-helper layout wraps).
+ *
  * Blog posts:
- *   publishedAt = author date of the commit that added the content file
- *   updatedAt   = author date of the last commit that changed that file
+ *   publishedAt = author date of the first non-ignored commit that added the file
+ *   updatedAt   = author date of the newest non-ignored commit that changed it
  * Tools, photo landings, and other sitemap pages:
- *   lastmod = committer date of the last commit that changed that folder or file
+ *   lastmod = committer date of the newest non-ignored commit that changed that path
  */
 import { execFileSync } from "node:child_process";
 import { existsSync, readdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
@@ -28,17 +31,53 @@ function requireDate(value, label) {
   return value;
 }
 
-function lastCommit(format, filePath) {
+const ignorePrefixes = readFileSync(
+  path.join(root, "scripts/content-dates-ignore.txt"),
+  "utf8",
+)
+  .split("\n")
+  .map((line) => line.replace(/#.*$/, "").trim())
+  .filter(Boolean);
+
+function isIgnored(hash) {
+  return ignorePrefixes.some(
+    (prefix) => hash.startsWith(prefix) || prefix.startsWith(hash),
+  );
+}
+
+/** Walk `git log --format="%H <date>"` and return the newest non-ignored date. */
+function newestNonIgnoredDate(dateToken, filePath, extraArgs = []) {
+  const output = git([
+    "log",
+    ...extraArgs,
+    `--format=%H ${dateToken}`,
+    "--",
+    filePath,
+  ]);
+  if (!output) {
+    return "";
+  }
+  for (const line of output.split("\n")) {
+    const hash = line.slice(0, 40);
+    const date = line.slice(41).trim();
+    if (!hash || !date) continue;
+    if (isIgnored(hash)) continue;
+    return date;
+  }
+  return "";
+}
+
+function lastCommit(dateToken, filePath) {
   return requireDate(
-    git(["log", "-1", `--format=${format}`, "--", filePath]),
+    newestNonIgnoredDate(dateToken, filePath),
     filePath,
   );
 }
 
-function latestOf(format, paths) {
+function latestOf(dateToken, paths) {
   let latest = "";
   for (const filePath of paths) {
-    const iso = lastCommit(format, filePath);
+    const iso = lastCommit(dateToken, filePath);
     if (iso > latest) latest = iso;
   }
   return latest;
@@ -56,7 +95,7 @@ for (const slug of postSlugs.sort()) {
     throw new Error(`Blog post "${slug}" has no content file at ${filePath}`);
   }
   const publishedAt = requireDate(
-    git(["log", "--diff-filter=A", "--format=%aI", "-1", "--", filePath]),
+    newestNonIgnoredDate("%aI", filePath, ["--diff-filter=A"]),
     `${filePath} (added)`,
   );
   const updatedAt = lastCommit("%aI", filePath);
@@ -125,3 +164,4 @@ writeFileSync(
 console.log(
   `Wrote lib/content-dates.json (${Object.keys(posts).length} posts, ${Object.keys(sortedLastmod).length} lastmod paths)`,
 );
+console.log(`Ignored ${ignorePrefixes.length} refactor SHA prefixes`);
