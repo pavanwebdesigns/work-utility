@@ -6,8 +6,10 @@ This folder is the **single source of truth** for the project: what the site is,
 |---|---|
 | `README.md` | This overview: product, stack, architecture, decisions log, roadmap |
 | `TOOLS-INVENTORY.md` | All 130 tools with market, processing type, Google stats, planned status |
-| `PHASE-1-SEO-SPEC.md` | Current work: SEO/technical fixes, merges, pruning (tasks A1–A10, C, D) |
-| `PHASE-1B-UX-SPEC.md` | Next work: tool UX and look-and-feel (tasks U1–U8) |
+| `PHASE-1-SEO-SPEC.md` | Earlier SEO work (A1–A8 done; A9/A10 replaced by core cut) |
+| `PHASE-1B-UX-SPEC.md` | Tool UX and look-and-feel (tasks U1–U8) |
+| `CORE-CUT-SPEC.md` | Current work: shrink indexed footprint to a strong core |
+| `REPORT-2026-11-21.md` | Nov 2026 GSC/GA4 report that drove the core cut |
 
 **Roles:** Pavan = owner. Claude = architect (plans, specs, reviews). Cursor = developer (implements one task at a time from these specs).
 
@@ -60,6 +62,7 @@ Add a line whenever we decide something. Newest first.
 
 | Date | Decision | Why |
 |---|---|---|
+| 2026-11-21 | Indexed core is defined in one file, `lib/index-policy.ts` (45 tools, 21 posts, 12 pages). Everything else stays live but will be noindex. | Indexed pages fell 271→46; scaled content matches Google's demotion pattern. Replaces Phase 1 A9/A10. |
 | 2026-09-30 | Blog dates and sitemap `lastmod` are generated from git into `lib/content-dates.json`. ToolShell uses `RELATED_TOOLS` when that slug has a list. | A shared build date made every URL look unchanged. Compress Word already had a curated related list. |
 | 2026-09-30 | All 130 tool pages use `ToolShell`. `ToolLayout` stays deleted. DinoGame is off tool pages. | The shell was copied by hand; the breadcrumb and privacy chip now come from one component |
 | 2026-09-30 | ToolShell H1 keeps each page's original keyword heading (`h1` prop). With no aside, the tool column is `max-w-3xl`. | Registry names dropped search keywords; inputs were stretching across 1440px |
@@ -76,10 +79,11 @@ Add a line whenever we decide something. Newest first.
 
 **Baseline (GSC, Jun 28 – Sep 27, 2026):** 31 clicks, 24,250 impressions, avg position ~66. Impressions dropped to ~15/day after Sep 23 (quality re-evaluation, not a technical outage). Best pages: `/blog/aadhaar-card-photo-size` (pos 9.4), word counter (8.4), percentage-of-marks guide (12.3).
 
-**Phase 1 (in progress):** `PHASE-1-SEO-SPEC.md`
-- [x] A1 canonical/OG · [x] A1b missing OG · [x] A2 /tools server list · [x] A3/A3b photo resizer SSR static · [x] A4 currency · [x] A5 FAQ HTML
-- [x] A6 privacy truth · [x] A7 internal links (with U1) · [x] A8 sitemap + audit script (first run: 115 title/description/word errors, no canonical or h1 errors) · [ ] A9 merges · [ ] A10 prune + market field · [ ] C quick wins · [ ] D small bugs
-- Checkpoint 1 merge after A5
+**Core cut (in progress):** `CORE-CUT-SPEC.md` — branch `core-cut`
+- [x] Step 0 bring A8 · [x] Step 1 central index registry · [ ] Step 2 noindex · [ ] Step 3 redirects · [ ] Step 4 sitemap/listings · [ ] Step 5 thin-page guard · [ ] Step 6 verify + PR
+
+**Phase 1:** `PHASE-1-SEO-SPEC.md`
+- [x] A1–A8 · A9/A10 replaced by core cut · [ ] C quick wins · [ ] D small bugs
 
 **Phase 1B:** `PHASE-1B-UX-SPEC.md` — U1 ToolShell done (all 131 tool pages, including word-compress). Then theme, photo resizer, calculators, file tools, homepage.
 
