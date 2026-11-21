@@ -6,11 +6,11 @@ export const metadata: Metadata = withRobots("https://workutilities.com/tools/em
     absolute: "EMI Calculator — Home, Car & Personal Loan India",
   },
   description:
-    "Free EMI calculator for home loan, car loan, and personal loan in India. Enter loan amount, rate, and tenure — get instant EMI, total interest, and payment schedule.",
+    "Free EMI calculator for home, car, and personal loans in India. Enter amount, rate, and tenure — get EMI, total interest, and payment schedule.",
   openGraph: buildOpenGraph({
     title: "EMI Calculator — Home, Car & Personal Loan India",
     description:
-      "Free EMI calculator for home loan, car loan, and personal loan in India. Enter loan amount, rate, and tenure — get instant EMI, total interest, and payment schedule.",
+      "Free EMI calculator for home, car, and personal loans in India. Enter amount, rate, and tenure — get EMI, total interest, and payment schedule.",
     url: "https://workutilities.com/tools/emi-calculator",
     type: "website",
   }),

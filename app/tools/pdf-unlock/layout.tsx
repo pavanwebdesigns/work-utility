@@ -6,7 +6,7 @@ export const metadata: Metadata = withRobots("https://workutilities.com/tools/pd
     absolute: "Remove PDF Password Free Online | WorkUtilities",
   },
   description:
-    "Remove password from protected PDF files free online. Unlock a PDF when you know the password. Processed on our secure server over HTTPS and deleted immediately. No signup.",
+    "Remove password from protected PDF files free online. Unlock a PDF when you know the password. Processed securely over HTTPS and deleted after. No signup.",
   openGraph: buildOpenGraph({
     title: "Remove PDF Password Free Online",
     description:

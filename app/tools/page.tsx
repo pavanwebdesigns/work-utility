@@ -15,11 +15,11 @@ import {
   type ToolListingItem,
 } from "@/lib/tool-categories";
 
-const TOOLS_TITLE = "All Free Online Tools — PDF, Image, Finance & More";
+const TOOLS_TITLE = "Free Online Tools — PDF, Image & Finance | WorkUtilities";
 const TOOLS_DESCRIPTION = `Browse ${ALL_TOOLS.length} free online tools for PDF, images, documents, finance, students, and everyday utilities. No signup required.`;
 
 export const metadata: Metadata = withRobots("https://workutilities.com/tools", {
-  title: TOOLS_TITLE,
+  title: { absolute: TOOLS_TITLE },
   description: TOOLS_DESCRIPTION,
   alternates: { canonical: "https://workutilities.com/tools" },
   openGraph: buildOpenGraph({

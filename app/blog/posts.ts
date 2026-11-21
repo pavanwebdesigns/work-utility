@@ -1555,7 +1555,7 @@ export const blogSeoMetadata: Record<
       "best free pdf tools online, pdf merge split compress free, online pdf tools no signup, browser pdf converter 2026",
   },
   "how-to-convert-heic-to-jpg-on-windows": {
-    title: "How to Convert HEIC to JPG on Windows Free 2026 | WorkUtilities",
+    title: "Convert HEIC to JPG on Windows Free 2026 | WorkUtilities",
     description:
       "iPhone HEIC photos won't open on Windows? Convert HEIC to JPG free online in seconds. No software install, private browser conversion.",
     keywords:
@@ -1590,21 +1590,21 @@ export const blogSeoMetadata: Record<
       "remove background from photo free, background remover online, etsy product photo white background, ai background removal free",
   },
   "how-to-unlock-password-protected-pdf": {
-    title: "Open Password Protected PDF Free Online (2026) | WorkUtilities",
+    title: "Open Password Protected PDF Free (2026) | WorkUtilities",
     description:
       "Open and remove password from PDF files free online. Works for bank statements, salary slips, and other password protected PDFs in India. No software needed.",
     keywords:
       "unlock password protected pdf, open bank statement pdf india, remove pdf password free online",
   },
   "how-to-calculate-in-hand-salary-from-ctc": {
-    title: "How to Calculate In-Hand Salary from CTC — Real Guide 2026 | WorkUtilities",
+    title: "Calculate In-Hand Salary from CTC 2026 | WorkUtilities",
     description:
       "Learn how to calculate your actual in-hand salary from CTC. Understand PF, professional tax, and HRA deductions with real examples for Indian employees.",
     keywords:
       "in hand salary from ctc, ctc to take home salary india, pf deduction calculator, salary breakdown india",
   },
   "how-to-start-sip-india-beginners-guide": {
-    title: "How to Start SIP in India — Beginner Guide 2025 | WorkUtilities",
+    title: "Start SIP in India — Beginner Guide 2025 | WorkUtilities",
     description:
       "Complete guide to starting SIP in India. How much to invest, which funds to choose, and how to calculate returns. Free SIP calculator included.",
     keywords:
@@ -1709,35 +1709,35 @@ export const blogSeoMetadata: Record<
       "convert word to pdf free online, docx to pdf india, word to pdf without office, resume pdf converter",
   },
   "compress-image-under-100kb-india": {
-    title: "Compress Image Under 100KB for Government Portals India | WorkUtilities",
+    title: "Compress Image Under 100KB India Guide | WorkUtilities",
     description:
       "Compress image to under 100KB for UPSC, SSC, PAN, and other Indian government portal uploads. Free online tool.",
     keywords:
       "compress image under 100kb india, ssc photo 50kb, government portal image size, reduce image kb limit",
   },
   "how-to-create-digital-signature-india": {
-    title: "Create Digital Signature Free Online India 2026 | WorkUtilities",
+    title: "Digital Signature Free Online India 2026 | WorkUtilities",
     description:
       "Create a digital signature free online in India. For PDFs, documents, and forms. No software download needed.",
     keywords:
       "digital signature india free, create signature online, electronic signature pdf india, sign document online",
   },
   "qr-code-for-small-business-india": {
-    title: "Create QR Code for Business India 2026 — Free Guide | WorkUtilities",
+    title: "QR Code for Business India 2026 Free | WorkUtilities",
     description:
       "Create QR codes for your shop, business card, UPI payment, WhatsApp, and menu free online. Guide for Indian small businesses.",
     keywords:
       "qr code for business india, upi qr code generator, shop qr code free, whatsapp qr code business",
   },
   "rent-receipt-for-hra-exemption-india": {
-    title: "Rent Receipt for HRA Exemption India 2026 — Generate PDF Free | WorkUtilities",
+    title: "Rent Receipt for HRA Exemption India 2026 | WorkUtilities",
     description:
       "Generate rent receipts for HRA tax exemption. What details are required, when landlord PAN is needed, and how to download PDF free.",
     keywords:
       "rent receipt hra exemption india, hra rent receipt format, landlord pan rent receipt, generate rent receipt pdf",
   },
   "cgpa-to-percentage-for-job-applications": {
-    title: "CGPA to Percentage for Job Applications — VTU, Anna, CBSE | WorkUtilities",
+    title: "CGPA to Percentage for Jobs — VTU Anna CBSE | WorkUtilities",
     description:
       "Convert CGPA to percentage for job applications, government forms, and visa. VTU formula (×9.5), Anna University, CBSE explained.",
     keywords:
@@ -1758,21 +1758,21 @@ export const blogSeoMetadata: Record<
       "passphrase generator, random passphrase generator, correct horse battery staple, memorable password generator, passphrase vs password",
   },
   "how-to-calculate-percentage-of-marks-india": {
-    title: "How to Calculate Percentage of Marks — Indian Students 2026 | WorkUtilities",
+    title: "Calculate Percentage of Marks India 2026 | WorkUtilities",
     description:
       "Calculate percentage of marks for board exams, entrance tests, and job applications in India. Simple formula with examples.",
     keywords:
       "calculate percentage of marks india, class 12 percentage formula, board exam percentage, aggregate percentage calculator",
   },
   "how-to-resize-photo-for-government-exams": {
-    title: "Resize Photo for Government Exams India 2026 — UPSC SSC Railway | WorkUtilities",
+    title: "Resize Photo for Government Exams India 2026 | WorkUtilities",
     description:
       "Complete photo size guide for UPSC, SSC CGL, Railway RRB, and state PSC exams. Resize free online with exact dimensions.",
     keywords:
       "government exam photo size india, ssc cgl photo 50kb, upsc photo dimensions, railway rrb photo resize",
   },
   "word-count-for-upsc-essay-writing": {
-    title: "Word Count for UPSC Essay — Practice Within Limits | WorkUtilities",
+    title: "Word Count for UPSC Essay Practice Guide | WorkUtilities",
     description:
       "UPSC essay word limit guide. How to count words, practice within 1000-1200 word limit, and improve essay writing speed.",
     keywords:
@@ -1821,7 +1821,7 @@ export const blogSeoMetadata: Record<
       "unit conversion guide students, km to miles india, celsius to fahrenheit, kg to lbs luggage limit",
   },
   "how-to-split-pdf-extract-pages-india": {
-    title: "Split PDF Extract Pages Free Online India 2026 | WorkUtilities",
+    title: "Split PDF & Extract Pages India 2026 | WorkUtilities",
     description:
       "Split PDF files and extract specific pages free online. No signup, works on mobile. Perfect for marksheets, certificates, and bank statements.",
     keywords:
@@ -2122,7 +2122,7 @@ export const blogSeoMetadata: Record<
       "roman numeral converter guide, roman numerals explained, number to roman numeral",
   },
   "leap-year-checker-guide": {
-    title: "Leap Year Checker Guide — The Full Rule with Examples | WorkUtilities",
+    title: "Leap Year Checker Guide — Full Rule Examples | WorkUtilities",
     description:
       "Check if any year is a leap year free online. Learn the divisible-by-4/100/400 rule, why 1900 wasn't a leap year, and why we need leap years at all.",
     keywords:
@@ -2432,7 +2432,7 @@ export const blogSeoMetadata: Record<
   "401k-vs-roth-ira-guide-usa": {
     title: "401k vs Roth IRA 2026 — Which Retirement Account Wins?",
     description:
-      "Traditional 401k vs Roth 401k vs Roth IRA explained for 2026. Tax bracket math, 2026 contribution limits, Roth 401k RMD elimination, and when each wins. Free calculator.",
+      "Traditional 401k vs Roth 401k vs Roth IRA for 2026. Tax bracket math, contribution limits, Roth 401k RMD changes, and when each wins. Free calculator.",
     keywords:
       "401k vs Roth IRA 2026, Traditional vs Roth 401k, Roth IRA income limit 2026",
   },

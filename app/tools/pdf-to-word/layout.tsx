@@ -6,7 +6,7 @@ export const metadata: Metadata = withRobots("https://workutilities.com/tools/pd
     absolute: "PDF to Word Converter — Free Online | WorkUtilities",
   },
   description:
-    "Convert PDF to editable Word document online free. Fast, accurate PDF to DOCX conversion. Processed on our secure server over HTTPS and deleted immediately. No signup.",
+    "Convert PDF to editable Word document online free. Fast, accurate PDF to DOCX conversion. Processed securely over HTTPS and deleted after. No signup.",
   openGraph: buildOpenGraph({
     title: "PDF to Word Converter — Free Online",
     description:

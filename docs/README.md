@@ -62,6 +62,7 @@ Add a line whenever we decide something. Newest first.
 
 | Date | Decision | Why |
 |---|---|---|
+| 2026-11-21 | Core Cut shipped on `core-cut`: index only ~78 core URLs; duplicates 301/308; real lastmod via ignore-list; thin-page audit reports only (no filler). A9/A10 replaced. | Recover from site-level quality demotion (271→46 indexed) by shrinking the indexed footprint. |
 | 2026-11-21 | `content-dates.json` skips refactor-only SHAs listed in `scripts/content-dates-ignore.txt` (ToolShell batches, A1/A1b, CoreCut Step1/2, merges). | Robots-helper and ToolShell commits had stamped every tool lastmod as "today". |
 | 2026-11-21 | Indexed core is defined in one file, `lib/index-policy.ts` (45 tools, 21 posts, 12 pages). Everything else stays live but will be noindex. | Indexed pages fell 271→46; scaled content matches Google's demotion pattern. Replaces Phase 1 A9/A10. |
 | 2026-09-30 | Blog dates and sitemap `lastmod` are generated from git into `lib/content-dates.json`. ToolShell uses `RELATED_TOOLS` when that slug has a list. | A shared build date made every URL look unchanged. Compress Word already had a curated related list. |
@@ -80,11 +81,11 @@ Add a line whenever we decide something. Newest first.
 
 **Baseline (GSC, Jun 28 – Sep 27, 2026):** 31 clicks, 24,250 impressions, avg position ~66. Impressions dropped to ~15/day after Sep 23 (quality re-evaluation, not a technical outage). Best pages: `/blog/aadhaar-card-photo-size` (pos 9.4), word counter (8.4), percentage-of-marks guide (12.3).
 
-**Core cut (in progress):** `CORE-CUT-SPEC.md` — branch `core-cut`
-- [x] Step 0 bring A8 · [x] Step 1 central index registry · [x] Step 2 noindex · [x] Step 3 redirects · [x] Step 4 sitemap/listings · [x] Step 5 thin-page guard · [ ] Step 6 verify + PR
+**Core cut (done):** `CORE-CUT-SPEC.md` — branch `core-cut` (PR open; owner merges)
+- [x] Step 0 bring A8 · [x] Step 1 central index registry · [x] Step 2 noindex · [x] Step 3 redirects · [x] Step 4 sitemap/listings · [x] Step 5 thin-page guard · [x] Step 6 verify + PR
 
 **Phase 1:** `PHASE-1-SEO-SPEC.md`
-- [x] A1–A8 · A9/A10 replaced by core cut · [ ] C quick wins · [ ] D small bugs
+- [x] A1–A8 · A9/A10 replaced by Core Cut · [ ] C quick wins · [ ] D small bugs
 
 **Phase 1B:** `PHASE-1B-UX-SPEC.md` — U1 ToolShell done (all 131 tool pages, including word-compress). Then theme, photo resizer, calculators, file tools, homepage.
 

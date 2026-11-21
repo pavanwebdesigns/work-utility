@@ -3,12 +3,12 @@ import { buildOpenGraph, withRobots } from "@/lib/seo";
 
 export const metadata: Metadata = withRobots("https://workutilities.com/tools/ppf-calculator", {
   title: {
-    absolute: "PPF Calculator India 2026 — Maturity, Interest & Returns Free",
+    absolute: "PPF Calculator India 2026 — Maturity & Interest",
   },
   description:
     "Calculate PPF maturity amount at 7.1% with year-by-year breakdown. Partial withdrawal, loan eligibility, and 80C benefits. Free PPF calculator India.",
   openGraph: buildOpenGraph({
-    title: "PPF Calculator India — Returns, Interest & Maturity",
+    title: "PPF Calculator India 2026 — Maturity & Interest",
     description:
       "Free PPF calculator with year-by-year table, withdrawal rules, and EEE tax status explained.",
     url: "https://workutilities.com/tools/ppf-calculator",
