@@ -655,7 +655,10 @@ async function encodeImageWithCanvas(args: EncodeImageArgs): Promise<Uint8Array 
     const width = Math.max(1, Math.round(bitmap.width * scale));
     const height = Math.max(1, Math.round(bitmap.height * scale));
     const canvas = createCanvas(width, height);
-    const context = canvas.getContext("2d");
+    const context = canvas.getContext("2d") as
+      | CanvasRenderingContext2D
+      | OffscreenCanvasRenderingContext2D
+      | null;
     if (!context) return null;
     if (args.outputMime === "image/jpeg") {
       context.fillStyle = "#ffffff";
@@ -710,7 +713,10 @@ async function pixelsHaveAlpha(bitmap: ImageBitmap): Promise<boolean> {
     const width = Math.max(1, Math.round(bitmap.width * scale));
     const height = Math.max(1, Math.round(bitmap.height * scale));
     const canvas = createCanvas(width, height);
-    const context = canvas.getContext("2d");
+    const context = canvas.getContext("2d") as
+      | CanvasRenderingContext2D
+      | OffscreenCanvasRenderingContext2D
+      | null;
     if (!context) return true;
     context.drawImage(bitmap, 0, 0, width, height);
     const data = context.getImageData(0, 0, width, height).data;
