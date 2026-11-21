@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildOpenGraph, withRobots } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withRobots("https://workutilities.com/tools/text-case-converter", {
   title: { absolute: "Text Case Converter — Free Online | WorkUtilities" },
   description:
     "Convert text to uppercase, lowercase, title case, camelCase, snake_case and more. Free online text case tool.",
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://workutilities.com/tools/text-case-converter",
   },
-};
+});
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;

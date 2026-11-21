@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildOpenGraph, withRobots } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withRobots("https://workutilities.com/tools/paycheck-calculator", {
   title: { absolute: "Paycheck Calculator 2026 — Free Take-Home Pay Estimate" },
   description:
     "Free 2026 paycheck calculator. Estimate your take-home pay after federal tax, FICA, and deductions. Based on current IRS tax brackets. No signup.",
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     type: "website",
   }),
   alternates: { canonical: "https://workutilities.com/tools/paycheck-calculator" },
-};
+});
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;

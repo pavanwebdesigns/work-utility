@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildOpenGraph, withRobots } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withRobots("https://workutilities.com/tools/character-counter", {
   title: {
     absolute: "Character Counter — Free Online Tool | WorkUtilities",
   },
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://workutilities.com/tools/character-counter",
   },
-};
+});
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;

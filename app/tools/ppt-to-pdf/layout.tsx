@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildOpenGraph, withRobots } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withRobots("https://workutilities.com/tools/ppt-to-pdf", {
   title: { absolute: "PPT to PDF Converter — Free Online | WorkUtilities" },
   description:
     "Convert PowerPoint presentations to PDF free online. No signup, browser-only PPT to PDF conversion.",
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     type: "website",
   }),
   alternates: { canonical: "https://workutilities.com/tools/ppt-to-pdf" },
-};
+});
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;

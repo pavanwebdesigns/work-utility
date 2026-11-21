@@ -83,7 +83,7 @@ export default function CompleteGovernmentFormsGuideIndiaContent() {
         enrollment centers request. Photo and biometric updates require an
         in-person visit — online updates cover demographic details (address,
         name, DOB) only. Guide:{" "}
-        <Link href="/blog/aadhaar-photo-size-guide">Aadhaar photo size guide</Link>.
+        <Link href="/aadhaar-photo-size">Aadhaar photo size guide</Link>.
         Detailed specs:{" "}
         <Link href="/aadhaar-photo-size">Aadhaar Photo Size</Link> landing page.
       </p>
@@ -98,7 +98,7 @@ export default function CompleteGovernmentFormsGuideIndiaContent() {
       <h2 id="passport">Passport Photo Requirements</h2>
       <p>
         MEA requires 35mm × 45mm, white background, neutral expression. Guides:{" "}
-        <Link href="/blog/passport-photo-size-requirements-india-guide">
+        <Link href="/passport-photo-size-india">
           Passport photo size requirements
         </Link>
         ,{" "}

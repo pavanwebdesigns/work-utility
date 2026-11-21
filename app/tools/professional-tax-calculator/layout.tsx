@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildOpenGraph, withRobots } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withRobots("https://workutilities.com/tools/professional-tax-calculator", {
   title: {
     absolute: "Professional Tax Calculator India — All States 2026",
   },
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://workutilities.com/tools/professional-tax-calculator",
   },
-};
+});
 
 export default function ProfessionalTaxCalculatorLayout({
   children,

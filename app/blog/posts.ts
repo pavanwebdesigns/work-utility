@@ -1,3 +1,5 @@
+import { CORE_POSTS } from "@/lib/index-policy";
+
 export type BlogCategory =
   | "PDF"
   | "Images"
@@ -286,17 +288,6 @@ export const blogPosts: BlogPost[] = [
     },
   },
   {
-    slug: "how-to-compress-pdf-online-free",
-    title: "How to Compress PDF Online Free — Without Losing Quality",
-    excerpt:
-      "When your PDF is too large for email or a government portal, here is the fastest way to reduce file size without ruining the document.",
-    category: "PDF",
-    readTime: "6 min read",
-    author: "Pavan Kumar",
-    lastUpdated: "June 2026",
-    cta: { toolName: "PDF Compress", toolHref: "/tools/pdf-compress" },
-  },
-  {
     slug: "best-free-pdf-tools-online-2026",
     title: "Best Free PDF Tools Online 2026 — No Downloads, No Signup",
     excerpt:
@@ -306,28 +297,6 @@ export const blogPosts: BlogPost[] = [
     author: "Pavan Kumar",
     lastUpdated: "June 2026",
     cta: { toolName: "PDF Compress", toolHref: "/tools/pdf-compress" },
-  },
-  {
-    slug: "how-to-split-pdf-pages-online-free-2026",
-    title: "How to Split PDF Pages Online Free (2026)",
-    excerpt:
-      "Extract specific pages or split a PDF into individual files free online. Page range syntax, ZIP download, no signup required.",
-    category: "PDF",
-    readTime: "4 min read",
-    author: "Pavan Kumar",
-    lastUpdated: "June 2026",
-    cta: { toolName: "PDF Split", toolHref: "/tools/pdf-split" },
-  },
-  {
-    slug: "reduce-image-size-without-losing-quality",
-    title: "How to Reduce Image Size Without Losing Quality — 5 Methods That Work",
-    excerpt:
-      "5 proven ways to shrink image files without visible quality loss. JPG vs PNG, target file sizes, social media limits, and a free browser-based compressor.",
-    category: "Images",
-    readTime: "8 min read",
-    author: "Pavan Kumar",
-    lastUpdated: "June 2026",
-    cta: { toolName: "Image Compress", toolHref: "/tools/image-compress" },
   },
   {
     slug: "how-to-convert-heic-to-jpg-on-windows",
@@ -350,20 +319,6 @@ export const blogPosts: BlogPost[] = [
     author: "Pavan Kumar",
     lastUpdated: "June 2026",
     cta: { toolName: "PDF to Word", toolHref: "/tools/pdf-to-word" },
-  },
-  {
-    slug: "passport-size-photo-dimensions-india",
-    title: "India Passport Photo Rule Change 2026 — What You Need to Know",
-    excerpt:
-      "India changed passport photo rules from September 2025. Old 2×2 inch square rejected. ICAO standards, e-passport biometrics, and PSP 2.0 AI checking explained.",
-    category: "Photo",
-    readTime: "7 min read",
-    author: "Pavan Kumar",
-    lastUpdated: "June 2026",
-    cta: {
-      toolName: "Photo Resizer",
-      toolHref: "/tools/photo-resizer?preset=passport",
-    },
   },
   {
     slug: "how-to-compress-pdf-under-1mb",
@@ -410,17 +365,6 @@ export const blogPosts: BlogPost[] = [
     cta: { toolName: "Remove PDF Password", toolHref: "/tools/pdf-unlock" },
   },
   {
-    slug: "resize-photo-for-government-forms-india",
-    title: "How to Resize Photo for Government Forms in India — Aadhaar, PAN, Passport (2026)",
-    excerpt:
-      "Complete guide to photo size for Aadhaar, PAN, passport, driving licence, and government exams. Dimensions, KB limits, and free resize tool.",
-    category: "Photo",
-    readTime: "6 min read",
-    author: "Pavan Kumar",
-    lastUpdated: "June 2026",
-    cta: { toolName: "Photo Resizer", toolHref: "/tools/photo-resizer" },
-  },
-  {
     slug: "how-to-calculate-in-hand-salary-from-ctc",
     title: "How to Calculate In-Hand Salary from CTC — A Real Guide for Indian Employees",
     excerpt:
@@ -432,19 +376,8 @@ export const blogPosts: BlogPost[] = [
     cta: { toolName: "CTC Calculator", toolHref: "/tools/ctc-calculator" },
   },
   {
-    slug: "old-vs-new-tax-regime-india-2025",
-    title: "Old Regime vs New Tax Regime 2025-26 — Which One Actually Saves More Money?",
-    excerpt:
-      "Confused between old and new tax regime? Real examples showing which regime saves more tax for different salary levels in India 2025-26.",
-    category: "Finance",
-    readTime: "6 min read",
-    author: "Pavan Kumar",
-    lastUpdated: "June 2026",
-    cta: { toolName: "Income Tax Calculator", toolHref: "/tools/income-tax-calculator" },
-  },
-  {
     slug: "how-to-start-sip-india-beginners-guide",
-    title: "How to Start a SIP in India — Beginner's Guide for Salaried Employees (2025)",
+    title: "How to Start a SIP in India — Beginner's Guide for Salaried Employees (2026)",
     excerpt:
       "Complete guide to starting SIP in India. How much to invest, which funds to choose, and how to calculate returns. Free SIP calculator included.",
     category: "Finance",
@@ -619,17 +552,6 @@ export const blogPosts: BlogPost[] = [
     cta: { toolName: "Image Compress", toolHref: "/tools/image-compress" },
   },
   {
-    slug: "passport-photo-size-requirements-india-guide",
-    title: "Passport Photo Size Requirements India — Complete Guide 2026",
-    excerpt:
-      "Complete guide to Indian passport photo size, dimensions, background, and common rejection reasons. Resize free online.",
-    category: "Photo",
-    readTime: "6 min read",
-    author: "Pavan Kumar",
-    lastUpdated: "June 2026",
-    cta: { toolName: "Photo Resizer", toolHref: "/tools/photo-resizer?preset=passport" },
-  },
-  {
     slug: "how-to-create-digital-signature-india",
     title: "How to Create a Digital Signature Free Online — India Guide 2026",
     excerpt:
@@ -639,17 +561,6 @@ export const blogPosts: BlogPost[] = [
     author: "Pavan Kumar",
     lastUpdated: "June 2026",
     cta: { toolName: "Signature Maker", toolHref: "/tools/signature-maker" },
-  },
-  {
-    slug: "aadhaar-photo-size-guide",
-    title: "Aadhaar Card Photo Size — Exact Requirements & How to Resize Free",
-    excerpt:
-      "Aadhaar card photo size is 413×531 pixels, max 50KB. Guide to resize a printed photo for Aadhaar enrollment center visits.",
-    category: "Photo",
-    readTime: "6 min read",
-    author: "Pavan Kumar",
-    lastUpdated: "June 2026",
-    cta: { toolName: "Photo Resizer", toolHref: "/tools/photo-resizer?preset=aadhaar" },
   },
   {
     slug: "qr-code-for-small-business-india",
@@ -1312,7 +1223,7 @@ export const blogPosts: BlogPost[] = [
     cta: { toolName: "Tax Regime Comparison", toolHref: "/tools/tax-regime-comparison" },
   },
   {
-    slug: "ppf-calculator",
+    slug: "ppf-calculator-guide-india",
     title: "PPF Calculator India 2026 — Returns, Interest & Maturity",
     excerpt:
       "Calculate PPF maturity amount, interest, and year-by-year returns at 7.1% rate. Understand 80C benefits, partial withdrawal, loan rules. Free PPF calculator.",
@@ -1540,7 +1451,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     author: "Pavan Kumar",
     lastUpdated: "June 2026",
-    cta: { toolName: "401k vs Roth IRA Calculator", toolHref: "/tools/401k-vs-roth-ira" },
+    cta: { toolName: "401k Calculator", toolHref: "/tools/401k-calculator" },
   },
   {
     slug: "bonus-calculator-guide-india",
@@ -1636,13 +1547,6 @@ export const blogSeoMetadata: Record<
     keywords:
       "aadhaar card photo requirements, aadhaar photo rejected reason, uidai photo rejection, aadhaar enrollment photo size",
   },
-  "how-to-compress-pdf-online-free": {
-    title: "How to Compress PDF Online Free in 2026 | WorkUtilities",
-    description:
-      "Compress PDF files online free without losing quality. Reduce PDF size for email, WhatsApp, or government portals. No signup, runs in browser.",
-    keywords:
-      "compress pdf online free, reduce pdf size, pdf compressor india, pdf too large for email",
-  },
   "best-free-pdf-tools-online-2026": {
     title: "Best Free PDF Tools Online 2026 — No Download | WorkUtilities",
     description:
@@ -1650,22 +1554,8 @@ export const blogSeoMetadata: Record<
     keywords:
       "best free pdf tools online, pdf merge split compress free, online pdf tools no signup, browser pdf converter 2026",
   },
-  "how-to-split-pdf-pages-online-free-2026": {
-    title: "How to Split PDF Pages Online Free 2026 | WorkUtilities",
-    description:
-      "Split PDF files and extract specific pages free online. Page range syntax, ZIP download, browser-based — no signup required.",
-    keywords:
-      "split pdf pages online free, extract pages from pdf, pdf split page range, split pdf into individual pages",
-  },
-  "reduce-image-size-without-losing-quality": {
-    title: "How to Reduce Image Size Without Losing Quality — 5 Methods That Work",
-    description:
-      "Learn 5 proven ways to reduce image file size without losing quality. JPG vs PNG compression, target file sizes, social media limits, and a free browser-based tool. No signup.",
-    keywords:
-      "reduce image size without losing quality, compress image online free, jpg vs png compression, image file size for website",
-  },
   "how-to-convert-heic-to-jpg-on-windows": {
-    title: "How to Convert HEIC to JPG on Windows Free 2026 | WorkUtilities",
+    title: "Convert HEIC to JPG on Windows Free 2026 | WorkUtilities",
     description:
       "iPhone HEIC photos won't open on Windows? Convert HEIC to JPG free online in seconds. No software install, private browser conversion.",
     keywords:
@@ -1677,13 +1567,6 @@ export const blogSeoMetadata: Record<
       "Convert PDF to editable Word document free online. Processed on our secure server over HTTPS and deleted immediately after conversion. No signup.",
     keywords:
       "convert pdf to word free, pdf to word online india, pdf to docx converter free",
-  },
-  "passport-size-photo-dimensions-india": {
-    title: "India Passport Photo Rule Change 2026 — What You Need to Know",
-    description:
-      "India changed passport photo rules from September 2025. Old 2×2 inch format rejected. New 35×45mm ICAO standard explained. Passport Seva 2.0 AI checking what it means for applicants.",
-    keywords:
-      "india passport photo rule change 2025, passport seva 2.0 photo rejection, icao passport photo india, why passport photo rejected",
   },
   "how-to-compress-pdf-under-1mb": {
     title: "How to Compress PDF Under 1MB Free (2026) | WorkUtilities",
@@ -1707,35 +1590,21 @@ export const blogSeoMetadata: Record<
       "remove background from photo free, background remover online, etsy product photo white background, ai background removal free",
   },
   "how-to-unlock-password-protected-pdf": {
-    title: "Open Password Protected PDF Free Online (2026) | WorkUtilities",
+    title: "Open Password Protected PDF Free (2026) | WorkUtilities",
     description:
       "Open and remove password from PDF files free online. Works for bank statements, salary slips, and other password protected PDFs in India. No software needed.",
     keywords:
       "unlock password protected pdf, open bank statement pdf india, remove pdf password free online",
   },
-  "resize-photo-for-government-forms-india": {
-    title: "Resize Photo for Government Forms India 2026 | WorkUtilities",
-    description:
-      "Complete guide to photo size requirements for Indian government forms. Aadhaar, PAN card, passport, driving licence photo dimensions and KB limits. Free resize tool.",
-    keywords:
-      "resize photo for government forms india, aadhaar photo size pixels, pan card photo kb limit, passport photo resize online",
-  },
   "how-to-calculate-in-hand-salary-from-ctc": {
-    title: "How to Calculate In-Hand Salary from CTC — Real Guide 2026 | WorkUtilities",
+    title: "Calculate In-Hand Salary from CTC 2026 | WorkUtilities",
     description:
       "Learn how to calculate your actual in-hand salary from CTC. Understand PF, professional tax, and HRA deductions with real examples for Indian employees.",
     keywords:
       "in hand salary from ctc, ctc to take home salary india, pf deduction calculator, salary breakdown india",
   },
-  "old-vs-new-tax-regime-india-2025": {
-    title: "Old vs New Tax Regime 2025-26 India — Which Saves More? | WorkUtilities",
-    description:
-      "Confused between old and new tax regime? Real examples showing which regime saves more tax for different salary levels in India 2025-26.",
-    keywords:
-      "old vs new tax regime 2025, new tax regime india 2025-26, income tax regime comparison, tax savings india",
-  },
   "how-to-start-sip-india-beginners-guide": {
-    title: "How to Start SIP in India — Beginner Guide 2025 | WorkUtilities",
+    title: "Start SIP in India — Beginner Guide 2026 | WorkUtilities",
     description:
       "Complete guide to starting SIP in India. How much to invest, which funds to choose, and how to calculate returns. Free SIP calculator included.",
     keywords:
@@ -1840,49 +1709,35 @@ export const blogSeoMetadata: Record<
       "convert word to pdf free online, docx to pdf india, word to pdf without office, resume pdf converter",
   },
   "compress-image-under-100kb-india": {
-    title: "Compress Image Under 100KB for Government Portals India | WorkUtilities",
+    title: "Compress Image Under 100KB India Guide | WorkUtilities",
     description:
       "Compress image to under 100KB for UPSC, SSC, PAN, and other Indian government portal uploads. Free online tool.",
     keywords:
       "compress image under 100kb india, ssc photo 50kb, government portal image size, reduce image kb limit",
   },
-  "passport-photo-size-requirements-india-guide": {
-    title: "Passport Photo Size Requirements India 2026 | WorkUtilities",
-    description:
-      "Complete guide to Indian passport photo size, dimensions, background, and common rejection reasons. Resize free online.",
-    keywords:
-      "passport photo size india 2026, passport photo requirements mea, indian passport photo dimensions, passport photo resize",
-  },
   "how-to-create-digital-signature-india": {
-    title: "Create Digital Signature Free Online India 2026 | WorkUtilities",
+    title: "Digital Signature Free Online India 2026 | WorkUtilities",
     description:
       "Create a digital signature free online in India. For PDFs, documents, and forms. No software download needed.",
     keywords:
       "digital signature india free, create signature online, electronic signature pdf india, sign document online",
   },
-  "aadhaar-photo-size-guide": {
-    title: "Aadhaar Card Photo Size Guide — 413×531 Pixels, 50KB | WorkUtilities",
-    description:
-      "Aadhaar card photo size is 413×531 pixels, max 50KB. Guide to resize a printed photo for Aadhaar enrollment center visits.",
-    keywords:
-      "aadhaar photo size 413x531, aadhaar photo 50kb, uidai photo requirements, aadhaar enrollment photo resize",
-  },
   "qr-code-for-small-business-india": {
-    title: "Create QR Code for Business India 2026 — Free Guide | WorkUtilities",
+    title: "QR Code for Business India 2026 Free | WorkUtilities",
     description:
       "Create QR codes for your shop, business card, UPI payment, WhatsApp, and menu free online. Guide for Indian small businesses.",
     keywords:
       "qr code for business india, upi qr code generator, shop qr code free, whatsapp qr code business",
   },
   "rent-receipt-for-hra-exemption-india": {
-    title: "Rent Receipt for HRA Exemption India 2026 — Generate PDF Free | WorkUtilities",
+    title: "Rent Receipt for HRA Exemption India 2026 | WorkUtilities",
     description:
       "Generate rent receipts for HRA tax exemption. What details are required, when landlord PAN is needed, and how to download PDF free.",
     keywords:
       "rent receipt hra exemption india, hra rent receipt format, landlord pan rent receipt, generate rent receipt pdf",
   },
   "cgpa-to-percentage-for-job-applications": {
-    title: "CGPA to Percentage for Job Applications — VTU, Anna, CBSE | WorkUtilities",
+    title: "CGPA to Percentage for Jobs — VTU Anna CBSE | WorkUtilities",
     description:
       "Convert CGPA to percentage for job applications, government forms, and visa. VTU formula (×9.5), Anna University, CBSE explained.",
     keywords:
@@ -1903,21 +1758,21 @@ export const blogSeoMetadata: Record<
       "passphrase generator, random passphrase generator, correct horse battery staple, memorable password generator, passphrase vs password",
   },
   "how-to-calculate-percentage-of-marks-india": {
-    title: "How to Calculate Percentage of Marks — Indian Students 2026 | WorkUtilities",
+    title: "Calculate Percentage of Marks India 2026 | WorkUtilities",
     description:
       "Calculate percentage of marks for board exams, entrance tests, and job applications in India. Simple formula with examples.",
     keywords:
       "calculate percentage of marks india, class 12 percentage formula, board exam percentage, aggregate percentage calculator",
   },
   "how-to-resize-photo-for-government-exams": {
-    title: "Resize Photo for Government Exams India 2026 — UPSC SSC Railway | WorkUtilities",
+    title: "Resize Photo for Government Exams India 2026 | WorkUtilities",
     description:
       "Complete photo size guide for UPSC, SSC CGL, Railway RRB, and state PSC exams. Resize free online with exact dimensions.",
     keywords:
       "government exam photo size india, ssc cgl photo 50kb, upsc photo dimensions, railway rrb photo resize",
   },
   "word-count-for-upsc-essay-writing": {
-    title: "Word Count for UPSC Essay — Practice Within Limits | WorkUtilities",
+    title: "Word Count for UPSC Essay Practice Guide | WorkUtilities",
     description:
       "UPSC essay word limit guide. How to count words, practice within 1000-1200 word limit, and improve essay writing speed.",
     keywords:
@@ -1966,7 +1821,7 @@ export const blogSeoMetadata: Record<
       "unit conversion guide students, km to miles india, celsius to fahrenheit, kg to lbs luggage limit",
   },
   "how-to-split-pdf-extract-pages-india": {
-    title: "Split PDF Extract Pages Free Online India 2026 | WorkUtilities",
+    title: "Split PDF & Extract Pages India 2026 | WorkUtilities",
     description:
       "Split PDF files and extract specific pages free online. No signup, works on mobile. Perfect for marksheets, certificates, and bank statements.",
     keywords:
@@ -2267,7 +2122,7 @@ export const blogSeoMetadata: Record<
       "roman numeral converter guide, roman numerals explained, number to roman numeral",
   },
   "leap-year-checker-guide": {
-    title: "Leap Year Checker Guide — The Full Rule with Examples | WorkUtilities",
+    title: "Leap Year Rule Explained with Examples | WorkUtilities",
     description:
       "Check if any year is a leap year free online. Learn the divisible-by-4/100/400 rule, why 1900 wasn't a leap year, and why we need leap years at all.",
     keywords:
@@ -2577,7 +2432,7 @@ export const blogSeoMetadata: Record<
   "401k-vs-roth-ira-guide-usa": {
     title: "401k vs Roth IRA 2026 — Which Retirement Account Wins?",
     description:
-      "Traditional 401k vs Roth 401k vs Roth IRA explained for 2026. Tax bracket math, 2026 contribution limits, Roth 401k RMD elimination, and when each wins. Free calculator.",
+      "Traditional 401k vs Roth 401k vs Roth IRA for 2026. Tax bracket math, contribution limits, Roth 401k RMD changes, and when each wins. Free calculator.",
     keywords:
       "401k vs Roth IRA 2026, Traditional vs Roth 401k, Roth IRA income limit 2026",
   },
@@ -2656,7 +2511,8 @@ export function getCategoryBadgeClass(category: BlogCategory): string {
 }
 
 export function getBlogPostsForListing(): BlogPost[] {
-  const featured = blogPosts.filter((post) => post.featured);
-  const regular = blogPosts.filter((post) => !post.featured);
+  const core = blogPosts.filter((post) => CORE_POSTS.has(post.slug));
+  const featured = core.filter((post) => post.featured);
+  const regular = core.filter((post) => !post.featured);
   return [...featured, ...regular];
 }

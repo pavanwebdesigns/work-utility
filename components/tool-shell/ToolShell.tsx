@@ -10,7 +10,12 @@ import {
   getMenuCategoryForSlug,
   MENU_CATEGORY_META,
 } from "@/lib/menu-categories";
-import { getToolBySlug, getToolProcessing, TOOL_ICONS } from "@/lib/tools-data";
+import {
+  getToolBySlug,
+  getToolProcessing,
+  RELATED_TOOLS,
+  TOOL_ICONS,
+} from "@/lib/tools-data";
 import type { ToolSeoSlug } from "@/lib/tool-seo-content";
 
 const SITE = "https://workutilities.com";
@@ -154,7 +159,12 @@ export function ToolShell({
             ) : null}
           </div>
 
-          <RelatedTools currentSlug={slug} layout="scroll" guide={guide} />
+          <RelatedTools
+            currentSlug={slug}
+            layout="scroll"
+            guide={guide}
+            slugs={slug in RELATED_TOOLS ? RELATED_TOOLS[slug] : undefined}
+          />
           <ToolSeoContent slug={slug as ToolSeoSlug} />
           <ToolFeedback toolName={tool.name} />
         </div>

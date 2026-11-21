@@ -160,11 +160,6 @@ export default function OldVsNewTaxRegimeComparison2026Content() {
           </Link>
         </li>
         <li>
-          <Link href="/blog/old-vs-new-tax-regime-india-2025">
-            Old vs New Tax Regime India 2025
-          </Link>
-        </li>
-        <li>
           <Link href="/blog/how-to-save-income-tax-india-legally">
             How to Save Income Tax Legally in India
           </Link>

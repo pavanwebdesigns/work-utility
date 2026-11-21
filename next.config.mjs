@@ -39,6 +39,47 @@ const nextConfig = {
         destination: "https://workutilities.com/:path*",
         permanent: true,
       },
+      // Core-cut Step 3 — duplicate blog posts → keep targets
+      {
+        source: "/blog/aadhaar-photo-size-guide",
+        destination: "/aadhaar-photo-size",
+        permanent: true,
+      },
+      {
+        source: "/blog/passport-size-photo-dimensions-india",
+        destination: "/passport-photo-size-india",
+        permanent: true,
+      },
+      {
+        source: "/blog/passport-photo-size-requirements-india-guide",
+        destination: "/passport-photo-size-india",
+        permanent: true,
+      },
+      {
+        source: "/blog/how-to-compress-pdf-online-free",
+        destination: "/blog/how-to-compress-pdf-under-1mb",
+        permanent: true,
+      },
+      {
+        source: "/blog/how-to-split-pdf-pages-online-free-2026",
+        destination: "/blog/how-to-split-pdf-extract-pages-india",
+        permanent: true,
+      },
+      {
+        source: "/blog/reduce-image-size-without-losing-quality",
+        destination: "/blog/compress-image-under-100kb-india",
+        permanent: true,
+      },
+      {
+        source: "/blog/old-vs-new-tax-regime-india-2025",
+        destination: "/blog/old-vs-new-tax-regime-comparison-2026",
+        permanent: true,
+      },
+      {
+        source: "/blog/resize-photo-for-government-forms-india",
+        destination: "/blog/how-to-resize-photo-for-government-exams",
+        permanent: true,
+      },
     ];
   },
   async headers() {

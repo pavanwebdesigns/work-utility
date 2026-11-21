@@ -4,6 +4,7 @@ import {
   PILLAR_POST_SLUGS,
   type BlogPost,
 } from "@/app/blog/posts";
+import { CORE_POSTS } from "@/lib/index-policy";
 
 export type BlogPageCategoryId =
   | "all"
@@ -82,7 +83,9 @@ export function getBlogPageCategory(
 }
 
 export function getPillarBlogPosts(): BlogPost[] {
-  return blogPosts.filter(isPillarBlogPost);
+  return blogPosts.filter(
+    (post) => CORE_POSTS.has(post.slug) && isPillarBlogPost(post),
+  );
 }
 
 export function getBlogPostsForPageListing(): BlogPost[] {

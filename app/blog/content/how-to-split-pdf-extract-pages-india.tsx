@@ -90,6 +90,70 @@ export default function HowToSplitPdfExtractPagesIndiaContent() {
         months. Enter &quot;1, 3, 5&quot; for non-consecutive pages.
       </p>
 
+      <table>
+        <thead>
+          <tr>
+            <th>What you want</th>
+            <th>How to enter</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Just page 5</td>
+            <td>
+              <code>5</code>
+            </td>
+          </tr>
+          <tr>
+            <td>Pages 1, 3, and 7</td>
+            <td>
+              <code>1, 3, 7</code>
+            </td>
+          </tr>
+          <tr>
+            <td>Pages 5 through 10</td>
+            <td>
+              <code>5-10</code>
+            </td>
+          </tr>
+          <tr>
+            <td>Pages 1–3 and 8–12</td>
+            <td>
+              <code>1-3, 8-12</code>
+            </td>
+          </tr>
+          <tr>
+            <td>Pages 2, 4, and 7–9</td>
+            <td>
+              <code>2, 4, 7-9</code>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <hr />
+
+      <h2>Other Ways to Split a PDF</h2>
+
+      <p>
+        <strong>Chrome print (free, basic):</strong> Ctrl+P / Cmd+P → Destination
+        &quot;Save as PDF&quot; → Pages &quot;Custom&quot; → enter pages like{" "}
+        <code>1-3, 8</code> → Save. It saves one combined PDF, so to get separate
+        files you must repeat it for each part.
+      </p>
+
+      <p>
+        <strong>Adobe Acrobat (paid):</strong> Extract pages, split by page
+        count, file size, or bookmarks. Useful if you process PDFs every day;
+        for occasional use, a free browser tool is enough.
+      </p>
+
+      <p>
+        <strong>Google Drive:</strong> Open the PDF with Google Docs, delete
+        unwanted pages, and export as PDF. Free, but slow and often messes up
+        formatting.
+      </p>
+
       <hr />
 
       <h2>After Splitting: Compress If Needed</h2>

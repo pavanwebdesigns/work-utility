@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildOpenGraph, withRobots } from "@/lib/seo";
 import { ToolCard } from "@/components/ToolCard";
 import { ToolsPageClient } from "@/components/ToolsPageClient";
 import { ALL_TOOLS } from "@/lib/tools-data";
+import { CORE_TOOLS } from "@/lib/index-policy";
 import {
   MENU_CATEGORY_META,
   MENU_CATEGORY_ORDER,
@@ -14,11 +15,11 @@ import {
   type ToolListingItem,
 } from "@/lib/tool-categories";
 
-const TOOLS_TITLE = "All Free Online Tools — PDF, Image, Finance & More";
+const TOOLS_TITLE = "Free Online Tools — PDF, Image & Finance | WorkUtilities";
 const TOOLS_DESCRIPTION = `Browse ${ALL_TOOLS.length} free online tools for PDF, images, documents, finance, students, and everyday utilities. No signup required.`;
 
-export const metadata: Metadata = {
-  title: TOOLS_TITLE,
+export const metadata: Metadata = withRobots("https://workutilities.com/tools", {
+  title: { absolute: TOOLS_TITLE },
   description: TOOLS_DESCRIPTION,
   alternates: { canonical: "https://workutilities.com/tools" },
   openGraph: buildOpenGraph({
@@ -27,14 +28,7 @@ export const metadata: Metadata = {
     url: "https://workutilities.com/tools",
     type: "website",
   }),
-};
-
-function isIndexableTool(slug: string) {
-  const tool = ALL_TOOLS.find((item) => item.slug === slug) as
-    | { indexable?: boolean }
-    | undefined;
-  return tool?.indexable !== false;
-}
+});
 
 function ToolGrid({ tools }: { tools: ToolListingItem[] }) {
   return (
@@ -90,10 +84,49 @@ function CategorySection({
   );
 }
 
+function MoreUtilities({ tools }: { tools: ToolListingItem[] }) {
+  if (tools.length === 0) return null;
+
+  return (
+    <section
+      id="more"
+      className="mb-10 scroll-mt-20"
+      data-tool-section
+      data-section-id="more"
+    >
+      <details className="rounded-2xl border border-dashed border-surface-border bg-surface-base/50 p-4 sm:p-5">
+        <summary className="cursor-pointer text-[11px] font-semibold tracking-[2px] text-content-muted">
+          MORE UTILITIES ({tools.length})
+        </summary>
+        <ul className="mt-4 columns-1 gap-x-8 sm:columns-2 lg:columns-3">
+          {tools.map((tool) => (
+            <li
+              key={tool.href}
+              className="mb-2 break-inside-avoid"
+              data-tool-card
+              data-category={tool.pageCategory ?? ""}
+              data-search={`${tool.title} ${tool.description} ${getToolPageCategoryLabel(tool.slug)} ${
+                ALL_TOOLS.find((item) => item.slug === tool.slug)?.category ?? ""
+              }`.toLowerCase()}
+            >
+              <a
+                href={tool.href}
+                className="text-sm text-content-secondary transition-colors hover:text-brand-blue hover:underline"
+              >
+                {tool.title}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </details>
+    </section>
+  );
+}
+
 function ToolDirectory() {
   const listing = buildToolListing();
-  const indexable = listing.filter((tool) => isIndexableTool(tool.slug));
-  const moreUtilities = listing.filter((tool) => !isIndexableTool(tool.slug));
+  const core = listing.filter((tool) => CORE_TOOLS.has(tool.slug));
+  const moreUtilities = listing.filter((tool) => !CORE_TOOLS.has(tool.slug));
   const grouped = new Map<MenuCategoryId, ToolListingItem[]>();
 
   for (const id of MENU_CATEGORY_ORDER) {
@@ -101,7 +134,7 @@ function ToolDirectory() {
   }
 
   const uncategorized: ToolListingItem[] = [];
-  for (const tool of indexable) {
+  for (const tool of core) {
     if (tool.pageCategory && grouped.has(tool.pageCategory)) {
       grouped.get(tool.pageCategory)!.push(tool);
     } else {
@@ -120,11 +153,7 @@ function ToolDirectory() {
         />
       ))}
       <CategorySection id="other" label="OTHER TOOLS" tools={uncategorized} />
-      <CategorySection
-        id="more"
-        label="MORE UTILITIES"
-        tools={moreUtilities}
-      />
+      <MoreUtilities tools={moreUtilities} />
     </>
   );
 }

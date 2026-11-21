@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildOpenGraph, withRobots } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withRobots("https://workutilities.com/tools/excel-to-pdf", {
   title: {
     absolute: "Excel to PDF Converter — Free Online | WorkUtilities",
   },
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://workutilities.com/tools/excel-to-pdf",
   },
-};
+});
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;

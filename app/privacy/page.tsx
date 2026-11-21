@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildOpenGraph, withRobots } from "@/lib/seo";
 import Link from "next/link";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -14,7 +14,7 @@ const PRIVACY_TITLE = "Privacy Policy — WorkUtilities";
 const PRIVACY_DESCRIPTION =
   "How WorkUtilities handles your data — browser-based tools, analytics, cookies, local storage, and future advertising disclosures.";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withRobots("https://workutilities.com/privacy", {
   title: {
     absolute: PRIVACY_TITLE,
   },
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     url: "https://workutilities.com/privacy",
     type: "website",
   }),
-};
+});
 
 export default function PrivacyPage() {
   return (

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildOpenGraph, withRobots } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withRobots("https://workutilities.com/tools/tax-regime-comparison", {
   title: {
     absolute: "Old vs New Tax Regime Comparison 2026 — Side by Side India",
   },
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://workutilities.com/tools/tax-regime-comparison",
   },
-};
+});
 
 export default function TaxRegimeComparisonLayout({
   children,

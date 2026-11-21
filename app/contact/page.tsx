@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildOpenGraph, withRobots } from "@/lib/seo";
 import ContactPageClient from "./ContactPageClient";
 
 const CONTACT_TITLE = "Contact — WorkUtilities";
 const CONTACT_DESCRIPTION =
   "Contact WorkUtilities or request a new tool. Questions, feedback, and feature requests welcome.";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withRobots("https://workutilities.com/contact", {
   title: {
     absolute: CONTACT_TITLE,
   },
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     url: "https://workutilities.com/contact",
     type: "website",
   }),
-};
+});
 
 export default function ContactPage() {
   return <ContactPageClient />;

@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "test": "jest",
+    "seo:audit": "node scripts/seo-audit.mjs",
     "test:audit": "jest lib/__tests__/calculator-audit.test.ts"
   },
   "dependencies": {

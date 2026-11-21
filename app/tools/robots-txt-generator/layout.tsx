@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildOpenGraph, withRobots } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withRobots("https://workutilities.com/tools/robots-txt-generator", {
   title: {
     absolute: "robots.txt Generator Online Free — Build & Download",
   },
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://workutilities.com/tools/robots-txt-generator",
   },
-};
+});
 
 export default function RobotsTxtGeneratorLayout({
   children,

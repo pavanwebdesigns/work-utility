@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildOpenGraph, withRobots } from "@/lib/seo";
 import {
   getBlogPostsForPageListing,
   getPillarBlogPosts,
@@ -10,7 +10,7 @@ const BLOG_TITLE = "Blog — WorkUtilities | Guides & Tips";
 const BLOG_DESCRIPTION =
   "Free guides on PDF compression, image resizing, photo size requirements for Indian documents, and more.";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withRobots("https://workutilities.com/blog", {
   title: { absolute: BLOG_TITLE },
   description: BLOG_DESCRIPTION,
   alternates: {
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     url: "https://workutilities.com/blog",
     type: "website",
   }),
-};
+});
 
 export default function BlogIndexPage() {
   const posts = getBlogPostsForPageListing();

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildOpenGraph, withRobots } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withRobots("https://workutilities.com/tools/cagr-calculator", {
   title: {
     absolute: "CAGR Calculator India — Compound Annual Growth Rate",
   },
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://workutilities.com/tools/cagr-calculator",
   },
-};
+});
 
 export default function CagrCalculatorLayout({
   children,

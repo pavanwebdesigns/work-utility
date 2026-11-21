@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildOpenGraph, withRobots } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withRobots("https://workutilities.com/tools/labour-code-calculator", {
   title: {
     absolute:
       "New Labour Code 2026 Salary Calculator — Take-Home Impact India",
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://workutilities.com/tools/labour-code-calculator",
   },
-};
+});
 
 export default function LabourCodeCalculatorLayout({
   children,

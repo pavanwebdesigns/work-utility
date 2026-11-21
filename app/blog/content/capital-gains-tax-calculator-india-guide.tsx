@@ -180,7 +180,7 @@ export default function CapitalGainsTaxCalculatorIndiaGuideContent() {
           <Link href="/tools/tax-regime-comparison">Tax Regime Comparison</Link>
         </li>
         <li>
-          <Link href="/blog/old-vs-new-tax-regime-india-2025">
+          <Link href="/blog/old-vs-new-tax-regime-comparison-2026">
             Old vs New Tax Regime India 2025
           </Link>
         </li>

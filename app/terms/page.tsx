@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildOpenGraph, withRobots } from "@/lib/seo";
 import Link from "next/link";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -10,7 +10,7 @@ const TERMS_TITLE = "Terms & Conditions — WorkUtilities";
 const TERMS_DESCRIPTION =
   "Terms and conditions for using WorkUtilities free online tools, including data handling, analytics, and future advertising.";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withRobots("https://workutilities.com/terms", {
   title: {
     absolute: TERMS_TITLE,
   },
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     url: "https://workutilities.com/terms",
     type: "website",
   }),
-};
+});
 
 const sections = [
   {

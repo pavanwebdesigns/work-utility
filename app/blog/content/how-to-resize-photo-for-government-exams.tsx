@@ -90,11 +90,9 @@ export default function HowToResizePhotoForGovernmentExamsContent() {
       </ol>
 
       <p>
-        For detailed dimensions across all government IDs, see our{" "}
-        <Link href="/blog/resize-photo-for-government-forms-india">
-          Government Exam Photo Size guide
-        </Link>
-        .
+        For ID-card photo sizes, see{" "}
+        <Link href="/aadhaar-photo-size">Aadhaar</Link> and{" "}
+        <Link href="/passport-photo-size-india">passport</Link> requirements.
       </p>
 
       <hr />

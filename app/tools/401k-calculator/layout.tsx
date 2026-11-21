@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildOpenGraph, withRobots } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withRobots("https://workutilities.com/tools/401k-calculator", {
   title: {
     absolute: "401k Calculator 2026 — Retirement Savings Projector",
   },
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://workutilities.com/tools/401k-calculator",
   },
-};
+});
 
 export default function FourOhOneKCalculatorLayout({
   children,

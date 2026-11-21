@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildOpenGraph, withRobots } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withRobots("https://workutilities.com/tools/json-formatter", {
   title: {
     absolute: "JSON Formatter & Validator — Free Online | WorkUtilities",
   },
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     type: "website",
   }),
   alternates: { canonical: "https://workutilities.com/tools/json-formatter" },
-};
+});
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;

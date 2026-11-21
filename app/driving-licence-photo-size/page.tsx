@@ -1,19 +1,19 @@
 import type { Metadata } from "next";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildOpenGraph, withRobots } from "@/lib/seo";
 import { PhotoSizeGuidePage } from "@/components/PhotoSizeGuidePage";
 import { getPhotoSizeGuide } from "@/lib/photo-size-guides";
 
 const guide = getPhotoSizeGuide("driving-licence")!;
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withRobots("https://workutilities.com/driving-licence-photo-size", {
   title: {
     absolute:
-      "Driving Licence Photo Size — RTO Sarathi Upload Requirements India",
+      "Driving Licence Photo Size — Sarathi RTO India",
   },
   description:
     "Driving licence photo size for Sarathi portal upload. 35x45mm, max 200KB. Resize free online.",
   openGraph: buildOpenGraph({
-    title: "Driving Licence Photo Size — RTO Sarathi Upload Requirements India",
+    title: "Driving Licence Photo Size — Sarathi RTO India",
     description:
       "Driving licence photo size for Sarathi portal upload. 35x45mm, max 200KB. Resize free online.",
     url: "https://workutilities.com/driving-licence-photo-size",
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://workutilities.com/driving-licence-photo-size",
   },
-};
+});
 
 export default function DrivingLicencePhotoSizePage() {
   return <PhotoSizeGuidePage guide={guide} />;

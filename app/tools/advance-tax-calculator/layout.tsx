@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildOpenGraph, withRobots } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withRobots("https://workutilities.com/tools/advance-tax-calculator", {
   title: {
     absolute: "Advance Tax Calculator India FY 2026-27 — Due Dates",
   },
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://workutilities.com/tools/advance-tax-calculator",
   },
-};
+});
 
 export default function AdvanceTaxCalculatorLayout({
   children,

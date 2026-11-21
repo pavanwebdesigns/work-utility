@@ -115,6 +115,36 @@ export default function HowToCompressPdfUnder1mbContent() {
 
       <hr />
 
+      <h2>Alternative Ways to Reduce PDF Size</h2>
+
+      <ul>
+        <li>
+          <strong>Microsoft Word:</strong> Export as PDF with the
+          &quot;Minimum Size&quot; option — useful for text-heavy documents.
+        </li>
+        <li>
+          <strong>Adobe Acrobat:</strong> File → Reduce File Size. Powerful, but
+          paid.
+        </li>
+        <li>
+          <strong>Print to PDF:</strong> Open the file, print, and choose
+          &quot;Save as PDF&quot;. This flattens the file and often shrinks it,
+          though you lose some metadata.
+        </li>
+        <li>
+          <strong>Optimize images before export:</strong> In Canva or PowerPoint,
+          reduce image sizes before creating the PDF.
+        </li>
+      </ul>
+
+      <p>
+        For a quick one-off upload,{" "}
+        <Link href="/tools/pdf-compress">WorkUtilities PDF Compress</Link> is
+        usually the fastest option — no install needed.
+      </p>
+
+      <hr />
+
       <p>
         <Link href="/tools/pdf-compress">Compress Your PDF Now →</Link>
       </p>

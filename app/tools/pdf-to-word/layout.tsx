@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildOpenGraph, withRobots } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withRobots("https://workutilities.com/tools/pdf-to-word", {
   title: {
     absolute: "PDF to Word Converter — Free Online | WorkUtilities",
   },
   description:
-    "Convert PDF to editable Word document online free. Fast, accurate PDF to DOCX conversion. Processed on our secure server over HTTPS and deleted immediately. No signup.",
+    "Convert PDF to editable Word document online free. Fast, accurate PDF to DOCX conversion. Processed securely over HTTPS and deleted after. No signup.",
   openGraph: buildOpenGraph({
     title: "PDF to Word Converter — Free Online",
     description:
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://workutilities.com/tools/pdf-to-word",
   },
-};
+});
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildOpenGraph, withRobots } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withRobots("https://workutilities.com/tools/w2-vs-1099-calculator", {
   title: {
     absolute: "W-2 vs 1099 Tax Calculator 2026 — Find Your Break-Even Rate",
   },
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://workutilities.com/tools/w2-vs-1099-calculator",
   },
-};
+});
 
 export default function W2Vs1099CalculatorLayout({
   children,

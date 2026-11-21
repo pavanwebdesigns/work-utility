@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildOpenGraph, withRobots } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withRobots("https://workutilities.com/tools/pay-stub-generator", {
   title: {
     absolute: "Pay Stub Generator Online Free — US Paycheck Creator",
   },
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://workutilities.com/tools/pay-stub-generator",
   },
-};
+});
 
 export default function PayStubGeneratorLayout({
   children,

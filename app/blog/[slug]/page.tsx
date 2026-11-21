@@ -1,26 +1,25 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildOpenGraph, robotsFor, withRobots } from "@/lib/seo";
 import { notFound } from "next/navigation";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { blogPostBySlug, blogPosts, blogSeoMetadata, getCategoryBadgeClass } from "../posts";
 import { getToolProcessing } from "@/lib/tools-data";
+import {
+  formatContentDate,
+  getPostDates,
+  sameContentDay,
+} from "@/lib/content-dates";
 import AadhaarCardPhotoSizeContent from "../content/aadhaar-card-photo-size";
-import HowToCompressPdfOnlineFreeContent from "../content/how-to-compress-pdf-online-free";
 import BestFreePdfToolsOnline2026Content from "../content/best-free-pdf-tools-online-2026";
-import HowToSplitPdfPagesOnlineFree2026Content from "../content/how-to-split-pdf-pages-online-free-2026";
-import ReduceImageSizeWithoutLosingQualityContent from "../content/reduce-image-size-without-losing-quality";
 import HowToConvertHeicToJpgOnWindowsContent from "../content/how-to-convert-heic-to-jpg-on-windows";
 import ConvertPdfToWordFreeContent from "../content/convert-pdf-to-word-free";
-import PassportSizePhotoDimensionsIndiaContent from "../content/passport-size-photo-dimensions-india";
 import HowToCompressPdfUnder1mbContent from "../content/how-to-compress-pdf-under-1mb";
 import HowToMergePdfFilesFreeContent from "../content/how-to-merge-pdf-files-free";
 import HowToRemoveBackgroundFromPhotoFreeContent from "../content/how-to-remove-background-from-photo-free";
 import HowToUnlockPasswordProtectedPdfContent from "../content/how-to-unlock-password-protected-pdf";
-import ResizePhotoForGovernmentFormsIndiaContent from "../content/resize-photo-for-government-forms-india";
 import HowToCalculateInHandSalaryFromCtcContent from "../content/how-to-calculate-in-hand-salary-from-ctc";
-import OldVsNewTaxRegimeIndia2025Content from "../content/old-vs-new-tax-regime-india-2025";
 import HowToStartSipIndiaBeginnersGuideContent from "../content/how-to-start-sip-india-beginners-guide";
 import NoticePeriodBuyoutIndiaGuideContent from "../content/notice-period-buyout-india-guide";
 import HowToSaveIncomeTaxIndiaLegallyContent from "../content/how-to-save-income-tax-india-legally";
@@ -32,9 +31,7 @@ import SalaryHikeNegotiationGuideIndiaContent from "../content/salary-hike-negot
 import HowToMergePdfOnMobileIndiaContent from "../content/how-to-merge-pdf-on-mobile-india";
 import HowToConvertWordToPdfFreeContent from "../content/how-to-convert-word-to-pdf-free";
 import CompressImageUnder100kbIndiaContent from "../content/compress-image-under-100kb-india";
-import PassportPhotoSizeRequirementsIndiaGuideContent from "../content/passport-photo-size-requirements-india-guide";
 import HowToCreateDigitalSignatureIndiaContent from "../content/how-to-create-digital-signature-india";
-import AadhaarPhotoSizeGuideContent from "../content/aadhaar-photo-size-guide";
 import QrCodeForSmallBusinessIndiaContent from "../content/qr-code-for-small-business-india";
 import RentReceiptForHraExemptionIndiaContent from "../content/rent-receipt-for-hra-exemption-india";
 import CgpaToPercentageForJobApplicationsContent from "../content/cgpa-to-percentage-for-job-applications";
@@ -174,28 +171,18 @@ const contentBySlug: Record<string, () => JSX.Element> = {
   "how-to-convert-excel-to-pdf-free": HowToConvertExcelToPdfFreeContent,
   "how-to-convert-ppt-to-pdf-free": HowToConvertPptToPdfFreeContent,
   "aadhaar-card-photo-size": AadhaarCardPhotoSizeContent,
-  "how-to-compress-pdf-online-free": HowToCompressPdfOnlineFreeContent,
   "best-free-pdf-tools-online-2026": BestFreePdfToolsOnline2026Content,
-  "how-to-split-pdf-pages-online-free-2026":
-    HowToSplitPdfPagesOnlineFree2026Content,
-  "reduce-image-size-without-losing-quality":
-    ReduceImageSizeWithoutLosingQualityContent,
   "how-to-convert-heic-to-jpg-on-windows":
     HowToConvertHeicToJpgOnWindowsContent,
   "convert-pdf-to-word-free": ConvertPdfToWordFreeContent,
-  "passport-size-photo-dimensions-india":
-    PassportSizePhotoDimensionsIndiaContent,
   "how-to-compress-pdf-under-1mb": HowToCompressPdfUnder1mbContent,
   "how-to-merge-pdf-files-free": HowToMergePdfFilesFreeContent,
   "how-to-remove-background-from-photo-free":
     HowToRemoveBackgroundFromPhotoFreeContent,
   "how-to-unlock-password-protected-pdf":
     HowToUnlockPasswordProtectedPdfContent,
-  "resize-photo-for-government-forms-india":
-    ResizePhotoForGovernmentFormsIndiaContent,
   "how-to-calculate-in-hand-salary-from-ctc":
     HowToCalculateInHandSalaryFromCtcContent,
-  "old-vs-new-tax-regime-india-2025": OldVsNewTaxRegimeIndia2025Content,
   "how-to-start-sip-india-beginners-guide":
     HowToStartSipIndiaBeginnersGuideContent,
   "notice-period-buyout-india-guide": NoticePeriodBuyoutIndiaGuideContent,
@@ -209,11 +196,8 @@ const contentBySlug: Record<string, () => JSX.Element> = {
   "how-to-merge-pdf-on-mobile-india": HowToMergePdfOnMobileIndiaContent,
   "how-to-convert-word-to-pdf-free": HowToConvertWordToPdfFreeContent,
   "compress-image-under-100kb-india": CompressImageUnder100kbIndiaContent,
-  "passport-photo-size-requirements-india-guide":
-    PassportPhotoSizeRequirementsIndiaGuideContent,
   "how-to-create-digital-signature-india":
     HowToCreateDigitalSignatureIndiaContent,
-  "aadhaar-photo-size-guide": AadhaarPhotoSizeGuideContent,
   "qr-code-for-small-business-india": QrCodeForSmallBusinessIndiaContent,
   "rent-receipt-for-hra-exemption-india":
     RentReceiptForHraExemptionIndiaContent,
@@ -329,42 +313,20 @@ type Props = {
   params: { slug: string };
 };
 
-const MONTHS: Record<string, string> = {
-  january: "01",
-  february: "02",
-  march: "03",
-  april: "04",
-  may: "05",
-  june: "06",
-  july: "07",
-  august: "08",
-  september: "09",
-  october: "10",
-  november: "11",
-  december: "12",
-};
-
-function lastUpdatedToIso(value: string): string | undefined {
-  const match = value.trim().match(/^([A-Za-z]+)\s+(\d{4})$/);
-  if (!match) return undefined;
-  const month = MONTHS[match[1].toLowerCase()];
-  if (!month) return undefined;
-  return `${match[2]}-${month}-01T00:00:00.000Z`;
-}
-
 export function generateMetadata({ params }: Props): Metadata {
   const seo = blogSeoMetadata[params.slug];
 
   if (!seo) {
     return {
       title: "Guide Not Found | WorkUtilities",
+      robots: robotsFor(`/blog/${params.slug}`),
     };
   }
 
   const url = `https://workutilities.com/blog/${params.slug}`;
-  const updated = lastUpdatedToIso(blogPostBySlug[params.slug]?.lastUpdated ?? "");
+  const dates = getPostDates(params.slug);
 
-  return {
+  return withRobots(url, {
     title: {
       absolute: seo.title,
     },
@@ -378,10 +340,11 @@ export function generateMetadata({ params }: Props): Metadata {
       url,
       title: seo.title,
       description: seo.description,
-      ...(updated ? { publishedTime: updated, modifiedTime: updated } : {}),
+      publishedTime: dates.publishedAt,
+      modifiedTime: dates.updatedAt,
       authors: ["Pavan Kumar"],
     }),
-  };
+  });
 }
 
 export default function BlogPostPage({ params }: Props) {
@@ -393,12 +356,30 @@ export default function BlogPostPage({ params }: Props) {
   }
 
   const serverProcessed = getToolProcessing(post.cta.toolHref) === "server";
+  const dates = getPostDates(params.slug);
+  const url = `https://workutilities.com/blog/${params.slug}`;
+  const articleLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    datePublished: dates.publishedAt,
+    dateModified: dates.updatedAt,
+    author: {
+      "@type": "Person",
+      name: post.author,
+    },
+    mainEntityOfPage: url,
+  };
 
   return (
     <div className="flex min-h-screen w-full max-w-full flex-col overflow-x-hidden bg-surface-base">
       <Header />
       <main className="flex-1">
         <div className="mx-auto max-w-3xl px-6 py-12">
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }}
+          />
           <Link
             href="/blog"
             className="inline-flex items-center gap-1 text-sm text-content-secondary transition-colors hover:text-content-primary"
@@ -417,7 +398,11 @@ export default function BlogPostPage({ params }: Props) {
           </h1>
 
           <p className="text-sm text-content-muted">
-            {post.author} · {post.readTime} · Last updated {post.lastUpdated}
+            {post.author} · {post.readTime} · Published{" "}
+            {formatContentDate(dates.publishedAt)}
+            {sameContentDay(dates.publishedAt, dates.updatedAt)
+              ? ""
+              : ` · Updated ${formatContentDate(dates.updatedAt)}`}
           </p>
 
           <hr className="my-8 border-surface-border" />

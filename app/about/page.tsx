@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildOpenGraph, withRobots } from "@/lib/seo";
 import Link from "next/link";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -28,7 +28,7 @@ const ABOUT_TITLE = "About — WorkUtilities";
 const ABOUT_DESCRIPTION =
   "Learn about WorkUtilities — free, private, browser-based tools for everyday work.";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withRobots("https://workutilities.com/about", {
   title: {
     absolute: ABOUT_TITLE,
   },
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     url: "https://workutilities.com/about",
     type: "website",
   }),
-};
+});
 
 export default function AboutPage() {
   return (

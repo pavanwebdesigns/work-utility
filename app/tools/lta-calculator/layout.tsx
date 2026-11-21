@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildOpenGraph, withRobots } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withRobots("https://workutilities.com/tools/lta-calculator", {
   title: { absolute: "LTA Calculator — Leave Travel Allowance Free | WorkUtilities" },
   description:
     "Calculate LTA tax exemption free online. Find exempt and taxable Leave Travel Allowance amount.",
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
       "Calculate LTA tax exemption free online. Find exempt and taxable Leave Travel Allowance amount.",
     url: "https://workutilities.com/tools/lta-calculator",
   }),
-};
+});
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;

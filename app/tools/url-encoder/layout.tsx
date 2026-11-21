@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildOpenGraph, withRobots } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withRobots("https://workutilities.com/tools/url-encoder", {
   title: { absolute: "URL Encoder Decoder — Free Online | WorkUtilities" },
   description:
     "Encode and decode URLs free online. Convert special characters in URLs instantly. Fast, private, browser-only.",
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     type: "website",
   }),
   alternates: { canonical: "https://workutilities.com/tools/url-encoder" },
-};
+});
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;

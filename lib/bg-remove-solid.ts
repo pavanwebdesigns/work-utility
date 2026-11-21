@@ -36,7 +36,10 @@ export async function removeSolidBackground(
 ): Promise<Blob> {
   const img = await createImageBitmap(file);
   const canvas = createCanvas(img.width, img.height);
-  const ctx = canvas.getContext("2d");
+  const ctx = canvas.getContext("2d") as
+    | CanvasRenderingContext2D
+    | OffscreenCanvasRenderingContext2D
+    | null;
   if (!ctx) {
     throw new Error("Could not initialize canvas for background removal.");
   }

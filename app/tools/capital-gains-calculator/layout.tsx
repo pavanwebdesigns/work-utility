@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildOpenGraph, withRobots } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withRobots("https://workutilities.com/tools/capital-gains-calculator", {
   title: {
     absolute: "Capital Gains Tax Calculator India 2026 — STCG & LTCG",
   },
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://workutilities.com/tools/capital-gains-calculator",
   },
-};
+});
 
 export default function CapitalGainsCalculatorLayout({
   children,

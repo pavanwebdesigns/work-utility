@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { buildOpenGraph } from "@/lib/seo";
+import { buildOpenGraph, withRobots } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withRobots("https://workutilities.com/tools/svg-previewer", {
   title: {
     absolute: "SVG Code Previewer Online Free — Live Preview & Editor",
   },
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     type: "website",
   }),
   alternates: { canonical: "https://workutilities.com/tools/svg-previewer" },
-};
+});
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;

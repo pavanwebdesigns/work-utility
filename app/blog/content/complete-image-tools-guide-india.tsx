@@ -83,8 +83,8 @@ export default function CompleteImageToolsGuideIndiaContent() {
         Aadhaar, PAN, passport, SSC — each needs different pixel dimensions.{" "}
         <Link href="/tools/photo-resizer">Photo Resizer</Link> has presets for
         Indian documents. Guides:{" "}
-        <Link href="/blog/aadhaar-photo-size-guide">Aadhaar photo size guide</Link>,{" "}
-        <Link href="/blog/passport-photo-size-requirements-india-guide">
+        <Link href="/aadhaar-photo-size">Aadhaar photo size guide</Link>,{" "}
+        <Link href="/passport-photo-size-india">
           Passport photo size requirements
         </Link>,{" "}
         <Link href="/blog/how-to-make-passport-size-photo-at-home">
