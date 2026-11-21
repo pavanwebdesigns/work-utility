@@ -1,19 +1,17 @@
 import type { MetadataRoute } from "next";
 import { blogPosts } from "./blog/posts";
 import { getLastModified, getPostDates } from "@/lib/content-dates";
+import { isIndexable } from "@/lib/index-policy";
 import { permanentRedirectPaths } from "@/lib/seo-redirects";
 import { ALL_TOOLS } from "@/lib/tools-data";
 import { PHOTO_SIZE_GUIDE_ROUTES } from "@/lib/photo-size-guides";
 
 const baseUrl = "https://workutilities.com";
 
-function isIndexable(entry: object): boolean {
-  return !("indexable" in entry) || (entry as { indexable?: boolean }).indexable !== false;
-}
-
 export function getSiteMapEntries(): MetadataRoute.Sitemap {
   const redirected = permanentRedirectPaths();
-  const include = (pathname: string) => !redirected.has(pathname);
+  const include = (pathname: string) =>
+    isIndexable(pathname) && !redirected.has(pathname);
 
   const staticPages: MetadataRoute.Sitemap = [
     ["/", "weekly", 1.0],
@@ -41,17 +39,16 @@ export function getSiteMapEntries(): MetadataRoute.Sitemap {
       priority: 0.7,
     }));
 
-  const toolPages: MetadataRoute.Sitemap = ALL_TOOLS.filter(isIndexable)
-    .filter((tool) => include(tool.href))
-    .map((tool) => ({
-      url: `${baseUrl}${tool.href}`,
-      lastModified: getLastModified(tool.href),
-      changeFrequency: "monthly" as const,
-      priority: 0.9,
-    }));
+  const toolPages: MetadataRoute.Sitemap = ALL_TOOLS.filter((tool) =>
+    include(tool.href),
+  ).map((tool) => ({
+    url: `${baseUrl}${tool.href}`,
+    lastModified: getLastModified(tool.href),
+    changeFrequency: "monthly" as const,
+    priority: 0.9,
+  }));
 
   const blogPages: MetadataRoute.Sitemap = blogPosts
-    .filter(isIndexable)
     .filter((post) => include(`/blog/${post.slug}`))
     .map((post) => ({
       url: `${baseUrl}/blog/${post.slug}`,

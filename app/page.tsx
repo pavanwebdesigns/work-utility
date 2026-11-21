@@ -147,11 +147,11 @@ export default function HomePage() {
             <div className="mt-6 flex flex-wrap justify-center gap-2">
               <span className="mr-1 text-xs text-content-muted">Popular:</span>
               {[
-                { label: "Compress PDF", href: "/tools/pdf-compress" },
-                { label: "Aadhaar Photo Resize", href: "/tools/photo-resizer" },
-                { label: "Image Compress", href: "/tools/image-compress" },
-                { label: "PDF to Word", href: "/tools/pdf-to-word" },
-                { label: "Word to PDF", href: "/tools/word-to-pdf" },
+                { label: "Photo Resizer", href: "/tools/photo-resizer" },
+                { label: "CTC Calculator", href: "/tools/ctc-calculator" },
+                { label: "EMI Calculator", href: "/tools/emi-calculator" },
+                { label: "Paycheck", href: "/tools/paycheck-calculator" },
+                { label: "Mortgage", href: "/tools/mortgage-calculator" },
               ].map((item) => (
                 <Link
                   key={item.href}

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ALL_TOOLS, TOOL_ICONS } from "@/lib/tools-data";
+import { CORE_POSTS, CORE_TOOLS } from "@/lib/index-policy";
 import {
   getRelatedToolsCategoryLabel,
   getSameCategoryRelatedTools,
@@ -14,21 +15,37 @@ type RelatedToolsProps = {
   slugs?: readonly string[];
 };
 
+function preferCoreTools(
+  tools: (typeof ALL_TOOLS)[number][],
+): (typeof ALL_TOOLS)[number][] {
+  const core = tools.filter((tool) => CORE_TOOLS.has(tool.slug));
+  const rest = tools.filter((tool) => !CORE_TOOLS.has(tool.slug));
+  return [...core, ...rest];
+}
+
 export function RelatedTools({
   currentSlug,
   layout = "grid",
   guide = null,
   slugs,
 }: RelatedToolsProps) {
-  const relatedTools = slugs
-    ? slugs.flatMap((slug) => {
-        const tool = ALL_TOOLS.find((entry) => entry.slug === slug);
-        return tool ? [tool] : [];
-      })
-    : getSameCategoryRelatedTools(currentSlug, 4);
+  const relatedTools = preferCoreTools(
+    slugs
+      ? slugs.flatMap((slug) => {
+          const tool = ALL_TOOLS.find((entry) => entry.slug === slug);
+          return tool ? [tool] : [];
+        })
+      : getSameCategoryRelatedTools(currentSlug, 8),
+  ).slice(0, 4);
   const categoryLabel = slugs ? null : getRelatedToolsCategoryLabel(currentSlug);
+  const preferredGuide = (() => {
+    if (!guide) return null;
+    if (!guide.href.startsWith("/blog/")) return guide;
+    const slug = guide.href.slice("/blog/".length);
+    return CORE_POSTS.has(slug) ? guide : null;
+  })();
 
-  if (relatedTools.length === 0 && !guide) {
+  if (relatedTools.length === 0 && !preferredGuide) {
     return null;
   }
 
@@ -47,10 +64,13 @@ export function RelatedTools({
           </p>
         )}
       </div>
-      {guide && (
+      {preferredGuide && (
         <p className="mb-4 text-sm text-content-secondary">
-          <Link href={guide.href} className="text-brand-blue hover:underline">
-            {guide.title}
+          <Link
+            href={preferredGuide.href}
+            className="text-brand-blue hover:underline"
+          >
+            {preferredGuide.title}
           </Link>
         </p>
       )}

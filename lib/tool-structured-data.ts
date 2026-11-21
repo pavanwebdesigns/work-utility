@@ -5,6 +5,7 @@ import {
   type MenuCategoryId,
 } from "@/lib/menu-categories";
 import { getToolPageDescription } from "@/lib/tool-page-metadata";
+import { CORE_TOOLS } from "@/lib/index-policy";
 
 const SCHEMA_APPLICATION_CATEGORY: Record<MenuCategoryId, string> = {
   pdf: "UtilitiesApplication",
@@ -79,13 +80,16 @@ export function getSameCategoryRelatedTools(
   const related: (typeof ALL_TOOLS)[number][] = [];
   for (
     let offset = 1;
-    offset < categoryTools.length && related.length < limit;
+    offset < categoryTools.length && related.length < categoryTools.length - 1;
     offset++
   ) {
     related.push(categoryTools[(currentIndex + offset) % categoryTools.length]);
   }
 
-  return related;
+  // Prefer core tools, then fill with the rest up to the limit.
+  const core = related.filter((tool) => CORE_TOOLS.has(tool.slug));
+  const rest = related.filter((tool) => !CORE_TOOLS.has(tool.slug));
+  return [...core, ...rest].slice(0, limit);
 }
 
 export function getRelatedToolsCategoryLabel(slug: string): string | null {

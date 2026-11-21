@@ -80,7 +80,7 @@ Add a line whenever we decide something. Newest first.
 **Baseline (GSC, Jun 28 – Sep 27, 2026):** 31 clicks, 24,250 impressions, avg position ~66. Impressions dropped to ~15/day after Sep 23 (quality re-evaluation, not a technical outage). Best pages: `/blog/aadhaar-card-photo-size` (pos 9.4), word counter (8.4), percentage-of-marks guide (12.3).
 
 **Core cut (in progress):** `CORE-CUT-SPEC.md` — branch `core-cut`
-- [x] Step 0 bring A8 · [x] Step 1 central index registry · [x] Step 2 noindex · [x] Step 3 redirects · [ ] Step 4 sitemap/listings · [ ] Step 5 thin-page guard · [ ] Step 6 verify + PR
+- [x] Step 0 bring A8 · [x] Step 1 central index registry · [x] Step 2 noindex · [x] Step 3 redirects · [x] Step 4 sitemap/listings · [ ] Step 5 thin-page guard · [ ] Step 6 verify + PR
 
 **Phase 1:** `PHASE-1-SEO-SPEC.md`
 - [x] A1–A8 · A9/A10 replaced by core cut · [ ] C quick wins · [ ] D small bugs

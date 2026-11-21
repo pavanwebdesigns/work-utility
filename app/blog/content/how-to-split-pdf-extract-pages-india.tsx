@@ -136,10 +136,10 @@ export default function HowToSplitPdfExtractPagesIndiaContent() {
       <h2>Other Ways to Split a PDF</h2>
 
       <p>
-        <strong>Google Chrome print (free, basic):</strong> Open the PDF in
-        Chrome, press Ctrl+P / Cmd+P, set the printer to &quot;Save as PDF,&quot;
-        enter a continuous page range, and save. This cannot select
-        non-consecutive pages.
+        <strong>Chrome print (free, basic):</strong> Ctrl+P / Cmd+P → Destination
+        &quot;Save as PDF&quot; → Pages &quot;Custom&quot; → enter pages like{" "}
+        <code>1-3, 8</code> → Save. It saves one combined PDF, so to get separate
+        files you must repeat it for each part.
       </p>
 
       <p>

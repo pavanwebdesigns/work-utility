@@ -1,3 +1,5 @@
+import { CORE_POSTS } from "@/lib/index-policy";
+
 export type BlogCategory =
   | "PDF"
   | "Images"
@@ -1449,7 +1451,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     author: "Pavan Kumar",
     lastUpdated: "June 2026",
-    cta: { toolName: "401k vs Roth IRA Calculator", toolHref: "/tools/401k-vs-roth-ira" },
+    cta: { toolName: "401k Calculator", toolHref: "/tools/401k-calculator" },
   },
   {
     slug: "bonus-calculator-guide-india",
@@ -2509,7 +2511,8 @@ export function getCategoryBadgeClass(category: BlogCategory): string {
 }
 
 export function getBlogPostsForListing(): BlogPost[] {
-  const featured = blogPosts.filter((post) => post.featured);
-  const regular = blogPosts.filter((post) => !post.featured);
+  const core = blogPosts.filter((post) => CORE_POSTS.has(post.slug));
+  const featured = core.filter((post) => post.featured);
+  const regular = core.filter((post) => !post.featured);
   return [...featured, ...regular];
 }

@@ -7,6 +7,7 @@ import {
   getToolSeoContent,
   type ToolSeoSlug,
 } from "@/lib/tool-seo-content";
+import { CORE_POSTS } from "@/lib/index-policy";
 import { SoftwareApplicationJsonLd } from "@/components/SoftwareApplicationJsonLd";
 
 type ToolSeoContentProps = {
@@ -17,6 +18,12 @@ export const ToolSeoContent = memo(function ToolSeoContent({
   slug,
 }: ToolSeoContentProps) {
   const content = getToolSeoContent(slug);
+  const blogGuide =
+    content.blogGuide &&
+    (!content.blogGuide.href.startsWith("/blog/") ||
+      CORE_POSTS.has(content.blogGuide.href.slice("/blog/".length)))
+      ? content.blogGuide
+      : null;
 
   const faqJsonLd = {
     "@context": "https://schema.org",
@@ -43,14 +50,14 @@ export const ToolSeoContent = memo(function ToolSeoContent({
             <p key={paragraph.slice(0, 48)}>{paragraph}</p>
           ))}
         </div>
-        {content.blogGuide && (
+        {blogGuide && (
           <p className="mt-4 text-sm text-content-secondary">
             Read the full guide:{" "}
             <Link
-              href={content.blogGuide.href}
+              href={blogGuide.href}
               className="font-medium text-brand-blue hover:underline"
             >
-              {content.blogGuide.title}
+              {blogGuide.title}
             </Link>
           </p>
         )}
