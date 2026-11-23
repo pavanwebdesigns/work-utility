@@ -1,23 +1,11 @@
 import { NextResponse } from "next/server";
-import {
-  fetchAdminAnalytics,
-  verifyAdminPassword,
-} from "@/lib/vercel-analytics-api";
-
-function getPasswordFromRequest(request: Request): string | null {
-  const authHeader = request.headers.get("authorization");
-  if (authHeader?.startsWith("Bearer ")) {
-    return authHeader.slice(7).trim();
-  }
-  return null;
-}
+import { requireAdminBearer } from "@/lib/admin-auth";
+import { fetchAdminAnalytics } from "@/lib/vercel-analytics-api";
 
 export async function GET(request: Request) {
-  const password = getPasswordFromRequest(request);
-
-  if (!verifyAdminPassword(password)) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  }
+  // Handler-level auth (middleware does not cover /api/admin/*).
+  const unauthorized = requireAdminBearer(request);
+  if (unauthorized) return unauthorized;
 
   try {
     const data = await fetchAdminAnalytics();

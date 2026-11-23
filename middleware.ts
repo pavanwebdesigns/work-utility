@@ -11,8 +11,8 @@ export function middleware(request: NextRequest) {
   const hasDefault = request.cookies.has(CURRENCY_DEFAULT_COOKIE);
 
   if (!hasOverride && !hasDefault) {
+    // Next.js 15 removed NextRequest.geo — use platform geo headers (Vercel / Cloudflare).
     const country =
-      request.geo?.country ??
       request.headers.get("x-vercel-ip-country") ??
       request.headers.get("cf-ipcountry");
 

@@ -1,9 +1,7 @@
+import { getPublicApiBaseUrl } from "@/lib/api-base-url";
+
 export function getRailwayApiBaseUrl(): string {
-  const baseUrl = process.env.NEXT_PUBLIC_PDF_API_URL;
-  if (!baseUrl) {
-    throw new Error("API service is not configured");
-  }
-  return baseUrl.replace(/\/$/, "");
+  return getPublicApiBaseUrl("API service is not configured");
 }
 
 export type CurrencyRatesResponse = {

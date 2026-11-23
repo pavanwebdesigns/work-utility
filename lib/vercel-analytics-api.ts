@@ -328,8 +328,5 @@ export async function fetchAdminAnalytics(): Promise<AdminAnalyticsPayload> {
   };
 }
 
-export function verifyAdminPassword(password: string | null | undefined): boolean {
-  const expected = process.env.ADMIN_PASSWORD;
-  if (!expected || !password) return false;
-  return password === expected;
-}
+/** @deprecated Use `@/lib/admin-auth` — kept as a re-export for older imports. */
+export { verifyAdminPassword } from "@/lib/admin-auth";

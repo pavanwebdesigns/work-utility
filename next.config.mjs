@@ -18,8 +18,9 @@ const contentSecurityPolicy = [
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   transpilePackages: ["@imgly/background-removal"],
+  // Renamed from experimental.serverComponentsExternalPackages in Next.js 15.
+  serverExternalPackages: ["onnxruntime-web", "onnxruntime-node"],
   experimental: {
-    serverComponentsExternalPackages: ["onnxruntime-web", "onnxruntime-node"],
     staleTimes: {
       dynamic: 30,
       static: 0,
