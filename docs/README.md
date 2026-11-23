@@ -62,6 +62,7 @@ Add a line whenever we decide something. Newest first.
 
 | Date | Decision | Why |
 |---|---|---|
+| 2026-11-23 | Browser → Railway PDF API goes through same-origin `/api/pdf-service/*` proxy. Railway CORS only allows `https://workutilities.com` + `http://localhost:3000`, so Vercel preview origins failed with “Compression failed.” | Preview diagnosis; pdf-service gitlink has no source in this repo, so fix on the Next side. |
 | 2026-11-23 | Security deps: Next **15.5.29** (14.2.x still had open critical advisories), `pdfjs-dist` **6.5.438** + `isEvalSupported: false` on every `getDocument`, SheetJS **xlsx 0.20.3** from cdn.sheetjs.com (npm 0.18.5 unmaintained). Admin API auth stays handler-level (`lib/admin-auth.ts`, timing-safe). | npm audit + GSC-adjacent hardening; stay on React 18 (Next 15 peer allows it). |
 | 2026-11-21 | Photo resizer supports min–max KB (quality then scale; warn, never pad). Exam presets live in `lib/exam-presets.ts` with source + verified date; unverified IBPS behind a flag. Server privacy chip says deleted-as-soon-as-done. | Part D.1–D.3 / exam hub start — official GATE 2027 specs, no invented IBPS until PDF-checked. |
 | 2026-11-21 | Core Cut shipped on `core-cut`: index only ~78 core URLs; duplicates 301/308; real lastmod via ignore-list; thin-page audit reports only (no filler). A9/A10 replaced. | Recover from site-level quality demotion (271→46 indexed) by shrinking the indexed footprint. |

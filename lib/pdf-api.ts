@@ -1,9 +1,7 @@
+import { getPublicApiBaseUrl } from "@/lib/api-base-url";
+
 function getPdfApiBaseUrl(): string {
-  const baseUrl = process.env.NEXT_PUBLIC_PDF_API_URL;
-  if (!baseUrl) {
-    throw new Error("PDF API is not configured");
-  }
-  return baseUrl.replace(/\/$/, "");
+  return getPublicApiBaseUrl("PDF API is not configured");
 }
 
 export function downloadBlob(blob: Blob, filename: string) {
