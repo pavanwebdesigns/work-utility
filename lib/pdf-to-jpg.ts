@@ -1,3 +1,5 @@
+import { getPdfDocument, loadPdfJs } from "@/lib/pdfjs-loader";
+
 export interface PageImage {
   blob: Blob;
   pageNumber: number;
@@ -19,18 +21,10 @@ const QUALITY_JPEG: Record<PdfToJpgQuality, number> = {
   high: 0.95,
 };
 
-async function loadPdfJs() {
-  const pdfjsLib = await import("pdfjs-dist/legacy/build/pdf.mjs");
-  if (!pdfjsLib.GlobalWorkerOptions.workerSrc) {
-    pdfjsLib.GlobalWorkerOptions.workerSrc = "/pdf.worker.min.mjs";
-  }
-  return pdfjsLib;
-}
-
 export async function getPDFPageCount(file: File): Promise<number> {
   const pdfjsLib = await loadPdfJs();
   const arrayBuffer = await file.arrayBuffer();
-  const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+  const pdf = await getPdfDocument(pdfjsLib, arrayBuffer).promise;
   return pdf.numPages;
 }
 
@@ -42,7 +36,7 @@ export async function convertPDFToJPG(
   const scale = QUALITY_SCALE[qualityLevel];
   const jpegQuality = QUALITY_JPEG[qualityLevel];
   const arrayBuffer = await file.arrayBuffer();
-  const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+  const pdf = await getPdfDocument(pdfjsLib, arrayBuffer).promise;
   const results: PageImage[] = [];
   const baseName = file.name.replace(/\.pdf$/i, "");
 

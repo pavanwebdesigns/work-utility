@@ -1,13 +1,4 @@
-async function loadPdfJs() {
-  const pdfjsLib = await import("pdfjs-dist/legacy/build/pdf.mjs");
-
-  if (!pdfjsLib.GlobalWorkerOptions.workerSrc) {
-    // Copied from node_modules at build/dev time (scripts/generate-sw.mjs).
-    pdfjsLib.GlobalWorkerOptions.workerSrc = "/pdf.worker.min.mjs";
-  }
-
-  return pdfjsLib;
-}
+import { getPdfDocument, loadPdfJs } from "@/lib/pdfjs-loader";
 
 export type PdfThumbnail = {
   pageNumber: number;
@@ -20,7 +11,7 @@ export async function renderPdfThumbnails(
 ): Promise<PdfThumbnail[]> {
   const pdfjsLib = await loadPdfJs();
   const arrayBuffer = await file.arrayBuffer();
-  const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+  const pdf = await getPdfDocument(pdfjsLib, arrayBuffer).promise;
   const results: PdfThumbnail[] = [];
 
   for (let i = 1; i <= pdf.numPages; i++) {
@@ -40,6 +31,6 @@ export async function renderPdfThumbnails(
 export async function getPdfPageCount(file: File): Promise<number> {
   const pdfjsLib = await loadPdfJs();
   const arrayBuffer = await file.arrayBuffer();
-  const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+  const pdf = await getPdfDocument(pdfjsLib, arrayBuffer).promise;
   return pdf.numPages;
 }

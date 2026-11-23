@@ -310,21 +310,23 @@ export function generateStaticParams() {
 }
 
 type Props = {
-  params: { slug: string };
+  // Next.js 15: params is a Promise
+  params: Promise<{ slug: string }>;
 };
 
-export function generateMetadata({ params }: Props): Metadata {
-  const seo = blogSeoMetadata[params.slug];
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const seo = blogSeoMetadata[slug];
 
   if (!seo) {
     return {
       title: "Guide Not Found | WorkUtilities",
-      robots: robotsFor(`/blog/${params.slug}`),
+      robots: robotsFor(`/blog/${slug}`),
     };
   }
 
-  const url = `https://workutilities.com/blog/${params.slug}`;
-  const dates = getPostDates(params.slug);
+  const url = `https://workutilities.com/blog/${slug}`;
+  const dates = getPostDates(slug);
 
   return withRobots(url, {
     title: {
@@ -347,17 +349,18 @@ export function generateMetadata({ params }: Props): Metadata {
   });
 }
 
-export default function BlogPostPage({ params }: Props) {
-  const post = blogPostBySlug[params.slug];
-  const Content = contentBySlug[params.slug];
+export default async function BlogPostPage({ params }: Props) {
+  const { slug } = await params;
+  const post = blogPostBySlug[slug];
+  const Content = contentBySlug[slug];
 
   if (!post || !Content) {
     notFound();
   }
 
   const serverProcessed = getToolProcessing(post.cta.toolHref) === "server";
-  const dates = getPostDates(params.slug);
-  const url = `https://workutilities.com/blog/${params.slug}`;
+  const dates = getPostDates(slug);
+  const url = `https://workutilities.com/blog/${slug}`;
   const articleLd = {
     "@context": "https://schema.org",
     "@type": "Article",
